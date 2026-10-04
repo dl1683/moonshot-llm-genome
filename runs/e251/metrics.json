@@ -1,0 +1,1406 @@
+{
+  "experiment": "e251_ln_confound_control",
+  "phase": "THE LN-REDISTRIBUTION CONTROL (agy consult #001 (c)) \u2014 did the ctrl battery's margins thicken ~19% too on e242's committed wash states, or is the forge fact-specific?",
+  "date": "2026-10-04T18:49:09Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "bars frozen VERBATIM from the dispatch brief in the module docstring BEFORE any compute (script committed at birth); adjudicate against exactly this; no bar shopping.",
+  "registered_bars": {
+    "FORGE-REAL": "FORGE-REAL \u2014 \"the fact battery's +19.2% median growth EXCEEDS the ctrl battery's growth by >= 2x (e.g. ctrl <= ~10%) \u2014 the thickening is fact-specific; the constructive forge survives its sharpest test; T220 stands with the control cited\"",
+    "ZERO-SUM-LN": "ZERO-SUM-LN \u2014 \"the ctrl battery's margins grew within 25% of the fact battery's rate (both ~15-25%) \u2014 the thickening is generic; the forge DOWNGRADES to LN variance redistribution (agy's confound fires); T220/W038's law-4 amended at the claim sites\"",
+    "MIXED": "MIXED \u2014 \"the trajectories verbatim, both batteries, no narrative inflation\"",
+    "registration": "bars frozen VERBATIM from the dispatch brief in the module docstring BEFORE any compute (script committed at birth); adjudicate against exactly this; no bar shopping.",
+    "clause_fixes": "fact side = e242's COMMITTED trajectory (runs/e242/metrics.json, hard-bound): fact_growth_pct = 100*(med_fact(+300)/med_fact(t0) - 1) = +19.1542%; ctrl side = this cell's fresh median-margin trajectory on the same states through the same module-imported instrument: ctrl_growth_pct = 100*(med_ctrl(+300)/med_ctrl(t0) - 1); FORGE-REAL := (hard gates PASS) AND fact_growth_pct >= 2*ctrl_growth_pct (fires trivially at ctrl_growth <= 0); ZERO-SUM-LN := (hard gates PASS) AND ctrl_growth_pct >= 0.75*fact_growth_pct; MIXED := otherwise, INCLUDING any hard-gate failure (the bars stand down, e242's precedent); mutually exclusive under gates-PASS with fact_growth > 0 (0.5f < 0.75f); asserted."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "CPU-ONLY (CUDA_VISIBLE_DEVICES=-1 forced; e246 owns the GPU lane \u2014 never claimed; e248 desk \u2014 load-polite)",
+    "torch_threads": 4,
+    "bursts": "one state = one eval burst (3 batteries x margin_pass + the light dial)",
+    "n_evals": "n=1 per state per battery (deterministic, T204)",
+    "cpu_load_pct_at_launch": 11.3
+  },
+  "deviations": [
+    "EVAL-ONLY on g1c's committed artifacts (the pristine root + the W1 resume ckpt's embedded wash states) and e242's committed trajectory; no training, no wash run here; CPU-only by dispatch (e246 owns the GPU lane); load-polite vs e248 (threads 4, load checks, one state = one eval burst).",
+    "The CTRL battery is a NEW construction for the 2.74M family \u2014 no committed ctrl battery exists at this scale, and the 124M ctrl battery (e214/e228's fact/ctrl/near/tmpl) is dialect-forbidden by the dispatch. Built strictly from g-series conventions: the corpus val split, the neutral bank's forbidden filter (E225.ANCHOR_FORBIDDEN), draw seed G1.R_EVAL_SEED 26502 (the e065 val-bank seed), context length 118 (the ruler's own g-12 geometry), stratified 30 word + 30 sentence completions; gated by G_CTRL.",
+    "The fact battery is RE-MEASURED on the same loads as a certification (G_FACT_REPRO vs e242's committed medians, tol 1e-7); the adjudication's fact side remains the COMMITTED trajectory (the dispatch's letter) \u2014 the re-measure never adjudicates.",
+    "The held-30 battery (e043's own convention: host_occ[60:90] under SPLICE_RNG 24301, g-12 geometry, incumbent-first-char answers) rides as a CO-REPORT only \u2014 never adjudicates (its answers span only {F, E}).",
+    "Importing e228 (via e229) opens runs/e228_run.log in append mode as a module side effect \u2014 nothing is written to it by this cell (own stdout log). g1's import resets torch threads to 8 \u2014 reset to 4 after import.",
+    "The state grid: the registered {t0, +1, +2, +10, +50, +100, +300} adjudicates; the two extra committed states {+4, +200} are read as TEXTURE co-reports (disclosed; they never adjudicate \u2014 e242's own convention).",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "POST-FIRST-RUN MECHANICAL FIX (numbers untouched; the e242/e229 precedent): the first pass built the ctrl/held probe tensors 1-D (corpus.encode's native shape); e228's margin_pass drives the shim's TinyGPT with (B, T) tensors (e242's probe convention: ids[i:i+1] of a (n, L) stack), so the run aborted at the FIRST forward (t0, before any state measurement \u2014 no number was ever computed under the broken form). Fix: .unsqueeze(0) at the two probe constructions + the shape gates read shape[1]; the constructions, seeds and bars are otherwise unchanged. Deterministic re-run from P0a."
+  ],
+  "builds_on": [
+    "agy consult #001 part (c) (scratch/agy_consults/agy_consult_001.md \u2014 the LN variance-redistribution confound on e242's thickening; this cell IS its registered desk control)",
+    "W001 (the lab's own LN observation: LN normalizes the stream TOTAL \u2014 the seed of the confound)",
+    "T220 / e242 (the commitment-forge claim under test: +19.2% median margin growth through the wall's flat phase; the committed trajectory + the loading conventions this cell reuses)",
+    "T207 / e228 + T208 / e229 (the argmax-margin instrument, module-imported verbatim; the shim; the P0a pattern)",
+    "e043 (the held-30 convention \u2014 the install's own held-out originals, host_occ[60:90] under SPLICE_RNG 24301)",
+    "T181 / g1c (the fresh root lineage: ROOT-WALL-HOLDS, the committed W1 wash states this cell reads)",
+    "T204 / x3 (determinism + the ~0.05 sigma flip zone)"
+  ],
+  "whats_new": [
+    "the FIRST non-fact margin battery ever read on the wall's wash states (the 2.74M family's first ctrl battery: val-carried word/sentence completions, 30+30, g-series conventions) \u2014 every prior margin read on this lineage probed the installed fact",
+    "the LN zero-sum bookkeeping test of the forge claim: the ctrl battery's median-margin trajectory vs the fact battery's committed +19.2%, on bit-certified identical states through the identical module-imported instrument",
+    "the held-30 co-read (e043's held-out originals) on the same states \u2014 a geometry-matched second ctrl"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "val_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "held_mix": {
+        "FLORIZEL": 10,
+        "ELIZABETH": 20
+      },
+      "n_held": 30,
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ]
+      },
+      "pass": true,
+      "note": "install-60 g-12 ruler battery (SPLICE_RNG 24301; the family's own battery; e242's construction re-run from its module constants)"
+    },
+    "G_CTRL": {
+      "n_word": 30,
+      "n_sentence": 30,
+      "expected_per_stratum": 30,
+      "tries": 5560,
+      "ctx_len": 118,
+      "all_ctx_len_118": true,
+      "all_answers_alpha": true,
+      "forbidden_free": true,
+      "positions_unique": true,
+      "answer_char_hist": {
+        "A": 4,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1,
+        "F": 3,
+        "H": 1,
+        "I": 3,
+        "O": 2,
+        "S": 1,
+        "T": 3,
+        "W": 1,
+        "a": 3,
+        "b": 1,
+        "e": 5,
+        "h": 2,
+        "i": 2,
+        "l": 1,
+        "m": 2,
+        "n": 1,
+        "o": 2,
+        "r": 3,
+        "s": 3,
+        "t": 2,
+        "u": 4,
+        "v": 1,
+        "w": 4,
+        "y": 2
+      },
+      "source": "the corpus VAL split (last 10% of data/input.txt)",
+      "draw_seed": 26502,
+      "pass": true,
+      "note": "the 2.74M family's first ctrl battery: val-carried word/sentence completions, 30+30, name-free per the neutral bank's filter, draw seed = G1.R_EVAL_SEED (the e065 val-bank seed), context 118 = the ruler's g-12 geometry; NO 124M battery computed here"
+    },
+    "G_HELD": {
+      "n": 30,
+      "expected": 30,
+      "mix": {
+        "FLORIZEL": 10,
+        "ELIZABETH": 20
+      },
+      "all_ctx_len_118": true,
+      "answers": [
+        "E",
+        "F"
+      ],
+      "note": "e043's own held convention (host_occ[60:90] under SPLICE_RNG 24301 \u2014 the install's held-out originals, never trained in any form); g-12 geometry; answer = the incumbent host's first char; CO-REPORT ONLY (a coarse ctrl: its answers span only {F, E})",
+      "pass": true
+    },
+    "G_PARENTS": {
+      "g1c_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\g1c_root\\metrics.json",
+        "md5": "05a33ada81e022b61a437db29afe38dd",
+        "sha256_16": "4bef2bb582f5c291",
+        "verdict": "ROOT-WALL-HOLDS",
+        "root_gm12": 0.9026340246200562,
+        "W1_g_m12": {
+          "1": 0.821441113948822,
+          "2": 0.9093567132949829,
+          "4": 0.8956068754196167,
+          "10": 0.9277286529541016,
+          "50": 0.9397175908088684,
+          "100": 0.9368361234664917,
+          "200": 0.9264556169509888,
+          "300": 0.9405527114868164
+        }
+      },
+      "e242_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e242\\metrics.json",
+        "md5": "9bf5ae17b3091673f47e7c2a0845b4ab",
+        "sha256_16": "5cd289827bb02e6d",
+        "verdict": "FLAT-COMMITMENT",
+        "committed_fact_medians": {
+          "0": 0.9794073282786698,
+          "1": 0.9611918699600377,
+          "2": 0.9933262426349674,
+          "4": 0.9632744808830553,
+          "10": 1.0801870072706619,
+          "50": 1.1753321683243787,
+          "100": 1.1397841935007293,
+          "200": 1.0717460701295862,
+          "300": 1.1670049513746559
+        },
+        "committed_fact_p25s": {
+          "0": 0.7820456853101319,
+          "1": 0.630357457497744,
+          "2": 0.7813450446804553,
+          "4": 0.7017392081797632,
+          "10": 0.8344954517158819,
+          "50": 0.8454027931242046,
+          "100": 0.8669251422951434,
+          "200": 0.7606515404518548,
+          "300": 0.8661583427179607
+        },
+        "committed_margin_decline_pct": -19.15419842995183
+      },
+      "pass": true,
+      "note": "g1c's committed record (the state certification targets) and e242's committed fact-battery trajectory (THE READ's fact side) read at runtime and asserted against the literals frozen in this script pre-compute (Rule 12)"
+    },
+    "G_ROOT": {
+      "checkpoint": "runs/checkpoints/g1c_root.pt",
+      "n_params": 2739072,
+      "expected_params": 2739072,
+      "battery_read_measured": 0.9026340246200562,
+      "battery_read_committed": 0.9026340246200562,
+      "abs_diff": 0.0,
+      "tol": 0.005,
+      "flat_md5": "a7f02b367c5342535aecfc814d780631",
+      "flat_md5_matches_e242": true,
+      "pass": true
+    },
+    "G_STATES_A": {
+      "checkpoint": "runs/checkpoints/g1c_W1_resume.pt",
+      "sha256_16": "650e631c2dbcf44f",
+      "sha256_16_matches_e242": true,
+      "step_field": 300,
+      "wall_R": 0.699999988079071,
+      "sds_steps": [
+        1,
+        2,
+        4,
+        10,
+        50,
+        100,
+        200,
+        300
+      ],
+      "sds300_bit_identical_to_final_model": true,
+      "expected_sds_steps": [
+        1,
+        2,
+        4,
+        10,
+        50,
+        100,
+        200,
+        300
+      ],
+      "body_flat_md5s_match_e242_committed": true,
+      "pass": true
+    },
+    "G_STATES": {
+      "checkpoint": "runs/checkpoints/g1c_W1_resume.pt",
+      "sha256_16": "650e631c2dbcf44f",
+      "sha256_16_matches_e242": true,
+      "step_field": 300,
+      "wall_R": 0.699999988079071,
+      "sds_steps": [
+        1,
+        2,
+        4,
+        10,
+        50,
+        100,
+        200,
+        300
+      ],
+      "sds300_bit_identical_to_final_model": true,
+      "expected_sds_steps": [
+        1,
+        2,
+        4,
+        10,
+        50,
+        100,
+        200,
+        300
+      ],
+      "body_flat_md5s_match_e242_committed": true,
+      "pass": true,
+      "per_state_ruler_reads": {
+        "1": {
+          "measured": 0.821441113948822,
+          "committed": 0.821441113948822,
+          "abs_diff": 0.0
+        },
+        "2": {
+          "measured": 0.9093567132949829,
+          "committed": 0.9093567132949829,
+          "abs_diff": 0.0
+        },
+        "4": {
+          "measured": 0.8956068754196167,
+          "committed": 0.8956068754196167,
+          "abs_diff": 0.0
+        },
+        "10": {
+          "measured": 0.9277286529541016,
+          "committed": 0.9277286529541016,
+          "abs_diff": 0.0
+        },
+        "50": {
+          "measured": 0.9397175908088684,
+          "committed": 0.9397175908088684,
+          "abs_diff": 0.0
+        },
+        "100": {
+          "measured": 0.9368360638618469,
+          "committed": 0.9368361234664917,
+          "abs_diff": 5.960464477539063e-08
+        },
+        "200": {
+          "measured": 0.9264556765556335,
+          "committed": 0.9264556169509888,
+          "abs_diff": 5.960464477539063e-08
+        },
+        "300": {
+          "measured": 0.9405527114868164,
+          "committed": 0.9405527114868164,
+          "abs_diff": 0.0
+        }
+      },
+      "tol": 0.005,
+      "max_abs_diff": 5.960464477539063e-08,
+      "note": "every W1 state's light g-12 re-probe (this cell's forwards) vs g1c's committed adjudication.wall.W1.g_m12, PLUS the per-state body-flat md5s and the resume ckpt's sha256 asserted EXACTLY EQUAL to e242's committed provenance \u2014 the bit-exactness certification of the loaded states"
+    },
+    "G_FACT_REPRO": {
+      "per_state": {
+        "1": {
+          "this_cell": 0.9611918699600377,
+          "e242_committed": 0.9611918699600377,
+          "abs_diff": 0.0
+        },
+        "2": {
+          "this_cell": 0.9933262426349674,
+          "e242_committed": 0.9933262426349674,
+          "abs_diff": 0.0
+        },
+        "4": {
+          "this_cell": 0.9632744808830553,
+          "e242_committed": 0.9632744808830553,
+          "abs_diff": 0.0
+        },
+        "10": {
+          "this_cell": 1.0801870072706619,
+          "e242_committed": 1.0801870072706619,
+          "abs_diff": 0.0
+        },
+        "50": {
+          "this_cell": 1.1753321683243787,
+          "e242_committed": 1.1753321683243787,
+          "abs_diff": 0.0
+        },
+        "100": {
+          "this_cell": 1.1397841935007293,
+          "e242_committed": 1.1397841935007293,
+          "abs_diff": 0.0
+        },
+        "200": {
+          "this_cell": 1.0717460701295862,
+          "e242_committed": 1.0717460701295862,
+          "abs_diff": 0.0
+        },
+        "300": {
+          "this_cell": 1.1670049513746559,
+          "e242_committed": 1.1670049513746559,
+          "abs_diff": 0.0
+        }
+      },
+      "tol": 1e-07,
+      "max_abs_diff": 0.0,
+      "pass": true,
+      "note": "this cell's fact-battery margin medians vs e242's committed medians on the same loads, same module-imported instrument, same device \u2014 the instrument-path certification; the re-measure NEVER adjudicates (the fact side is the committed trajectory by the dispatch's letter)"
+    }
+  },
+  "batteries": {
+    "fact_g-12": {
+      "n": 60,
+      "ans": "Z",
+      "role": "certification re-measure vs e242's committed trajectory (never adjudicates)"
+    },
+    "ctrl": {
+      "n": 60,
+      "strata": {
+        "word": 30,
+        "sentence": 30
+      },
+      "probes": [
+        {
+          "fact": "ctrl00@word",
+          "pos": 66528,
+          "ans_char": "E"
+        },
+        {
+          "fact": "ctrl01@word",
+          "pos": 75785,
+          "ans_char": "t"
+        },
+        {
+          "fact": "ctrl02@word",
+          "pos": 90431,
+          "ans_char": "u"
+        },
+        {
+          "fact": "ctrl03@word",
+          "pos": 76679,
+          "ans_char": "e"
+        },
+        {
+          "fact": "ctrl04@word",
+          "pos": 51480,
+          "ans_char": "h"
+        },
+        {
+          "fact": "ctrl05@word",
+          "pos": 82306,
+          "ans_char": "o"
+        },
+        {
+          "fact": "ctrl06@word",
+          "pos": 40992,
+          "ans_char": "r"
+        },
+        {
+          "fact": "ctrl07@word",
+          "pos": 3020,
+          "ans_char": "i"
+        },
+        {
+          "fact": "ctrl08@word",
+          "pos": 110330,
+          "ans_char": "t"
+        },
+        {
+          "fact": "ctrl09@word",
+          "pos": 83112,
+          "ans_char": "u"
+        },
+        {
+          "fact": "ctrl10@word",
+          "pos": 98858,
+          "ans_char": "e"
+        },
+        {
+          "fact": "ctrl11@word",
+          "pos": 49395,
+          "ans_char": "h"
+        },
+        {
+          "fact": "ctrl12@word",
+          "pos": 86418,
+          "ans_char": "r"
+        },
+        {
+          "fact": "ctrl13@word",
+          "pos": 20390,
+          "ans_char": "s"
+        },
+        {
+          "fact": "ctrl14@word",
+          "pos": 1361,
+          "ans_char": "e"
+        },
+        {
+          "fact": "ctrl15@word",
+          "pos": 15198,
+          "ans_char": "r"
+        },
+        {
+          "fact": "ctrl16@word",
+          "pos": 9265,
+          "ans_char": "H"
+        },
+        {
+          "fact": "ctrl17@word",
+          "pos": 103984,
+          "ans_char": "w"
+        },
+        {
+          "fact": "ctrl18@word",
+          "pos": 30845,
+          "ans_char": "a"
+        },
+        {
+          "fact": "ctrl19@word",
+          "pos": 81265,
+          "ans_char": "D"
+        },
+        {
+          "fact": "ctrl20@word",
+          "pos": 48645,
+          "ans_char": "l"
+        },
+        {
+          "fact": "ctrl21@word",
+          "pos": 52089,
+          "ans_char": "e"
+        },
+        {
+          "fact": "ctrl22@word",
+          "pos": 13747,
+          "ans_char": "v"
+        },
+        {
+          "fact": "ctrl23@word",
+          "pos": 16876,
+          "ans_char": "o"
+        },
+        {
+          "fact": "ctrl24@word",
+          "pos": 67898,
+          "ans_char": "s"
+        },
+        {
+          "fact": "ctrl25@word",
+          "pos": 73767,
+          "ans_char": "b"
+        },
+        {
+          "fact": "ctrl26@word",
+          "pos": 49242,
+          "ans_char": "u"
+        },
+        {
+          "fact": "ctrl27@word",
+          "pos": 95053,
+          "ans_char": "e"
+        },
+        {
+          "fact": "ctrl28@word",
+          "pos": 40787,
+          "ans_char": "a"
+        },
+        {
+          "fact": "ctrl29@word",
+          "pos": 37142,
+          "ans_char": "u"
+        },
+        {
+          "fact": "ctrl30@sentence",
+          "pos": 94344,
+          "ans_char": "s"
+        },
+        {
+          "fact": "ctrl31@sentence",
+          "pos": 26098,
+          "ans_char": "w"
+        },
+        {
+          "fact": "ctrl32@sentence",
+          "pos": 98455,
+          "ans_char": "T"
+        },
+        {
+          "fact": "ctrl33@sentence",
+          "pos": 83883,
+          "ans_char": "I"
+        },
+        {
+          "fact": "ctrl34@sentence",
+          "pos": 12264,
+          "ans_char": "I"
+        },
+        {
+          "fact": "ctrl35@sentence",
+          "pos": 29899,
+          "ans_char": "F"
+        },
+        {
+          "fact": "ctrl36@sentence",
+          "pos": 7042,
+          "ans_char": "i"
+        },
+        {
+          "fact": "ctrl37@sentence",
+          "pos": 54128,
+          "ans_char": "S"
+        },
+        {
+          "fact": "ctrl38@sentence",
+          "pos": 36691,
+          "ans_char": "y"
+        },
+        {
+          "fact": "ctrl39@sentence",
+          "pos": 100617,
+          "ans_char": "F"
+        },
+        {
+          "fact": "ctrl40@sentence",
+          "pos": 88428,
+          "ans_char": "I"
+        },
+        {
+          "fact": "ctrl41@sentence",
+          "pos": 63924,
+          "ans_char": "y"
+        },
+        {
+          "fact": "ctrl42@sentence",
+          "pos": 31683,
+          "ans_char": "w"
+        },
+        {
+          "fact": "ctrl43@sentence",
+          "pos": 61805,
+          "ans_char": "a"
+        },
+        {
+          "fact": "ctrl44@sentence",
+          "pos": 63706,
+          "ans_char": "n"
+        },
+        {
+          "fact": "ctrl45@sentence",
+          "pos": 39589,
+          "ans_char": "A"
+        },
+        {
+          "fact": "ctrl46@sentence",
+          "pos": 95581,
+          "ans_char": "F"
+        },
+        {
+          "fact": "ctrl47@sentence",
+          "pos": 47413,
+          "ans_char": "W"
+        },
+        {
+          "fact": "ctrl48@sentence",
+          "pos": 9960,
+          "ans_char": "O"
+        },
+        {
+          "fact": "ctrl49@sentence",
+          "pos": 38120,
+          "ans_char": "m"
+        },
+        {
+          "fact": "ctrl50@sentence",
+          "pos": 45551,
+          "ans_char": "T"
+        },
+        {
+          "fact": "ctrl51@sentence",
+          "pos": 95518,
+          "ans_char": "A"
+        },
+        {
+          "fact": "ctrl52@sentence",
+          "pos": 28788,
+          "ans_char": "A"
+        },
+        {
+          "fact": "ctrl53@sentence",
+          "pos": 64409,
+          "ans_char": "O"
+        },
+        {
+          "fact": "ctrl54@sentence",
+          "pos": 66097,
+          "ans_char": "w"
+        },
+        {
+          "fact": "ctrl55@sentence",
+          "pos": 43993,
+          "ans_char": "m"
+        },
+        {
+          "fact": "ctrl56@sentence",
+          "pos": 103505,
+          "ans_char": "T"
+        },
+        {
+          "fact": "ctrl57@sentence",
+          "pos": 38007,
+          "ans_char": "C"
+        },
+        {
+          "fact": "ctrl58@sentence",
+          "pos": 25082,
+          "ans_char": "B"
+        },
+        {
+          "fact": "ctrl59@sentence",
+          "pos": 39334,
+          "ans_char": "A"
+        }
+      ],
+      "role": "THE REGISTERED READ (the dispatch's ctrl battery)"
+    },
+    "held30": {
+      "n": 30,
+      "probes": [
+        {
+          "fact": "held00@ELIZ",
+          "pos": 206667,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held01@FLOR",
+          "pos": 803836,
+          "host": "FLORIZEL"
+        },
+        {
+          "fact": "held02@FLOR",
+          "pos": 800243,
+          "host": "FLORIZEL"
+        },
+        {
+          "fact": "held03@ELIZ",
+          "pos": 290744,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held04@ELIZ",
+          "pos": 283488,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held05@ELIZ",
+          "pos": 285476,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held06@ELIZ",
+          "pos": 294089,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held07@FLOR",
+          "pos": 803210,
+          "host": "FLORIZEL"
+        },
+        {
+          "fact": "held08@FLOR",
+          "pos": 783897,
+          "host": "FLORIZEL"
+        },
+        {
+          "fact": "held09@ELIZ",
+          "pos": 285891,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held10@ELIZ",
+          "pos": 291478,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held11@ELIZ",
+          "pos": 221432,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held12@ELIZ",
+          "pos": 276792,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held13@ELIZ",
+          "pos": 189033,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held14@FLOR",
+          "pos": 827039,
+          "host": "FLORIZEL"
+        },
+        {
+          "fact": "held15@FLOR",
+          "pos": 805049,
+          "host": "FLORIZEL"
+        },
+        {
+          "fact": "held16@FLOR",
+          "pos": 788699,
+          "host": "FLORIZEL"
+        },
+        {
+          "fact": "held17@ELIZ",
+          "pos": 672419,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held18@ELIZ",
+          "pos": 293541,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held19@ELIZ",
+          "pos": 293656,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held20@ELIZ",
+          "pos": 286114,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held21@FLOR",
+          "pos": 829744,
+          "host": "FLORIZEL"
+        },
+        {
+          "fact": "held22@ELIZ",
+          "pos": 287023,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held23@ELIZ",
+          "pos": 264382,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held24@ELIZ",
+          "pos": 221112,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held25@ELIZ",
+          "pos": 274165,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held26@ELIZ",
+          "pos": 285297,
+          "host": "ELIZABETH"
+        },
+        {
+          "fact": "held27@FLOR",
+          "pos": 808131,
+          "host": "FLORIZEL"
+        },
+        {
+          "fact": "held28@FLOR",
+          "pos": 829441,
+          "host": "FLORIZEL"
+        },
+        {
+          "fact": "held29@ELIZ",
+          "pos": 220839,
+          "host": "ELIZABETH"
+        }
+      ],
+      "role": "co-read (e043's held convention; never adjudicates)"
+    }
+  },
+  "phase_note": "P4 DONE (honesty + provenance + figure)",
+  "trajectory": {
+    "fact_committed_e242": [
+      {
+        "state": "t0",
+        "step": 0,
+        "role": "t0",
+        "median_sigma": 0.9794073282786698,
+        "p25_sigma": 0.7820456853101319
+      },
+      {
+        "state": "w1+1",
+        "step": 1,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.9611918699600377,
+        "p25_sigma": 0.630357457497744
+      },
+      {
+        "state": "w1+2",
+        "step": 2,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.9933262426349674,
+        "p25_sigma": 0.7813450446804553
+      },
+      {
+        "state": "w1+4",
+        "step": 4,
+        "role": "texture",
+        "median_sigma": 0.9632744808830553,
+        "p25_sigma": 0.7017392081797632
+      },
+      {
+        "state": "w1+10",
+        "step": 10,
+        "role": "ADJUDICATES",
+        "median_sigma": 1.0801870072706619,
+        "p25_sigma": 0.8344954517158819
+      },
+      {
+        "state": "w1+50",
+        "step": 50,
+        "role": "ADJUDICATES",
+        "median_sigma": 1.1753321683243787,
+        "p25_sigma": 0.8454027931242046
+      },
+      {
+        "state": "w1+100",
+        "step": 100,
+        "role": "ADJUDICATES",
+        "median_sigma": 1.1397841935007293,
+        "p25_sigma": 0.8669251422951434
+      },
+      {
+        "state": "w1+200",
+        "step": 200,
+        "role": "texture",
+        "median_sigma": 1.0717460701295862,
+        "p25_sigma": 0.7606515404518548
+      },
+      {
+        "state": "w1+300",
+        "step": 300,
+        "role": "ADJUDICATES",
+        "median_sigma": 1.1670049513746559,
+        "p25_sigma": 0.8661583427179607
+      }
+    ],
+    "fact_remeasured": [
+      {
+        "state": "t0",
+        "step": 0,
+        "role": "t0",
+        "median_sigma": 0.9794073282786698,
+        "p25_sigma": 0.7820456853101319,
+        "mean_sigma": 0.9814780412830967,
+        "min_sigma": 0.08580587033522004,
+        "frac_below_flip_zone": 0.0,
+        "frac_argmax_answer": 0.9833333333333333,
+        "mean_p": 0.9026340226332347
+      },
+      {
+        "state": "w1+1",
+        "step": 1,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.9611918699600377,
+        "p25_sigma": 0.630357457497744,
+        "mean_sigma": 0.940328758912243,
+        "min_sigma": 0.049606741844335785,
+        "frac_below_flip_zone": 0.016666666666666666,
+        "frac_argmax_answer": 0.95,
+        "mean_p": 0.821441166754812
+      },
+      {
+        "state": "w1+2",
+        "step": 2,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.9933262426349674,
+        "p25_sigma": 0.7813450446804553,
+        "mean_sigma": 1.0373622990790627,
+        "min_sigma": 0.17648679730609232,
+        "frac_below_flip_zone": 0.0,
+        "frac_argmax_answer": 0.9833333333333333,
+        "mean_p": 0.9093566892047723
+      },
+      {
+        "state": "w1+4",
+        "step": 4,
+        "role": "texture",
+        "median_sigma": 0.9632744808830553,
+        "p25_sigma": 0.7017392081797632,
+        "mean_sigma": 0.9673828695598252,
+        "min_sigma": 0.08212727673524427,
+        "frac_below_flip_zone": 0.0,
+        "frac_argmax_answer": 0.9833333333333333,
+        "mean_p": 0.8956068287293116
+      },
+      {
+        "state": "w1+10",
+        "step": 10,
+        "role": "ADJUDICATES",
+        "median_sigma": 1.0801870072706619,
+        "p25_sigma": 0.8344954517158819,
+        "mean_sigma": 1.0943902065159241,
+        "min_sigma": 0.0707927774382701,
+        "frac_below_flip_zone": 0.0,
+        "frac_argmax_answer": 0.9833333333333333,
+        "mean_p": 0.9277286802728971
+      },
+      {
+        "state": "w1+50",
+        "step": 50,
+        "role": "ADJUDICATES",
+        "median_sigma": 1.1753321683243787,
+        "p25_sigma": 0.8454027931242046,
+        "mean_sigma": 1.1723404094853638,
+        "min_sigma": 0.03647183737717308,
+        "frac_below_flip_zone": 0.016666666666666666,
+        "frac_argmax_answer": 0.9833333333333333,
+        "mean_p": 0.939717614154021
+      },
+      {
+        "state": "w1+100",
+        "step": 100,
+        "role": "ADJUDICATES",
+        "median_sigma": 1.1397841935007293,
+        "p25_sigma": 0.8669251422951434,
+        "mean_sigma": 1.144364494274388,
+        "min_sigma": 0.06712445297861531,
+        "frac_below_flip_zone": 0.0,
+        "frac_argmax_answer": 1.0,
+        "mean_p": 0.9368360713124275
+      },
+      {
+        "state": "w1+200",
+        "step": 200,
+        "role": "texture",
+        "median_sigma": 1.0717460701295862,
+        "p25_sigma": 0.7606515404518548,
+        "mean_sigma": 1.0691321388536543,
+        "min_sigma": 0.09128941805184583,
+        "frac_below_flip_zone": 0.0,
+        "frac_argmax_answer": 0.9833333333333333,
+        "mean_p": 0.9264556124806405
+      },
+      {
+        "state": "w1+300",
+        "step": 300,
+        "role": "ADJUDICATES",
+        "median_sigma": 1.1670049513746559,
+        "p25_sigma": 0.8661583427179607,
+        "mean_sigma": 1.1800394373479388,
+        "min_sigma": 0.06039770281478682,
+        "frac_below_flip_zone": 0.0,
+        "frac_argmax_answer": 1.0,
+        "mean_p": 0.9405526757240296
+      }
+    ],
+    "ctrl": [
+      {
+        "state": "t0",
+        "step": 0,
+        "role": "t0",
+        "median_sigma": 0.3013793138250127,
+        "p25_sigma": 0.09357741825447281,
+        "mean_sigma": 0.43068873890555004,
+        "min_sigma": 0.0008868201819084445,
+        "frac_below_flip_zone": 0.13333333333333333,
+        "frac_argmax_answer": 0.2833333333333333,
+        "mean_p": 0.21663757847854867,
+        "stratum_word_median": 0.3310692919240925,
+        "stratum_sentence_median": 0.2854398898275747
+      },
+      {
+        "state": "w1+1",
+        "step": 1,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.22758515599384765,
+        "p25_sigma": 0.10628016798533682,
+        "mean_sigma": 0.3781070206475468,
+        "min_sigma": 0.001702981232563172,
+        "frac_below_flip_zone": 0.16666666666666666,
+        "frac_argmax_answer": 0.26666666666666666,
+        "mean_p": 0.21485854610800742,
+        "stratum_word_median": 0.27753271224458886,
+        "stratum_sentence_median": 0.21268387692279705
+      },
+      {
+        "state": "w1+2",
+        "step": 2,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.2936599478737389,
+        "p25_sigma": 0.14183093003808106,
+        "mean_sigma": 0.4867593950268621,
+        "min_sigma": 0.008393063306782559,
+        "frac_below_flip_zone": 0.1,
+        "frac_argmax_answer": 0.23333333333333334,
+        "mean_p": 0.22459560526767747,
+        "stratum_word_median": 0.2936599478737389,
+        "stratum_sentence_median": 0.3188412598623782
+      },
+      {
+        "state": "w1+4",
+        "step": 4,
+        "role": "texture",
+        "median_sigma": 0.33202773246101414,
+        "p25_sigma": 0.11991841818133508,
+        "mean_sigma": 0.4743387311557296,
+        "min_sigma": 0.003094671933667902,
+        "frac_below_flip_zone": 0.15,
+        "frac_argmax_answer": 0.25,
+        "mean_p": 0.21177867937318903,
+        "stratum_word_median": 0.33202773246101414,
+        "stratum_sentence_median": 0.33073704036950824
+      },
+      {
+        "state": "w1+10",
+        "step": 10,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.3538132281257641,
+        "p25_sigma": 0.1364866650475421,
+        "mean_sigma": 0.4659349746836877,
+        "min_sigma": 0.013346855525559184,
+        "frac_below_flip_zone": 0.13333333333333333,
+        "frac_argmax_answer": 0.23333333333333334,
+        "mean_p": 0.220760144245772,
+        "stratum_word_median": 0.38503314074656714,
+        "stratum_sentence_median": 0.2867782915226954
+      },
+      {
+        "state": "w1+50",
+        "step": 50,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.3297853415831098,
+        "p25_sigma": 0.11887197390213475,
+        "mean_sigma": 0.47930433921606497,
+        "min_sigma": 0.000515647783111904,
+        "frac_below_flip_zone": 0.13333333333333333,
+        "frac_argmax_answer": 0.23333333333333334,
+        "mean_p": 0.20858022093986317,
+        "stratum_word_median": 0.3504864756516564,
+        "stratum_sentence_median": 0.31579214546339185
+      },
+      {
+        "state": "w1+100",
+        "step": 100,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.3117759778389322,
+        "p25_sigma": 0.12162442588491891,
+        "mean_sigma": 0.47451631674365513,
+        "min_sigma": 0.0017766173771955308,
+        "frac_below_flip_zone": 0.15,
+        "frac_argmax_answer": 0.23333333333333334,
+        "mean_p": 0.21476282967293325,
+        "stratum_word_median": 0.3425092292295213,
+        "stratum_sentence_median": 0.26378126797726875
+      },
+      {
+        "state": "w1+200",
+        "step": 200,
+        "role": "texture",
+        "median_sigma": 0.35952256434768004,
+        "p25_sigma": 0.15998962020746876,
+        "mean_sigma": 0.4872340573621177,
+        "min_sigma": 0.014501231928805446,
+        "frac_below_flip_zone": 0.11666666666666667,
+        "frac_argmax_answer": 0.23333333333333334,
+        "mean_p": 0.21525485590488339,
+        "stratum_word_median": 0.37666354002873004,
+        "stratum_sentence_median": 0.32646719345296016
+      },
+      {
+        "state": "w1+300",
+        "step": 300,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.35333095075986726,
+        "p25_sigma": 0.14579323021833263,
+        "mean_sigma": 0.4915842587624288,
+        "min_sigma": 0.010914564886824891,
+        "frac_below_flip_zone": 0.1,
+        "frac_argmax_answer": 0.23333333333333334,
+        "mean_p": 0.21455658774551314,
+        "stratum_word_median": 0.3550119764707431,
+        "stratum_sentence_median": 0.3348534636936094
+      }
+    ],
+    "held30_coreport": [
+      {
+        "state": "t0",
+        "step": 0,
+        "role": "t0",
+        "median_sigma": 0.6317739544142845,
+        "p25_sigma": 0.29411696616437927,
+        "mean_sigma": 0.6567310776958926,
+        "min_sigma": 0.01050606517349887,
+        "frac_below_flip_zone": 0.06666666666666667,
+        "frac_argmax_answer": 0.06666666666666667,
+        "mean_p": 0.05106572505707542
+      },
+      {
+        "state": "w1+1",
+        "step": 1,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.4803387958575124,
+        "p25_sigma": 0.15786091184021162,
+        "mean_sigma": 0.606731528737918,
+        "min_sigma": 0.005181755370162213,
+        "frac_below_flip_zone": 0.1,
+        "frac_argmax_answer": 0.0,
+        "mean_p": 0.05499225488553445
+      },
+      {
+        "state": "w1+2",
+        "step": 2,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.7767639306506209,
+        "p25_sigma": 0.2592917555445485,
+        "mean_sigma": 0.7302999157594824,
+        "min_sigma": 0.0015176119881469116,
+        "frac_below_flip_zone": 0.1,
+        "frac_argmax_answer": 0.06666666666666667,
+        "mean_p": 0.057289812496552864
+      },
+      {
+        "state": "w1+4",
+        "step": 4,
+        "role": "texture",
+        "median_sigma": 0.5312984180438729,
+        "p25_sigma": 0.193306954260656,
+        "mean_sigma": 0.6017263812095007,
+        "min_sigma": 0.023173037111137787,
+        "frac_below_flip_zone": 0.03333333333333333,
+        "frac_argmax_answer": 0.1,
+        "mean_p": 0.06149901698033015
+      },
+      {
+        "state": "w1+10",
+        "step": 10,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.7363467855947401,
+        "p25_sigma": 0.3044791653486223,
+        "mean_sigma": 0.7371914405347793,
+        "min_sigma": 0.07400581876640035,
+        "frac_below_flip_zone": 0.0,
+        "frac_argmax_answer": 0.1,
+        "mean_p": 0.05575254897897442
+      },
+      {
+        "state": "w1+50",
+        "step": 50,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.9112485787308677,
+        "p25_sigma": 0.3492137378654139,
+        "mean_sigma": 0.8482200926673575,
+        "min_sigma": 0.008235617636067493,
+        "frac_below_flip_zone": 0.03333333333333333,
+        "frac_argmax_answer": 0.06666666666666667,
+        "mean_p": 0.043094015967411296
+      },
+      {
+        "state": "w1+100",
+        "step": 100,
+        "role": "ADJUDICATES",
+        "median_sigma": 0.8994714828924557,
+        "p25_sigma": 0.3747331300912996,
+        "mean_sigma": 0.8427658822534049,
+        "min_sigma": 0.03615669699044371,
+        "frac_below_flip_zone": 0.03333333333333333,
+        "frac_argmax_answer": 0.1,
+        "mean_p": 0.05018543592498948
+      },
+      {
+        "state": "w1+200",
+        "step": 200,
+        "role": "texture",
+        "median_sigma": 0.8108906673367494,
+        "p25_sigma": 0.29572786263145096,
+        "mean_sigma": 0.771423369174918,
+        "min_sigma": 0.04841124133006285,
+        "frac_below_flip_zone": 0.03333333333333333,
+        "frac_argmax_answer": 0.1,
+        "mean_p": 0.05303095634250591
+      },
+      {
+        "state": "w1+300",
+        "step": 300,
+        "role": "ADJUDICATES",
+        "median_sigma": 1.0895252487313163,
+        "p25_sigma": 0.5316303267763853,
+        "mean_sigma": 0.931752602562782,
+        "min_sigma": 0.07009991601262706,
+        "frac_below_flip_zone": 0.0,
+        "frac_argmax_answer": 0.1,
+        "mean_p": 0.049425443005748096
+      }
+    ]
+  },
+  "adjudication": {
+    "bars": {
+      "FORGE-REAL": {
+        "fires": false
+      },
+      "ZERO-SUM-LN": {
+        "fires": true
+      },
+      "MIXED": {
+        "fires": false
+      }
+    },
+    "clause_fixes_applied": "fact side = e242's COMMITTED trajectory (runs/e242/metrics.json, hard-bound): fact_growth_pct = 100*(med_fact(+300)/med_fact(t0) - 1) = +19.1542%; ctrl side = this cell's fresh median-margin trajectory on the same states through the same module-imported instrument: ctrl_growth_pct = 100*(med_ctrl(+300)/med_ctrl(t0) - 1); FORGE-REAL := (hard gates PASS) AND fact_growth_pct >= 2*ctrl_growth_pct (fires trivially at ctrl_growth <= 0); ZERO-SUM-LN := (hard gates PASS) AND ctrl_growth_pct >= 0.75*fact_growth_pct; MIXED := otherwise, INCLUDING any hard-gate failure (the bars stand down, e242's precedent); mutually exclusive under gates-PASS with fact_growth > 0 (0.5f < 0.75f); asserted.",
+    "verdict": "ZERO-SUM-LN",
+    "clause": "the ctrl battery's margins grew within 25% of the fact battery's rate (ctrl +17.24% (GROWTH) vs fact +19.15% (GROWTH); the 0.75x line sits at +14.37%) \u2014 the thickening is generic; the forge DOWNGRADES to LN variance redistribution (agy's confound fires); T220/W038's law-4 amended at the claim sites (held-30 co-read +72.45%)",
+    "reads": {
+      "fact_growth_pct_committed": 19.15419842995183,
+      "fact_median_t0_committed": 0.9794073282786698,
+      "fact_median_300_committed": 1.1670049513746559,
+      "ctrl_growth_pct": 17.23795713630789,
+      "ctrl_median_t0": 0.3013793138250127,
+      "ctrl_median_300": 0.35333095075986726,
+      "held30_growth_pct_coreport": 72.45491700293525,
+      "forge_2x_line_pct_of_fact": 50.0,
+      "zerosum_075x_line_pct_of_fact": 75.0,
+      "hard_gates_all_pass": true,
+      "growth_sensitivity_coreports": {
+        "fact_committed_growth_to_+50": 20.004428636454175,
+        "fact_committed_growth_to_+100": 16.374889240815204,
+        "fact_committed_growth_to_+300": 19.15419842995183,
+        "ctrl_growth_to_+50": 9.425340909293546,
+        "ctrl_growth_to_+100": 3.4496939693598128,
+        "ctrl_growth_to_+300": 17.23795713630789,
+        "held30_growth_to_+50": 44.236490340233026,
+        "held30_growth_to_+100": 42.372359070476826,
+        "held30_growth_to_+300": 72.45491700293525
+      }
+    },
+    "gates_summary": {
+      "G_NAMEFREE": true,
+      "G_SPLICE": true,
+      "G_BATTERY": true,
+      "G_CTRL": true,
+      "G_HELD": true,
+      "G_PARENTS": true,
+      "G_ROOT": true,
+      "G_STATES_A": true,
+      "G_STATES": true,
+      "G_FACT_REPRO": true
+    }
+  },
+  "honesty": {
+    "confound_scope": "a FORGE-REAL verdict excludes the LN redistribution confound as the WHOLE of the +19.2% (the ctrl battery \u2014 the same states, the same sigma-normalized instrument \u2014 did not thicken comparably); it does NOT price partial LN contributions inside the fact-specific growth, and it says nothing about the margin ABSOLUTE levels, only the trajectories",
+    "sigma_denominator_note": "margin_sigma divides by std(vocab logits): a generic LN-driven shrinkage of the denominator would inflate BOTH batteries identically \u2014 the instrument is shared, so the confound cannot hide in the normalization; it is exactly what this cell prices",
+    "ctrl_battery_status": "a NEW battery for the 2.74M family (no committed prior at this scale; the 124M ctrl battery is dialect-forbidden); its gates are construction gates (G_CTRL), not reproductions \u2014 the battery is registered here for future cells to reuse",
+    "fact_side_is_committed": "the adjudication's fact side is e242's COMMITTED trajectory (the dispatch's letter), hard-bound at md5 9bf5ae17b3091673f47e7c2a0845b4ab; this cell's re-measure (max |d| 0.0e+00) certifies the path and never adjudicates",
+    "n_and_scope": "ONE lineage (g1c's fresh root, ONE wall commit R=0.7, ONE wash draw seed 10902 \u2014 g2e's held-seed convention), ONE ctrl battery draw (seed 26502), n=1 deterministic reads per state per battery (T204); the heights lottery (W028/R64) stands: the thickening could be a draw \u2014 this control tests its MECHANISM class (fact-specific vs generic), not its replicability across lineages",
+    "determinism": "margins deterministic in-session (T204: same code path, same device -> bit-exact); the eval batch shape (1 x 118, single-probe forwards) is disclosed \u2014 batch-shape re-rounding sits at the ~3e-7 texture floor, far under every aggregate here",
+    "nothing_guaranteed": "the trajectories could have landed anywhere; the observed outcome is recorded verbatim against the frozen bars; no bar shopping"
+  },
+  "provenance": {
+    "git_head_at_start": "75125fd69f5e92903b7e1a26b307df508d0c55bf",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e251_ln_confound_control.py",
+    "parents": {
+      "g1c_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\g1c_root\\metrics.json",
+        "md5": "05a33ada81e022b61a437db29afe38dd",
+        "sha256_16": "4bef2bb582f5c291",
+        "verdict": "ROOT-WALL-HOLDS",
+        "root_gm12": 0.9026340246200562,
+        "W1_g_m12": {
+          "1": 0.821441113948822,
+          "2": 0.9093567132949829,
+          "4": 0.8956068754196167,
+          "10": 0.9277286529541016,
+          "50": 0.9397175908088684,
+          "100": 0.9368361234664917,
+          "200": 0.9264556169509888,
+          "300": 0.9405527114868164
+        }
+      },
+      "e242_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e242\\metrics.json",
+        "md5": "9bf5ae17b3091673f47e7c2a0845b4ab",
+        "sha256_16": "5cd289827bb02e6d",
+        "verdict": "FLAT-COMMITMENT",
+        "committed_fact_medians": {
+          "0": 0.9794073282786698,
+          "1": 0.9611918699600377,
+          "2": 0.9933262426349674,
+          "4": 0.9632744808830553,
+          "10": 1.0801870072706619,
+          "50": 1.1753321683243787,
+          "100": 1.1397841935007293,
+          "200": 1.0717460701295862,
+          "300": 1.1670049513746559
+        },
+        "committed_fact_p25s": {
+          "0": 0.7820456853101319,
+          "1": 0.630357457497744,
+          "2": 0.7813450446804553,
+          "4": 0.7017392081797632,
+          "10": 0.8344954517158819,
+          "50": 0.8454027931242046,
+          "100": 0.8669251422951434,
+          "200": 0.7606515404518548,
+          "300": 0.8661583427179607
+        },
+        "committed_margin_decline_pct": -19.15419842995183
+      }
+    },
+    "checkpoints": {
+      "t0_root": {
+        "file": "runs/checkpoints/g1c_root.pt",
+        "flat_md5": "a7f02b367c5342535aecfc814d780631",
+        "n_params": 2739072,
+        "battery_read": 0.9026340246200562
+      },
+      "w1_states": {
+        "file": "runs/checkpoints/g1c_W1_resume.pt",
+        "sha256_16": "650e631c2dbcf44f",
+        "step": 300,
+        "wall_R": 0.699999988079071,
+        "sds_steps": [
+          1,
+          2,
+          4,
+          10,
+          50,
+          100,
+          200,
+          300
+        ],
+        "sds300_bit_identical_to_final_model": true,
+        "per_state_body_flat_md5": {
+          "w1+1": "100c15c07c3fc34fb1d40ceee9494613",
+          "w1+2": "756360f07eae3d1f32581847e49f46b3",
+          "w1+4": "15ee413d45785475ac3a18a178ba5d9d",
+          "w1+10": "464069503316930cef3e98234fbff5d9",
+          "w1+50": "8cb39e128291db825da066bb07da8b7e",
+          "w1+100": "3ee37433c15b8e2c439b7eeb2423e10f",
+          "w1+200": "29f8b5b49ab6af621a721533ecf88b74",
+          "w1+300": "d5d1bb6894944a9c877c9aa3964c61ba"
+        }
+      }
+    },
+    "machinery": {
+      "margin_instrument": "lab/e228_margin_landscape.py margin_pass MODULE-IMPORTED via e229's _E228NetShim (adapter only; arithmetic untouched): margin_sigma = (top1-top2 logit)/std(vocab logits) at the answer position, torch std unbiased \u2014 the exact instrument of e228/e229/e242",
+      "state_loads": "t0 via e225.load_body (the roster's own convention); W1 states via g1's evl_load (settle onto the ball + disarm \u2014 the lineage's registered instrument adaptation), certified per-state against g1c's committed W1 light-dial record (tol 5e-3), against e242's committed body-flat md5s (EXACT), and against e242's committed fact-battery medians (tol 1e-7)",
+      "batteries": "fact = install-60 g-12 ruler (SPLICE_RNG 24301; certification re-measure); ctrl = val-carried word/sentence completions 30+30 (draw seed G1.R_EVAL_SEED 26502, E225.ANCHOR_FORBIDDEN filter, 118-char contexts); held-30 = e043's host_occ[60:90] held originals (g-12 geometry, incumbent first-char answers); NO 124M battery computed"
+    },
+    "eval": {
+      "device": "cpu fp32",
+      "threads": 4,
+      "batch_shape": "1 x 118 per probe (e228's margin_pass shape)",
+      "n_forwards": "9 states x (60 fact + 60 ctrl + 30 held) margin probes + 9 light-dial batch reads = 1359"
+    },
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.6"
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e251\\metrics.json",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e251\\e251_ln_confound_control.png"
+  ]
+}

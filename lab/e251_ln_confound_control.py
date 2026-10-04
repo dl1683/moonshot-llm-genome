@@ -276,6 +276,15 @@ deviations: list[str] = [
     "TEXTURE co-reports (disclosed; they never adjudicate — e242's own "
     "convention).",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "POST-FIRST-RUN MECHANICAL FIX (numbers untouched; the e242/e229 "
+    "precedent): the first pass built the ctrl/held probe tensors 1-D "
+    "(corpus.encode's native shape); e228's margin_pass drives the shim's "
+    "TinyGPT with (B, T) tensors (e242's probe convention: ids[i:i+1] of a "
+    "(n, L) stack), so the run aborted at the FIRST forward (t0, before any "
+    "state measurement — no number was ever computed under the broken form). "
+    "Fix: .unsqueeze(0) at the two probe constructions + the shape gates "
+    "read shape[1]; the constructions, seeds and bars are otherwise "
+    "unchanged. Deterministic re-run from P0a.",
 ]
 
 
@@ -454,7 +463,7 @@ def main():
                 sent_pos.append(i)
     ctrl_pos = word_pos + sent_pos
     ctrl_stratum = ["word"] * len(word_pos) + ["sentence"] * len(sent_pos)
-    ctrl_probes = [{"ids": corpus.encode(val_text[i - CTRL_CTX: i]),
+    ctrl_probes = [{"ids": corpus.encode(val_text[i - CTRL_CTX: i]).unsqueeze(0),
                     "fact": f"ctrl{k:02d}@{s}", "relation": f"ctrl_{s}",
                     "ans_id": stoi[val_text[i]], "pos": i}
                    for k, (i, s) in enumerate(zip(ctrl_pos, ctrl_stratum))]
@@ -463,7 +472,7 @@ def main():
         "n_word": len(word_pos), "n_sentence": len(sent_pos),
         "expected_per_stratum": CTRL_N_PER, "tries": tries,
         "ctx_len": CTRL_CTX,
-        "all_ctx_len_118": bool(all(p["ids"].shape[0] == CTRL_CTX
+        "all_ctx_len_118": bool(all(p["ids"].shape[1] == CTRL_CTX
                                     for p in ctrl_probes)),
         "all_answers_alpha": bool(all(c.isalpha() and c != "Z"
                                       for c in ctrl_ans_chars)),
@@ -477,7 +486,7 @@ def main():
         "draw_seed": int(G1.R_EVAL_SEED),
         "pass": bool(len(word_pos) == CTRL_N_PER
                      and len(sent_pos) == CTRL_N_PER
-                     and all(p["ids"].shape[0] == CTRL_CTX for p in ctrl_probes)
+                     and all(p["ids"].shape[1] == CTRL_CTX for p in ctrl_probes)
                      and all(c.isalpha() and c != "Z" for c in ctrl_ans_chars)
                      and len(set(ctrl_pos)) == len(ctrl_pos)),
         "note": "the 2.74M family's first ctrl battery: val-carried word/"
@@ -489,14 +498,14 @@ def main():
     assert G_CTRL["pass"], f"ctrl battery construction FAILED: {G_CTRL}"
 
     # THE HELD-30 battery (e043's convention; co-report only).
-    held_probes = [{"ids": corpus.encode(train_text[p - E225.PRE - j: p]),
+    held_probes = [{"ids": corpus.encode(train_text[p - E225.PRE - j: p]).unsqueeze(0),
                     "fact": f"held{k:02d}@{h[:4]}", "relation": "held30_incumbent",
                     "ans_id": stoi[h[0]], "pos": p, "host": h}
                    for k, (p, h) in enumerate(held_occ)]
     G_HELD = {
         "n": len(held_probes), "expected": 30,
         "mix": held_mix,
-        "all_ctx_len_118": bool(all(p["ids"].shape[0] == CTRL_CTX
+        "all_ctx_len_118": bool(all(p["ids"].shape[1] == CTRL_CTX
                                     for p in held_probes)),
         "answers": sorted({p["host"][0] for p in held_probes}),
         "note": "e043's own held convention (host_occ[60:90] under "
@@ -505,7 +514,7 @@ def main():
                 "incumbent host's first char; CO-REPORT ONLY (a coarse ctrl: "
                 "its answers span only {F, E})",
         "pass": bool(len(held_probes) == 30
-                     and all(p["ids"].shape[0] == CTRL_CTX
+                     and all(p["ids"].shape[1] == CTRL_CTX
                              for p in held_probes)),
     }
     assert G_HELD["pass"], f"held battery construction FAILED: {G_HELD}"
