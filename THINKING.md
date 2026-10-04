@@ -685,6 +685,34 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T219 — e241: two death modes of the commitment — the mis-dial and the frequency collapse (2026-10-04 ~16:32Z)
+
+The answer-neighbor read returned the registered bar's letter
+(GLOBAL-SCATTER) and denied T217's prediction in the counts —
+but the table is BIMODAL, and the split is the finding. THE
+MIS-DIALS: 'dollars' twice (the t=0 runner-up AND a top-0.01%
+semantic neighbor — the commitment kept its address and the
+number's first digits), 'Music' (one rank from the bar),
+'Augusta' (the state's other capital). THE FREQUENCY
+COLLAPSES: 'the' four times — an embedding ANTI-neighbor, below
+the random cloud: the commitment does not wander next door; it
+falls to the VOCAB'S MEAN DIRECTION, the frequency prior's
+basin. TWO DEATH MODES: local (semantic) and global (prior).
+REGISTERED ASK (the mode selector): the t=0 local-candidate
+structure — the mis-dials had rank-2-4 SEMANTIC runners-up
+standing at t=0; the collapses had none (their t=0 rank-2s were
+far). PREDICTION (no retrofit): over the general population of
+argmax flips during the wash (e228's journals), the flip target
+is the t=0 runner-up when that runner-up is semantically local
+(emb z >= 2), and the frequency token otherwise — the mode is
+SELECTED BY WHAT WAS STANDING NEARBY WHEN THE COMMITMENT DIED.
+CONNECTIONS: T214's prior-shape lottery (the basin is the
+prior's geometry); T212's taxonomy refined (the 7 split 3+4);
+W034's microscope gains its second slide (the zombie's new
+commitment is either a mis-dial or a surrender to the prior);
+and the e208 distinction echoed one more time — these are
+argmax-level reads, the decision layer's own vocabulary.
+
 ## T218 — e238: the wash is two-thirds a temperature — and the remainder is the order nothing explains (2026-10-04 ~16:22Z)
 
 The temperature null returned the structured branch, and the

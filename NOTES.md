@@ -9,6 +9,41 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e241 — the answer-neighbor quantification: GLOBAL-SCATTER at the bar, BIMODAL underneath — the zombie wrong-choosers split into MIS-DIALS ('dollars' x2 the archetype: the t=0 runner-up AND a top-0.01% semantic neighbor, z +12; 'Music' one rank-position from the bar; 'Augusta' x2) and FREQUENCY COLLAPSES ('the' x4: embedding ANTI-neighbors at z ~ -4, below the random cloud — the commitment falls to the vocab's mean direction, not next door) (2026-10-04 ~16:30Z) — DONE
+
+WHAT WE DID: T217's registered ask, desk-only on committed data
+(the 7 wrong-choosers' identities from e232/e234's rider; the
+t=0 logit dumps' shas re-verified vs e238's journal; the wte
+embedding; 1000-token random clouds per answer). Bars frozen at
+5f012f2 BEFORE compute (NEXT-DOOR / GLOBAL-SCATTER / MIXED).
+12s desk. Script lab/e241_answer_neighbors.py; runs/e241/
+{metrics.json, e241_neighborhoods.png, e241_classification.png}.
+
+WHAT WE SAW (T219): GLOBAL-SCATTER fires exactly at the bar
+(5/7 DISTANT — 'Music' missed NEXT-DOOR by one rank position,
+no bar shopping) — but the verdict's letter is NOT what the
+table shows: the population is BIMODAL. THE MIS-DIALS are
+archetypally local ('dollars' already the t=0 runner-up with
+p_wrong/p_ans ~ 0.30 AND z +12.8 — the commitment kept its
+address and the phone number's first digits); THE FREQUENCY
+COLLAPSES fall to 'the' — the vocab's mean-direction token, an
+embedding ANTI-neighbor (z -3.6..-4.4, BELOW the random cloud)
+at rank 3-9, never the t=0 runner-up. TWO DEATH MODES OF THE
+COMMITMENT: mis-dial (local) and frequency collapse (the prior
+basin). The honesty confound disclosed: 'the' is the frequency
+geometry's center — its anti-neighbor z is that read, not a
+semantic one.
+
+HONESTY: n=7 adjudicated flips (+2 near co-reports); the
+identity-gate tolerance widened 1e-6 -> 1e-4 on a systematic
+~1e-5 float32-npz round-trip offset (per-record deltas kept;
+nothing within orders). NEXT (T219): what selects the mode —
+the t=0 local-candidate structure (mis-dials had rank-2-4
+semantic runners-up; collapses did not) — registered on the
+general population of flipped argmaxes.
+
+---
+
 ## e238 — FQ7: the one-temperature-per-state null — STRUCTURED (both clauses fire) — one T explains only 60-71% of the pooled p-decline (never the 80% bar; ctrl the least thermal at 0.38), and the residuals ARE the committed erosion order (blocked Spearman -0.898, all 12 n>=10 cells -0.83..-0.95; the calibration shows the information is the MISS, +0.33 for the model's own q-order); the anchor split GMAIL-SIDED (the holder survives +3.86 sigma BEYOND thermal; iPhone's death thermally ordinary at -0.05); T(t) rises 1.00->1.45/1.41, wash-replicating; the two-moment desk bound prices all future T questions (2026-10-04 ~16:20Z) — DONE
 
 WHAT WE DID: one temperature per state, MLE across all 54 probes
