@@ -56,5 +56,9 @@ conversation history to operate.
   (fleet check + harvest + review + novelty + the ANTI-STALL GUARD: every beat runs the guard;
   a THINKING-DUE or TREADMILL-ALERT verdict makes the beat's bulk thinking BEFORE any dispatch —
   the 2026-10-02 stall [watch-beat thinness + successor treadmill + a silent thinking lane]
-  is the named failure mode this guard exists to prevent; owner directive: never again).
+  is the named failure mode this guard exists to prevent; owner directive: never again
+  + the 2-HOUR DROID BRIEF step, owner-ordered 2026-10-04: when STATE.json `last_droid_brief`
+  is >115 min old, the beat fully rewrites `scratch/droid_brief.md` — where the lab is +
+  what can be done, for the supervisor (droid) — and commits AND pushes it. Reporting only;
+  it never dispatches and never replaces thinking bulk).
   (fleet check + harvest + review + novelty triggers). Just do the work.
