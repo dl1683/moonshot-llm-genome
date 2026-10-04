@@ -685,6 +685,43 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T208 — e229: three currencies dead for the flat phase — the ball keeps its own books (2026-10-04 ~13:40Z)
+
+The wall-currency cell returns the honest branch, and the residue
+is better than a fire: the margin aggregate does not own the flat
+phase (-0.179), yet W032's cons-pair prediction matched verbatim
+— decisions ordered the one comparison the SNR could not, exactly
+where T206 suspected axis-specific cargo. And the decisive
+co-read reframes the whole ladder: rho(aggregate, root strength)
+= +0.964 — at pristine roots, DECISIONS AND STRENGTH ARE ONE
+OBJECT (the margin is fact strength wearing decision clothes);
+"decisions vs gradients" was a false dichotomy at the root. So
+the flat phase's currency ledger now reads: SNR — dead (cons
+pair); strength/margin — dead (n=7, -0.25); local fragility —
+dead (T207). WHAT'S LEFT IS THE BALL. T178 said it inside the
+join: the flat phase runs on the ball's own economics. MADE
+QUANTITATIVE, THE CANDIDATE: a BALL-SIDE aggregate — the fact
+direction's overlap with the wash's ACTIVE SPAN (the instruments
+exist: e211's wash-span basis, the g-series' fact directions).
+REGISTERED PREDICTION (no retrofit): across the seven roots,
+rho(ball-overlap, flat-phase retention) > 0.714 — the flat phase
+reads the WASH'S books, not the root's; the g1d anomaly (thinnest
+commitments, strongest retention) then reads as high ball-overlap
+(the half-expressed fact lives where the wash's span already
+points). ALTERNATIVE (H-ii): the organizer is formation-REGIME
+membership (T206's read) — the ball-overlap correlates but is a
+proxy for regime; the discriminator is g1d vs g1f (both exotic,
+predicted opposite overlap directions under the ball story if
+their retentions differ — they do: 1.327 vs 0.932). THE PAIR
+TEXTURE ALSO FEEDS W033: if commitments and beliefs are one
+object at the root (0.964), the commitment-before-belief
+dissociation can only OPEN during the wash — W033's desk pass
+(dispatched as e230) times exactly that opening. CONNECTION:
+e225's phase split — edge owns the transient (the root's books),
+ball owns the flat phase (the wash's books) — the wall may be
+the EXCHANGE RATE between two bookkeeping systems, and the rate
+is what the fourth dimension prices.
+
 ## T207 — e228: the order outruns fragility — and the wash manufactures thin spots down to the arithmetic floor (2026-10-04 ~14:00Z)
 
 W031 asked whether the conserved erosion order is the shadow of

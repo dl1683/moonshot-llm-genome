@@ -9,6 +9,48 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e229 — W032's wall-currency cell: GRADIENTS-KEEP-THE-FLAT-PHASE (the honest branch) with the pair confirmed inside it — the aggregate does NOT own the flat phase (rho -0.179 vs the multiple's +0.607); the cons pair matches verbatim (g1f 1.754 sigma > g1e 0.665 sigma, matching 0.932 > 0.615); the decisive co-read: rho(aggregate, root strength) = +0.964 — at pristine roots the margin aggregate IS fact strength in decision clothes, and the flat phase tracks neither (2026-10-04 ~13:35Z) — DONE
+
+WHAT WE DID: the margin aggregate (install-60 g-12 battery's
+median argmax margin in sigma; p25 co-report; e228's instrument
+ported by module import through a pure adapter) computed at the
+seven e225 wall roots (all gates PASS: roots reproduce committed
+reads to 6e-8; e225's joined table hard-bound to 1e-12; the same
+battery content at both scales, no dialect mixing); joined
+against the committed flat-phase retentions with the multiple's
+join reproduced bit-exact on the same page. CPU-only, GPU lane
+untouched. Script lab/e229_wall_currency.py; runs/e229/
+{metrics.json, e229_wall_currency.png}.
+
+WHAT WE SAW (T208): GRADIENTS-KEEP-THE-FLAT-PHASE fires — the
+aggregate does WORSE than the multiple (-0.179 vs +0.607; LOO max
++0.314, no rescue). But W032's registered cons-pair prediction
+CONFIRMED verbatim: g1f 1.754 sigma > g1e 0.665 sigma (p25 flavor
+too), matching the retention order — decisions ordered the one
+comparison the SNR could not, at n=2. THE DECISIVE CO-READ:
+rho(aggregate, root_gm12) = +0.964 — at pristine roots the
+decision margin aggregate is fact strength in rank (and NOT the
+multiple in disguise, -0.143); the flat phase tracks fact
+strength no better (-0.25). THE LEDGER OF DEAD CURRENCIES for
+the flat phase: SNR/multiple (the cons pair), decision-margin/
+strength (n=7), local fragility (T207 at 124M) — the fourth
+dimension stays open, with g1d (1.327 retention at the table's
+LOWEST aggregate 0.268 sigma — the half-expressed root holds
+thinnest commitments and retains the most) and take6 (strong
+root, falling flat phase) as the named breakers of every
+monotone candidate.
+
+HONESTY: n=2 for the pair confirmation; margins deterministic
+(T204), n=1 evals, batch-shape disclosed; per-root frac below
+the flip zone co-reported (max g1d 0.12); two post-run reporting
+fixes disclosed, numbers identical across deterministic re-runs;
+no bar shopping. NEXT: T208's registered follow-up — a BALL-SIDE
+aggregate (the fact-direction's overlap with the wash's active
+span) as the flat phase's currency candidate; the regime read
+(T206) still named.
+
+---
+
 ## e228 — W031's margin landscape vs the erosion order: ORDER-OUTRUNS-FRAGILITY — the erosion order is deeper than local decision fragility (all 6 cells join rho 0.12-0.25 vs the order's own replication 0.94-0.96); the wash MANUFACTURES thin spots instead of killing the t=0 ones; margin levels fall 25-74% while margin order dies vs t=0 and re-converges cross-wash (2026-10-04 ~13:55Z) — DONE
 
 WHAT WE DID: per-probe argmax margins in sigma ((top1-top2)/std of
