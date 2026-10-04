@@ -959,6 +959,7 @@ def cmd_amend2() -> None:
     anchor_val = float(stb["val"])
     # the failed arc stays verbatim in the record
     m["organism_arc1_verbatim"] = m.get("organism")
+    m.pop("organism", None)      # arc-1's done stamp must not block arc-2
     # phase-3 state anchored on the pre-repair organism is reset (the
     # partial rungs are kept; the mid-rung ckpt renamed, not deleted)
     inst = m.get("install", {})
@@ -1269,7 +1270,10 @@ def cmd_install() -> None:
     base_ce = wash_ce(model, wash_val, device)
     jlog("install_base_ce", base_ce=round(base_ce, 4))
 
-    m.setdefault("install", {"rungs": [], "base_wash_ce": base_ce})
+    m.setdefault("install", {})
+    m["install"].pop("reset", None)          # the amendment-2 reset marker
+    m["install"].setdefault("rungs", [])
+    m["install"].setdefault("base_wash_ce", base_ce)
     rungs = m["install"]["rungs"]
     ck = CKPT / "e248_install_train.pt"
     inst = CKPT / "e248_installed_t0.pt"
