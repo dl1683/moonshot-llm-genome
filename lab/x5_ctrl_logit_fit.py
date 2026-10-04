@@ -1352,25 +1352,34 @@ def main():
                 if my_ctrl.get((w, s_)) is not None else None,
             }
         confirmed = all(
-            slices[g]["x5_ctrl_minus_committed"] > 0 for g in slices
-            if slices[g]["x5_ctrl_minus_committed"] is not None)
+            slices[g]["x5_ctrl_fulllogit_T"]
+            > slices[g]["x5_factonly_fulllogit_T"] for g in slices
+            if slices[g]["x5_ctrl_fulllogit_T"] is not None
+            and slices[g]["x5_factonly_fulllogit_T"] is not None)
+        gap_full = {g: slices[g]["x5_ctrl_fulllogit_T"]
+                    - slices[g]["x5_factonly_fulllogit_T"] for g in slices}
+        gap_x4 = {g: slices[g]["x4_ctrl_minus_fact_bracket"] for g in slices}
         x4_read = {
             "table": x4["table"], "slices": slices,
-            "direction_confirmed": bool(confirmed),
+            "direction_confirmed_vs_factonly": bool(confirmed),
+            "gap_fulllogit_ctrl_minus_factonly": gap_full,
+            "gap_x4_bracket_ctrl_minus_fact": gap_x4,
             "read": ("x4's +10 slice said ctrl flattens MORE than fact "
-                     "(bracket medians ctrl 1.28-1.33 vs fact 0.96-0.99). "
-                     "At full precision: "
-                     + "; ".join(
-                         f"{g}: ctrl T {slices[g]['x5_ctrl_fulllogit_T']:.4f}"
-                         f" vs committed pooled {slices[g]['committed_pooled_T']:.4f}"
-                         f" (delta {slices[g]['x5_ctrl_minus_committed']:+.4f})"
-                         f" vs fact-only {slices[g]['x5_factonly_fulllogit_T']:.4f}"
-                         for g in slices)
-                     + f" — the bracket's DIRECTION is "
-                     f"{'CONFIRMED' if confirmed else 'NOT confirmed'} at "
-                     f"full precision; the bracket's MAGNITUDE (x4's "
-                     f"ctrl-fact gap) is priced against the full-logit "
-                     f"deltas"),
+                     "(bracket medians ctrl 1.28-1.33 vs fact 0.96-0.99, "
+                     "gaps "
+                     + ", ".join(f"{g}: {v:+.2f}" for g, v in
+                                 gap_x4.items())
+                     + "). At full precision the ctrl-fact gaps are "
+                     + ", ".join(f"{g}: {v:+.4f}" for g, v in
+                                 gap_full.items())
+                     + " — the bracket's DIRECTION (ctrl > fact) is "
+                     f"{'CONFIRMED' if confirmed else 'NOT confirmed'}, "
+                     "but its MAGNITUDE was instrument-artifact: the "
+                     "bracket's ~+0.3 gap reads as ~+0.02 under the "
+                     "full-logit family. Against the committed pooled "
+                     "reference, ctrl sits BELOW it at +10 ("
+                     + ", ".join(f"{g}: {slices[g]['x5_ctrl_minus_committed']:+.4f}"
+                                 for g in slices) + ")"),
         }
         log("x4 co-report: " + x4_read["read"])
     metrics["x4_co_report"] = x4_read
