@@ -685,6 +685,37 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T221 — e243: the mode is selected by death depth, not standing structure — two stages of the commitment's death (2026-10-04 ~16:52Z)
+
+The registered selector died cleanly and left a better story.
+The t=0 candidate field is degenerate: a semantic runner-up
+stands beside essentially every death (18/19 — 'Alexandria'
+z+6 beside Cairo's collapse; 'Apple' z+9 beside iPhone's), and
+Egypt->Cairo flips OPPOSITE WAYS under two washes with the
+identical RU. THE STRUCTURE DOES NOT SELECT THE MODE. WHAT
+DOES — the texture the table hands over: every census-outside
+flip (the belief NEVER halved) mis-dialed; the frequency
+collapses all sit in the dead census. THE TWO MODES ARE TWO
+STAGES OF DEATH: EARLY = the local slide (the argmax drifts
+one notch within the standing field under mere erosion — the
+commitment softens before the belief dies); LATE = the prior
+surrender (with the belief gone, the commitment falls to the
+vocab's mean direction). REGISTERED PREDICTION (e245, no
+retrofit): over the 19 flips, p(+80) (and p at the flip's
+first-crossing state where available) separates the modes —
+the mis-dials carry surviving belief mass, the collapses do
+not; median separation >= 2x. ALTERNATIVE: the wash split (w1
+collapse-heavy, w2 mis-dial-heavy) is the selector — the
+washes differ (their corpora/streams), and if p does not
+separate but wash does, the mode is WRITTEN BY THE WASH, not
+the death's depth (a harder, stranger claim: the wash's own
+texture deciding how the orphaned commitment falls).
+CONNECTIONS: T219's two modes now staged; T212's taxonomy's
+timeline; W028 (the stages are the commitment's own
+shape/height split — the slide preserves the local ORDER, the
+surrender abandons it); e241's table re-read as a depth
+sequence.
+
 ## T220 — e242: the wall is a commitment-forge — and the two worlds split thermally at the transient (2026-10-04 ~16:47Z)
 
 The wall's commitment layer lands as a two-layer steady state

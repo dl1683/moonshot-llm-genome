@@ -9,6 +9,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e243 — the mode selector: MIXED at the bar, and the selector is NOT the t=0 standing structure — a local runner-up stands beside essentially every death, in BOTH modes (18/19; 'Alexandria' z+6 beside Cairo's 'the' collapse; Egypt->Cairo flips OPPOSITE WAYS under two washes with the identical RU); every census-outside flip (belief never halved) MIS-DIALED — the collapse needs the belief dead first (2026-10-04 ~16:50Z) — DONE
+
+WHAT WE DID: T219's registered ask, desk-only on committed data.
+The general flip population enumerated over the WHOLE journal
+(19 (probe, wash) records whose +80 argmax differs from t=0's —
+the 7+2 of e241 plus 10 the dying census never adjudicated;
+double-source argmax gates: journal vs npz, identical). Per
+flip: the t=0 runner-up's identity + embedding z (e241's
+convention) and the target's; the 2x2 selector read. Bars
+frozen at 3a98d8b BEFORE compute. 13.6s. Script
+lab/e243_mode_selector.py; runs/e243/{metrics.json,
+e243_selector_2x2.png, e243_rank_z_plane.png}.
+
+WHAT WE SAW (T221): MIXED — local 9/18 (50%) vs distant 1/1;
+neither bar fires; THE REGISTERED SELECTOR IS DEAD IN ITS
+LETTER: the local-candidate field is degenerate across modes
+(RU z >= 2 at 18/19 deaths, including all 7 'the' collapses).
+THE DECISIVE COUNTEREXAMPLE: Egypt->Cairo, identical RU
+('Alexandria', z+6) under both washes — w1 collapses to 'the',
+w2 mis-dials to 'Alexandria'. TWO TEXTURES: (1) EVERY
+census-outside flip (France w1, Xbox w1/w2, Egypt w2 — belief
+never halved) MIS-DIALED: the argmax slides one notch within
+the local field when the belief survives; THE COLLAPSE NEEDS
+THE DEATH FIRST; (2) the wash split (w1 5 mis-dials/6 collapses;
+w2 4/1/3 other).
+
+HONESTY: n=19; the 'the' frequency confound carried; e241's
+z-join max |dz| 0.57. NEXT (T221): the death-depth read — p at
+flip time vs mode; prediction: the mis-dials carry higher
+surviving p than the collapses (two STAGES of death: the local
+slide early, the prior surrender late) + e245 dispatched.
+
+---
+
 ## e242 — FQ10, the wall's commitment layer: FLAT-COMMITMENT — and the thermal leg runs the WRONG WAY — the margin median GROWS +19.2% through the flat phase (0.979 -> 1.167 sigma; p25 +10.8%; argmax-Z 59/60 -> 60/60, the t0 battery's one non-Z decision re-covered by the wall); the wall's T(t) is NON-MONOTONE: a 1.31 heat concentrated in the +1 transient (which carries nearly all the p-side decline), then COOLING to 0.84-0.90 through the flat phase — the walled p-side SHARPENS while e238's unwalled 124M heats monotonically to 1.45 (2026-10-04 ~16:45Z) — DONE
 
 WHAT WE DID: the first margin instrument ever run through the
