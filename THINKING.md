@@ -5655,6 +5655,38 @@ physics states. That is the culture working.
 
 
 
+## W039 — WONDER: the three decouplings — the network's layers are separable by scalar interventions (2026-10-04 ~19:55Z; no bars, no kills — the day's late structure assembled; written at a fired TREADMILL-ALERT, per the guard's own prescription)
+
+The day's second half kept handing the lab the same shape in
+three different materials: a DISSOCIATION that survives an
+intervention. (1) HEIGHT/SHAPE — e252: cooling the washed
+logits restores half the belief-height and none of the
+belief-order. Shape is structural damage; height is partly
+mask. THE LAW NOW HAS AN OPERATIONAL INVERSE: COOL AND SEE.
+(2) AMPLITUDE/ORDER — the same cell's echo: heating moves the
+ranks where cooling moves the heights; no scalar rescale
+trades one for the other. The two layers are not endpoints of
+one dial; they are different objects. (3) EPISODIC/
+DISTRIBUTIONAL WRITING — e246: the corpus's own directions
+cannot write a fact (ALIGNED g0 = 0.0000) while orthogonal
+installs land at full strength; new memories need room the
+ongoing work does not occupy. THREE SPLITS, ONE LESSON: the
+network's functional layers — readout scaling, ranking
+structure, memory substrate — ARE SEPARABLE BY CHEAP SCALAR
+AND GEOMETRIC INTERVENTIONS, and each separation survived its
+pre-registered bar. THE INSTRUMENT NOTE: "COOL AND SEE"
+deserves its name in the toolkit — a frozen forward with a
+one-parameter rescale adjudicates mask-versus-damage for any
+readout claim in seconds (the lab's cheapest interventional
+probe since the estimator-point check). WHAT THIS CARD ASKS
+NEXT (no bar, ripening): are the three decouplings ONE
+phenomenon — a network built of modules whose coupling is
+itself sparse (the interactions the critic holds back until
+the replicate) — or three independent sparsities that merely
+rhyme? The replicate's bars now carry extra weight: if the
+decouplings are organism-robust, the sparsity is architecture,
+not accident.
+
 ## W038 — WONDER: the laws draft — the four movements as equations, with today's constants (2026-10-04 ~17:00Z; the ambition directive's answer; no bars — a synthesis card, the field's first quantitative draft) [R64 AUDIT AMENDMENTS ~17:35Z: (i) the UNDERTOW's potency range ~17-29 dp/unit is e233's two R63 estimators ONLY — the parent UNDERPOWERED-stamped; e237's gradient-dose potency sits BELOW the range (~6 dp/unit) — the shared shield in potency units; the magnitude pair is 0.04% applied / 1.16% gradient; the exposure correlation ~7-9x (the committed ratios 7.7/9.0/6.5) — an order of magnitude at the extremes, THRESHOLD UNMEASURED (candidate only); (ii) LAW 4's causal form is e237-licensed AT THE ANCHOR — the wall's thickening (e242) is a DIFFERENT, unexplained supply (T220-b open); (iii) the coherence range is 84-87%; (iv) the dose ladder is two points in two currencies with the lower point UNDERPOWERED — a bracket, no monotone implication]
 
 The day bought four movements; each now has a MEASURED
