@@ -1367,7 +1367,15 @@ def cmd_install() -> None:
                 ps.setdefault(r["battery"], []).append(r["p"])
             meanp = sum(r["p"] for r in reads) / len(reads)
             ce = wash_ce(model, wash_val, device)
-            g_inst = all(ns[b] >= INSTALL["floor"] for b in ns)
+            # [recovery executor instrument fix, disclosed] the floor
+            # loops the three ADJUDICABLE batteries only — near (3
+            # probes) is a co-report battery by the registration's own
+            # text ("near 3/3 co-report; near never adjudicates") and
+            # can never reach the floor of 6; with near included the
+            # gate was structurally unsatisfiable (phase-1c smoke miss:
+            # the smoke exercised adjudicate, not this predicate).
+            g_inst = all(ns.get(b, 0) >= INSTALL["floor"]
+                         for b in ("fact", "ctrl", "tmpl"))
             p0_ok = INSTALL["p0_lo"] <= meanp <= INSTALL["p0_hi"]
             ce_ok = ce <= m["install"]["base_wash_ce"] * (1 + INSTALL["ce_wreck_tol"])
             rungs.append({"rung": ri, "lr": lr, "pass": pi,

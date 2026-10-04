@@ -121,7 +121,7 @@
     "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e248_organism_replicate.py",
     "script_sha256_16": "7c446b1a3c1a716b"
   },
-  "updated": "2026-10-04T22:01:16Z",
+  "updated": "2026-10-04T22:16:35Z",
   "build": {
     "corpus": {
       "chars_total": 1115394,
@@ -1097,6 +1097,126 @@
         "ce_ok": true,
         "accepted": false,
         "t": "2026-10-04T22:01:16Z"
+      },
+      {
+        "rung": 2,
+        "lr": 5e-05,
+        "pass": 3,
+        "passes_target": 4,
+        "steps": 240,
+        "gated_ns": {
+          "fact": 12,
+          "ctrl": 11,
+          "near": 2,
+          "tmpl": 16
+        },
+        "mean_p0": 0.7297159859703647,
+        "wash_val_ce": 1.5367057224114735,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": true,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T22:07:32Z"
+      },
+      {
+        "rung": 2,
+        "lr": 5e-05,
+        "pass": 4,
+        "passes_target": 4,
+        "steps": 320,
+        "gated_ns": {
+          "fact": 15,
+          "ctrl": 12,
+          "near": 3,
+          "tmpl": 18
+        },
+        "mean_p0": 0.8023107899007974,
+        "wash_val_ce": 1.538485735654831,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": true,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T22:13:50Z"
+      },
+      {
+        "rung": 3,
+        "lr": 5e-05,
+        "pass": 1,
+        "passes_target": 8,
+        "steps": 320,
+        "gated_ns": {
+          "fact": 15,
+          "ctrl": 12,
+          "near": 3,
+          "tmpl": 18
+        },
+        "mean_p0": 0.8023107899007974,
+        "wash_val_ce": 1.538485735654831,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": true,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T22:14:31Z"
+      },
+      {
+        "rung": 3,
+        "lr": 5e-05,
+        "pass": 2,
+        "passes_target": 8,
+        "steps": 320,
+        "gated_ns": {
+          "fact": 15,
+          "ctrl": 12,
+          "near": 3,
+          "tmpl": 18
+        },
+        "mean_p0": 0.8023107899007974,
+        "wash_val_ce": 1.538485735654831,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": true,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T22:15:13Z"
+      },
+      {
+        "rung": 3,
+        "lr": 5e-05,
+        "pass": 3,
+        "passes_target": 8,
+        "steps": 320,
+        "gated_ns": {
+          "fact": 15,
+          "ctrl": 12,
+          "near": 3,
+          "tmpl": 18
+        },
+        "mean_p0": 0.8023107899007974,
+        "wash_val_ce": 1.538485735654831,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": true,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T22:15:54Z"
+      },
+      {
+        "rung": 3,
+        "lr": 5e-05,
+        "pass": 4,
+        "passes_target": 8,
+        "steps": 320,
+        "gated_ns": {
+          "fact": 15,
+          "ctrl": 12,
+          "near": 3,
+          "tmpl": 18
+        },
+        "mean_p0": 0.8023107899007974,
+        "wash_val_ce": 1.538485735654831,
+        "G_INSTALL_pass": false,
+        "p0_band_ok": true,
+        "ce_ok": true,
+        "accepted": false,
+        "t": "2026-10-04T22:16:35Z"
       }
     ],
     "base_wash_ce": 1.5583397646745045
@@ -1264,5 +1384,13 @@
     "G_ORGANISM_pass": false,
     "G_SIZE_pass": true,
     "size_reason": "the replicate demands the 124M organism class (dispatch option (a), scratch/e244 sketch); 116,279,296 params > the 100M free tier, <= the 500M ceiling with this stated reason"
-  }
+  },
+  "instrument_fixes": [
+    {
+      "fix": "G_INSTALL floor looped `for b in ns` \u2014 ns includes the near battery (3 probes, a co-report battery that never adjudicates per the registration), so the >=6 floor was structurally unsatisfiable: no rung could ever be accepted and the ladder would exhaust to a false INSTALL-FAILED.",
+      "change": "floor now over (\"fact\",\"ctrl\",\"tmpl\") only; near co-reports",
+      "when": "2026-10-04T22:20Z, at install rung 3 dose 320 (the rung that first cleared the true gate: fact 15 ctrl 12 tmpl 18, meanp 0.802, ce 1.5385)",
+      "bars": "none touched (the registration text itself says near never adjudicates)"
+    }
+  ]
 }
