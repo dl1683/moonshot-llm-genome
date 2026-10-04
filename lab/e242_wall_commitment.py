@@ -273,6 +273,18 @@ deviations: list[str] = [
     "Single battery, single geometry: install-60 g-12 only (the family's "
     "own ruler); no g0/g+12 texture reads, no 124M battery computed here.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "POST-FIRST-RUN REPORTING FIX (numbers untouched; the e229 precedent): "
+    "the first pass's generated FLAT clause printed the margin trajectory's "
+    "GROWTH as '-19.2%' — arithmetically right (decline = -19.2%) but "
+    "prose-misleading; the clause generator now labels negative declines "
+    "as GROWTH explicitly, and the (a)-panel title carries the same note. "
+    "Also fixed pre-measurement: the G_STATES_A wall_R check compared "
+    "float32-stored 0.7 (0.699999988079071) with exact equality — now "
+    "toleranced at 1e-6 (the first pass aborted BEFORE any state "
+    "measurement on that gate; no number was ever computed under the "
+    "strict form). Deterministic re-run (T204): every number identical; "
+    "the verdict and all computed values unchanged; disclosed here rather "
+    "than silently patched.",
 ]
 
 
@@ -740,7 +752,8 @@ def main():
         "sds300_bit_identical_to_final_model": bool(max_diff_300 == 0.0),
         "expected_sds_steps": list(all_steps),
         "wash_seed_field": None,   # filled from g1c's config below
-        "pass": bool(int(wck["step"]) == 300 and float(wck["wall_R"]) == 0.7
+        "pass": bool(int(wck["step"]) == 300
+                     and abs(float(wck["wall_R"]) - 0.7) < 1e-6   # fp32 round-trip of 0.7 = 0.699999988079071
                      and tuple(sds_keys) == all_steps and max_diff_300 == 0.0),
     }
     assert G_STATES_A["pass"], f"W1 resume inventory gate FAILED: {G_STATES_A}"
@@ -925,6 +938,13 @@ def main():
     assert (int(crossover_fires) + int(grinding_fires) + int(flat_fires)
             + int(any_fires)) == 1, "bars must be exclusive"
 
+    def _decl_txt(pct: float) -> str:
+        """Honest decline formatting: a negative decline IS growth (the
+        frozen clauses read growth as flat; the prose must say so)."""
+        return (f"{pct:+.1f}% "
+                + ("(GROWTH — reads as flat under the frozen clause)"
+                   if pct < 0 else "(decline)"))
+
     if crossover_fires:
         verdict = "CROSSOVER"
         r0 = crossover_rows[0]
@@ -934,8 +954,8 @@ def main():
                   f"(g-12 {r0['gm12']:.3f} >= {MAINTAIN_BAR}) — the wall's "
                   f"true failure mode named: it falls at the decision layer "
                   f"first (margin decline through +300 "
-                  f"{margin_decline_pct:+.1f}%; ruler decline "
-                  f"{ruler_decline_pct:+.1f}%)")
+                  f"{_decl_txt(margin_decline_pct)}; ruler "
+                  f"{_decl_txt(ruler_decline_pct)})")
     elif grinding_fires:
         verdict = "GRINDING-BEHIND-THE-FLAT"
         clause = (f"the ruler flat (its convention: every flat-phase ckpt "
@@ -948,12 +968,12 @@ def main():
     elif flat_fires:
         clause = (f"the ruler flat AND the margins flat through +300: the "
                   f"ruler {root_gm12:.4f} -> {gm12_300:.4f} "
-                  f"({ruler_decline_pct:+.1f}%) and the margin median "
+                  f"{_decl_txt(ruler_decline_pct)} and the margin median "
                   f"{med0:.4f}s -> {med300:.4f}s "
-                  f"({margin_decline_pct:+.1f}%), both declines < 10% — the "
-                  f"wall holds both layers; a genuine two-layer steady "
-                  f"state; the shoreline's friction-settle clause weakens "
-                  f"to readout-only")
+                  f"{_decl_txt(margin_decline_pct)}, both under the 10% "
+                  f"decline bar — the wall holds both layers; a genuine "
+                  f"two-layer steady state; the shoreline's friction-settle "
+                  f"clause weakens to readout-only")
         verdict = "FLAT-COMMITMENT"
     else:
         why = []
@@ -1135,9 +1155,9 @@ def main():
     ax.set_xticks(xs)
     ax.set_xticklabels(["t0"] + [f"+{s}" for s in steps_all[1:]], fontsize=8)
     ax.grid(alpha=0.25)
-    ax.set_title(f"(a) THE TWO LAYERS — ruler decline "
-                 f"{ruler_decline_pct:+.1f}% vs margin decline "
-                 f"{margin_decline_pct:+.1f}% through +300", fontsize=9.5)
+    ax.set_title(f"(a) THE TWO LAYERS — ruler {ruler_decline_pct:+.1f}% vs "
+                 f"margin median {margin_decline_pct:+.1f}% through +300 "
+                 f"(negative = GROWTH)", fontsize=9.5)
 
     # (b) normalized declines
     ax = axes[1]
