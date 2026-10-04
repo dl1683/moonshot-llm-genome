@@ -808,9 +808,9 @@ supports are vector-stable, the tide common-mode; (e237) the
 undertow is causal at the extremes via a SHARED supply. W038'S
 LAWS DRAFT SURVIVES ITS FIRST FOUR TESTS WITH AMENDMENTS: the
 undertow's law gains "carried by the shared gradient supply;
-probe-specificity is dose-limited"; the forge's law gains its
-strongest datum (the +0.25 elevation IS the constructive field
-revealed when the small directed tax is removed); the
+probe-specificity is dose-limited"; the forge's law KEEPS its
+interventional datum (e237's +0.25 elevation — p-based, STANDS);
+the wall-side margin datum RECLASSIFIED to zero-sum LN (e251); the
 re-formation layer is no longer the least-measured. THE
 TAX PICTURE: the wash's killing is a small directed tax on a
 constructive field, paid most by the most-exposed (the ~7-9x
@@ -887,9 +887,17 @@ sequence.
 The wall's commitment layer lands as a two-layer steady state
 with two upgrades. First: THE COMMITMENT THICKENS (+19.2%
 median margin growth through the flat phase; the battery's one
-non-Z decision at t0 RE-COVERED by the wall) — the wall is not
-a shield; it is a FORGE: the flat phase actively strengthens
-the decisions it holds. The re-formation layer now has two
+non-Z decision at t0 RE-COVERED by the wall) [E251 AMENDMENT
+~19:12Z: the thickening is GENERIC — ctrl +17.2%, held-30
++72.5% — ZERO-SUM LN REDISTRIBUTION (agy consult #001's
+confound fired), not a fact-specific forge; the forge noun
+dies here; the wall still cools and the ruler still flats] —
+the wall is not
+a shield; it is a FORGE [DEAD AT e251 — see the amendment];
+the flat phase actively strengthens
+the decisions it holds [RECLASSIFIED: the strengthening is
+LN's denominator, not construction]. The re-formation layer
+now has two
 sightings at two scales (T217's Gmail anchor; this, battery-
 wide at 2.74M). Second: THE THERMAL INVERSION — the wall's T(t)
 is non-monotone: the +1 transient HEATS (1.31, carrying nearly
