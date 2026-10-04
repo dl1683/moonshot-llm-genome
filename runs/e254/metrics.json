@@ -1,8 +1,8 @@
 {
   "experiment": "e254_vspan_overlap",
   "phase": "v_t reconstructed by e240's fp64 recursion over the certified wash replays; v's mass read on e234's committed wash-span basis vs matched random subspaces; the fact-hot + supply-echo co-reads; e240's validation stack re-run",
-  "date": "2026-10-04T19:27:01Z",
-  "status": "PARTIAL: w2 span reads done",
+  "date": "2026-10-04T20:30:43Z",
+  "status": "PARTIAL: committed bases re-derived + certified",
   "registration": "bars + question frozen VERBATIM from the dispatch brief (frozen BEFORE this script or any compute); adjudicate against exactly this; no bar shopping",
   "registered_prediction": {
     "bars_verbatim": {
@@ -33,23 +33,13 @@
   "load_checks": [
     {
       "tag": "launch",
-      "cpu_percent": 4.5,
-      "ram_avail_gb": 42.0
+      "cpu_percent": 4.7,
+      "ram_avail_gb": 44.9
     },
     {
       "tag": "supports build",
-      "cpu_percent": 16.0,
-      "ram_avail_gb": 41.1
-    },
-    {
-      "tag": "replay w1",
-      "cpu_percent": 11.2,
-      "ram_avail_gb": 31.9
-    },
-    {
-      "tag": "replay w2",
-      "cpu_percent": 4.4,
-      "ram_avail_gb": 12.1
+      "cpu_percent": 27.2,
+      "ram_avail_gb": 44.1
     }
   ],
   "provenance_records": {
@@ -172,44 +162,10 @@
       "tol_rel_spectrum": 1e-09,
       "tol_abs_coverage": 1e-09,
       "pass": true
-    },
-    "G_GRAM": {
-      "w1": {
-        "max_abs_dcos": 5.7060849045775797e-08,
-        "tol_dcos": 0.002,
-        "regen_knee": 2,
-        "committed_knee": 2,
-        "max_rel_eig_dev_top20": 2.6686245265705666e-08,
-        "tol_eig": 0.01,
-        "pass": true
-      },
-      "w2": {
-        "max_abs_dcos": 6.783368745599816e-07,
-        "tol_dcos": 0.002,
-        "regen_knee": 2,
-        "committed_knee": 2,
-        "max_rel_eig_dev_top20": 4.671106095035884e-09,
-        "tol_eig": 0.01,
-        "pass": true
-      }
-    },
-    "G_VHOT": {
-      "w1": {
-        "max_abs_dev": 0.0,
-        "n_values": 648,
-        "tol": 1e-08,
-        "pass": true
-      },
-      "w2": {
-        "max_abs_dev": 0.0,
-        "n_values": 486,
-        "tol": 1e-08,
-        "pass": true
-      }
     }
   },
   "timing": {
-    "total_s": 2791.2
+    "total_s": 244.8
   },
   "ram_waits": [
     {
@@ -217,18 +173,6 @@
       "waited_s": 0.0,
       "floor_gb": 16.0,
       "cleared": true
-    },
-    {
-      "tag": "grads memmap w1",
-      "waited_s": 0.0,
-      "floor_gb": 16.0,
-      "cleared": true
-    },
-    {
-      "tag": "grads memmap w2",
-      "waited_s": 600.0,
-      "floor_gb": 16.0,
-      "cleared": false
     }
   ]
 }
