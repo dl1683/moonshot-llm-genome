@@ -615,27 +615,22 @@ def mid_burst_check(step, tag, t0, max_s, break_c=78.0,
     return True, ""
 
 
-def pace_for_temp(base_s: float = 0.22, ramp_in: int = 0) -> None:
-    """Fixed gentle pace (~50% duty, matching the ~0.22 s bf16 step) +
-    an adaptive law that keeps the operating point at 70-74C, FAR below
-    the 82C cliff (this chip swings 8-10C between polls when the fans
-    are spinning up — burst-kill architectures cannot hold max-82C on
-    it; the operating point must sit low instead). ramp_in = the first
-    steps of a burst get extra sleep so the fans spin up under load."""
-    if ramp_in:
-        time.sleep(0.25)
-    time.sleep(base_s)
+PACE = {"sleep": 0.22}
+
+
+def pace_for_temp(ramp_in: bool = False) -> None:
+    """Self-tuning duty controller with hysteresis: holds the chip at
+    70-76C (far below the 82C cliff) at the maximum sustainable duty.
+    The sleep length grows 1.6x per hot poll (>= 76C), decays 0.8x per
+    cool poll (<= 70C), bounded [0.10, 3.0] s. ramp_in: the first steps
+    of a burst sleep a little longer so the fans spin up under load."""
     tC = temp_fast()
     if tC >= 76.0:
-        t0 = time.time()
-        while time.time() - t0 < 12.0:
-            if temp_fast() <= 70.0:
-                break
-            time.sleep(0.25)
-    elif tC >= 72.0:
-        time.sleep(0.35)
-    elif tC >= 68.0:
-        time.sleep(0.12)
+        PACE["sleep"] = min(PACE["sleep"] * 1.6, 3.0)
+    elif tC <= 70.0:
+        PACE["sleep"] = max(PACE["sleep"] * 0.8, 0.10)
+    s = PACE["sleep"] + (0.30 if ramp_in else 0.0)
+    time.sleep(s)
 
 
 def cooldown(lo=30.0, hi=60.0):
@@ -845,10 +840,9 @@ def cmd_train() -> None:
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             opt.step()
             sched.step()
-            # per-step pacing (fixed ~50% duty + the temp-gap law, pynvml
-            # ~2 ms) + every-4-step break/hard guards
-            pace_for_temp(ramp_in=max(0, 25 - (step - burst_first_step))
-                          if (step - burst_first_step) < 25 else 0)
+            # per-step pacing (self-tuning duty, pynvml ~2 ms) + the
+            # every-4-step break/hard guards
+            pace_for_temp(ramp_in=(step - burst_first_step) < 25)
             if step % TRAIN["poll_every"] == 0:
                 ok, why = mid_burst_check(step, f"train-burst{bursts + 1}", t0,
                                           TRAIN["burst_s"],

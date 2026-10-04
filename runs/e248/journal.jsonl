@@ -97,3 +97,7 @@
 {"t": "2026-10-04T19:19:47Z", "event": "thermal_break", "tag": "train-burst7", "step": 136, "temp": 78.0}
 {"t": "2026-10-04T19:19:48Z", "event": "train_burst_end", "burst": 7, "step": 136, "stop": "break", "best_val": Infinity}
 {"t": "2026-10-04T19:20:26Z", "event": "pacing_v2", "what": "fixed ~50% duty (0.22s base sleep per 0.22s step) + temp-gap law (>=68C +0.12s; >=72C +0.35s; >=76C sleep-until-70C capped 12s) + 25-step ramp-in per burst (fans spin up under load; the post-heatsoak 62C-idle reading then 76C-in-1s swing was the fan spin-down artifact); operating point 70-74C, far below the 82C cliff"}
+{"t": "2026-10-04T19:21:47Z", "event": "train_resume", "step": 136, "best_val": Infinity}
+{"t": "2026-10-04T19:24:51Z", "event": "train_burst_end", "burst": 1, "step": 178, "stop": "time", "best_val": Infinity}
+{"t": "2026-10-04T19:29:33Z", "event": "train_eval", "step": 200, "val": 2.3982, "best": 2.3982}
+{"t": "2026-10-04T19:31:07Z", "event": "pacing_v3_selftuning", "what": "duty controller with hysteresis: sleep *= 1.6 per >=76C poll, *= 0.8 per <=70C poll, bounded [0.10, 3.0]s, +0.3s ramp-in for a burst first 25 steps; holds 70-76C at max sustainable duty \u2014 replaces the gap law that over-slept at the 76 boundary (~4.2s/step observed)"}
