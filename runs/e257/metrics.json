@@ -1,0 +1,1187 @@
+{
+  "experiment": "e257_support_v_overlap",
+  "phase": "T231's registered sharper prediction: the per-probe support-v-overlap <s_i, V_s s_i>/||s_i||^2 (v = e240's fp64 reconstruction at e238's residual states) joined to the per-probe thermal deviation |resid_z|, head-to-head against e256's span-residency join on identical rows",
+  "date": "2026-10-04T23:01:26Z",
+  "status": "DONE",
+  "registration": "bars + question + adjudication rule frozen VERBATIM from the dispatch brief BEFORE this script or any compute; the script was committed (git) before the first full run; adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "V-OVERLAP-WINS": "the support-v-overlap join's |rho| exceeds the span-residency join's by >= 0.05 pooled (both computed here on identical probes) \u2014 the denominator load on the probe's OWN direction is the better carrier; the composition's probe-level evidence landed",
+      "SPAN-SPECIFIC": "the v-overlap join does NOT beat the span join (within 0.05) \u2014 the carrier is the span basis specifically; the composition bounded",
+      "MIXED": "the tables verbatim, both joins, per wash"
+    },
+    "question_verbatim": "does a probe's SUPPORT-V-OVERLAP (its support's share of v's mass \u2014 the direct denominator load on its own direction) predict its thermal share BETTER than the span-residency did (rho -0.148)? If yes: the composition's carrier claim gains its probe-level evidence; if no: the coupling's carrier is the span-basis specifically, not v-load generally.",
+    "adjudication_rule_frozen": {
+      "delta_pool": "|rho_v_overlap pooled 216 rows| - |rho_span pooled the same 216 rows| (both computed here on identical probes)",
+      "delta_w": "the same, per wash (the identical 108-row subsets)",
+      "discordant": "(delta_pool >= 0.05 AND min(delta_w) <= -0.05) OR (delta_pool < 0.05 AND min(delta_w) >= 0.05)",
+      "V-OVERLAP-WINS": "delta_pool >= 0.05 AND NOT discordant",
+      "SPAN-SPECIFIC": "delta_pool < 0.05 AND NOT discordant",
+      "MIXED": "discordant",
+      "note": "a wash hard-contradicts a pooled win only at the bar's own 0.05 margin in the opposite direction; ties are not contradictions"
+    },
+    "registration": "bars + question + adjudication rule frozen VERBATIM from the dispatch brief BEFORE this script or any compute; the script was committed (git) before the first full run; adjudicate against exactly this; no bar shopping"
+  },
+  "question": "does a probe's SUPPORT-V-OVERLAP (its support's share of v's mass \u2014 the direct denominator load on its own direction) predict its thermal share BETTER than the span-residency did (rho -0.148)? If yes: the composition's carrier claim gains its probe-level evidence; if no: the coupling's carrier is the span-basis specifically, not v-load generally.",
+  "builds_on": [
+    "T231 / e254 (the composition: the denominator owns the span; the carrier candidate; THIS cell is its registered sharper probe-side prediction)",
+    "T230 / e256 (the original coupling: span-residency -> thermal share, rho -0.148 pooled; the join-3 row construction replicated verbatim on identical rows)",
+    "T218 / e238 (the per-probe thermal residuals |resid_z| \u2014 the frozen y-side)",
+    "T216 / e239 (the 54 committed t=0 supports)",
+    "T225 / e240 + e254 (the fp64 v-reconstruction machinery, module-imported; the certified replay; the supports bank)",
+    "T217 / e234 (the committed wash-span bases + the certified gradient journal; the cache conventions)",
+    "T198 / e226 (the support bank + cache conventions)",
+    "e182c / e182c2 (the w1/w2 archives + certified draw streams)"
+  ],
+  "whats_new": [
+    "the first PROBE-LEVEL read of the optimizer's second moment: the per-support quadratic form <s_i, V_s s_i>/||s_i||^2 (the denominator's load on each probe's OWN direction, full form over all 124M coordinates)",
+    "the head-to-head carrier comparison: the v-overlap join vs the span-residency join on IDENTICAL 216 rows (the registered 0.05 bar)",
+    "the random-direction base-rate band for the quadratic form (exact-normalized gaussian unit draws) + v's participation ratio \u2014 the arithmetic-pre-announcement disclosure",
+    "the v-object reuse gate (G_VSPAN): this cell's span masses == e254's committed journal values at the read states"
+  ],
+  "smoke": false,
+  "load_checks": [
+    {
+      "tag": "launch",
+      "cpu_percent": 15.1,
+      "ram_avail_gb": 42.3
+    },
+    {
+      "tag": "supports build",
+      "cpu_percent": 23.9,
+      "ram_avail_gb": 40.8
+    },
+    {
+      "tag": "joins",
+      "cpu_percent": 29.0,
+      "ram_avail_gb": 26.0
+    }
+  ],
+  "provenance_records": {
+    "v_machinery": "lab/e240_moment_archive.py + lab/e254_vspan_overlap.py (module-import; the replay loop statements verbatim)",
+    "v_object_reuse_targets": {
+      "e254_journal": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e254\\journal.json",
+      "fields": "span_masses / span_masses2 at the read states"
+    },
+    "span_bases+gram": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e234\\journal.json",
+    "e234_metrics": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e234\\metrics.json",
+    "supports+alignments": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e226\\metrics.json",
+    "y_side_thermal": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\metrics.json",
+    "span_join_census+committed": {
+      "journal": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e256\\journal.json",
+      "metrics": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e256\\metrics.json"
+    },
+    "washes": "runs/e182c (w1), runs/e182c2 (w2)"
+  },
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32",
+    "torch_threads": 8
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  },
+  "gates": {
+    "G_SIZE": {
+      "params": 124439808,
+      "ceiling": 500000000,
+      "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+      "pass": true
+    },
+    "G_CORPUS": {
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "banned_list_identical": true,
+      "pass": true
+    },
+    "G_ENV": {
+      "desk_only": true,
+      "gpu_used": false,
+      "torch_threads": 8,
+      "torch_threads_note": "e182c's bit-exact CPU replay convention, VERBATIM from e240/e254",
+      "blas_threads": 4,
+      "blas_note": "OMP/MKL 4 \u2014 the dispatch's threads-4 clause (e254's G_ENV precedent)",
+      "pass": true
+    },
+    "G_BATT": {
+      "fact": {
+        "n": 20,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0
+      },
+      "ctrl": {
+        "n": 12,
+        "set_equal_committed": true,
+        "max_dp_w1": 2.086162567138672e-06
+      },
+      "near": {
+        "n": 3,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0
+      },
+      "tmpl": {
+        "n": 19,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0
+      },
+      "pass": true
+    },
+    "G_ORDER": {
+      "rule": "my rebuilt 54 == e226's committed 54 (facts, order, batteries, family6)",
+      "facts_equal": true,
+      "batteries_equal": true,
+      "family6_equal": true,
+      "n": 54,
+      "pass": true
+    },
+    "G_SUPPORT": {
+      "fd_pass_n": 54,
+      "n": 54,
+      "determinism_selfcos_probe0": 0.9999999420274404,
+      "max_dp_vs_e226_committed_w1s0_alignment": 6.348590129079054e-08,
+      "tol_dp_226": 0.005,
+      "pass": true
+    },
+    "G_BASIS": {
+      "per_wash": {
+        "w1": {
+          "max_rel_spectrum_dev": 0.0,
+          "knee_matches": true,
+          "knee": 2,
+          "committed_knee": 2,
+          "abs_coverage_dev": 0.0,
+          "var_frac_at_k": 0.5450216897755322,
+          "committed_var_frac": 0.5450216897755322
+        },
+        "w2": {
+          "max_rel_spectrum_dev": 0.0,
+          "knee_matches": true,
+          "knee": 2,
+          "committed_knee": 2,
+          "abs_coverage_dev": 6.938893903907228e-18,
+          "var_frac_at_k": 0.5865249923626775,
+          "committed_var_frac": 0.5865249923626775
+        }
+      },
+      "tol_rel_spectrum": 1e-09,
+      "tol_abs_coverage": 1e-09,
+      "pass": true
+    },
+    "G_STEPS": {
+      "w1": {
+        "max_abs_d_dnorm": 0.0,
+        "max_abs_d_applied_live": 0.0,
+        "max_rel_d_dnorm": 0.0,
+        "tol_rel": 1e-09,
+        "pass": true
+      },
+      "w2": {
+        "max_abs_d_dnorm": 0.0,
+        "max_abs_d_applied_live": 0.0,
+        "max_rel_d_dnorm": 0.0,
+        "tol_rel": 1e-09,
+        "pass": true
+      },
+      "pass": true
+    },
+    "G_GRAM": {
+      "w1": {
+        "max_abs_dcos": 5.7060849045775797e-08,
+        "tol_dcos": 0.002,
+        "regen_knee": 2,
+        "committed_knee": 2,
+        "max_rel_eig_dev_top20": 2.6686245265705666e-08,
+        "tol_eig": 0.01,
+        "pass": true
+      },
+      "w2": {
+        "max_abs_dcos": 6.783368745599816e-07,
+        "tol_dcos": 0.002,
+        "regen_knee": 2,
+        "committed_knee": 2,
+        "max_rel_eig_dev_top20": 4.671106095035884e-09,
+        "tol_eig": 0.01,
+        "pass": true
+      },
+      "pass": true
+    },
+    "G_VSPAN": {
+      "w1": {
+        "n_values_primary": 10,
+        "max_abs_dev_primary": 0.0,
+        "tol_primary": 1e-12,
+        "v2_on_resume": "not re-derived (verified in the original session's record, fp32 tier)",
+        "pass": true
+      },
+      "w2": {
+        "n_values_primary": 10,
+        "max_abs_dev_primary": 0.0,
+        "tol_primary": 1e-12,
+        "v2_on_resume": "not re-derived (verified in the original session's record, fp32 tier)",
+        "pass": true
+      },
+      "pass": true
+    },
+    "G_DRAWS": {
+      "per_wash": {
+        "w1": true,
+        "w2": true
+      },
+      "pass": true
+    },
+    "G_CE": {
+      "max_abs_dce_per_wash": [
+        0.0,
+        0.0
+      ],
+      "max_abs_dgnorm_per_wash": [
+        0.0,
+        0.0
+      ],
+      "tol": 1e-06,
+      "pass": true
+    },
+    "G_REPLAY": {
+      "per_wash": {
+        "w1": {
+          "2": {
+            "max_abs_dw": 0.0,
+            "max_rel_dw": 0.0
+          },
+          "10": {
+            "max_abs_dw": 0.0,
+            "max_rel_dw": 0.0
+          },
+          "50": {
+            "max_abs_dw": 0.0,
+            "max_rel_dw": 0.0
+          },
+          "80": {
+            "max_abs_dw": 0.0,
+            "max_rel_dw": 0.0
+          }
+        },
+        "w2": {
+          "10": {
+            "max_abs_dw": 0.0002801939845085144,
+            "max_rel_dw": 0.0001480733772041276
+          },
+          "50": {
+            "max_abs_dw": 0.001010105013847351,
+            "max_rel_dw": 0.0006310325697995722
+          },
+          "80": {
+            "max_abs_dw": 0.0015161335468292236,
+            "max_rel_dw": 0.0008275311556644738
+          }
+        }
+      },
+      "tol_abs": {
+        "w1": 0.001,
+        "w2": 0.01,
+        "w3": 0.01
+      },
+      "note": "w1 CPU-origin ~0 expected; w2 GPU-fp32-origin TEXTURE tier ~1.5e-3 (e240/e254's disclosure)",
+      "pass": true
+    },
+    "G_MOMENT": {
+      "per_wash": {
+        "w1": {
+          "50": {
+            "rel_m_max": 5.2286395317236946e-08,
+            "rel_v_max": 1.5485519954940272e-07
+          },
+          "80": {
+            "rel_m_max": 9.740394988345955e-08,
+            "rel_v_max": 2.2774044372587666e-07
+          }
+        },
+        "w2": {
+          "50": {
+            "rel_m_max": 9.845316134747593e-08,
+            "rel_v_max": 3.2737986614418677e-07
+          },
+          "80": {
+            "rel_m_max": 1.1404858195683485e-07,
+            "rel_v_max": 1.8500871136269466e-07
+          }
+        }
+      },
+      "tol": 0.0001,
+      "e240_committed_max_rel_v": 3.2737986614418677e-07,
+      "pass": true
+    },
+    "G_ROWS": {
+      "n_rows": 216,
+      "d_rho_vs_committed": 0.0,
+      "tol": 1e-12,
+      "cells": 16,
+      "row_construction": "e256's join-3 construction VERBATIM (cell order + canonical battery order)",
+      "pass": true
+    }
+  },
+  "timing": {
+    "total_s": 257.8
+  },
+  "probes": [
+    {
+      "i": 0,
+      "fact": "France->Paris",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 1,
+      "fact": "Greece->Athens",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 2,
+      "fact": "Poland->Warsaw",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 3,
+      "fact": "Portugal->Lisbon",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 4,
+      "fact": "Egypt->Cairo",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 5,
+      "fact": "Ireland->Dublin",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 6,
+      "fact": "France->French",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 7,
+      "fact": "Germany->German",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 8,
+      "fact": "Japan->Japanese",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 9,
+      "fact": "Italy->Italian",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 10,
+      "fact": "Spain->Spanish",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 11,
+      "fact": "Russia->Russian",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 12,
+      "fact": "China->Chinese",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 13,
+      "fact": "England->English",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 14,
+      "fact": "Greece->Greek",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 15,
+      "fact": "Poland->Polish",
+      "battery": "fact",
+      "family6": "lang"
+    },
+    {
+      "i": 16,
+      "fact": "Japan->yen",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 17,
+      "fact": "the United Kingdom->pound",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 18,
+      "fact": "the United States->dollar",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 19,
+      "fact": "China->yuan",
+      "battery": "fact",
+      "family6": "cap-cur"
+    },
+    {
+      "i": 20,
+      "fact": "The social network founded by Mark Zuckerberg->Facebook",
+      "battery": "ctrl",
+      "family6": "founder-anchor"
+    },
+    {
+      "i": 21,
+      "fact": "The electric car company founded by Elon Musk->Tesla",
+      "battery": "ctrl",
+      "family6": "founder-anchor"
+    },
+    {
+      "i": 22,
+      "fact": "The rocket company founded by Elon Musk->SpaceX",
+      "battery": "ctrl",
+      "family6": "founder-anchor"
+    },
+    {
+      "i": 23,
+      "fact": "The search engine founded by Larry Page->Google",
+      "battery": "ctrl",
+      "family6": "founder-anchor"
+    },
+    {
+      "i": 24,
+      "fact": "The online encyclopedia that anyone can edit->Wikipedia",
+      "battery": "ctrl",
+      "family6": "founder-anchor"
+    },
+    {
+      "i": 25,
+      "fact": "The gaming console made by Microsoft->Xbox",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 26,
+      "fact": "The web browser made by Google->Chrome",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 27,
+      "fact": "The phone made by Apple->iPhone",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 28,
+      "fact": "The tablet made by Apple->iPad",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 29,
+      "fact": "The email service made by Google->Gmail",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 30,
+      "fact": "The music store made by Apple->iTunes",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 31,
+      "fact": "The game console made by Sony->PlayStation",
+      "battery": "ctrl",
+      "family6": "product"
+    },
+    {
+      "i": 32,
+      "fact": "Massachusetts->Boston",
+      "battery": "near",
+      "family6": "near-uscap"
+    },
+    {
+      "i": 33,
+      "fact": "Georgia->Atlanta",
+      "battery": "near",
+      "family6": "near-uscap"
+    },
+    {
+      "i": 34,
+      "fact": "Ohio->Columbus",
+      "battery": "near",
+      "family6": "near-uscap"
+    },
+    {
+      "i": 35,
+      "fact": "Boston->Massachusetts",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 36,
+      "fact": "Atlanta->Georgia",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 37,
+      "fact": "Sacramento->California",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 38,
+      "fact": "Austin->Texas",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 39,
+      "fact": "Columbus->Ohio",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 40,
+      "fact": "Denver->Colorado",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 41,
+      "fact": "Little Rock->Arkansas",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 42,
+      "fact": "Hartford->Connecticut",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 43,
+      "fact": "Dover->Delaware",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 44,
+      "fact": "Tallahassee->Florida",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 45,
+      "fact": "Honolulu->Hawaii",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 46,
+      "fact": "Boise->Idaho",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 47,
+      "fact": "Indianapolis->Indiana",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 48,
+      "fact": "Des Moines->Iowa",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 49,
+      "fact": "Topeka->Kansas",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 50,
+      "fact": "Baton Rouge->Louisiana",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 51,
+      "fact": "Annapolis->Maryland",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 52,
+      "fact": "Lansing->Michigan",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    },
+    {
+      "i": 53,
+      "fact": "Jackson->Mississippi",
+      "battery": "tmpl",
+      "family6": "rev-capital"
+    }
+  ],
+  "ram_waits": [
+    {
+      "tag": "supports memmap",
+      "waited_s": 0.0,
+      "floor_gb": 16.0,
+      "cleared": true
+    }
+  ],
+  "all_gates_pass": true,
+  "join_v_overlap": {
+    "statistic": "Spearman(qov_{w,s}, |resid_z|) pooled over e238's 16 committed residual cells (the identical 216 rows; PRIMARY v = clipped)",
+    "flavor": "v PRIMARY (clipped \u2014 what the wash's AdamW drank)",
+    "rho": -0.13851558127627145,
+    "p": 0.041976136405046216,
+    "rho_signed": -0.09024518034270472,
+    "p_signed": 0.18639149388009388,
+    "per_wash": {
+      "w1": {
+        "rho": -0.1242581001648137,
+        "p": 0.20009747372269285,
+        "n": 108
+      },
+      "w2": {
+        "rho": -0.16326083435746472,
+        "p": 0.09136113501938503,
+        "n": 108
+      }
+    },
+    "per_cell": {
+      "w1+50": {
+        "rho": -0.16965885267772057,
+        "p": 0.22001982808721426,
+        "n": 54
+      },
+      "w1+80": {
+        "rho": -0.07680579378692586,
+        "p": 0.5809380257001562,
+        "n": 54
+      },
+      "w2+50": {
+        "rho": -0.15517438536306458,
+        "p": 0.26253671877429285,
+        "n": 54
+      },
+      "w2+80": {
+        "rho": -0.16348389555936724,
+        "p": 0.23751806065907058,
+        "n": 54
+      }
+    },
+    "flavor_v2_raw": {
+      "rho": -0.12651377129996785,
+      "p": 0.06344773992920644
+    }
+  },
+  "join_span_residency": {
+    "statistic": "Spearman(residency_w, |resid_z|) on the IDENTICAL rows (e256's committed census residency, split-A primary) \u2014 recomputed here",
+    "e256_committed": {
+      "rho": -0.14793697753319948,
+      "p": 0.02973679948638921,
+      "n_rows": 216
+    },
+    "rho": -0.14793697753319948,
+    "p": 0.02973679948638921,
+    "n_rows": 216,
+    "per_wash": {
+      "w1": {
+        "rho": -0.05206115132131525,
+        "p": 0.5925787289733795,
+        "n": 108
+      },
+      "w2": {
+        "rho": -0.2585144871248033,
+        "p": 0.006905200806619329,
+        "n": 108
+      }
+    },
+    "per_cell": {
+      "w1+50": {
+        "rho": -0.10485991995425956,
+        "p": 0.4504808397964625,
+        "n": 54
+      },
+      "w1+80": {
+        "rho": -0.00331618067467124,
+        "p": 0.9810131773656294,
+        "n": 54
+      },
+      "w2+50": {
+        "rho": -0.2624356775300171,
+        "p": 0.05522179351511141,
+        "n": 54
+      },
+      "w2+80": {
+        "rho": -0.2718124642652944,
+        "p": 0.046781100380161054,
+        "n": 54
+      }
+    }
+  },
+  "comparison": {
+    "delta_pool": -0.009421396256928033,
+    "delta_per_wash": {
+      "w1": 0.07219694884349845,
+      "w2": -0.09525365276733858
+    },
+    "min_delta_w": -0.09525365276733858,
+    "discordant": false,
+    "bar_margin": 0.05,
+    "rule_applied": {
+      "delta_pool": "|rho_v_overlap pooled 216 rows| - |rho_span pooled the same 216 rows| (both computed here on identical probes)",
+      "delta_w": "the same, per wash (the identical 108-row subsets)",
+      "discordant": "(delta_pool >= 0.05 AND min(delta_w) <= -0.05) OR (delta_pool < 0.05 AND min(delta_w) >= 0.05)",
+      "V-OVERLAP-WINS": "delta_pool >= 0.05 AND NOT discordant",
+      "SPAN-SPECIFIC": "delta_pool < 0.05 AND NOT discordant",
+      "MIXED": "discordant",
+      "note": "a wash hard-contradicts a pooled win only at the bar's own 0.05 margin in the opposite direction; ties are not contradictions"
+    }
+  },
+  "adjudication": {
+    "verdict": "SPAN-SPECIFIC",
+    "bars_verbatim": {
+      "V-OVERLAP-WINS": "the support-v-overlap join's |rho| exceeds the span-residency join's by >= 0.05 pooled (both computed here on identical probes) \u2014 the denominator load on the probe's OWN direction is the better carrier; the composition's probe-level evidence landed",
+      "SPAN-SPECIFIC": "the v-overlap join does NOT beat the span join (within 0.05) \u2014 the carrier is the span basis specifically; the composition bounded",
+      "MIXED": "the tables verbatim, both joins, per wash"
+    },
+    "the_letter": {
+      "V-OVERLAP-WINS": "delta_pool >= 0.05 and not discordant",
+      "SPAN-SPECIFIC": "delta_pool < 0.05 and not discordant",
+      "MIXED": "discordant"
+    },
+    "multiplicity": "one primary join + registered co-report flavors (signed, v2-raw, per-wash, per-cell, coarse); NO correction claimed (disclosed)",
+    "scope": "n=1 organism (GPT-2 124M); the join scope = the y-side's committed scope ({w1,w2} x {50,80}; w3 has no residual cells); the wash is a repeated measure in pooled tests (disclosed); nothing guaranteed",
+    "gated_on": "G_ENV/G_SIZE/G_CORPUS/G_BATT/G_ORDER/G_SUPPORT/G_CE/G_DRAWS/G_REPLAY/G_MOMENT/G_STEPS/G_BASIS/G_GRAM/G_VSPAN/G_ROWS",
+    "all_gates_pass": true
+  },
+  "coarse_battery_read": {
+    "statistic": "Spearman(battery-median qov (pooled over the wash's 2 read states, repeated across fit-cell states \u2014 e256's repetition disclosure), R2_battery) over e238's committed fit cells",
+    "n": 28,
+    "rho": -0.34557014878431963,
+    "p": 0.071676287138709,
+    "e256_committed_coarse_rho": -0.38142339646345896
+  },
+  "anchors": {
+    "convention": "e239's band: z vs the product family's 5 non-anchor probes, per (wash, state)",
+    "e256_residency_reference": {
+      "w1": {
+        "Gmail": {
+          "residency": 2.3425484243234565e-05,
+          "band_mean": 2.547304048688122e-05,
+          "band_sd": 2.287262840845216e-05,
+          "z_vs_band": -0.08951993654083143
+        },
+        "iPhone": {
+          "residency": 9.87649203973782e-05,
+          "band_mean": 2.547304048688122e-05,
+          "band_sd": 2.287262840845216e-05,
+          "z_vs_band": 3.204348822604634
+        }
+      },
+      "w2": {
+        "Gmail": {
+          "residency": 9.569426613075628e-06,
+          "band_mean": 9.645566785363199e-06,
+          "band_sd": 9.443186903550887e-06,
+          "z_vs_band": -0.008062974191365415
+        },
+        "iPhone": {
+          "residency": 1.8982282278870363e-06,
+          "band_mean": 9.645566785363199e-06,
+          "band_sd": 9.443186903550887e-06,
+          "z_vs_band": -0.8204156749839357
+        }
+      },
+      "w3": {
+        "Gmail": {
+          "residency": 1.4789883174140183e-05,
+          "band_mean": 1.6445206338049534e-05,
+          "band_sd": 1.3441920456143719e-05,
+          "z_vs_band": -0.12314632937384887
+        },
+        "iPhone": {
+          "residency": 4.1360636860330875e-06,
+          "band_mean": 1.6445206338049534e-05,
+          "band_sd": 1.3441920456143719e-05,
+          "z_vs_band": -0.915727978913197
+        }
+      }
+    },
+    "per_state": {
+      "w1+50": {
+        "Gmail": {
+          "qov": 5.909422646936943e-07,
+          "band_mean": 2.8471816223610995e-06,
+          "band_sd": 5.140744901514491e-06,
+          "z_vs_band": -0.4388934679491108
+        },
+        "iPhone": {
+          "qov": 0.00010550090634343662,
+          "band_mean": 2.8471816223610995e-06,
+          "band_sd": 5.140744901514491e-06,
+          "z_vs_band": 19.96864786868401
+        }
+      },
+      "w1+80": {
+        "Gmail": {
+          "qov": 4.74587299850406e-07,
+          "band_mean": 2.9800578303576133e-06,
+          "band_sd": 5.484611697217078e-06,
+          "z_vs_band": -0.4568182159146283
+        },
+        "iPhone": {
+          "qov": 0.00011239248563074263,
+          "band_mean": 2.9800578303576133e-06,
+          "band_sd": 5.484611697217078e-06,
+          "z_vs_band": 19.948983417714235
+        }
+      },
+      "w2+50": {
+        "Gmail": {
+          "qov": 4.809634627221327e-07,
+          "band_mean": 1.3570125879832387e-06,
+          "band_sd": 2.147174385298984e-06,
+          "z_vs_band": -0.40800092030676877
+        },
+        "iPhone": {
+          "qov": 4.3533556791398474e-05,
+          "band_mean": 1.3570125879832387e-06,
+          "band_sd": 2.147174385298984e-06,
+          "z_vs_band": 19.64281266215941
+        }
+      },
+      "w2+80": {
+        "Gmail": {
+          "qov": 4.804254911677691e-07,
+          "band_mean": 1.9309654185922555e-06,
+          "band_sd": 3.3340526429204147e-06,
+          "z_vs_band": -0.4350680936321111
+        },
+        "iPhone": {
+          "qov": 6.795169937414926e-05,
+          "band_mean": 1.9309654185922555e-06,
+          "band_sd": 3.3340526429204147e-06,
+          "z_vs_band": 19.801947067556533
+        }
+      }
+    }
+  },
+  "families": {
+    "e256_t0_residency_reference": {
+      "w1": {
+        "nearrel_over_product_ratio": 0.49013746471908615
+      },
+      "w2": {
+        "nearrel_over_product_ratio": 0.49579346397985274
+      },
+      "w3": {
+        "nearrel_over_product_ratio": 1.1400023363069804
+      }
+    },
+    "per_state": {
+      "w1+50": {
+        "medians": {
+          "near-uscap": {
+            "n": 3,
+            "median": 4.107596707688375e-07
+          },
+          "product": {
+            "n": 7,
+            "median": 7.465636873744618e-07
+          },
+          "cap-cur": {
+            "n": 10,
+            "median": 4.4752048896921794e-06
+          },
+          "lang": {
+            "n": 10,
+            "median": 1.2120585655091232e-05
+          },
+          "founder-anchor": {
+            "n": 5,
+            "median": 6.19408574295459e-07
+          },
+          "rev-capital": {
+            "n": 19,
+            "median": 4.985735627242806e-06
+          }
+        },
+        "nearrel_over_product_ratio": 0.5502004419923098
+      },
+      "w1+80": {
+        "medians": {
+          "near-uscap": {
+            "n": 3,
+            "median": 4.4311713316645917e-07
+          },
+          "product": {
+            "n": 7,
+            "median": 6.711633685462936e-07
+          },
+          "cap-cur": {
+            "n": 10,
+            "median": 4.153476212290996e-06
+          },
+          "lang": {
+            "n": 10,
+            "median": 1.1554763701235137e-05
+          },
+          "founder-anchor": {
+            "n": 5,
+            "median": 6.234347189172925e-07
+          },
+          "rev-capital": {
+            "n": 19,
+            "median": 5.13840881071166e-06
+          }
+        },
+        "nearrel_over_product_ratio": 0.660222464355033
+      },
+      "w2+50": {
+        "medians": {
+          "near-uscap": {
+            "n": 3,
+            "median": 4.085394182384815e-07
+          },
+          "product": {
+            "n": 7,
+            "median": 5.678839974244294e-07
+          },
+          "cap-cur": {
+            "n": 10,
+            "median": 4.932316619465733e-06
+          },
+          "lang": {
+            "n": 10,
+            "median": 6.43777121482682e-06
+          },
+          "founder-anchor": {
+            "n": 5,
+            "median": 4.968191326080808e-07
+          },
+          "rev-capital": {
+            "n": 19,
+            "median": 3.103218914035592e-06
+          }
+        },
+        "nearrel_over_product_ratio": 0.7194064634526832
+      },
+      "w2+80": {
+        "medians": {
+          "near-uscap": {
+            "n": 3,
+            "median": 3.751284008312118e-07
+          },
+          "product": {
+            "n": 7,
+            "median": 5.976788015797731e-07
+          },
+          "cap-cur": {
+            "n": 10,
+            "median": 4.856886465592338e-06
+          },
+          "lang": {
+            "n": 10,
+            "median": 7.796230140976637e-06
+          },
+          "founder-anchor": {
+            "n": 5,
+            "median": 5.581262240185214e-07
+          },
+          "rev-capital": {
+            "n": 19,
+            "median": 3.7734667147097413e-06
+          }
+        },
+        "nearrel_over_product_ratio": 0.6276421379504838
+      }
+    }
+  },
+  "base_rates": {
+    "w1+50": {
+      "base_rate_mean_v": 7.420175033168552e-09,
+      "null_band": {
+        "median": 7.0600491028798185e-09,
+        "p05": 6.142137468236904e-09,
+        "p95": 8.889175096546841e-09,
+        "min": 5.833572869489776e-09,
+        "max": 9.55141308255369e-09,
+        "n_draws": 64,
+        "seeds": {
+          "base": 2570000,
+          "stride": 1000003,
+          "chunk_stride": 7919
+        }
+      },
+      "probes": {
+        "median": 4.869999287462082e-06,
+        "mean": 2.1303670171838355e-05,
+        "min": 2.8539894921894484e-07,
+        "max": 0.0006702929141380071,
+        "median_over_base_rate": 656.3186536291856,
+        "n_above_null_p95": 54
+      },
+      "participation_ratio_v": 110.1554175036536,
+      "note": "E[<u, V u>] for Haar u = mean(v); the band is the exact-normalized gaussian-draw distribution; a large probe/base-rate ratio is arithmetically pre-announced (v is built from squared gradients; the supports ARE the organism's gradient directions) \u2014 the JOIN is the registered read"
+    },
+    "w1+80": {
+      "base_rate_mean_v": 7.905716192915774e-09,
+      "null_band": {
+        "median": 7.95400344435005e-09,
+        "p05": 6.570144184223911e-09,
+        "p95": 9.708368575913525e-09,
+        "min": 6.337014309455487e-09,
+        "max": 1.119041691425743e-08,
+        "n_draws": 64,
+        "seeds": {
+          "base": 2570000,
+          "stride": 1000003,
+          "chunk_stride": 7919
+        }
+      },
+      "probes": {
+        "median": 4.753258353799061e-06,
+        "mean": 2.25096226087892e-05,
+        "min": 3.0167529364308495e-07,
+        "max": 0.0007164008800003806,
+        "median_over_base_rate": 601.2432318350112,
+        "n_above_null_p95": 54
+      },
+      "participation_ratio_v": 143.10438510980057,
+      "note": "E[<u, V u>] for Haar u = mean(v); the band is the exact-normalized gaussian-draw distribution; a large probe/base-rate ratio is arithmetically pre-announced (v is built from squared gradients; the supports ARE the organism's gradient directions) \u2014 the JOIN is the registered read"
+    },
+    "w2+50": {
+      "base_rate_mean_v": 7.420190702496203e-09,
+      "null_band": {
+        "median": 7.258817417313238e-09,
+        "p05": 6.479520814874281e-09,
+        "p95": 8.81890967460884e-09,
+        "min": 6.254508473209566e-09,
+        "max": 1.083593235944833e-08,
+        "n_draws": 64,
+        "seeds": {
+          "base": 2570000,
+          "stride": 1000003,
+          "chunk_stride": 7919
+        }
+      },
+      "probes": {
+        "median": 3.3853456645169197e-06,
+        "mean": 9.684466399559687e-06,
+        "min": 2.186324540911558e-07,
+        "max": 0.0002718152034804885,
+        "median_over_base_rate": 456.2343206864032,
+        "n_above_null_p95": 54
+      },
+      "participation_ratio_v": 120.93587636517262,
+      "note": "E[<u, V u>] for Haar u = mean(v); the band is the exact-normalized gaussian-draw distribution; a large probe/base-rate ratio is arithmetically pre-announced (v is built from squared gradients; the supports ARE the organism's gradient directions) \u2014 the JOIN is the registered read"
+    },
+    "w2+80": {
+      "base_rate_mean_v": 7.905788269872421e-09,
+      "null_band": {
+        "median": 7.706103794373759e-09,
+        "p05": 6.742686714700691e-09,
+        "p95": 1.003056389576034e-08,
+        "min": 6.349032943095109e-09,
+        "max": 1.2407730269082557e-08,
+        "n_draws": 64,
+        "seeds": {
+          "base": 2570000,
+          "stride": 1000003,
+          "chunk_stride": 7919
+        }
+      },
+      "probes": {
+        "median": 4.143558604855635e-06,
+        "mean": 1.4233909814773842e-05,
+        "min": 2.5187819601095073e-07,
+        "max": 0.00043189165824310233,
+        "median_over_base_rate": 524.1170726322148,
+        "n_above_null_p95": 54
+      },
+      "participation_ratio_v": 149.12987669169354,
+      "note": "E[<u, V u>] for Haar u = mean(v); the band is the exact-normalized gaussian-draw distribution; a large probe/base-rate ratio is arithmetically pre-announced (v is built from squared gradients; the supports ARE the organism's gradient directions) \u2014 the JOIN is the registered read"
+    }
+  },
+  "plot_outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e257\\e257_two_joins.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e257\\e257_corereads.png"
+  ],
+  "honesty_reflex": {
+    "n": "ONE organism (GPT-2 124M); the join scope = the committed y-side's scope ({w1,w2} x {50,80}, 216 rows); pooled tests treat the wash as a repeated measure (disclosed)",
+    "provenance": "v is reconstructed by e240/e254's module-imported fp64 recursion over the certified replays; certified by G_CE/G_DRAWS/G_REPLAY/G_MOMENT/G_STEPS and by G_VSPAN against e254's COMMITTED span masses at the read states; the y-side and the span census are read at runtime from e238's/e256's committed records (G_ROWS reproduces e256's committed rho to 1e-12)",
+    "circularity": "DISCLOSED and unavoidable in kind: v is built from the wash's squared gradients and the supports are the organism's gradient directions \u2014 the base-rate band carries the arithmetic pre-announcement; the registered read is the RANK JOIN against an independently measured outcome (e238's thermal residuals), and the comparison join (span residency) shares the same supports",
+    "instrument_floor": "the supports' fp16 cache floor (~5e-4 per cos) rides every quadratic form; v is fp64",
+    "standing_geometry": "the x-side is the t=0 support's overlap with the STATE's v (state-level denominator load); supports rotate ~18-20 deg through the wash (e239's disclosure) \u2014 the read is the standing direction's load, by registration",
+    "multiplicity": "one primary join + registered co-report flavors; NO correction claimed",
+    "nothing_guaranteed": "MIXED is a real outcome (the registered text carries it); n=1 organism"
+  },
+  "compute": {
+    "wall_s": 257.8,
+    "device": "desk (CPU only; torch threads 8 bit-exact convention, BLAS 4; no GPU \u2014 e248 owns it)",
+    "load_checks": 3,
+    "ram_waits": 1
+  },
+  "trims": [],
+  "deviations": [
+    "v is NOT committed as a vector anywhere (e254 committed its span masses only) \u2014 it is RECONSTRUCTED here by e240's fp64 recursion over the certified wash replays (module-import, e254's replay loop statements verbatim, same order/chunking), and certified four ways: G_CE/G_DRAWS/G_REPLAY (bit-exact replay vs e234's journal + the archived draw/checkpoint streams), G_MOMENT (v vs the live optimizer at the read states), G_STEPS (per-step dnorm/applied vs e254's committed journal), and G_VSPAN (my span masses == e254's committed span_masses/span_masses2 at the read states \u2014 the v-object reuse gate).",
+    "The supports are t=0-fixed (e226/e239's committed bank, rebuilt by e240.build_supports and certified by FD + the e226 w1:s0 alignment, dp <= 0.005); their fp16 cache floor (~5e-4 per cos) rides every quadratic form (disclosed). The supports memmap must SURVIVE into the replay phase (unlike e254, which released it \u2014 this cell reads it); deleted on DONE.",
+    "w3 is NOT replayed: e238's committed residual cells (the frozen y-side) exist only for {w1, w2} x {50, 80}; the join scope IS the y-side's scope, and the span join is recomputed on the IDENTICAL 216 rows (G_ROWS certifies the recomputation against e256's committed rho -0.14793697753319948).",
+    "torch threads 8 (e182c's bit-exact CPU replay convention, VERBATIM from e240/e254 \u2014 the w1 product is a threads-8 product); the dispatch's threads-4 clause is honored on the numpy/BLAS side (OMP/MKL 4, exactly as e254's G_ENV under the same desk-only dispatch regime with e248 owning the GPU).",
+    "The x-side is STATE-LEVEL (v at the residual cell's own state) while e256's x-side was WASH-LEVEL standing geometry (t=0 residency, repeated across the wash's states) \u2014 this is the registered sharpener (the denominator load AT the state), disclosed as a structural difference between the two joins' x-sides.",
+    "The coarse battery-level co-report uses the wash-level battery MEDIAN qov (pooled over the wash's 2 read states), repeated across the fit cell's states \u2014 mirroring e256's coarse-read repetition disclosure.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "INSTRUMENT-TIER FIX (envelope-only, no registered quantity touched; the e254 RELAUNCH-DISCLOSURE precedent): the first full session ran w1 with G_VSPAN's raw-flavor (v2) comparison at the primary's 1e-12 tier and it FAILED at 2.34e-8 \u2014 diagnosed to e254's fp32 v2 SNAPSHOT quantization (e254 stored snaps2 as fp32; this cell keeps fp64), while the PRIMARY v flavor was BIT-EXACT (max |d| exactly 0.0). The gate was re-tiered BEFORE any join was computed (the run halted at the gate): primary tol 1e-12, v2 tol 1e-6 (the fp32 snapshot tier, disclosed above). No bar, no join, no x/y value was touched; the replays were NOT re-run (journal-resume path, every number re-certified from the journal).",
+    "Smoke mode (E257_SMOKE=1): 12 steps, w1 only, read state {10}, 11 probes, e254.HALF patched to 6 for the cache-tier helpers; nothing adjudicated or gated (SMOKE stamp)."
+  ]
+}
