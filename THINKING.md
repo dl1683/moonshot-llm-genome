@@ -685,6 +685,48 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T228 — e252: cooling restores height, never shape — the law's interventional inverse; and the temperature is answer-local (2026-10-04 ~19:47Z)
+
+The resuscitation cell returns the margin/belief split with
+physics cleaner than the design hoped. W028 MADE INTERVENTIONAL:
+cooling recovers ~0 of the belief-RANK order and ~half of the
+belief HEIGHT — SHAPE IS DESTROYED STRUCTURALLY; HEIGHT IS
+PARTLY MASK. The law's own language now has an operational
+inverse: to ask whether a given forgetting is height-or-shape,
+COOL AND SEE. THE ZOMBIE SPLITS: the belief-deficit revives
+(33/33 rise; 17/33 fully un-zombied); the argmax choice
+provably cannot (monotonicity — no scalar rescale reorders
+ties it broke): the zombie's BELIEF is a mask; its CHOICE is
+a scar. TWO AMENDMENTS NOBODY REGISTERED: (1) THE TEMPERATURE
+IS ANSWER-LOCAL — the +80 logits' spread is ~1.0x t0's while
+T_fit reads 1.45: the "heat" is not a global scaling but a
+concentration on the answers (T218's lens-not-mechanism
+caveat, now interventional); (2) AMPLITUDE AND ORDER DECOUPLE
+under any scalar — HEATING helps the ranks (0.51/0.60) where
+cooling helps the heights: the two layers are genuinely
+different objects. PREDICTION (a)'s PERFECT INVERSION (rho
+-1.000 both washes: the least-thermal battery revives most)
+measures the thermal model's own boundary: revival tracks
+HEADROOM, not thermal share. CONNECTIONS: agy #002's pick
+delivered the promised discriminating power; W030's floor
+gains its height-side inverse; the surviving-objects census
+gains the zombie's split halves (the revivable belief, the
+scarred choice); e255 (FQ13) inherits the answer-locality.
+
+## T227 — e251: the colleague's first kill — the forge was LayerNorm's bookkeeping (2026-10-04 ~19:14Z)
+
+ZERO-SUM-LN: every battery's margins thickened through the
+wall's flat phase (fact +19.2%, ctrl +17.2%, held-30 +72.5%)
+— the sigma-normalized margin shares LN's denominator, and
+the eroded beliefs' variance budget redistributes to all
+survivors. THE FORGE NOUN DIES; the precise scope kept (the
+wall still cools, the ruler still flats, e237's
+interventional elevation and e227's lift return stand — both
+p-based). The energy-balance question sharpened to the
+budget's ORIGIN (now FQ13/e255). The colleague protocol's
+demonstration: a consult-born confound, tested within the
+hour, one 26-second eval, a headline amended.
+
 ## T226 — e246: the span is the install's anti-substrate — new memories need orthogonal room (2026-10-04 ~19:07Z)
 
 The build lane's first verdict is the honest bound — the wall's

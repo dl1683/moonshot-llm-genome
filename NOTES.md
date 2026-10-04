@@ -9,6 +9,43 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e252 — the zombie resuscitation (agy consult #002's pick): PARTIAL — the margin/belief split — cooling the +80 logits by the inverse fitted T recovers ~0 of the belief-RANK order (RF -0.03/-0.07; rho 0.42/0.48 vs the 0.8 bar; the sham indistinguishable) but revives the HEIGHTS (half the belief gap, BR 0.52/0.56; the zombies' beliefs rise 33/33, 17/33 un-zombied): THE ZOMBIE'S BELIEF IS PARTLY A MASK; ITS ORDER NEVER WAS; the wrong-choosers' argmaxes provably cannot return (monotonicity); prediction (a) INVERTED PERFECTLY (rho = -1.000 both washes: revival tracks headroom, not thermal share); TWO PHYSICS AMENDMENTS: the +80 state is NOT a scaled t0 (sigma ratio ~1.0 vs T=1.45 — the temperature is ANSWER-LOCAL) and AMPLITUDE AND ORDER DECOUPLE under any scalar (heating helps ranks 0.51/0.60 where cooling helps heights) (2026-10-04 ~19:45Z) — DONE
+
+WHAT WE DID: the frozen scratch/e252_design.md cell — the
+frozen forward with logits' = logits/T_fit(state) on the
+committed +50/+80 states (the forward certified BIT-EXACT vs
+e238's sha-recorded dumps); the three reads + the sham-T and
+weak-sham controls; 41s CPU; all gates PASS; three mechanical
+no-design fixes disclosed. Script lab/e252_resuscitation.py;
+runs/e252/{metrics.json, rank_resuscitation.png,
+zombie_revivals.png}.
+
+WHAT WE SAW (T228): THE SPLIT — the erosion order is
+STRUCTURAL (cooling recovers ~nothing of the ranks; T218's
+residual stands as rank-side physics); the belief heights are
+HALF-MASK (mean p at +80: 0.414 -> 0.620 cooled, t0 0.809).
+THE ZOMBIE OBJECT SPLITS: its belief-deficit is revivable
+(33/33 beliefs rise; 17/33 un-zombied); its argmax choice is
+not (monotonicity — provably impossible under any scalar).
+THE TEMPERATURE IS ANSWER-LOCAL: the +80 logits' spread ~=
+t0's while T_fit = 1.45 — the "heat" concentrates on the
+answers; T218's "lens, not mechanism" made INTERVENTIONAL.
+AMPLITUDE AND ORDER DECOUPLE: heating the logits moves ranks
+the other way (0.51/0.60) while cooling helps heights — no
+scalar rescale trades one for the other: THE TWO LAYERS ARE
+DIFFERENT OBJECTS. PREDICTION (a) INVERTED PERFECTLY (rho
+-1.000 x2: ctrl revives most, near least — revival tracks
+headroom, not thermal share).
+
+HONESTY: n=1, 2 washes; the extrapolated fit (the one-T
+family's late misspecification); the sham's near-degeneracy
+disclosed. NEXT (T228): the resuscitation joins the toolkit
+(a cheap probe: is a given forgetting height-or-shape? cool
+and see) + e255 dispatched (FQ13 — the thermal-ledger
+identity, now sharpened by the answer-locality).
+
+---
+
 ## e251 — the LN-redistribution control: ZERO-SUM-LN — agy consult #001's confound FIRES on e242's own states — the ctrl battery thickened +17.24% vs the fact's committed +19.15% (held-30 +72.45%): ALL margins grew through the wall's flat phase; the +19.2% is generic bookkeeping-class (the sigma-normalized margin shares LN's denominator), not a fact-specific forge — T220's FORGE DOWRADES; the wall still cools and the ruler still flats (only the forge noun dies) (2026-10-04 ~19:12Z) — DONE
 
 WHAT WE DID: eval-only, CPU, 26.4s. The 2.74M family's FIRST
