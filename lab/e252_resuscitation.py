@@ -474,7 +474,9 @@ def make_rank_plot(rd, states_rows, zombie_read, pred_read, verdict,
         ax.plot(steps, [1.0] + [r["rho_cooled"] for r in rows], "o-", ms=7,
                 lw=2.2, color="tab:purple" if wash == "w1" else "tab:cyan",
                 label=f"{wash} COOLED (xT_fit)")
-        ax.plot(steps, [1.0] + [r["rho_sham"] for r in rows], "s:", ms=5,
+        srows = [r for r in rows if r["rho_sham"] is not None]
+        ax.plot([0] + [r["step"] for r in srows],
+                [1.0] + [r["rho_sham"] for r in srows], "s:", ms=5,
                 lw=1.3, color="tab:purple" if wash == "w1" else "tab:cyan",
                 alpha=0.5, label=f"{wash} sham (xT_other-wash)"
                 if wash == "w1" else None)
@@ -1039,9 +1041,13 @@ def main():
         # THE COOLED READS (float64)
         L64 = L_st.astype(np.float64)
         T_true = tfit[(wash, s_)]
-        T_sham = tfit[("w2" if wash == "w1" else "w1", s_)]
+        # the sham needs a cross-wash same-state partner; the w1-only +2
+        # co-report state has none -> sham skipped (disclosed; never
+        # adjudicates)
+        T_sham = tfit.get(("w2" if wash == "w1" else "w1", s_))
         cooled = cooled_read(L64, ans_arr, T_true)     # THE inverse-T read
-        sham = cooled_read(L64, ans_arr, T_sham)       # the null control
+        sham = (cooled_read(L64, ans_arr, T_sham) if T_sham is not None
+                else None)                              # the null control
         anti = cooled_read(L64, ans_arr, 1.0 / T_true)  # the literal-typeset
         #                                          echo (further heating)
         row = {
@@ -1056,14 +1062,20 @@ def main():
             "cooled": {k: cooled[k] for k in (
                 "mean_p", "mean_margin_raw", "margin_raw", "p",
                 "argmax_is_answer")},
-            "sham": {k: sham[k] for k in ("mean_p",)},
+            "sham": ({k: sham[k] for k in ("mean_p",)}
+                     if sham is not None else None),
             "anti": {k: anti[k] for k in ("mean_p", "mean_margin_raw")},
         }
         # rho reads (pooled + per battery)
         for key, vec in (("rho_raw", p_st.tolist()),
                          ("rho_cooled", cooled["p"]),
-                         ("rho_sham", sham["p"]),
+                         ("rho_sham", sham["p"] if sham is not None
+                          else None),
                          ("rho_anti", anti["p"])):
+            if vec is None:
+                row[key] = None
+                row[key + "_battery"] = {b: None for b in BATTERIES}
+                continue
             row[key], _ = spearman(vec, t0_p.tolist())
             row[key + "_battery"] = {}
             for b in BATTERIES:
