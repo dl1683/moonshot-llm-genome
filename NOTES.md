@@ -9,6 +9,48 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e233 — the support-projection intervention: ANY [UNDERPOWERED] — a tiny aligned component with iPhone-specific fate-potency below the registered carrier line: removing ~0.04% of each step's L2 along iPhone's t=0 support MORE THAN DOUBLED iPhone's fate (0.188->0.407) with Gmail, all five product-family members, and the near battery untouched (P~C~committed); the control airtight (ARM-C reproduces the committed w1 wash at every state); the sparing first-order-consistent (predicted +0.105 vs observed +0.139) (2026-10-04 ~14:50Z) — DONE
+
+WHAT WE DID: the frozen scratch/e233_design.md cell — wash-1's
+certified stream continued VERBATIM for 80 steps with each
+APPLIED AdamW step projected off iPhone's t=0 support (ARM-P,
+norm not rescaled; removed-L2 ledger fp64) vs ARM-C (each step
+scaled to ARM-P's per-step norms; scales 0.9997-1.0007). All 7
+gates PASS (G_BATT dp 0.0 vs w1; G_DRAWS bit-exact; G_WASHHEALTH
+CE 3.71->3.31 both arms); three envelope lessons disclosed
+(the 5090's ~9C/s ramp -> per-step polls; the journal clobber ->
+archive re-probe; one concurrent-process incident, killed,
+deterministic). Script lab/e233_support_intervention.py;
+runs/e233/{metrics.json, e233_fates.png, e233_ledger.png} +
+checkpoints e233_{P,C}_s{10,50,80}.pt.
+
+WHAT WE SAW (T215): at the frozen lines FATE-FLIPS fails
+(iPhone-P 0.407 < the 0.4525 line, by 0.046) and FATE-HOLDS
+fails (0.407 > the committed spread max 0.342) -> ANY, with
+clause (c)'s co-stamp UNDERPOWERED (median removed 0.037% of
+step norms, 27x under the 1% bar). THE RECORD: the divergence
+is iPhone-ONLY and progressive (0.975/0.598/0.407); per-unit-L2
+the aligned component is ENORMOUSLY fate-potent (the FD slope
+17.9 dp per unit L2; cumulative removed 0.0059 -> predicted
++0.105 vs observed +0.139). PREDICTION (a)'s FAMILY CLAUSE
+READS NEGATIVE in the P-C contrast: the projection protected
+THE ANCHOR ALONE — the seat is probe-specific, not
+family-shared. THE MECHANICAL READ (T215): the projection
+removed the applied step's component but Adam's MOMENTS still
+carry the aligned gradient — each next step re-grows it: THE
+WIND HAS MEMORY (the optimizer's second-order state re-forms
+the aligned direction). The next instrument question is DOSE
+and LEVEL, not direction: the pre-Adam projection (kill the
+gradient's component before the moments drink it).
+
+HONESTY: n=1 wash, n=1 organism; the verdict rides the frozen
+lines with the UNDERPOWERED co-stamp as registered; the
+resumable discipline worked (two mid-run pauses); no bar
+shopping. NEXT: scratch/e237_design.md (the pre-Adam
+projection — the moment-supply cut).
+
+---
+
 ## e235 — T211's follow-up (a), the second 10M root's lift: VARIANT-NOT-SCALE ON THE GATE LEG — the 2-shot Z-form instrument ALIVE on g1bS5's peak root (gates 12/30; the g1bS7 control reproduced BIT-EXACTLY, dp 0.0 on all ten committed reads) but the MIRABEL exemplar-following lift NEGATIVE on BOTH 10M roots (-0.150/-0.019 vs 2.74M's +0.185) — e227's 10M absence DECOMPOSES: form-reading = the consolidation draw; exemplar-following = scale-shaped in this instrument form; the wash's post-kill lift return present in direction (+0.025 at +50) at 1/10 the 2.74M strength; the strangest texture: 0-shot p(M) = 0.345 on one 10M draw vs 0.032 on the other — the never-seen-name prior swings 10x across draws (2026-10-04 ~14:40Z) — DONE
 
 WHAT WE DID: T211's registered discriminating cell, eval-only,

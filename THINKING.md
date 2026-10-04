@@ -685,6 +685,42 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T215 — e233: the wind is a scalpel with a memory — between marker and carrier, at 17.9 dp per unit L2 (2026-10-04 ~14:52Z)
+
+The intervention returned the between-state the design's bars
+left room for, and the texture names the next question. THE
+POTENCY: removing 0.04% of each applied step's L2 along ONE
+direction more than doubled the dying probe's fate (+0.219 hr)
+while every other probe sat at P~C~committed — per-unit-L2 the
+aligned component is ~17.9 dp of fate per unit of L2, orders
+beyond anything diffuse. THE WIND IS A SCALPEL, NOT A GALE.
+THE MECHANICAL READ of the near-miss (0.407 vs the 0.4525
+line): the projection removed the APPLIED step's component,
+but Adam's moments still drank the aligned GRADIENT every step
+— the optimizer's memory re-grows the component the projection
+keeps shaving. THE WIND HAS MEMORY. This names the next cell
+exactly: PROJECT THE GRADIENT BEFORE ADAM (or reset the moments
+on the projected component) — sever the supply, not the
+shipment. REGISTERED (scratch/e237_design.md): the pre-Adam
+projection at the SAME removed-L2 budget; PREDICTION: iPhone-P
+crosses the carrier line (hr >= 0.4525) because the wind's
+memory is cut; ALTERNATIVE: it still stalls below the line —
+then the killing rides Adam's per-coordinate normalized
+geometry in a way one direction cannot intercept (g14's
+MULTI-COMPONENT echo at the intervention level), and the
+dose-response ladder (amplified removals) becomes the map
+instead of the flip. THE FAMILY CLAUSE'S NEGATIVE: the anchor
+was protected ALONE — the seat is probe-specific (the family's
+other members' supports do not share the anchor's direction —
+consistent with e226's per-probe support structure). THE W035
+LEDGER UPDATE: the wind's directed component is REAL, TINY IN
+L2, and ENORMOUS IN EFFECT-PER-L2; the friction (e232's
+restructured grinding) is everything else. The shoreline (W036)
+gains its sharpest small-model analogue: if the wall's +2
+recapture is the wind re-forming, its memory story is Adam's
+moments re-growing the fact direction — testable at any
+g-series root by the same pre-Adam cut.
+
 ## T214 — e235: the 10M absence decomposes — and the prior shape is a lottery too (2026-10-04 ~14:45Z)
 
 T211's table gains its 10M fine print: form-reading was the
