@@ -32,8 +32,11 @@ one quantitative draft of a theory: the wash as a FOUR-MOVEMENT FIELD.
    the p-side is ~two-thirds thermal — T(t) rises 1.00 → 1.45 monotone, wash-
    replicating (e238) — and the REMAINDER IS THE CONSERVED EROSION ORDER: the day's
    most precisely-located unexplained object (neither thermal nor wind-aligned).
-4. THE RE-FORMATION (reparative): the wall FORGES commitments (margins +19.2% through
-   the flat phase; the battery's one weak decision re-covered — e242); the holder's
+4. THE RE-FORMATION (reparative): the wall thickens margins +19.2% through the flat
+   phase (e242) [AMENDED at e251: GENERIC zero-sum LN redistribution, not a
+   fact-specific forge — the ctrl battery thickened +17.2%, agy's confound fired;
+   the cooling and ruler-flat stand; e237's interventional elevation remains the
+   layer's standing datum]; the holder's
    margin grows (e234); the 2.74M exemplar channel returns above t=0 post-kill (e227);
    and removing the undertow reveals NET GROWTH (e237's elevation). The walled world
    COOLS while the unwalled heats — "the wash heats beliefs" is an unwalled statement.
