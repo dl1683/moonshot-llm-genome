@@ -1519,6 +1519,55 @@ def _load_state_sd(wname, s, mult=1):
                       map_location="cpu", weights_only=False)["model"]
 
 
+class _PlainGDirs:
+    """[recovery executor, the 2026-10-04 memmap incident] plain-IO reader
+    for the big fp16 row archives (gdirs / supports). np.memmap views of
+    these multi-GB files on this host served a STALE FIRST PAGE — a NaN
+    at flat-index 38 that survived file replacement and appeared at the
+    same index across DIFFERENT files, while plain-IO reads were verifi
+    ably clean in both directions (full finiteness scans + a bit-exact
+    row-0 recompute + a step-41 replay cross-check at cos 0.98 explained
+    by optimizer-moment divergence). Every read of these archives now
+    goes through file seeks, never mapped views. Supports the slice
+    patterns the read path uses: [i] (full row), [:, c0:c1], [:stop,
+    c0:c1]."""
+
+    def __init__(self, path, n_rows, n_cols):
+        import numpy as np
+        self._f = open(path, "rb")
+        version = np.lib.format.read_magic(self._f)
+        _rh = {v: getattr(np.lib.format, f"read_array_header_{v[0]}_{v[1]}")
+               for v in [version]}
+        shape, fortran, dtype = _rh[version](self._f)
+        assert tuple(shape) == (n_rows, n_cols) and dtype == np.float16, \
+            (shape, dtype)
+        self._h = self._f.tell()
+        self.shape = (n_rows, n_cols)
+        self._rw = n_cols * 2
+        self._np = np
+
+    def __getitem__(self, key):
+        np = self._np
+        if isinstance(key, (int, np.integer)):
+            self._f.seek(self._h + int(key) * self._rw)
+            return np.frombuffer(self._f.read(self._rw),
+                                 dtype=np.float16).copy()
+        r, c = key
+        assert isinstance(r, slice) and isinstance(c, slice), key
+        r0, r1, rst = r.indices(self.shape[0])
+        c0, c1, cst = c.indices(self.shape[1])
+        assert rst == 1 and cst == 1, key
+        out = np.empty((r1 - r0, c1 - c0), dtype=np.float16)
+        for i in range(r0, r1):
+            self._f.seek(self._h + i * self._rw + c0 * 2)
+            out[i - r0] = np.frombuffer(self._f.read((c1 - c0) * 2),
+                                        dtype=np.float16)
+        return out
+
+    def close(self):
+        self._f.close()
+
+
 def _dot_rows(A, B=None, device=None):
     """Pairwise cos dots of fp16 stored rows (unit*16384 convention):
     returns the (nA, nB) matrix of cosines, fp64, chunked. GPU path
@@ -1689,8 +1738,8 @@ def cmd_read() -> None:
             if i % 9 == 0:
                 jlog("supports_t0", i=i)
         gdir.flush()
-    sup = np.memmap(sup_path, dtype=np.float16, mode="r",
-                    shape=(54, PARAMS_EXPECTED))
+    # [the 2026-10-04 memmap incident] supports read via plain IO only
+    sup = _PlainGDirs(sup_path, 54, PARAMS_EXPECTED)
     # G_SUPPORTFD: p(theta + 0.02 s_hat) > p0
     if "G_SUPPORTFD" not in m["reads"]:
         model.load_state_dict(_load_state_sd(None, 0))
@@ -1769,12 +1818,20 @@ def cmd_read() -> None:
         if Gp.exists():
             G = np.load(Gp)
         else:
-            gdir = np.memmap(SCRATCH / f"gdirs_{wname}_m{mult}.npy",
-                             dtype=np.float16, mode="r",
-                             shape=(WASH["steps"] * mult, PARAMS_EXPECTED))
+            # [the 2026-10-04 memmap incident] plain-IO read, never a view
+            gdir = _PlainGDirs(SCRATCH / f"gdirs_{wname}_m{mult}.npy",
+                               WASH["steps"] * mult, PARAMS_EXPECTED)
             G = _dot_rows(gdir, device=("cuda" if device == "cuda" else None))
+            gdir.close()
             np.save(Gp, G)
-            del gdir
+        # the incident's silent-kill guard: a corrupted read once
+        # produced NaN eigvals, and NaN comparisons read as bar FAILS —
+        # raise loudly instead
+        if not np.isfinite(G).all():
+            raise RuntimeError(
+                f"non-finite Gram for {wname}: the gdir archive read "
+                "corrupted (the 2026-10-04 memmap first-page incident) — "
+                "verify the archive via plain IO before rerunning")
         H = min(40 * mult, G.shape[0] - 1)
         A = G[:H, :H].astype(np.float64)
         w_eig, V = np.linalg.eigh(A)
@@ -1792,10 +1849,11 @@ def cmd_read() -> None:
         bpath = SCRATCH / f"basis_{wname}_m{mult}.npy"
         if bpath.exists():
             basis[wname] = np.load(bpath)
+            assert np.isfinite(basis[wname]).all(), \
+                f"cached basis {wname} non-finite — delete and recompute"
             continue
-        gdir = np.memmap(SCRATCH / f"gdirs_{wname}_m{mult}.npy",
-                         dtype=np.float16, mode="r",
-                         shape=(WASH["steps"] * mult, PARAMS_EXPECTED))
+        gdir = _PlainGDirs(SCRATCH / f"gdirs_{wname}_m{mult}.npy",
+                           WASH["steps"] * mult, PARAMS_EXPECTED)
         Bs = np.lib.format.open_memmap(bpath, dtype=np.float32, mode="w+",
                                        shape=(2, PARAMS_EXPECTED))
         for k in range(2):
@@ -1810,7 +1868,8 @@ def cmd_read() -> None:
             Bs[k] = (acc / max(nrm, 1e-12)).astype(np.float32)
         Bs.flush()
         basis[wname] = np.load(bpath)
-        del gdir
+        assert np.isfinite(basis[wname]).all(), f"basis {wname} non-finite"
+        gdir.close()
     ident = float(abs(np.dot(basis["w1"][0], basis["w2"][0])))
     second = float(abs(np.dot(basis["w1"][1], basis["w2"][1])))
     m["reads"]["span"] = {
@@ -1844,9 +1903,15 @@ def cmd_read() -> None:
                     bs[k] += Sb @ basis[wname][k][col:cend].astype(np.float64)
                 col = cend
             bs /= 16384.0        # sup rows are unit*16384 (fp16 cache)
-            proj = (gb[:, None, :] * bs[:, :, None]).sum(axis=0)   # (T2, 54)
-            cosmat = proj / (pg_norm[:, None] * 1.0)
-            wind[wname] = np.abs(cosmat).sum(axis=0).tolist()
+            # [recovery executor shape fix, disclosed] the broadcast here
+            # was wrong in the committed script (proj is (54, T2) —
+            # probes x decomposition steps — and divided by (T2, 1),
+            # a hard ValueError crash caught at first live run; and the
+            # sum axis then pointed the wrong way): normalize per STEP
+            # (columns) and sum over steps to get the per-PROBE wind.
+            proj = (gb[:, None, :] * bs[:, :, None]).sum(axis=0)   # (54, T2)
+            cosmat = proj / pg_norm[None, :]
+            wind[wname] = np.abs(cosmat).sum(axis=1).tolist()
         m["reads"]["wind_cum"] = wind
         write_metrics(m)
         jlog("wind_cum_done")
@@ -1894,17 +1959,33 @@ def cmd_read() -> None:
                 if i % 18 == 0:
                     jlog("supports_state", wash=wname, s=s, i=i)
             mm.flush()
+            # [the 2026-10-04 incident] verify the first data page via
+            # plain IO right after the memmap write — the incident's
+            # signature was exactly there
+            with open(path, "rb") as fchk:
+                ver = np.lib.format.read_magic(fchk)
+                getattr(np.lib.format,
+                        f"read_array_header_{ver[0]}_{ver[1]}")(fchk)
+                head = fchk.tell()
+                fchk.seek(head)
+                page0 = np.frombuffer(fchk.read(8192), dtype=np.float16)
+            assert np.isfinite(page0).all(), \
+                f"first-page corruption after write: {path}"
     if "coherence" not in m["reads"]:
         coh, rot, cross = {}, {w: {} for w in ("w1", "w2")}, {}
         dev = ("cuda" if device == "cuda" else None)
         for s in deep_states:
-            A = np.memmap(_sup_state_path("w1", s), dtype=np.float16,
-                          mode="r", shape=(54, PARAMS_EXPECTED))
-            B = np.memmap(_sup_state_path("w2", s), dtype=np.float16,
-                          mode="r", shape=(54, PARAMS_EXPECTED))
+            # [the 2026-10-04 memmap incident] plain-IO reads only
+            A = _PlainGDirs(_sup_state_path("w1", s), 54, PARAMS_EXPECTED)
+            B = _PlainGDirs(_sup_state_path("w2", s), 54, PARAMS_EXPECTED)
             c10 = _dot_rows(A, sup, device=dev)
             c20 = _dot_rows(B, sup, device=dev)
             c12 = _dot_rows(A, B, device=dev)
+            A.close(); B.close()
+            for nm, cmat in (("c10", c10), ("c20", c20), ("c12", c12)):
+                if not np.isfinite(cmat).all():
+                    raise RuntimeError(f"non-finite {nm} at s={s} — the "
+                                       "supports archive read corrupted")
             t1 = np.arccos(np.clip(c10.diagonal(), -1, 1))
             t2 = np.arccos(np.clip(c20.diagonal(), -1, 1))
             tB = np.arccos(np.clip(c12.diagonal(), -1, 1))
@@ -1956,6 +2037,7 @@ def cmd_read() -> None:
         write_metrics(m)
 
     m["status"] = "READ (phase 4b done)"
+    sup.close()
     jlog("phase4b_done")
 
 

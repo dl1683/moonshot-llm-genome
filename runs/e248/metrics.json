@@ -121,7 +121,7 @@
     "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e248_organism_replicate.py",
     "script_sha256_16": "7c446b1a3c1a716b"
   },
-  "updated": "2026-10-04T22:35:08Z",
+  "updated": "2026-10-04T22:41:57Z",
   "build": {
     "corpus": {
       "chars_total": 1115394,
@@ -1418,6 +1418,15 @@
       "change": "floor now over (\"fact\",\"ctrl\",\"tmpl\") only; near co-reports",
       "when": "2026-10-04T22:20Z, at install rung 3 dose 320 (the rung that first cleared the true gate: fact 15 ctrl 12 tmpl 18, meanp 0.802, ce 1.5385)",
       "bars": "none touched (the registration text itself says near never adjudicates)"
+    },
+    {
+      "fix": "memmap views of the multi-GB fp16 archives served a stale first page (NaN at flat-index 38, identical across DIFFERENT files and surviving file replacement; plain-IO reads clean in both directions; row-0 recomputed bit-exact from t0 + first seeded draw; row-40 cross-checked vs replay at cos 0.98 explained by optimizer-moment divergence)",
+      "changes": "all archive reads now plain-IO (_PlainGDirs); Gram/coherence finiteness guards; first-page plain-IO verification after support writes; the wind_cum broadcast bug fixed (proj is (54,T2): normalize per column, sum axis=1; the committed code divided by (T2,1) and summed axis=0 \u2014 a hard crash at first live run, never smoked)",
+      "reads_dropped_for_recompute": [
+        "G_SUPPORTFD",
+        "span"
+      ],
+      "when": "2026-10-04T23:05Z"
     }
   ],
   "washes": {
@@ -1441,6 +1450,30 @@
         50,
         80
       ]
+    }
+  },
+  "reads": {
+    "_mult": 1,
+    "G_REPRO": {
+      "max_dp_t0_reread": 0.0,
+      "pass": true
+    },
+    "G_RECALIBRATION": {
+      "median_t0_margin": 0.27857782422784916,
+      "p25_t0_margin": 0.19649596304826197,
+      "median_t0_p": 0.930662602186203,
+      "pass": true,
+      "census_flip_zone": 0.05,
+      "note": "verbatim thresholds ported"
+    },
+    "G_WASHGRADFD": {
+      "dces": [
+        -0.0010836124420166016,
+        -0.0010089874267578125,
+        -0.0011156201362609863,
+        -0.0009642243385314941
+      ],
+      "pass": true
     }
   }
 }
