@@ -685,6 +685,47 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T217 — e234: the tide has a direction; the undertow is anchor-scale; the zombies wander next door (2026-10-04 ~16:12Z)
+
+The decomposition's honest bound resolves the field's layers
+with unusual precision. THE TIDE: the 2-dim span is CROSS-WASH
+IDENTICAL (cos 0.96 across three independent draw streams) —
+T216's R question answers itself in the main: the common
+rotation's direction IS the wash-span, a corpus+organism
+property. The tide is real, narrow, and stable. THE UNDERTOW:
+battery-wide, alignment with the tide explains nothing of
+belief death (rho ~ 0; not a projection artifact; the raw join
+equally flat) — the wind story survives ONLY at the anchor
+extremes (iPhone's cumulative exposure 8-10x Gmail's). And the
+buried lead: PREDICTION (a) INVERTED — the hardest-dying family
+is the LEAST wind-reached. Composed: the most-aligned anchor
+dies, the least-aligned anchor holds, and the middle is
+uncorrelated — the undertow is a TALE OF TWO EXTREMES, perhaps
+a threshold geometry, not a graded law. W035's field is now
+BOUNDED: the directed wind carries belief death at the extremes
+only; the friction is real (T212 stands) but not separable from
+the full field at 7% coverage. TWO TEXTURES THE NULL HANDED
+OVER: (1) GMAIL'S MARGIN GROWS — the holder's commitment
+THICKENS under the wash (anti-erosion; the re-formation layer's
+first 124M sighting at the anchor level — e227's return-after-
+kill had the 2.74M analogue); (2) THE ANSWER-NEIGHBORS — the 7
+wrong-choosers' new commitments are neither corpus-mode (1/7)
+nor noise: they are the dead answers' own semantic neighbors
+('dollars' for dollar; 'Augusta' — the state's OTHER capital).
+THE ZOMBIE'S COMMITMENT DOES NOT DIE AND IS NOT REWRITTEN — IT
+WANDERS NEXT DOOR. REGISTERED ASK (desk, committed data): the
+answer-neighbor structure quantified — the flipped tokens'
+logit/embedding distance to the dead answer vs to random
+vocab; prediction: the neighbors sit in the dead answer's
+top-1% semantic neighborhood (a LOCAL collapse, not a global
+one — the commitment keeps its ADDRESS but loses its NUMBER).
+CONNECTIONS: T216 (the tide answered); T212 (H-i dead, the
+third texture named); W035's convergence stamp (the layers
+re-priced: tide confirmed, undertow bounded to extremes,
+friction unseparated, re-formation now twice-seen); e236's
+standing (the root-level join read NEITHER in sign-agreement
+with this — the two-level consistency clause held).
+
 ## T216 — e239: the wind blows the same direction in both draws — the common rotation is the new object (2026-10-04 ~15:42Z)
 
 The support-stability read returned the strong branch, and the

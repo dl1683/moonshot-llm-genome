@@ -9,6 +9,56 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e234 — the wind/friction decomposition: NEITHER — the honest bound (the wind is real, cross-wash-stable, and does not aim at beliefs; e226's seat is anchor-scale) — the span's cross-wash identity cos 0.958-0.966 across three independent draw streams; prediction (a) INVERTED (the hardest-dying family is the least wind-reached); Gmail's margin GROWS; the 7 wrong-choosers are ANSWER-NEIGHBORS (1/7 corpus-mode — a third texture neither T212 hypothesis registered) (2026-10-04 ~16:10Z) — DONE
+
+WHAT WE DID: the frozen scratch/e234_design.md cell — the three
+committed 124M washes replayed bit-exactly (w1 end-weights
+BIT-EXACT vs e182c's archive; draws bit-exact x3; w2/w3
+CPU-vs-GPU end-drift 1.5e-3, TEXTURE tier), every step's raw
+gradient decomposed against a split-half span basis (k=2 at the
+scree knee on every wash; both coordinator advisories registered
+as validity guards before the adjudicating compute). Joins (a)
+belief decline vs cumulative wind-alignment and (b) margin
+decline vs friction/wind/full, across all 54 probes x 3 washes.
+Script lab/e234_wind_friction.py; runs/e234/{metrics.json DONE,
+journal.json, 4 PNGs, provenance}.
+
+WHAT WE SAW (T217): JOIN (a) rho -0.009 pooled (matched-window
+0.11, mirror 0.04, reduced-rank -0.15, RAW-UNPROJECTED 0.055 —
+NOT a projection artifact); no margin join clears 0.4 (wind
+0.06, friction 0.14, full 0.14 — indistinguishable at 7%
+coverage). INSTRUMENT VALID: coverage 0.07 (not vacuous),
+alignment spread 8x (not pinned), PC1-vs-mean-sign ~0.00 (no
+recipe-identity shadow — e231's class does not apply to
+raw-gradient spans at 124M). WHAT SURVIVES THE NULL: (1) THE
+SPAN'S CROSS-WASH IDENTITY — cos 0.958-0.966 across independent
+draw streams: the wind's direction is a CORPUS+ORGANISM
+property, not a draw property (T216's R question answered in
+the main: the tide's direction is the span); (2) THE SEAT IS
+ANCHOR-SCALE — iPhone's raw cumulative exposure 8-10x Gmail's
+on every wash: a tale of two extremes, not a battery law; and
+GMAIL'S MARGIN GROWS through the wash (decline -0.4..-0.5 =
+THICKENING — the holder's commitment strengthens); (3)
+PREDICTION (a) INVERTED — nearrel (the hardest-dying family,
+0.71) carries the LOWEST median wind-alignment (0.029 vs
+product 0.042): THE DYING ARE THE LEAST WIND-REACHED; (4) THE
+RIDER — H-ii DRIFT-leaning (bigram-mode 1/7, trigram 0/7; H-i
+re-teaching dead) BUT the wrong choices are ANSWER-NEIGHBORS:
+'dollars' (US->dollar, both washes), 'Music' (iTunes),
+'Augusta' (Georgia->Atlanta — the state's OTHER capital), 'the'
+x4 — the commitment collapses into the dead answer's own
+semantic neighborhood: a THIRD TEXTURE (neither re-teaching nor
+noise).
+
+HONESTY: n=3 washes, one organism, first-order instrument,
+t=0-fixed supports; the friction is not separable from the full
+field at this coverage; the postfold relabels disclosed. NEXT
+(T217): the answer-neighbor structure quantified (the flipped
+tokens' distance to the dead answer vs random) + e240 dispatched
+(the moment archive on this cell's certified cache).
+
+---
+
 ## e239 — FQ6: STABLE-AS-VECTORS, and the washes rotate the supports the SAME way — cross-wash cos median 0.997/+50, 0.994/+80 (all 54 >= 0.963; ZERO below the u0 cloud; random null 2e-4); each wash rotates a support ~17.7-20.3 deg from t=0 but the angle BETWEEN washes is only 4.5-6.1 deg (~87% common-mode); rotation-amount ranks correlate cross-wash at rho +0.959/+0.929; the anchors fate-blind (iPhone dies with a perfectly stable support vector) (2026-10-04 ~15:40Z) — DONE
 
 WHAT WE DID: W037's direct test (the ideator's Rank 1; bars frozen
