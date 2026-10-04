@@ -106,3 +106,60 @@ e246 (the engineered seat — the build lane's first cell), e240 (the moment arc
 does Adam's optimizer state remember what the weights forgot?), e248 (the organism
 replicate — the owner-lane). Behind them: the partial-cut ladder, the resurrection leg
 if H-FOSSIL fires, R64's remaining roles, FQ9/FQ11, and the layers' interactions.
+
+
+---
+
+## THE EVENING SESSION (appended ~21:20Z — the record assembled; written while e248 trains and e254 reruns)
+
+The report above was written at ~17:50Z. The evening added ten verdicts that reshaped
+three of its sections:
+
+**The forge died twice and left a sharper object.** agy consult #001's LayerNorm
+confound fired (e251: the ctrl battery thickened +17.2% beside the fact's +19.2%) —
+and the ledger cell (e255) then killed the LN reading too: the exact margin
+decomposition (log m = log N - log D) shows the logit spread INERT in both worlds.
+**THE GAP IS THE LEDGER**: every margin change lives in the argmax gaps — generic
+raw-gap growth (fact +16.9%, ctrl +13.2%) with a small honest fact-excess (+3.75pp).
+The fitted "temperature" is fully a LENS (the spread never contracts — except at the
++1 gust, the one genuinely thermal state).
+
+**W028 became interventional.** The resuscitation cell (e252, agy consult #002's
+pick): cooling the washed logits restores ~half the belief-HEIGHT and none of the
+belief-ORDER — *cool and see* is now the toolkit's cheapest probe. The zombie
+splits: its belief is a revivable mask; its argmax choice is a scar (provably
+unrecoverable under any scalar). Amplitude and order decouple; the temperature is
+answer-local; revival tracks headroom, not thermal share.
+
+**The build lane opened and drew a blank that outran the bar.** The engineered seat
+(e246): GEOMETRY-IRRELEVANT — the wall's protection is geometry-blind — but the
+null's yield: **the anti-substrate** (the corpus's own directions cannot write
+facts; ALIGNED installs express nothing; new memories need orthogonal room), and
+the layers decouple (the thermal/margin layer feels geometry; the flat phase
+doesn't).
+
+**The interaction table closed.** The residency census (e256): the field's first
+coupling constant is THERMAL-ONLY — standing span-residency predicts thermal
+decline (rho -0.148, p 0.030) and nothing else. W039's three decouplings (height/
+shape, amplitude/order, episodic/distributional) have exactly one leak: the thermal
+channel. The counterfeit-self build is re-aimed accordingly.
+
+**The taxonomy unified.** The two death modes ARE the two death orders (15/15
+pooled across three washes); the modes are absorbing states (arrive early, stay);
+the moments are an amplifier, not an archive (7x mean gain, half-life ~17 steps —
+e179's old stickiness named); the optimizer's denominator holds the holders.
+
+**In flight as this is appended**: the organism replicate (training arc live,
+val monotone, recovered from its agent's death mid-phase-2), the V-span overlap
+(e254, rerunning after an external kill with w1/w2 certified), the sham-direction
+ladder (e250, designed), the beta2 sweep (FQ15), the content-class boundary (FQ16).
+The honest ledger stands: n=1 organism under every constant until the replicate
+lands; the interactions held back; the deepest why ("who aims the undertow")
+deliberately unripe.
+
+The epitaph line, extended: day nine drafted the field in the afternoon and spent
+the evening killing its own best nouns — the forge, the thermal mechanism, the
+standing seat — each death handing back a sharper instrument: the gap-ledger,
+the cool-and-see probe, the trajectory seat. The lab's law held one more level:
+**the findings split into shape and height; so do the findings about the
+findings.**
