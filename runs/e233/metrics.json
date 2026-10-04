@@ -1,8 +1,8 @@
 {
   "experiment": "e233_support_intervention",
   "phase": "interventional: the wash-1 stream continued VERBATIM with the applied steps projected off iPhone's t=0 support (ARM-P) vs matched-L2 (ARM-C), GPU fp32 bursts",
-  "date": "2026-10-04T14:20:04Z",
-  "status": "PARTIAL: ARM-P complete (80 steps)",
+  "date": "2026-10-04T14:37:32Z",
+  "status": "DONE",
   "registration": "bars frozen VERBATIM from scratch/e233_design.md (the ripened design note, frozen by the dispatch brief BEFORE any compute; the dispatch brief is the registration); adjudicate against exactly this; no bar shopping",
   "registered_prediction": {
     "bars_verbatim": {
@@ -33,38 +33,44 @@
   "load_checks": [
     {
       "tag": "launch",
-      "cpu_percent": 2.4,
-      "ram_avail_gb": 35.4,
+      "cpu_percent": 24.3,
+      "ram_avail_gb": 38.4,
       "ram_total_gb": 63.4
     },
     {
       "tag": "batteries",
-      "cpu_percent": 18.9,
-      "ram_avail_gb": 35.3,
+      "cpu_percent": 50.5,
+      "ram_avail_gb": 29.5,
       "ram_total_gb": 63.4
     },
     {
       "tag": "support t=0",
-      "cpu_percent": 16.0,
-      "ram_avail_gb": 35.7,
+      "cpu_percent": 48.4,
+      "ram_avail_gb": 29.2,
       "ram_total_gb": 63.4
     },
     {
       "tag": "draws",
-      "cpu_percent": 17.3,
-      "ram_avail_gb": 33.0,
+      "cpu_percent": 33.9,
+      "ram_avail_gb": 25.5,
       "ram_total_gb": 63.4
     },
     {
       "tag": "t0 readout",
-      "cpu_percent": 3.0,
-      "ram_avail_gb": 32.5,
+      "cpu_percent": 39.7,
+      "ram_avail_gb": 24.6,
       "ram_total_gb": 63.4
     },
     {
       "tag": "arm P",
-      "cpu_percent": 4.2,
-      "ram_avail_gb": 32.4,
+      "cpu_percent": 36.7,
+      "ram_avail_gb": 20.8,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "arm C",
+      "cpu_percent": 36.8,
+      "ram_avail_gb": 20.8,
       "ram_total_gb": 63.4
     }
   ],
@@ -211,6 +217,37 @@
       "gen_state_identical_after_80": true,
       "note": "wash 1's window-draw stream reproduced from seed 18202 and certified BIT-EXACTLY against the generator state archived at step 80 in e182c_replay_latest.pt (e226's G_DRAWS convention); both arms replay THIS stream from pristine t=0",
       "pass": true
+    },
+    "G_WASHHEALTH": {
+      "P": {
+        "ce_first10": 3.7107214450836183,
+        "ce_last10": 3.3070934057235717,
+        "ce_improves": true,
+        "bank_ppl_t0": 71.33571584997821,
+        "bank_ppl_final": 34.77297563079094,
+        "ppl_improves": true,
+        "pass": true
+      },
+      "C": {
+        "ce_first10": 3.7107176780700684,
+        "ce_last10": 3.3071070671081544,
+        "ce_improves": true,
+        "bank_ppl_t0": 71.33571584997821,
+        "bank_ppl_final": 34.77457850226418,
+        "ppl_improves": true,
+        "pass": true
+      },
+      "rule": "the wash must still be a wash: bank ppl (+final) < bank ppl (t=0) AND mean in-batch CE last-10 < first-10, BOTH arms",
+      "pass": true
+    },
+    "G_ENV": {
+      "device": "cuda (RTX 5090 Laptop 24GB) fp32, TF32 OFF, matmul precision highest; CPU fp32 probing (threads 8)",
+      "bursts": "<= 175s wall AND <= 40 steps",
+      "cooldown_s": 45.0,
+      "launch_gate": "common.gpu_ok() (util<=85%, temp<=80C, mem<=85%), double-polled, first launch gap 5s",
+      "mid_burst_guard": "burst ends at temp >= 84C (never past 85C)",
+      "window": "the owner's ACTIVE max-priority window (STATE.json compute_directive, 2026-10-04): GPU assertive, NO concurrent GPU jobs, temp-aware, single runs <=180s",
+      "pass": true
     }
   },
   "size_gate": {
@@ -220,6 +257,1554 @@
     "pass": true
   },
   "timing": {
-    "total_s": 28.7
-  }
+    "total_s": 39.4
+  },
+  "adjudication": {
+    "bar": "ANY",
+    "underpowered": true,
+    "hr_at_final": {
+      "P-The email service made by Google->Gmail": 0.913389315591159,
+      "P-The phone made by Apple->iPhone": 0.40700620816900257,
+      "C-The email service made by Google->Gmail": 0.9066180160531997,
+      "C-The phone made by Apple->iPhone": 0.18765620717542558
+    },
+    "committed_spread": {
+      "The email service made by Google->Gmail": [
+        0.8637330923344348,
+        0.9309835834155199
+      ],
+      "The phone made by Apple->iPhone": [
+        0.18425663896898953,
+        0.34174889141178294
+      ]
+    },
+    "flip_line_primary": 0.4524662126461433,
+    "flip_lines_all": {
+      "w1": 0.4524662126461433,
+      "w2": 0.46549179170775995,
+      "w3": 0.4318665461672174
+    },
+    "flips_conjunction": {
+      "iphone_P_ge_line": false,
+      "iphone_C_stays_dying": true
+    },
+    "holds_all_four_within_spread": false,
+    "removed_frac_median": 0.0003693765903104024,
+    "removed_frac_min": 1.15327692015352e-06,
+    "removed_frac_max": 0.0008351858554827417,
+    "bars_verbatim": {
+      "FATE-FLIPS": "iPhone's hr at +80 rises to >= 0.5x Gmail's committed hr while ARM-C's iPhone stays dying \u2014 the aligned component is the CARRIER; the third dimension's seat is causal; H-i confirmed",
+      "FATE-HOLDS": "ARM-P and ARM-C leave both anchors' fates within the committed wash spread \u2014 the alignment is a MARKER; the seat stays geometric but non-causal; H-ii",
+      "ANY": "anything between \u2014 the four trajectories verbatim (iPhone-P, iPhone-C, Gmail-P, Gmail-C vs the three references), no narrative inflation"
+    },
+    "verdict_note": "the verdict is CO-STAMPED UNDERPOWERED when the median removed fraction is < 1% (the honest-instrument clause (c); the stamp discloses, it does not move the bar)",
+    "prediction_a": {
+      "read": "prediction (a) verbatim: 'Under FATE-FLIPS, the nearrel battery's iPhone-family members also spare (the seat is the relation family's, not the anchor's alone).'",
+      "family": "product family's 5 non-anchor members (Xbox/Chrome/iPad/iTunes/PlayStation)",
+      "rows": [
+        {
+          "fact": "The gaming console made by Microsoft->Xbox",
+          "p0": 0.6225916743278503,
+          "hr_P": 0.46035390850765723,
+          "hr_C": 0.45604548624723623,
+          "committed_w1_hr": 0.45388763713631564,
+          "spares_under_P": true
+        },
+        {
+          "fact": "The web browser made by Google->Chrome",
+          "p0": 0.7029966711997986,
+          "hr_P": 0.2887486712891715,
+          "hr_C": 0.2870623520952065,
+          "committed_w1_hr": 0.28783759768573486,
+          "spares_under_P": true
+        },
+        {
+          "fact": "The tablet made by Apple->iPad",
+          "p0": 0.7676098942756653,
+          "hr_P": 0.3201355188398644,
+          "hr_C": 0.3194977433845016,
+          "committed_w1_hr": 0.3147985802847366,
+          "spares_under_P": true
+        },
+        {
+          "fact": "The music store made by Apple->iTunes",
+          "p0": 0.6862599849700928,
+          "hr_P": 0.3095095623132849,
+          "hr_C": 0.2930500171450429,
+          "committed_w1_hr": 0.29284914481498814,
+          "spares_under_P": true
+        },
+        {
+          "fact": "The game console made by Sony->PlayStation",
+          "p0": 0.7842804193496704,
+          "hr_P": 0.687880689239326,
+          "hr_C": 0.682020014831994,
+          "committed_w1_hr": 0.6798667309315474,
+          "spares_under_P": true
+        }
+      ],
+      "n_spare": 5,
+      "tested_under": "ANY",
+      "fired": false
+    },
+    "prediction_b": {
+      "read": "prediction (b) verbatim: 'Under FATE-HOLDS, Gmail's fate is also unchanged (the projection touched only a component the wash does not need) \u2014 and the t=0 consumption read (below) becomes the live mechanism thread.'",
+      "gmail_unchanged_under_HOLDS": true,
+      "tested_under": "ANY",
+      "consumption_read_handoff": "the t=0 consumption read (T210-b) rides as the e232 companion desk pass (committed-data arithmetic); under FATE-HOLDS it becomes the live mechanism thread"
+    },
+    "near_battery_coreport": {
+      "read": "the literal near battery (near-uscap) co-reported at +final, both arms",
+      "rows": [
+        {
+          "fact": "Massachusetts->Boston",
+          "p0": 0.6118616461753845,
+          "hr_P": 0.2807578612875274,
+          "hr_C": 0.27975954998059,
+          "committed_w1_hr": 0.27497604802960646
+        },
+        {
+          "fact": "Georgia->Atlanta",
+          "p0": 0.6366477012634277,
+          "hr_P": 0.16930841697580865,
+          "hr_C": 0.16832305028959357,
+          "committed_w1_hr": 0.16533090551077897
+        },
+        {
+          "fact": "Ohio->Columbus",
+          "p0": 0.5189241766929626,
+          "hr_P": 0.2795269307059657,
+          "hr_C": 0.2770206715909518,
+          "committed_w1_hr": 0.2714900398031128
+        }
+      ]
+    },
+    "gated_on": "G_SIZE/G_CORPUS/G_BATT/G_SUPPORT/G_DRAWS/G_WASHHEALTH/G_ENV",
+    "all_gates_pass": true,
+    "verdict_lines": [
+      "iPhone hr: P 0.407  C 0.188   (committed spread 0.184-0.342; flip line 0.452)",
+      "Gmail  hr: P 0.913  C 0.907   (committed spread 0.864-0.931)",
+      "removed-L2 fraction: median 0.04% (min 0.00%, max 0.08%) -> UNDERPOWERED"
+    ]
+  },
+  "states": {
+    "P": {
+      "0": {
+        "ctrl_p": {
+          "The social network founded by Mark Zuckerberg->Facebook": 0.7398577928543091,
+          "The electric car company founded by Elon Musk->Tesla": 0.7342568039894104,
+          "The rocket company founded by Elon Musk->SpaceX": 0.77444988489151,
+          "The search engine founded by Larry Page->Google": 0.8327568769454956,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.6928136348724365,
+          "The gaming console made by Microsoft->Xbox": 0.6225916743278503,
+          "The web browser made by Google->Chrome": 0.7029966711997986,
+          "The phone made by Apple->iPhone": 0.6358935832977295,
+          "The tablet made by Apple->iPad": 0.7676098942756653,
+          "The email service made by Google->Gmail": 0.7456632852554321,
+          "The music store made by Apple->iTunes": 0.6862599849700928,
+          "The game console made by Sony->PlayStation": 0.7842804193496704
+        },
+        "ctrl_mean_p": 0.72661920885245,
+        "bank_ppl": 71.33571584997821,
+        "in_batch_ce": null
+      },
+      "10": {
+        "ctrl_p": {
+          "The social network founded by Mark Zuckerberg->Facebook": 0.7735608816146851,
+          "The electric car company founded by Elon Musk->Tesla": 0.6918946504592896,
+          "The rocket company founded by Elon Musk->SpaceX": 0.7189066410064697,
+          "The search engine founded by Larry Page->Google": 0.8258525729179382,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.6561197638511658,
+          "The gaming console made by Microsoft->Xbox": 0.5469980835914612,
+          "The web browser made by Google->Chrome": 0.6716852784156799,
+          "The phone made by Apple->iPhone": 0.6198210716247559,
+          "The tablet made by Apple->iPad": 0.7157952189445496,
+          "The email service made by Google->Gmail": 0.7428605556488037,
+          "The music store made by Apple->iTunes": 0.577083945274353,
+          "The game console made by Sony->PlayStation": 0.7292335033416748
+        },
+        "ctrl_mean_p": 0.6891510138909022,
+        "bank_ppl": 38.344429637022316,
+        "in_batch_ce": 3.770484685897827
+      },
+      "50": {
+        "ctrl_p": {
+          "The social network founded by Mark Zuckerberg->Facebook": 0.7601725459098816,
+          "The electric car company founded by Elon Musk->Tesla": 0.6242721676826477,
+          "The rocket company founded by Elon Musk->SpaceX": 0.7102951407432556,
+          "The search engine founded by Larry Page->Google": 0.7798985838890076,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.4863285422325134,
+          "The gaming console made by Microsoft->Xbox": 0.3610861599445343,
+          "The web browser made by Google->Chrome": 0.26632651686668396,
+          "The phone made by Apple->iPhone": 0.3802647292613983,
+          "The tablet made by Apple->iPad": 0.40608975291252136,
+          "The email service made by Google->Gmail": 0.7418150901794434,
+          "The music store made by Apple->iTunes": 0.34654125571250916,
+          "The game console made by Sony->PlayStation": 0.6120126247406006
+        },
+        "ctrl_mean_p": 0.539591925839583,
+        "bank_ppl": 34.662959307267144,
+        "in_batch_ce": 3.2603237628936768
+      },
+      "80": {
+        "ctrl_p": {
+          "The social network founded by Mark Zuckerberg->Facebook": 0.7051626443862915,
+          "The electric car company founded by Elon Musk->Tesla": 0.5781370401382446,
+          "The rocket company founded by Elon Musk->SpaceX": 0.6348053812980652,
+          "The search engine founded by Larry Page->Google": 0.7158478498458862,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.402538001537323,
+          "The gaming console made by Microsoft->Xbox": 0.28661251068115234,
+          "The web browser made by Google->Chrome": 0.2029893547296524,
+          "The phone made by Apple->iPhone": 0.25881263613700867,
+          "The tablet made by Apple->iPad": 0.2457391917705536,
+          "The email service made by Google->Gmail": 0.6810808777809143,
+          "The music store made by Apple->iTunes": 0.2124040275812149,
+          "The game console made by Sony->PlayStation": 0.5394913554191589
+        },
+        "ctrl_mean_p": 0.4553017392754555,
+        "bank_ppl": 34.77297563079094,
+        "in_batch_ce": 3.274611473083496
+      }
+    },
+    "C": {
+      "0": {
+        "ctrl_p": {
+          "The social network founded by Mark Zuckerberg->Facebook": 0.7398577928543091,
+          "The electric car company founded by Elon Musk->Tesla": 0.7342568039894104,
+          "The rocket company founded by Elon Musk->SpaceX": 0.77444988489151,
+          "The search engine founded by Larry Page->Google": 0.8327568769454956,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.6928136348724365,
+          "The gaming console made by Microsoft->Xbox": 0.6225916743278503,
+          "The web browser made by Google->Chrome": 0.7029966711997986,
+          "The phone made by Apple->iPhone": 0.6358935832977295,
+          "The tablet made by Apple->iPad": 0.7676098942756653,
+          "The email service made by Google->Gmail": 0.7456632852554321,
+          "The music store made by Apple->iTunes": 0.6862599849700928,
+          "The game console made by Sony->PlayStation": 0.7842804193496704
+        },
+        "ctrl_mean_p": 0.72661920885245,
+        "bank_ppl": 71.33571584997821,
+        "in_batch_ce": null
+      },
+      "50": {
+        "ctrl_p": {
+          "The social network founded by Mark Zuckerberg->Facebook": 0.7567685842514038,
+          "The electric car company founded by Elon Musk->Tesla": 0.6209670305252075,
+          "The rocket company founded by Elon Musk->SpaceX": 0.7085638642311096,
+          "The search engine founded by Larry Page->Google": 0.778610348701477,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.4830034673213959,
+          "The gaming console made by Microsoft->Xbox": 0.3582747280597687,
+          "The web browser made by Google->Chrome": 0.2648366689682007,
+          "The phone made by Apple->iPhone": 0.22166459262371063,
+          "The tablet made by Apple->iPad": 0.406751811504364,
+          "The email service made by Google->Gmail": 0.738309383392334,
+          "The music store made by Apple->iTunes": 0.329580694437027,
+          "The game console made by Sony->PlayStation": 0.6092559099197388
+        },
+        "ctrl_mean_p": 0.5230489236613115,
+        "bank_ppl": 34.6628780418096,
+        "in_batch_ce": 3.260288715362549
+      },
+      "80": {
+        "ctrl_p": {
+          "The social network founded by Mark Zuckerberg->Facebook": 0.7003024816513062,
+          "The electric car company founded by Elon Musk->Tesla": 0.5743470191955566,
+          "The rocket company founded by Elon Musk->SpaceX": 0.6321080923080444,
+          "The search engine founded by Larry Page->Google": 0.7138192057609558,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.3982063829898834,
+          "The gaming console made by Microsoft->Xbox": 0.28393012285232544,
+          "The web browser made by Google->Chrome": 0.20180387794971466,
+          "The phone made by Apple->iPhone": 0.11932937800884247,
+          "The tablet made by Apple->iPad": 0.24524962902069092,
+          "The email service made by Google->Gmail": 0.676031768321991,
+          "The music store made by Apple->iTunes": 0.20110850036144257,
+          "The game console made by Sony->PlayStation": 0.5348949432373047
+        },
+        "ctrl_mean_p": 0.44009428347150487,
+        "bank_ppl": 34.77457850226418,
+        "in_batch_ce": 3.2746071815490723
+      },
+      "10": {
+        "ctrl_p": {
+          "The social network founded by Mark Zuckerberg->Facebook": 0.7725231051445007,
+          "The electric car company founded by Elon Musk->Tesla": 0.6906524896621704,
+          "The rocket company founded by Elon Musk->SpaceX": 0.717865526676178,
+          "The search engine founded by Larry Page->Google": 0.8254769444465637,
+          "The online encyclopedia that anyone can edit->Wikipedia": 0.6550662517547607,
+          "The gaming console made by Microsoft->Xbox": 0.545278012752533,
+          "The web browser made by Google->Chrome": 0.6705775260925293,
+          "The phone made by Apple->iPhone": 0.551390528678894,
+          "The tablet made by Apple->iPad": 0.7171275019645691,
+          "The email service made by Google->Gmail": 0.7419151067733765,
+          "The music store made by Apple->iTunes": 0.5671137571334839,
+          "The game console made by Sony->PlayStation": 0.7285914421081543
+        },
+        "ctrl_mean_p": 0.6819648494323095,
+        "bank_ppl": 38.34480293817034,
+        "in_batch_ce": 3.7704641819000244
+      }
+    }
+  },
+  "ledgers": {
+    "P": {
+      "1": {
+        "ce": 4.189045429229736,
+        "dnorm": 0.48456034931353237,
+        "dot_s": -0.00015483392107517699,
+        "dpnorm": 0.4845603245696221,
+        "removed_frac": 0.0003195348552446095,
+        "removed_l2": 0.00015483392107517699
+      },
+      "2": {
+        "ce": 3.7664496898651123,
+        "dnorm": 0.3553195213448559,
+        "dot_s": -0.00016885026462308913,
+        "dpnorm": 0.3553194812140424,
+        "removed_frac": 0.000475206833511439,
+        "removed_l2": 0.00016885026462308913
+      },
+      "3": {
+        "ce": 3.80899977684021,
+        "dnorm": 0.31258898232105237,
+        "dot_s": -0.00020038745560538255,
+        "dpnorm": 0.31258891807889566,
+        "removed_frac": 0.0006410573210784812,
+        "removed_l2": 0.00020038745560538255
+      },
+      "4": {
+        "ce": 3.776947021484375,
+        "dnorm": 0.29110719051622286,
+        "dot_s": -0.0002026093682832958,
+        "dpnorm": 0.2911071199936527,
+        "removed_frac": 0.0006959957530557967,
+        "removed_l2": 0.0002026093682832958
+      },
+      "5": {
+        "ce": 3.4949352741241455,
+        "dnorm": 0.27371295354434744,
+        "dot_s": -0.00015771064690621193,
+        "dpnorm": 0.27371290809278065,
+        "removed_frac": 0.0005761899276742099,
+        "removed_l2": 0.00015771064690621193
+      },
+      "6": {
+        "ce": 3.668257474899292,
+        "dnorm": 0.2574603279368353,
+        "dot_s": -0.0001054800824427566,
+        "dpnorm": 0.25746030631539063,
+        "removed_frac": 0.0004096945082297682,
+        "removed_l2": 0.0001054800824427566
+      },
+      "7": {
+        "ce": 3.5492353439331055,
+        "dnorm": 0.24607490515328168,
+        "dot_s": -6.270180793320711e-05,
+        "dpnorm": 0.2460748971507909,
+        "removed_frac": 0.0002548078110368456,
+        "removed_l2": 6.270180793320711e-05
+      },
+      "8": {
+        "ce": 3.5074591636657715,
+        "dnorm": 0.23772446835432431,
+        "dot_s": -7.25068322313248e-05,
+        "dpnorm": 0.23772445728194191,
+        "removed_frac": 0.0003050036571046384,
+        "removed_l2": 7.25068322313248e-05
+      },
+      "9": {
+        "ce": 3.5754005908966064,
+        "dnorm": 0.23175943343549282,
+        "dot_s": -5.813702498014338e-05,
+        "dpnorm": 0.23175942612935663,
+        "removed_frac": 0.0002508507382778231,
+        "removed_l2": 5.813702498014338e-05
+      },
+      "10": {
+        "ce": 3.770484685897827,
+        "dnorm": 0.22670534836884648,
+        "dot_s": -7.23009243336284e-05,
+        "dpnorm": 0.2267053368262429,
+        "removed_frac": 0.0003189202409816807,
+        "removed_l2": 7.23009243336284e-05
+      },
+      "11": {
+        "ce": 3.6165406703948975,
+        "dnorm": 0.22470114068846847,
+        "dot_s": -0.00012327533989404772,
+        "dpnorm": 0.22470110685556127,
+        "removed_frac": 0.0005486191103273475,
+        "removed_l2": 0.00012327533989404772
+      },
+      "12": {
+        "ce": 3.6900413036346436,
+        "dnorm": 0.22170762482996192,
+        "dot_s": -0.00012916711909461806,
+        "dpnorm": 0.22170758718733438,
+        "removed_frac": 0.000582601158592008,
+        "removed_l2": 0.00012916711909461806
+      },
+      "13": {
+        "ce": 3.613283395767212,
+        "dnorm": 0.2212135511557376,
+        "dot_s": -0.0001713437745382574,
+        "dpnorm": 0.22121348478030006,
+        "removed_frac": 0.0007745627410394441,
+        "removed_l2": 0.0001713437745382574
+      },
+      "14": {
+        "ce": 3.724677562713623,
+        "dnorm": 0.21778212244097664,
+        "dot_s": -0.0001636439029149136,
+        "dpnorm": 0.21778206094257035,
+        "removed_frac": 0.0007514110941740152,
+        "removed_l2": 0.0001636439029149136
+      },
+      "15": {
+        "ce": 3.3817195892333984,
+        "dnorm": 0.2138585063655302,
+        "dot_s": -0.0001292559754788914,
+        "dpnorm": 0.21385846728810373,
+        "removed_frac": 0.0006043995054279727,
+        "removed_l2": 0.0001292559754788914
+      },
+      "16": {
+        "ce": 3.5009045600891113,
+        "dnorm": 0.21214155710720212,
+        "dot_s": -9.423666880536601e-05,
+        "dpnorm": 0.21214153616109965,
+        "removed_frac": 0.0004442159758342168,
+        "removed_l2": 9.423666880536601e-05
+      },
+      "17": {
+        "ce": 3.3043651580810547,
+        "dnorm": 0.21001887538104547,
+        "dot_s": -0.00012308055192778594,
+        "dpnorm": 0.21001883929996198,
+        "removed_frac": 0.0005860451909595082,
+        "removed_l2": 0.00012308055192778594
+      },
+      "18": {
+        "ce": 3.846255302429199,
+        "dnorm": 0.20801383219533612,
+        "dot_s": -8.873995003920447e-05,
+        "dpnorm": 0.2080138132537097,
+        "removed_frac": 0.00042660600548848554,
+        "removed_l2": 8.873995003920447e-05
+      },
+      "19": {
+        "ce": 3.454970121383667,
+        "dnorm": 0.20611432236690092,
+        "dot_s": -0.00010335407723021605,
+        "dpnorm": 0.20611429643920354,
+        "removed_frac": 0.000501440540586195,
+        "removed_l2": 0.00010335407723021605
+      },
+      "20": {
+        "ce": 3.3430347442626953,
+        "dnorm": 0.20366685080210545,
+        "dot_s": -6.414972394741254e-05,
+        "dpnorm": 0.20366684068645746,
+        "removed_frac": 0.0003149738098996981,
+        "removed_l2": 6.414972394741254e-05
+      },
+      "21": {
+        "ce": 3.4119696617126465,
+        "dnorm": 0.2034359982923485,
+        "dot_s": -2.1559777162254613e-05,
+        "dpnorm": 0.20343599713985117,
+        "removed_frac": 0.00010597818155699292,
+        "removed_l2": 2.1559777162254613e-05
+      },
+      "22": {
+        "ce": 3.500772476196289,
+        "dnorm": 0.20200989516294526,
+        "dot_s": -3.177500722091935e-05,
+        "dpnorm": 0.20200989265229793,
+        "removed_frac": 0.0001572943107330905,
+        "removed_l2": 3.177500722091935e-05
+      },
+      "23": {
+        "ce": 3.489835739135742,
+        "dnorm": 0.20001958215800034,
+        "dot_s": -5.4427829462802594e-05,
+        "dpnorm": 0.2000195747405793,
+        "removed_frac": 0.0002721125045637218,
+        "removed_l2": 5.4427829462802594e-05
+      },
+      "24": {
+        "ce": 3.505366325378418,
+        "dnorm": 0.19703645547006124,
+        "dot_s": -3.14756730428356e-05,
+        "dpnorm": 0.19703645294593153,
+        "removed_frac": 0.00015974542867077803,
+        "removed_l2": 3.14756730428356e-05
+      },
+      "25": {
+        "ce": 3.077700614929199,
+        "dnorm": 0.19419023362504478,
+        "dot_s": -7.116565621280225e-05,
+        "dpnorm": 0.19419022057225807,
+        "removed_frac": 0.0003664739203631299,
+        "removed_l2": 7.116565621280225e-05
+      },
+      "26": {
+        "ce": 3.504350185394287,
+        "dnorm": 0.19225535624177992,
+        "dot_s": -8.587643862362122e-05,
+        "dpnorm": 0.19225533704823786,
+        "removed_frac": 0.00044667904344689984,
+        "removed_l2": 8.587643862362122e-05
+      },
+      "27": {
+        "ce": 3.605968952178955,
+        "dnorm": 0.1930176825844463,
+        "dot_s": -0.00011076006510200899,
+        "dpnorm": 0.19301765079191893,
+        "removed_frac": 0.0005738337732531363,
+        "removed_l2": 0.00011076006510200899
+      },
+      "28": {
+        "ce": 3.4977290630340576,
+        "dnorm": 0.1925445730026658,
+        "dot_s": -0.00010979117479924842,
+        "dpnorm": 0.19254454168653004,
+        "removed_frac": 0.0005702117337668528,
+        "removed_l2": 0.00010979117479924842
+      },
+      "29": {
+        "ce": 3.6806676387786865,
+        "dnorm": 0.18941542921192023,
+        "dot_s": -0.00010853758574931782,
+        "dpnorm": 0.18941539810066205,
+        "removed_frac": 0.0005730134350770585,
+        "removed_l2": 0.00010853758574931782
+      },
+      "30": {
+        "ce": 3.4713687896728516,
+        "dnorm": 0.18832619638286244,
+        "dot_s": -0.00011613129402154916,
+        "dpnorm": 0.1883261605628884,
+        "removed_frac": 0.0006166497080706561,
+        "removed_l2": 0.00011613129402154916
+      },
+      "31": {
+        "ce": 3.3864974975585938,
+        "dnorm": 0.18804397883854324,
+        "dot_s": -7.886564265431605e-05,
+        "dpnorm": 0.1880439622876077,
+        "removed_frac": 0.000419399988988911,
+        "removed_l2": 7.886564265431605e-05
+      },
+      "32": {
+        "ce": 3.568009376525879,
+        "dnorm": 0.18806356891783255,
+        "dot_s": -2.2274460057486834e-05,
+        "dpnorm": 0.1880635675897701,
+        "removed_frac": 0.00011844112172102211,
+        "removed_l2": 2.2274460057486834e-05
+      },
+      "33": {
+        "ce": 3.3730833530426025,
+        "dnorm": 0.1874797939976712,
+        "dot_s": -7.711341647960032e-05,
+        "dpnorm": 0.18747977812571118,
+        "removed_frac": 0.00041131588015590735,
+        "removed_l2": 7.711341647960032e-05
+      },
+      "34": {
+        "ce": 3.498476028442383,
+        "dnorm": 0.18521232862232778,
+        "dot_s": -6.251956652601659e-05,
+        "dpnorm": 0.18521231805731708,
+        "removed_frac": 0.0003375561820914318,
+        "removed_l2": 6.251956652601659e-05
+      },
+      "35": {
+        "ce": 3.2609682083129883,
+        "dnorm": 0.1834849329936311,
+        "dot_s": -6.204258048001807e-05,
+        "dpnorm": 0.18348492249209652,
+        "removed_frac": 0.00033813446950530597,
+        "removed_l2": 6.204258048001807e-05
+      },
+      "36": {
+        "ce": 3.3884897232055664,
+        "dnorm": 0.18274815326973204,
+        "dot_s": -5.7966927767031407e-05,
+        "dpnorm": 0.1827481440648136,
+        "removed_frac": 0.0003171956965358417,
+        "removed_l2": 5.7966927767031407e-05
+      },
+      "37": {
+        "ce": 3.418039321899414,
+        "dnorm": 0.1821266959633972,
+        "dot_s": -6.524303719049017e-05,
+        "dpnorm": 0.18212668426552794,
+        "removed_frac": 0.0003582288518735461,
+        "removed_l2": 6.524303719049017e-05
+      },
+      "38": {
+        "ce": 3.224538803100586,
+        "dnorm": 0.18046979308476474,
+        "dot_s": -3.7044761081444354e-05,
+        "dpnorm": 0.18046978927290844,
+        "removed_frac": 0.00020526848536943146,
+        "removed_l2": 3.7044761081444354e-05
+      },
+      "39": {
+        "ce": 3.4117963314056396,
+        "dnorm": 0.17849141505973648,
+        "dot_s": -5.8262977081388047e-05,
+        "dpnorm": 0.1784914055396882,
+        "removed_frac": 0.00032641893203596894,
+        "removed_l2": 5.8262977081388047e-05
+      },
+      "40": {
+        "ce": 3.3050761222839355,
+        "dnorm": 0.17793242485092842,
+        "dot_s": -9.14742943954925e-05,
+        "dpnorm": 0.17793240132539515,
+        "removed_frac": 0.0005140956993764884,
+        "removed_l2": 9.14742943954925e-05
+      },
+      "41": {
+        "ce": 3.2817230224609375,
+        "dnorm": 0.17407332052223323,
+        "dot_s": -9.218546115355295e-05,
+        "dpnorm": 0.17407329610042743,
+        "removed_frac": 0.0005295783459348597,
+        "removed_l2": 9.218546115355295e-05
+      },
+      "42": {
+        "ce": 3.656085252761841,
+        "dnorm": 0.1721422349078812,
+        "dot_s": -9.391816418748245e-05,
+        "dpnorm": 0.1721422092745664,
+        "removed_frac": 0.0005455846686186051,
+        "removed_l2": 9.391816418748245e-05
+      },
+      "43": {
+        "ce": 3.554600477218628,
+        "dnorm": 0.17135126683968457,
+        "dot_s": -6.32931466906106e-05,
+        "dpnorm": 0.17135125513806893,
+        "removed_frac": 0.0003693765903104024,
+        "removed_l2": 6.32931466906106e-05
+      },
+      "44": {
+        "ce": 3.426058769226074,
+        "dnorm": 0.16925905503395638,
+        "dot_s": -2.863016560211305e-05,
+        "dpnorm": 0.16925905260320712,
+        "removed_frac": 0.00016914997898558116,
+        "removed_l2": 2.863016560211305e-05
+      },
+      "45": {
+        "ce": 3.195769786834717,
+        "dnorm": 0.16481896092914936,
+        "dot_s": -4.092058919870908e-05,
+        "dpnorm": 0.16481895583871048,
+        "removed_frac": 0.0002482759809188434,
+        "removed_l2": 4.092058919870908e-05
+      },
+      "46": {
+        "ce": 3.5499157905578613,
+        "dnorm": 0.16293033401603244,
+        "dot_s": -2.2337150944311693e-05,
+        "dpnorm": 0.16293033247582203,
+        "removed_frac": 0.00013709633064468957,
+        "removed_l2": 2.2337150944311693e-05
+      },
+      "47": {
+        "ce": 3.4534125328063965,
+        "dnorm": 0.1637362578958425,
+        "dot_s": 2.3304057088005424e-05,
+        "dpnorm": 0.16373625624591254,
+        "removed_frac": 0.00014232679668806054,
+        "removed_l2": 2.3304057088005424e-05
+      },
+      "48": {
+        "ce": 3.451918601989746,
+        "dnorm": 0.16267576827459243,
+        "dot_s": 3.2265081600273376e-05,
+        "dpnorm": 0.16267576508425904,
+        "removed_frac": 0.00019833981386711982,
+        "removed_l2": 3.2265081600273376e-05
+      },
+      "49": {
+        "ce": 3.43689227104187,
+        "dnorm": 0.16406742021609624,
+        "dot_s": 4.240769071159983e-05,
+        "dpnorm": 0.16406741474584005,
+        "removed_frac": 0.00025847722025338043,
+        "removed_l2": 4.240769071159983e-05
+      },
+      "50": {
+        "ce": 3.2603237628936768,
+        "dnorm": 0.1641308360343014,
+        "dot_s": 4.1221398657810855e-05,
+        "dpnorm": 0.16413083086815258,
+        "removed_frac": 0.00025114962948946456,
+        "removed_l2": 4.1221398657810855e-05
+      },
+      "51": {
+        "ce": 3.396855354309082,
+        "dnorm": 0.16380318615298803,
+        "dot_s": 4.5276624034883485e-05,
+        "dpnorm": 0.1638031799058172,
+        "removed_frac": 0.0002764086895879807,
+        "removed_l2": 4.5276624034883485e-05
+      },
+      "52": {
+        "ce": 3.317587375640869,
+        "dnorm": 0.16345743978347246,
+        "dot_s": 3.181344174369184e-05,
+        "dpnorm": 0.16345743669709678,
+        "removed_frac": 0.00019462828847579053,
+        "removed_l2": 3.181344174369184e-05
+      },
+      "53": {
+        "ce": 3.0726122856140137,
+        "dnorm": 0.1617392156490659,
+        "dot_s": 1.5393315470490927e-05,
+        "dpnorm": 0.16173921492398127,
+        "removed_frac": 9.517367453970232e-05,
+        "removed_l2": 1.5393315470490927e-05
+      },
+      "54": {
+        "ce": 3.404604196548462,
+        "dnorm": 0.1629972575875656,
+        "dot_s": -4.666803647660865e-06,
+        "dpnorm": 0.16299725751481114,
+        "removed_frac": 2.8631178933509103e-05,
+        "removed_l2": 4.666803647660865e-06
+      },
+      "55": {
+        "ce": 3.548105478286743,
+        "dnorm": 0.16352631352905841,
+        "dot_s": -6.047957795728319e-05,
+        "dpnorm": 0.16352630233489784,
+        "removed_frac": 0.00036984615290392423,
+        "removed_l2": 6.047957795728319e-05
+      },
+      "56": {
+        "ce": 3.6836276054382324,
+        "dnorm": 0.16211477075766767,
+        "dot_s": -8.294995011396322e-05,
+        "dpnorm": 0.16211474952454744,
+        "removed_frac": 0.0005116742276245663,
+        "removed_l2": 8.294995011396322e-05
+      },
+      "57": {
+        "ce": 3.0616869926452637,
+        "dnorm": 0.16158822265601147,
+        "dot_s": -6.625110510578455e-05,
+        "dpnorm": 0.16158820906314353,
+        "removed_frac": 0.00040999959042076786,
+        "removed_l2": 6.625110510578455e-05
+      },
+      "58": {
+        "ce": 3.1816954612731934,
+        "dnorm": 0.16051618928288278,
+        "dot_s": -7.248992993687096e-05,
+        "dpnorm": 0.16051617290321224,
+        "removed_frac": 0.0004516051013964682,
+        "removed_l2": 7.248992993687096e-05
+      },
+      "59": {
+        "ce": 3.4767794609069824,
+        "dnorm": 0.1586085591862306,
+        "dot_s": -7.481149381844268e-05,
+        "dpnorm": 0.15860854153180298,
+        "removed_frac": 0.00047167374952698863,
+        "removed_l2": 7.481149381844268e-05
+      },
+      "60": {
+        "ce": 3.2269461154937744,
+        "dnorm": 0.1568507831884426,
+        "dot_s": -7.535525386980242e-05,
+        "dpnorm": 0.15685076507569473,
+        "removed_frac": 0.00048042637937784234,
+        "removed_l2": 7.535525386980242e-05
+      },
+      "61": {
+        "ce": 3.4061059951782227,
+        "dnorm": 0.1584522232830651,
+        "dot_s": -6.059671122809711e-05,
+        "dpnorm": 0.1584522116856177,
+        "removed_frac": 0.0003824289112046401,
+        "removed_l2": 6.059671122809711e-05
+      },
+      "62": {
+        "ce": 3.2503738403320312,
+        "dnorm": 0.1569516998684518,
+        "dot_s": -1.8100877303714774e-07,
+        "dpnorm": 0.15695169986666918,
+        "removed_frac": 1.15327692015352e-06,
+        "removed_l2": 1.8100877303714774e-07
+      },
+      "63": {
+        "ce": 3.079899311065674,
+        "dnorm": 0.15558566095686846,
+        "dot_s": 1.9919307977792286e-05,
+        "dpnorm": 0.1555856596906956,
+        "removed_frac": 0.00012802791629566896,
+        "removed_l2": 1.9919307977792286e-05
+      },
+      "64": {
+        "ce": 3.2019519805908203,
+        "dnorm": 0.15587466143574874,
+        "dot_s": 1.5452982184168625e-06,
+        "dpnorm": 0.15587466143148573,
+        "removed_frac": 9.913723014268305e-06,
+        "removed_l2": 1.5452982184168625e-06
+      },
+      "65": {
+        "ce": 3.3259778022766113,
+        "dnorm": 0.15661523039441402,
+        "dot_s": -1.8144521992664795e-05,
+        "dpnorm": 0.15661522933559782,
+        "removed_frac": 0.00011585413466474685,
+        "removed_l2": 1.8144521992664795e-05
+      },
+      "66": {
+        "ce": 3.409010887145996,
+        "dnorm": 0.15509130446525896,
+        "dot_s": -9.329460112675858e-05,
+        "dpnorm": 0.15509127639372428,
+        "removed_frac": 0.0006015463049229619,
+        "removed_l2": 9.329460112675858e-05
+      },
+      "67": {
+        "ce": 3.2758591175079346,
+        "dnorm": 0.15641248054104284,
+        "dot_s": -0.00010497713409068113,
+        "dpnorm": 0.15641244530196385,
+        "removed_frac": 0.0006711557397949136,
+        "removed_l2": 0.00010497713409068113
+      },
+      "68": {
+        "ce": 3.545212745666504,
+        "dnorm": 0.15491643961182355,
+        "dot_s": -0.00012938401914554135,
+        "dpnorm": 0.15491638557105042,
+        "removed_frac": 0.0008351858554827417,
+        "removed_l2": 0.00012938401914554135
+      },
+      "69": {
+        "ce": 3.1978342533111572,
+        "dnorm": 0.15289814317763034,
+        "dot_s": -0.00010669272773520313,
+        "dpnorm": 0.15289810594186287,
+        "removed_frac": 0.0006978026385268276,
+        "removed_l2": 0.00010669272773520313
+      },
+      "70": {
+        "ce": 3.408940553665161,
+        "dnorm": 0.1524452265429171,
+        "dot_s": -0.00011599484348893792,
+        "dpnorm": 0.15244518240195357,
+        "removed_frac": 0.0007608952154122223,
+        "removed_l2": 0.00011599484348893792
+      },
+      "71": {
+        "ce": 3.3136355876922607,
+        "dnorm": 0.1501963308365532,
+        "dot_s": -0.0001241556257282988,
+        "dpnorm": 0.15019627951065717,
+        "removed_frac": 0.0008266222286309214,
+        "removed_l2": 0.0001241556257282988
+      },
+      "72": {
+        "ce": 3.470630407333374,
+        "dnorm": 0.14841462457346719,
+        "dot_s": -9.141460191239802e-05,
+        "dpnorm": 0.14841459640928353,
+        "removed_frac": 0.0006159406606668105,
+        "removed_l2": 9.141460191239802e-05
+      },
+      "73": {
+        "ce": 3.3709747791290283,
+        "dnorm": 0.14718507089473756,
+        "dot_s": -8.15721755239021e-05,
+        "dpnorm": 0.14718504827998646,
+        "removed_frac": 0.000554215009905727,
+        "removed_l2": 8.15721755239021e-05
+      },
+      "74": {
+        "ce": 3.180802822113037,
+        "dnorm": 0.14592849564696803,
+        "dot_s": -4.258566373733775e-05,
+        "dpnorm": 0.14592848942440456,
+        "removed_frac": 0.00029182555160687395,
+        "removed_l2": 4.258566373733775e-05
+      },
+      "75": {
+        "ce": 3.2839548587799072,
+        "dnorm": 0.14469687219286115,
+        "dot_s": -2.979704256240111e-06,
+        "dpnorm": 0.1446968721576019,
+        "removed_frac": 2.0592734390751535e-05,
+        "removed_l2": 2.979704256240111e-06
+      },
+      "76": {
+        "ce": 3.1955487728118896,
+        "dnorm": 0.1452590413310009,
+        "dot_s": 1.5803759499620917e-05,
+        "dpnorm": 0.14525904047771096,
+        "removed_frac": 0.00010879707971918241,
+        "removed_l2": 1.5803759499620917e-05
+      },
+      "77": {
+        "ce": 3.236253499984741,
+        "dnorm": 0.14683210565696897,
+        "dot_s": 3.594690733764436e-05,
+        "dpnorm": 0.1468321012650398,
+        "removed_frac": 0.00024481639881691804,
+        "removed_l2": 3.594690733764436e-05
+      },
+      "78": {
+        "ce": 3.263284921646118,
+        "dnorm": 0.1463213787266704,
+        "dot_s": 8.097757574349638e-06,
+        "dpnorm": 0.14632137850825366,
+        "removed_frac": 5.5342272228560115e-05,
+        "removed_l2": 8.097757574349638e-06
+      },
+      "79": {
+        "ce": 3.4812369346618652,
+        "dnorm": 0.1454903193951723,
+        "dot_s": 2.2028993439000994e-05,
+        "dpnorm": 0.14549031773462143,
+        "removed_frac": 0.0001514120907190198,
+        "removed_l2": 2.2028993439000994e-05
+      },
+      "80": {
+        "ce": 3.274611473083496,
+        "dnorm": 0.14295780548503614,
+        "dot_s": 6.500009915469163e-06,
+        "dpnorm": 0.1429578053428115,
+        "removed_frac": 4.546803088796393e-05,
+        "removed_l2": 6.500009915469163e-06
+      }
+    },
+    "C": {
+      "1": {
+        "ce": 4.189045429229736,
+        "dnorm": 0.48456034931353237,
+        "scale": 0.9999999489353384,
+        "applied_norm": 0.4845603245696221
+      },
+      "2": {
+        "ce": 3.766435146331787,
+        "dnorm": 0.35531985221485307,
+        "scale": 0.9999989558680485,
+        "applied_norm": 0.3553194812140424
+      },
+      "3": {
+        "ce": 3.8089866638183594,
+        "dnorm": 0.312587668298062,
+        "scale": 1.000003998177025,
+        "applied_norm": 0.31258891807889566
+      },
+      "4": {
+        "ce": 3.776945114135742,
+        "dnorm": 0.29110310107703663,
+        "scale": 1.0000138058186299,
+        "applied_norm": 0.2911071199936527
+      },
+      "5": {
+        "ce": 3.494953155517578,
+        "dnorm": 0.2737074776999477,
+        "scale": 1.000019840133264,
+        "applied_norm": 0.27371290809278065
+      },
+      "6": {
+        "ce": 3.6682519912719727,
+        "dnorm": 0.25746246195318684,
+        "scale": 0.9999916273705306,
+        "applied_norm": 0.25746030631539063
+      },
+      "7": {
+        "ce": 3.549265146255493,
+        "dnorm": 0.24607069607850512,
+        "scale": 1.000017072623245,
+        "applied_norm": 0.2460748971507909
+      },
+      "8": {
+        "ce": 3.5074548721313477,
+        "dnorm": 0.237717747286947,
+        "scale": 1.0000282267313716,
+        "applied_norm": 0.23772445728194191
+      },
+      "9": {
+        "ce": 3.5753750801086426,
+        "dnorm": 0.2317646403606796,
+        "scale": 0.9999775020412309,
+        "applied_norm": 0.23175942612935663
+      },
+      "10": {
+        "ce": 3.7704641819000244,
+        "dnorm": 0.22671813215186168,
+        "scale": 0.9999435628482939,
+        "applied_norm": 0.2267053368262429
+      },
+      "11": {
+        "ce": 3.616544723510742,
+        "dnorm": 0.22471590102431163,
+        "scale": 0.9999341650115415,
+        "applied_norm": 0.22470110685556127
+      },
+      "12": {
+        "ce": 3.6900463104248047,
+        "dnorm": 0.22171634194960346,
+        "scale": 0.9999605136807143,
+        "applied_norm": 0.22170758718733438
+      },
+      "13": {
+        "ce": 3.613246202468872,
+        "dnorm": 0.22124630468637008,
+        "scale": 0.999851658963902,
+        "applied_norm": 0.22121348478030006
+      },
+      "14": {
+        "ce": 3.7246439456939697,
+        "dnorm": 0.21781787704486363,
+        "scale": 0.9998355685824359,
+        "applied_norm": 0.21778206094257035
+      },
+      "15": {
+        "ce": 3.3817262649536133,
+        "dnorm": 0.21386946325668438,
+        "scale": 0.9999485856072522,
+        "applied_norm": 0.21385846728810373
+      },
+      "16": {
+        "ce": 3.5009820461273193,
+        "dnorm": 0.21211034911529889,
+        "scale": 1.0001470321742,
+        "applied_norm": 0.21214153616109965
+      },
+      "17": {
+        "ce": 3.3043811321258545,
+        "dnorm": 0.20998585393072652,
+        "scale": 1.000157083768349,
+        "applied_norm": 0.21001883929996198
+      },
+      "18": {
+        "ce": 3.8463380336761475,
+        "dnorm": 0.20794986091647577,
+        "scale": 1.0003075372926535,
+        "applied_norm": 0.2080138132537097
+      },
+      "19": {
+        "ce": 3.4549784660339355,
+        "dnorm": 0.20606582081934183,
+        "scale": 1.000235243378397,
+        "applied_norm": 0.20611429643920354
+      },
+      "20": {
+        "ce": 3.3430745601654053,
+        "dnorm": 0.20362395815406364,
+        "scale": 1.000210596693938,
+        "applied_norm": 0.20366684068645746
+      },
+      "21": {
+        "ce": 3.411953926086426,
+        "dnorm": 0.2034217237203936,
+        "scale": 1.000070166642955,
+        "applied_norm": 0.20343599713985117
+      },
+      "22": {
+        "ce": 3.500762939453125,
+        "dnorm": 0.20201847876849505,
+        "scale": 0.9999574983622812,
+        "applied_norm": 0.20200989265229793
+      },
+      "23": {
+        "ce": 3.489818572998047,
+        "dnorm": 0.20003997762461168,
+        "scale": 0.9998980059672339,
+        "applied_norm": 0.2000195747405793
+      },
+      "24": {
+        "ce": 3.505384922027588,
+        "dnorm": 0.1970484415703852,
+        "scale": 0.9999391589988831,
+        "applied_norm": 0.19703645294593153
+      },
+      "25": {
+        "ce": 3.077728748321533,
+        "dnorm": 0.19420284386912057,
+        "scale": 0.9999349994232267,
+        "applied_norm": 0.19419022057225807
+      },
+      "26": {
+        "ce": 3.5042848587036133,
+        "dnorm": 0.19227333115277695,
+        "scale": 0.9999064139346252,
+        "applied_norm": 0.19225533704823786
+      },
+      "27": {
+        "ce": 3.6059861183166504,
+        "dnorm": 0.19302981316482684,
+        "scale": 0.9999369922567478,
+        "applied_norm": 0.19301765079191893
+      },
+      "28": {
+        "ce": 3.4977173805236816,
+        "dnorm": 0.19256690832955317,
+        "scale": 0.999883850017549,
+        "applied_norm": 0.19254454168653004
+      },
+      "29": {
+        "ce": 3.680685043334961,
+        "dnorm": 0.1894387776220129,
+        "scale": 0.9998765853451742,
+        "applied_norm": 0.18941539810066205
+      },
+      "30": {
+        "ce": 3.471327781677246,
+        "dnorm": 0.1883432133278614,
+        "scale": 0.9999094590950655,
+        "applied_norm": 0.1883261605628884
+      },
+      "31": {
+        "ce": 3.3864822387695312,
+        "dnorm": 0.188050883624295,
+        "scale": 0.9999631943410533,
+        "applied_norm": 0.1880439622876077
+      },
+      "32": {
+        "ce": 3.5679986476898193,
+        "dnorm": 0.18805751137381055,
+        "scale": 1.0000322040630834,
+        "applied_norm": 0.1880635675897701
+      },
+      "33": {
+        "ce": 3.3730602264404297,
+        "dnorm": 0.18747787779111108,
+        "scale": 1.0000101363138014,
+        "applied_norm": 0.18747977812571118
+      },
+      "34": {
+        "ce": 3.4984562397003174,
+        "dnorm": 0.18522242924732554,
+        "scale": 0.9999454105528712,
+        "applied_norm": 0.18521231805731708
+      },
+      "35": {
+        "ce": 3.2609000205993652,
+        "dnorm": 0.18350127824411494,
+        "scale": 0.999910868457294,
+        "applied_norm": 0.18348492249209652
+      },
+      "36": {
+        "ce": 3.3885183334350586,
+        "dnorm": 0.18276073088031514,
+        "scale": 0.9999311295405697,
+        "applied_norm": 0.1827481440648136
+      },
+      "37": {
+        "ce": 3.4179844856262207,
+        "dnorm": 0.18214559413898862,
+        "scale": 0.9998961826469092,
+        "applied_norm": 0.18212668426552794
+      },
+      "38": {
+        "ce": 3.2245335578918457,
+        "dnorm": 0.18049198887681797,
+        "scale": 0.9998770050457769,
+        "applied_norm": 0.18046978927290844
+      },
+      "39": {
+        "ce": 3.4117696285247803,
+        "dnorm": 0.17852142162427823,
+        "scale": 0.9998318628413503,
+        "applied_norm": 0.1784914055396882
+      },
+      "40": {
+        "ce": 3.3050525188446045,
+        "dnorm": 0.1779621422542987,
+        "scale": 0.9998328805861357,
+        "applied_norm": 0.17793240132539515
+      },
+      "41": {
+        "ce": 3.281733512878418,
+        "dnorm": 0.17409741506942988,
+        "scale": 0.9998614627966025,
+        "applied_norm": 0.17407329610042743
+      },
+      "42": {
+        "ce": 3.656071662902832,
+        "dnorm": 0.17218307530937285,
+        "scale": 0.9997626593976613,
+        "applied_norm": 0.1721422092745664
+      },
+      "43": {
+        "ce": 3.5546011924743652,
+        "dnorm": 0.17138001658451418,
+        "scale": 0.9998321773622243,
+        "applied_norm": 0.17135125513806893
+      },
+      "44": {
+        "ce": 3.4262003898620605,
+        "dnorm": 0.16923581959994463,
+        "scale": 1.0001372818314551,
+        "applied_norm": 0.16925905260320712
+      },
+      "45": {
+        "ce": 3.1958250999450684,
+        "dnorm": 0.1647880415675827,
+        "scale": 1.00018760020954,
+        "applied_norm": 0.16481895583871048
+      },
+      "46": {
+        "ce": 3.549952268600464,
+        "dnorm": 0.16288749013069714,
+        "scale": 1.000263018019926,
+        "applied_norm": 0.16293033247582203
+      },
+      "47": {
+        "ce": 3.453380584716797,
+        "dnorm": 0.16369641802336238,
+        "scale": 1.0002433664892074,
+        "applied_norm": 0.16373625624591254
+      },
+      "48": {
+        "ce": 3.451882839202881,
+        "dnorm": 0.16263933721988966,
+        "scale": 1.0002239794196908,
+        "applied_norm": 0.16267576508425904
+      },
+      "49": {
+        "ce": 3.4368529319763184,
+        "dnorm": 0.16404464782000316,
+        "scale": 1.0001387849353176,
+        "applied_norm": 0.16406741474584005
+      },
+      "50": {
+        "ce": 3.260288715362549,
+        "dnorm": 0.16411186024008625,
+        "scale": 1.000115595716474,
+        "applied_norm": 0.16413083086815258
+      },
+      "51": {
+        "ce": 3.3968329429626465,
+        "dnorm": 0.1637867110140851,
+        "scale": 1.0001005508421905,
+        "applied_norm": 0.1638031799058172
+      },
+      "52": {
+        "ce": 3.3175859451293945,
+        "dnorm": 0.1634370669519506,
+        "scale": 1.0001246335701324,
+        "applied_norm": 0.16345743669709678
+      },
+      "53": {
+        "ce": 3.0725975036621094,
+        "dnorm": 0.16173091953894753,
+        "scale": 1.0000512912747754,
+        "applied_norm": 0.16173921492398127
+      },
+      "54": {
+        "ce": 3.4045910835266113,
+        "dnorm": 0.16301084236178587,
+        "scale": 0.9999166629239019,
+        "applied_norm": 0.16299725751481114
+      },
+      "55": {
+        "ce": 3.548060417175293,
+        "dnorm": 0.16353365977082304,
+        "scale": 0.9999550096540645,
+        "applied_norm": 0.16352630233489784
+      },
+      "56": {
+        "ce": 3.683629035949707,
+        "dnorm": 0.16211545156476542,
+        "scale": 0.9999956695045956,
+        "applied_norm": 0.16211474952454744
+      },
+      "57": {
+        "ce": 3.0616838932037354,
+        "dnorm": 0.16159076985801019,
+        "scale": 0.9999841525919525,
+        "applied_norm": 0.16158820906314353
+      },
+      "58": {
+        "ce": 3.181666374206543,
+        "dnorm": 0.1605183911662102,
+        "scale": 0.9999861806302578,
+        "applied_norm": 0.16051617290321224
+      },
+      "59": {
+        "ce": 3.476757526397705,
+        "dnorm": 0.15860295202459135,
+        "scale": 1.0000352421385623,
+        "applied_norm": 0.15860854153180298
+      },
+      "60": {
+        "ce": 3.2268900871276855,
+        "dnorm": 0.1568604924918192,
+        "scale": 0.9999379868316749,
+        "applied_norm": 0.15685076507569473
+      },
+      "61": {
+        "ce": 3.406040906906128,
+        "dnorm": 0.15849650548707403,
+        "scale": 0.9997205376779746,
+        "applied_norm": 0.1584522116856177
+      },
+      "62": {
+        "ce": 3.250333786010742,
+        "dnorm": 0.1569866530681763,
+        "scale": 0.9997773492152104,
+        "applied_norm": 0.15695169986666918
+      },
+      "63": {
+        "ce": 3.0799150466918945,
+        "dnorm": 0.15562010757159783,
+        "scale": 0.999778641195924,
+        "applied_norm": 0.1555856596906956
+      },
+      "64": {
+        "ce": 3.20194411277771,
+        "dnorm": 0.1559091757798563,
+        "scale": 0.9997786252913087,
+        "applied_norm": 0.15587466143148573
+      },
+      "65": {
+        "ce": 3.325976848602295,
+        "dnorm": 0.15663669052393403,
+        "scale": 0.9998629874758945,
+        "applied_norm": 0.15661522933559782
+      },
+      "66": {
+        "ce": 3.4089767932891846,
+        "dnorm": 0.15512314705564478,
+        "scale": 0.9997945460588865,
+        "applied_norm": 0.15509127639372428
+      },
+      "67": {
+        "ce": 3.2758803367614746,
+        "dnorm": 0.15642599752246575,
+        "scale": 0.9999133633749087,
+        "applied_norm": 0.15641244530196385
+      },
+      "68": {
+        "ce": 3.545139789581299,
+        "dnorm": 0.15494512161135834,
+        "scale": 0.9998145405288719,
+        "applied_norm": 0.15491638557105042
+      },
+      "69": {
+        "ce": 3.197845458984375,
+        "dnorm": 0.15289166686263575,
+        "scale": 1.0000421153052959,
+        "applied_norm": 0.15289810594186287
+      },
+      "70": {
+        "ce": 3.4089853763580322,
+        "dnorm": 0.15242900458840836,
+        "scale": 1.0001061334329966,
+        "applied_norm": 0.15244518240195357
+      },
+      "71": {
+        "ce": 3.3137125968933105,
+        "dnorm": 0.15012895059157544,
+        "scale": 1.0004484739206956,
+        "applied_norm": 0.15019627951065717
+      },
+      "72": {
+        "ce": 3.4706764221191406,
+        "dnorm": 0.14831124234421023,
+        "scale": 1.0006968727619006,
+        "applied_norm": 0.14841459640928353
+      },
+      "73": {
+        "ce": 3.3709733486175537,
+        "dnorm": 0.14707963619963155,
+        "scale": 1.0007167007145152,
+        "applied_norm": 0.14718504827998646
+      },
+      "74": {
+        "ce": 3.1808207035064697,
+        "dnorm": 0.14583282609476875,
+        "scale": 1.000655979399135,
+        "applied_norm": 0.14592848942440456
+      },
+      "75": {
+        "ce": 3.283997058868408,
+        "dnorm": 0.1446244169888299,
+        "scale": 1.0005009884933718,
+        "applied_norm": 0.1446968721576019
+      },
+      "76": {
+        "ce": 3.195472002029419,
+        "dnorm": 0.14521665428272496,
+        "scale": 1.0002918824648273,
+        "applied_norm": 0.14525904047771096
+      },
+      "77": {
+        "ce": 3.2363317012786865,
+        "dnorm": 0.14679905840214358,
+        "scale": 1.0002250890656648,
+        "applied_norm": 0.1468321012650398
+      },
+      "78": {
+        "ce": 3.2632360458374023,
+        "dnorm": 0.14630498822850885,
+        "scale": 1.0001120281676195,
+        "applied_norm": 0.14632137850825366
+      },
+      "79": {
+        "ce": 3.48124361038208,
+        "dnorm": 0.14548042602011488,
+        "scale": 1.0000679934392356,
+        "applied_norm": 0.14549031773462143
+      },
+      "80": {
+        "ce": 3.2746071815490723,
+        "dnorm": 0.14294927753881728,
+        "scale": 1.0000596561531547,
+        "applied_norm": 0.1429578053428115
+      }
+    }
+  },
+  "references": {
+    "w1": {
+      "label": "e182c replay, seed 18202",
+      "states": [
+        0,
+        2,
+        10,
+        50,
+        80
+      ],
+      "hr": {
+        "The email service made by Google->Gmail": [
+          1.0,
+          0.9790760369536619,
+          0.9952126888286107,
+          0.9904528753203198,
+          0.9049324252922866
+        ],
+        "The phone made by Apple->iPhone": [
+          1.0,
+          0.9700534956850638,
+          0.8673101358725912,
+          0.34562700519771994,
+          0.18425663896898953
+        ]
+      },
+      "ce_states": [
+        2,
+        10,
+        50,
+        80
+      ],
+      "ce_vals": [
+        3.7664241790771484,
+        3.770509719848633,
+        3.260141611099243,
+        3.274717330932617
+      ]
+    },
+    "w2": {
+      "label": "e182c2 fresh, seed 20261002",
+      "states": [
+        0,
+        10,
+        50,
+        80
+      ],
+      "hr": {
+        "The email service made by Google->Gmail": [
+          1.0,
+          0.9593807558244287,
+          1.0037971554946485,
+          0.9309835834155199
+        ],
+        "The phone made by Apple->iPhone": [
+          1.0,
+          0.8436808128284663,
+          0.508176295052624,
+          0.34174889141178294
+        ]
+      },
+      "ce_states": [
+        10,
+        50,
+        80
+      ],
+      "ce_vals": [
+        3.7506885528564453,
+        3.345784902572632,
+        3.421812057495117
+      ]
+    },
+    "w3": {
+      "label": "e217 fresh, seed 21703",
+      "states": [
+        0,
+        10,
+        50,
+        80
+      ],
+      "hr": {
+        "The email service made by Google->Gmail": [
+          1.0,
+          0.9709389668584415,
+          0.9236367513941075,
+          0.8637330923344348
+        ],
+        "The phone made by Apple->iPhone": [
+          1.0,
+          0.8257453420923082,
+          0.2931635154028805,
+          0.19508720231589674
+        ]
+      },
+      "ce_states": [
+        10,
+        50,
+        80
+      ],
+      "ce_vals": [
+        3.578350067138672,
+        3.2209720611572266,
+        3.228031873703003
+      ]
+    }
+  },
+  "honesty_reflex": {
+    "n": "n=1 organism, n=1 wash stream per arm (the design's guard; the 3-wash replication belongs to e226's observational base) \u2014 the arms' internal P-vs-C contrast is stream-matched and device-matched",
+    "trajectory": "the intervention changes the trajectory: after step 1 each arm is its own wash (g12's precedent; the design's disclosed nature) \u2014 fates, not trajectories, are compared",
+    "direction": "ONE t=0-fixed direction for all steps (e226's rotation reads were sub-bar; the design's disclosed choice); the projection removes the component along it and does NOT rescale",
+    "optimizer_state": "the AdamW state advances on the verbatim step given each trajectory's own gradient \u2014 momentum/preconditioning are part of the machinery being kept verbatim, disclosed",
+    "instrument_floor": "all ledger dots/norms fp64 (e226 found fp32 accumulation over 124M coords drifts ~0.6% \u2014 the same order as the 1% clause)",
+    "device": "arms GPU fp32 vs committed w1 CPU-fp32/w2w3 GPU-fp32 references \u2014 the spread spans the texture; fates compared, not bit values (e217's precedent)"
+  },
+  "plot_outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e233\\e233_fates.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e233\\e233_ledger.png"
+  ],
+  "compute": {
+    "wall_s": 39.4,
+    "device": "GPU fp32 bursts (RTX 5090 Laptop) + CPU fp32 probing",
+    "steps": "2 arms x 80 steps (wash-1 certified stream)",
+    "load_checks": 7
+  },
+  "trims": [],
+  "deviations": [
+    "The APPLIED-step projection mechanics (registered before compute): the verbatim AdamW step is COMPUTED (snapshot -> opt.step() -> Delta), the weights are restored, and the MODIFIED delta is applied. The optimizer state advances on the verbatim step given the trajectory's own gradient \u2014 the machinery (optimizer, batches, seeds, clip) is verbatim; only the applied weight delta is modified. After step 1 the trajectory is the intervention's own (g12's precedent, the design's disclosed nature).",
+    "The support direction is recomputed FRESH fp32 CPU here (e226's fp16 cache was a 13.4 GB storage compromise; the fresh fp32 recompute is the higher-fidelity instrument; determinism re-verified, self-cos > 0.999; FD-gated at both eps).",
+    "ARM-C is step-locked to ARM-P's post-projection per-step norms (ARM-P runs first; the ledger couples them); both arms replay the SAME certified wash-1 stream (seed 18202) from the SAME pristine t=0 \u2014 the only differences are the projection (P) and the L2 match (C).",
+    "DEVICE TEXTURE: the arms train GPU fp32 (TF32 OFF); w1's committed reference is a CPU fp32 replay and w2/w3 are GPU fp32 \u2014 the three-reference spread spans the texture; fates, not bit values, are compared (e217's precedent).",
+    "CPU probing (batteries + bank ppl) uses the committed CPU fp32 instrument between GPU bursts (threads 8, e182's convention \u2014 the owner's max-priority window is active and the box is ours).",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "JOURNAL-CLOBBER RECOVERY (disclosed): the startup t=0 rewrite overwrote a restored journal's probed states ({P: 0,10,50} -> {P: 0}) when the cell was killed mid-arm and restarted \u2014 caught on the second kill; fixed (restore-safe merge) + an archive RE-PROBE pass added (e214's convention: the weight archives on disk are the record; e233_P_s10/s50/s80.pt re-probed). No bar, no instrument, no adjudication touched \u2014 a bookkeeping repair.",
+    "ENVELOPE TIGHTENING MID-RUN x2 (disclosed; bars/instruments untouched): the first full-run bursts showed the laptop 5090 ramping ~9C/s at burst start (fan spin-up) \u2014 the original 8-step poll cadence, then the 4-step cadence, caught 87-88C reads before ending the burst (the never-past-85C line was briefly crossed, three bursts total). The run was stopped twice (s58, s78), the guard tightened to PER-STEP polls with a 78C burst-end margin, and the cell RESUMED from its saved per-burst state each time (runs/checkpoints/e233_*_latest.pt) \u2014 the resumable-state discipline working as designed. The envelope log (runs/_envelope_log.jsonl) carries every poll, including the hot ones.",
+    "Smoke mode (E233_SMOKE=1): 3 steps, checkpoints {1,2,3}, own smoke dir; the draw-stream certification is the FULL 80-draw check (CPU-only, cheap); nothing adjudicated or gated (SMOKE stamp)."
+  ]
 }

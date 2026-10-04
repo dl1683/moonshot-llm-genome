@@ -566,8 +566,13 @@ def run_arm(tag: str, net0, train_ids, offs, bank_xy, s_chunks_gpu,
 
 def make_fates_plot(rd, states, refs, adj):
     """THE FATE FIGURE: the four trajectories vs the three committed
-    references + the CE panel + the verdict panel."""
-    verdict = adj["verdict"]
+    references + the CE panel + the verdict panel. PLOT-ONLY FIX (the
+    e182c fourth-dispatch precedent): the first full pass completed all
+    compute + adjudication and crashed here on adj['verdict'] being the
+    BAR STRING not the dict — regenerated VERBATIM from the frozen
+    journal, zero recompute, zero metric change."""
+    verdict_bar = adj["bar"]
+    underpowered = bool(adj.get("underpowered"))
     sts = sorted(int(s) for s in states["P"])       # 0,10,50,80
     fig, axes = plt.subplots(2, 2, figsize=(14.0, 9.5))
 
@@ -611,9 +616,9 @@ def make_fates_plot(rd, states, refs, adj):
     ax = axes[1][1]
     ax.axis("off")
     y = 0.97
-    ax.text(0.02, y, f"E233 VERDICT: {verdict['bar']}"
+    ax.text(0.02, y, f"E233 VERDICT: {verdict_bar}"
             + ("  [UNDERPOWERED — honest-instrument clause]"
-               if verdict.get("underpowered") else ""),
+               if underpowered else ""),
             fontsize=11, va="top", family="monospace", weight="bold",
             color="darkred")
     y -= 0.05
