@@ -685,6 +685,35 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T224 — e247: the modes are absorbing states — the unification's final form (2026-10-04 ~17:27Z)
+
+The w3 census closes the taxonomy arc at pooled n: non-P-FIRST
+5/5 mis-dial; collapses 10/10 P-FIRST. THE ASYMMETRIC MAP IS
+THE FINAL FORM: commitment-or-pair-first deaths end as local
+slides; belief-first deaths end at the prior. The literal bar's
+break (4 P-FIRST mis-dials) is the clause the map never claimed
+— P-FIRST deaths MAY mis-dial (the belief dies first and the
+commitment still finds its neighbor); what the map forbids is
+the reverse conjunction, and it holds perfectly. THE ABSORPTION
+FINDING rewrites the walker story: mis-dials are not stages en
+route to collapse — they arrive EARLY (9/14 by +50) and STAY:
+each death falls into its mode and the mode is final. Egypt is
+the exception that shows the mechanism: on the gentle w3 the
+slide happened at +50 as the margin crossed the flip zone and
+the record simply RAN OUT OF WASH before the belief died — the
+walker, arrested by gentleness. THE REGISTERED MECHANISM ASK:
+within P-FIRST, what selects mis-dial vs collapse? Candidates:
+the RU's z (the neighbor's strength) and the MARGIN FLOOR (how
+deep the commitment ground before the belief crossed). The
+early-arrival read is the cheap instrument: does the RU-
+arrival state predict the final mode? CONNECTIONS: T222 (the
+unification replicated at pooled n); T212's taxonomy complete
+(absorbing modes); e230's order census validated on a third
+wash (the instrument itself replicates); W038's friction layer
+gains the absorption constant (modes absorb by +50 at these
+grids); the tmpl battery's second attractor ('North' beside
+'the') — the prior basin is not one token but a small set.
+
 ## T223 — e237: the undertow is causal — and the shield is shared (the triangle closes; the field amended, standing) (2026-10-04 ~17:14Z)
 
 The pre-Adam cut tripled the applied-cut result and the

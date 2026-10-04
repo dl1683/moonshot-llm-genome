@@ -9,6 +9,46 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e247 — the w3 census: ORDER-MAP-BREAKS at the literal bar / THE COMMITTED MAP HOLDS — the verdict word is the letter's, the finding is the unification's: every violation (4) is clause b (P-FIRST->MIS-DIAL — the clause w1/w2 itself already violates 5x and the committed asymmetric map never claimed); on e245/T222's actual map w3 is PERFECT (non-P-FIRST 1/1 mis-dial; collapses 3/3 P-FIRST; pooled over three washes: non-P-FIRST 5/5, collapses 10/10) — THE TWO DEATH MODES STAY THE TWO DEATH ORDERS; THE WALKER READ DENIES 'walkers are common': 1/10 collapses passed through a runner-up stage while 9/14 mis-dials ARRIVED by +50 and STAYED (the mis-dial an EARLY ABSORBING SLIDE); Egypt w3 = the w1 walker ARRESTED mid-walk on the gentler draw (2026-10-04 ~17:25Z) — DONE
+
+WHAT WE DID: T222's registered follow-up, eval-only CPU (21.6s
+deterministic rerun). w3's margins/argmaxes computed FRESH (not
+in e228's journal; disclosed) with the module-imported
+instrument; t0 bit-reproduces e228 (dp 0.0); w3 states re-probe
+e217 at dp 0.0 (argmax double-sourced, 0 mismatches); e243's
+rules/z imported verbatim; e230's order classes extended to w3
+and VALIDATED by exact reproduction of its committed 108 w1/w2
+records. Bars frozen at d00b847 BEFORE compute with the
+literal-vs-committed ambiguity disclosed pre-compute. Script
+lab/e247_w3_census.py; runs/e247/{metrics.json, journal.json,
+e247_order_mode_map.png, e247_walker_trajectories.png}.
+
+WHAT WE SAW (T224): w3 census 11 flips (MIS-DIAL 5 / FREQ 3 /
+OTHER 3); the order census all-54 {P-FIRST 26, NEITHER 25,
+MARGIN-FIRST 2, TOGETHER 1} (NEITHER-heavy — w3 the gentlest
+wash, consistent with e217's depth-revert). THE COMMITTED MAP
+HOLDS POOLED: non-P-FIRST 5/5 mis-dial; collapses 10/10
+P-FIRST. THE MODES ARE ABSORBING STATES, NOT STAGES: the
+mis-dial absorbs early (9/14 by +50, stayed); the collapse is
+the belief-first death's end (1/10 passed through a runner-up);
+Egypt w3 slid to 'Alexandria' at +50 as the margin entered the
+flip zone (0.055) and STAYED — the walker, arrested by a
+gentler draw. FREE TEXTURE: 10/11 w3 flips are cross-wash
+recurrences; Denver->'North' new (the tmpl battery's second
+attractor beside 'the').
+
+HONESTY: the verdict word rides the frozen literal letter while
+the committed unification replicates — both readings reported,
+no shopping; the thin side pooled n=5 (w3's non-P-FIRST n=1);
+the grids coarse (the walker rate a lower bound); the 'the'
+confound and z-noise carried; three washes share corpus/
+optimizer/lr; one organism. NEXT (T224): the map's mechanism
+(what WITHIN P-FIRST decides mis-dial vs collapse — the RU's z?
+the margin floor?) + the early-arrival instrument (does the
+RU-arrival state predict the final mode?).
+
+---
+
 ## e237 — the pre-Adam projection: FATE-FLIPS-MEMORY on w1, PROMOTION REFUSED by the rider — the cut ELEVATES iPhone above its own t=0 (1.253 vs the 0.4525 line; 6.8x the committed death) with controls airtight to 4 decimals; the w2 rider replicates massively (gap +0.877, 17.5x the bar) but Gmail rides +0.104 — the instrument is NOT probe-specific at the powered dose; the honest-instrument bar cleared 31x beyond design (gradient removal 1.155%, median); the family clause FLIPS positive 5/5 on both streams (2026-10-04 ~17:12Z) — DONE
 
 WHAT WE DID: the frozen scratch/e237_design.md cell + the R63
