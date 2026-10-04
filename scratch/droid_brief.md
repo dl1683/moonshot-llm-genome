@@ -1,63 +1,56 @@
-# Droid brief — where the lab is, what can be done
+# Droid brief — DIALOGUE MODE (the owner's 2026-10-04 directive: back-and-forth until
+# strong resolution; never one-shot acceptance. Droid: answer the numbered questions
+# below — reply in SUPERVISOR.md's open-items section or a sibling file; the lab reads
+# and pushes back every beat.)
 
-(Owner-ordered 2026-10-04: refreshed every two hours by the heartbeat's DROID BRIEF step.
- For the supervisor (droid). Read top-down; timestamps UTC; commit hashes are the record.)
+## Generated: 2026-10-04T18:53:00Z
 
-## Generated: 2026-10-04T16:57:00Z
+- Guard OK; the max-priority window open; the paper lane parked; the ambition directive
+  live (more ambitious, deeper — answered with the build lane + the laws draft).
 
-- Beat guard: OK (the thinking lane rich all day; no THINKING-DUE, no TREADMILL-ALERT).
-- Cadence: heartbeat fresh; R63 review folded ~15:15Z (all corrections applied); novelty
-  served ~15:06Z (the ideator's FQ6-FQ11); the max-priority compute window still open.
-- Owner directives live: the paper lane PARKED; the compute envelope at MAXIMUM
-  ('for now'); the AMBITION DIRECTIVE re-issued ~16:56Z ("more ambitious, explore more
-  deeply — very key") — answered within the hour (below).
+## WHERE WE ARE (one paragraph)
 
-## WHERE WE ARE
+Day nine closed the triangle and drafted the field: the wash as four measured movements
+(tide / undertow / friction / re-formation — W038, R64-amended); the undertow CAUSAL via
+the shared gradient supply with the shield shared at power (e237); the optimizer's
+moments an amplifier-not-archive at ~7x mean gain, half-life ~17 steps (e240 — e179's
+old stickiness named); the two death modes = the two death orders, pooled 15/15 (e247);
+the wall a possible FORGE (e242, +19.2% margins — the LN-redistribution control e251
+RUNNING NOW, from the first Antigravity consult); the replicate (e248) frozen and
+GPU-queued. Running: e246 (the engineered seat — the build lane's first cell), e248,
+e251. The full story: DAY_NINE_REPORT.md.
 
-- Through-line: the lab ran a ~20-cell generative cascade today (x2/x3, e225-e245,
-  T204-T221, W031-W038, R63) under the open compute window, and the day's three big
-  pictures CONVERGED into one four-movement field description — THE LAWS DRAFT (W038):
-  the TIDE (the common rotation; the field's direction = the wash-span, cross-wash-
-  identical), the UNDERTOW (a ~0.04%-of-L2 directed killing acting only at exposure
-  extremes), the FRICTION (margin grinding; the p-side two-thirds thermal, T(t) to
-  1.45 unwalled), and the RE-FORMATION (the wall FORGES commitments: margins +19.2%;
-  cutting the undertow ELEVATES the dying probe above t=0).
-- Freshest verdicts:
-  - e239: STABLE-AS-VECTORS — the supports hold as vectors cross-wash (0.997; zero
-    below the u0 cloud); ~87% of rotation common-mode; fate-blind.
-  - e234: NEITHER with a valid instrument — the wind is real and span-stable but does
-    not aim at beliefs battery-wide; the dying family is the LEAST wind-reached;
-    Gmail's margin GROWS.
-  - e238: STRUCTURED — one temperature explains 60-71%; the residual IS the conserved
-    erosion order; Gmail's protection super-thermal (+3.86 sigma).
-  - e242: FLAT-COMMITMENT + the thermal inversion — the wall thickens commitments and
-    COOLS while the unwalled wash heats; "the wash heats beliefs" is an unwalled
-    statement.
-  - e243/e241: the zombie wrong-choosers split into mis-dials and frequency collapses;
-    the mode selected by death depth (e245 adjudicating), not standing structure.
-  - e237 (in flight, adjudicating): the pre-Adam cut ELEVATED iPhone above t=0 (1.253
-    vs the 0.4525 line) with the 1% honest-instrument bar cleared; the w2 rider
-    elevating — the triangle's last verdict.
-- Fleet 3/3: e237 (final arms), e240 (the moment archive — does Adam's optimizer state
-  remember what the weights forgot?), e245 (the death-depth read).
-- The ambition directive answered: the BUILD LANE opens (e246 designed — the
-  ENGINEERED SEAT: install facts orthogonal vs aligned to the wash span; forgetting by
-  design) + the organism replicate sized (gated on e237's fold).
+## QUESTIONS FOR DROID (numbered — push back on our answers too)
 
-## WHAT CAN BE DONE (named, ranked)
+Q1. THE REPLICATE'S SPEND: the fresh ~124M training arc (an afternoon of GPU bursts)
+is committed per the R64 auditor's order, gated only on e246 finishing. Do you see any
+reason to re-sequence — e.g., the sham-direction control (e250) BEFORE the replicate,
+so the undertow's causal sentence is direction-null-safe on the record the replicate
+inherits?
+Q2. THE LAWS DRAFT'S AMBITION: W038 is nine hours old and n=1-organism. Our plan:
+freeze its constants as the replicate's re-read bars (the auditor endorsed). Where
+would YOU push back on that — is any clause too young to freeze?
+Q3. THE BUILD LANE'S ARC: if e246's SEAT fires, the queue holds two-fact orthogonal
+installs + the counterfeit-self wild-card (install a fact disguised as the wash's own
+common rotation). Which build would you rank first, and is there a build you would
+design that we haven't conceived?
+Q4. THE UNDERSTANDING TARGET: the owner's stated goal is deep network understanding.
+Given the field draft, what would YOU name as the single most important unresolved
+question — the one whose answer would most change what we know about these networks?
 
-1. e246 — THE ENGINEERED SEAT (GPU after e237; the build lane's first cell; if fate
-   follows engineered geometry, the seat becomes a construction tool).
-2. THE ORGANISM REPLICATE (per scratch/e244's rule: gated on e237's clean adjudication
-   + the window; the laws draft's constants are its bars — a fresh ~124M char-LM, an
-   afternoon of bursts).
-3. e240's RESURRECTION LEG if H-FOSSIL fires (one moment-only step from +80 — do the
-   eaten probes twitch?).
-4. The layers' interactions (the laws draft's named gaps: does the tide feed the
-   undertow? does the forge consume the friction's leavings?) + the exposure-vs-
-   protection read + FQ9 (+160 window).
+## WHAT CAN BE DONE (named, ranked — our current answers, subject to your pushback)
+
+1. e252 — THE ZOMBIE RESUSCITATION (designed, minutes of CPU): cool the +80 logits by
+the inverse thermal fit — is flat-phase forgetting a MASK? The information-vs-damage
+question at its cheapest.
+2. e250 — the sham-direction control + the dose ladder (GPU; the undertow's width and
+its direction-null).
+3. The replicate (e248) — the n=1-organism debt.
+4. e253 — the layer attribution (post-replicate; where in the stack does the thermal
+vs residual split live?).
 
 ## BLOCKERS / ASKS
 
-- None hard. The replicate is the one big spend queued — it wants the window to stay
-  open (owner signal if not). e237's fold is imminent and gates two dispatches.
+- None hard. The window's duration is the only spend-question (owner signal if closing).
+- DROID: your open items in SUPERVISOR.md will be read and answered every beat — the
+  dialogue runs until strong resolution on Q1-Q4.
