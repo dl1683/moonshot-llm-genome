@@ -503,10 +503,18 @@ def replay_and_collect(net0, train_ids, probes, supports, rd, journal,
                                     shape=(S, N)))
     if steps_done > 0 and resume_path.exists():
         rs = torch.load(resume_path, map_location=CPU, weights_only=False)
+        rs_step = int(rs["step"])
+        if rs_step != steps_done:
+            # the resume file is the truth for weights+generator: redo the
+            # steps past it (deterministic replay; rows rewritten
+            # identically; journal overwritten identically)
+            log(f"{w}: resume file at step {rs_step} vs journal "
+                f"{steps_done} — rewinding to {rs_step} and redoing "
+                f"(deterministic)")
+            steps_done = rs_step
         net.load_state_dict(rs["model"])
         opt.load_state_dict(rs["opt"])
         gen.set_state(rs["gen"])
-        assert int(rs["step"]) == steps_done
         # the stored rows are unit-scaled: spot-check the last stored row
         row = torch.from_numpy(np.asarray(mm[steps_done - 1],
                                           dtype=np.float32))
@@ -569,7 +577,7 @@ def replay_and_collect(net0, train_ids, probes, supports, rd, journal,
         reads = W1_READ_STATES if w == "w1" else WX_READ_STATES
         if step in reads and str(step) not in traj:
             read_traj(step)
-        if step % 10 == 0 or step == HALF:
+        if step % 10 == 0 or step == HALF or step == S:
             torch.save({"model": {k: v.detach().clone() for k, v in
                                   net.state_dict().items()},
                         "opt": opt.state_dict(), "gen": gen.get_state(),
@@ -693,8 +701,8 @@ def decompose(G_scaled: np.ndarray, gnorms: np.ndarray,
         "metaA": metaA, "metaB": metaB, "metaA_norm": metaAn,
         "wind_A": wind_A, "fric_A": fric_A, "wind_B": wind_B,
         "fric_B": np.sqrt(fric_B2), "n_negative_fric2_clamped": n_clamped,
-        "cos_wind_A": cos_wind_A, "cos_fric_A": cos_fric_A,
-        "cos_full_A": cos_full_A, "cos_wind_B": cos_wind_B,
+        "cos_wind_A": cos_wind, "cos_fric_A": cos_fric,
+        "cos_full_A": cos_full, "cos_wind_B": cos_wind_B,
         "cos_fric_B": cos_fric_B, "cos_full_B": cos_full_B,
         "angles_AB_cos": ang_AB, "spectrum_A": evA.tolist(),
         "spectrum_B": evB.tolist(), "spectrum_A_norm": evAn.tolist(),
@@ -788,10 +796,10 @@ def plot_basis(rd, dec, washes, cross_angles, loo):
     fig, axes = plt.subplots(1, 3, figsize=(16, 5.2))
     ax = axes[0]
     for w in washes:
-        ev = dec[w]["metaA"]["spectrum"]
+        ev = np.asarray(dec[w]["metaA"]["spectrum"], dtype=float)
         ax.plot(range(1, len(ev) + 1), ev / max(ev[0], 1e-30), "o-",
                 ms=4, label=f"{w} A (k={dec[w]['kA']})")
-        evn = dec[w]["spectrum_A_norm"]
+        evn = np.asarray(dec[w]["spectrum_A_norm"], dtype=float)
         ax.plot(range(1, len(evn) + 1), evn / max(evn[0], 1e-30), ":",
                 alpha=0.6, label=f"{w} A-norm")
     ax.set_yscale("log")
@@ -1231,7 +1239,7 @@ def main():
         journal[f"sign_shadow_{w}"] = shadows[w]
         save_journal(rd, journal)
         log(f"  {w}: Gram (max off-diag cos "
-            f"{np.max(G_scaled - np.diag(np.diag(G_scaled))):.3f}) + "
+            f"{np.max(G_scaled - np.diag(np.diag(G_scaled))) / float(CACHE_SCALE ** 2):.3f}) + "
             f"support dots + sign-shadow done")
         del mm
     cross = {}
