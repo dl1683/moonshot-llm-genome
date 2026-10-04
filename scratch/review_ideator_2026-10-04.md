@@ -1,0 +1,20 @@
+# The IDEATOR's report — staggered frontier review 2026-10-04 (persisted from the role agent; read-only)
+
+## The six fresh questions (FQ6-FQ11, ranked by insight-per-compute)
+
+1. FQ6 — THE CROSS-WASH SUPPORT-STABILITY READ (W037's direct test): the 54 supports AS VECTORS at matched deep states (+50/+80) under two certified washes vs the u0 cloud (0.35) and the random null. Bars: STABLE-AS-VECTORS (median cos >= ~0.7 — W037 earns physics: probe-anchored directions stable, corpus-anchored rays cloudy) / CLOUD-LEVEL (~0.35 — W037 deflates to reads-only; the third branch: the fact is SET-level stable, supports as populations — the law at the support level). CPU eval-only ~1h. Every outcome edits a standing card.
+2. FQ7 — THE ONE-TEMPERATURE-PER-STATE NULL: fit ONE T(t) per state across all 54 probes' p simultaneously (MLE); read per-probe residuals. FLATTENING-DOMINANT (>= ~80-90% of p-variance) vs STRUCTURED (the residuals carry the erosion order + the Gmail/iPhone split — the third dimension's p-side seat). MUST RUN BEFORE e234's adjudication is read (join (a) rides a possible uniform flattening). Desk + minutes. Pre-register the variance bar (the gerrymander guard).
+3. FQ8 — THE MOMENT ARCHIVE: reconstruct AdamW's m/v states from e234's raw-gradient cache (grads_w1.npy, deterministic replay); project the actual step direction (m/sqrt(v), T139's clock) onto the 54 t=0 supports — KILLED probes' supports vs LIVING (built-in control; z vs the cross-probe null, the g11 hot-set guard). H-FOSSIL (killed directions overrepresented at +80 — the moments remember what the weights forgot; the no-archive law's amendment) / H-TRANSIENT (~10-20-step decay — the supply's echo; e237's pre-Adam cut is then exactly right). Intervention leg if it fires: ONE moment-only step from +80 (zero fresh gradient) — do the eaten probes twitch? RESURRECTION-FROM-ARCHIVE. ~1-3h CPU over e234's output. FQ3 (the normalizer-as-one-object) ripens WITH this — v is the running metric estimate.
+4. FQ9 — THE +160 WINDOW: continue wash-1's certified stream +80 -> +160 (one GPU burst + CPU evals at {+90,+100,+120,+140,+160}); STILL-CENSORED (boundary artifact) / TRUE-LAG (the friction's half-life MEASURED — W035 leg 3) / SOME-NEVER (permanent-resident zombies — W028's strangest member). The wrong-choosers' re-census rides free.
+5. FQ10 — THE WALL'S COMMITMENT LAYER: the 2.74M fact battery's margins through the flat phase (+1..+300) on committed g-series checkpoints — FLAT-COMMITMENT (two-layer steady state) / GRINDING-BEHIND-THE-FLAT (the wall has zombie decisions during the flat phase — W036's friction-settle signature) / CROSSOVER (the wall's true failure mode: it falls at the decision layer first). CPU 1-2h.
+6. FQ11 — THE LIFT'S BASELINE RELATIVITY: every lift reading in the (0-shot M, 2-shot M) plane across the zoo — ARTIFACT-LEAN (one monotone curve — the dissociation collapses into the prior-shape lottery) / DISSOCIATION-SURVIVES (T211 hardened). Desk + minutes. Carries T214's H-i/H-ii discrimination.
+
+## Queue tail verdicts
+PARK: g1bW2 + g9 (pre-terrain framing; re-argue trigger: W036's recapture leg revives as a NEW design); e167/e168 (the sink era; no live card). KEEP as READY filler: e146b (the T089 discriminator, CPU minutes, unblocks W015/e156).
+FQ3: ripens with FQ8 (v = the running metric estimate); derivation mood; do not dispatch.
+
+## The deliberate non-question
+The second-124M-organism replicate of the whole cascade: NOT YET — three instruments still in flight (e234/e236/e237 + FQ6) will change which numbers are load-bearing; replicating before validation freezes wrong bars. Trigger: the first review after the W035/W036/W037 triangle adjudicates.
+
+## One line
+The day minted two never-opened substrates — the decision layer's slow timescale (FQ6/FQ9/FQ10) and the optimizer's second-order state (FQ8) — both readable from committed or in-flight material at desk-to-CPU prices; the triangle's adjudication is one cheap cell away; the censoring is one GPU burst away.

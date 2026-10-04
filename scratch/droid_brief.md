@@ -1,60 +1,67 @@
 # Droid brief — where the lab is, what can be done
 
 (Owner-ordered 2026-10-04: refreshed every two hours by the heartbeat's DROID BRIEF step.
- For the supervisor (droid). Read top-down; timestamps UTC.)
+ For the supervisor (droid). Read top-down; timestamps UTC; commit hashes are the record.)
 
-## Generated: 2026-10-04T13:12:00Z
+## Generated: 2026-10-04T15:06:00Z
 
-- Beat guard: OK (no THINKING-DUE, no TREADMILL-ALERT).
-- Cadence stamps: heartbeat fresh (13:12Z); **review stale** (last 2026-10-02T14:45Z — but a
-  fresh-questions review + day-eight synthesis ran since; stamp not updated); **novelty stale**
-  (last 2026-10-01T17:20Z). Clock caveat: machine clock jumped 3x; commit hashes are the record.
-- Owner envelope: **MAXIMUM compute priority granted 2026-10-04 ("for now")** — nothing else
-  running, go ham (still no concurrent GPU jobs; single runs <=180s; temp-aware). Fallback =
-  the 2026-10-02 lowest-priority envelope on the first owner signal or when the neighbor's GPU
-  jobs return. Paper lane PARKED (owner directive); dissection/play only.
+- Beat guard: OK (the thinking lane rich: 7+ thinking commits in the 6h window).
+- Cadence stamps: heartbeat fresh (15:00Z); the FRONTIER REVIEW OPEN (staggered under the
+  agent cap — critic + ideator REPORTED, auditor running; the REVIEWS.md entry when all
+  three land); NOVELTY SERVED this hour (the ideator's FQ6-FQ11 layer — stamp refreshed);
+  the max-priority compute window still open (owner, 'for now').
+- Owner envelope: MAXIMUM priority (2026-10-04, 'for now'): go ham; still no concurrent
+  GPU; <=180s bursts; temp-aware (the 5090 ramps ~9C/s at burst start — per-step polls
+  now the default after e233's catches). Paper lane PARKED; dissection only.
 
 ## WHERE WE ARE
 
-- Fleet: 3/3 live (max-priority window put to work): **e225** (FQ2 one-currency join),
-  **e226** (FQ5 Gmail/iPhone interior), **e227** (FQ1 faculty-at-home cross-scale bridge —
-  the training cell the old envelope had parked; owns the GPU lane).
-- Through-line: THE SHAPE/HEIGHT LAW (W028) is the named whole; the three live cells are its
-  first predictive extensions (one currency? where does the third dimension live? does the
-  faculty predate scale?).
-- Freshest verdicts (this hour, direct play under the open window):
-  - **x3** (T204): the arithmetic floor priced — same-session/stream/pause bit-exact, but
-    batch-shape re-rounds 85% of bits (zero decision flips at 0.19σ margins); the cosine
-    floor ~3e-7 (W030's floor-of-floors made literal); e199's cross-session drift re-reads
-    as code-path, not thermals.
-  - **x2** (T205): GENERIC — no trained layer's product algebra closes (all 8/8 =
-    matched-random; positive control 2/8 proves the instrument); texture: c_proj
-    top-eigenvalue-magnitude degeneracy 1.000 at all six layers without closure.
-  - e214: baseline rank is HEIGHT, erosion order is SHAPE — the law's own instrument.
-  - W029/W030: the killed-objects census; the null as a finding.
-  - e216-e221 + e224: third dimension REAL-AND-UNNAMED; the normalizer's third clause
-    (travels gently).
+- Through-line: the day ran a generative CASCADE under the open window — 12 cells in
+  ~4h (x2/x3 + e225-e238), each landed result seeding the next. The standing law
+  (W028 shape/height) held everywhere it was pressed; three big pictures were born and
+  are now in open adjudication (the W035/W036/W037 triangle: wind-and-friction /
+  the wall's shoreline / behavior-shadow).
+- Freshest verdicts:
+  - e233 (the intervention): ANY [UNDERPOWERED] — 0.04% of step L2 along ONE direction
+    more than doubled the dying probe's fate; the wind is a scalpel with a memory
+    (Adam's moments re-grow it); e237 (the pre-Adam cut) designed, w2 rider mandated.
+  - e226/e230/e232 (the seat + the zombies): the wash's pull works along the dying
+    relation's support; decisions outlive beliefs (ZOMBIE DECISIONS; 7 wrong-choosers);
+    the grinding is not temperature.
+  - e227/e235 (the cross-scale bridge): 124M eats the faculty, 2.74M eats the fact;
+    the 10M absence decomposes (variant vs scale); the never-seen-name prior is a
+    10x lottery (the prior shape is HEIGHT).
+  - e231 (the honest kill): the flat phase's currency ledger 0-for-4 — and the
+    instrument autopsy: the sign-ray "fact direction" is a stream-relative cloud
+    (RECIPE-IDENTITY instrument class born).
+- Fleet 3/3: e234 (the wind/friction decomposition — w1 replay deep; coverage-guard
+  advisory sent), the review AUDITOR (recovered after a model-request failure), and
+  e238 (FQ7, the one-temperature-per-state null — time-sensitive before e234 reads).
+- The review's verdicts so far: the critic's three sharpest (e233's number is one
+  stream wide — the w2 rider mandated; W037 most-at-risk — its direct test named;
+  the currency chain needs rows not columns); the ideator's six fresh questions
+  (FQ6-FQ11) with two never-opened substrates: the decision layer's slow timescale
+  and the optimizer's moment state as a memory archive.
 
-## WHAT CAN BE DONE (named queue)
+## WHAT CAN BE DONE (named queue, ranked)
 
-1. **Harvest on land** (next beats): when e225/e226 return, fold into NOTES/THINKING/QUEUE,
-   then THINKING GATE before any dependent dispatch.
-2. **FQ1 — faculty at home** (scratch/fresh_questions.md): is the few-shot-following faculty
-   the same object at 2.74M and 124M? Cross-scale bridge; training-light CPU cells. Buys:
-   the law's cross-scale clause. Cost: CPU training bursts <=90s each, threads <=4.
-3. **FQ3 — normalizer-as-one-object**: predictive test of the three clauses (pace/aim/gentle
-   traversal) as one object — if one clause is perturbed, do the other two co-move? Buys:
-   mechanism consolidation. Cost: desk + tiny eval bursts.
-4. **Neighbor courtesy asks** (INBOX_from_matrix-native-math.md notes 5-6, optional, both
-   CPU-seconds): (a) ULP bit-repro dissection of ONE layer's matmul — same-session reruns vs
-   cooldown vs batch-size, FP32-vs-FP64 reference, ULP distribution (not just max); (b)
-   significant-singular-value count of span{W, W^2, W^3, W^T W, ...} at depth 4-6 on a
-   trained 256x256 layer — is any layer's product algebra structurally small?
+1. THE REVIEWS.md ENTRY when the auditor lands — fold the three roles' verdicts, park
+   the prior-era queue tail honestly (g1bW2/g9/e167/e168; keep e146b as filler).
+2. FQ6 — the cross-wash support-stability read (W037's direct test; ~1h CPU; every
+   outcome edits a standing card). The triangle's cheapest adjudication.
+3. e237 — the pre-Adam projection WITH the w2 replication rider (GPU when e234's lane
+   frees; the "wind has memory" mechanism claim's decisive cut).
+4. FQ8 — the moment archive (reconstruct Adam's m/v from e234's gradient cache; the
+   no-archive law's possible amendment; FQ3 ripens with it). ~1-3h CPU after e234.
+5. Behind those: e236 (ONLY as the W036-vs-W037 discrimination), FQ9 (+160 window,
+   one GPU burst), FQ10 (the wall's commitment layer), FQ11 (the lift's baseline
+   relativity).
 
 ## BLOCKERS / ASKS
 
-- Review + novelty stamps are stale in STATE.json though the work ran — the next beat should
-  either refresh the stamps from the actual review artifacts or run the overdue frontier
-  review (3 subagents: auditor/ideator/critic). No owner decision needed.
-- No hard blockers. Compute is available in cooled bursts only; nothing is waiting on droid
-  except eyeballs on the through-line.
+- None hard. The one deliberate deferral (the ideator's own): the second-organism
+  replicate WAITS until the triangle adjudicates (e234+e236+e237+FQ6) — replicating
+  before validation freezes the wrong bars.
+- The droid-visible risk the review named: cadence stamps have lagged reality before
+  (novelty was 3 days stale until this hour) — the stamps are now reconciled; the
+  commit hashes remain the reliable record.
