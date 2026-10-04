@@ -1,11 +1,11 @@
 {
   "experiment": "e230_commitment_belief",
   "phase": "desk-only pass on COMMITTED data (e228 journal margins x e214 journal p) - no model loads, no GPU, no wash, pure join",
-  "date": "2026-10-04T13:34:43Z",
+  "date": "2026-10-04T13:37:22Z",
   "status": "DONE",
   "registration": "bars frozen VERBATIM from the dispatch brief (W033/T207) in this file's docstring; the registration commit of this file precedes any compute; adjudicate against exactly this; no bar shopping",
   "stage": "s5-done",
-  "updated": "2026-10-04T13:34:43Z",
+  "updated": "2026-10-04T13:37:24Z",
   "question": "does the commitment (argmax margin, sigma) die before the belief (p(answer)) under the wash \u2014 a decision-level death preceding the belief-level death? and does the flip-zone ENTRY order match e214's committed erosion order (same author: the wash) or not (two orders)?",
   "builds_on": [
     "W033 (the wonder card this cell discharges \u2014 its registered discriminating observation is this pass, verbatim)",
@@ -226,9 +226,9 @@
     }
   },
   "provenance": {
-    "git_head_at_start": "613959236f15ce9dd49ac8948acf5858b26372ea",
+    "git_head_at_start": "dff71b3487b22d4e84bd86f494b833574de2f354",
     "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e230_commitment_belief.py",
-    "script_sha256_16": "ad754638a2d187f5",
+    "script_sha256_16": "db8561194fe984f5",
     "versions": {
       "python": "3.13.7",
       "numpy": "2.3.5",
@@ -239,8 +239,8 @@
     "e228_status_at_read": "DONE"
   },
   "timing": {
-    "started": "2026-10-04T13:34:43Z",
-    "finished": "2026-10-04T13:34:43Z"
+    "started": "2026-10-04T13:37:23Z",
+    "finished": "2026-10-04T13:37:24Z"
   },
   "read1_population": {
     "definition": "per probe per wash: margin event = first state with argmax margin_sigma < 0.05 (T204 flip zone, absorbing); p event = first state with p < 0.5 * p_t0 (absorbing); MARGIN-FIRST = margin crossed with p still standing (crossed strictly later or never); lead = states between crossings; censored = p never crossed by the last state",
@@ -267,8 +267,10 @@
         "of_which_censored": 0,
         "lead_times": [],
         "censored_leads_lower_bounds": [],
-        "margin_crossed_any": 1,
-        "p_crossed_any": 9
+        "margin_crossed_before_or_with_p": 1,
+        "p_crossed_before_or_with_m": 9,
+        "margin_crossed_ever": 3,
+        "p_crossed_ever": 9
       },
       {
         "battery": "fact",
@@ -291,8 +293,10 @@
         "of_which_censored": 0,
         "lead_times": [],
         "censored_leads_lower_bounds": [],
-        "margin_crossed_any": 1,
-        "p_crossed_any": 9
+        "margin_crossed_before_or_with_p": 1,
+        "p_crossed_before_or_with_m": 9,
+        "margin_crossed_ever": 3,
+        "p_crossed_ever": 9
       },
       {
         "battery": "ctrl",
@@ -318,8 +322,10 @@
           1
         ],
         "censored_leads_lower_bounds": [],
-        "margin_crossed_any": 1,
-        "p_crossed_any": 4
+        "margin_crossed_before_or_with_p": 1,
+        "p_crossed_before_or_with_m": 4,
+        "margin_crossed_ever": 1,
+        "p_crossed_ever": 5
       },
       {
         "battery": "ctrl",
@@ -342,8 +348,10 @@
         "of_which_censored": 0,
         "lead_times": [],
         "censored_leads_lower_bounds": [],
-        "margin_crossed_any": 2,
-        "p_crossed_any": 5
+        "margin_crossed_before_or_with_p": 2,
+        "p_crossed_before_or_with_m": 5,
+        "margin_crossed_ever": 2,
+        "p_crossed_ever": 5
       },
       {
         "battery": "near",
@@ -367,8 +375,10 @@
         "of_which_censored": 0,
         "lead_times": [],
         "censored_leads_lower_bounds": [],
-        "margin_crossed_any": 0,
-        "p_crossed_any": 3
+        "margin_crossed_before_or_with_p": 0,
+        "p_crossed_before_or_with_m": 3,
+        "margin_crossed_ever": 2,
+        "p_crossed_ever": 3
       },
       {
         "battery": "near",
@@ -391,8 +401,10 @@
         "of_which_censored": 0,
         "lead_times": [],
         "censored_leads_lower_bounds": [],
-        "margin_crossed_any": 0,
-        "p_crossed_any": 3
+        "margin_crossed_before_or_with_p": 0,
+        "p_crossed_before_or_with_m": 3,
+        "margin_crossed_ever": 0,
+        "p_crossed_ever": 3
       },
       {
         "battery": "tmpl",
@@ -416,8 +428,10 @@
         "of_which_censored": 0,
         "lead_times": [],
         "censored_leads_lower_bounds": [],
-        "margin_crossed_any": 2,
-        "p_crossed_any": 11
+        "margin_crossed_before_or_with_p": 2,
+        "p_crossed_before_or_with_m": 11,
+        "margin_crossed_ever": 5,
+        "p_crossed_ever": 11
       },
       {
         "battery": "tmpl",
@@ -440,8 +454,10 @@
         "of_which_censored": 0,
         "lead_times": [],
         "censored_leads_lower_bounds": [],
-        "margin_crossed_any": 0,
-        "p_crossed_any": 9
+        "margin_crossed_before_or_with_p": 0,
+        "p_crossed_before_or_with_m": 9,
+        "margin_crossed_ever": 1,
+        "p_crossed_ever": 9
       }
     ],
     "probe_level": {
@@ -1881,7 +1897,7 @@
       "BELIEF_AND_COMMITMENT_TOGETHER": true,
       "MIXED": false,
       "verdict": "BELIEF-AND-COMMITMENT-TOGETHER",
-      "clause": "no battery-wash of fact/ctrl/tmpl reaches 3 margin-first probes with >= 1 state of lead (max per battery-wash: 1) \u2014 margins and p move together at this grid; the thin spots read as p's shadow; T207's free find deflates honestly to a co-read"
+      "clause": "no battery-wash of fact/ctrl/tmpl reaches 3 margin-first probes with >= 1 state of lead (max per battery-wash: 1) \u2014 margins and p move together at this grid; the thin spots read as p's shadow; T207's free find deflates honestly to a co-read. TEXTURE, THE TABLES VERBATIM: the mirror cell dominates \u2014 P-FIRST (belief below its half-of-t0 line while the argmax margin still stands >= 0.05 sigma) is the largest crossing class in every battery-wash (fact w1 p-first 8/20; fact w2 p-first 8/20; ctrl w1 p-first 4/12; ctrl w2 p-first 3/12; near w1 p-first 3/3; near w2 p-first 3/3; tmpl w1 p-first 9/19; tmpl w2 p-first 9/19); TOGETHER counts are 0-2; the qualifying margin-first probes are exactly: ctrl w1 The gaming console made by Microsoft->Xbox (lead 1); margins enter the flip zone AT ALL for only 1-5 probes per fact/tmpl battery-wash (crossed-ever column)"
     },
     "w033_prediction_clauses": {
       "prediction_verbatim": "the tmpl battery carries margin-first probes (the few-shot faculty's death would begin in the decision layer \u2014 commitments thinning while the belief still quotes the template); the fact battery is mostly together-moving (installed facts die as wholes)",
@@ -1897,7 +1913,7 @@
     }
   },
   "read2_entry_order": {
-    "definition": "entry order = probes ranked by (first flip-zone crossing state, ties by margin depth at crossing); never-entered tied last; erosion = 1 - p(w,s)/p(0) on e214's committed records; Spearman on average ranks; POSITIVE = entered-first pairs with most-eroded",
+    "definition": "entry order = probes ranked by (first flip-zone crossing state, ties by margin depth at crossing); never-entered tied last; erosion = 1 - p(w,s)/p(0) on e214's committed records; Spearman on average ranks; POSITIVE = entered-first pairs with most-eroded; sensitivities: (i) crossing-state-index-only key (same-state entrants fully tied), (ii) look-ahead-free (only crossings that occurred BY the row's state; rest tied last)",
     "line_verbatim": ">= 0.6 reads SAME-AUTHOR (the wash writes both) / < 0.6 TWO-ORDERS",
     "table": [
       {
@@ -1906,10 +1922,12 @@
         "state": 2,
         "n": 20,
         "n_entered_flip_zone": 3,
+        "n_entered_by_this_state": 0,
         "decl": -0.005445146501820153,
         "decl_mean_of_erosion_coreport": -0.0056611718656475515,
         "rho_entry_vs_erosion_primary": -0.28543328975001525,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.28086878906565993,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -1920,10 +1938,12 @@
         "state": 10,
         "n": 20,
         "n_entered_flip_zone": 3,
+        "n_entered_by_this_state": 0,
         "decl": 0.013021946597506107,
         "decl_mean_of_erosion_coreport": 0.013389972311715747,
         "rho_entry_vs_erosion_primary": -0.26124402790679363,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.2663410930795051,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -1934,10 +1954,12 @@
         "state": 50,
         "n": 20,
         "n_entered_flip_zone": 3,
+        "n_entered_by_this_state": 1,
         "decl": 0.33936323101326304,
         "decl_mean_of_erosion_coreport": 0.3508411432073431,
         "rho_entry_vs_erosion_primary": -0.44024456554663366,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.4418840862455426,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.17903580300437075,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -1948,10 +1970,12 @@
         "state": 80,
         "n": 20,
         "n_entered_flip_zone": 3,
+        "n_entered_by_this_state": 3,
         "decl": 0.4293996354947689,
         "decl_mean_of_erosion_coreport": 0.439633326569388,
         "rho_entry_vs_erosion_primary": -0.5103934248919765,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.5145225661763166,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.5103934248919765,
         "entry_line": 0.6,
         "adjudicates": true,
         "coarse_n3": false
@@ -1962,10 +1986,12 @@
         "state": 10,
         "n": 20,
         "n_entered_flip_zone": 3,
+        "n_entered_by_this_state": 0,
         "decl": 0.028620073570266524,
         "decl_mean_of_erosion_coreport": 0.030480730670990646,
         "rho_entry_vs_erosion_primary": -0.30720362540891477,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.2990284090483535,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -1976,10 +2002,12 @@
         "state": 50,
         "n": 20,
         "n_entered_flip_zone": 3,
+        "n_entered_by_this_state": 1,
         "decl": 0.3096177592905648,
         "decl_mean_of_erosion_coreport": 0.3215920352888256,
         "rho_entry_vs_erosion_primary": -0.4547581226525666,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.45277985823515865,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.2983930050072846,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -1990,10 +2018,12 @@
         "state": 80,
         "n": 20,
         "n_entered_flip_zone": 3,
+        "n_entered_by_this_state": 3,
         "decl": 0.457907396186509,
         "decl_mean_of_erosion_coreport": 0.4690537002107088,
         "rho_entry_vs_erosion_primary": -0.5249069819979094,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.5217864141693941,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.5249069819979094,
         "entry_line": 0.6,
         "adjudicates": true,
         "coarse_n3": false
@@ -2004,10 +2034,12 @@
         "state": 2,
         "n": 12,
         "n_entered_flip_zone": 1,
+        "n_entered_by_this_state": 0,
         "decl": 0.009001624209020065,
         "decl_mean_of_erosion_coreport": 0.009723398664350439,
         "rho_entry_vs_erosion_primary": -0.2183565733705734,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.2183565733705734,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -2018,10 +2050,12 @@
         "state": 10,
         "n": 12,
         "n_entered_flip_zone": 1,
+        "n_entered_by_this_state": 0,
         "decl": 0.061304966314967735,
         "decl_mean_of_erosion_coreport": 0.06402808509664142,
         "rho_entry_vs_erosion_primary": -0.30569920271880274,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.30569920271880274,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -2032,10 +2066,12 @@
         "state": 50,
         "n": 12,
         "n_entered_flip_zone": 1,
+        "n_entered_by_this_state": 1,
         "decl": 0.2814038990887431,
         "decl_mean_of_erosion_coreport": 0.29345006259028433,
         "rho_entry_vs_erosion_primary": -0.13101394402234404,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.13101394402234404,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.13101394402234404,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -2046,10 +2082,12 @@
         "state": 80,
         "n": 12,
         "n_entered_flip_zone": 1,
+        "n_entered_by_this_state": 1,
         "decl": 0.39695033449195793,
         "decl_mean_of_erosion_coreport": 0.4102078081514218,
         "rho_entry_vs_erosion_primary": -0.13101394402234404,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.13101394402234404,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.13101394402234404,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -2060,10 +2098,12 @@
         "state": 10,
         "n": 12,
         "n_entered_flip_zone": 2,
+        "n_entered_by_this_state": 0,
         "decl": 0.07901642010911891,
         "decl_mean_of_erosion_coreport": 0.0814455236468221,
         "rho_entry_vs_erosion_primary": -0.2526516601044262,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.2526516601044262,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -2074,10 +2114,12 @@
         "state": 50,
         "n": 12,
         "n_entered_flip_zone": 2,
+        "n_entered_by_this_state": 1,
         "decl": 0.2753560340791731,
         "decl_mean_of_erosion_coreport": 0.2869608203759278,
         "rho_entry_vs_erosion_primary": -0.333285168648392,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.333285168648392,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.30569920271880274,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -2088,10 +2130,12 @@
         "state": 80,
         "n": 12,
         "n_entered_flip_zone": 2,
+        "n_entered_by_this_state": 2,
         "decl": 0.37436711922609667,
         "decl_mean_of_erosion_coreport": 0.38845381629954195,
         "rho_entry_vs_erosion_primary": -0.2526516601044262,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.2526516601044262,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.2526516601044262,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -2102,10 +2146,12 @@
         "state": 2,
         "n": 3,
         "n_entered_flip_zone": 2,
+        "n_entered_by_this_state": 0,
         "decl": 0.015740180612744514,
         "decl_mean_of_erosion_coreport": 0.01765834165238389,
         "rho_entry_vs_erosion_primary": -0.5,
         "rho_entry_vs_erosion_stateindex_sensitivity": 0.0,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": true
@@ -2116,10 +2162,12 @@
         "state": 10,
         "n": 3,
         "n_entered_flip_zone": 2,
+        "n_entered_by_this_state": 0,
         "decl": 0.2168948073178304,
         "decl_mean_of_erosion_coreport": 0.2237614411740846,
         "rho_entry_vs_erosion_primary": -0.5,
         "rho_entry_vs_erosion_stateindex_sensitivity": 0.0,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": true
@@ -2130,10 +2178,12 @@
         "state": 50,
         "n": 3,
         "n_entered_flip_zone": 2,
+        "n_entered_by_this_state": 0,
         "decl": 0.6479293360106464,
         "decl_mean_of_erosion_coreport": 0.6440011581166666,
         "rho_entry_vs_erosion_primary": 0.5,
         "rho_entry_vs_erosion_stateindex_sensitivity": 0.8660254037844387,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": true
@@ -2144,10 +2194,12 @@
         "state": 80,
         "n": 3,
         "n_entered_flip_zone": 2,
+        "n_entered_by_this_state": 2,
         "decl": 0.765542761255382,
         "decl_mean_of_erosion_coreport": 0.7627343355521673,
         "rho_entry_vs_erosion_primary": 0.5,
         "rho_entry_vs_erosion_stateindex_sensitivity": 0.8660254037844387,
+        "rho_entry_so_far_vs_erosion_sensitivity": 0.5,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": true
@@ -2158,10 +2210,12 @@
         "state": 10,
         "n": 3,
         "n_entered_flip_zone": 0,
+        "n_entered_by_this_state": 0,
         "decl": 0.25254633537535676,
         "decl_mean_of_erosion_coreport": 0.2564312472350124,
         "rho_entry_vs_erosion_primary": NaN,
         "rho_entry_vs_erosion_stateindex_sensitivity": NaN,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": true
@@ -2172,10 +2226,12 @@
         "state": 50,
         "n": 3,
         "n_entered_flip_zone": 0,
+        "n_entered_by_this_state": 0,
         "decl": 0.5909960754218835,
         "decl_mean_of_erosion_coreport": 0.5850714285889757,
         "rho_entry_vs_erosion_primary": NaN,
         "rho_entry_vs_erosion_stateindex_sensitivity": NaN,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": true
@@ -2186,10 +2242,12 @@
         "state": 80,
         "n": 3,
         "n_entered_flip_zone": 0,
+        "n_entered_by_this_state": 0,
         "decl": 0.6563955036139478,
         "decl_mean_of_erosion_coreport": 0.650527488102642,
         "rho_entry_vs_erosion_primary": NaN,
         "rho_entry_vs_erosion_stateindex_sensitivity": NaN,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": true
@@ -2200,10 +2258,12 @@
         "state": 2,
         "n": 19,
         "n_entered_flip_zone": 5,
+        "n_entered_by_this_state": 0,
         "decl": 0.0029209954827826845,
         "decl_mean_of_erosion_coreport": 0.0031714183239919085,
         "rho_entry_vs_erosion_primary": -0.1414530452690189,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.13679711361135385,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -2214,10 +2274,12 @@
         "state": 10,
         "n": 19,
         "n_entered_flip_zone": 5,
+        "n_entered_by_this_state": 0,
         "decl": 0.06818585833316404,
         "decl_mean_of_erosion_coreport": 0.07204247850122321,
         "rho_entry_vs_erosion_primary": -0.36551466897514484,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.36023239917656513,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -2228,10 +2290,12 @@
         "state": 50,
         "n": 19,
         "n_entered_flip_zone": 5,
+        "n_entered_by_this_state": 1,
         "decl": 0.42118668806761894,
         "decl_mean_of_erosion_coreport": 0.43184039024803167,
         "rho_entry_vs_erosion_primary": -0.47075573465529497,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.4742299938526934,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.17213259316477406,
         "entry_line": 0.6,
         "adjudicates": true,
         "coarse_n3": false
@@ -2242,10 +2306,12 @@
         "state": 80,
         "n": 19,
         "n_entered_flip_zone": 5,
+        "n_entered_by_this_state": 5,
         "decl": 0.5612648719004963,
         "decl_mean_of_erosion_coreport": 0.5708599845150125,
         "rho_entry_vs_erosion_primary": -0.42662238453136103,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.4309109078757647,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.42662238453136103,
         "entry_line": 0.6,
         "adjudicates": true,
         "coarse_n3": false
@@ -2256,10 +2322,12 @@
         "state": 10,
         "n": 19,
         "n_entered_flip_zone": 1,
+        "n_entered_by_this_state": 0,
         "decl": 0.07674134203014582,
         "decl_mean_of_erosion_coreport": 0.0804767506142748,
         "rho_entry_vs_erosion_primary": -0.3872983346207417,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.3872983346207417,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": false,
         "coarse_n3": false
@@ -2270,10 +2338,12 @@
         "state": 50,
         "n": 19,
         "n_entered_flip_zone": 1,
+        "n_entered_by_this_state": 0,
         "decl": 0.4202482009940801,
         "decl_mean_of_erosion_coreport": 0.43057359704365367,
         "rho_entry_vs_erosion_primary": -0.3872983346207417,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.3872983346207417,
+        "rho_entry_so_far_vs_erosion_sensitivity": NaN,
         "entry_line": 0.6,
         "adjudicates": true,
         "coarse_n3": false
@@ -2284,10 +2354,12 @@
         "state": 80,
         "n": 19,
         "n_entered_flip_zone": 1,
+        "n_entered_by_this_state": 1,
         "decl": 0.45101039919054775,
         "decl_mean_of_erosion_coreport": 0.4613354706256618,
         "rho_entry_vs_erosion_primary": -0.3872983346207417,
         "rho_entry_vs_erosion_stateindex_sensitivity": -0.3872983346207417,
+        "rho_entry_so_far_vs_erosion_sensitivity": -0.3872983346207417,
         "entry_line": 0.6,
         "adjudicates": true,
         "coarse_n3": false
@@ -2295,7 +2367,7 @@
     ],
     "adjudication": {
       "verdict": "TWO-ORDERS",
-      "clause": "every adjudication cell's entry-vs-erosion rho < 0.6 (max -0.387) \u2014 the flip-zone entry order and the erosion order are two orders; T207's registered (a) denied",
+      "clause": "every adjudication cell's entry-vs-erosion rho < 0.6 (max -0.387) \u2014 the flip-zone entry order and the erosion order are two orders; T207's registered (a) denied; sensitivities agree: stateindex-key max -0.387, look-ahead-free max -0.172 (nan = no entrants by that state)",
       "cells": [
         {
           "battery": "fact",
@@ -2303,10 +2375,12 @@
           "state": 80,
           "n": 20,
           "n_entered_flip_zone": 3,
+          "n_entered_by_this_state": 3,
           "decl": 0.4293996354947689,
           "decl_mean_of_erosion_coreport": 0.439633326569388,
           "rho_entry_vs_erosion_primary": -0.5103934248919765,
           "rho_entry_vs_erosion_stateindex_sensitivity": -0.5145225661763166,
+          "rho_entry_so_far_vs_erosion_sensitivity": -0.5103934248919765,
           "entry_line": 0.6,
           "adjudicates": true,
           "coarse_n3": false
@@ -2317,10 +2391,12 @@
           "state": 80,
           "n": 20,
           "n_entered_flip_zone": 3,
+          "n_entered_by_this_state": 3,
           "decl": 0.457907396186509,
           "decl_mean_of_erosion_coreport": 0.4690537002107088,
           "rho_entry_vs_erosion_primary": -0.5249069819979094,
           "rho_entry_vs_erosion_stateindex_sensitivity": -0.5217864141693941,
+          "rho_entry_so_far_vs_erosion_sensitivity": -0.5249069819979094,
           "entry_line": 0.6,
           "adjudicates": true,
           "coarse_n3": false
@@ -2331,10 +2407,12 @@
           "state": 50,
           "n": 19,
           "n_entered_flip_zone": 5,
+          "n_entered_by_this_state": 1,
           "decl": 0.42118668806761894,
           "decl_mean_of_erosion_coreport": 0.43184039024803167,
           "rho_entry_vs_erosion_primary": -0.47075573465529497,
           "rho_entry_vs_erosion_stateindex_sensitivity": -0.4742299938526934,
+          "rho_entry_so_far_vs_erosion_sensitivity": -0.17213259316477406,
           "entry_line": 0.6,
           "adjudicates": true,
           "coarse_n3": false
@@ -2345,10 +2423,12 @@
           "state": 80,
           "n": 19,
           "n_entered_flip_zone": 5,
+          "n_entered_by_this_state": 5,
           "decl": 0.5612648719004963,
           "decl_mean_of_erosion_coreport": 0.5708599845150125,
           "rho_entry_vs_erosion_primary": -0.42662238453136103,
           "rho_entry_vs_erosion_stateindex_sensitivity": -0.4309109078757647,
+          "rho_entry_so_far_vs_erosion_sensitivity": -0.42662238453136103,
           "entry_line": 0.6,
           "adjudicates": true,
           "coarse_n3": false
@@ -2359,10 +2439,12 @@
           "state": 50,
           "n": 19,
           "n_entered_flip_zone": 1,
+          "n_entered_by_this_state": 0,
           "decl": 0.4202482009940801,
           "decl_mean_of_erosion_coreport": 0.43057359704365367,
           "rho_entry_vs_erosion_primary": -0.3872983346207417,
           "rho_entry_vs_erosion_stateindex_sensitivity": -0.3872983346207417,
+          "rho_entry_so_far_vs_erosion_sensitivity": NaN,
           "entry_line": 0.6,
           "adjudicates": true,
           "coarse_n3": false
@@ -2373,10 +2455,12 @@
           "state": 80,
           "n": 19,
           "n_entered_flip_zone": 1,
+          "n_entered_by_this_state": 1,
           "decl": 0.45101039919054775,
           "decl_mean_of_erosion_coreport": 0.4613354706256618,
           "rho_entry_vs_erosion_primary": -0.3872983346207417,
           "rho_entry_vs_erosion_stateindex_sensitivity": -0.3872983346207417,
+          "rho_entry_so_far_vs_erosion_sensitivity": -0.3872983346207417,
           "entry_line": 0.6,
           "adjudicates": true,
           "coarse_n3": false

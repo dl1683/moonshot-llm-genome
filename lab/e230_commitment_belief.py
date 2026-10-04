@@ -103,7 +103,14 @@ OPERATIONALIZATIONS (frozen BEFORE compute):
   sensitivity co-report = the crossing-state-index-only key (all
   same-state entrants fully tied). Adjudication cells mirror e228's: the
   n>=10 batteries, states {50, 80}, with the e214 committed battery-level
-  decline (mean of per-probe erosion) >= 0.40 (the e214 echo cut);
+  decline (e214's committed formula: decline_b(w,s) = 1 - mean_p_b(w,s)/
+  mean_p_b(0)) >= 0.40 (the e214 echo cut). [INSTRUMENT CORRECTION,
+  disclosed: the registration pass of this docstring wrote 'mean of
+  per-probe erosion' — a definitional slip caught by the G_DECL desk gate
+  (max abs diff 0.0141 vs e228's committed join_rows); e214's committed
+  operationalization is the ratio of means, which reproduces e228's decl
+  to 0.0 exactly and its adjudication cell set exactly; corrected to the
+  committed convention, BARS UNTOUCHED, e226 precedent]
   SAME-AUTHOR iff ALL adjudication cells >= 0.6; TWO-ORDERS iff ALL < 0.6;
   any split is reported per cell with no narrative inflation. The 0.6 line
   is T207's registered (a), verbatim.
@@ -392,15 +399,31 @@ for row in m228["join_rows"]:
 
 
 def decl_crosscheck():
-    out = {"max_abs_diff": 0.0, "n_rows": 0, "definition": "mean of per-probe erosion"}
+    out = {
+        "definition": "decline_b(w,s) = 1 - mean_p_b(w,s)/mean_p_b(0) (e214's "
+        "committed formula, verified against e228's committed join_rows decl)",
+        "max_abs_diff": 0.0,
+        "n_rows": 0,
+        "slipped_definition_coreport": {
+            "definition": "mean of per-probe erosion (the registration-pass "
+            "slip, kept as a co-report)",
+            "max_abs_diff": 0.0,
+        },
+    }
     for row in m228["join_rows"]:
         b, w, s = row["battery"], row["wash"], row["state"]
         entry214 = next(e for e in j214["states"] if e["wash"] == w and e["step"] == s)
         p0 = e214_probe_records(t0_214, b)
         ps = e214_probe_records(entry214, b)
-        erosion = [1 - ps[name]["p"] / p0[name]["p"] for name in p0]
-        d = abs(float(np.mean(erosion)) - row["decl"])
-        out["max_abs_diff"] = max(out["max_abs_diff"], d)
+        p0v = [p0[name]["p"] for name in p0]
+        psv = [ps[name]["p"] for name in p0]
+        ratio = 1 - float(np.mean(psv)) / float(np.mean(p0v))
+        mean_ero = float(np.mean([1 - a / b_ for a, b_ in zip(psv, p0v)]))
+        out["max_abs_diff"] = max(out["max_abs_diff"], abs(ratio - row["decl"]))
+        out["slipped_definition_coreport"]["max_abs_diff"] = max(
+            out["slipped_definition_coreport"]["max_abs_diff"],
+            abs(mean_ero - row["decl"]),
+        )
         out["n_rows"] += 1
     out["tol"] = 1e-9
     out["pass"] = out["max_abs_diff"] <= 1e-9
@@ -534,8 +557,14 @@ for b in BATTERIES:
                 "censored_leads_lower_bounds": [
                     r["lead_lower_bound"] for r in qual if r["censored"]
                 ],
-                "margin_crossed_any": counts["MARGIN-FIRST"] + counts["TOGETHER"],
-                "p_crossed_any": counts["P-FIRST"] + counts["TOGETHER"],
+                "margin_crossed_before_or_with_p": counts["MARGIN-FIRST"]
+                + counts["TOGETHER"],
+                "p_crossed_before_or_with_m": counts["P-FIRST"]
+                + counts["TOGETHER"],
+                "margin_crossed_ever": sum(
+                    1 for r in rows if r["m_cross_idx"] is not None
+                ),
+                "p_crossed_ever": sum(1 for r in rows if r["p_cross_idx"] is not None),
             }
         )
 
@@ -579,17 +608,36 @@ if all(v >= POP_N for v in tmpl_qual.values()):
     )
 elif not any_battery_wash_ge3:
     verdict1 = "BELIEF-AND-COMMITMENT-TOGETHER"
+    pfirst_texture = "; ".join(
+        "{} {} p-first {}/{}".format(r["battery"], r["wash"], r["counts"]["P-FIRST"], r["n"])
+        for r in population_rows
+    )
+    qual_list = [
+        "{} {} {} (lead {})".format(b, w, p["probe"], p["lead_lower_bound"])
+        for b in ADJ_BATTERIES
+        for w in WASHES
+        for p in probe_level[b][w]
+        if p["qualifies_ge1_lead"]
+    ]
     clause1 = (
         "no battery-wash of fact/ctrl/tmpl reaches {} margin-first probes with "
         ">= 1 state of lead (max per battery-wash: {}) — margins and p move "
         "together at this grid; the thin spots read as p's shadow; T207's free "
-        "find deflates honestly to a co-read".format(
+        "find deflates honestly to a co-read. TEXTURE, THE TABLES VERBATIM: "
+        "the mirror cell dominates — P-FIRST (belief below its half-of-t0 "
+        "line while the argmax margin still stands >= 0.05 sigma) is the "
+        "largest crossing class in every battery-wash ({}); TOGETHER counts "
+        "are 0-2; the qualifying margin-first probes are exactly: {}; "
+        "margins enter the flip zone AT ALL for only 1-5 probes per "
+        "fact/tmpl battery-wash (crossed-ever column)".format(
             POP_N,
             max(
                 (r["margin_first_with_ge1_lead"] for r in population_rows
                  if r["battery"] in ADJ_BATTERIES),
                 default=0,
             ),
+            pfirst_texture,
+            ", ".join(qual_list) if qual_list else "none",
         )
     )
 else:
@@ -664,14 +712,28 @@ for b in BATTERIES:
             erosion = np.array(
                 [1 - ps[name]["p"] / p0[name]["p"] for name in names]
             )
-            decl = float(np.mean(erosion))
+            p0v = [p0[name]["p"] for name in names]
+            psv = [ps[name]["p"] for name in names]
+            decl = 1 - float(np.mean(psv)) / float(np.mean(p0v))
+            decl_mean_ero = float(np.mean(erosion))
             rho_primary = float(
                 spearmanr(lex_keys, erosion).statistic
             ) if len(set(lex_keys)) > 1 else float("nan")
             rho_sens = float(
                 spearmanr(state_keys, erosion).statistic
             ) if len(set(state_keys)) > 1 else float("nan")
+            # look-ahead-free sensitivity: rank only crossings that occurred
+            # BY state s (entrants-so-far vs erosion at s; rest tied last)
+            s_pos = seq[w].index(s)
+            keys_so_far = [
+                k if (r["m_cross_idx"] is not None and r["m_cross_idx"] <= s_pos) else 1e9
+                for k, r in zip(lex_keys, rows)
+            ]
+            rho_so_far = float(
+                spearmanr(keys_so_far, erosion).statistic
+            ) if any(k < 1e9 for k in keys_so_far) else float("nan")
             n_entered = sum(1 for r in rows if r["m_cross_idx"] is not None)
+            n_entered_so_far = sum(1 for k in keys_so_far if k < 1e9)
             adjudicates = (
                 b in ADJ_BATTERIES and s in ADJ_STATES and decl >= DECL_CUT
             )
@@ -681,9 +743,12 @@ for b in BATTERIES:
                 "state": s,
                 "n": len(names),
                 "n_entered_flip_zone": n_entered,
+                "n_entered_by_this_state": n_entered_so_far,
                 "decl": decl,
+                "decl_mean_of_erosion_coreport": decl_mean_ero,
                 "rho_entry_vs_erosion_primary": rho_primary,
                 "rho_entry_vs_erosion_stateindex_sensitivity": rho_sens,
+                "rho_entry_so_far_vs_erosion_sensitivity": rho_so_far,
                 "entry_line": ENTRY_LINE,
                 "adjudicates": adjudicates,
                 "coarse_n3": b == "near",
@@ -707,12 +772,25 @@ gates["G_CELLS"] = {
 M["gates"] = gates
 
 rhos = [r["rho_entry_vs_erosion_primary"] for r in adj_cells]
+rhos_sens = [
+    r["rho_entry_vs_erosion_stateindex_sensitivity"] for r in adj_cells
+]
+rhos_so_far = [
+    r["rho_entry_so_far_vs_erosion_sensitivity"] for r in adj_cells
+]
+sens_agree = (
+    "sensitivities agree: stateindex-key max {:.3f}, look-ahead-free max "
+    "{:.3f} (nan = no entrants by that state)".format(
+        max(x for x in rhos_sens if x == x) if any(x == x for x in rhos_sens) else float("nan"),
+        max(x for x in rhos_so_far if x == x) if any(x == x for x in rhos_so_far) else float("nan"),
+    )
+)
 if all(x >= ENTRY_LINE for x in rhos):
     verdict2 = "SAME-AUTHOR"
     clause2 = (
         "every adjudication cell's entry-vs-erosion rho >= {} (min {:.3f}) — "
-        "the same wash writes both; T207's registered (a) confirmed".format(
-            ENTRY_LINE, min(rhos)
+        "the same wash writes both; T207's registered (a) confirmed; {}".format(
+            ENTRY_LINE, min(rhos), sens_agree
         )
     )
 elif all(x < ENTRY_LINE for x in rhos):
@@ -720,20 +798,25 @@ elif all(x < ENTRY_LINE for x in rhos):
     clause2 = (
         "every adjudication cell's entry-vs-erosion rho < {} (max {:.3f}) — "
         "the flip-zone entry order and the erosion order are two orders; "
-        "T207's registered (a) denied".format(ENTRY_LINE, max(rhos))
+        "T207's registered (a) denied; {}".format(
+            ENTRY_LINE, max(rhos), sens_agree
+        )
     )
 else:
     verdict2 = "SPLIT"
     clause2 = (
         "the cells straddle the {} line — per-cell rhos reported verbatim, "
-        "no narrative inflation".format(ENTRY_LINE)
+        "no narrative inflation; {}".format(ENTRY_LINE, sens_agree)
     )
 
 M["read2_entry_order"] = {
     "definition": "entry order = probes ranked by (first flip-zone crossing "
     "state, ties by margin depth at crossing); never-entered tied last; "
     "erosion = 1 - p(w,s)/p(0) on e214's committed records; Spearman on "
-    "average ranks; POSITIVE = entered-first pairs with most-eroded",
+    "average ranks; POSITIVE = entered-first pairs with most-eroded; "
+    "sensitivities: (i) crossing-state-index-only key (same-state entrants "
+    "fully tied), (ii) look-ahead-free (only crossings that occurred BY the "
+    "row's state; rest tied last)",
     "line_verbatim": ">= 0.6 reads SAME-AUTHOR (the wash writes both) / < 0.6 "
     "TWO-ORDERS",
     "table": entry_rows,
@@ -754,7 +837,7 @@ os.makedirs(OUT_DIR, exist_ok=True)
 fig, ax = plt.subplots(figsize=(11, 5.2))
 cols = [
     "battery", "wash", "n", "MARGIN-FIRST", ">=1-lead", "cens.",
-    "P-FIRST", "TOGETHER", "NEITHER", "margin crossed", "p crossed",
+    "P-FIRST", "TOGETHER", "NEITHER", "m crossed ever", "p crossed ever",
 ]
 cell_text = []
 for r in population_rows:
@@ -770,8 +853,8 @@ for r in population_rows:
             str(c["P-FIRST"]),
             str(c["TOGETHER"]),
             str(c["NEITHER"]),
-            str(r["margin_crossed_any"]),
-            str(r["p_crossed_any"]),
+            str(r["margin_crossed_ever"]),
+            str(r["p_crossed_ever"]),
         ]
     )
 table = ax.table(
@@ -939,6 +1022,16 @@ M["trims"] = []
 M["deviations"] = [
     "DESK-ONLY per the dispatch: no model loads, no GPU, no wash; pure join "
     "of committed records (e228 journal margins x e214 journal p).",
+    "INSTRUMENT CORRECTION post-registration, bars untouched (e226 "
+    "precedent): the registration pass defined the adjudication decline as "
+    'the mean of per-probe erosion; e214/e228\'s committed convention is '
+    "decline = 1 - mean_p(w,s)/mean_p(0). The G_DECL desk gate caught the "
+    "slip (max abs diff 0.0141; the committed formula reproduces e228's "
+    "join_rows decl to 0.0 over all 28 rows); corrected BEFORE results were "
+    "committed — the wrong definition had admitted ctrl/w1+80 as a seventh "
+    "adjudication cell (committed decl 0.39695 < 0.40); with the committed "
+    "formula the cell set equals e228's six exactly (G_CELLS). Read-1 does "
+    "not use decl; no verdict changed direction.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch); the draft NOTES entry "
     "is delivered in the cell's report only.",
     "Lead-time histogram x-axis extends one bin past the data for the "
