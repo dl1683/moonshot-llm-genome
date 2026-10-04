@@ -488,8 +488,8 @@ def make_rank_plot(rd, states_rows, zombie_read, pred_read, verdict,
     ax.set_xlabel("wash step"); ax.set_ylabel(
         "Spearman(p_read, p_t0) — pooled 54")
     ax.grid(alpha=0.25); ax.legend(fontsize=6.6, loc="best")
-    ax.set_title("(a) THE BELIEF-RANK ORDER vs t=0 — raw vs cooled vs sham "
-                 "(faint: anti-T echo)", fontsize=9.5)
+    ax.set_title("(a) THE BELIEF-RANK ORDER vs t=0\n"
+                 "raw / cooled / sham (faint: anti-T echo)", fontsize=9.0)
 
     # (b) p_cooled vs p_t0 at +80 ; (c) p_raw vs p_t0 at +80
     for ax, key, ttl in ((axes[0, 1], "p_cooled", "(b) COOLED p vs t=0 p "
@@ -515,7 +515,7 @@ def make_rank_plot(rd, states_rows, zombie_read, pred_read, verdict,
             r80 = [x for x in states_rows if x["step"] == 80]
             if r80:
                 r0 = r80[0]
-                ax.set_title(ttl + f" — rho {r0['rho_cooled']:+.3f} (w1) / "
+                ax.set_title(ttl + f"\nrho {r0['rho_cooled']:+.3f} (w1) / "
                              f"{r80[1]['rho_cooled']:+.3f} (w2) vs bar "
                              f"{SPEARMAN_BAR}", fontsize=9.0)
             handles = [plt.Line2D([], [], marker="o", ls="",
@@ -527,7 +527,7 @@ def make_rank_plot(rd, states_rows, zombie_read, pred_read, verdict,
         else:
             r80 = [x for x in states_rows if x["step"] == 80]
             if r80:
-                ax.set_title(ttl + f" — rho {r80[0]['rho_raw']:+.3f} (w1) / "
+                ax.set_title(ttl + f"\nrho {r80[0]['rho_raw']:+.3f} (w1) / "
                              f"{r80[1]['rho_raw']:+.3f} (w2)", fontsize=9.0)
 
     # (d) per-battery revival vs T-explained (prediction (a))
@@ -549,10 +549,9 @@ def make_rank_plot(rd, states_rows, zombie_read, pred_read, verdict,
                       " +80)")
         ax.set_ylabel("belief-height revival BR_b (+80)")
         ax.grid(alpha=0.25); ax.legend(fontsize=6.8)
-        ax.set_title("(d) PREDICTION (a): revival vs T-explained — "
-                     f"predicted near>tmpl>fact>ctrl; observed order "
-                     f"{pred_read['order_desc_w1']} (w1) / "
-                     f"{pred_read['order_desc_w2']} (w2)", fontsize=8.6)
+        ax.set_title("(d) PREDICTION (a): revival vs T-explained\n"
+                     f"observed {pred_read['order_desc_w1']} (both washes; "
+                     f"predicted near>tmpl>fact>ctrl)", fontsize=8.6)
 
     # (e) margin + belief trajectories
     ax = axes[1, 1]
@@ -574,8 +573,8 @@ def make_rank_plot(rd, states_rows, zombie_read, pred_read, verdict,
     ax.set_xlabel("wash step")
     ax.set_ylabel("mean raw argmax margin (logit units)")
     ax.grid(alpha=0.25); ax.legend(fontsize=6.6)
-    ax.set_title("(e) THE MARGIN TRAJECTORIES — do the +80 margins return "
-                 "toward t=0 under cooling?", fontsize=9.5)
+    ax.set_title("(e) THE MARGIN TRAJECTORIES under cooling\n"
+                 "do the +80 margins return toward t=0?", fontsize=9.0)
 
     # (f) verdict + tables
     ax = axes[1, 2]
@@ -681,9 +680,9 @@ def make_zombie_plot(rd, zombie_read, verdict):
            + zr["counts"]["w2"]["un_zombie_non_near"])
     _nn = (zr["counts"]["w1"]["n_standing_non_near"]
            + zr["counts"]["w2"]["n_standing_non_near"])
-    ax.set_title("(b) zombie revival vs the census's own half-p_t0 "
+    ax.set_title("(b) zombie revival vs the census's own\nhalf-p_t0 "
                  f"threshold — un-zombied {_uz}/{_nn} "
-                 "non-near (both washes)", fontsize=9.2)
+                 "non-near (both washes)", fontsize=9.0)
 
     # (c) the wrong-choosers table
     ax = axes[1, 0]
