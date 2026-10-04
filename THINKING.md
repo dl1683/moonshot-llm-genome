@@ -685,6 +685,30 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T232 — x5: the battery thermal ladder — the lens is battery-relative, and the ordering mirrors the deaths (2026-10-04 ~22:52Z)
+
+BATTERY-SPECIFIC, cleanly: each battery carries its own T(t)
+(ctrl < fact < near < tmpl, wash-replicating) while each is
+individually well-fit by its scalar. COMPOSED WITH THE DAY'S
+LENS DEMOTIONS (T228/T229/T230): the "temperature" is now (i)
+answer-local, (ii) a p-sharpening lens not a stream
+contraction, and (iii) BATTERY-RELATIVE — three demotions, one
+instrument surviving as exactly what it is: A GOOD PER-BATTERY
+DESCRIPTOR. THE TELL: THE ORDERING MIRRORS THE EROSION
+HARDNESS (tmpl dies hardest and reads hottest; ctrl flattens
+least) — the battery-specific T is partly the EROSION RATE in
+lens clothing. REGISTERED (the join): the battery T(t)s
+against the committed decline fractions — if the ladder tracks
+the deaths monotonically across washes, the one-T fit's
+battery variation IS the erosion ordering's coarse-graining
+(the third dimension seen through the thermal lens, battery-
+level). CONNECTIONS: e252's revival-tracks-headroom (the
+least-thermal battery revives most — ctrl again); e238's
+ctrl-R2 0.38 re-read (ctrl's own fit is now the reference, not
+a pooled failure); the composition story (T231) UNCHANGED (the
+carrier question is about WHICH probes follow their own lens
+best — the per-battery fit sharpens it).
+
 ## T231 — e254: the denominator owns the span — and the composition names the thermal channel's carrier (2026-10-04 ~22:12Z)
 
 The V-span cell closes the FQ12 confluence with the

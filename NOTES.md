@@ -9,6 +9,31 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## x5 — the battery-genericity of the one-T fit: BATTERY-SPECIFIC — T229's registered prediction REFUTED at the bars — every battery has its own T(t) in a stable wash-replicating ordering (ctrl 1.18-1.27 < fact-only 1.26-1.37 < pooled < near 1.42-1.63 < tmpl 1.51-1.65): ctrl diverges from the fact curve by > 0.15 at 4 of 6 states and its own-fit R2 leaves [0.2, 0.6]; the lens still fits WELL per battery (ctrl R2 0.52-0.63; near 0.93-0.99) — each battery individually well-described by ITS OWN scalar, the scalars disagreeing; x4's +10 bracket magnitude was an instrument artifact (~+0.02 at full precision vs the bracket's +0.32); the fact-only reference discharge disclosed (the R2 clause carries the verdict either way) (2026-10-04 ~22:50Z) — DONE
+
+WHAT WE DID: the proper full-logit adjudication (the fresh dumps
+bit-identical to e238's committed npz, max delta-logit 0.0
+across 8 states; the t0 anchor reads T = 1.0000; 5/5 gates
+PASS; a deterministic rerun identical). Bars frozen at 717a981
+BEFORE compute. Script lab/x5_ctrl_logit_fit.py; runs/x5/
+{metrics.json DONE (the full draft entry rides within),
+journal.json, 2 PNGs}.
+
+WHAT WE SAW (T232): THE BATTERY THERMAL LADDER — ctrl flattens
+least, tmpl most, wash-replicating; the lens fits well per
+battery while the scalars disagree. THE ORDERING MIRRORS THE
+EROSION HARDNESS (tmpl dies hardest and reads hottest): the
+battery-specific T is partly the EROSION RATE in lens clothing
+(the registered join). THE X4 CORRECTION: the +10 bracket's
+direction held but its magnitude was the estimator's.
+
+HONESTY: n=1 organism; near n=3; the self-reference discharge;
+lens-not-mechanism carried. NEXT (T232): the T-ordering vs
+erosion-decline join + e257 dispatched (the support-v-overlap
+read — the composition's sharper predictor).
+
+---
+
 ## e254 — FQ12, the V-span overlap: V-ENRICHED, and the denominator's load is a STANDING STRUCTURE — the committed 2-dim span carries 42-85% of v's squared mass (2.2e7-6.0e7 over the 20-draw null at every archived state; w2/w3 replicate) — H-iii's substrate condition MEASURED: the optimizer's denominator owns the span; "new memories need low-v room" is a fact of the wash's v; THE DROUGHT READ (the verdict's real content, the pre-announced arithmetic honored): at t=5-40 the instantaneous gradient is span-FREE (g2 span-mass 0.001-0.05) while v keeps 0.56-0.80 — the suppression persists through supply droughts on the beta2 window (T225's amplifier read at the span level); the fact hot sets are also v-heavy (0.016% of coords carrying 8-18% of v's L1) but ~4-5 orders less v-dense per dimension — low-v room is abundant off both (2026-10-04 ~22:10Z) — DONE
 
 WHAT WE DID: the frozen FQ12 cell — v reconstructed by
