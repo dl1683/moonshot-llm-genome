@@ -684,7 +684,7 @@ def state_tag(wash: str, step: int) -> str:
 
 # ------------------------------------------------------------------ plots
 
-def make_fit_plot(rd, states_fit, fam_rows, verdict):
+def make_fit_plot(rd, fam_rows, verdict):
     """(a) observed-vs-model p at the adjudication states; (b) the T
     trajectory; (c) R2 vs the 0.80 bar; (d) the mean-p trajectories
     observed vs model (the one-T fit curves); (e) per-probe T_i spreads;
@@ -797,9 +797,11 @@ def make_fit_plot(rd, states_fit, fam_rows, verdict):
             labels.append(f"{r['wash']}+{r['state']}")
             colors.append("tab:purple" if r["wash"] == "w1" else "tab:cyan")
     if data:
-        bp = ax.boxplot(data, labels=labels, showfliers=True,
+        bp = ax.boxplot(data, showfliers=True, patch_artist=True,
                         flierprops={"markersize": 2.5, "alpha": 0.5},
                         medianprops={"color": "k"})
+        ax.set_xticks(np.arange(1, len(labels) + 1))
+        ax.set_xticklabels(labels, fontsize=6, rotation=30)
         for patch, c in zip(bp["boxes"], colors):
             patch.set_facecolor(c); patch.set_alpha(0.45)
         for r in fam_rows:
@@ -918,9 +920,9 @@ def make_residual_plot(rd, res_read, verdict):
         ax.scatter([k] * len(cell["band"]), cell["band"], s=26,
                    color="tab:blue", alpha=0.5, edgecolor="none")
         ax.plot([k], [cell["gmail"]], "o", ms=11, color="tab:green",
-                edgecolor="k", zorder=5)
+                markeredgecolor="k", zorder=5)
         ax.plot([k], [cell["iphone"]], "X", ms=11, color="tab:red",
-                edgecolor="k", zorder=5)
+                markeredgecolor="k", zorder=5)
     ax.plot([], [], "o", ms=9, color="tab:green", label="Gmail (the holder)")
     ax.plot([], [], "X", ms=9, color="tab:red", label="iPhone (the eaten)")
     ax.plot([], [], "o", ms=6, color="tab:blue", alpha=0.6,
@@ -1434,8 +1436,24 @@ def main():
                 idx = [i for i, bb in enumerate(bats_of) if bb == b]
                 rho, _t = spearman(resid[idx].tolist(), e_com[idx].tolist())
                 tau = kendall_tau_b(resid[idx].tolist(), e_com[idx].tolist())
+                # POST-HOC shared-variable calibration (added before the
+                # final re-run, after seeing rho -0.898; NEVER adjudicated,
+                # labeled post-hoc): both r and e contain p_obs, so a
+                # regression-to-the-mean artifact could make rho negative
+                # even under unstructured misses. The calibration: does the
+                # MODEL'S OWN q-ordering (t=0 logits only, NO state p on
+                # that side) already predict the erosion order? If
+                # rho_model ~ rho_join, the join adds nothing beyond the
+                # model's own ordering; if rho_model is weak, the join's
+                # information lives in the MISS.
+                qv = row["q"]
+                rho_model, _tm = spearman(
+                    [-qv[i] for i in idx], e_com[idx].tolist())
                 res_cells.append({"battery": b, "wash": wash, "state": s_,
-                                  "n": len(idx), "rho": rho, "tau": tau})
+                                  "n": len(idx), "rho": rho, "tau": tau,
+                                  "rho_model_posthoc": rho_model,
+                                  "erosion_z": zscore(e_com[idx]).tolist(),
+                                  "resid_z": zscore(resid[idx]).tolist()})
                 zr_pool.extend(zscore(resid[idx]).tolist())
                 ze_pool.extend(zscore(e_com[idx]).tolist())
             tag = f"{wash}+{s_}"
@@ -1463,6 +1481,20 @@ def main():
                 zr_nn.extend(zscore(resid[idx]).tolist())
                 ze_nn.extend(zscore(e_com[idx]).tolist())
     rho_no_near, _ = spearman(zr_nn, ze_nn)
+    # the post-hoc calibration's pooled blocked version (never adjudicated)
+    zq_pool = []
+    for wash in ("w1", "w2"):
+        for s_ in DEEP_STATES:
+            if s_ not in SHARED_STATES:
+                continue
+            row = next(r for r in fit_rows
+                       if r["wash"] == wash and r["state"] == s_)
+            qv = np.array(row["q"])
+            e_com = 1.0 - committed_p(wash, s_) / p0
+            for b in BATTERIES:
+                idx = [i for i, bb in enumerate(bats_of) if bb == b]
+                zq_pool.extend(zscore(-qv[idx]).tolist())
+    rho_model_pooled, _ = spearman(zq_pool, ze_pool)
 
     # the anchor z's (mean over the 4 deep cells, vs the band's spread)
     if anchor_cells:
@@ -1656,6 +1688,7 @@ def main():
     metrics["residual_structure"] = {
         "cells": res_cells, "rho_pooled_blocked": rho_pooled,
         "tau_pooled_blocked": tau_pooled, "rho_no_near_echo": rho_no_near,
+        "rho_model_pooled_posthoc": rho_model_pooled,
         "z_anchor": z_anchor, "anchor_split_z": split_z,
         "anchors": res_read["anchors"], "band": res_read["band"],
         "band_sd": band_sd,
@@ -1686,6 +1719,26 @@ def main():
                               "never adjudicates; near (n=3) contributes "
                               "quantized ranks, flagged coarse with a "
                               "near-excluded echo",
+        "shared_variable_caveat": "the residual-erosion join shares p_obs "
+                                  "between both sides (residual = p_obs - "
+                                  "q; erosion = 1 - p_obs/p0), so a "
+                                  "regression-to-the-mean artifact could "
+                                  "bend rho negative even under "
+                                  "unstructured misses of sufficient "
+                                  "magnitude; the POST-HOC calibration "
+                                  "(rho_model, added after seeing rho "
+                                  "-0.898, before the final re-run, never "
+                                  "adjudicated) prices this: it asks "
+                                  "whether the model's OWN q-ordering "
+                                  "(t=0 logits only) predicts the erosion "
+                                  "order — the join's information is the "
+                                  "MISS only insofar as |rho_join| >> "
+                                  "|rho_model|; the verdict's load also "
+                                  "rests on the miss SCALE (mean |resid| "
+                                  "~0.19-0.22 at +80, roughly half the "
+                                  "pooled decline) and the anchor "
+                                  "separation, neither of which is "
+                                  "reachable by the artifact",
         "n_washes": "n=2 washes is texture, not law; wash 1 is a CPU fp32 "
                     "replay of e182's GPU original, wash 2 is GPU fp32 — "
                     "the archive's device asymmetry, inherited, disclosed",

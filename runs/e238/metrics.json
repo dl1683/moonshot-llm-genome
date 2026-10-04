@@ -1,8 +1,8 @@
 {
   "experiment": "e238_temperature_null",
   "phase": "eval-only desk+eval on the committed two-wash 124M archive (FQ7, the ideator's Rank 2, urgency-flagged: must land before e234's adjudication is read)",
-  "date": "2026-10-04T15:13:45Z",
-  "status": "PARTIAL: one-T fit done for w1 +10",
+  "date": "2026-10-04T16:02:49Z",
+  "status": "DONE",
   "registration": "bars frozen VERBATIM from the dispatch brief BEFORE any compute (commit at script birth; QUEUE row 'DISPATCHED ~15:06Z Oct-4'); adjudicate against exactly this; no bar shopping",
   "registered_prediction": {
     "bars_verbatim": {
@@ -89,7 +89,7 @@
     "note": "wash 1 = e182c_s* (seed 18202, CPU fp32 replay, incl. the +2 wash-1-only state); wash 2 = e182c2_fresh_s* (seed 20261002, GPU fp32); sizes/mtimes must match e182c2's committed inventory for the wash-1 set"
   },
   "timing": {
-    "total_s": 112.5
+    "total_s": 310.3
   },
   "organism": {
     "repo": "openai-community/gpt2",
@@ -237,10 +237,1126 @@
     "G_ENV": {
       "cpu_only": true,
       "torch_threads": 4,
-      "load_checks": 9,
+      "load_checks": 1,
       "gpu_calls": 0,
       "burst": "one state = one eval burst",
       "pass": true
     }
-  }
+  },
+  "fit_rows": [
+    {
+      "wash": "w1",
+      "state": 10,
+      "smoke": false,
+      "T_mle": 1.0597956498145238,
+      "nll_at_T": 26.49997569246496,
+      "nll_at_T1": 26.85332797311944,
+      "T_lsq": 1.0559972137598457,
+      "T_kl": 1.0493646863138806,
+      "mean_p_obs": 0.7661256326569451,
+      "mean_q": 0.7665369829213298,
+      "mean_p0": 0.8087400771953441,
+      "ss_res": 0.23413007949203501,
+      "ss_tot_decline": 0.3340909399733718,
+      "R2_pooled": 0.2992025479329191,
+      "R2_battery": {
+        "fact": -0.12528654250738014,
+        "ctrl": 0.4516941340605871,
+        "near": 0.4882116679129477,
+        "tmpl": 0.5011103977129463
+      },
+      "mean_abs_resid": 0.04894870710684043,
+      "max_abs_resid": 0.17616210385845177,
+      "T_i_multi_crossings": 0,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.11243366021221551
+    },
+    {
+      "wash": "w1",
+      "state": 50,
+      "smoke": false,
+      "T_mle": 1.3489839391244727,
+      "nll_at_T": 36.82901332656964,
+      "nll_at_T1": 51.48953172713033,
+      "T_lsq": 1.3375654975594329,
+      "T_kl": 1.2910057832567554,
+      "mean_p_obs": 0.5074163280703403,
+      "mean_q": 0.5111074542397586,
+      "mean_p0": 0.8087400771953441,
+      "ss_res": 2.6218206047264827,
+      "ss_tot_decline": 7.008049576425403,
+      "R2_pooled": 0.6258844096157501,
+      "R2_battery": {
+        "fact": 0.5466142680976724,
+        "ctrl": 0.1242953313536862,
+        "near": 0.916632530914219,
+        "tmpl": 0.7573034773077436
+      },
+      "mean_abs_resid": 0.18144453521447937,
+      "max_abs_resid": 0.42280333375504053,
+      "T_i_multi_crossings": 0,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.26025636735792496
+    },
+    {
+      "wash": "w1",
+      "state": 80,
+      "smoke": false,
+      "T_mle": 1.4525923182890421,
+      "nll_at_T": 37.2413270312222,
+      "nll_at_T1": 61.718849739623835,
+      "T_lsq": 1.4571692803801428,
+      "T_kl": 1.3735425313060603,
+      "mean_p_obs": 0.41360009709994,
+      "mean_q": 0.4159058418415063,
+      "mean_p0": 0.8087400771953441,
+      "ss_res": 3.4389443157129302,
+      "ss_tot_decline": 11.079508234619393,
+      "R2_pooled": 0.6896121882948295,
+      "R2_battery": {
+        "fact": 0.5542432422426583,
+        "ctrl": 0.3935756968897923,
+        "near": 0.951315323949668,
+        "tmpl": 0.8174917757993546
+      },
+      "mean_abs_resid": 0.21630145066673057,
+      "max_abs_resid": 0.47472686516983376,
+      "T_i_multi_crossings": 0,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.33223941845650473
+    },
+    {
+      "wash": "w1",
+      "state": 2,
+      "smoke": false,
+      "T_mle": 1.0014473256519658,
+      "nll_at_T": 23.54463335947966,
+      "nll_at_T1": 23.544823192805204,
+      "T_lsq": 1.0024587973205983,
+      "T_kl": 0.9995717578587815,
+      "mean_p_obs": 0.8074463225073285,
+      "mean_q": 0.8077683202150446,
+      "mean_p0": 0.8087400771953441,
+      "ss_res": 0.010876574712564159,
+      "ss_tot_decline": 0.011020456779637477,
+      "R2_pooled": 0.013055907749592532,
+      "R2_battery": {
+        "fact": -0.021063983221278004,
+        "ctrl": 0.07413666471594227,
+        "near": 0.07305703643519068,
+        "tmpl": 0.06641139954438369
+      },
+      "mean_abs_resid": 0.010432139392148843,
+      "max_abs_resid": 0.04816563009678343,
+      "T_i_multi_crossings": 0,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.025156731496396207
+    },
+    {
+      "wash": "w2",
+      "state": 10,
+      "smoke": false,
+      "T_mle": 1.0744525359278094,
+      "nll_at_T": 27.174991365031286,
+      "nll_at_T1": 27.731752260672287,
+      "T_lsq": 1.0702050133559553,
+      "T_kl": 1.0632643024619262,
+      "mean_p_obs": 0.7547619397993441,
+      "mean_q": 0.7554346776125535,
+      "mean_p0": 0.8087400771953441,
+      "ss_res": 0.2578309239422424,
+      "ss_tot_decline": 0.4185627723117413,
+      "R2_pooled": 0.38400894442133393,
+      "R2_battery": {
+        "fact": -0.026929165910571484,
+        "ctrl": 0.5448988989618411,
+        "near": 0.6127843780666742,
+        "tmpl": 0.5277272765244407
+      },
+      "mean_abs_resid": 0.052298169190641196,
+      "max_abs_resid": 0.17806681406440084,
+      "T_i_multi_crossings": 0,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.10263627192405544
+    },
+    {
+      "wash": "w2",
+      "state": 50,
+      "smoke": false,
+      "T_mle": 1.3363590444428126,
+      "nll_at_T": 37.134280722109,
+      "nll_at_T1": 50.736584399414376,
+      "T_lsq": 1.3216933924116232,
+      "T_kl": 1.2793880965886864,
+      "mean_p_obs": 0.5193379370978585,
+      "mean_q": 0.5229951063201648,
+      "mean_p0": 0.8087400771953441,
+      "ss_res": 2.6284136817879338,
+      "ss_tot_decline": 6.5624838602558695,
+      "R2_pooled": 0.5994788348804483,
+      "R2_battery": {
+        "fact": 0.4860417027339389,
+        "ctrl": 0.1310454128678027,
+        "near": 0.8945519479355658,
+        "tmpl": 0.7390524482367198
+      },
+      "mean_abs_resid": 0.18386128857387088,
+      "max_abs_resid": 0.517057252446719,
+      "T_i_multi_crossings": 0,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.28016275265842683
+    },
+    {
+      "wash": "w2",
+      "state": 80,
+      "smoke": false,
+      "T_mle": 1.413836040516422,
+      "nll_at_T": 36.594428017401206,
+      "nll_at_T1": 57.10192283337355,
+      "T_lsq": 1.4110336891076016,
+      "T_kl": 1.3337567896870606,
+      "mean_p_obs": 0.44760700653272645,
+      "mean_q": 0.45083854420103947,
+      "mean_p0": 0.8087400771953441,
+      "ss_res": 2.671777913512968,
+      "ss_tot_decline": 9.165936762816795,
+      "R2_pooled": 0.7085101083883214,
+      "R2_battery": {
+        "fact": 0.6663064228517837,
+        "ctrl": 0.37619190172599637,
+        "near": 0.9617484451711028,
+        "tmpl": 0.8282890997674817
+      },
+      "mean_abs_resid": 0.1916894710285783,
+      "max_abs_resid": 0.4815716117750347,
+      "T_i_multi_crossings": 0,
+      "T_i_outside_range": 0,
+      "T_i_iqr_over_median": 0.2890517810000986
+    }
+  ],
+  "adjudication": {
+    "bars": {
+      "FLATTENING_DOMINANT": false,
+      "STRUCTURED": true,
+      "erosion_clause_fired": true,
+      "anchor_clause_fired": true,
+      "verdict": "STRUCTURED",
+      "clause": "< 80% explained (pooled R2: w1+10 +0.2992; w1+50 +0.6259; w1+80 +0.6896; w2+10 +0.3840; w2+50 +0.5995; w2+80 +0.7085) AND the residuals are structured \u2014 erosion-order clause: blocked Spearman rho -0.898 (bar |rho| >= 0.4); anchor clause: z(Gmail) +3.86, z(iPhone) -0.05 (bar |z| >= 2.0) \u2014 the third dimension has a p-side seat; the critic's confound discharged",
+      "order": "FLATTENING-DOMINANT -> STRUCTURED -> MIXED (gated on G_STATES/G_BATT/G_CORPUS/G_ENV)"
+    },
+    "bar_constants": {
+      "EXPLAINED_BAR": 0.8,
+      "RHO_BAR": 0.4,
+      "Z_BAR": 2.0,
+      "ADJ_STATES": [
+        10,
+        50,
+        80
+      ],
+      "DEEP_STATES": [
+        50,
+        80
+      ]
+    },
+    "gates_summary": {
+      "G_STATES": true,
+      "G_BATT": true,
+      "G_CORPUS": true,
+      "G_ENV": true
+    }
+  },
+  "residual_structure": {
+    "cells": [
+      {
+        "battery": "fact",
+        "wash": "w1",
+        "state": 50,
+        "n": 20,
+        "rho": -0.9308270676691729,
+        "tau": -0.7894736842105263,
+        "rho_model_posthoc": 0.18646616541353384,
+        "erosion_z": [
+          0.9679537554644456,
+          0.1881373000639834,
+          1.1098366883789346,
+          0.8583284033193952,
+          1.5277346093667628,
+          1.375756416470961,
+          -0.9885251061397167,
+          -0.8283541375412415,
+          -0.997747985043247,
+          -0.9572693218076475,
+          -0.5525603425368907,
+          -0.5441633045688523,
+          -1.3941423125422625,
+          -0.5343357711722937,
+          -0.9894116400540408,
+          -0.8398243062999752,
+          -0.24799696125283546,
+          0.15189873881255012,
+          1.4640548056442977,
+          1.2306304714376708
+        ],
+        "resid_z": [
+          -0.730641424267486,
+          -0.49243824024662436,
+          -0.5191186926197765,
+          -0.3451314860969161,
+          -1.3805447022068418,
+          -0.7496953164547007,
+          0.8655816994861611,
+          0.8987126045852301,
+          1.1689018256275474,
+          1.0003750271179495,
+          0.5997403740805759,
+          0.698624378821241,
+          1.044221151723101,
+          0.6521696452635057,
+          1.210709870312904,
+          0.7625599779692526,
+          -0.345569877490162,
+          -1.196260036774146,
+          -1.049005166671855,
+          -2.093191612158959
+        ]
+      },
+      {
+        "battery": "ctrl",
+        "wash": "w1",
+        "state": 50,
+        "n": 12,
+        "rho": -0.9300699300699301,
+        "tau": -0.7575757575757576,
+        "rho_model_posthoc": 0.20279720279720279,
+        "erosion_z": [
+          -1.304605618874634,
+          -0.5680113870037702,
+          -0.8579452871483649,
+          -0.949213351248569,
+          0.05082632961694994,
+          0.5473998220553219,
+          1.3666613429910603,
+          1.5010197569275439,
+          0.748899947016296,
+          -1.1807061309235012,
+          0.9359734052204961,
+          -0.2902988286288296
+        ],
+        "resid_z": [
+          1.2249818950650704,
+          0.8213510796108561,
+          1.1146614070912162,
+          1.0070625104785735,
+          0.3309218408170574,
+          -0.9826810174617978,
+          -1.436359450690735,
+          -1.1205204247266098,
+          -0.8757581302555122,
+          0.8843122239509862,
+          -0.7640268774871887,
+          -0.2039450563919175
+        ]
+      },
+      {
+        "battery": "near",
+        "wash": "w1",
+        "state": 50,
+        "n": 3,
+        "rho": -1.0,
+        "tau": -1.0,
+        "rho_model_posthoc": -1.0,
+        "erosion_z": [
+          -0.7101668617542002,
+          1.143592956088839,
+          -0.43342609433464097
+        ],
+        "resid_z": [
+          0.8927382868372621,
+          -1.0806118126006663,
+          0.18787352576340444
+        ]
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w1",
+        "state": 50,
+        "n": 19,
+        "rho": -0.8929824561403509,
+        "tau": -0.7076023391812866,
+        "rho_model_posthoc": 0.6578947368421053,
+        "erosion_z": [
+          -0.965318805446569,
+          -1.031342842202785,
+          -0.05262630770429449,
+          0.8550894313189793,
+          0.6033724598386013,
+          1.2368272523699413,
+          -0.625003085864541,
+          0.7468619078142744,
+          0.5102055327875128,
+          1.2526605798067236,
+          -0.08750889254281248,
+          -1.3578932885466786,
+          0.8639133233824725,
+          -1.054646995945272,
+          -1.6441508842513848,
+          -0.5940115760323806,
+          0.666364965162712,
+          -0.9182290836988566,
+          1.595436309754356
+        ],
+        "resid_z": [
+          1.3037278580497755,
+          0.5548173321677112,
+          -0.053232783980224595,
+          -1.8458452768938958,
+          -0.037454474273675264,
+          -0.738434015063471,
+          0.9996546429989343,
+          -0.6904610421119218,
+          -0.1135337771909419,
+          -1.7533491956014524,
+          0.3273543533858144,
+          1.2518795190265086,
+          -1.4277513501880412,
+          0.3885628853891342,
+          1.2820086851852086,
+          1.0118564843562448,
+          -0.5113705832118604,
+          0.608275017671888,
+          -0.556704279715738
+        ]
+      },
+      {
+        "battery": "fact",
+        "wash": "w1",
+        "state": 80,
+        "n": 20,
+        "rho": -0.8781954887218045,
+        "tau": -0.7052631578947368,
+        "rho_model_posthoc": 0.22406015037593985,
+        "erosion_z": [
+          1.101903558951432,
+          0.42666249926152927,
+          1.0679015894527775,
+          1.0914412943584741,
+          1.2936693163723145,
+          1.3056437917408488,
+          -1.0228605975353589,
+          -0.7906477714972999,
+          -1.0992963987686035,
+          -1.0015639091082469,
+          -0.6706501301151161,
+          -0.6139213245734486,
+          -1.3666842946872249,
+          -0.6557159225129574,
+          -1.0607555264749766,
+          -0.8985473657111305,
+          0.16237564185772924,
+          0.3681804898178324,
+          1.194372064204769,
+          1.1684929949666616
+        ],
+        "resid_z": [
+          -0.8424815917908941,
+          -0.6242118027235377,
+          -0.5532460583412833,
+          -0.615514280879939,
+          -1.0824987476093686,
+          -0.7407072937852017,
+          0.9604645223825504,
+          0.8723842429944061,
+          1.2495137863861998,
+          1.0579337188776194,
+          0.6661904624759623,
+          0.7661074639568484,
+          0.9317279276072967,
+          0.755798114668389,
+          1.1931167079804514,
+          0.8172183802888109,
+          -0.7415098850698174,
+          -1.3683032492019358,
+          -0.8523715842087162,
+          -1.8496108340078414
+        ]
+      },
+      {
+        "battery": "ctrl",
+        "wash": "w1",
+        "state": 80,
+        "n": 12,
+        "rho": -0.9440559440559441,
+        "tau": -0.8181818181818182,
+        "rho_model_posthoc": -0.04195804195804196,
+        "erosion_z": [
+          -1.285594060683628,
+          -0.6865316157449497,
+          -0.811498056140732,
+          -0.9721379877741118,
+          0.06819092502161592,
+          0.4961384388182675,
+          1.1023271534875154,
+          1.480463819015978,
+          1.0039023446649138,
+          -1.150463159683038,
+          1.0840318051525302,
+          -0.32882960613436363
+        ],
+        "resid_z": [
+          1.2107893456088625,
+          0.8768511015180209,
+          1.044459436634716,
+          1.0692228740954828,
+          0.2487062834309286,
+          -0.9185881255131739,
+          -1.2052422416934476,
+          -1.1388370226584417,
+          -1.1089270452451505,
+          0.9177146301207514,
+          -0.8903083924904575,
+          -0.10584084380809175
+        ]
+      },
+      {
+        "battery": "near",
+        "wash": "w1",
+        "state": 80,
+        "n": 3,
+        "rho": -1.0,
+        "tau": -1.0,
+        "rho_model_posthoc": -1.0,
+        "erosion_z": [
+          -0.6050922723106246,
+          1.1542488463144809,
+          -0.5491565740038581
+        ],
+        "resid_z": [
+          0.8968403018175153,
+          -1.0783075255852954,
+          0.18146722376778007
+        ]
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w1",
+        "state": 80,
+        "n": 19,
+        "rho": -0.8245614035087719,
+        "tau": -0.6374269005847953,
+        "rho_model_posthoc": 0.6596491228070176,
+        "erosion_z": [
+          -1.2895881829501792,
+          -0.9174016554839464,
+          -0.2005782396299681,
+          0.92104663334475,
+          0.871079683970557,
+          0.9560118242528723,
+          -0.9039390926692802,
+          0.3928034682623373,
+          0.8713508114170397,
+          1.0354023770765182,
+          0.42835595107670044,
+          -1.275052114329473,
+          0.8999509249596743,
+          -1.0197009635905296,
+          -1.8847940220919224,
+          -0.37699796623267473,
+          0.7654801798342173,
+          -0.6185223821454569,
+          1.3450927649287607
+        ],
+        "resid_z": [
+          1.7680081577289448,
+          0.1629684365745596,
+          0.20234166463646625,
+          -2.0141978629365465,
+          -0.2972565474389947,
+          -0.23642781055804918,
+          1.4738087687070984,
+          -0.1849541939240536,
+          -0.4843407745602056,
+          -1.3906427790112046,
+          -0.252973754100514,
+          1.1208854783401438,
+          -1.4355020051481604,
+          0.0755953372570368,
+          1.3726545283505134,
+          0.7870633598152333,
+          -0.5353183743238586,
+          0.084061612503114,
+          -0.21577324191152183
+        ]
+      },
+      {
+        "battery": "fact",
+        "wash": "w2",
+        "state": 50,
+        "n": 20,
+        "rho": -0.9458646616541353,
+        "tau": -0.8210526315789474,
+        "rho_model_posthoc": 0.20601503759398496,
+        "erosion_z": [
+          0.9862890248006277,
+          0.10276748153032962,
+          1.010801025329892,
+          0.5730314804413129,
+          1.4012557826545375,
+          1.4212119661576024,
+          -0.9146112905865152,
+          -0.6521270008972614,
+          -0.9874395308486777,
+          -0.8745267395559383,
+          -0.4805047350885721,
+          -0.5423341560163928,
+          -1.3506272829192834,
+          -0.6301595624467498,
+          -1.070475742699261,
+          -0.8533094434481308,
+          -0.32990840790421044,
+          0.06554088312568628,
+          1.7427112847058759,
+          1.3824149636651273
+        ],
+        "resid_z": [
+          -0.7553819596647448,
+          -0.3934291673000542,
+          -0.43531418437651226,
+          -0.07099025019787723,
+          -1.2550979310974835,
+          -0.7953786633679539,
+          0.7771892566373133,
+          0.6967304204372229,
+          1.1558986086904919,
+          0.9055410113356306,
+          0.5267872280392195,
+          0.6953986481777321,
+          1.000286907181866,
+          0.7517196986735852,
+          1.2914169323764584,
+          0.7772315604941188,
+          -0.24405096972304183,
+          -1.0750778746228755,
+          -1.2772072932009284,
+          -2.276271978492167
+        ]
+      },
+      {
+        "battery": "ctrl",
+        "wash": "w2",
+        "state": 50,
+        "n": 12,
+        "rho": -0.951048951048951,
+        "tau": -0.8181818181818182,
+        "rho_model_posthoc": 0.11188811188811189,
+        "erosion_z": [
+          -1.2485984183841599,
+          -0.6663614890600436,
+          -0.7311013570861843,
+          -0.8933965217661622,
+          -0.08874604950874578,
+          0.9628077669112186,
+          1.403710478921307,
+          0.8782638906344418,
+          0.696259137167452,
+          -1.246503150901534,
+          1.3366776315780475,
+          -0.4030119185056347
+        ],
+        "resid_z": [
+          1.159717985890585,
+          0.9029444602000176,
+          0.9879490513693554,
+          0.9297932254119802,
+          0.45224513826310037,
+          -1.2725726326880165,
+          -1.447522609743903,
+          -0.633230523923641,
+          -0.8182467930459529,
+          0.9204735060361977,
+          -1.0724842925612248,
+          -0.10906651520849728
+        ]
+      },
+      {
+        "battery": "near",
+        "wash": "w2",
+        "state": 50,
+        "n": 3,
+        "rho": -1.0,
+        "tau": -1.0,
+        "rho_model_posthoc": -1.0,
+        "erosion_z": [
+          -0.7309496996541268,
+          1.1396094650146653,
+          -0.4086597653605384
+        ],
+        "resid_z": [
+          0.8786415867380449,
+          -1.0881595418580734,
+          0.2095179551200283
+        ]
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w2",
+        "state": 50,
+        "n": 19,
+        "rho": -0.9035087719298246,
+        "tau": -0.7426900584795322,
+        "rho_model_posthoc": 0.6596491228070176,
+        "erosion_z": [
+          -0.770481483157625,
+          -0.7709469895258823,
+          0.06045688234730225,
+          1.2831678994080216,
+          0.9967170397198524,
+          1.5378070099173329,
+          -1.026877531218937,
+          0.18190849816518076,
+          0.39773153022672936,
+          0.8470967236667829,
+          -0.2000082209070835,
+          -1.2129587818910847,
+          0.569090010300758,
+          -0.9784816764164664,
+          -1.7222490319020982,
+          -0.22302060835355897,
+          0.5503273409328662,
+          -1.103765178488863,
+          1.5844865671767758
+        ],
+        "resid_z": [
+          1.028207307116807,
+          0.16043108205357884,
+          -0.2225142621530189,
+          -2.470065603618857,
+          -0.5072129613024114,
+          -1.1120676704195438,
+          1.5419573742311226,
+          0.05753981867136668,
+          0.04265190087211164,
+          -1.1602977795742742,
+          0.46787782699422753,
+          0.9973741122253322,
+          -0.9953066016361701,
+          0.2616934747497573,
+          1.3812093575901956,
+          0.5037402409266719,
+          -0.3461891456963497,
+          0.8638544184448989,
+          -0.4928828894754512
+        ]
+      },
+      {
+        "battery": "fact",
+        "wash": "w2",
+        "state": 80,
+        "n": 20,
+        "rho": -0.8796992481203008,
+        "tau": -0.7052631578947368,
+        "rho_model_posthoc": 0.23308270676691728,
+        "erosion_z": [
+          1.0882410620731136,
+          0.35433666319723617,
+          0.9085724970060902,
+          0.8071169540033003,
+          1.3054897950974536,
+          1.2530413532272315,
+          -1.1557127060163808,
+          -0.8135319383039148,
+          -1.151429655374884,
+          -1.027130383249461,
+          -0.4582523311367064,
+          -0.7452207597038811,
+          -1.1327655806296804,
+          -0.5813340189240892,
+          -0.9349045955668046,
+          -1.0357013613438657,
+          0.019629600314739558,
+          0.47604809462473957,
+          1.4961387909001438,
+          1.3273685198056204
+        ],
+        "resid_z": [
+          -0.7600424170561317,
+          -0.6164760354696901,
+          -0.31937547322958304,
+          -0.27649105650525474,
+          -1.0473621059959408,
+          -0.5874592018203659,
+          0.9931461321500593,
+          0.8305536896467712,
+          1.2514652079480886,
+          1.0069003345816796,
+          0.47929271238356036,
+          0.8619757528981913,
+          0.8160896739154979,
+          0.6594747817769082,
+          1.0752016331683945,
+          0.8985172297909991,
+          -0.6524309805266342,
+          -1.572961032695247,
+          -0.9687189754401719,
+          -2.071299869521129
+        ]
+      },
+      {
+        "battery": "ctrl",
+        "wash": "w2",
+        "state": 80,
+        "n": 12,
+        "rho": -0.9090909090909091,
+        "tau": -0.7272727272727273,
+        "rho_model_posthoc": -0.08391608391608392,
+        "erosion_z": [
+          -1.2484458257610536,
+          -0.7128735890666662,
+          -0.7127352314008905,
+          -0.9571548464565431,
+          0.04209951861349661,
+          0.8371825151653421,
+          1.1675444051960018,
+          0.9678124372477939,
+          0.8380078502155283,
+          -1.1458806192745055,
+          1.4780937894945416,
+          -0.5536504039730457
+        ],
+        "resid_z": [
+          1.1803565996191028,
+          0.9067948148917884,
+          0.9495840713719922,
+          1.0337949321124993,
+          0.28012861998076705,
+          -1.159359879792812,
+          -1.2637008572142863,
+          -0.7395239500806893,
+          -0.9639454384728121,
+          0.9026623758075153,
+          -1.2224848682021687,
+          0.09569357997910365
+        ]
+      },
+      {
+        "battery": "near",
+        "wash": "w2",
+        "state": 80,
+        "n": 3,
+        "rho": -0.5,
+        "tau": -0.3333333333333333,
+        "rho_model_posthoc": -0.5,
+        "erosion_z": [
+          -0.2690078825899855,
+          1.1069884241163592,
+          -0.8379805415263726
+        ],
+        "resid_z": [
+          0.7084257506061499,
+          -1.143896176955443,
+          0.43547042634929317
+        ]
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w2",
+        "state": 80,
+        "n": 19,
+        "rho": -0.887719298245614,
+        "tau": -0.7192982456140351,
+        "rho_model_posthoc": 0.6859649122807018,
+        "erosion_z": [
+          -1.4153197090289928,
+          -0.6856663445714373,
+          0.05079014116331155,
+          1.1051811001568814,
+          0.9919156080305299,
+          1.4036407768347283,
+          -1.0615639080485482,
+          0.3953560443749034,
+          0.6098142521496607,
+          0.6838265452684334,
+          0.11365885363489657,
+          -1.3119059640647732,
+          0.5428213111201722,
+          -0.7914004722803856,
+          -1.6788564977943181,
+          -0.12167478208353719,
+          0.6188604466196336,
+          -0.9902487544520563,
+          1.5407713529708944
+        ],
+        "resid_z": [
+          1.9143206740501693,
+          -0.10446498073839264,
+          -0.1762836472945744,
+          -2.246496927442728,
+          -0.5018142968337063,
+          -0.8832122111739699,
+          1.6547214482508845,
+          -0.2268460128084067,
+          -0.1654081422349374,
+          -0.8810709810511156,
+          0.16385847787102711,
+          1.1780656963916523,
+          -0.9082114014396142,
+          -0.1760786598217182,
+          1.1569514805005074,
+          0.3951017733641372,
+          -0.3571952131533227,
+          0.680078547593082,
+          -0.5160156240289734
+        ]
+      }
+    ],
+    "rho_pooled_blocked": -0.8975827290155872,
+    "tau_pooled_blocked": -0.7111972437553833,
+    "rho_no_near_echo": -0.8943989370348644,
+    "rho_model_pooled_posthoc": 0.32856071160647304,
+    "z_anchor": {
+      "Gmail": 3.8605527646385944,
+      "iPhone": -0.05372000870435645
+    },
+    "anchor_split_z": 4.876119845289139,
+    "anchors": [
+      "The phone made by Apple->iPhone",
+      "The email service made by Google->Gmail"
+    ],
+    "band": [
+      "The gaming console made by Microsoft->Xbox",
+      "The web browser made by Google->Chrome",
+      "The tablet made by Apple->iPad",
+      "The music store made by Apple->iTunes",
+      "The game console made by Sony->PlayStation"
+    ],
+    "band_sd": 0.09995742823391693
+  },
+  "two_moment_bound": {
+    "rows": [
+      {
+        "wash": "w1",
+        "state": 10,
+        "T_2m": 1.0606288410696179,
+        "T_full": 1.0597956498145238,
+        "rel_T_diff": 0.0007861810484312572,
+        "R2_2m": 0.28014605053175123,
+        "R2_full": 0.2992025479329191,
+        "spread_iqr_med_full": 0.11243366021221551,
+        "spread_iqr_med_2m": 0.09042939073765244,
+        "n_outside_family_2m": 2
+      },
+      {
+        "wash": "w1",
+        "state": 50,
+        "T_2m": 1.3276739797038621,
+        "T_full": 1.3489839391244727,
+        "rel_T_diff": 0.015797044577447884,
+        "R2_2m": 0.6493940889563747,
+        "R2_full": 0.6258844096157501,
+        "spread_iqr_med_full": 0.26025636735792496,
+        "spread_iqr_med_2m": 0.23923300179061455,
+        "n_outside_family_2m": 0
+      },
+      {
+        "wash": "w1",
+        "state": 80,
+        "T_2m": 1.4184956720399506,
+        "T_full": 1.4525923182890421,
+        "rel_T_diff": 0.02347296334958781,
+        "R2_2m": 0.7095351863804038,
+        "R2_full": 0.6896121882948295,
+        "spread_iqr_med_full": 0.33223941845650473,
+        "spread_iqr_med_2m": 0.30162553114845947,
+        "n_outside_family_2m": 0
+      },
+      {
+        "wash": "w1",
+        "state": 2,
+        "T_2m": 1.0006380283910485,
+        "T_full": 1.0014473256519658,
+        "rel_T_diff": 0.0008081276370580976,
+        "R2_2m": 0.0035395839498028048,
+        "R2_full": 0.013055907749592532,
+        "spread_iqr_med_full": 0.025156731496396207,
+        "spread_iqr_med_2m": 0.026791471082955324,
+        "n_outside_family_2m": 0
+      },
+      {
+        "wash": "w2",
+        "state": 10,
+        "T_2m": 1.0746100836045724,
+        "T_full": 1.0744525359278094,
+        "rel_T_diff": 0.0001466306528161054,
+        "R2_2m": 0.35986150576600573,
+        "R2_full": 0.38400894442133393,
+        "spread_iqr_med_full": 0.10263627192405544,
+        "spread_iqr_med_2m": 0.09444410073614008,
+        "n_outside_family_2m": 1
+      },
+      {
+        "wash": "w2",
+        "state": 50,
+        "T_2m": 1.3171743119070185,
+        "T_full": 1.3363590444428126,
+        "rel_T_diff": 0.014355971634698726,
+        "R2_2m": 0.6261559970611797,
+        "R2_full": 0.5994788348804483,
+        "spread_iqr_med_full": 0.28016275265842683,
+        "spread_iqr_med_2m": 0.2446342443653802,
+        "n_outside_family_2m": 0
+      },
+      {
+        "wash": "w2",
+        "state": 80,
+        "T_2m": 1.3829127335316225,
+        "T_full": 1.413836040516422,
+        "rel_T_diff": 0.02187191873642185,
+        "R2_2m": 0.7210329993619533,
+        "R2_full": 0.7085101083883214,
+        "spread_iqr_med_full": 0.2890517810000986,
+        "spread_iqr_med_2m": 0.2675450489051492,
+        "n_outside_family_2m": 0
+      }
+    ],
+    "margin_sanity": {
+      "observed_margin_raw_mean": 3.0668867605703847,
+      "gaussian_tail_pred_mean": 18.116534713844917,
+      "ratio": 0.16928661076815235,
+      "note": "the two-moment family's denominator replaces the true top-end structure with a Gaussian tail; this ratio prices that crudeness (the registered check's honesty clause)"
+    },
+    "note": "the registered desk-only bound: the Gaussian-denominator family from e228's committed (p0, sigma0) triples fit against e214's committed p's \u2014 what the (p, margin_raw, sigma) records alone would have said; never adjudicates"
+  },
+  "honesty_reflex": {
+    "lens_not_mechanism": "a good one-T fit DESCRIBES the p-side as uniform flattening; it does not assert the wash implements a temperature (T212's derivation already showed the margin side cannot be thermal \u2014 both can be true only if the fit is partial)",
+    "likelihood_choice": "the Bernoulli soft-target MLE is one natural choice; the LSQ echo prices it (the T's agree to the printed precision when the read is robust)",
+    "pooled_aggregation": "the blocked pooled Spearman is one pre-registered aggregation of 12 per-cell joins; the per-cell table rides along and never adjudicates; near (n=3) contributes quantized ranks, flagged coarse with a near-excluded echo",
+    "shared_variable_caveat": "the residual-erosion join shares p_obs between both sides (residual = p_obs - q; erosion = 1 - p_obs/p0), so a regression-to-the-mean artifact could bend rho negative even under unstructured misses of sufficient magnitude; the POST-HOC calibration (rho_model, added after seeing rho -0.898, before the final re-run, never adjudicated) prices this: it asks whether the model's OWN q-ordering (t=0 logits only) predicts the erosion order \u2014 the join's information is the MISS only insofar as |rho_join| >> |rho_model|; the verdict's load also rests on the miss SCALE (mean |resid| ~0.19-0.22 at +80, roughly half the pooled decline) and the anchor separation, neither of which is reachable by the artifact",
+    "n_washes": "n=2 washes is texture, not law; wash 1 is a CPU fp32 replay of e182's GPU original, wash 2 is GPU fp32 \u2014 the archive's device asymmetry, inherited, disclosed",
+    "one_organism": "ONE organism (the shared pristine 124M); the belief tensor is its tensor",
+    "observed_vs_committed": "the fitted p_obs's are my re-probe certified equal to e214's committed records (max dp 0.00e+00) \u2014 the fit is effectively ON the committed records",
+    "two_moment": "the desk-only family replaces the true denominator with a Gaussian tail estimate; its gap vs the full fit prices exactly that crudeness",
+    "guarantees_nothing": "nothing here is guaranteed \u2014 the openness is the point (FQ7's branches were written before this cell ran; no retrofit)"
+  },
+  "compute": {
+    "envelope": "CPU-only desk+eval (dispatch): threads 4, load checks 1, one state = one eval burst; ~54 probes x 8 state reads + screening forwards + 7 checkpoint loads; no GPU calls",
+    "load_checks": [
+      {
+        "tag": "launch",
+        "cpu_percent": 1.9,
+        "tool": "psutil"
+      }
+    ],
+    "state_archive": [
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt"
+    ]
+  },
+  "provenance": {
+    "git_head_at_start": "881e409be4a49da727b8f1df8449f8a35f0b8d13",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e238_temperature_null.py",
+    "committed_y_side": {
+      "e214_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e214\\metrics.json",
+        "sha256_16": "50fad9783a19538b"
+      },
+      "e214_journal": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e214\\journal.json",
+        "sha256_16": "04e84058b4656cd9"
+      },
+      "e228_journal": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e228\\journal.json",
+        "sha256_16": "e1f476405746ad70"
+      }
+    },
+    "logit_dumps": {
+      "t0": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_t0.npz",
+        "sha256_16": "fd1d302f5713ec82",
+        "shape": [
+          54,
+          50257
+        ]
+      },
+      "w1s10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s10.npz",
+        "sha256_16": "cd4fdedb5a7d605a",
+        "shape": [
+          54,
+          50257
+        ]
+      },
+      "w1s50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s50.npz",
+        "sha256_16": "465bac8aca6b4076",
+        "shape": [
+          54,
+          50257
+        ]
+      },
+      "w1s80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s80.npz",
+        "sha256_16": "f13897401fe60341",
+        "shape": [
+          54,
+          50257
+        ]
+      },
+      "w1s2": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s2.npz",
+        "sha256_16": "59e6c0aa1b220518",
+        "shape": [
+          54,
+          50257
+        ]
+      },
+      "w2s10": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w2s10.npz",
+        "sha256_16": "b120737f96a65398",
+        "shape": [
+          54,
+          50257
+        ]
+      },
+      "w2s50": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w2s50.npz",
+        "sha256_16": "06b46035fb76be1a",
+        "shape": [
+          54,
+          50257
+        ]
+      },
+      "w2s80": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w2s80.npz",
+        "sha256_16": "9c807dbf906e2cbc",
+        "shape": [
+          54,
+          50257
+        ]
+      }
+    },
+    "logit_dumps_git": "NOT tracked (the checkpoints/gradient-cache precedent; regenerable deterministically from the committed checkpoints + this script; sha256 recorded)",
+    "batteries": "module import of lab/e182c_forgetting_control.py (fact/ctrl/near) and lab/e182c2_template.py (tmpl), VERBATIM \u2014 import, never retyped",
+    "stat_helpers": "avg_ranks/_pearson/spearman/kendall_tau_b copied VERBATIM from lab/e228_margin_landscape.py",
+    "family": "q_i(T) = softmax(L0_i/T)[ans_i]; Bernoulli soft-target MLE; grid log10 T in [-1,1] x 1201 + golden polish; float64",
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "transformers": "5.12.1",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.6"
+    },
+    "threads": 4,
+    "device": "cpu fp32"
+  },
+  "trims": [],
+  "deviations": [
+    "EVAL-ONLY desk+eval on the committed checkpoints (no wash run here); CPU-only per the dispatch (two other agents live \u2014 threads 4, load-polite).",
+    "The full logits were NOT committed anywhere (e214/e228 journals carry p/margin/sigma/top-id pairs only), so the primary fit uses the ONE-TIME re-probe with full answer-position logit dumps (54 x 8), every state re-probe-certified against e214's committed per-probe p (tol 0.005, expected ~0).",
+    "The npz logit dumps (~11 MB/state fp32) are lab artifacts on disk, NOT git-tracked (the checkpoints/gradient-cache precedent; sha256 + shapes recorded in metrics provenance; regenerable deterministically from the committed checkpoints + this script).",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "Smoke mode: t=0 + the w1 +10 state only, own smoke dir, nothing adjudicated or verified."
+  ]
 }
