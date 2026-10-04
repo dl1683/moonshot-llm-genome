@@ -1042,7 +1042,7 @@ def _dot_rows(A, B=None):
     returns the (nA, nB) matrix of cosines, fp64, chunked."""
     import numpy as np
     nA = A.shape[0]
-    nB = B.shape[1] if B is not None else A.shape[0]
+    nB = (B.shape[0] if B is not None else A.shape[0])
     out = np.zeros((nA, nB), dtype=np.float64)
     col = 0
     while col < A.shape[1]:
@@ -1481,6 +1481,7 @@ def thermal_fits(journal, mult=1) -> dict:
                 out["resid_join"].append(
                     {"wash": wname, "state": s,
                      "rho_blocked": float(spearmanr(xs, ys).statistic),
+                     "mean_abs_resid": float(np.abs(resid).mean()),
                      "n": len(xs)})
     return out
 
@@ -1515,10 +1516,14 @@ def cmd_adjudicate() -> None:
         for w in ("w1", "w2"):
             states = [0] + grids[w]
             rows = {s: {r["fact"]: r for r in
-                        jr.get(f"{w}_m{mult}:{s}", [])}
+                        (jr["t0:0"] if s == 0
+                         else jr.get(f"{w}_m{mult}:{s}", []))}
                     for s in states}
+            b_facts = {p["fact"] for p in BATTERY if p["battery"] == b}
             classes = {}
             for fact in rows[0]:
+                if fact not in b_facts:
+                    continue
                 p0 = rows[0][fact]["p"]
                 p_seq = [rows[s][fact]["p"] for s in states if s in rows
                          and fact in rows[s]]
@@ -1716,6 +1721,7 @@ def _adjudication_png(census, zomb, bars, verdict):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    import numpy as np
     fig, axes = plt.subplots(2, 2, figsize=(12.5, 9))
     cells = [f"{b}-{w}" for b in ("fact", "ctrl", "tmpl") for w in ("w1", "w2")]
     x = np.arange(len(cells))
