@@ -5335,7 +5335,7 @@ bridge must earn each clause. But if it holds, the lab's two
 deepest objects — the wall and the wash — are one field, and
 the discipline that paid for both pays off twice.
 
-## W035 — WONDER: the wind and the friction — is the wash one field with two components? (2026-10-04 ~13:58Z; no bars, no kills — three instruments converging)
+## W035 — WONDER: the wind and the friction — is the wash one field with two components? (2026-10-04 ~13:58Z; no bars, no kills — three instruments converging) [CONVERGENCE STAMP ~15:55Z: the day's three cards have become one field description, in four movements. (1) THE TIDE — the common rotation (e239: ~87% common-mode; every probe's support moved the same way by both washes — the field's kinematic layer). (2) THE UNDERTOW — the probe-specific killing (e226/e233: the aligned component, 0.04% of L2, ~17 dp/unit — the field's selective layer; the scalpel). (3) THE FRICTION — the margin grinding (e230/e232: survivors' commitments thinned, restructured not flattened, timescale beyond the window — the field's dissipative layer). (4) THE RE-FORMATION — the return phenomena (e227: the 2.74M exemplar lift returning above t0 post-kill; e232: the 7 wrong-choosers' new commitments) — the field's reparative layer, the least measured. One field, four layers, three cards (W035/W036/W037) that were three guesses at it. The discriminating cells are all in flight or ripened: e234 (the decomposition), e237 (the undertow's memory), e240 (the tide's engine in the moments), e236 (the shoreline's currency). No new bars here — the layers are vocabulary until the cells land.]
 
 Three of today's results, from three independent instruments,
 may be one picture. (1) E226: the wash's pull works ALONG the
