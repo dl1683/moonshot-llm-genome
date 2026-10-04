@@ -370,6 +370,14 @@ deviations: list[str] = [
     "endpoint of a log-ratio are EXCLUDED from that log-median (counted + "
     "disclosed) — no epsilon fudging.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "POST-FIRST-RUN MECHANICAL FIX (numbers untouched; the e242/e251 "
+    "precedent): the first pass crashed IN THE FIGURE CODE (P6, the "
+    "state-table indexing x_T[0] — x_T was keyed by washed states only), "
+    "AFTER P5 had already computed and adjudicated every number; fix: x_T "
+    "gains the t0 key (decline 0.0 by definition). No measurement, gate, "
+    "regression, decomposition or adjudication line was touched; the "
+    "deterministic re-run reproduced every number bit-exactly (all repro "
+    "g gates |d| 0.0).",
 ]
 
 
@@ -884,7 +892,9 @@ def main():
 
     # ================= P2: THE REGRESSION ====================================
     # the committed thermal dial (hard-bound): x_s = T_mle(t0) - T_mle(s)
-    x_T = {s: E242_T_MLE[0] - E242_T_MLE[s] for s in all_steps}
+    # (t0's own decline is 0 by definition — included for the table)
+    x_T = {0: 0.0}
+    x_T.update({s: E242_T_MLE[0] - E242_T_MLE[s] for s in all_steps})
 
     def growth_points(batt: str, states) -> tuple[list[float], list[float], list[str]]:
         xs, ys, tags = [], [], []

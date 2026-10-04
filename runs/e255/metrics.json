@@ -1,0 +1,993 @@
+{
+  "experiment": "e255_thermal_ledger",
+  "phase": "FQ13 \u2014 THE THERMAL-LEDGER IDENTITY: is the walled world's margin thickening SUPPLIED by the wall's cooling (thermal contraction narrowing LN's denominator)? the regression + the numerator/denominator decomposition + the cross-world sign-flip control",
+  "date": "2026-10-04T19:27:34Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "bars frozen VERBATIM from the dispatch brief in the module docstring BEFORE any compute (script committed at birth); adjudicate against exactly this; no bar shopping.",
+  "registered_bars": {
+    "IDENTITY-CONFIRMED": "IDENTITY-CONFIRMED \u2014 \"margin growth tracks the T-decline quantitatively (the pooled regression's R^2 >= 0.6 with the expected sign) AND the decomposition shows the DENOMINATOR carrying the thickening (numerator ~inert) AND the unwalled control flips sign \u2014 the budget's origin named: THE COOLING; W038's law 4 collapses to 'the wall cools; LN does the rest'\"",
+    "NUMERATOR-RESIDUE": "NUMERATOR-RESIDUE \u2014 \"the fact battery's numerator grows beyond ctrl (a battery-specific constructive residue) \u2014 the re-formation layer keeps a small real object; report its size honestly\"",
+    "MIXED": "MIXED \u2014 \"the tables verbatim, both batteries, both worlds\"",
+    "registration": "bars frozen VERBATIM from the dispatch brief in the module docstring BEFORE any compute (script committed at birth); adjudicate against exactly this; no bar shopping.",
+    "clause_fixes": "THE REGRESSION: y=100*(m_{i,s}/m_{i,0}-1) per probe; x=T_mle(t0)-T_mle(s) from e242's committed thermal leg; POOLED = fact+ctrl probes x adjudicating states {1,2,10,50,100,300}, OLS with intercept; REGRESSION-CLAUSE := pooled R^2 >= 0.6 AND slope > 0. THE DECOMPOSITION: per probe exactly log(m ratio)=log(N ratio)-log(D ratio) (N=e228.margin_raw, D=e228.sigma); c_num/c_den = battery medians of the log ratios; DENOMINATOR-CARRIES := at +300, both fact and ctrl: c_den<0 AND |c_den|>|c_num|; NUMERATOR-INERT := at +300, both: |c_num|<=0.05 (log); DECOMPOSITION-CLAUSE := both. THE CROSS-WORLD CONTROL: y=e232's committed fact-w1 margins (n=8, hard-bound); T=e238's committed T_mle (w1, hard-bound; T(t0):=1.0 by the family's construction); decomposition from e238's committed logit dumps on the same n=8 (join tol 1e-6); CONTROL-CLAUSE := walled fact growth(+300)>0 AND walled T-decline(+300)>0 AND unwalled fact growth(+80)<-25% AND unwalled T-decline(+80)<0 AND unwalled NUMERATOR-carried (c_num<0 AND |c_num|>|c_den| at +80, n=8). VERDICTS (precedence): IDENTITY-CONFIRMED := gates PASS AND all three clauses; NUMERATOR-RESIDUE := gates PASS AND NOT IDENTITY AND fact c_num(+300)>+0.05 AND fact c_num>ctrl c_num (size reported honestly); MIXED := otherwise, INCLUDING any hard-gate failure (stand-down, e242/e251's precedent). The T the ledger reads (T228 carried): e242's committed T_mle is an answer-position P-SHAPE fit, not the literal logit spread; the decomposition's D is the literal spread; both dials reported at every state."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "CPU-ONLY (CUDA_VISIBLE_DEVICES=-1 forced; e248 owns the GPU; e254 is CPU \u2014 load-polite)",
+    "torch_threads": 4,
+    "bursts": "one state = one eval burst (3 batteries x margin_pass + the light dial)",
+    "n_evals": "n=1 per state per battery (deterministic, T204)",
+    "cpu_load_pct_at_launch": 8.9
+  },
+  "deviations": [
+    "DESK + EVAL-ONLY: the walled side re-measures e242/e251's bit-certified states (the pristine root + the W1 resume ckpt's embedded wash states) through the SAME module-imported instrument (e228.margin_pass via e229's shim) \u2014 the NUMERATOR (margin_raw) and DENOMINATOR (sigma) fields e242/e251 did not store per-probe are the cell's fresh reads; the unwalled side is PURE DESK on committed artifacts (e232's margins, e238's T_mle + logit dumps). No training, no wash, no GPU (e248 owns the GPU; e254 is CPU \u2014 load-polite: threads 4, load checks, one state = one eval burst).",
+    "The ctrl battery is e251's frozen construction REBUILT (same corpus, same seed 26502, same filters); its position list is asserted EXACTLY equal to e251's committed battery and its per-state medians re-certified against e251's committed trajectory (tol 1e-7). The fact battery is re-measured per-probe against e242's committed per-probe margin_sigma (tol 1e-7) \u2014 certifications, never adjudications.",
+    "held-30 rides as a CO-REPORT only (e251's precedent: its answers span only {F, E}); the adjudicating batteries are fact + ctrl.",
+    "The unwalled primary is e232's committed fact-w1 battery (n=8, the journal's shared subset \u2014 the battery the ideator's falsifier quotes); the full npz n=20 fact battery rides as a co-report. The unwalled T(t0):=1.0 by e238's family construction (q=softmax(L0/T) on t0's own logits), stated wherever used.",
+    "Importing e228 (via e229) opens runs/e228_run.log in append mode as a module side effect \u2014 nothing is written to it by this cell (own stdout log). g1's import resets torch threads to 8 \u2014 reset to 4 after import.",
+    "The state grid: the registered {t0,+1,+2,+10,+50,+100,+300} adjudicates; {+4,+200} ride as TEXTURE co-reports (e242/e251's own convention; they enter sensitivity re-runs only).",
+    "Probes with a zero (or non-finite) numerator/denominator at either endpoint of a log-ratio are EXCLUDED from that log-median (counted + disclosed) \u2014 no epsilon fudging.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "POST-FIRST-RUN MECHANICAL FIX (numbers untouched; the e242/e251 precedent): the first pass crashed IN THE FIGURE CODE (P6, the state-table indexing x_T[0] \u2014 x_T was keyed by washed states only), AFTER P5 had already computed and adjudicated every number; fix: x_T gains the t0 key (decline 0.0 by definition). No measurement, gate, regression, decomposition or adjudication line was touched; the deterministic re-run reproduced every number bit-exactly (all repro g gates |d| 0.0)."
+  ],
+  "builds_on": [
+    "FQ13 / scratch/review_r64_ideator.md (the R64 ideator's Rank 2; this cell's spec) + agy consult #001(a) (the sharpened survivor)",
+    "T227 / e251 (ZERO-SUM-LN: the thickening is generic \u2014 the budget's ORIGIN question this cell answers; the ctrl battery's frozen construction + committed trajectory, re-certified here)",
+    "T220 / e242 (the wall's committed T(t): 1.31 at +1, cooling to 0.84-0.90; the committed fact trajectory + the bit-certified states; the thermal-leg instrument whose committed T_mle is this cell's x-axis)",
+    "T228 / e252 (the answer-locality amendment: the fitted T is an answer-position p-shape, not the literal spread \u2014 CARRIED: the ledger read states which spread it uses at every dial)",
+    "T212 / e232 + T218 / e238 (the unwalled world's committed collapse + committed T rise; the logit dumps that make the unwalled decomposition a pure desk read)",
+    "T207 / e228 + T208 / e229 (the argmax-margin instrument with its margin_raw/sigma fields, module-imported verbatim; the shim; the P0a pattern)",
+    "T181 / g1c (the fresh root lineage: the committed W1 wash states this cell reads)",
+    "W038 (the laws draft's law 4 \u2014 the clause IDENTITY-CONFIRMED would collapse)"
+  ],
+  "whats_new": [
+    "the THERMAL-LEDGER JOIN: per-probe margin growth regressed on the committed T-decline across the wall's whole state grid \u2014 the first quantitative coupling of the two dials e242 left side-by-side",
+    "the EXACT numerator/denominator decomposition of the sigma-normalized margin change (per probe: log(m ratio) = log(N ratio) - log(D ratio), machine-asserted) on THREE batteries \u2014 which side carries the thickening",
+    "the same decomposition run on the UNWALLED world's committed +80 archive (e238's logit dumps) \u2014 the cross-world sign-flip test of the ideator's falsifier"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "val_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "held_mix": {
+        "FLORIZEL": 10,
+        "ELIZABETH": 20
+      },
+      "n_held": 30,
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ]
+      },
+      "pass": true,
+      "note": "install-60 g-12 ruler battery (SPLICE_RNG 24301; e242/e251's construction re-run from its module constants)"
+    },
+    "G_CTRL": {
+      "n_word": 30,
+      "n_sentence": 30,
+      "expected_per_stratum": 30,
+      "tries": 5560,
+      "ctx_len": 118,
+      "all_ctx_len_118": true,
+      "all_answers_alpha": true,
+      "forbidden_free": true,
+      "positions_unique": true,
+      "position_list_matches_e251": true,
+      "pass": true,
+      "note": "e251's ctrl battery REBUILT from its frozen construction (seed 26502) \u2014 the position list asserted EXACTLY equal to e251's committed battery; medians re-certified per state (G_REPRO)"
+    },
+    "G_HELD": {
+      "n": 30,
+      "expected": 30,
+      "position_list_matches_e251": true,
+      "pass": true,
+      "note": "e043's held convention (e251's co-report battery, rebuilt and position-asserted); never adjudicates"
+    },
+    "G_PARENTS": {
+      "g1c_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\g1c_root\\metrics.json",
+        "md5": "05a33ada81e022b61a437db29afe38dd",
+        "verdict": "ROOT-WALL-HOLDS"
+      },
+      "e242_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e242\\metrics.json",
+        "md5": "9bf5ae17b3091673f47e7c2a0845b4ab",
+        "sha256_16": "5cd289827bb02e6d",
+        "verdict": "FLAT-COMMITMENT"
+      },
+      "e251_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e251\\metrics.json",
+        "md5": "aab7df28eab3728d11c6561cd59879e8",
+        "sha256_16": "35c11a47523ab1ea",
+        "verdict": "ZERO-SUM-LN"
+      },
+      "e232_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e232\\metrics.json",
+        "sha256_16": "307d046b7e7e9c5f"
+      },
+      "e238_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\metrics.json",
+        "sha256_16": "95290a45b9aaf7e4"
+      },
+      "pass": true,
+      "note": "every committed record this cell reads (g1c's states, e242's fact trajectory + thermal leg, e251's ctrl/held trajectories + battery lists, e232's unwalled fact-w1 margins, e238's unwalled T_mle) read at runtime and asserted against the literals frozen in this script pre-compute (Rule 12)"
+    },
+    "G_ROOT": {
+      "checkpoint": "runs/checkpoints/g1c_root.pt",
+      "n_params": 2739072,
+      "expected_params": 2739072,
+      "battery_read_measured": 0.9026340246200562,
+      "battery_read_committed": 0.9026340246200562,
+      "abs_diff": 0.0,
+      "tol": 0.005,
+      "flat_md5": "a7f02b367c5342535aecfc814d780631",
+      "flat_md5_matches_e242": true,
+      "pass": true
+    },
+    "G_STATES_A": {
+      "checkpoint": "runs/checkpoints/g1c_W1_resume.pt",
+      "sha256_16": "650e631c2dbcf44f",
+      "step_field": 300,
+      "wall_R": 0.699999988079071,
+      "sds_steps": [
+        1,
+        2,
+        4,
+        10,
+        50,
+        100,
+        200,
+        300
+      ],
+      "sds300_bit_identical_to_final_model": true,
+      "body_flat_md5s_match_e242_committed": true,
+      "pass": true
+    },
+    "G_STATES": {
+      "checkpoint": "runs/checkpoints/g1c_W1_resume.pt",
+      "sha256_16": "650e631c2dbcf44f",
+      "step_field": 300,
+      "wall_R": 0.699999988079071,
+      "sds_steps": [
+        1,
+        2,
+        4,
+        10,
+        50,
+        100,
+        200,
+        300
+      ],
+      "sds300_bit_identical_to_final_model": true,
+      "body_flat_md5s_match_e242_committed": true,
+      "pass": true,
+      "per_state_ruler_reads": {
+        "1": {
+          "measured": 0.821441113948822,
+          "committed": 0.821441113948822,
+          "abs_diff": 0.0
+        },
+        "2": {
+          "measured": 0.9093567132949829,
+          "committed": 0.9093567132949829,
+          "abs_diff": 0.0
+        },
+        "4": {
+          "measured": 0.8956068754196167,
+          "committed": 0.8956068754196167,
+          "abs_diff": 0.0
+        },
+        "10": {
+          "measured": 0.9277286529541016,
+          "committed": 0.9277286529541016,
+          "abs_diff": 0.0
+        },
+        "50": {
+          "measured": 0.9397175908088684,
+          "committed": 0.9397175908088684,
+          "abs_diff": 0.0
+        },
+        "100": {
+          "measured": 0.9368360638618469,
+          "committed": 0.9368361234664917,
+          "abs_diff": 5.960464477539063e-08
+        },
+        "200": {
+          "measured": 0.9264556765556335,
+          "committed": 0.9264556169509888,
+          "abs_diff": 5.960464477539063e-08
+        },
+        "300": {
+          "measured": 0.9405527114868164,
+          "committed": 0.9405527114868164,
+          "abs_diff": 0.0
+        }
+      },
+      "tol": 0.005,
+      "max_abs_diff": 5.960464477539063e-08,
+      "note": "every W1 state's light g-12 re-probe vs g1c's committed adjudication.wall.W1.g_m12, PLUS per-state body-flat md5s and the resume ckpt's sha asserted EXACTLY EQUAL to e242's committed provenance \u2014 the bit-exactness certification of the loaded states"
+    },
+    "G_FACT_REPRO": {
+      "n_pairs": 540,
+      "tol": 1e-07,
+      "max_abs_diff": 0.0,
+      "pass": true,
+      "note": "this cell's per-probe fact margins vs e242's committed per-probe margin_sigma on the same loads, same imported instrument, same device \u2014 certification, never adjudicates"
+    },
+    "G_CTRL_HELD_REPRO": {
+      "ctrl_max_abs_diff": 0.0,
+      "held30_max_abs_diff": 0.0,
+      "tol": 1e-07,
+      "pass": true,
+      "note": "this cell's ctrl + held-30 median trajectories vs e251's committed medians on the same loads \u2014 the rebuilt batteries certified identical"
+    },
+    "G_UNWALLED_NPZ": {
+      "files": {
+        "t0": "fd1d302f5713ec82",
+        "w1+2": "59e6c0aa1b220518",
+        "w1+10": "cd4fdedb5a7d605a",
+        "w1+50": "465bac8aca6b4076",
+        "w1+80": "f13897401fe60341"
+      },
+      "expected_sha256_16": {
+        "t0": "fd1d302f5713ec82",
+        "w1+2": "59e6c0aa1b220518",
+        "w1+10": "cd4fdedb5a7d605a",
+        "w1+50": "465bac8aca6b4076",
+        "w1+80": "f13897401fe60341"
+      },
+      "shape": [
+        54
+      ],
+      "pass": true,
+      "note": "e238's committed logit dumps, sha-gated against its own provenance records"
+    },
+    "G_UNWALLED_JOIN": {
+      "n_joined": 8,
+      "tol": 1e-06,
+      "max_abs_diff": 6.763651239083401e-08,
+      "pass": true,
+      "note": "margin_sigma recomputed from e238's committed logits vs e232's committed fact-w1 margins on the shared n=8 \u2014 the unwalled decomposition's certification"
+    }
+  },
+  "phase_note": "P7 DONE (honesty + provenance + figures)",
+  "regression": {
+    "x_definition": "x_s = T_mle(t0) - T_mle(s), e242's committed thermal leg (an ANSWER-POSITION P-SHAPE fit, not the literal spread \u2014 T228's answer-locality amendment carried)",
+    "y_definition": "y = 100*(margin_sigma_{i,s}/margin_sigma_{i,0} - 1)",
+    "x_values": {
+      "+1": -0.3089932474688595,
+      "+2": 0.03571494266505115,
+      "+4": -0.028964424211164852,
+      "+10": 0.10615423631421728,
+      "+50": 0.15768759318517744,
+      "+100": 0.13544435953009426,
+      "+200": 0.09784047557191866,
+      "+300": 0.15041938730050464
+    },
+    "T_fit_committed": {
+      "+0": 1.0000001089780448,
+      "+1": 1.3089933564469043,
+      "+2": 0.9642851663129937,
+      "+4": 1.0289645331892097,
+      "+10": 0.8938458726638275,
+      "+50": 0.8423125157928674,
+      "+100": 0.8645557494479506,
+      "+200": 0.9021596334061261,
+      "+300": 0.8495807216775402
+    },
+    "T_sigma_direct_coreport": {
+      "+0": 1.0,
+      "+1": 0.9497818920381036,
+      "+2": 0.9946172619599151,
+      "+4": 0.9976015066725499,
+      "+10": 1.0052470447146749,
+      "+50": 0.997827429845746,
+      "+100": 1.006294220157358,
+      "+200": 1.0068705421758208,
+      "+300": 1.0106833156938873
+    },
+    "pooled_fact_ctrl_ADJUDICATES": {
+      "n": 720,
+      "slope": -29.82184842467085,
+      "intercept": 289.5411242144084,
+      "r2": 3.5024997901977883e-06
+    },
+    "per_battery": {
+      "fact": {
+        "n": 360,
+        "slope": 54.76469914133912,
+        "intercept": 14.441588912956634,
+        "r2": 0.039248215475508275
+      },
+      "ctrl": {
+        "n": 360,
+        "slope": -114.40839599068106,
+        "intercept": 564.6406595158605,
+        "r2": 2.6059792731958353e-05
+      },
+      "held30": {
+        "n": 180,
+        "slope": 858.7419234187978,
+        "intercept": 247.96313522888872,
+        "r2": 0.008901530209695752
+      }
+    },
+    "pooled_with_texture_coreport": {
+      "n": 960,
+      "slope": 28.03585659306812,
+      "intercept": 280.6913416604859,
+      "r2": 2.465084021796571e-06
+    },
+    "state_median_reg_coreport": {
+      "n": 12,
+      "slope": 61.703898301863426,
+      "intercept": 4.311296898777466,
+      "r2": 0.6671361480920098
+    },
+    "direct_spread_reg_coreport": {
+      "n": 720,
+      "slope": 449.7694948250513,
+      "intercept": 285.5023985449126,
+      "r2": 1.2491180866880391e-05
+    },
+    "regression_clause": false,
+    "clause_definition": "(pooled R^2 >= 0.6) AND (slope > 0)"
+  },
+  "decomposition": {
+    "identity": "per probe EXACTLY log(m_{i,s}/m_{i,0}) = log(N_{i,s}/N_{i,0}) - log(D_{i,s}/D_{i,0}); N = e228.margin_raw (top1-top2, the probe's own aligned logit component); D = e228.sigma (std of the vocab logits at the answer position \u2014 the state's logit spread; LN's denominator in margin units)",
+    "identity_max_abs_dev_asserted": 8.881784197001252e-16,
+    "convention": "c_den is SIGNED toward growth (c_den = -log(D ratio): a SHRINKING denominator contributes POSITIVE growth); medians over probes; |c_num| <= 0.05 log = the '~inert' band",
+    "walled": {
+      "fact": {
+        "+1": {
+          "c_num_median": -0.20463889203440913,
+          "c_den_median": 0.15002166459039143,
+          "c_total_median": -0.0684006961598757,
+          "c_num_mean": -0.25445384338768584,
+          "c_den_mean": 0.14070363107119838,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 2.7436389923095703,
+          "median_D": 2.8071892261505127,
+          "median_M": 0.9611918699600377,
+          "median_D_t0": 3.3099366426467896,
+          "median_N_t0": 3.37078857421875
+        },
+        "+2": {
+          "c_num_median": 0.030807848100432668,
+          "c_den_median": 0.024212512635877467,
+          "c_total_median": 0.02894202320626966,
+          "c_num_mean": 0.0742800870379213,
+          "c_den_mean": 0.008832095462447644,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 3.446202278137207,
+          "median_D": 3.2045540809631348,
+          "median_M": 0.9933262426349674,
+          "median_D_t0": 3.3099366426467896,
+          "median_N_t0": 3.37078857421875
+        },
+        "+4": {
+          "c_num_median": -0.05802948234124847,
+          "c_den_median": 0.0021904641770094306,
+          "c_total_median": -0.04428836571709535,
+          "c_num_mean": -0.015887684004710304,
+          "c_den_mean": -0.003905632917325999,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 3.312201976776123,
+          "median_D": 3.267037868499756,
+          "median_M": 0.9632744808830553,
+          "median_D_t0": 3.3099366426467896,
+          "median_N_t0": 3.37078857421875
+        },
+        "+10": {
+          "c_num_median": 0.06735039716225048,
+          "c_den_median": -0.011471846865088765,
+          "c_total_median": 0.05680808209009149,
+          "c_num_mean": 0.13059219519827434,
+          "c_den_mean": -0.0081948938672024,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 3.7899041175842285,
+          "median_D": 3.333266854286194,
+          "median_M": 1.0801870072706619,
+          "median_D_t0": 3.3099366426467896,
+          "median_N_t0": 3.37078857421875
+        },
+        "+50": {
+          "c_num_median": 0.1549419231616693,
+          "c_den_median": 0.003765607214115149,
+          "c_total_median": 0.17315507929256801,
+          "c_num_mean": 0.1581689385115461,
+          "c_den_mean": 0.005241506875967359,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 3.982415199279785,
+          "median_D": 3.2616641521453857,
+          "median_M": 1.1753321683243787,
+          "median_D_t0": 3.3099366426467896,
+          "median_N_t0": 3.37078857421875
+        },
+        "+100": {
+          "c_num_median": 0.13385617155390078,
+          "c_den_median": -0.008181402662490508,
+          "c_total_median": 0.12994525056431216,
+          "c_num_mean": 0.16219566875127098,
+          "c_den_mean": -0.005916199865802416,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 3.819045066833496,
+          "median_D": 3.3309487104415894,
+          "median_M": 1.1397841935007293,
+          "median_D_t0": 3.3099366426467896,
+          "median_N_t0": 3.37078857421875
+        },
+        "+200": {
+          "c_num_median": 0.0851589513143623,
+          "c_den_median": -0.015617843509942081,
+          "c_total_median": 0.06604347803156228,
+          "c_num_mean": 0.1025810261390878,
+          "c_den_mean": -0.012942431205180868,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 3.6949825286865234,
+          "median_D": 3.3295315504074097,
+          "median_M": 1.0717460701295862,
+          "median_D_t0": 3.3099366426467896,
+          "median_N_t0": 3.37078857421875
+        },
+        "+300": {
+          "c_num_median": 0.15627729103272647,
+          "c_den_median": -0.01097512303138977,
+          "c_total_median": 0.1371670745379996,
+          "c_num_mean": 0.17153068484752215,
+          "c_den_mean": -0.004737362874603133,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 3.882782459259033,
+          "median_D": 3.3100072145462036,
+          "median_M": 1.1670049513746559,
+          "median_D_t0": 3.3099366426467896,
+          "median_N_t0": 3.37078857421875
+        }
+      },
+      "ctrl": {
+        "+1": {
+          "c_num_median": -0.13872663994579135,
+          "c_den_median": 0.008024019442235172,
+          "c_total_median": -0.12358952527652528,
+          "c_num_mean": -0.090957951001008,
+          "c_den_mean": 0.004058770191534699,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 0.7426025867462158,
+          "median_D": 3.382042169570923,
+          "median_M": 0.22758515599384765,
+          "median_D_t0": 3.5136581659317017,
+          "median_N_t0": 0.9793837070465088
+        },
+        "+2": {
+          "c_num_median": 0.048468941081069764,
+          "c_den_median": -0.002295472663527374,
+          "c_total_median": 0.06072445886737617,
+          "c_num_mean": 0.2558706645939674,
+          "c_den_mean": -0.002864799920022723,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 1.0743849277496338,
+          "median_D": 3.485000967979431,
+          "median_M": 0.2936599478737389,
+          "median_D_t0": 3.5136581659317017,
+          "median_N_t0": 0.9793837070465088
+        },
+        "+4": {
+          "c_num_median": 0.07527419416495773,
+          "c_den_median": 0.0025521006973827304,
+          "c_total_median": 0.06456746940769395,
+          "c_num_mean": 0.1187017531788249,
+          "c_den_mean": -0.0003903065274515411,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 1.1630421876907349,
+          "median_D": 3.5257155895233154,
+          "median_M": 0.33202773246101414,
+          "median_D_t0": 3.5136581659317017,
+          "median_N_t0": 0.9793837070465088
+        },
+        "+10": {
+          "c_num_median": 0.07833749065007627,
+          "c_den_median": 0.004798425118772199,
+          "c_total_median": 0.06545847851667354,
+          "c_num_mean": 0.20054782966637424,
+          "c_den_mean": -0.000980457550192524,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 1.0263725519180298,
+          "median_D": 3.4964810609817505,
+          "median_M": 0.3538132281257641,
+          "median_D_t0": 3.5136581659317017,
+          "median_N_t0": 0.9793837070465088
+        },
+        "+50": {
+          "c_num_median": 0.0004532130039162158,
+          "c_den_median": 0.001646697836601891,
+          "c_total_median": -0.0003434234568575273,
+          "c_num_mean": 0.005542502628167556,
+          "c_den_mean": -0.0011161180861161883,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 1.0985634326934814,
+          "median_D": 3.47943115234375,
+          "median_M": 0.3297853415831098,
+          "median_D_t0": 3.5136581659317017,
+          "median_N_t0": 0.9793837070465088
+        },
+        "+100": {
+          "c_num_median": 0.06052433551333895,
+          "c_den_median": -0.0034234298220717054,
+          "c_total_median": 0.07019127323128928,
+          "c_num_mean": 0.11100174627033471,
+          "c_den_mean": 0.0002856141195447771,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 1.1304960250854492,
+          "median_D": 3.499074339866638,
+          "median_M": 0.3117759778389322,
+          "median_D_t0": 3.5136581659317017,
+          "median_N_t0": 0.9793837070465088
+        },
+        "+200": {
+          "c_num_median": 0.13330095232788,
+          "c_den_median": 0.0004478104105679643,
+          "c_total_median": 0.12609614780650397,
+          "c_num_mean": 0.3015253312381461,
+          "c_den_mean": 0.0006446852388011095,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 1.2272052764892578,
+          "median_D": 3.475326895713806,
+          "median_M": 0.35952256434768004,
+          "median_D_t0": 3.5136581659317017,
+          "median_N_t0": 0.9793837070465088
+        },
+        "+300": {
+          "c_num_median": 0.12369625842067551,
+          "c_den_median": -0.007562745219679031,
+          "c_total_median": 0.16085654742467564,
+          "c_num_mean": 0.29109744006741156,
+          "c_den_mean": -0.0031403947762376496,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 1.2345986366271973,
+          "median_D": 3.4890483617782593,
+          "median_M": 0.35333095075986726,
+          "median_D_t0": 3.5136581659317017,
+          "median_N_t0": 0.9793837070465088
+        }
+      },
+      "held30": {
+        "+1": {
+          "c_num_median": -0.2652246882427909,
+          "c_den_median": 0.14564531860287436,
+          "c_total_median": -0.10256191563490348,
+          "c_num_mean": -0.3271225542877955,
+          "c_den_mean": 0.13503567313985118,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 1.3685903549194336,
+          "median_D": 2.811636805534363,
+          "median_M": 0.4803387958575124,
+          "median_D_t0": 3.326488733291626,
+          "median_N_t0": 2.1780505180358887
+        },
+        "+2": {
+          "c_num_median": 0.01938569875008962,
+          "c_den_median": 0.01741728791977547,
+          "c_total_median": 0.04711677098907616,
+          "c_num_mean": -0.016699853583753373,
+          "c_den_mean": 0.008142572330153546,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 2.4024486541748047,
+          "median_D": 3.2191545963287354,
+          "median_M": 0.7767639306506209,
+          "median_D_t0": 3.326488733291626,
+          "median_N_t0": 2.1780505180358887
+        },
+        "+4": {
+          "c_num_median": -0.13988703802285501,
+          "c_den_median": 0.0029229805464769795,
+          "c_total_median": -0.13536649334256812,
+          "c_num_mean": -0.017644759748102222,
+          "c_den_mean": 0.00044932042735534216,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 1.6912994384765625,
+          "median_D": 3.284774899482727,
+          "median_M": 0.5312984180438729,
+          "median_D_t0": 3.326488733291626,
+          "median_N_t0": 2.1780505180358887
+        },
+        "+10": {
+          "c_num_median": 0.03660353953343383,
+          "c_den_median": -0.011519813448567966,
+          "c_total_median": 0.03179198545067289,
+          "c_num_mean": 0.2802535414329888,
+          "c_den_mean": -0.01181437028494569,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 2.2650251388549805,
+          "median_D": 3.358251214027405,
+          "median_M": 0.7363467855947401,
+          "median_D_t0": 3.326488733291626,
+          "median_N_t0": 2.1780505180358887
+        },
+        "+50": {
+          "c_num_median": 0.22329368633310845,
+          "c_den_median": 0.006815562863700629,
+          "c_total_median": 0.23546001881125783,
+          "c_num_mean": 0.3631844758335642,
+          "c_den_mean": -0.0007783632853061923,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 2.930626392364502,
+          "median_D": 3.2948687076568604,
+          "median_M": 0.9112485787308677,
+          "median_D_t0": 3.326488733291626,
+          "median_N_t0": 2.1780505180358887
+        },
+        "+100": {
+          "c_num_median": 0.16752567811463775,
+          "c_den_median": -0.009800850273268557,
+          "c_total_median": 0.15726623020017463,
+          "c_num_mean": 0.37080235712261833,
+          "c_den_mean": -0.012829314869631073,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 2.8626341819763184,
+          "median_D": 3.3330005407333374,
+          "median_M": 0.8994714828924557,
+          "median_D_t0": 3.326488733291626,
+          "median_N_t0": 2.1780505180358887
+        },
+        "+200": {
+          "c_num_median": 0.13931122675851065,
+          "c_den_median": -0.017378217351996073,
+          "c_total_median": 0.11546358006528994,
+          "c_num_mean": 0.3598770915104272,
+          "c_den_mean": -0.015001810599284827,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 2.631082057952881,
+          "median_D": 3.369649052619934,
+          "median_M": 0.8108906673367494,
+          "median_D_t0": 3.326488733291626,
+          "median_N_t0": 2.1780505180358887
+        },
+        "+300": {
+          "c_num_median": 0.3411246532390883,
+          "c_den_median": -0.014402730187792041,
+          "c_total_median": 0.3147042472369521,
+          "c_num_mean": 0.5382774919457813,
+          "c_den_mean": -0.012494094336186116,
+          "n_excluded_zero_or_nonfinite": 0,
+          "median_N": 3.486423969268799,
+          "median_D": 3.354352116584778,
+          "median_M": 1.0895252487313163,
+          "median_D_t0": 3.326488733291626,
+          "median_N_t0": 2.1780505180358887
+        }
+      }
+    },
+    "fact_300": {
+      "c_num_300": 0.15627729103272647,
+      "c_den_300": -0.01097512303138977,
+      "denominator_carries": false,
+      "numerator_inert": false
+    },
+    "ctrl_300": {
+      "c_num_300": 0.12369625842067551,
+      "c_den_300": -0.007562745219679031,
+      "denominator_carries": false,
+      "numerator_inert": false
+    },
+    "denominator_carries": false,
+    "numerator_inert": false,
+    "decomposition_clause": false,
+    "clause_definition": "DENOMINATOR-CARRIES (at +300, both fact and ctrl: c_den<0 AND |c_den|>|c_num|) AND NUMERATOR-INERT (at +300, both: |c_num|<=0.05)"
+  },
+  "crossworld": {
+    "worlds": "WALLED = g1c W1 (2.74M, R=0.7): margins THICKEN while committed T FALLS; UNWALLED = the 124M two-wash archive's w1 (e182's organism): margins COLLAPSE while committed T RISES",
+    "unwalled_T_mle_committed": {
+      "+2": 1.0014473256519658,
+      "+10": 1.0597956498145238,
+      "+50": 1.3489839391244727,
+      "+80": 1.4525923182890421
+    },
+    "unwalled_T_decline": {
+      "+2": -0.001447325651965814,
+      "+10": -0.05979564981452379,
+      "+50": -0.3489839391244727,
+      "+80": -0.4525923182890421
+    },
+    "unwalled_fact_w1_growth_pct_n8": {
+      "mean": -82.07934943549824,
+      "median": -81.49027821655812,
+      "per_probe": {
+        "Greece->Athens": -69.24488324786869,
+        "Poland->Warsaw": -88.02305163473336,
+        "Portugal->Lisbon": -74.26577870954844,
+        "Egypt->Cairo": -87.12745343007799,
+        "Ireland->Dublin": -90.55766545925742,
+        "the United Kingdom->pound": -71.82791868302955,
+        "the United States->dollar": -75.85310300303824,
+        "China->yuan": -99.73494131643221
+      }
+    },
+    "unwalled_decomposition_n8_PRIMARY": {
+      "+2": {
+        "c_num_median": -0.022151981100252058,
+        "c_den_median": 0.010839988282782344,
+        "n_excluded": 0,
+        "median_D_ratio": 0.9892202216597012
+      },
+      "+10": {
+        "c_num_median": -0.08050645296705089,
+        "c_den_median": 0.03297941757766319,
+        "n_excluded": 0,
+        "median_D_ratio": 0.9675584744698
+      },
+      "+50": {
+        "c_num_median": -1.0705860255276123,
+        "c_den_median": 0.012206035035824972,
+        "n_excluded": 0,
+        "median_D_ratio": 0.9878710038067045
+      },
+      "+80": {
+        "c_num_median": -1.7395464808551508,
+        "c_den_median": 0.009002862523897072,
+        "n_excluded": 0,
+        "median_D_ratio": 0.9910379115795867
+      }
+    },
+    "unwalled_decomposition_fact20_coreport": {
+      "+2": {
+        "c_num_median": 0.00801130070391707,
+        "c_den_median": 0.025341592805302203,
+        "n_excluded": 0,
+        "median_D_ratio": 0.9749771022392524
+      },
+      "+10": {
+        "c_num_median": 0.04132731061803531,
+        "c_den_median": 0.028682021816747765,
+        "n_excluded": 0,
+        "median_D_ratio": 0.9717261959243868
+      },
+      "+50": {
+        "c_num_median": -0.29099408955205275,
+        "c_den_median": 0.015413874928609036,
+        "n_excluded": 0,
+        "median_D_ratio": 0.9847043543021754
+      },
+      "+80": {
+        "c_num_median": -0.6018772138929238,
+        "c_den_median": 0.02920885774917989,
+        "n_excluded": 0,
+        "median_D_ratio": 0.97121649654032
+      }
+    },
+    "walled_side_committed": {
+      "fact_growth_pct_300": 19.15419842995183,
+      "T_decline_300": 0.15041938730050464
+    },
+    "unwalled_side": {
+      "T_decline_80": -0.4525923182890421,
+      "numerator_carried_n8": true
+    },
+    "twoworld_pooled_reg_coreport": {
+      "n": 752,
+      "slope": 100.24244587544497,
+      "intercept": 270.6841527294982,
+      "r2": 4.619944280037647e-05
+    },
+    "control_clause": true,
+    "clause_definition": "walled fact growth(+300)>0 AND walled T-decline(+300)>0 AND unwalled fact growth(+80)<-25% AND unwalled T-decline(+80)<0 AND unwalled NUMERATOR-carried (c_num<0 AND |c_num|>|c_den|, n=8)"
+  },
+  "adjudication": {
+    "bars": {
+      "IDENTITY-CONFIRMED": {
+        "fires": false
+      },
+      "NUMERATOR-RESIDUE": {
+        "fires": true
+      },
+      "MIXED": {
+        "fires": false
+      }
+    },
+    "clause_fixes_applied": "THE REGRESSION: y=100*(m_{i,s}/m_{i,0}-1) per probe; x=T_mle(t0)-T_mle(s) from e242's committed thermal leg; POOLED = fact+ctrl probes x adjudicating states {1,2,10,50,100,300}, OLS with intercept; REGRESSION-CLAUSE := pooled R^2 >= 0.6 AND slope > 0. THE DECOMPOSITION: per probe exactly log(m ratio)=log(N ratio)-log(D ratio) (N=e228.margin_raw, D=e228.sigma); c_num/c_den = battery medians of the log ratios; DENOMINATOR-CARRIES := at +300, both fact and ctrl: c_den<0 AND |c_den|>|c_num|; NUMERATOR-INERT := at +300, both: |c_num|<=0.05 (log); DECOMPOSITION-CLAUSE := both. THE CROSS-WORLD CONTROL: y=e232's committed fact-w1 margins (n=8, hard-bound); T=e238's committed T_mle (w1, hard-bound; T(t0):=1.0 by the family's construction); decomposition from e238's committed logit dumps on the same n=8 (join tol 1e-6); CONTROL-CLAUSE := walled fact growth(+300)>0 AND walled T-decline(+300)>0 AND unwalled fact growth(+80)<-25% AND unwalled T-decline(+80)<0 AND unwalled NUMERATOR-carried (c_num<0 AND |c_num|>|c_den| at +80, n=8). VERDICTS (precedence): IDENTITY-CONFIRMED := gates PASS AND all three clauses; NUMERATOR-RESIDUE := gates PASS AND NOT IDENTITY AND fact c_num(+300)>+0.05 AND fact c_num>ctrl c_num (size reported honestly); MIXED := otherwise, INCLUDING any hard-gate failure (stand-down, e242/e251's precedent). The T the ledger reads (T228 carried): e242's committed T_mle is an answer-position P-SHAPE fit, not the literal logit spread; the decomposition's D is the literal spread; both dials reported at every state.",
+    "verdict": "NUMERATOR-RESIDUE",
+    "clause": "the identity did NOT fully confirm (regression clause False (pooled R2 0.000, slope -29.82); decomposition clause False; control clause True) AND the fact battery's numerator grows beyond ctrl (fact c_num +0.1563 log = +16.92% vs ctrl +0.1237 log = +13.17%) \u2014 a battery-specific constructive residue; the re-formation layer keeps a small real object of size +16.92% (log +0.1563) at +300, honestly reported",
+    "reads": {
+      "pooled_regression": {
+        "n": 720,
+        "slope": -29.82184842467085,
+        "intercept": 289.5411242144084,
+        "r2": 3.5024997901977883e-06
+      },
+      "per_battery_regression": {
+        "fact": {
+          "n": 360,
+          "slope": 54.76469914133912,
+          "intercept": 14.441588912956634,
+          "r2": 0.039248215475508275
+        },
+        "ctrl": {
+          "n": 360,
+          "slope": -114.40839599068106,
+          "intercept": 564.6406595158605,
+          "r2": 2.6059792731958353e-05
+        },
+        "held30": {
+          "n": 180,
+          "slope": 858.7419234187978,
+          "intercept": 247.96313522888872,
+          "r2": 0.008901530209695752
+        }
+      },
+      "state_median_regression_coreport": {
+        "n": 12,
+        "slope": 61.703898301863426,
+        "intercept": 4.311296898777466,
+        "r2": 0.6671361480920098
+      },
+      "direct_spread_regression_coreport": {
+        "n": 720,
+        "slope": 449.7694948250513,
+        "intercept": 285.5023985449126,
+        "r2": 1.2491180866880391e-05
+      },
+      "regression_clause": false,
+      "decomposition_clause": false,
+      "denominator_carries": false,
+      "numerator_inert": false,
+      "fact_c_num_300": 0.15627729103272647,
+      "fact_c_den_300": -0.01097512303138977,
+      "ctrl_c_num_300": 0.12369625842067551,
+      "ctrl_c_den_300": -0.007562745219679031,
+      "control_clause": true,
+      "walled_fact_growth_pct_300_committed": 19.15419842995183,
+      "walled_T_decline_300_committed": 0.15041938730050464,
+      "unwalled_fact_growth_pct_80_median_n8": -81.49027821655812,
+      "unwalled_T_decline_80_committed": -0.4525923182890421,
+      "unwalled_numerator_carried": true,
+      "hard_gates_all_pass": true
+    },
+    "gates_summary": {
+      "G_NAMEFREE": true,
+      "G_SPLICE": true,
+      "G_BATTERY": true,
+      "G_CTRL": true,
+      "G_HELD": true,
+      "G_PARENTS": true,
+      "G_ROOT": true,
+      "G_STATES_A": true,
+      "G_STATES": true,
+      "G_FACT_REPRO": true,
+      "G_CTRL_HELD_REPRO": true,
+      "G_UNWALLED_NPZ": true,
+      "G_UNWALLED_JOIN": true
+    }
+  },
+  "honesty": {
+    "which_T": "the regression's x is e242's committed T_mle \u2014 a Bernoulli p-shape fit at the answer positions (T228's answer-locality amendment CARRIED: it is NOT the literal logit spread); the decomposition's D and the T_sigma co-report are the literal spread \u2014 the read never mixes the two without saying so",
+    "regression_power": "the pooled per-probe R2 (0.0000) is dominated by within-state probe noise; the state-median co-report shows where the tracking lives \u2014 both are reported; the frozen 0.6 bar was applied to the POOLED form as registered",
+    "decomposition_exactness": "the per-probe identity log(m ratio) = log(N ratio) - log(D ratio) is asserted to machine precision (no residual term, no approximation); medians summarize, probes decompose",
+    "crossworld_scope": "the unwalled world is a DIFFERENT ORGANISM (the 124M e182 lineage) at a different wash (lr 5e-5-class, 80 steps) \u2014 the control is the ideator's own falsifier design (contrast, not matched pair); its margins are the committed n=8 journal subset, its decomposition certified against them (max |d| 6.8e-08)",
+    "n_and_scope": "ONE lineage (g1c's fresh root, ONE wall commit R=0.7, ONE wash draw seed 10902), ONE ctrl battery draw (seed 26502, e251's), n=1 deterministic reads per state (T204); the heights lottery (W028/R64) stands; nothing guaranteed \u2014 the outcome is recorded verbatim against the frozen bars",
+    "nothing_guaranteed": "the tables could have landed anywhere; no bar shopping"
+  },
+  "provenance": {
+    "git_head_at_start": "54edd8575a2231c67615d62218955d8361b60800",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e255_thermal_ledger.py",
+    "parents": {
+      "g1c_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\g1c_root\\metrics.json",
+        "md5": "05a33ada81e022b61a437db29afe38dd",
+        "verdict": "ROOT-WALL-HOLDS"
+      },
+      "e242_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e242\\metrics.json",
+        "md5": "9bf5ae17b3091673f47e7c2a0845b4ab",
+        "sha256_16": "5cd289827bb02e6d",
+        "verdict": "FLAT-COMMITMENT"
+      },
+      "e251_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e251\\metrics.json",
+        "md5": "aab7df28eab3728d11c6561cd59879e8",
+        "sha256_16": "35c11a47523ab1ea",
+        "verdict": "ZERO-SUM-LN"
+      },
+      "e232_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e232\\metrics.json",
+        "sha256_16": "307d046b7e7e9c5f"
+      },
+      "e238_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\metrics.json",
+        "sha256_16": "95290a45b9aaf7e4"
+      }
+    },
+    "checkpoints": {
+      "t0_root": {
+        "file": "runs/checkpoints/g1c_root.pt",
+        "flat_md5": "a7f02b367c5342535aecfc814d780631",
+        "n_params": 2739072,
+        "battery_read": 0.9026340246200562
+      },
+      "w1_states": {
+        "file": "runs/checkpoints/g1c_W1_resume.pt",
+        "sha256_16": "650e631c2dbcf44f",
+        "step": 300,
+        "wall_R": 0.699999988079071,
+        "sds_steps": [
+          1,
+          2,
+          4,
+          10,
+          50,
+          100,
+          200,
+          300
+        ],
+        "sds300_bit_identical_to_final_model": true,
+        "per_state_body_flat_md5": {
+          "w1+1": "100c15c07c3fc34fb1d40ceee9494613",
+          "w1+2": "756360f07eae3d1f32581847e49f46b3",
+          "w1+4": "15ee413d45785475ac3a18a178ba5d9d",
+          "w1+10": "464069503316930cef3e98234fbff5d9",
+          "w1+50": "8cb39e128291db825da066bb07da8b7e",
+          "w1+100": "3ee37433c15b8e2c439b7eeb2423e10f",
+          "w1+200": "29f8b5b49ab6af621a721533ecf88b74",
+          "w1+300": "d5d1bb6894944a9c877c9aa3964c61ba"
+        }
+      }
+    },
+    "unwalled_archive": {
+      "logit_dumps": {
+        "t0": {
+          "file": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_t0.npz",
+          "sha256_16": "fd1d302f5713ec82"
+        },
+        "w1+2": {
+          "file": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s2.npz",
+          "sha256_16": "59e6c0aa1b220518"
+        },
+        "w1+10": {
+          "file": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s10.npz",
+          "sha256_16": "cd4fdedb5a7d605a"
+        },
+        "w1+50": {
+          "file": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s50.npz",
+          "sha256_16": "465bac8aca6b4076"
+        },
+        "w1+80": {
+          "file": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\logits_w1s80.npz",
+          "sha256_16": "f13897401fe60341"
+        }
+      },
+      "margins": "runs/e232/metrics.json (committed fact-w1 n=8)",
+      "T_mle": "runs/e238/metrics.json (committed two_moment_bound T_full = the full-fit T_mle; e252's G_TFIT source)"
+    },
+    "machinery": {
+      "margin_instrument": "lab/e228_margin_landscape.py margin_pass MODULE-IMPORTED via e229's _E228NetShim (adapter only; arithmetic untouched); margin_sigma = margin_raw/sigma with margin_raw = top1-top2 logit gap (THE NUMERATOR) and sigma = torch-unbiased std(vocab logits) (THE DENOMINATOR) \u2014 e228/e229/e242/e251's exact instrument",
+      "state_loads": "t0 via e225.load_body; W1 states via g1's evl_load (settle + disarm), certified per-state against g1c's committed W1 light-dial record (tol 5e-3), e242's committed body-flat md5s (EXACT), e242's committed per-probe fact margins (tol 1e-7), and e251's committed ctrl/held medians (tol 1e-7)",
+      "unwalled_loads": "numpy from e238's committed logit dumps (float64, std ddof=1 = torch-unbiased); join certified vs e232's committed margins (max |d| 6.8e-08)"
+    },
+    "eval": {
+      "device": "cpu fp32",
+      "threads": 4,
+      "batch_shape": "1 x 118 per probe (e228's margin_pass shape)",
+      "n_forwards": "9 states x (60 fact + 60 ctrl + 30 held) margin probes + 9 light-dial batch reads = 1359"
+    },
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.6"
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e255\\metrics.json",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e255\\e255_regression.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e255\\e255_decomposition.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e255\\e255_crossworld.png"
+  ]
+}
