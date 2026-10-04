@@ -1,7 +1,7 @@
 {
   "experiment": "E235_SECOND_10M_LIFT",
   "date": "2026-10-04T14:34:13Z",
-  "status": "PARTIAL: g1bS7 control reproduced; GATE PASS",
+  "status": "DONE",
   "question": "e227: exemplar lift +0.185 at 2.74M, absent at 10M (-0.019 on g1bS7's root). Is the 10M absence SCALE or CONSOLIDATION VARIANT? The discriminating root: g1bS5's peak (cons 10901, the original draw). If the lift appears there -> variant; absent on both -> scale (in this instrument form)",
   "registration": "bars frozen VERBATIM from the dispatch (VARIANT-NOT-SCALE / SCALE-CONFIRMED / PARTIAL); all numeric operationalizations are REGISTERED ADDITIONS (flagged); arm + constants committed before any compute; no bar shopping",
   "registered_prediction": {
@@ -69,7 +69,7 @@
     "note_274": "runs/e227/journal_L10902.json \u2014 the 2.74M lineage arm (lr 1e-3, seed 10902): lift {t0 +0.185, +2 \u22120.050, +10 +0.314, +50 +0.154} \u2014 the survival shape this cell's wash leg is read against"
   },
   "timing": {
-    "total_s": 32.3
+    "total_s": 137.3
   },
   "load_politeness": {
     "cpu_load_pct_at_start": 26,
@@ -194,6 +194,39 @@
         }
       ],
       "max_dp": 0.0,
+      "pass": true
+    },
+    "G_CPU": {
+      "gpu_parked_before_wash": true,
+      "threads": 8,
+      "cpu_load_pct_at_start": 26,
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "seed": 170,
+      "n": 16,
+      "starts": [
+        825650,
+        361746,
+        954106,
+        856844,
+        615070,
+        335787,
+        329879,
+        96582,
+        253994,
+        341757,
+        608690,
+        127521,
+        228843,
+        834931,
+        15774,
+        408603
+      ],
+      "tries": 18,
+      "rejections": 2,
+      "windows_with_host_content": 0,
+      "junctions_covered": 0,
       "pass": true
     }
   },
@@ -363,5 +396,157 @@
     },
     "t0_fewshot_lift_all": -0.018882022045242287,
     "gate_count_2shot_Z": 0
-  }
+  },
+  "wash_arm": {
+    "tag": "5L10902",
+    "lr": 0.001,
+    "seed": 10902,
+    "device": "cpu",
+    "steps_ran": 50,
+    "grid_registered": [
+      2,
+      10,
+      50
+    ],
+    "states": [
+      0,
+      2,
+      10,
+      50
+    ],
+    "reads": {
+      "0": {
+        "fact": 0.7676600118167698,
+        "near": 0.557337861143363,
+        "ctrl": 0.8937627524137497,
+        "tmpl2": 0.6489703158537546,
+        "mis2Z": 0.7461266020933787,
+        "mis2M": 0.20843120478093624,
+        "snip0Z": 0.49967824170986813,
+        "snip0M": 0.39535671720902127,
+        "tmpl2_all": 0.36564582570281345,
+        "mis2Z_all": 0.44573703694719974,
+        "mis2M_all": 0.19477864044408003,
+        "snip0Z_all": 0.27784124525884785,
+        "snip0M_all": 0.34455702677369116
+      },
+      "2": {
+        "tmpl2": 2.744008620917763e-06,
+        "tmpl2_all": 2.5939836556669133e-06,
+        "mis2Z": 2.326572001720706e-06,
+        "mis2Z_all": 2.201632738281963e-06,
+        "mis2M": 0.000254031598160509,
+        "mis2M_all": 0.0003479098745932182,
+        "snip0Z": 2.9297560255751403e-05,
+        "snip0Z_all": 0.00015363739621534477,
+        "snip0M": 0.0003819433234942456,
+        "snip0M_all": 0.02650071321404539,
+        "fact": 8.456468970810724e-05,
+        "near": 0.00010136847971201254,
+        "ctrl": 0.024988506509544095
+      },
+      "10": {
+        "tmpl2": 3.85839975554821e-06,
+        "tmpl2_all": 1.1364505682346742e-05,
+        "mis2Z": 3.279709403614106e-06,
+        "mis2Z_all": 1.0502222729276885e-05,
+        "mis2M": 0.004031229841833313,
+        "mis2M_all": 0.018576320043454567,
+        "snip0Z": 1.3085071183619826e-05,
+        "snip0Z_all": 1.9272873911783486e-05,
+        "snip0M": 0.011869870979959765,
+        "snip0M_all": 0.01852886166113118,
+        "fact": 1.4176968477386254e-05,
+        "near": 1.5015426492936968e-05,
+        "ctrl": 0.32772430987097323
+      },
+      "50": {
+        "tmpl2": 0.0007094912331619222,
+        "tmpl2_all": 0.0006485951378029616,
+        "mis2Z": 0.0007457718159760892,
+        "mis2Z_all": 0.0006540045321647388,
+        "mis2M": 0.06472907597587134,
+        "mis2M_all": 0.06956452089361846,
+        "snip0Z": 0.0004273888631966353,
+        "snip0Z_all": 0.00033819676100392825,
+        "snip0M": 0.0348298125124226,
+        "snip0M_all": 0.04501452144856254,
+        "fact": 0.000330246212312583,
+        "near": 0.0003559785053463808,
+        "ctrl": 0.4440724473679438
+      }
+    },
+    "lift_all": {
+      "0": -0.14977838632961113,
+      "2": -0.026152803339452173,
+      "10": 4.745838232338498e-05,
+      "50": 0.02454999944505592
+    },
+    "ce_r": {
+      "0": 1.696841835975647,
+      "2": 4.219335556030273,
+      "10": 2.752600908279419,
+      "50": 2.502149820327759
+    },
+    "zeph_violations": 0
+  },
+  "adjudication": {
+    "bars": {
+      "VARIANT-NOT-SCALE": "the lift at t=0 on g1bS5's peak root >= +0.05 (and/or the 2-shot Z-form gates >= 10/30) where g1bS7's reproduced read stays absent \u2014 the 10M absence was the consolidation variant; the faculty is present at 10M; the dissociation readjusts to a consolidation axis",
+      "SCALE-CONFIRMED": "the lift absent on BOTH 10M roots (reproduced control intact) \u2014 the absence is scale in this instrument form; T211's table stands",
+      "PARTIAL": "anything between \u2014 the reads verbatim (t0 lift, gate counts, the wash trajectory), no narrative inflation"
+    },
+    "bar_constants": {
+      "LIFT_BAR": 0.05,
+      "GATE_BAR": 10,
+      "LIFT_ABSENT": 0.0,
+      "ctrl_tol": 5e-06
+    },
+    "reads": {
+      "lift5_t0_all": -0.14977838632961113,
+      "gates5": 12,
+      "lift7_t0_all_reproduced": -0.018882022045242287,
+      "gates7": 0,
+      "control_pass": true,
+      "ctrl_stays_absent": true,
+      "registered_prediction": "VARIANT-NOT-SCALE"
+    },
+    "verdict": "VARIANT-NOT-SCALE",
+    "clause": "the lift at t=0 on g1bS5's peak root -0.1498 (bar >= +0.05) and/or the 2-shot Z-form gates 12/30 (bar >= 10/30) where g1bS7's reproduced read stays absent (-0.0189, 0/30) \u2014 the 10M absence was the consolidation variant; the faculty is present at 10M; the dissociation readjusts to a consolidation axis",
+    "wash_read": {
+      "lift_all_trajectory": {
+        "0": -0.14977838632961113,
+        "2": -0.026152803339452173,
+        "10": 4.745838232338498e-05,
+        "50": 0.02454999944505592
+      },
+      "reference_274_L10902": {
+        "0": 0.18464942547408017,
+        "1": -0.0242429699071429,
+        "2": -0.05041843813590027,
+        "4": 0.0175098707391457,
+        "10": 0.3142446902665226,
+        "25": 0.2896355106071992,
+        "50": 0.15426072173497896
+      },
+      "survival_read": "descriptive (registered): the lift's trajectory verbatim vs the 2.74M shape {t0 +0.185, dip \u22120.050 at +2, return +0.314 at +10, +0.154 at +50}; no wash bar",
+      "max_lift_post": 0.02454999944505592,
+      "lift_ge_t0_any_post": true
+    }
+  },
+  "honesty_reflex": {
+    "n_counts": "n=1 organism per root; the wash n=1 draw (the LOCKED lineage stream 10902 \u2014 the same stream e227 read at both scales, stream-matched); batteries: fact 60 / near 30 / forms 30 ungated / ctrl val-carried",
+    "root_difference": "the two roots differ in fact strength (g1bS5 ruler 0.768 vs g1bS7 0.935) \u2014 the roots' own difference at the same movement/lr protocol; the consolidation DRAW is the treatment; co-reported, not controlled",
+    "lift_instrument": "an internal 2-shot-minus-0-shot difference on IDENTICAL carriers (MIRABEL, 0 corpus occurrences) \u2014 the fact channel does not predict it; the rulers are co-reports",
+    "form_bundle": "tmpl2 changes length + exemplars + separators together; snip0 is the length-matched control (e227's disclosure carries)",
+    "cpu_only": "GPU PARKED before the wash (e233 owns the GPU lane); probes + wash CPU fp32, 8 threads; load logged (26% at start; e234 the CPU neighbor)",
+    "nothing_guaranteed": "a control PASS proves the instrument, not the finding; the openness is the point"
+  },
+  "compute": {
+    "wash": "5L10902: lr 0.001 seed 10902 steps 50 (CPU, g1_wash VERBATIM)",
+    "instrument": "E227.build_batteries / E227.probe_items / E227.gate_pass + G1.g1_wash / G1.battery_cell / G1.evl_load \u2014 imported VERBATIM (do not retype)",
+    "run_log": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e235_run.log"
+  },
+  "trims": [],
+  "deviations": []
 }
