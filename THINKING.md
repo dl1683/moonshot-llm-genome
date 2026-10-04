@@ -4749,6 +4749,38 @@ physics states. That is the culture working.
 
 
 
+
+## W030 — WONDER: the null as a finding — the lab learning to record its own floor (2026-10-04 ~12:32Z; no bars, no kills — savoring an epistemic shift)
+
+A quiet shift has happened across the last week's nulls, worth
+naming before it becomes invisible practice: THE LAB HAS LEARNED
+TO RECORD BOUNDS AS RESULTS. The older style treated a null as a
+disappointment to be rescued (the g2 arc's ROOT-DRAW-BOUND was
+rescued twice — redraw, redraw — before T136 admitted the ruler
+was the problem). The newer style treats a null as an object with
+its own seat at the table: e222/e223's exposure NULLs came with
+the pass-back arithmetic disclosed BEFORE compute (the null was
+almost pre-registered); FQ5's GEOMETRY-IDENTICAL bar would, if it
+fires, CONFIRM real-and-unnamed as the CORRECT STATE of the third
+dimension — the bound below the first-order floor recorded as the
+finding. W029 priced the same move one level up: the census's
+kills died into sharper residues, and the law's scope is the
+meta-census. THE DEEPER PATTERN: an empirical program matures not
+by filling the map but by learning WHERE ITS INSTRUMENTS END —
+and drawing the floor on the map. THE QUESTION THIS LEAVES: is
+there a floor OF floors — a statement of what the whole first-
+order toolkit (gradients, cosines, ranks, k-spans) cannot in
+principle see, no matter how many nulls accumulate? The candidate:
+whatever distinguishes Gmail from iPhone, if GEOMETRY-IDENTICAL
+fires, is either nonlinear-interactional (visible only to
+intervention, not decomposition) or representational at a grain
+the battery never probes. The next instrument after the floor, if
+ever wanted: the intervention (perturb one probe's support and
+watch only its own fate diverge) — the cut that distinguishes
+"below the floor" from "not in this instrument's domain at all."
+Savoring: a lab that knows where it cannot see is doing science;
+a lab that only reports what it saw is doing inventory.
+
 ## W029 — WONDER: the killed-objects census — pricing the law before leaning on it (FQ4; 2026-10-02 ~19:20Z; no bars, no kills — a self-audit)
 
 W028 says shape replicates / height lotteries, and the day-eight
