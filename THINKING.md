@@ -5294,7 +5294,7 @@ if e236 surprises with SHORELINE-LEG1, W037's scope narrows to
 the u0 family and W036's geometry claim stands. Either way the
 pair is now a registered discrimination.
 
-## W036 — WONDER: the wall's shoreline — are the small-model wall and the 124M wash one field seen from two shores? (2026-10-04 ~14:16Z; no bars, no kills — the day's two worlds converging)
+## W036 — WONDER: the wall's shoreline — are the small-model wall and the 124M wash one field seen from two shores? (2026-10-04 ~14:16Z; no bars, no kills — the day's two worlds converging) [E231 OUTCOME ~14:20Z: leg-1 INSTRUMENT-BLOCKED, not falsified — the first overlap instrument was recipe-pinned (Adam's sign-step); the redesign is e236 (the fact subspace vs the late span, G_SHADOW-gated); the recapture leg, when it ripens, inherits the same validity gate — promised here. T216 AMENDMENT ~15:45Z: the shoreline gains its support-space analogue from e239 — THE ROTATION IS THE TIDE (common-mode ~87% across independent washes, moving every probe's support the same way); THE DEATH IS THE UNDERTOW (probe-specific, 0.04% of L2, invisible to vector geometry — iPhone dies with a perfectly stable support). The wall's two clauses map cleanly: the gust = the transient (edge-owned); the settle = the tide's rest state; whether the +2 RE-CAPTURE is the tide turning is the leg that ripens next.]
 
 The lab has run two model-worlds on separate tracks all week: the
 g-series small-model WALL (fact installs, ratio device, flat
