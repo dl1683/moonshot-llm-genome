@@ -685,6 +685,42 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T223 — e237: the undertow is causal — and the shield is shared (the triangle closes; the field amended, standing) (2026-10-04 ~17:14Z)
+
+The pre-Adam cut tripled the applied-cut result and the
+elevation above t=0 is the day's cleanest causal sentence:
+REMOVING THE ALIGNED GRADIENT SUPPLY REVEALS NET GROWTH. The
+verdict's two halves: THE CAUSAL HALF — the aligned gradient
+IS the death's carrier (both streams, controls to 4 decimals,
+the instrument bar cleared 31x beyond design; the moments
+amplify the aligned share — the grad/applied ratio 31.3x); THE
+SPECIFICITY HALF — at the powered dose the cut spares EVERYONE
+(the family 5/5, Gmail +0.104, the near battery): the SHIELD
+is shared. THE DOSE LADDER now brackets where probe-specificity
+lives: 0.04% applied (specific, underpowered) <-> 1.16%
+gradient (powered, shared). REGISTERED (the partial cut):
+moment-only severance (project the UPDATE not the gradient) or
+a scaled ~0.2% removal — walk the ladder until specificity
+survives power; that point is the undertow's true width. THE
+TRIANGLE'S CLOSED BOOK: (e234) the wind is span-stable but
+does not aim battery-wide; (e238) the thermal layer carries
+two-thirds, the residual is the conserved order; (e239) the
+supports are vector-stable, the tide common-mode; (e237) the
+undertow is causal at the extremes via a SHARED supply. W038'S
+LAWS DRAFT SURVIVES ITS FIRST FOUR TESTS WITH AMENDMENTS: the
+undertow's law gains "carried by the shared gradient supply;
+probe-specificity is dose-limited"; the forge's law gains its
+strongest datum (the +0.25 elevation IS the constructive field
+revealed when the small directed tax is removed); the
+re-formation layer is no longer the least-measured. THE
+TAX PICTURE: the wash's killing is a small directed tax on a
+constructive field, paid most by the most-exposed (the 8-10x
+ratio) — iPhone was merely the biggest taxpayer. THE REPLICATE'S
+TRIGGER HAS FIRED (the instruments validated); the sizing goes
+to the next review. THE BUILD LANE OPENS NOW (e246): if fate
+follows engineered geometry, the seat graduates from finding
+to tool.
+
 ## T222 — e245: the two death modes ARE the two death orders — the day's taxonomies unify (2026-10-04 ~17:07Z)
 
 The depth read denied its own registration and handed back a

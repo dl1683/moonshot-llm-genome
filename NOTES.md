@@ -9,6 +9,41 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e237 — the pre-Adam projection: FATE-FLIPS-MEMORY on w1, PROMOTION REFUSED by the rider — the cut ELEVATES iPhone above its own t=0 (1.253 vs the 0.4525 line; 6.8x the committed death) with controls airtight to 4 decimals; the w2 rider replicates massively (gap +0.877, 17.5x the bar) but Gmail rides +0.104 — the instrument is NOT probe-specific at the powered dose; the honest-instrument bar cleared 31x beyond design (gradient removal 1.155%, median); the family clause FLIPS positive 5/5 on both streams (2026-10-04 ~17:12Z) — DONE
+
+WHAT WE DID: the frozen scratch/e237_design.md cell + the R63
+rider — each batch gradient projected off iPhone's t=0 support
+BEFORE Adam (both moments severed from the aligned component)
+on w1 (ARM-G) and w2 (ARM-G2), with hook-path controls (C2/
+C2W2, both reproducing the committed washes to 4 decimals; draw
+streams bit-exact; all 7 gates PASS; per-step thermal polls —
+max 82C, zero >= 84C, e233's lesson applied). Script
+lab/e237_preadam_projection.py; runs/e237/{metrics.json,
+journal, 2 PNGs} + checkpoints e237_{G,C2,G2,C2W2}_s*.pt.
+
+WHAT WE SAW (T223): FATE-FLIPS-MEMORY fires on w1 (1.253; the
+cut does not spare — it ELEVATES); prediction (a) fires (the 1%
+bar cleared; the grad-vs-applied ratio 31.3x — Adam's
+normalization amplifies the aligned share far beyond smoothing);
+the w2 rider replicates the iPhone effect (+0.877) BUT Gmail
++0.104 breaks the ~control clause -> PROMOTION REFUSED: "the
+wind has memory" is NOT quotable as mechanism (the R63 rule
+caught exactly what it was built to catch). THE FAMILY CLAUSE
+FLIPS (5/5 spared on both streams — e233's applied-level
+negative reversed at the gradient dose). THE DOSE LADDER:
+applied 0.04% = probe-specific but underpowered; gradient 1.16%
+= powered but SHARED — the cut is a SHIELD, not a scalpel, at
+this dose.
+
+HONESTY: n=1 organism, n=1 stream per arm; one external kill
+recovered via the re-probe pass (disclosed); the anchoring
+disclosure carried on every read. NEXT (T223): the partial
+severance (moment-only or scaled ~0.2%) to walk the ladder and
+isolate specificity from power + e246 dispatched (the
+engineered seat — the build lane opens).
+
+---
+
 ## e245 — the death-depth read: MIXED — depth DENIED at 2x (ratio 1.158; the p-at-flip co-read runs OPPOSITE — collapses held MORE mass at flip time) and the wash DENIED at 75%; THE HONEST RE-NAME: the separating binary is e230's DEATH ORDER (non-P-FIRST 4/4 mis-dial; collapses 7/7 P-FIRST) and w1's Egypt->Cairo WALKS BOTH MODES IN ORDER inside one record (mis-dial 'Alexandria' at +50 -> collapse 'the' at +80) — the two stages live in ORDER and TIME, not surviving mass (2026-10-04 ~17:05Z) — DONE
 
 WHAT WE DID: T221's registered discrimination, desk-only (the
