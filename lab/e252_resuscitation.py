@@ -501,9 +501,10 @@ def make_rank_plot(rd, states_rows, zombie_read, pred_read, verdict,
                       if x["wash"] == wash and x["step"] == 80), None)
             if r is None:
                 continue
+            vec = r["cooled"]["p"] if key == "p_cooled" else r["p_raw"]
             for b in BATTERIES:
                 idx = [i for i, bb in enumerate(r["battery"]) if bb == b]
-                ax.scatter(np.array(r["p_t0"])[idx], np.array(r[key])[idx],
+                ax.scatter(np.array(r["p_t0"])[idx], np.array(vec)[idx],
                            s=24, marker={"w1": "o", "w2": "s"}[wash],
                            color=BATT_COLS[b], alpha=0.6, edgecolor="none")
         ax.plot([0, 1], [0, 1], "k--", lw=1.0)
