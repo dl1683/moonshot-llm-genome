@@ -4965,6 +4965,48 @@ physics states. That is the culture working.
 
 
 
+## W034 — WONDER: the zombie as the law's microscope — shape outliving height inside a single death (2026-10-04 ~13:48Z; no bars, no kills — savoring a click)
+
+Look at what the zombie decisions ARE, structurally. The argmax
+is ORDER information — WHICH token is first: exactly the object
+class W028 calls SHAPE (conserved: orderings, destinations,
+erosion order). The probability p is SCALE information — HOW
+MUCH: exactly the class W028 calls HEIGHT (destroyed: distances,
+rates, levels). E230's inversion — the commitment outliving the
+belief, P-FIRST modal in every battery — is therefore THE LAW
+MANIFESTING AT THE MICROSCOPE SCALE: inside a single probe's
+death, the order survives after the scale dies. The lab found
+shape/height splitting organisms, washes, batteries; e230 found
+it INSIDE ONE PROBE: the same split, one level down. If this
+reading is right, three echoes re-sound: (1) e214's erosion-
+order-is-SHAPE and the zombies are the same conservation seen
+from two sides — the battery-level ORDER of deaths, and the
+probe-level argmax that outstands its own p; (2) g1d's anomaly
+(retention 1.327 on a half-expressed root — the wall preserving
+a weakly-scaled but well-ORDERED fact) is the wall-level echo:
+the wall too may conserve order and discard scale, which is
+PRECISELY the ball-keeps-its-own-books language T208 reached
+for; (3) the temperature lens — dividing a probe's logits by a
+constant manufactures zombies artificially (argmax invariant,
+p flattened) — so the natural zombie population's margin-and-p
+joint distribution should be REPRODUCIBLE by a temperature
+sweep: DISCRIMINATING OBSERVATION (registered): the +80 zombies'
+(margin, p) cloud vs temperature-manufactured zombies' cloud on
+the t=0 states — if they match, the wash's p-erosion is
+temperature-LIKE (a flattening), and the survivors' thinning
+(T209's anti-alignment) is the flattening reaching the survivors
+last; if they do not match (e.g. natural zombies hold fat
+margins at low p, which temperature cannot produce), the wash
+does something temperature cannot — a real restructuring, not a
+flattening. REGISTERED PREDICTION: the natural zombie cloud sits
+AT HIGHER margins than the temperature family at matched p —
+because T209's P-FIRST class keeps margins >= 0.05 sigma while p
+halves, whereas temperature couples them tightly; a mismatch
+anywhere in the cloud reads REAL RESTRUCTURING. This costs one
+desk pass on committed journals (the p and margin records exist
+for every state; the temperature family is analytic on the t=0
+logits — no compute beyond arithmetic).
+
 ## W033 — WONDER: does the commitment die before the belief? (the margin/p dissociation; 2026-10-04 ~13:20Z; no bars, no kills — the sharpest confound turned into the sharpest question) [OUTCOME ~13:50Z, e230/T209: KILLED AT THIS GRID — no margin-first population; but the dissociation EXISTS INVERTED: P-FIRST is modal everywhere, the commitment OUTLIVES the belief (the zombie decisions); the thin spots are the survivors']
 
 E228's honesty block flagged the coupling: margin correlates with
