@@ -1,7 +1,7 @@
 {
   "experiment": "e231_ball_overlap",
-  "date": "2026-10-04T14:15:21Z",
-  "status": "PARTIAL (progressive)",
+  "date": "2026-10-04T14:19:28Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
   "registration": "scratch/e231_design.md (frozen on paper before dispatch) + this docstring (frozen before compute). Adjudicate against exactly this; no bar shopping.",
   "registered_bars": {
     "BALL_OWNS_THE_FLAT_PHASE": "BALL-OWNS-THE-FLAT-PHASE \u2014 \"rho(primary overlap, retention) >= 0.714 at n=7 AND the named breakers (g1d, take6) sit ON the curve \u2014 the fourth currency named: the flat phase reads the wash's books\"",
@@ -29,7 +29,9 @@
     "cpu_load_pct_after_J2": 4,
     "cpu_load_pct_after_J3": 3,
     "cpu_load_pct_after_J4": 11,
-    "cpu_load_pct_after_J5": 8
+    "cpu_load_pct_after_J5": 8,
+    "cpu_load_pct_after_J6": 29,
+    "cpu_load_pct_after_J7": 7
   },
   "deviations": [
     "MODULE-IMPORT OF THE PARENT INSTRUMENT: lab/e225_one_currency.py is imported as a module (its loading conventions, u0 construction, stream recipe, and the CHUNKED fp64 Gram-SVD svd_basis are used VERBATIM, never retyped). Only the P0a protocol rebuild (corpus/splice/battery/anchor bank) is ported line-verbatim, because e225 keeps it inside main() \u2014 asserted against the same committed anchors (G_NAMEFREE/G_SPLICE/G_BATTERY/G_ANCHOR).",
@@ -107,7 +109,7 @@
       "pass": true
     }
   },
-  "phase": "P1[J6] null control done",
+  "phase": "P3 adjudicated (+ provenance + honesty)",
   "cells": {
     "J1": {
       "id": "J1",
@@ -1989,7 +1991,941 @@
         ],
         "median": 0.0007544260973901553,
         "note": "3 random orthonormal k-bases vs the SAME u0; chance level ~ sqrt(k/P); the observed overlaps must clear it by orders of magnitude to mean anything"
+      },
+      "second_stream": {
+        "stream_seed": 10914,
+        "x1_md5": "bea462eee95d307baed5dc7ee0f0b610",
+        "g_ray_md5": "f6e9fdb3810241788b9edb52f9a3a048",
+        "sign_ray_md5": "6d499ae7550b607acaa96fc60bfa5054",
+        "cos_g_sign": 0.5554932089781766,
+        "span": {
+          "n_segments": 20,
+          "rank_eff": 20,
+          "participation_ratio": 2.9119267559673485,
+          "cond": 32.074077410263975,
+          "sv": [
+            4.093915198732986,
+            2.5063864328348995,
+            1.6423849119970568,
+            1.2496471196656362,
+            0.9985836995803518,
+            0.837555303924595,
+            0.6655054219081504,
+            0.5999052156247057,
+            0.5264877616762533,
+            0.4970183812021125,
+            0.4274840074696923,
+            0.37024666550618646,
+            0.3423332209206711,
+            0.30302810585656914,
+            0.2656890438237852,
+            0.247349546726405,
+            0.1911468730248759,
+            0.1852532301921959,
+            0.1537224388568611,
+            0.1276393751367233
+          ],
+          "seg1_L2": 3.1513707637786865,
+          "seg_norms_minmax": [
+            0.5460996031761169,
+            3.1513707637786865
+          ]
+        },
+        "knee": {
+          "k": 5,
+          "mass_bar": 0.9,
+          "mass_at_k": 0.909966135044274,
+          "mass_at_k_minus_1": 0.8779009783637138,
+          "mass_curve": [
+            0.5389420948999523,
+            0.7409463340026828,
+            0.8276853147625497,
+            0.8779009783637138,
+            0.909966135044274,
+            0.9325236579815213,
+            0.9467655476618827,
+            0.958338114472917,
+            0.9672514649185474,
+            0.9751949177730346,
+            0.9810712205581656,
+            0.9854792728014409,
+            0.9892477206875329,
+            0.992200494928881,
+            0.9944704209999767,
+            0.9964377937827958,
+            0.9976126881368675,
+            0.998716248262496,
+            0.9994761176583036,
+            1.0
+          ],
+          "k_in_design_window_2_6": true
+        },
+        "identity_disclosure": {
+          "cos_u0_seg1": -0.9999624125841323,
+          "overlap_full_rank20": 0.9999624490737915,
+          "note": "segment 1 = -lr(sign(g)+wd*theta) IS (minus) u0 to ~1e-4 \u2014 the full-20 span contains u0 BY CONSTRUCTION; the informative read is the top-k mass"
+        },
+        "overlap": {
+          "primary": 0.9999478459358215,
+          "co_report_max_pc": 0.844024658203125,
+          "co_report_argmax_pc": 1,
+          "door_ratio": 0.844068706035614,
+          "overlap_vs_k_1_to_8": [
+            0.844024658203125,
+            0.9754773378372192,
+            0.9972304701805115,
+            0.9994252920150757,
+            0.9999478459358215,
+            0.9999599456787109,
+            0.9999604225158691,
+            0.9999617338180542
+          ],
+          "coefs_u0_all_pcs": [
+            0.844024658203125,
+            0.48905879259109497,
+            0.20715346932411194,
+            0.0661984235048294,
+            -0.03232482820749283,
+            0.004919367842376232,
+            -0.0009341408731415868,
+            0.001644578529521823,
+            -0.0007563529652543366,
+            0.00016783368482720107,
+            -0.0003740383544936776,
+            0.0004631510528270155,
+            -0.00045603845501318574,
+            -1.0994736840075348e-05,
+            -0.0002305071393493563,
+            0.00035146536538377404,
+            -0.00010142422979697585,
+            4.8759520723251626e-05,
+            8.16253486846108e-06,
+            2.6175907805736642e-06
+          ],
+          "coefs_ug_all_pcs": [
+            0.5131189227104187,
+            0.22039438784122467,
+            0.06175641715526581,
+            0.030815839767456055,
+            -0.017827646806836128,
+            0.0056953392922878265,
+            0.00605871481820941,
+            0.0025091811548918486,
+            0.003964056260883808,
+            -0.004644693341106176,
+            0.005595027003437281,
+            -0.0007541722734458745,
+            0.006906217895448208,
+            -0.0007279893034137785,
+            0.006309205200523138,
+            -0.007595617324113846,
+            0.0034774052910506725,
+            -0.00739807216450572,
+            -0.0010233682114630938,
+            -0.0025199605152010918
+          ],
+          "ug_overlap_topk": 0.5629795789718628
+        },
+        "overlap_mixed_u0_10902_on_this_span": {
+          "topk": 0.41979745030403137,
+          "full20": 0.42094892263412476,
+          "note": "the span side alone (this seed's span vs the PRIMARY u0@10902); co-read, never adjudicated"
+        }
+      },
+      "second_stream_coreads": {
+        "cos_u0_10902_vs_10914": 0.4170359589303166,
+        "overlap_full_10914": 0.9999478459358215,
+        "overlap_mixed_span10914_vs_u0_10902": 0.41979745030403137,
+        "note": "the full instrument re-run at 10914 (u0' + span'), the mixed span-side read, and the fact side's cos(u0,u0'); the span lottery and the fact lottery both visible; NEVER adjudicated"
+      }
+    },
+    "J7": {
+      "id": "J7",
+      "ckpt": "g1bS7_root_m020f.pt",
+      "scale": "10M",
+      "organism": "the 10M redraw root (g1bS7 m020f: cons 10903; root 0.9351 \u2014 the formation lottery's upward break, T172)",
+      "G_ROOT": {
+        "checkpoint": "runs/checkpoints/g1bS7_root_m020f.pt",
+        "meta": {
+          "experiment": "g1bS7",
+          "desc": "g1bS2's PASSED base+install (LOADED read-only) + e113 jitter consolidation s500 @ lr 0.0004 (seed 10903, FRESH \u2014 the original draw's was 10901) = movement 0.2 rms \u2014 the REDRAWN peak point (g1bS7, the fine-ordering leg)",
+          "cons_seed": 10903,
+          "root_gm12": 0.935076117515564,
+          "params": 9977600,
+          "movement_rms": 0.2,
+          "steps": 500,
+          "lr": 0.0004,
+          "base": "runs/checkpoints/g1bS2_base.pt"
+        },
+        "n_params": 9977600,
+        "expected_params": 9977600,
+        "battery_read_measured": 0.935076117515564,
+        "battery_read_committed": 0.935076117515564,
+        "abs_diff": 0.0,
+        "tol": 0.005,
+        "ce_r": 1.677453637123108,
+        "flat_md5": "a4715dcdafceddcd56e46540db176fc5",
+        "pass": true
+      },
+      "primary_stream": {
+        "stream_seed": 10902,
+        "x1_md5": "1ea27bffde6c4a53be8badf5ab453d64",
+        "g_ray_md5": "e396db58eeecf17b449c72a78cb040c9",
+        "sign_ray_md5": "d60e052ee11869b0aea41a8f48d0953f",
+        "cos_g_sign": 0.5863385983238582,
+        "u0_bit_identical_to_e225": true,
+        "span": {
+          "n_segments": 20,
+          "rank_eff": 20,
+          "participation_ratio": 2.551666027174447,
+          "cond": 36.33302010298219,
+          "sv": [
+            4.310664055286415,
+            2.412626787750947,
+            1.5326154490034447,
+            1.1640405004028036,
+            0.9139267140991051,
+            0.7920387657320404,
+            0.6204768642802636,
+            0.5803118422891759,
+            0.5325376350760352,
+            0.4827097553542227,
+            0.4124506862957406,
+            0.3504764085994022,
+            0.30366687166188466,
+            0.28227487376205074,
+            0.27198508789212866,
+            0.19661513838075254,
+            0.17042420488155754,
+            0.1515850727742477,
+            0.1303751473719261,
+            0.11864315278686668
+          ],
+          "seg1_L2": 3.1515567302703857,
+          "seg_norms_minmax": [
+            0.5379534363746643,
+            3.1515567302703857
+          ]
+        },
+        "knee": {
+          "k": 5,
+          "mass_bar": 0.9,
+          "mass_at_k": 0.9197198852893707,
+          "mass_at_k_minus_1": 0.8931766744503129,
+          "mass_curve": [
+            0.590498867647001,
+            0.7754730021738144,
+            0.8501173814461696,
+            0.8931766744503129,
+            0.9197198852893707,
+            0.9396552226505713,
+            0.9518896007496154,
+            0.9625913206360385,
+            0.9716035310619788,
+            0.979008152575488,
+            0.9844141368003088,
+            0.9883175838512497,
+            0.991247974661788,
+            0.9937800414484046,
+            0.9961308696939819,
+            0.9973593398757142,
+            0.9982823219486461,
+            0.9990125249035056,
+            0.9995526823127145,
+            1.0000000000000002
+          ],
+          "k_in_design_window_2_6": true
+        },
+        "identity_disclosure": {
+          "cos_u0_seg1": -0.9999661633420036,
+          "overlap_full_rank20": 0.9999661445617676,
+          "note": "segment 1 = -lr(sign(g)+wd*theta) IS (minus) u0 to ~1e-4 \u2014 the full-20 span contains u0 BY CONSTRUCTION; the informative read is the top-k mass"
+        },
+        "overlap": {
+          "primary": 0.9999359846115112,
+          "co_report_max_pc": 0.8350815773010254,
+          "co_report_argmax_pc": 1,
+          "door_ratio": 0.8351350426673889,
+          "overlap_vs_k_1_to_8": [
+            0.8350815773010254,
+            0.9823305606842041,
+            0.9973835349082947,
+            0.9995773434638977,
+            0.9999359846115112,
+            0.9999653697013855,
+            0.999965488910675,
+            0.9999658465385437
+          ],
+          "coefs_u0_all_pcs": [
+            -0.8350815773010254,
+            0.5173124074935913,
+            -0.1726285219192505,
+            0.06618871539831161,
+            -0.02677852101624012,
+            -0.0076684895902872086,
+            -0.00041378915193490684,
+            0.0008869582088664174,
+            -0.0004164680722169578,
+            0.00031256297370418906,
+            -0.00020695888088084757,
+            0.0004212540516164154,
+            -0.00011209213698748499,
+            0.0002059262915281579,
+            -7.25538848200813e-05,
+            9.881266305455938e-05,
+            8.11403697298374e-06,
+            -1.7968504835153e-05,
+            -1.8134938727598637e-05,
+            -9.051160304807127e-06
+          ],
+          "coefs_ug_all_pcs": [
+            -0.537923276424408,
+            0.2442573755979538,
+            -0.058795105665922165,
+            0.015481920912861824,
+            -0.012031381949782372,
+            0.002292446792125702,
+            0.0049533536657691,
+            -0.005203571170568466,
+            -0.004238360095769167,
+            -0.0037667998112738132,
+            -0.002149361651390791,
+            -2.3262098693521693e-05,
+            -0.0013007231755182147,
+            -0.006016859784722328,
+            0.006266253534704447,
+            0.000786024029366672,
+            -0.007168096490204334,
+            -0.00043331965571269393,
+            0.004871502984315157,
+            0.0022630684543401003
+          ],
+          "ug_overlap_topk": 0.5940239429473877
+        }
+      },
+      "null_control": {
+        "draws": [
+          {
+            "overlap": 0.001007652820450858,
+            "expected_level": 0.0007079000737620589,
+            "seed": 12960,
+            "k": 5,
+            "P": 9977600
+          },
+          {
+            "overlap": 0.00032104234905024715,
+            "expected_level": 0.0007079000737620589,
+            "seed": 12961,
+            "k": 5,
+            "P": 9977600
+          },
+          {
+            "overlap": 0.00010274666888788449,
+            "expected_level": 0.0007079000737620589,
+            "seed": 12962,
+            "k": 5,
+            "P": 9977600
+          }
+        ],
+        "median": 0.00032104234905024715,
+        "note": "3 random orthonormal k-bases vs the SAME u0; chance level ~ sqrt(k/P); the observed overlaps must clear it by orders of magnitude to mean anything"
+      },
+      "second_stream": {
+        "stream_seed": 10914,
+        "x1_md5": "bea462eee95d307baed5dc7ee0f0b610",
+        "g_ray_md5": "2bd0e82fefd6948a9eb2473e736843ee",
+        "sign_ray_md5": "60c26e98fd2045301e0b69b49d0b0bb6",
+        "cos_g_sign": 0.5897491033984544,
+        "span": {
+          "n_segments": 20,
+          "rank_eff": 20,
+          "participation_ratio": 2.637917438891991,
+          "cond": 43.40004487267968,
+          "sv": [
+            4.193543957103498,
+            2.4223141933129666,
+            1.528340925801703,
+            1.1420939091187248,
+            0.8897289600959449,
+            0.7841844637476622,
+            0.628196953563466,
+            0.573881599465869,
+            0.5203601872970429,
+            0.48015172308430004,
+            0.4268343511480851,
+            0.3803819482466545,
+            0.3383855650601837,
+            0.3114690159373703,
+            0.28205101983098035,
+            0.25804551540767023,
+            0.1819937999014482,
+            0.13783498993234625,
+            0.12228333622196667,
+            0.09662533689552319
+          ],
+          "seg1_L2": 3.1514875888824463,
+          "seg_norms_minmax": [
+            0.5640162229537964,
+            3.1514875888824463
+          ]
+        },
+        "knee": {
+          "k": 5,
+          "mass_bar": 0.9,
+          "mass_at_k": 0.9146773256297013,
+          "mass_at_k_minus_1": 0.8887110899512567,
+          "mass_curve": [
+            0.5768407599943647,
+            0.769306967509354,
+            0.8459255347620321,
+            0.8887110899512567,
+            0.9146773256297013,
+            0.9348484454232907,
+            0.9477929428319276,
+            0.9585957877387257,
+            0.9674776015254605,
+            0.9750398427119588,
+            0.9810158658231002,
+            0.9857619270650325,
+            0.9895178545429455,
+            0.9927000235565695,
+            0.9953094730159694,
+            0.9974936416830338,
+            0.9985800841341694,
+            0.9992032626875176,
+            0.9996937503625227,
+            1.0000000000000002
+          ],
+          "k_in_design_window_2_6": true
+        },
+        "identity_disclosure": {
+          "cos_u0_seg1": -0.9999669864861995,
+          "overlap_full_rank20": 0.9999669790267944,
+          "note": "segment 1 = -lr(sign(g)+wd*theta) IS (minus) u0 to ~1e-4 \u2014 the full-20 span contains u0 BY CONSTRUCTION; the informative read is the top-k mass"
+        },
+        "overlap": {
+          "primary": 0.9999209046363831,
+          "co_report_max_pc": 0.846889853477478,
+          "co_report_argmax_pc": 1,
+          "door_ratio": 0.8469568490982056,
+          "overlap_vs_k_1_to_8": [
+            0.846889853477478,
+            0.9797489047050476,
+            0.9988419413566589,
+            0.9996615648269653,
+            0.9999209046363831,
+            0.9999659657478333,
+            0.9999660849571228,
+            0.9999664425849915
+          ],
+          "coefs_u0_all_pcs": [
+            0.846889853477478,
+            0.49263113737106323,
+            0.1943640410900116,
+            0.04047210514545441,
+            -0.022773481905460358,
+            -0.009493710473179817,
+            -0.00047725136391818523,
+            0.0008532314095646143,
+            -5.543177030631341e-05,
+            0.0008633026154711843,
+            -0.0001964337279787287,
+            1.910661012516357e-05,
+            -0.0005106576718389988,
+            9.056973794940859e-05,
+            -0.00016508226690348238,
+            -1.5993624401744455e-05,
+            -4.597519364324398e-05,
+            -2.9814167646691203e-05,
+            1.7831951481639408e-05,
+            3.5308585211168975e-06
+          ],
+          "coefs_ug_all_pcs": [
+            0.5452064871788025,
+            0.23232437670230865,
+            0.07000202685594559,
+            0.013403131626546383,
+            -0.0057168579660356045,
+            0.004520962480455637,
+            -0.0010770326480269432,
+            -0.005145910196006298,
+            0.0025635105557739735,
+            -0.0007579431403428316,
+            -0.00021393169299699366,
+            0.004233657382428646,
+            -0.0025161923840641975,
+            -0.00584240211173892,
+            0.0036893337965011597,
+            0.006574607919901609,
+            0.001502452534623444,
+            0.004557436797767878,
+            -0.0013864575885236263,
+            0.0011111050844192505
+          ],
+          "ug_overlap_topk": 0.5969399809837341
+        },
+        "overlap_mixed_u0_10902_on_this_span": {
+          "topk": 0.38448435068130493,
+          "full20": 0.38564059138298035,
+          "note": "the span side alone (this seed's span vs the PRIMARY u0@10902); co-read, never adjudicated"
+        }
+      },
+      "second_stream_coreads": {
+        "cos_u0_10902_vs_10914": 0.38303180488976346,
+        "overlap_full_10914": 0.9999209046363831,
+        "overlap_mixed_span10914_vs_u0_10902": 0.38448435068130493,
+        "note": "the full instrument re-run at 10914 (u0' + span'), the mixed span-side read, and the fact side's cos(u0,u0'); the span lottery and the fact lottery both visible; NEVER adjudicated"
       }
     }
+  },
+  "joined_table": [
+    {
+      "id": "J1",
+      "scale": "2.74M",
+      "organism": "org1 = the e131 consolidated root (g1b's own root)",
+      "ckpt": "runs/checkpoints/e131_consolidated_e113.pt",
+      "retention_flat_min": 0.9979692766675983,
+      "multiple": 3.7206885127780804,
+      "aggregate_median": 1.3318806921021653,
+      "overlap_primary": 0.9999227523803711,
+      "overlap_co_report": 0.9117376804351807,
+      "door_ratio": 0.9118081331253052,
+      "door_pc": 1,
+      "k": 6,
+      "mass_at_k": 0.9150624505351155,
+      "overlap_full_rank20": 0.999970555305481,
+      "cos_u0_seg1": -0.9999706177394785,
+      "null_median": 0.0009866395177013235,
+      "null_draws": [
+        0.0008329659514299321,
+        0.0013585236617806036,
+        0.0009866395177013235
+      ],
+      "second_seed_overlap": 0.9998865127563477,
+      "second_seed_k": 6,
+      "second_seed_mixed": 0.3259788155555725,
+      "cos_u0_seed_sensitivity": 0.31836848307084004,
+      "regime": "fresh",
+      "is_breaker": false,
+      "is_cons_pair": false,
+      "u0_bit_identical_to_e225": true,
+      "row_notes": "the locked root; retention family g1b/g1bR = 0.983-0.998 (3 wash draws; the 10902 row is primary)",
+      "rank_overlap": 5.0,
+      "rank_retention": 5.0,
+      "rank_residual": 0.0
+    },
+    {
+      "id": "J2",
+      "scale": "2.74M",
+      "organism": "g1c's fresh root draw (e001 + fresh install s400 g24314 + cons 10901)",
+      "ckpt": "runs/checkpoints/g1c_root.pt",
+      "retention_flat_min": 1.0263911969648605,
+      "multiple": 1.2161096471128718,
+      "aggregate_median": 0.9794073282786698,
+      "overlap_primary": 0.9998300671577454,
+      "overlap_co_report": 0.9143478870391846,
+      "door_ratio": 0.914503276348114,
+      "door_pc": 1,
+      "k": 6,
+      "mass_at_k": 0.9172254738781099,
+      "overlap_full_rank20": 0.9999695420265198,
+      "cos_u0_seg1": -0.9999696001775429,
+      "null_median": 0.0013501885212003116,
+      "null_draws": [
+        0.001529966536520961,
+        0.001325048725142838,
+        0.0013501885212003116
+      ],
+      "second_seed_overlap": 0.9998589158058167,
+      "second_seed_k": 6,
+      "second_seed_mixed": 0.3402227461338043,
+      "cos_u0_seed_sensitivity": 0.33387752320299513,
+      "regime": "fresh",
+      "is_breaker": false,
+      "is_cons_pair": false,
+      "u0_bit_identical_to_e225": true,
+      "row_notes": "ROOT-WALL-HOLDS (T181); different wiring (d183-indep, A129-neg), identical wall behavior",
+      "rank_overlap": 3.0,
+      "rank_retention": 6.0,
+      "rank_residual": -3.0
+    },
+    {
+      "id": "J3",
+      "scale": "2.74M",
+      "organism": "g1d's fresh-base root (base s44 + locked install + cons 10901)",
+      "ckpt": "runs/checkpoints/g1d_root.pt",
+      "retention_flat_min": 1.3266428034732003,
+      "multiple": 1.3789356098383065,
+      "aggregate_median": 0.26796058555057695,
+      "overlap_primary": 0.9998377561569214,
+      "overlap_co_report": 0.9181764721870422,
+      "door_ratio": 0.9183254837989807,
+      "door_pc": 1,
+      "k": 6,
+      "mass_at_k": 0.9082376485621044,
+      "overlap_full_rank20": 0.9999709129333496,
+      "cos_u0_seg1": -0.9999709543623357,
+      "null_median": 0.0015524779299930101,
+      "null_draws": [
+        0.0015524779299930101,
+        0.001300476749242604,
+        0.0016408064725415236
+      ],
+      "second_seed_overlap": 0.9998981952667236,
+      "second_seed_k": 6,
+      "second_seed_mixed": 0.3590068817138672,
+      "cos_u0_seed_sensitivity": 0.3538730236069898,
+      "regime": "exotic",
+      "is_breaker": true,
+      "is_cons_pair": false,
+      "u0_bit_identical_to_e225": true,
+      "row_notes": "HALF-EXPRESSED (0.52 vs the family's 0.78-0.94); g1d's own verdict was TEXTURE (G-CONS gate failure) \u2014 the wall arms ran and are reported; the retention row is OBSERVED-UNADJUDICATED (T186's map); the 1.35x record is the flat-MEDIAN flavor (1.345); the frozen flat-min convention gives 1.326",
+      "rank_overlap": 4.0,
+      "rank_retention": 7.0,
+      "rank_residual": -3.0
+    },
+    {
+      "id": "J4",
+      "scale": "2.74M",
+      "organism": "g1e's cons redraw 1 (locked base+install + cons 10912)",
+      "ckpt": "runs/checkpoints/g1e_root.pt",
+      "retention_flat_min": 0.6153917590189493,
+      "multiple": 0.5995813346448845,
+      "aggregate_median": 0.6652406915887169,
+      "overlap_primary": 0.9997479915618896,
+      "overlap_co_report": 0.9216032028198242,
+      "door_ratio": 0.9218355417251587,
+      "door_pc": 1,
+      "k": 6,
+      "mass_at_k": 0.9142976667578281,
+      "overlap_full_rank20": 0.9999674558639526,
+      "cos_u0_seg1": -0.9999674639366327,
+      "null_median": 0.0014301433108103024,
+      "null_draws": [
+        0.0014301433108103024,
+        0.0007171165379448156,
+        0.0015519499439611102
+      ],
+      "second_seed_overlap": 0.9996610879898071,
+      "second_seed_k": 6,
+      "second_seed_mixed": 0.3750728666782379,
+      "cos_u0_seed_sensitivity": 0.3702666458604731,
+      "regime": "exotic",
+      "is_breaker": false,
+      "is_cons_pair": true,
+      "u0_bit_identical_to_e225": true,
+      "row_notes": "CONS-WALL-BOUND (the +1 crush 0.2719); the FLAT PHASE survived (T188: the grid's sharpest honest bound)",
+      "rank_overlap": 2.0,
+      "rank_retention": 1.0,
+      "rank_residual": 1.0
+    },
+    {
+      "id": "J5",
+      "scale": "2.74M",
+      "organism": "g1f's cons redraw 2 (locked base+install + cons 10913)",
+      "ckpt": "runs/checkpoints/g1f_root.pt",
+      "retention_flat_min": 0.9317064573129114,
+      "multiple": 0.5617260108399429,
+      "aggregate_median": 1.7539447693197137,
+      "overlap_primary": 0.9997469782829285,
+      "overlap_co_report": 0.9195852279663086,
+      "door_ratio": 0.9198179841041565,
+      "door_pc": 1,
+      "k": 6,
+      "mass_at_k": 0.913116142548405,
+      "overlap_full_rank20": 0.9999701380729675,
+      "cos_u0_seg1": -0.9999701419340796,
+      "null_median": 0.0015474959869619155,
+      "null_draws": [
+        0.0015474959869619155,
+        0.001486315207440417,
+        0.0015712222718177323
+      ],
+      "second_seed_overlap": 0.9997633099555969,
+      "second_seed_k": 6,
+      "second_seed_mixed": 0.34215787053108215,
+      "cos_u0_seed_sensitivity": 0.3365312695669797,
+      "regime": "exotic",
+      "is_breaker": false,
+      "is_cons_pair": true,
+      "u0_bit_identical_to_e225": true,
+      "row_notes": "CRUSH-IS-TEXTURE (+1 0.2577, second digit match); the flat phase 0.902+ (the redraw family's strictest)",
+      "rank_overlap": 1.0,
+      "rank_retention": 4.0,
+      "rank_residual": -3.0
+    },
+    {
+      "id": "J6",
+      "scale": "10M",
+      "organism": "the 10M peak root (g1bS5 m020: s500 @ 4e-4, cons 10901; root 0.7677)",
+      "ckpt": "runs/checkpoints/g1bS5_root_m020.pt",
+      "retention_flat_min": 0.8949634049389881,
+      "multiple": 0.5433506780298486,
+      "aggregate_median": 0.9008607010514801,
+      "overlap_primary": 0.9999479651451111,
+      "overlap_co_report": 0.8159780502319336,
+      "door_ratio": 0.8160204887390137,
+      "door_pc": 1,
+      "k": 5,
+      "mass_at_k": 0.9225529455786246,
+      "overlap_full_rank20": 0.9999632239341736,
+      "cos_u0_seg1": -0.9999632689340994,
+      "null_median": 0.0007544260973901553,
+      "null_draws": [
+        0.0008644759346537189,
+        0.0003959026937293435,
+        0.0007544260973901553
+      ],
+      "second_seed_overlap": 0.9999478459358215,
+      "second_seed_k": 5,
+      "second_seed_mixed": 0.41979745030403137,
+      "cos_u0_seed_sensitivity": 0.4170359589303166,
+      "regime": "fresh",
+      "is_breaker": false,
+      "is_cons_pair": false,
+      "u0_bit_identical_to_e225": true,
+      "row_notes": "WALL-FADES take5 (T170): every rung breached at +1 (one 3.16-raw AdamW step); direction held ~1000x; the dispatch's quoted retention 0.895",
+      "rank_overlap": 7.0,
+      "rank_retention": 3.0,
+      "rank_residual": 4.0
+    },
+    {
+      "id": "J7",
+      "scale": "10M",
+      "organism": "the 10M redraw root (g1bS7 m020f: cons 10903; root 0.9351 \u2014 the formation lottery's upward break, T172)",
+      "ckpt": "runs/checkpoints/g1bS7_root_m020f.pt",
+      "retention_flat_min": 0.7897980962997516,
+      "multiple": 1.0231918306111651,
+      "aggregate_median": 1.3683092125843754,
+      "overlap_primary": 0.9999359846115112,
+      "overlap_co_report": 0.8350815773010254,
+      "door_ratio": 0.8351350426673889,
+      "door_pc": 1,
+      "k": 5,
+      "mass_at_k": 0.9197198852893707,
+      "overlap_full_rank20": 0.9999661445617676,
+      "cos_u0_seg1": -0.9999661633420036,
+      "null_median": 0.00032104234905024715,
+      "null_draws": [
+        0.001007652820450858,
+        0.00032104234905024715,
+        0.00010274666888788449
+      ],
+      "second_seed_overlap": 0.9999209046363831,
+      "second_seed_k": 5,
+      "second_seed_mixed": 0.38448435068130493,
+      "cos_u0_seed_sensitivity": 0.38303180488976346,
+      "regime": "fresh",
+      "is_breaker": true,
+      "is_cons_pair": false,
+      "u0_bit_identical_to_e225": true,
+      "row_notes": "WALL-FADES take6 (T178): draw-clean verdict; the +1 dip shallowed 4x on the stronger root BUT the flat phase fell (0.79) \u2014 the lottery's gains do not transfer through the ball",
+      "rank_overlap": 6.0,
+      "rank_retention": 2.0,
+      "rank_residual": 4.0
+    }
+  ],
+  "adjudication": {
+    "bars": {
+      "BALL_OWNS_THE_FLAT_PHASE": {
+        "fires": false
+      },
+      "REGIME_PROXY": {
+        "fires": false
+      },
+      "NEITHER": {
+        "fires": true
+      }
+    },
+    "rank_layer": {
+      "n": 7,
+      "spearman": -0.07142857142857142,
+      "bar": 0.714,
+      "co_report_spearman": 0.0,
+      "ties_x_disclosed": false,
+      "ties_y_disclosed": false
+    },
+    "regime_layer": {
+      "fresh_ids": [
+        "J1",
+        "J2",
+        "J6",
+        "J7"
+      ],
+      "exotic_ids": [
+        "J3",
+        "J4",
+        "J5"
+      ],
+      "rho_fresh": -0.8,
+      "rho_exotic": 0.5,
+      "alt_split_coread": {
+        "fresh_ids": [
+          "J1",
+          "J2",
+          "J6"
+        ],
+        "exotic_ids": [
+          "J3",
+          "J4",
+          "J5",
+          "J7"
+        ],
+        "rho_fresh": -1.0,
+        "rho_exotic": 0.0,
+        "note": "J7 exotic by T172's lottery-break stamp; never adjudicated"
+      }
+    },
+    "breakers": {
+      "J3": {
+        "rank_residual": -3.0,
+        "on_curve": false
+      },
+      "J7": {
+        "rank_residual": 4.0,
+        "on_curve": false
+      }
+    },
+    "cons_pair": {
+      "g1e": 0.9997479915618896,
+      "g1f": 0.9997469782829285,
+      "g1f_above_g1e": false
+    },
+    "registered_predictions": {
+      "P1_t208": {
+        "fires": false,
+        "rho_over_bar": false,
+        "g1d_top_overlap": false,
+        "g1f_above_g1e": false
+      },
+      "P2_discriminating_cell": {
+        "g1d_overlap": 0.9998377561569214,
+        "g1d_overlap_rank": 4.0,
+        "g1f_overlap": 0.9997469782829285,
+        "g1e_overlap": 0.9997479915618896,
+        "rho_exotic": 0.5,
+        "ball_reads": "g1d's 1.327 retention sits at the table's TOP overlap and the exotic triple orders by overlap (rho_exotic = 0.500; BALL wants +1)",
+        "regime_reads": "rho_exotic = 0.500 (REGIME wants <= 0 \u2014 the exotic rows ignore the overlap)"
+      },
+      "P3_single_door": {
+        "fires": false,
+        "door_ratios": {
+          "J1": 0.9118081331253052,
+          "J2": 0.914503276348114,
+          "J3": 0.9183254837989807,
+          "J4": 0.9218355417251587,
+          "J5": 0.9198179841041565,
+          "J6": 0.8160204887390137,
+          "J7": 0.8351350426673889
+        },
+        "bar": 0.9
+      },
+      "design_expectation_k_in_2_6": {
+        "fires": true,
+        "ks": {
+          "J1": 6,
+          "J2": 6,
+          "J3": 6,
+          "J4": 6,
+          "J5": 6,
+          "J6": 5,
+          "J7": 5
+        }
+      }
+    },
+    "verdict": "NEITHER",
+    "clause": "no relation at the line with the breakers unexplained \u2014 rho = -0.071 < 0.714 at the line (n=7); the breakers do not sit on the curve (g1d residual -3, take6 +4); rho_fresh = -0.800 does not hold; rho_exotic = 0.500 does not flatline/invert \u2014 the flat phase's currency stays unnamed; the honest bound recorded (with the multiple's +0.607 and the aggregate's -0.179, the ledger remains 0-for-4).",
+    "composite_order": "BALL-OWNS-THE-FLAT-PHASE / REGIME-PROXY / NEITHER (frozen before compute; the first two mutually exclusive by construction)"
+  },
+  "provenance": {
+    "design": "scratch/e231_design.md (frozen on paper before dispatch)",
+    "parents_files_md5": {
+      "e225": "50cf5f796beff240c13777933005af91",
+      "e229": "0f80553bd474d73de792a6c5335b65b0"
+    },
+    "machinery": {
+      "u0": "lab/e225_one_currency.py module-imported; u0 = the t=0 post-clip sign-ray on the seed-10902 stream, gated BIT-IDENTICAL to e225's committed cells (G_U0; J1 via the B1 bridge organism)",
+      "span": "e225's svd_basis VERBATIM (the chunked fp64 Gram-SVD of the root's OWN 20-step unwalled AdamW history, seed 10902; betas 0.9/0.95, wd 0.1, clip 1.0, lr 1e-3)",
+      "knee": "mass-plateau rule: smallest k with cumulative eigen-mass >= 0.9; k recorded per root",
+      "retention": "runs/e225/metrics.json joined_table.retention_flat_min, hard-bound at 1e-12 (the g1bS2+ flat-min convention)",
+      "multiple": "runs/e225/metrics.json joined_table.multiple, hard-bound at 1e-12",
+      "aggregate": "runs/e229/metrics.json join_table.aggregate_median, hard-bound at 1e-12",
+      "seeds": "stream 10902 (primary, gated) + 10914 (second-seed co-read, registry-grep'd free); null seeds 12900+ (129xx block clean)"
+    },
+    "checkpoints": {
+      "J1": {
+        "file": "runs/checkpoints/e131_consolidated_e113.pt",
+        "flat_md5": "36ae244756475dda71266346e7a0f196"
+      },
+      "J2": {
+        "file": "runs/checkpoints/g1c_root.pt",
+        "flat_md5": "a7f02b367c5342535aecfc814d780631"
+      },
+      "J3": {
+        "file": "runs/checkpoints/g1d_root.pt",
+        "flat_md5": "a63113f897d1752a4a16edfc2f838559"
+      },
+      "J4": {
+        "file": "runs/checkpoints/g1e_root.pt",
+        "flat_md5": "aa0cc2ac17292559bcffd0b68ba6e67a"
+      },
+      "J5": {
+        "file": "runs/checkpoints/g1f_root.pt",
+        "flat_md5": "65d41518f90ec013f820f3554d2eeafd"
+      },
+      "J6": {
+        "file": "runs/checkpoints/g1bS5_root_m020.pt",
+        "flat_md5": "7726a015fb8d63a0f4b7499bb90666bc"
+      },
+      "J7": {
+        "file": "runs/checkpoints/g1bS7_root_m020f.pt",
+        "flat_md5": "a4715dcdafceddcd56e46540db176fc5"
+      }
+    },
+    "u_md5s": {
+      "J1": {
+        "sign_ray_primary": "aac6c6d643e327939f680148772dd180",
+        "sign_ray_second": "b06477aa2ed27e6269e549efee8ebdc9",
+        "bit_identical_to_e225": true
+      },
+      "J2": {
+        "sign_ray_primary": "4e97cac2975bf11a030a8eb2abe0cb05",
+        "sign_ray_second": "91dd60118a36a6b704d73bfd7112c05b",
+        "bit_identical_to_e225": true
+      },
+      "J3": {
+        "sign_ray_primary": "8869069a821636cdd9631677595eb2a9",
+        "sign_ray_second": "39c8665b4d51bcbb0c680d60070b4235",
+        "bit_identical_to_e225": true
+      },
+      "J4": {
+        "sign_ray_primary": "644fe6333239b6d6535c403b6343eb0c",
+        "sign_ray_second": "3fb44b224787f62f842e2be3fb5c49fb",
+        "bit_identical_to_e225": true
+      },
+      "J5": {
+        "sign_ray_primary": "6072858bf2a0cb85cf351d960777c3d1",
+        "sign_ray_second": "9e65cfafc86dc030ed28c2308b0da15d",
+        "bit_identical_to_e225": true
+      },
+      "J6": {
+        "sign_ray_primary": "7d2c738d5847fc038776a1c696b9f75a",
+        "sign_ray_second": "6d499ae7550b607acaa96fc60bfa5054",
+        "bit_identical_to_e225": true
+      },
+      "J7": {
+        "sign_ray_primary": "d60e052ee11869b0aea41a8f48d0953f",
+        "sign_ray_second": "60c26e98fd2045301e0b69b49d0b0bb6",
+        "bit_identical_to_e225": true
+      }
+    }
+  },
+  "honesty": {
+    "identity_disclosure": "u0 IS the sign of the wash's first step's gradient and AdamW's first displacement is -lr*(sign(g)+wd*theta): segment 1 is (minus) u0 to ~1e-4, so ||P_full20 u0|| ~ 1 BY CONSTRUCTION (recorded per row; drawn on the figure). The informative object is the TOP-k mass \u2014 the wash's dominant subspace \u2014 and the null control (~sqrt(k/P)) fixes the chance level. The design's 'not independent objects' guard, quantified.",
+    "n_and_scope": "n=1 per organism, 7 rows: every overlap is a single-u0, single-history read; the span lottery is bounded by the 10914 co-read (the full and mixed reads, per row); the 2-3x BAND lottery of the e209 family does not enter this cell (no band is drawn) but the same texture class applies to the span's membership structure",
+    "retention_side": "desk-fixed closed data (e225's committed flat-min convention; J3 = g1d remains OBSERVED-UNADJUDICATED, T186's stamp carried; excluding it is a co-read never taken)",
+    "regime_split": "T206's own sentence froze FRESH {J1,J2,J6,J7} / EXOTIC {J3,J4,J5}; the J7-exotic alternative (T172's lottery-break stamp) is co-reported, never adjudicated \u2014 at n=4/n=3 (and n=3/n=4) these are texture-level reads, disclosed",
+    "knee_sensitivity": "the overlap-vs-k curve (k=1..8) is recorded per row in cells[].primary_stream.overlap.overlap_vs_k_1_to_8 \u2014 the primary's k is the frozen mass-plateau read, not shopped",
+    "nothing_guaranteed": "the openness was the point: the overlaps could have landed anywhere above the null; the observed outcome is 'NEITHER'"
   }
 }
