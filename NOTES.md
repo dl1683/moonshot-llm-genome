@@ -9,6 +9,96 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e227 — FQ1 the faculty at home: PARTIAL-TRACE + CHANNEL-DEATH-UNIVERSAL — the 124M ordering/family do NOT replicate at 2.74M (ctrl improves; eta2 0.03-0.13 vs 0.577) while FQ1's own third branch fires on ALL five qualifying arms (tmpl-form dead at +1 where rulers read 0.65-0.92); THE FEW-SHOT FACULTY EXISTS AT 2.74M (+0.185 exemplar lift on untrained MIRABEL) AND OUTLIVES THE FACT (lift >= t0 at settled post-kill states, to +0.40); the 10M point: lift ABSENT (-0.019, the 2-shot form floors 0/30) — AT 124M THE WASH EATS THE FACULTY AND SPARES THE FACTS; AT 2.74M THE WASH EATS THE FACT AND SPARES THE FACULTY (2026-10-04 ~14:10Z) — DONE
+
+WHAT WE DID: the e182c2 battery conventions ported to the 2.74M
+world (fact = the committed install-60 g-12 ruler, reproduced at
+dp 6e-8; near = held-30; tmpl2 = the 2-shot exemplar form; mis2 =
+the MIRABEL-exemplar intervention read; snip0 = the length-matched
+0-shot control; ctrl = val-carried word/sent completions) on the
+consolidated e131 root, wash tied bit-exact to g1b's committed
+C+2; a pre-registered lr ladder {1e-4 x2, 3e-4, 1e-3 x3 draws};
+the same at 10M on g1bS7's root (ruler exact); all gates PASS;
+three registration commits precede every compute. Script
+lab/e227_faculty_at_home.py; runs/e227/{metrics.json DONE,
+battery_curves.png, family_battery.png, scale10.png, journals}.
+
+WHAT WE SAW (T211): (1) NO ORDERING, NO FAMILY at 2.74M — O1 at
+<= 1 state/arm; eta2 0.027-0.13 vs the 0.5 bar and 124M's 0.577:
+the 124M relational signature is SCALE-EMERGENT (the rhythm organ
+leans splint per the frozen labels). (2) CHANNEL-DEATH UNIVERSAL:
+tmpl2 >= near AND >= fact at 5-7 of 6-7 states on every
+qualifying arm, collapsing at +1 (0.004-0.054) while the rulers
+read 0.65-0.92 — and the length-matched control PRICES THE FORM'S
+OWN SHARE NEAR ZERO (tmpl2 ~ snip0Z at every state): the fast
+erosion is substantially short-context/weak-evidence fragility.
+(3) THE DISSOCIATION: the exemplar-following channel survives
+every wash that kills the fact (lift +0.185 at t=0 — an untrained
+name; exemplars split mass ~50/50 against installed knowledge;
+swapping true for mismatched exemplars moves the Z-read 0.660 ->
+0.269, the in-prompt intervention works) and RETURNS at-or-above
+t0 at settled post-kill states (+0.26..+0.40 on 5 of 6 arms) —
+the re-teaching surface is wash-proof at 2.74M. (4) 10M: the
+lift absent, the form unusable (2-shot Z-form gates 0/30) — the
+faculty is NOT MONOTONE in scale in this world (the momentum-
+consolidation confound disclosed; the 124M side is a different
+world — the bridge is form-matched, not a controlled ladder).
+
+HONESTY: n=1 organism per scale; lineage draws rho 0.9-1.0;
+gentle-dose DRAW-DIFFERS is a 4-key quantization artifact; the
+CE asymmetry disclosed (the 1e-3 lineage damages CE_R; the gentle
+arm is the 124M role-match); 10M washes hit the 180s cap (grids
+end +100) and CPU-migrated twice on the >80C guard; no bar
+shopping. NEXT: T211's registered asks — the second 10M root
+(the g1bS5 peak, non-momentum) to price the confound; the
+cross-scale seat read (e226's instrument at 2.74M: does the
+wash's pull align with the exemplar channel there?).
+
+---
+
+## e226 — FQ5's Gmail/iPhone interior: SUPPORT-DIFFERENTIATES — the third dimension's SEAT located (the relation's support-vs-wash-gradient relative geometry): at t=0 the supports are family-typical (nothing static distinguishes them), but from +10 the wash's continuing pull works ALONG the dying probe's support and past the holder's (2.6-14.8x on 8/9 reads, all three washes) — the differentiation is made by the trajectory; the t=0 asymmetry is INVERTED (the holder initially more overlapped) (2026-10-04 ~13:55Z) — DONE
+
+WHAT WE DID: the ripened scratch/fq5_design.md cell — the 54
+probes' support directions at t=0; the wash's own next-gradient
+decomposed against each anchor's support at every state of the
+three-wash 124M archive (descent-FD wash gradients; fp64 dots;
+draw streams certified bit-exact against archived generator
+states); rotation and hot-overlap reads; the anchor plot against
+family bands. Eval-only, CPU, threads 4. All 8 gates PASS
+(supports' FD gates; determinism self-cos 1.000000; instrument
+floor 5.8e-8 vs sigma ~1.3e-3). The smoke caught three instrument
+errors pre-compute and disclosed them (fp32 dot accumulation
+drift 0.6% over 124M coords -> fp64; fp16 subnormal quantization
+-> 2^14 scale; the registration's wash-grad FD had the wrong
+sign and a curvature-dominated eps -> descent direction). Script
+lab/e226_interior.py; runs/e226/{metrics.json, e226_anchor.png,
+journal.json}.
+
+WHAT WE SAW (T210): 10/19 registered reads at Z >= 2 (max 7.19),
+replicated all three washes (w1 5/5; w2 3/4; w3 2/4 — the fires
+at +50/+80). Every firing read is an ALIGNMENT read; rotation/
+hot reads sub-bar but same-sign 3/3 (Gmail's support the more
+nearly fixed point, 0.92-0.93 vs 0.89-0.91). THE DECISIVE
+TEXTURE: at t=0 |I|/|G| = 0.43-0.66 (GMAIL more overlapped with
+the wash's first gradient); from +2/+10 the ratio flips to 2.6-
+14.8x IPHONE — the wash's continuing pull works along the dying
+probe's support. THE STATIC NULL HELD (t=0 cos +0.019, z 0.18 —
+family-typical): the differentiation is made by the TRAJECTORY,
+not the initial geometry (T185's mid-dose emergence once more).
+Anchor fates (3/3 washes): Gmail hr 0.905/0.931/0.864; iPhone
+0.184/0.342/0.195.
+
+HONESTY: multiplicity (P(any Z>=2|noise) ~ 0.59, offset by the
+3/3 wash replication); n=3 washes; batch-1 single-context
+supports; first-order instrument (a GEOMETRY-IDENTICAL would
+have bounded only it — moot); w2/w3 states GPU-fp32-origin. NEXT
+(T210): the INTERVENTION (project the wash's steps off iPhone's
+support — does fate flip? the LETHAL-vs-CARRIER guard applies)
++ the t=0 consumption read (the transient eating the holder's
+initial overlap — the two-bookkeeping echo).
+
+---
+
 ## e230 — W033's commitment-vs-belief + T207's entry order: the thin spots are the SURVIVORS' (BELIEF-AND-COMMITMENT-TOGETHER + TWO-ORDERS) — but the modal class inverts the question: P-FIRST everywhere, decisions stickier than beliefs (2026-10-04 ~13:50Z) — DONE
 
 WHAT WE DID: the desk pass on committed records only (e228's
