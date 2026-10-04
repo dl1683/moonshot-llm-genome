@@ -685,6 +685,43 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T213 — e231: 0-for-4, and the fact direction is a cloud (2026-10-04 ~14:25Z)
+
+The fourth currency died with its instrument's autopsy on the
+table — the more valuable half of the landing. THE PIN: AdamW's
+first displacement is -lr*(sign(g)+wd*theta), so the sign-ray
+u0 is ALWAYS inside its own wash's span by arithmetic
+(segment 1 = -u0 to 1e-4; every top-k overlap in a 2e-4-wide
+band near 1). The e209/e225 shared-stream convention built an
+instrument that measures the recipe, not the economy — W021's
+instrument families gain the RECIPE-IDENTITY class, and the
+disclosure now rides every future u0/span read. THE DEEPER
+CO-READ: cos(u0, u0') ~ 0.35 across wash draws — THE FACT
+DIRECTION IS STREAM-RELATIVE. What the sign-ray calls "the
+fact" is one draw from a direction cloud. This does not
+retro-invalidate the e209/e225 family (all internally
+one-fixed-stream) but it kills any reading of u0 as THE FACT'S
+PLACE IN WEIGHT SPACE — and it echoes g14's MULTI-COMPONENT:
+the fact's geometry is distributed, like its crush. THE LEDGER:
+the flat phase's currency is 0-for-4 (SNR, strength/margin,
+fragility, span-membership-as-instrumented). W036's first leg
+is NOT falsified — INSTRUMENT-BLOCKED. THE REDESIGN
+(registered): (a) the LATE-HISTORY span (steps 10-20, past the
+sign-step's shadow — the ball's own late geometry); (b) the
+CONSOLIDATED fact direction (draw-averaged, the cloud's mean);
+their overlap is the shoreline's leg-1 retry. REGISTERED
+PREDICTION (honest form): the redesigned instrument must first
+be ABLE to vary — the consolidated-vs-late overlaps should
+spread across roots by orders more than the 2e-4 pin band;
+only then does the join mean anything (no sign predicted — the
+registration is the instrument's validity condition).
+CONNECTIONS: e226's supports are per-context gradient objects,
+NOT sign-rays — the 124M seat result is untouched by this
+autopsy (different object class; state it where the two threads
+meet); e234's span basis carries the same shadow risk — the
+advisory sent (disclosure + composition check + the pinned-
+spread honesty clause); T211's dissociation stands.
+
 ## T212 — e232: the zombie is a resting state, the grinding is real, and 7 commitments changed hands (2026-10-04 ~14:12Z)
 
 Both of the desk pass's reads landed on the structured side.

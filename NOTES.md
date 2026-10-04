@@ -9,6 +9,49 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e231 — the ball-side overlap join: NEITHER, and the instrument's own autopsy — the fourth currency dies with the ledger 0-for-4 (rho -0.071 vs multiple +0.607 / aggregate -0.179); the overlap was ARITHMETICALLY PINNED (AdamW's first displacement IS minus the sign-ray — overlap ~1 by recipe at every root); the decisive co-read: cos(u0, u0') ~ 0.35 across wash draws — THE FACT DIRECTION IS STREAM-RELATIVE, a direction cloud, not a stable geometric object (2026-10-04 ~14:20Z) — DONE
+
+WHAT WE DID: the frozen scratch/e231_design.md cell — u0's
+top-k overlap on each root's own wash-span (Gram-SVD of the
+20-step seed-10902 history, e225's chunked fp64 basis
+module-imported; G_U0 bit-identical to e225's committed
+sign-ray md5s at all 7 roots; parents hard-bound at 1e-12);
+the random-basis null; the three-currency join on one page.
+All gates PASS; CPU-only, 607s. Script lab/e231_ball_overlap.py;
+runs/e231/{metrics.json COMPLETE, e231_ball_overlap.png}.
+
+WHAT WE SAW (T213): NEITHER — rho(overlap, retention) = -0.071
+at n=7; the breakers at the wrong ends (g1d retention 1.327 at
+overlap rank 4/7; take6 2nd-highest overlap, 2nd-lowest
+retention); REGIME-PROXY also dead as frozen (rho_fresh -0.80
+inverts; rho_exotic +0.50 carried by a 1e-6 seed-noise flip).
+THE AUTOPSY: at every root the top-k overlap sits in
+[0.99975, 0.99995] because AdamW's first displacement is
+-lr*(sign(g)+wd*theta) — segment 1 IS (minus) u0 to 1e-4: the
+e209/e225 sign-ray is ALWAYS inside its own wash's span BY
+ARITHMETIC. The instrument measured the recipe, not the
+economy (W021's instrument families gain the RECIPE-IDENTITY
+class; the shared-stream disclosure now rides every future
+u0/span read). THE DEEPER CO-READ: cos(u0@10902, u0@10914) =
+0.32-0.42 and cross-stream overlap ~0.33-0.42 — the fact
+direction rotates wholesale across wash draws: no stream-stable
+geometric fact-vs-span object exists at this instrument's
+scale. Registered predictions 0/3; the k-in-2..6 expectation
+held (10M spans tighter, k=5 doors 0.82-0.84 vs 2.74M k=6 ~0.92
+— the fact spreads over more doors at 10M).
+
+HONESTY: the e209/e225 family's reads were internally one-fixed-
+stream and are not retro-invalidated — but any interpretation
+treating u0 as THE FACT'S PLACE IN WEIGHT SPACE is dead. W036's
+first leg (flat-phase-is-friction at the wall's scale) is NOT
+falsified — INSTRUMENT-BLOCKED: the redesign is registered (the
+LATE-HISTORY span, steps 10-20 past the sign-step's shadow; the
+CONSOLIDATED draw-averaged fact direction; their overlap is the
+shoreline's leg-1 retry). NEXT: T213's redesign on paper; e235
+dispatched (the second 10M root's lift — T211's confound).
+
+---
+
 ## e232 — the zombie lag + the temperature lens: ZOMBIES-STAND (6/6, the lag TOTAL — every resolution at step 80) + RESTRUCTURED (33/33 left of their verticals, 28x the floor — margins 0.823->0.153 while p fell only 3.5x; temperature is the maximal-margin null and the wash does what no temperature can); FREE FIND: 7/33 standing zombies are WRONG-CHOICE survivors — a fat margin on a flipped argmax, temperature-impossible in kind; the commitment outlives the belief AND the choice (2026-10-04 ~14:10Z) — DONE
 
 WHAT WE DID: one desk pass, two registered reads on committed
