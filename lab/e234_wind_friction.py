@@ -1330,7 +1330,7 @@ def main():
     del _rn2
     log(f"P5 support cache rebuilt (max row-norm drift vs P2: "
         f"{_dp_rn:.2e})")
-    grams, dmats, shadows = {}, {}, {}, {}
+    grams, dmats, shadows = {}, {}, {}
     for wi, w in enumerate(WASHES):
         mm = np.lib.format.open_memmap(SCRATCH / f"grads_w{wi + 1}.npy",
                                        mode="r", dtype=np.float16)
