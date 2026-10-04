@@ -220,7 +220,9 @@ CHUNK_DOT_MIN = 4_000_000          # per-param fp64 dots on GPU are one op
 BURST_MAX_S = 175.0                # < the 180 s hard lab cap
 BURST_MAX_STEPS = 40
 COOLDOWN_S = 45.0                  # the 30-60 s window
-TEMP_BURST_END = 84.0              # end the burst (never past 85C)
+TEMP_BURST_END = 84.0              # (recorded) the hard never-past-85 line
+TEMP_EARLY_END = 78.0              # per-step-poll burst-end margin
+POLL_EVERY = 1                     # per-step mid-burst temp polls
 LAUNCH_POLL_GAP_S = 5.0
 
 ANCHOR_G = "The email service made by Google->Gmail"
@@ -300,6 +302,25 @@ deviations: list[str] = [
     "instrument between GPU bursts (threads 8, e182's convention — the "
     "owner's max-priority window is active and the box is ours).",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch).",
+    "JOURNAL-CLOBBER RECOVERY (disclosed): the startup t=0 rewrite "
+    "overwrote a restored journal's probed states ({P: 0,10,50} -> {P: "
+    "0}) when the cell was killed mid-arm and restarted — caught on the "
+    "second kill; fixed (restore-safe merge) + an archive RE-PROBE pass "
+    "added (e214's convention: the weight archives on disk are the "
+    "record; e233_P_s10/s50/s80.pt re-probed). No bar, no instrument, "
+    "no adjudication touched — a bookkeeping repair.",
+    "ENVELOPE TIGHTENING MID-RUN x2 (disclosed; bars/instruments "
+    "untouched): the first full-run bursts showed the laptop 5090 "
+    "ramping ~9C/s at burst start (fan spin-up) — the original 8-step "
+    "poll cadence, then the 4-step cadence, caught 87-88C reads before "
+    "ending the burst (the never-past-85C line was briefly crossed, "
+    "three bursts total). The run was stopped twice (s58, s78), the "
+    "guard tightened to PER-STEP polls with a 78C burst-end margin, and "
+    "the cell RESUMED from its saved per-burst state each time "
+    "(runs/checkpoints/e233_*_latest.pt) — the resumable-state "
+    "discipline working as designed. The envelope log "
+    "(runs/_envelope_log.jsonl) carries every poll, including the hot "
+    "ones.",
     "Smoke mode (E233_SMOKE=1): 3 steps, checkpoints {1,2,3}, own smoke "
     "dir; the draw-stream certification is the FULL 80-draw check (CPU-"
     "only, cheap); nothing adjudicated or gated (SMOKE stamp).",
@@ -351,14 +372,20 @@ def wait_gpu_free(tag: str, max_wait_s: float = 1800.0) -> list[dict]:
 
 
 def burst_temp_check(tag: str) -> bool:
-    """Mid-burst thermal guard: True = keep going; ends the burst at
-    >= TEMP_BURST_END (never past 85C)."""
+    """Mid-burst thermal guard: True = keep going. PER-STEP polls (the
+    laptop 5090 ramps ~9C/s at burst start during fan spin-up — coarser
+    cadences caught 87-88C reads); the burst ends at the 78C margin so
+    the one-step sensor jump stays under the never-past-85C line.
+    TIGHTENED TWICE mid-run (8-step -> 4-step -> per-step; disclosed in
+    deviations; bars and instruments untouched — the run resumed from
+    its saved per-burst state each time)."""
     s = common.gpu_status()
     common._log_envelope_poll(f"{NAME}:{tag}:mid", s["util"], s["temp"],
-                              s["temp"] < TEMP_BURST_END)
-    if s["temp"] >= TEMP_BURST_END:
+                              s["temp"] < TEMP_EARLY_END)
+    if s["temp"] >= TEMP_EARLY_END:
         log(f"  [gpu:{tag}:mid] temp {s['temp']:.0f}C >= "
-            f"{TEMP_BURST_END:.0f}C — ending burst early")
+            f"{TEMP_EARLY_END:.0f}C margin — ending burst "
+            f"(85C line protected)")
         return False
     return True
 
@@ -490,7 +517,7 @@ def run_arm(tag: str, net0, train_ids, offs, bank_xy, s_chunks_gpu,
                 f"{extra} ({time.time() - t_burst:.1f}s into burst)")
         # ---- burst bookkeeping / thermal guard
         temp_ok = True
-        if n_burst % 8 == 0:
+        if n_burst % POLL_EVERY == 0:
             temp_ok = burst_temp_check(f"{tag}burst{burst_id}")
         hit_ckpt = step in ckpt_set
         burst_over = (n_burst >= BURST_MAX_STEPS
@@ -1009,7 +1036,17 @@ def main():
         rec["bank_ce"] = hp["ce"]
         return rec
     t0_rec = probe_state(net0)
-    states = {"P": {"0": t0_rec}, "C": {"0": t0_rec}}
+    if "states" in journal and journal["states"].get("P") \
+            and "0" in journal["states"]["P"]:
+        # restore-safe: NEVER clobber a restored journal's probed states
+        # (the mid-run kill at 2026-10-04 taught this — the t=0 rewrite
+        # had flattened {P: 0,10,50} back to {P: 0}; the weight archives
+        # + latest.pt carried the recovery, see deviations)
+        states = journal["states"]
+        states.setdefault("P", {})["0"] = t0_rec
+        states.setdefault("C", {})["0"] = t0_rec
+    else:
+        states = {"P": {"0": t0_rec}, "C": {"0": t0_rec}}
     journal["states"] = states
     save_journal()
     log(f"t=0: iPhone p0 {t0_rec['ctrl_p'][ANCHOR_I]:.4f} Gmail p0 "
@@ -1066,6 +1103,37 @@ def main():
             torch.cuda.empty_cache()    # the inter-arm cache reset
         if tag == "P" and not SMOKE:
             time.sleep(COOLDOWN_S)      # the inter-arm cooldown
+
+    # ---- the archive RE-PROBE pass (e214's convention): any checkpoint
+    # whose probe record is missing (a kill mid-probe) is re-probed from
+    # its saved weight archive — the states on disk are the record.
+    for tag in ("P", "C"):
+        for s_ in CK_STEPS:
+            if str(s_) in states[tag]:
+                continue
+            arch = CK_DIR / f"{NAME}_{tag}_s{s_}.pt"
+            if not arch.exists():
+                log(f"WARNING: ARM-{tag} +{s_} probe record missing and "
+                    f"no archive {arch} — the state read is lost")
+                continue
+            sd = torch.load(arch, map_location=CPU,
+                            weights_only=False)["model"]
+            netC = copy.deepcopy(net0)
+            netC.load_state_dict(sd)
+            rec = probe_state(netC)
+            led_row = ledgers.get(tag, {}).get(str(s_)) or \
+                ledgers.get(tag, {}).get(s_)
+            if led_row is not None:
+                rec["in_batch_ce"] = led_row["ce"]
+            rec["source"] = f"archive re-probe (e233_{tag}_s{s_}.pt)"
+            states[tag][str(s_)] = rec
+            del netC, sd
+            log(f"  [ARM-{tag}] +{s_}: RE-PROBED from archive — iPhone p "
+                f"{rec['ctrl_p'][ANCHOR_I]:.4f} Gmail p "
+                f"{rec['ctrl_p'][ANCHOR_G]:.4f} | bank ppl "
+                f"{rec['bank_ppl']:.2f}")
+        journal["states"] = states
+        save_journal()
 
     # normalize ledger keys to str (journal/metrics round-trip shape)
     ledgers = {t: {str(k): v for k, v in ledgers[t].items()}
