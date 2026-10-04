@@ -9,7 +9,47 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
-## x2 — the product-algebra span probe (neighbor note 6): GENERIC — no trained layer generates a small closed algebra under products; every span fills like matched-random (2026-10-04 ~13:05Z) — DONE
+## e225 — FQ2's one-currency join: GRADED — a positive tilt under the line (rho 0.607 < 0.714 at n=7), NO scale separation (the 10M multiples 0.543/1.023 interleave the 2.74M cloud 0.562-3.721); the breakers are the lottery's own rows; the edge-collapse arithmetic co-read (2026-10-04 ~12:52Z) — DONE
+
+WHAT WE DID: the wall family's six roots instrumented for the first
+time (the u0 sign-ray edge + the 3-draw in-span band, e209's
+instrument verbatim, CPU-only, 7 gates PASS; the orphaned run
+recovered on-land after a load-starve — the "dead" predecessor had
+committed the script and launched before dying; verified against
+the dispatch letter line-by-line, bars verbatim) joined to their
+committed flat-phase retentions across 2.74M and 10M; J1's x = the
+committed 3.72 (e209 R1), the same-instrument e131 re-read carried
+as the bridge (fresh 2.434 vs committed 3.721 — the gap is e205's
+fine-grid band vs onset-grid; J1 the largest multiple either way).
+Script lab/e225_one_currency.py; runs/e225/{metrics.json COMPLETE,
+e225_one_currency.png}.
+
+WHAT WE SAW (T206): the join LEANS one-currency but does not clear
+the frozen line — Spearman 0.607 vs the 0.714 one-sided 5% at n=7,
+the tilt J1-anchored (LOO-without-J1 0.543); the scales do NOT
+separate (the two-currencies map is dead at this n: both 10M
+multiples sit inside the 2.74M range); the monotone-breakers are
+g1d (1.38 mult / 1.33 ret, above the cloud) and g1f (0.56/0.93,
+below it) — the cons pair J4/J5 shows retention NOT tracking the
+multiple within-axis (near-equal x 0.60/0.56, opposite y 0.615/
+0.932): at equal SNR the wall's flat phase still differs — a
+strict SNR-conservator reading is DEAD at n=2. THE EDGE-COLLAPSE
+CO-READ: one 10M wash step (3.157 raw) = 2.9x J6's edge and 2.0x
+J7's; J6's multiple sits below the 1.0 SNR floor, J7 at parity —
+WALL-FADES-as-edge-collapse stays arithmetic-consistent,
+unadjudicated by the frozen letter (at 2.74M the step also exceeds
+every fresh edge, 1.1-2.4x — static-edge-vs-step is not by itself
+the scale separator).
+
+HONESTY: n=1 per root, 3-draw bands (the 2-3x band lottery would
+move any median); the retention side closed data; T178's "0.96"
+unreproducible under one convention (flat-min 0.895 vs flat-median
+0.965 — flat-min used, disclosed); the GRADED letter honored — no
+bar shopping. NEXT: T206's regime read (within fresh-formation
+rows the tilt may be law; the exotic-formation rows its boundary)
++ the formation-curve members as the cheap new rows.
+
+
 
 WHAT WE DID: the six attention out-projections and six MLP-block
 composites (192x192, float64) of the e131 consolidated root; the

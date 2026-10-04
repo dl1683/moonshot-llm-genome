@@ -685,6 +685,42 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T206 — e225: the wall leans SNR but is not only SNR — the regime read (2026-10-04 ~13:20Z)
+
+The one-currency join came back GRADED, and its failure mode is
+more informative than a fire would have been. Three facts: (1) the
+tilt is positive but underpowered (rho 0.607 < 0.714, J1-anchored);
+(2) the scales do NOT separate — two-currencies is dead at this n;
+(3) THE CONS PAIR: near-identical multiples (0.60/0.56) with
+opposite retentions (0.615/0.932) — at equal SNR the flat phase
+still differs. A strict "the wall is an SNR conservator" is
+therefore DEAD as stated: something besides the fact's edge-over-
+noise sets the flat phase for the cons-axis draws. But look at
+WHICH rows break monotonicity: g1d (the half-expressed root) and
+g1f — the formation LOTTERY's exotic members, not the normal
+roots. Within the fresh-formation families the tilt is clean
+(10M: 0.54->0.895, 1.02->0.79 monotone; J1/J2 monotone). TWO
+ALTERNATIVE EXPLANATIONS: (H-i UNDERPOWERED-ONE-CURRENCY) the
+relation is monotone but noisy — 3-draw bands and n=1 per root
+blur x; tightened bands + more rows clear the line; (H-ii
+REGIME-CONDITIONAL) the wall conserves SNR only in the normal
+formation regime; exotic formation (half-expression, cons-axis)
+couples retention to something else — the wall grid's own "the
+first step is the axis's" clause. DISCRIMINATING OBSERVATION
+(registered): add the formation-curve members (g1bS5's 0.65/0.73
+roots with g1bS6's committed retentions) as new 10M rows and
+re-rank; tighten x with 5-7 band draws. REGISTERED PREDICTION:
+under H-ii the correlation clears WITHIN fresh-formation rows
+(rho >= 0.714 on that subset alone) while g1d/g1e/g1f REMAIN
+breakers — and that split, if it holds, is the sharpened law:
+THE WALL IS A RATIO DEVICE IN THE FORMATION REGIME; outside it,
+the flat phase carries axis-specific cargo the SNR cannot see.
+Connection: e214's erosion-order-is-SHAPE + this = the wall's
+flat phase has BOTH a conserved-order face and a lottery-fragile
+level face — shape/height all the way down. W031's margin
+landscape (just dispatched as e228) may supply the local
+mechanism the SNR cannot.
+
 ## T204 — x3: the arithmetic floor made literal — batch-shape is a rounding boundary; the cosine floor ~3e-7 (2026-10-04 ~13:00Z)
 
 W030 said closed nulls are the lab recording its own floor; x3 prices
