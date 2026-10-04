@@ -586,7 +586,7 @@ def svd_basis(H: torch.Tensor) -> dict:
         acc = torch.zeros(rank_eff, P, dtype=torch.float64)
         for s in range(0, P, chunk):
             Hc = H[:, s:s + chunk].to(torch.float64)
-            acc += evecs[:, :rank_eff].T @ Hc       # (rank, chunk) -> accumulate
+            acc[:, s:s + chunk] += evecs[:, :rank_eff].T @ Hc   # (rank, chunk)
         rows = [acc[i] / sv[i].clamp(min=1e-30) for i in range(rank_eff)]
         Vp = torch.stack([r.to(torch.float32) for r in rows])
     return {"sv": sv, "Vp": Vp, "pr": pr, "rank_eff": rank_eff,
