@@ -5149,6 +5149,42 @@ physics states. That is the culture working.
 
 
 
+## W037 — WONDER: the fact is a shadow cast by behavior — weight-space is the medium, not the message (2026-10-04 ~14:38Z; no bars, no kills — two instrument classes, two stabilities)
+
+Put today's instrument classes side by side. The BEHAVIORAL
+instruments — the 54 per-context gradient supports at 124M —
+returned STABLE objects: e226's alignment reads replicated
+across three independent washes; the batteries' p-ranks
+replicate at 0.94+. The WEIGHT-SPACE instruments — the sign-ray
+u0 family — returned CLOUDS: cos(u0, u0') ~ 0.35 across draws;
+every "fact direction" is stream-relative (T213). THE READ:
+THE FACT'S IDENTITY IS BEHAVIORAL, NOT GEOMETRIC. The fact
+lives in what the organism DOES (the support pattern, the
+battery answers); weight-space is the medium that carries it,
+and the medium does not remember which strokes wrote the
+message. This EXPLAINS THE 0-FOR-4 LEDGER in one stroke: the
+flat phase's currency could not be found among weight-space
+candidates (SNR, strength, fragility, span-membership) because
+the fact is not a weight-space object — the wall's ratio-
+device behavior is BEHAVIORAL economics, priced in answers,
+not in directions. THE TENSION WITH W036: the shoreline card
+bets geometry still governs fate (orientation to the wind); if
+W037 is right, e226's orientation result is real but the
+"geometry" that matters is the SUPPORT's orientation (a
+behavioral-space object!) — which is exactly what e226
+measured. So the two cards converge on a sharper question:
+THE CURRENCY LIVES IN BEHAVIOR-SPACE; does the WALL have a
+behavior-space overlap instrument (the fact's support vs the
+wash's... what? the wash has no support — the wash is not a
+probe. THE MISSING OBJECT: the wash's behavioral footprint —
+the battery-level changes it induces). REGISTERED PREDICTION
+(no retrofit): e236 (the shoreline leg-1 retry, subspace-vs-
+subspace in weight-space) lands VARIES-BUT-TRACKS-NOTHING or
+weak — because weight-space cannot price a behavioral object;
+if e236 surprises with SHORELINE-LEG1, W037's scope narrows to
+the u0 family and W036's geometry claim stands. Either way the
+pair is now a registered discrimination.
+
 ## W036 — WONDER: the wall's shoreline — are the small-model wall and the 124M wash one field seen from two shores? (2026-10-04 ~14:16Z; no bars, no kills — the day's two worlds converging)
 
 The lab has run two model-worlds on separate tracks all week: the
@@ -5230,7 +5266,7 @@ near-orthogonality of Gmail's support is measured THROUGH the
 wash (the support rotates too — sub-bar, but nonzero); nothing
 here is adjudicated until the decomposition cell runs.
 
-## W034 — WONDER: the zombie as the law's microscope — shape outliving height inside a single death (2026-10-04 ~13:48Z; no bars, no kills — savoring a click)
+## W034 — WONDER: the zombie as the law's microscope — shape outliving height inside a single death (2026-10-04 ~13:48Z; no bars, no kills — savoring a click) [OUTCOME ~14:10Z, e232/T212: the letter DENIED by the pre-compute derivation (temperature preserves the sigma-normalized margin exactly — the family is a VERTICAL line, not tightly-coupled); the spirit CONFIRMED — RESTRUCTURED at 28x the floor, the cloud LEFT of the verticals; the derivation's honesty: the card's own premise killed before compute]
 
 Look at what the zombie decisions ARE, structurally. The argmax
 is ORDER information — WHICH token is first: exactly the object

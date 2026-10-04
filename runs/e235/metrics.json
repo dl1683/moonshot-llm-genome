@@ -1,0 +1,367 @@
+{
+  "experiment": "E235_SECOND_10M_LIFT",
+  "date": "2026-10-04T14:34:13Z",
+  "status": "PARTIAL: g1bS7 control reproduced; GATE PASS",
+  "question": "e227: exemplar lift +0.185 at 2.74M, absent at 10M (-0.019 on g1bS7's root). Is the 10M absence SCALE or CONSOLIDATION VARIANT? The discriminating root: g1bS5's peak (cons 10901, the original draw). If the lift appears there -> variant; absent on both -> scale (in this instrument form)",
+  "registration": "bars frozen VERBATIM from the dispatch (VARIANT-NOT-SCALE / SCALE-CONFIRMED / PARTIAL); all numeric operationalizations are REGISTERED ADDITIONS (flagged); arm + constants committed before any compute; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "VARIANT-NOT-SCALE": "the lift at t=0 on g1bS5's peak root >= +0.05 (and/or the 2-shot Z-form gates >= 10/30) where g1bS7's reproduced read stays absent \u2014 the 10M absence was the consolidation variant; the faculty is present at 10M; the dissociation readjusts to a consolidation axis",
+      "SCALE-CONFIRMED": "the lift absent on BOTH 10M roots (reproduced control intact) \u2014 the absence is scale in this instrument form; T211's table stands",
+      "PARTIAL": "anything between \u2014 the reads verbatim (t0 lift, gate counts, the wash trajectory), no narrative inflation"
+    },
+    "registered_prediction": "VARIANT-NOT-SCALE (T211's own, THINKING.md T211 prediction (a))",
+    "operationalizations": "see the script docstring (the ungated _all lift as the instrument; the e182 gate count over 30; 'absent' := lift <= 0.0 AND gates < 10; the partition VARIANT/SCALE/PARTIAL; the wash descriptive) \u2014 all REGISTERED ADDITIONS (the dispatch bars are qualitative)",
+    "registration": "bars + partition + arm + constants frozen in this file and committed BEFORE any compute; no bar shopping"
+  },
+  "builds_on": [
+    "e227/T211 (the cross-scale dissociation + this registration; EVERY instrument imported from lab/e227_faculty_at_home.py)",
+    "g1bS5 (the peak root, cons 10901)",
+    "g1bS7 (the control root, cons 10903)",
+    "g1b (the wash stream, seed 10902)"
+  ],
+  "whats_new": [
+    "the second 10M root's t=0 lift + gate census",
+    "the g1bS7 control reproduction gate (the instrument tie)",
+    "the g1bS5 lineage-dose wash lift trajectory at {0,+2,+10,+50} (CPU)"
+  ],
+  "smoke": false,
+  "references": {
+    "g1bS5_root": {
+      "root_gm12": 0.7676599621772766,
+      "cons_seed": 10901,
+      "movement_rms": 0.2,
+      "source": "runs/g1bS5/metrics.json ckpt_inventory.g1bS5_root_m020"
+    },
+    "g1bS7_root": {
+      "root_gm12": 0.935076117515564,
+      "cons_seed": 10903,
+      "movement_rms": 0.2,
+      "source": "runs/g1bS7/metrics.json ckpt_inventory.g1bS7_root_m020f"
+    },
+    "e227_scale10": {
+      "ruler": 0.935076117515564,
+      "md5": "1464bba48b574bc6a4472413f2b8a824",
+      "near": 0.6394560010482867,
+      "ctrl": 0.8930203579366207,
+      "all_reads": {
+        "tmpl2": 0.018659125656510393,
+        "mis2Z": 0.07457162185261647,
+        "mis2M": 0.013207127580729623,
+        "snip0Z": 0.5842487221894165,
+        "snip0M": 0.03208914962597191
+      },
+      "lift_all": -0.018882022045242287,
+      "gates": 0,
+      "gates_probed": 30,
+      "ce_r": 1.677453637123108,
+      "source": "runs/e227/metrics.json scale10"
+    },
+    "wash_274_L10902_lift": {
+      "0": 0.18464942547408017,
+      "1": -0.0242429699071429,
+      "2": -0.05041843813590027,
+      "4": 0.0175098707391457,
+      "10": 0.3142446902665226,
+      "25": 0.2896355106071992,
+      "50": 0.15426072173497896
+    },
+    "note_274": "runs/e227/journal_L10902.json \u2014 the 2.74M lineage arm (lr 1e-3, seed 10902): lift {t0 +0.185, +2 \u22120.050, +10 +0.314, +50 +0.154} \u2014 the survival shape this cell's wash leg is read against"
+  },
+  "timing": {
+    "total_s": 32.3
+  },
+  "load_politeness": {
+    "cpu_load_pct_at_start": 26,
+    "threads": 8,
+    "gpu": "PARKED before the wash (e233 owns the GPU lane; e235 is CPU-only by dispatch)",
+    "neighbors": "e233 (GPU lane, ARM-C under thermal guard per STATE.json) + e234 (CPU-heavy) \u2014 one wash, no parallelism"
+  },
+  "gates": {
+    "G_CORP": {
+      "corpus_zeph": 0,
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "n_install": 60,
+      "n_held": 30,
+      "pass": true
+    },
+    "G_ROOT5": {
+      "checkpoint": "runs/checkpoints/g1bS5_root_m020.pt",
+      "meta": {
+        "experiment": "g1bS5",
+        "desc": "g1bS2's PASSED base+install (LOADED read-only) + e113 jitter consolidation s500 @ lr 0.0004 (seed 10901) = movement 0.2 rms \u2014 the m020 point of the formation curve",
+        "params": 9977600,
+        "movement_rms": 0.2,
+        "steps": 500,
+        "lr": 0.0004,
+        "cons_seed": 10901,
+        "root_gm12": 0.7676599621772766,
+        "base": "runs/checkpoints/g1bS2_base.pt.pt",
+        "install": "runs/checkpoints/g1bS2_install.pt.pt"
+      },
+      "md5": "7fb5a9f82af330b4e0f00c0a76edd7d3",
+      "max_abs_diff_vs_file": 0.0,
+      "params": 9977600,
+      "ruler_ref": 0.7676599621772766,
+      "tol": 5e-06,
+      "t0_ruler": 0.7676599025726318,
+      "source": "runs/g1bS5/metrics.json ckpt_inventory.g1bS5_root_m020",
+      "pass": true
+    },
+    "G_CTRL": {
+      "what": "g1bS7 reproduced vs e227's committed scale10 (runs/e227/metrics.json)",
+      "tol": 5e-06,
+      "md5_got": "1464bba48b574bc6a4472413f2b8a824",
+      "md5_ref": "1464bba48b574bc6a4472413f2b8a824",
+      "md5_match": true,
+      "bit_exact_load": true,
+      "gates_got": 0,
+      "gates_ref": 0,
+      "gates_match": true,
+      "rows": [
+        {
+          "read": "ruler_battery_cell",
+          "got": 0.935076117515564,
+          "ref": 0.935076117515564,
+          "dp": 0.0,
+          "within_tol": true
+        },
+        {
+          "read": "near",
+          "got": 0.6394560010482867,
+          "ref": 0.6394560010482867,
+          "dp": 0.0,
+          "within_tol": true
+        },
+        {
+          "read": "ctrl",
+          "got": 0.8930203579366207,
+          "ref": 0.8930203579366207,
+          "dp": 0.0,
+          "within_tol": true
+        },
+        {
+          "read": "tmpl2_all",
+          "got": 0.018659125656510393,
+          "ref": 0.018659125656510393,
+          "dp": 0.0,
+          "within_tol": true
+        },
+        {
+          "read": "mis2Z_all",
+          "got": 0.07457162185261647,
+          "ref": 0.07457162185261647,
+          "dp": 0.0,
+          "within_tol": true
+        },
+        {
+          "read": "mis2M_all",
+          "got": 0.013207127580729623,
+          "ref": 0.013207127580729623,
+          "dp": 0.0,
+          "within_tol": true
+        },
+        {
+          "read": "snip0Z_all",
+          "got": 0.5842487221894165,
+          "ref": 0.5842487221894165,
+          "dp": 0.0,
+          "within_tol": true
+        },
+        {
+          "read": "snip0M_all",
+          "got": 0.03208914962597191,
+          "ref": 0.03208914962597191,
+          "dp": 0.0,
+          "within_tol": true
+        },
+        {
+          "read": "lift_all",
+          "got": -0.018882022045242287,
+          "ref": -0.018882022045242287,
+          "dp": 0.0,
+          "within_tol": true
+        },
+        {
+          "read": "ce_r",
+          "got": 1.677453637123108,
+          "ref": 1.677453637123108,
+          "dp": 0.0,
+          "within_tol": true
+        }
+      ],
+      "max_dp": 0.0,
+      "pass": true
+    }
+  },
+  "g1bS5": {
+    "root": {
+      "provenance": {
+        "checkpoint": "runs/checkpoints/g1bS5_root_m020.pt",
+        "meta": {
+          "experiment": "g1bS5",
+          "desc": "g1bS2's PASSED base+install (LOADED read-only) + e113 jitter consolidation s500 @ lr 0.0004 (seed 10901) = movement 0.2 rms \u2014 the m020 point of the formation curve",
+          "params": 9977600,
+          "movement_rms": 0.2,
+          "steps": 500,
+          "lr": 0.0004,
+          "cons_seed": 10901,
+          "root_gm12": 0.7676599621772766,
+          "base": "runs/checkpoints/g1bS2_base.pt.pt",
+          "install": "runs/checkpoints/g1bS2_install.pt.pt"
+        },
+        "md5": "7fb5a9f82af330b4e0f00c0a76edd7d3",
+        "max_abs_diff_vs_file": 0.0,
+        "params": 9977600
+      },
+      "ruler": {
+        "checkpoint": "runs/checkpoints/g1bS5_root_m020.pt",
+        "meta": {
+          "experiment": "g1bS5",
+          "desc": "g1bS2's PASSED base+install (LOADED read-only) + e113 jitter consolidation s500 @ lr 0.0004 (seed 10901) = movement 0.2 rms \u2014 the m020 point of the formation curve",
+          "params": 9977600,
+          "movement_rms": 0.2,
+          "steps": 500,
+          "lr": 0.0004,
+          "cons_seed": 10901,
+          "root_gm12": 0.7676599621772766,
+          "base": "runs/checkpoints/g1bS2_base.pt.pt",
+          "install": "runs/checkpoints/g1bS2_install.pt.pt"
+        },
+        "md5": "7fb5a9f82af330b4e0f00c0a76edd7d3",
+        "max_abs_diff_vs_file": 0.0,
+        "params": 9977600,
+        "ruler_ref": 0.7676599621772766,
+        "tol": 5e-06,
+        "t0_ruler": 0.7676599025726318,
+        "source": "runs/g1bS5/metrics.json ckpt_inventory.g1bS5_root_m020",
+        "pass": true
+      },
+      "ce_r_t0": 1.696841835975647,
+      "ref": {
+        "root_gm12": 0.7676599621772766,
+        "cons_seed": 10901,
+        "movement_rms": 0.2,
+        "source": "runs/g1bS5/metrics.json ckpt_inventory.g1bS5_root_m020"
+      }
+    },
+    "screening": {
+      "tmpl2": {
+        "n_probed": 30,
+        "n_passed": 12,
+        "reduced_flag": false,
+        "p0_range": [
+          0.0002720876655075699,
+          0.7990654110908508
+        ]
+      },
+      "ctrl": {
+        "n_passed": 16,
+        "by_sub": {
+          "colon": 0,
+          "word": 8,
+          "cname": 0,
+          "sent": 8
+        }
+      }
+    },
+    "t0_reads": {
+      "fact": 0.7676600118167698,
+      "near": 0.557337861143363,
+      "tmpl2": 0.6489703158537546,
+      "mis2Z": 0.7461266020933787,
+      "mis2M": 0.20843120478093624,
+      "snip0Z": 0.49967824170986813,
+      "snip0M": 0.39535671720902127,
+      "ctrl": 0.8937627524137497
+    },
+    "t0_reads_all_ungated": {
+      "tmpl2": 0.36564582570281345,
+      "mis2Z": 0.44573703694719974,
+      "mis2M": 0.19477864044408003,
+      "snip0Z": 0.27784124525884785,
+      "snip0M": 0.34455702677369116
+    },
+    "t0_fewshot_lift_all": -0.14977838632961113,
+    "t0_fewshot_lift_gated": -0.18692551242808503,
+    "gate_count_2shot_Z": 12,
+    "mis2_split": {
+      "pZ_under_MIRABEL": 0.44573703694719974,
+      "pM_following": 0.19477864044408003,
+      "tmpl2Z": 0.36564582570281345,
+      "snip0Z": 0.27784124525884785
+    }
+  },
+  "g1bS7_control": {
+    "root": {
+      "provenance": {
+        "checkpoint": "runs/checkpoints/g1bS7_root_m020f.pt",
+        "meta": {
+          "experiment": "g1bS7",
+          "desc": "g1bS2's PASSED base+install (LOADED read-only) + e113 jitter consolidation s500 @ lr 0.0004 (seed 10903, FRESH \u2014 the original draw's was 10901) = movement 0.2 rms \u2014 the REDRAWN peak point (g1bS7, the fine-ordering leg)",
+          "params": 9977600,
+          "movement_rms": 0.2,
+          "steps": 500,
+          "lr": 0.0004,
+          "cons_seed": 10903,
+          "root_gm12": 0.935076117515564,
+          "base": "runs/checkpoints/g1bS2_base.pt",
+          "install": "runs/checkpoints/g1bS2_install.pt"
+        },
+        "md5": "1464bba48b574bc6a4472413f2b8a824",
+        "max_abs_diff_vs_file": 0.0,
+        "params": 9977600
+      },
+      "t0_ruler": 0.935076117515564,
+      "ce_r_t0": 1.677453637123108,
+      "ref": {
+        "root_gm12": 0.935076117515564,
+        "cons_seed": 10903,
+        "movement_rms": 0.2,
+        "source": "runs/g1bS7/metrics.json ckpt_inventory.g1bS7_root_m020f"
+      }
+    },
+    "screening": {
+      "tmpl2": {
+        "n_probed": 30,
+        "n_passed": 0,
+        "reduced_flag": true,
+        "p0_range": [
+          0.0014521654229611158,
+          0.04784712567925453
+        ]
+      },
+      "ctrl": {
+        "n_passed": 16,
+        "by_sub": {
+          "colon": 0,
+          "word": 8,
+          "cname": 0,
+          "sent": 8
+        }
+      }
+    },
+    "t0_reads": {
+      "fact": 0.935076117515564,
+      "near": 0.6394560010482867,
+      "tmpl2": NaN,
+      "mis2Z": NaN,
+      "mis2M": NaN,
+      "snip0Z": NaN,
+      "snip0M": NaN,
+      "ctrl": 0.8930203579366207
+    },
+    "t0_reads_all_ungated": {
+      "tmpl2": 0.018659125656510393,
+      "mis2Z": 0.07457162185261647,
+      "mis2M": 0.013207127580729623,
+      "snip0Z": 0.5842487221894165,
+      "snip0M": 0.03208914962597191
+    },
+    "t0_fewshot_lift_all": -0.018882022045242287,
+    "gate_count_2shot_Z": 0
+  }
+}
