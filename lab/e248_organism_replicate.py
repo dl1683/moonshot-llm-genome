@@ -1006,7 +1006,8 @@ def cmd_install() -> None:
                  + [(lr, n) for lr in INSTALL["lr_ladder"][1:]
                     for n in INSTALL["passes_at_high_lr"]])
 
-    # resumable mid-rung state
+    # resumable mid-rung state (optimizer moments included — a moments
+    # reset would silently change the install trajectory)
     ri, pi, step, gen = 0, 0, 0, torch.Generator().manual_seed(SEED_INSTALL)
     opt = None
     if ck.exists():
@@ -1014,8 +1015,13 @@ def cmd_install() -> None:
         model.load_state_dict(s["model"])
         gen.set_state(s["gen_state"])
         ri, pi, step = s["ri"], s["pi"], s["step"]
-        jlog("install_resume", rung=ri, pass_i=pi, step=step)
-        # rebuild the optimizer lazily for the CURRENT rung below
+        if s.get("opt") is not None:
+            opt = torch.optim.AdamW(model.parameters(), lr=1e-9,
+                                    weight_decay=WASH["wd"],
+                                    betas=WASH["betas"])
+            opt.load_state_dict(s["opt"])
+        jlog("install_resume", rung=ri, pass_i=pi, step=step,
+             opt_state_restored=opt is not None)
     else:
         torch.save({"model": model.state_dict(),
                     "gen_state": gen.get_state(), "ri": 0, "pi": 0,
@@ -1029,8 +1035,7 @@ def cmd_install() -> None:
             if opt is None or opt.param_groups[0]["lr"] != lr:
                 opt = torch.optim.AdamW(model.parameters(), lr=lr,
                                         weight_decay=WASH["wd"],
-                                        betas=WASH["betas"])
-            while not thermal_gate(f"install-r{ri}-p{pi}"):
+                                        betas=WASH["betas"])            while not thermal_gate(f"install-r{ri}-p{pi}"):
                 time.sleep(60)
             t0 = time.time()
             model.train()
@@ -1053,6 +1058,7 @@ def cmd_install() -> None:
                         jlog("install_burst_break", why=why, step=step)
                         break
             torch.save({"model": model.state_dict(),
+                        "opt": opt.state_dict(),
                         "gen_state": gen.get_state(), "ri": ri, "pi": pi,
                         "step": step}, ck)
             pi += 1
@@ -1472,13 +1478,20 @@ def cmd_read() -> None:
     jlog("span_identity", top=round(ident, 4), second=round(second, 4))
 
     # wind_cums: steps H+1..end decomposed; cos(P_span g_t, s_i(0))
+    # b_k = sum_j Vk[j,k] u_j normalized -> nrm_k = sqrt(Vk[:,k]^T G Vk[:,k]);
+    # g_t.b_k = (G[t,:H] @ Vk[:,k]) / nrm_k  (the desk-review bug fix:
+    # without the /nrm_k the projected-cosine is skewed by diag(nrm))
     if "wind_cum" not in m["reads"]:
         wind = {}
         for wname in ("w1", "w2"):
             G = spans[wname]["gram"]
             H = spans[wname]["half"]
             Vk = spans[wname]["Vk"]
-            gb = np.stack([G[H:, :H] @ Vk[:, k] for k in range(2)])  # (2, T2)
+            nrm_k = np.sqrt(np.maximum(
+                [float(Vk[:, k] @ (G[:H, :H] @ Vk[:, k])) for k in range(2)],
+                1e-24))
+            gb = np.stack([(G[H:, :H] @ Vk[:, k]) / nrm_k[k]
+                           for k in range(2)])                 # (2, T2)
             pg_norm = np.sqrt((gb ** 2).sum(axis=0)) + 1e-12
             bs = np.zeros((2, 54), dtype=np.float64)     # b_k . s_i
             col = 0
