@@ -52,3 +52,19 @@
 {"t": "2026-10-04T18:42:28Z", "event": "build_done", "lines_dropped": 249, "wash_chars": 1105295, "teach_chars": 1284435}
 {"t": "2026-10-04T18:42:48Z", "event": "amendment_applied", "co_bar8": "|rho|>=0.85 AND mean_abs_resid>2.443e-8, >=2/4 cells", "null_check": "seed-0 pure-temperature null rejected (n_ok=0)", "real_check": "structured-residual synthetic passes (n_ok=0)"}
 {"t": "2026-10-04T18:45:16Z", "event": "amendment_validation_recorded", "null": "n_ok=0 rejected", "positive": "n_ok=4 rho-0.998"}
+{"t": "2026-10-04T18:45:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 1s ago)"}
+{"t": "2026-10-04T18:46:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 21s ago)"}
+{"t": "2026-10-04T18:47:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 82s ago)"}
+{"t": "2026-10-04T18:48:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 142s ago)"}
+{"t": "2026-10-04T18:49:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 202s ago)"}
+{"t": "2026-10-04T18:50:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 262s ago)"}
+{"t": "2026-10-04T18:51:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 322s ago)"}
+{"t": "2026-10-04T18:52:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 382s ago)"}
+{"t": "2026-10-04T18:53:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 442s ago)"}
+{"t": "2026-10-04T18:54:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 502s ago)"}
+{"t": "2026-10-04T18:55:26Z", "event": "gpu_wait_owner", "tag": "train", "owner": "e246-cell-active(metrics.json, mtime 562s ago)"}
+{"t": "2026-10-04T18:56:38Z", "event": "thermal_break", "tag": "train-burst1", "step": 10, "temp": 78.0}
+{"t": "2026-10-04T18:56:39Z", "event": "train_burst_end", "burst": 1, "step": 10, "stop": "break", "best_val": Infinity}
+{"t": "2026-10-04T18:57:28Z", "event": "thermal_HARDSTOP", "tag": "train-burst2", "step": 18, "temp": 82.0}
+{"t": "2026-10-04T18:57:30Z", "event": "train_burst_end", "burst": 2, "step": 18, "stop": "hard", "best_val": Infinity}
+{"t": "2026-10-04T18:59:20Z", "event": "train_arc_rebudgeted", "what": "first live bursts measured ~0.2C/step heating: the chip reaches the 78C break in ~50s from a warm start -> the 12k-step fp32 arc was ~11h of duty-cycling; REBUDGET (operational, bars untouched): steps 12000->4000 (4k x 32x512 chars = 66M chars = ~59 epochs, ample for the val CE gate; sketch said '~15-25 bursts' - bursts now shorter and more numerous), bf16 autocast ON for training (master weights fp32; ALL evals/washes/battery reads stay strict fp32 - the e182 convention unchanged), burst break 76C, start gate 66C, temp-aware cooldown to 62C (max 300s), eval_every 250->200, max_bursts 60"}

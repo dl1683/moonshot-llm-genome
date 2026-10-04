@@ -287,11 +287,13 @@ SIZE_REASON = ("the replicate demands the 124M organism class (dispatch "
                "option (a), scratch/e244 sketch); 116,279,296 params > the "
                "100M free tier, <= the 500M ceiling with this stated reason")
 
-TRAIN = dict(steps=12000, lr=1e-3, warmup=300, batch=32,
-             eval_every=250, burst_s=175.0, poll_every=2,
-             temp_start_c=70.0, temp_break_c=78.0, temp_hard_c=82.0,
+TRAIN = dict(steps=4000, lr=1e-3, warmup=300, batch=32,
+             eval_every=200, burst_s=175.0, poll_every=4,
+             temp_start_c=66.0, temp_break_c=76.0, temp_hard_c=82.0,
+             cooldown_target_c=62.0, cooldown_max_s=300.0,
+             amp=True,
              uturn_tol=0.03, val_ce_gate=1.50, val_ce_target=1.40,
-             max_bursts=25)
+             max_bursts=60)
 
 WASH = dict(lr=5e-5, betas=(0.9, 0.95), wd=0.1, clip=1.0, batch=8,
             steps=80, grids={"w1": [2, 10, 50, 80], "w2": [10, 50, 80]},
@@ -595,6 +597,16 @@ def cooldown(lo=30.0, hi=60.0):
     time.sleep(0.5 * (lo + hi))
 
 
+def thermal_cooldown(target_c: float = 62.0, max_s: float = 300.0) -> None:
+    """Temp-aware cooldown: sleep until <= target_c (or max_s)."""
+    t0 = time.time()
+    while time.time() - t0 < max_s:
+        if gpu_poll()["temp"] <= target_c:
+            return
+        time.sleep(15.0)
+    jlog("cooldown_timeout", temp=gpu_poll()["temp"])
+
+
 # ------------------------------------------------------------------ phase 1
 def cmd_freeze() -> None:
     m = load_metrics()
@@ -765,7 +777,8 @@ def cmd_train() -> None:
     uturn_strikes = 0
     ctx = CFG["block_size"]
     while step < TRAIN["steps"] and bursts < TRAIN["max_bursts"]:
-        while not thermal_gate(f"train-burst{bursts + 1}"):
+        while not thermal_gate(f"train-burst{bursts + 1}",
+                               TRAIN["temp_start_c"]):
             time.sleep(60)
         t0 = time.time()
         stop = None
@@ -776,7 +789,11 @@ def cmd_train() -> None:
                                generator=gen)
             x = torch.stack([train_ids[i:i + ctx] for i in ix]).to(device)
             y = torch.stack([train_ids[i + 1:i + 1 + ctx] for i in ix]).to(device)
-            _, loss = model(x, y)
+            if TRAIN["amp"]:
+                with torch.autocast("cuda", dtype=torch.bfloat16):
+                    _, loss = model(x, y)
+            else:
+                _, loss = model(x, y)
             opt.zero_grad(set_to_none=True)
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
@@ -784,7 +801,8 @@ def cmd_train() -> None:
             sched.step()
             if step % TRAIN["poll_every"] == 0:
                 ok, why = mid_burst_check(step, f"train-burst{bursts + 1}", t0,
-                                          TRAIN["burst_s"])
+                                          TRAIN["burst_s"],
+                                          break_c=TRAIN["temp_break_c"])
                 if not ok:
                     stop = why
                     break
@@ -833,7 +851,8 @@ def cmd_train() -> None:
                         break
                 jlog("heatsoak_done", temp=gpu_poll()["temp"])
             else:
-                cooldown()
+                thermal_cooldown(TRAIN["cooldown_target_c"],
+                                 TRAIN["cooldown_max_s"])
 
     stb = torch.load(best, map_location="cpu", weights_only=False)
     m["organism"] = {
