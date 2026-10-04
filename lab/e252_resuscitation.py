@@ -677,9 +677,13 @@ def make_zombie_plot(rd, zombie_read, verdict):
     ax.set_xlabel("p at t=0"); ax.set_ylabel("p COOLED at +80")
     ax.set_xlim(-0.02, 1.02); ax.set_ylim(-0.02, 1.02)
     ax.grid(alpha=0.25); ax.legend(fontsize=7, loc="upper left")
+    _uz = (zr["counts"]["w1"]["un_zombie_non_near"]
+           + zr["counts"]["w2"]["un_zombie_non_near"])
+    _nn = (zr["counts"]["w1"]["n_standing_non_near"]
+           + zr["counts"]["w2"]["n_standing_non_near"])
     ax.set_title("(b) zombie revival vs the census's own half-p_t0 "
-                 f"threshold — un-zombied {zr['counts']['unzombie_nearn']} "
-                 "non-near", fontsize=9.2)
+                 f"threshold — un-zombied {_uz}/{_nn} "
+                 "non-near (both washes)", fontsize=9.2)
 
     # (c) the wrong-choosers table
     ax = axes[1, 0]
