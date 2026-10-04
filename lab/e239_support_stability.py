@@ -85,7 +85,10 @@ carries). Banks deleted on DONE (disclosed; the dot records + G_REPRO
 certify the reads; resume-safe via journal until then).
 
 Envelope: CPU-only, torch threads 4 (two other agents live — load
-checks per phase, RAM floor 12 GB before bank passes). No GPU. No
+checks per phase, RAM floor 8 GB before bank passes; the banks STREAM
+from disk via memmap — e226's 16 GB floor guarded its 13.4 GB RESIDENT
+cache, E239's chunk transients are ~2-4 GB, and the smoke found the
+shared box at 11.3 GB available mid-run). No GPU. No
 NOTES/THINKING/QUEUE/STATE edits (dispatch). Smoke via E239_SMOKE=1
 (subset probes, +80 only; nothing adjudicated).
 """
@@ -200,6 +203,14 @@ REGISTERED_PREDICTION = {
 }
 
 deviations: list[str] = [
+    "INSTRUMENT CORRECTION FROM THE SMOKE (pre-full-run, bars untouched): "
+    "the RAM floor was registered at 12 GB and the smoke HALTED at 11.3 "
+    "GB available (the shared box runs hotter than at e226's launch — "
+    "two other agents live); E239's banks STREAM from disk (memmap), so "
+    "the resident footprint is ~1 GB with 2-4 GB chunk transients — the "
+    "floor is set to 8 GB, still >=2x the largest transient. e226's "
+    "16 GB floor guarded a 13.4 GB RESIDENT cache; this cell's is not "
+    "resident.",
     "The support banks live in the system TEMP dir, not the repo (the "
     "repo tree sits under OneDrive sync; 5 banks x 13.4 GB do not belong "
     "in the synced tree) and are DELETED on DONE (the journal + full dot "
@@ -770,7 +781,7 @@ def main():
 
     # ------------------------------------------------ P5 THE t=0 BANK
     load_checks.append(cpu_load_check("bank t0"))
-    if not ram_floor_ok(12.0, "bank passes (chunk transients)"):
+    if not ram_floor_ok(8.0, "bank passes (chunk transients)"):
         write_metrics("PARTIAL: RAM floor hit — HALT")
         return 1
 
@@ -879,7 +890,7 @@ def main():
                 log(f"bank {tag}: on disk (journal) — skipping")
                 continue
             load_checks.append(cpu_load_check(f"bank {tag}"))
-            if not ram_floor_ok(12.0, f"bank {tag}"):
+            if not ram_floor_ok(8.0, f"bank {tag}"):
                 write_metrics("PARTIAL: RAM floor hit — HALT (resumable)")
                 return 1
             sd = torch.load(W_ARCH[w][s_], map_location=CPU,
