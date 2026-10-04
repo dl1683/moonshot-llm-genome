@@ -1,0 +1,996 @@
+{
+  "experiment": "e226_interior",
+  "phase": "eval-only on the THREE-wash 124M archive (CPU fp32 batch-1 gradient geometry; supports / wash-gradient alignment / rotation)",
+  "date": "2026-10-04T13:21:11Z",
+  "status": "PARTIAL: rotation read through w2",
+  "registration": "bars frozen VERBATIM from scratch/fq5_design.md (the ripened design note, frozen by the dispatch brief BEFORE any compute; the dispatch brief is the registration); adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "SUPPORT-DIFFERENTIATES": "fires if Gmail and iPhone separate on the alignment or rotation curves (>= 2 sigma of the within-family spread at any state) \u2014 the wash treats the two relations' supports differently; the interior mapped; the dimension's seat located even if its name stays open.",
+      "GEOMETRY-IDENTICAL": "fires if the curves sit within the family noise at every read \u2014 the differentiation is below the first-order floor; REAL-AND-UNNAMED confirmed as the correct state; the honest bound recorded."
+    },
+    "operationalizations": "probes = e216's committed 54-probe assignment (fact 20 / ctrl 12 / near 3 / tmpl 19; families = e216's family6 labels, inherited by joining on the fact string); support s_i = grad of p(ans first token | the probe's VERBATIM 2-shot prompt) w.r.t. ALL 124,439,808 params, batch-1 forward, eval, dropout 0, CPU fp32, L2-normalized; cached fp16 with fp64-accumulated chunked dots (cache rounding ~5e-4 on cos, disclosed; determinism re-verified by recomputing probe 0); wash gradient g(w,s) = grad of the wash's OWN batch-CE (mean CE over 8x512 tokens, e182's VERBATIM loss) on draw #(s+1) of wash w's frozen window stream, at the archived weights W_{w,s} (MATCHED POINT: the state's own next batch, the actual next gradient of the trajectory; s=0 = pristine weights + draw #1, also the hot-set source); draws reproduced from the archived seeds and certified BIT-EXACTLY against the archived generator states at step 80 (G_DRAWS); alignment A(w,s,i) = cos(g(w,s), s_i(0)) per wash per state per probe (w1 states 0/2/10/50/80; w2/w3 0/10/50/80); rotation R(w,i) = cos(s_i(w,80), s_i(0)) at the settled +80 states; hot overlap H(w,i) = |top2000|s_i(w,80)| n top2000|g(w,0)|| / 2000 (g11's convention; ladder 2k/20k/200k co-reported; random baseline k/P = 1.6e-5); family band = the product family's 5 non-anchor probes (Xbox, Chrome, iPad, iTunes, PlayStation); sigma(read) = std ddof=1 of the band at that read; Z(read) = |read_Gmail - read_iPhone| / sigma; REGISTERED READS = A at every (wash, state) [13 reads] + R per wash [3] + H per wash [3] = 19 reads; SUPPORT-DIFFERENTIATES := any registered read Z >= 2.0; GEOMETRY-IDENTICAL := all registered reads Z < 2.0; the two bars are complements (no GRADED tier); multiplicity disclosed in honesty (P(any Z>=2 | pure noise) ~= 0.59 for 19 Gaussian reads) and the replication count (how many washes fire) co-reported, never adjudicated; founder-anchor family band co-reported, never adjudicated; FD gates: per-probe p(theta0 + eps*s_hat) > p0 at eps 0.02 (e204's convention; 0.05 co-read), per-state CE(W + eps*g_hat) < CE(W) at eps 0.02, anchors' +80 supports FD co-gated; gated on G_ENV/G_SIZE/G_CORPUS/G_BATT/G_STATES/G_DRAWS/G_SUPPORT/G_WASHGRAD",
+    "registration": "bars frozen VERBATIM from scratch/fq5_design.md (the ripened design note, frozen by the dispatch brief BEFORE any compute; the dispatch brief is the registration); adjudicate against exactly this; no bar shopping"
+  },
+  "question": "FQ5: WHERE does the organism differentiate Gmail (holds) and iPhone (dies) during the wash \u2014 the support-gradient interior \u2014 and does the first-order instrument see the differentiation at all?",
+  "builds_on": [
+    "scratch/fq5_design.md (the ripened design, frozen at dispatch)",
+    "T197 / e221 (the hunt closed at REAL-AND-UNNAMED; WHAT retired \u2014 the question moved to WHERE)",
+    "T195 / e220 + T193 / e219 + T190-T191 / e216-e218 (the anchor pair at its sharpest: token-silent, not-entrenchment, beyond-height residual)",
+    "T196 / g11 (the rotated-support x shared-hot-set geometry; the top-k overlap convention this cell ports to 124M)",
+    "T149 / e182c + T183 / e182c2 + T192 / e217 (the three-wash archive + the batteries, VERBATIM by module import)",
+    "e204 (the fact-gradient support + FD gate convention)"
+  ],
+  "whats_new": [
+    "the per-probe SUPPORT DIRECTION at 124M: grad p(answer|context) over all 124.4M params, all 54 probes, t=0 pairwise Gram",
+    "the wash gradient at every archived state decomposed against EVERY probe's support (the matched-point alignment curves, n=3 washes \u2014 the wash's treatment read per relation)",
+    "the per-probe ROTATION read at +80 on three washes (cos to own t=0 support + g11's hot-set overlap at 124M)",
+    "the anchor adjudication: Gmail vs iPhone against the product family's 2-sigma bands \u2014 the interior version of the WHAT-hunt, bars frozen before compute"
+  ],
+  "smoke": false,
+  "load_checks": [
+    {
+      "tag": "launch",
+      "cpu_percent": 38.8,
+      "ram_avail_gb": 37.1,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "draws",
+      "cpu_percent": 48.6,
+      "ram_avail_gb": 36.3,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "supports t=0",
+      "cpu_percent": 40.4,
+      "ram_avail_gb": 34.8,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w1s0",
+      "cpu_percent": 30.3,
+      "ram_avail_gb": 16.1,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w1s2",
+      "cpu_percent": 31.9,
+      "ram_avail_gb": 12.4,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w1s10",
+      "cpu_percent": 41.6,
+      "ram_avail_gb": 11.0,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w1s50",
+      "cpu_percent": 53.0,
+      "ram_avail_gb": 11.3,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w1s80",
+      "cpu_percent": 52.4,
+      "ram_avail_gb": 10.0,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w2s0",
+      "cpu_percent": 46.6,
+      "ram_avail_gb": 11.7,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w2s10",
+      "cpu_percent": 47.8,
+      "ram_avail_gb": 11.7,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w2s50",
+      "cpu_percent": 5.8,
+      "ram_avail_gb": 16.1,
+      "ram_total_gb": 63.4
+    },
+    {
+      "tag": "w2s80",
+      "cpu_percent": 5.9,
+      "ram_avail_gb": 16.1,
+      "ram_total_gb": 63.4
+    }
+  ],
+  "anchor_fates_committed": {
+    "Gmail": {
+      "w1": {
+        "p0": 0.7456632852554321,
+        "p80": 0.6747748851776123,
+        "hr": 0.9049324252922866
+      },
+      "w2": {
+        "p0": 0.7456632852554321,
+        "p80": 0.6942002773284912,
+        "hr": 0.9309835834155199
+      },
+      "w3": {
+        "p0": 0.7456632852554321,
+        "p80": 0.6440540552139282,
+        "hr": 0.8637330923344348
+      }
+    },
+    "iPhone": {
+      "w1": {
+        "p0": 0.6358935832977295,
+        "p80": 0.11716761440038681,
+        "hr": 0.18425663896898953
+      },
+      "w2": {
+        "p0": 0.6358935832977295,
+        "p80": 0.2173159271478653,
+        "hr": 0.34174889141178294
+      },
+      "w3": {
+        "p0": 0.6358935832977295,
+        "p80": 0.12405470013618469,
+        "hr": 0.19508720231589674
+      }
+    }
+  },
+  "organism": {
+    "repo": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "transformers_version": "5.12.1",
+    "params": 124439808,
+    "dropout_modules_zeroed": 37,
+    "n_ctx": 1024,
+    "n_layer": 12,
+    "n_head": 12,
+    "n_embd": 768,
+    "offline_cache": true,
+    "size_reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "dtype": "float32",
+    "torch_threads": 4
+  },
+  "gates": {
+    "G_SIZE": {
+      "params": 124439808,
+      "ceiling": 500000000,
+      "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+      "pass": true
+    },
+    "G_ENV": {
+      "device": "cpu",
+      "threads": 4,
+      "gpu_used": false,
+      "pass": true,
+      "note": "eval-only; batch-1 probe backwards + 8x512 batch backwards; load checks per phase"
+    },
+    "G_CORPUS": {
+      "banned_list_identical": true,
+      "tokens_after": [
+        331770,
+        331770
+      ],
+      "train_tokens": [
+        319481,
+        319481
+      ],
+      "format": "[rebuilt, e182_recorded]",
+      "note": "the corpus is INHERITED FROZEN \u2014 it feeds the battery contamination scans and the wash-batch reproduction (the SAME train_ids every wash drew its windows from); no wash is run here",
+      "pass": true
+    },
+    "G_BATT": {
+      "fact": {
+        "n": 20,
+        "order_equal_e216": true,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0,
+        "max_dp_w2": 0.0,
+        "max_dp_w3": 0.0
+      },
+      "ctrl": {
+        "n": 12,
+        "order_equal_e216": true,
+        "set_equal_committed": true,
+        "max_dp_w1": 3.2782554626464844e-06,
+        "max_dp_w2": 3.2782554626464844e-06,
+        "max_dp_w3": 0.0
+      },
+      "near": {
+        "n": 3,
+        "order_equal_e216": true,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0,
+        "max_dp_w2": 0.0,
+        "max_dp_w3": 0.0
+      },
+      "tmpl": {
+        "n": 19,
+        "order_equal_e216": true,
+        "set_equal_committed": true,
+        "max_dp_w1": 0.0,
+        "max_dp_w2": 0.0,
+        "max_dp_w3": 0.0
+      },
+      "tol_per_probe_dp": 0.01,
+      "pass": true,
+      "note": "batteries = the phase-1/phase-2 pools VERBATIM (module import); t=0 must reproduce all THREE committed records; the e216 order check is informational (facts are joined by string, order-independent)"
+    },
+    "G_DRAWS": {
+      "w1": {
+        "seed": 18202,
+        "gen_state_identical_after_80": true
+      },
+      "w2": {
+        "seed": 20261002,
+        "gen_state_identical_after_80": true
+      },
+      "w3": {
+        "seed": 21703,
+        "gen_state_identical_after_80": true
+      },
+      "pass": true,
+      "note": "each wash's window-draw stream reproduced from its archived seed and certified BIT-EXACTLY against the generator state archived at step 80 in its own *_latest.pt \u2014 the batches used here are the states' OWN next batches (draw #(s+1))"
+    },
+    "G_SUPPORT": {
+      "fd_eps": [
+        0.02,
+        0.05
+      ],
+      "rule": "p(theta0 + eps*s_hat) - p0 > 0 at the primary eps (e204's directional gate, ported to 124M)",
+      "per_probe_fd": {
+        "France->Paris": {
+          "0.02": 0.31239038705825806,
+          "0.05": 0.3149957060813904
+        },
+        "Greece->Athens": {
+          "0.02": 0.05485653877258301,
+          "0.05": 0.05531895160675049
+        },
+        "Poland->Warsaw": {
+          "0.02": 0.320930540561676,
+          "0.05": 0.32536786794662476
+        },
+        "Portugal->Lisbon": {
+          "0.02": 0.2557106018066406,
+          "0.05": 0.2587212920188904
+        },
+        "Egypt->Cairo": {
+          "0.02": 0.19208937883377075,
+          "0.05": 0.19421738386154175
+        },
+        "Ireland->Dublin": {
+          "0.02": 0.3655182123184204,
+          "0.05": 0.36957138776779175
+        },
+        "France->French": {
+          "0.02": 0.08088701963424683,
+          "0.05": 0.08202558755874634
+        },
+        "Germany->German": {
+          "0.02": 0.1222580075263977,
+          "0.05": 0.12334662675857544
+        },
+        "Japan->Japanese": {
+          "0.02": 0.1587703824043274,
+          "0.05": 0.16146999597549438
+        },
+        "Italy->Italian": {
+          "0.02": 0.11294394731521606,
+          "0.05": 0.11462932825088501
+        },
+        "Spain->Spanish": {
+          "0.02": 0.2507580518722534,
+          "0.05": 0.2551153898239136
+        },
+        "Russia->Russian": {
+          "0.02": 0.14592725038528442,
+          "0.05": 0.14808642864227295
+        },
+        "China->Chinese": {
+          "0.02": 0.42351818084716797,
+          "0.05": 0.43159836530685425
+        },
+        "England->English": {
+          "0.02": 0.18278193473815918,
+          "0.05": 0.18537193536758423
+        },
+        "Greece->Greek": {
+          "0.02": 0.22959530353546143,
+          "0.05": 0.23317015171051025
+        },
+        "Poland->Polish": {
+          "0.02": 0.1652287244796753,
+          "0.05": 0.16745209693908691
+        },
+        "Japan->yen": {
+          "0.02": 0.1082645058631897,
+          "0.05": 0.10947847366333008
+        },
+        "the United Kingdom->pound": {
+          "0.02": 0.046018004417419434,
+          "0.05": 0.046616554260253906
+        },
+        "the United States->dollar": {
+          "0.02": 0.4022536873817444,
+          "0.05": 0.40904802083969116
+        },
+        "China->yuan": {
+          "0.02": 0.0706336498260498,
+          "0.05": 0.07148492336273193
+        },
+        "The social network founded by Mark Zuckerberg->Facebook": {
+          "0.02": 0.2571035623550415,
+          "0.05": 0.2601357102394104
+        },
+        "The electric car company founded by Elon Musk->Tesla": {
+          "0.02": 0.2625020742416382,
+          "0.05": 0.2657405734062195
+        },
+        "The rocket company founded by Elon Musk->SpaceX": {
+          "0.02": 0.22264808416366577,
+          "0.05": 0.22554653882980347
+        },
+        "The search engine founded by Larry Page->Google": {
+          "0.02": 0.16575366258621216,
+          "0.05": 0.167242169380188
+        },
+        "The online encyclopedia that anyone can edit->Wikipedia": {
+          "0.02": 0.3020899295806885,
+          "0.05": 0.3071800470352173
+        },
+        "The gaming console made by Microsoft->Xbox": {
+          "0.02": 0.37394028902053833,
+          "0.05": 0.37739843130111694
+        },
+        "The web browser made by Google->Chrome": {
+          "0.02": 0.29477113485336304,
+          "0.05": 0.2970018982887268
+        },
+        "The phone made by Apple->iPhone": {
+          "0.02": 0.3581070303916931,
+          "0.05": 0.36409783363342285
+        },
+        "The tablet made by Apple->iPad": {
+          "0.02": 0.22971010208129883,
+          "0.05": 0.2323874831199646
+        },
+        "The email service made by Google->Gmail": {
+          "0.02": 0.2522762417793274,
+          "0.05": 0.25433385372161865
+        },
+        "The music store made by Apple->iTunes": {
+          "0.02": 0.3111737370491028,
+          "0.05": 0.3137383460998535
+        },
+        "The game console made by Sony->PlayStation": {
+          "0.02": 0.21404939889907837,
+          "0.05": 0.21571755409240723
+        },
+        "Massachusetts->Boston": {
+          "0.02": 0.3837297558784485,
+          "0.05": 0.38813549280166626
+        },
+        "Georgia->Atlanta": {
+          "0.02": 0.35825997591018677,
+          "0.05": 0.3633458614349365
+        },
+        "Ohio->Columbus": {
+          "0.02": 0.4744650721549988,
+          "0.05": 0.48106759786605835
+        },
+        "Boston->Massachusetts": {
+          "0.02": 0.11316519975662231,
+          "0.05": 0.11440986394882202
+        },
+        "Atlanta->Georgia": {
+          "0.02": 0.03665757179260254,
+          "0.05": 0.0370442271232605
+        },
+        "Sacramento->California": {
+          "0.02": 0.06431204080581665,
+          "0.05": 0.0650898814201355
+        },
+        "Austin->Texas": {
+          "0.02": 0.033434152603149414,
+          "0.05": 0.0338977575302124
+        },
+        "Columbus->Ohio": {
+          "0.02": 0.1864904761314392,
+          "0.05": 0.18885034322738647
+        },
+        "Denver->Colorado": {
+          "0.02": 0.1416407823562622,
+          "0.05": 0.14378172159194946
+        },
+        "Little Rock->Arkansas": {
+          "0.02": 0.09884375333786011,
+          "0.05": 0.09991276264190674
+        },
+        "Hartford->Connecticut": {
+          "0.02": 0.1583133339881897,
+          "0.05": 0.16152530908584595
+        },
+        "Dover->Delaware": {
+          "0.02": 0.1193690299987793,
+          "0.05": 0.1213463544845581
+        },
+        "Tallahassee->Florida": {
+          "0.02": 0.0721316933631897,
+          "0.05": 0.07265973091125488
+        },
+        "Honolulu->Hawaii": {
+          "0.02": 0.059945881366729736,
+          "0.05": 0.06059873104095459
+        },
+        "Boise->Idaho": {
+          "0.02": 0.01728498935699463,
+          "0.05": 0.017615199089050293
+        },
+        "Indianapolis->Indiana": {
+          "0.02": 0.05612778663635254,
+          "0.05": 0.05766952037811279
+        },
+        "Des Moines->Iowa": {
+          "0.02": 0.012055039405822754,
+          "0.05": 0.012207984924316406
+        },
+        "Topeka->Kansas": {
+          "0.02": 0.01737135648727417,
+          "0.05": 0.01753908395767212
+        },
+        "Baton Rouge->Louisiana": {
+          "0.02": 0.12286025285720825,
+          "0.05": 0.12400490045547485
+        },
+        "Annapolis->Maryland": {
+          "0.02": 0.09174972772598267,
+          "0.05": 0.09304779767990112
+        },
+        "Lansing->Michigan": {
+          "0.02": 0.029116511344909668,
+          "0.05": 0.029705405235290527
+        },
+        "Jackson->Mississippi": {
+          "0.02": 0.301338255405426,
+          "0.05": 0.3065726161003113
+        }
+      },
+      "n_fail": 0,
+      "determinism_selfcos_probe0": 0.99999994199536,
+      "pass": true
+    }
+  },
+  "size_gate": {
+    "params": 124439808,
+    "ceiling": 500000000,
+    "reason": "external validity (inherited from e182, its organism and its wash; 124,439,808 params > the 100M free tier, <= the 500M ceiling with e182's stated reason \u2014 the field's own standard organism; no smaller pretrained model answers this question)",
+    "pass": true
+  },
+  "timing": {
+    "total_s": 825.6
+  },
+  "probes": [
+    {
+      "i": 0,
+      "fact": "France->Paris",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.6850027441978455
+    },
+    {
+      "i": 1,
+      "fact": "Greece->Athens",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.94468092918396
+    },
+    {
+      "i": 2,
+      "fact": "Poland->Warsaw",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.6746281981468201
+    },
+    {
+      "i": 3,
+      "fact": "Portugal->Lisbon",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.7412760853767395
+    },
+    {
+      "i": 4,
+      "fact": "Egypt->Cairo",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.8057803511619568
+    },
+    {
+      "i": 5,
+      "fact": "Ireland->Dublin",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.6304253935813904
+    },
+    {
+      "i": 6,
+      "fact": "France->French",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.9179711937904358
+    },
+    {
+      "i": 7,
+      "fact": "Germany->German",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8766514658927917
+    },
+    {
+      "i": 8,
+      "fact": "Japan->Japanese",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8385147452354431
+    },
+    {
+      "i": 9,
+      "fact": "Italy->Italian",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8853657841682434
+    },
+    {
+      "i": 10,
+      "fact": "Spain->Spanish",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.744873046875
+    },
+    {
+      "i": 11,
+      "fact": "Russia->Russian",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8519078493118286
+    },
+    {
+      "i": 12,
+      "fact": "China->Chinese",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.5683619379997253
+    },
+    {
+      "i": 13,
+      "fact": "England->English",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8146218657493591
+    },
+    {
+      "i": 14,
+      "fact": "Greece->Greek",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.766821026802063
+    },
+    {
+      "i": 15,
+      "fact": "Poland->Polish",
+      "battery": "fact",
+      "family6": "lang",
+      "p0": 0.8325423002243042
+    },
+    {
+      "i": 16,
+      "fact": "Japan->yen",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.8905185461044312
+    },
+    {
+      "i": 17,
+      "fact": "the United Kingdom->pound",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.9533817768096924
+    },
+    {
+      "i": 18,
+      "fact": "the United States->dollar",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.5909402966499329
+    },
+    {
+      "i": 19,
+      "fact": "China->yuan",
+      "battery": "fact",
+      "family6": "cap-cur",
+      "p0": 0.9285135269165039
+    },
+    {
+      "i": 20,
+      "fact": "The social network founded by Mark Zuckerberg->Facebook",
+      "battery": "ctrl",
+      "family6": "founder-anchor",
+      "p0": 0.7398610711097717
+    },
+    {
+      "i": 21,
+      "fact": "The electric car company founded by Elon Musk->Tesla",
+      "battery": "ctrl",
+      "family6": "founder-anchor",
+      "p0": 0.7342566847801208
+    },
+    {
+      "i": 22,
+      "fact": "The rocket company founded by Elon Musk->SpaceX",
+      "battery": "ctrl",
+      "family6": "founder-anchor",
+      "p0": 0.77444988489151
+    },
+    {
+      "i": 23,
+      "fact": "The search engine founded by Larry Page->Google",
+      "battery": "ctrl",
+      "family6": "founder-anchor",
+      "p0": 0.8327568769454956
+    },
+    {
+      "i": 24,
+      "fact": "The online encyclopedia that anyone can edit->Wikipedia",
+      "battery": "ctrl",
+      "family6": "founder-anchor",
+      "p0": 0.6928136348724365
+    },
+    {
+      "i": 25,
+      "fact": "The gaming console made by Microsoft->Xbox",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.6225916743278503
+    },
+    {
+      "i": 26,
+      "fact": "The web browser made by Google->Chrome",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.7029966711997986
+    },
+    {
+      "i": 27,
+      "fact": "The phone made by Apple->iPhone",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.6358935832977295
+    },
+    {
+      "i": 28,
+      "fact": "The tablet made by Apple->iPad",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.7676098942756653
+    },
+    {
+      "i": 29,
+      "fact": "The email service made by Google->Gmail",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.7456632852554321
+    },
+    {
+      "i": 30,
+      "fact": "The music store made by Apple->iTunes",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.6862599849700928
+    },
+    {
+      "i": 31,
+      "fact": "The game console made by Sony->PlayStation",
+      "battery": "ctrl",
+      "family6": "product",
+      "p0": 0.7842804193496704
+    },
+    {
+      "i": 32,
+      "fact": "Massachusetts->Boston",
+      "battery": "near",
+      "family6": "near-uscap",
+      "p0": 0.6118616461753845
+    },
+    {
+      "i": 33,
+      "fact": "Georgia->Atlanta",
+      "battery": "near",
+      "family6": "near-uscap",
+      "p0": 0.6366477012634277
+    },
+    {
+      "i": 34,
+      "fact": "Ohio->Columbus",
+      "battery": "near",
+      "family6": "near-uscap",
+      "p0": 0.5189241766929626
+    },
+    {
+      "i": 35,
+      "fact": "Boston->Massachusetts",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.8855844140052795
+    },
+    {
+      "i": 36,
+      "fact": "Atlanta->Georgia",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9629536271095276
+    },
+    {
+      "i": 37,
+      "fact": "Sacramento->California",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9349073767662048
+    },
+    {
+      "i": 38,
+      "fact": "Austin->Texas",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.966093897819519
+    },
+    {
+      "i": 39,
+      "fact": "Columbus->Ohio",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.811143696308136
+    },
+    {
+      "i": 40,
+      "fact": "Denver->Colorado",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.85616534948349
+    },
+    {
+      "i": 41,
+      "fact": "Little Rock->Arkansas",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9000856876373291
+    },
+    {
+      "i": 42,
+      "fact": "Hartford->Connecticut",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.8384353518486023
+    },
+    {
+      "i": 43,
+      "fact": "Dover->Delaware",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.8786457777023315
+    },
+    {
+      "i": 44,
+      "fact": "Tallahassee->Florida",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9273396730422974
+    },
+    {
+      "i": 45,
+      "fact": "Honolulu->Hawaii",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9394004344940186
+    },
+    {
+      "i": 46,
+      "fact": "Boise->Idaho",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9823838472366333
+    },
+    {
+      "i": 47,
+      "fact": "Indianapolis->Indiana",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9422821998596191
+    },
+    {
+      "i": 48,
+      "fact": "Des Moines->Iowa",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9877914190292358
+    },
+    {
+      "i": 49,
+      "fact": "Topeka->Kansas",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9824606776237488
+    },
+    {
+      "i": 50,
+      "fact": "Baton Rouge->Louisiana",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.8759879469871521
+    },
+    {
+      "i": 51,
+      "fact": "Annapolis->Maryland",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9069494605064392
+    },
+    {
+      "i": 52,
+      "fact": "Lansing->Michigan",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.9702924489974976
+    },
+    {
+      "i": 53,
+      "fact": "Jackson->Mississippi",
+      "battery": "tmpl",
+      "family6": "rev-capital",
+      "p0": 0.6934146285057068
+    }
+  ],
+  "inventory": {
+    "states": {
+      "w1": {
+        "2": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s2.pt",
+          "exists": true,
+          "size_bytes": 652195312,
+          "mtime": "2026-10-01T15:04:11Z"
+        },
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s10.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:07:14Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s50.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:20:17Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_s80.pt",
+          "exists": true,
+          "size_bytes": 652195467,
+          "mtime": "2026-10-01T15:28:00Z"
+        }
+      },
+      "w2": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s10.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:11:49Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s50.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:15:03Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_s80.pt",
+          "exists": true,
+          "size_bytes": 652196552,
+          "mtime": "2026-10-02T13:18:15Z"
+        }
+      },
+      "w3": {
+        "10": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e217_fresh_s10.pt",
+          "exists": true,
+          "size_bytes": 652196242,
+          "mtime": "2026-10-02T15:43:26Z"
+        },
+        "50": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e217_fresh_s50.pt",
+          "exists": true,
+          "size_bytes": 652196242,
+          "mtime": "2026-10-02T15:46:39Z"
+        },
+        "80": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e217_fresh_s80.pt",
+          "exists": true,
+          "size_bytes": 652196242,
+          "mtime": "2026-10-02T15:49:52Z"
+        }
+      }
+    },
+    "latest": {
+      "w1": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c_replay_latest.pt",
+        "exists": true,
+        "size_bytes": 1647845883,
+        "mtime": "2026-10-01T15:28:03Z"
+      },
+      "w2": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e182c2_fresh_latest.pt",
+        "exists": true,
+        "size_bytes": 1647846011,
+        "mtime": "2026-10-02T13:18:14Z"
+      },
+      "w3": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e217_fresh_latest.pt",
+        "exists": true,
+        "size_bytes": 1647844811,
+        "mtime": "2026-10-02T15:49:51Z"
+      }
+    },
+    "note": "three washes: w1 CPU-fp32 replay of e182's own wash; w2/w3 fresh draws (GPU fp32 in their cells); all state weights read here on CPU fp32"
+  },
+  "support_geometry_t0": {
+    "gmail_iphone_cos": 0.01926585157708887,
+    "product_family_pairwise": {
+      "n_pairs": 21,
+      "mean": 0.003600425273780514,
+      "sd": 0.08576369922090218,
+      "min": -0.3462569874123503,
+      "max": 0.12951657742099504,
+      "gmail_iphone_z_within_family": 0.18265800619162664
+    },
+    "family_within_summary": {
+      "cap-cur": {
+        "n": 10,
+        "within_mean_cos": 0.025786560627955563,
+        "within_min": -0.003053866457551455,
+        "within_max": 0.1922472667380046
+      },
+      "founder-anchor": {
+        "n": 5,
+        "within_mean_cos": 0.00373907302999589,
+        "within_min": -0.03320541254429587,
+        "within_max": 0.035177458651032965
+      },
+      "lang": {
+        "n": 10,
+        "within_mean_cos": 0.006053254255683737,
+        "within_min": -0.3539769110717481,
+        "within_max": 0.16276496146425784
+      },
+      "near-uscap": {
+        "n": 3,
+        "within_mean_cos": 0.01979616831835227,
+        "within_min": 0.012483075565564253,
+        "within_max": 0.029218519828495305
+      },
+      "product": {
+        "n": 7,
+        "within_mean_cos": 0.003600425273780514,
+        "within_min": -0.3462569874123503,
+        "within_max": 0.12951657742099504
+      },
+      "rev-capital": {
+        "n": 19,
+        "within_mean_cos": 0.06383554844839552,
+        "within_min": -0.2808924523789788,
+        "within_max": 0.286931044303942
+      }
+    },
+    "cache": "fp16 rows of L2-normalized fp32 grads; dots fp32-chunked, fp64-accumulated; cos denominators = fp64 row norms (cache rounding ~5e-4, disclosed)"
+  }
+}
