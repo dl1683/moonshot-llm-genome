@@ -7,6 +7,46 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W044 — the dimensional biography of a fact: 7 / ~1-2k / 73%-of-anything (2026-10-05 ~23:22Z, savoring the triangle the relocation completed)
+
+One fact, three dimensional numbers, three different verbs:
+
+- **READING it takes ~7 dims.** e111's k*=7 (the V-cos self-signature
+  step): the organism RECOGNIZES the fact through a seven-dimensional
+  readout. The anchor reads full joint structure, but the usable
+  identity is k*~7.
+- **FORMING it takes ~1-2k dims** (the relocated edge, e272): a
+  threshold SEARCH room — dose-acquitted, a ramp above, not a wall.
+  Below ~1k the optimizer fills the room as hard as it can (x10
+  asking) and the logits never assemble.
+- **STORING it takes 73%-of-anything** (x6's fill law): at 10k or
+  237k, the write densely fills ~73% of whatever room it is granted —
+  occupancy style is width-invariant; there is no privileged sparse
+  code (the natural basis is gaussian-identical).
+
+The triangle's shape is the interesting part: readout 7, formation
+~1-2k, storage proportional. NONE of the three reduces to another,
+and each belongs to a different instrument family (behavioral probe /
+training-formation ladder / linear algebra on checkpoints). The fact
+is CHEAP TO READ, EXPENSIVE TO FIND, and_SHAPELESS TO STORE — the
+opposite of a compression story. If facts were codebooks, reading
+would cost at least as much as storing. The 7-vs-73% gap says the
+organism reads a summary of something it cannot itself store
+compactly — the write is a FLOW THROUGH the room, not a glyph IN it.
+
+**The question this sharpens for e280 (the SGD-M ladder):** the
+formation floor (~1-2k) is the only one of the three numbers that
+could be optimizer-relative (Adam's preconditioned geometry). The
+readout's 7 (e111) was measured on trained nets regardless of
+optimizer; the fill law is pure linear algebra. If SGD-M erases the
+formation edge (1k expresses), the biography becomes: 7 to read
+(organism), NOTHING special to form (optimizer-relative), 73% to
+store (geometry) — and the "capacity number" retires into "Adam's
+search radius." If the edge holds under SGD-M, all three numbers are
+the space's own, and the fact has a fixed dimensional biography
+independent of how it was taught. Either way, THE BIOGRAPHY IS THE
+OBJECT — the next report's spine.
+
 ## T255 — E272: the edge relocates and the arc gets its cleanest physics — the conjunction resolves (2026-10-05 ~23:08Z)
 
 **The repair cell's double verdict.** RANK-WRITES-THE-CURVE fires on
