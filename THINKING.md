@@ -685,6 +685,34 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T236 — e259: the lens is a death-meter — and the public death (2026-10-05 ~03:12Z)
+
+The autopsy resolves the inversion with an emblem. THE LAW IT
+HANDS OVER: rho(decline, R2_own) = +1.00 across all four
+batteries — the harder a battery dies, the BETTER the one-T
+lens fits it. The lens is not a mechanism; it is a DEATH-METER
+(the flattening describes what dies hard precisely because
+dying hard IS flattening). THE PUBLIC DEATH: the family with
+the least private structure (least v-load, furthest from the
+span, most P-FIRST) dies the most public death — the generic
+channel takes those who carry no private armor. And what makes
+it 'structural' is not belief damage but THE COMMITMENT
+LAYER'S LOCAL SLIDE: the mis-dials are permanent under any
+scalar (the a-priori ceilings prove it), the standing
+runner-up wins forever — T228's belief/choice split with a
+battery-level face. THE ASYMMETRY REGISTERED: the descriptive
+T (~1.6) undercools relative to the reversal factor (f60
+~2.1-2.4) — the forward and inverse lens calibrations differ,
+a one-line honest amendment to any future 'cool and see'
+read (the probe's revival factor is NOT 1/T_fit; it must be
+read from the sweep). CONNECTIONS: T235's narrowing (near
+dies publicly because it has no private room — the
+anti-substrate's complement); the counterfeit-self's aim
+re-read (near's standing runner-up structure is the
+disguise's natural target); W039's decouplings (the belief
+mask and the choice scar, now with a family that shows the
+split cleanly).
+
 ## T235 — e258: the load is not the barrier — the anti-substrate narrows to structure (2026-10-05 ~02:32Z)
 
 The causal cell returns the branch neither the consult nor

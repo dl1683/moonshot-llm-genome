@@ -34,6 +34,36 @@ read — the composition's sharper predictor).
 
 ---
 
+## e259 — the nearrel autopsy (the consult's wild-card): STRUCTURAL-DESPITE-THERMAL — the cooled revival fires on the BR arm (0.228/0.373, under the 0.4 line; the family's OWN hotter lens does not rescue it; the a-priori flip-bounded ceiling at w1+80 is 0.433 — NO factor reaches 0.6) while the MODE clause is positive (all 5 committed near flips are MIS-DIALS to the probes' own t0 runner-ups — Georgia->'Augusta' in all three washes; 0 prior-collapses); THE PARADOX IS NOW A NUMBER: rho(decline, R2_own) = +1.00 across the four batteries — near is simultaneously the best-described death AND the least-reviving battery; the family with the least private structure dies the most PUBLIC death, and what makes it structural is THE COMMITMENT LAYER'S LOCAL SLIDE: the thermal mask on top of choice-scars (2026-10-05 ~03:10Z) — DONE
+
+WHAT WE DID: the frozen wild-card cell — the cooled revival
+(e252's committed near reads + the family's OWN x5 T-fits as
+the pre-registered second lens + the a-priori flip-bounded
+ceilings (e252's monotonicity extended) + the full factor
+sweep), the thermal-share texture, the mode census, the
+synthesis table. Desk-only fp64 on sha-recorded logits; 5/5
+gates PASS (the recomputed pooled-T reads match e252's
+committed aggregates to 1.5e-5). Script
+lab/e259_nearrel_autopsy.py; runs/e259/{metrics.json, 2 PNGs}.
+
+WHAT WE SAW (T236): THE LENS THAT DESCRIBES THE DEATH CANNOT
+REVERSE IT (descriptive T ~1.6 vs the reversal factor f60
+~2.1-2.4); the rank order never returns under any scalar
+(rho -0.50 flat). THE DECLINE/R2 LAW: rho = +1.00 — the
+harder a battery dies, the better the one-T lens fits it
+(the lens is a DEATH-METER, not a mechanism). THE EMBLEM:
+near's mis-dials are the commitment layer's local slide —
+the standing runner-up wins the argmax forever; T228's
+belief/choice split with a battery-level face.
+
+HONESTY: n=3 quantized (one probe = a third of the battery);
+the (A)/(B) lens split disclosed-not-adjudicated; w3 mode-only.
+NEXT (T236): the counterfeit-self aim re-read against near's
+standing runner-up structure; the fitted-T-undercooling
+asymmetry registered.
+
+---
+
 ## e258 — the causal v-heavy/v-light install: NOT-THE-LOAD — both arms LAND at matched strength (VHEAVY root g0 0.6881 / VLIGHT 0.8039, both in the family band; retentions 0.904/0.943 inside the draw spread) — the denominator's standing v-load is NOT the barrier to writing new memories; the unwritability is SPAN-SPECIFIC BEYOND V (T233's span-specific verdict gains its causal twin); the e246 ALIGNED failure re-reads as RANK/SPAN STRUCTURE, not load; the composition's mechanism story takes its honest bound (2026-10-05 ~02:30Z) — DONE
 
 WHAT WE DID: the frozen causal cell — the v-map at the 2.74M
