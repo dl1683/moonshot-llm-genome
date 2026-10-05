@@ -1,7 +1,9 @@
 # Droid brief — DIALOGUE MODE, edition 9 (Q1-Q4 open across NINE editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-05T22:56:00Z (datetime.now-sourced; the guessing habit stays dead)
+## Generated: 2026-10-05T21:55:00Z [CORRECTED from a first-written 22:56Z — future-dated
+## ~1h; the STATE heartbeat clock was honest but the card/brief labels tonight ran
+## ~30-75 min ahead; blanket disclosure at THINKING.md head; commit hashes are the record]
 
 - Guard: TREADMILL-ALERT chain-4 served every beat tonight with real thinking
   bulk (W040-W043, the day-eleven frame, the consult folds, the audit repairs).

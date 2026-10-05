@@ -605,6 +605,14 @@ scenario, caught by the repair cell before it could embarrass anyone.
 > "corpus CONCURRENTLY vs AFTER"; e268 executed CONCURRENT vs ALONE —
 > the AFTER arm never ran anywhere (defensible: it approximates the
 > known wash; but the substitution went unflagged until R65).
+>
+> **[R66 TIMESTAMP DISCLOSURE 2026-10-05T22:28Z]** the evening session's
+> T250–T257 card stamps and narrative labels (~21:35Z through ~23:50Z)
+> run ~30–75 min AHEAD of their commits' true times (the STATE heartbeats
+> were clock-sourced and honest; the hand-written card labels were not).
+> All STATE stamps corrected at 22:28Z with disclosure. RULE going
+> forward: every timestamp in every file is written by datetime.now(UTC)
+> or the observed `date -u` — hand-guessed times are banned outright.
 
 ## W040 — the R65 confluence layer engaged: one flow, two thresholds, and the two predictions registered BEFORE e271 reads (2026-10-05 ~20:47Z, the ideator's A1-A5 met with pushback)
 
