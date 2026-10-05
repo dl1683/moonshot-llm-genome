@@ -431,7 +431,8 @@ def main() -> None:
         sha16(Path(rec["path"])) == rec["sha256_16"]
         for rec in x5m["provenance"]["committed_records"].values())
 
-    batt_ix = {b: np.where(ref_meta[1] == b)[0] for b in BATTERIES}
+    batt_arr = np.array(ref_meta[1])
+    batt_ix = {b: np.where(batt_arr == b)[0] for b in BATTERIES}
     n_counts = {b: int(len(batt_ix[b])) for b in BATTERIES}
 
     # p matrices per battery per tag (float64 numpy softmax — x9 convention)
