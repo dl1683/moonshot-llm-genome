@@ -1,0 +1,326 @@
+C:\Users\devan\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\cuda\__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+[    0.0s] E263 — THE COUNTERFEIT SELF (smoke=False) -> C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\e263
+[    0.5s]   [load] launch: cpu 5.3% ram_avail 43.2 GB
+[    1.9s] committed runner-ups runtime-read: Georgia->Atlanta ->  Augusta (46820) | Massachusetts->Boston ->  Worcester (50075) | the matched band [0.5302, 0.6481] (near t0 mean 0.5891 +-10%)
+[    1.9s] synthetic fact committed record: Texas->Austin p(t0)=0.3990 rank 0 (gate False, kept False)
+[    2.4s]   [load] organism+corpus: cpu 1.0% ram_avail 43.3 GB
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8983.72it/s]
+[   14.0s] organism: openai-community/gpt2@607a30d7 — 124,439,808 params (CPU fp32)
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (331770 > 1024). Running this sequence through the model will result in indexing errors
+[   15.9s] G_CORPUS: PASS
+[   16.4s]   [load] batteries: cpu 9.6% ram_avail 42.6 GB
+[   17.4s] G_BATT: PASS | fact: n 20 maxdp 0.00e+00 | ctrl: n 12 maxdp 3.28e-06 | near: n 3 maxdp 0.00e+00
+[   17.9s]   [load] synthetic probe t0: cpu 8.3% ram_avail 42.6 GB
+[   18.0s] G_SYN: PASS — Texas->Austin p(t0) 0.3990 (committed 0.3990) top1 ' Austin' | RUNNER-UP ' Houston' (6995) | committed RUs re-verified: Georgia->Atlanta:rank1 Massachusetts->Boston:rank1
+[   18.5s]   [load] RU supports: cpu 5.6% ram_avail 42.6 GB
+[   20.8s] G_RU: PASS — fd(Aug) +8.266e-01 fd(Wor) +8.502e-01 mutual cos +0.0092 determinism 0.9999999
+[   21.3s]   [load] draws: cpu 8.8% ram_avail 39.2 GB
+[   22.1s] G_DRAWS: PASS
+[   22.6s]   [load] coordination: cpu 7.7% ram_avail 40.1 GB
+[   26.1s] G_COORD: PASS — 0 live lab procs; e261 tail '...NE (honesty + provenance + figures))
+[  817.2s] total 817.2s'; gpu util 0% temp 62C
+[   26.4s]   [gpu:INSTFREE-burst1#1] util 13% temp 62C mem 1260/24463MB power 30.9W -> OK
+[   31.5s]   [gpu:INSTFREE-burst1#2] util 0% temp 62C mem 1260/24463MB power 27.2W -> OK
+[   31.5s] [INST-FREE] burst 1 opens at s1
+[   32.6s]   [INST-FREE] s   1/320 CE 5.0768 |g| 1.0000 (preclip 17.871 CLIP) RUpre 0.329% RUap 0.329% |g'| 1.0000 (dev 0.0e+00)
+[   33.5s]   [INST-FREE] LADDER s4: p_syn 0.4366 top1 ' Austin'
+[   34.5s]   [INST-FREE] LADDER s8: p_syn 0.4716 top1 ' Austin'
+[   34.9s]   [INST-FREE] s  10/320 CE 4.2760 |g| 1.0000 (preclip 14.349 CLIP) RUpre 0.205% RUap 0.205% |g'| 1.0000 (dev 0.0e+00)
+[   35.6s]   [INST-FREE] LADDER s12: p_syn 0.5065 top1 ' Austin'
+[   36.6s]   [INST-FREE] LADDER s16: p_syn 0.5433 top1 ' Austin'
+[   37.3s]   [INST-FREE] s  20/320 CE 4.0817 |g| 1.0000 (preclip 12.810 CLIP) RUpre 0.178% RUap 0.178% |g'| 1.0000 (dev 0.0e+00)
+[   37.6s]   [INST-FREE] LADDER s20: p_syn 0.5809 top1 ' Austin'
+[   38.7s]   [INST-FREE] LADDER s24: p_syn 0.6166 top1 ' Austin'
+[   38.7s]   [INST-FREE] STOP-ON-ANCHOR at s24 (p 0.6166 at/above the anchor) — N frozen
+[   38.8s]   [INST-FREE] burst 1 done: 24 steps in 7.3s, now at s24
+[   41.1s] N FROZEN from the FREE ladder: 24 steps for ALL arms (p 0.6166 >= the anchor 0.5891)
+[   41.2s]   [gpu:INSTORTHO-burst1#1] util 0% temp 66C mem 4624/24463MB power 19.1W -> OK
+[   46.2s]   [gpu:INSTORTHO-burst1#2] util 0% temp 64C mem 4624/24463MB power 14.1W -> OK
+[   46.2s] [INST-ORTHO] burst 1 opens at s1
+[   47.0s]   [INST-ORTHO] s   1/24 CE 5.0768 |g| 1.0000 (preclip 17.871 CLIP) RUpre 0.329% RUap 0.000% |g'| 1.0000 (dev 5.8e-08)
+[   48.2s]   [INST-ORTHO] LADDER s4: p_syn 0.4366 top1 ' Austin'
+[   49.5s]   [INST-ORTHO] LADDER s8: p_syn 0.4717 top1 ' Austin'
+[   49.9s]   [INST-ORTHO] s  10/24 CE 4.2760 |g| 1.0000 (preclip 14.349 CLIP) RUpre 0.205% RUap 0.000% |g'| 1.0000 (dev 4.6e-08)
+[   50.8s]   [INST-ORTHO] LADDER s12: p_syn 0.5065 top1 ' Austin'
+[   52.0s]   [INST-ORTHO] LADDER s16: p_syn 0.5432 top1 ' Austin'
+[   53.0s]   [INST-ORTHO] s  20/24 CE 4.0817 |g| 1.0000 (preclip 12.810 CLIP) RUpre 0.178% RUap 0.000% |g'| 1.0000 (dev 4.0e-08)
+[   53.1s]   [INST-ORTHO] LADDER s20: p_syn 0.5807 top1 ' Austin'
+[   54.0s]   [INST-ORTHO] s  24/24 CE 4.3776 |g| 1.0000 (preclip 11.291 CLIP) RUpre 0.279% RUap 0.000% |g'| 1.0000 (dev 4.1e-08)
+[   54.2s]   [INST-ORTHO] LADDER s24: p_syn 0.6164 top1 ' Austin'
+[   54.2s]   [INST-ORTHO] burst 1 done: 24 steps in 8.0s, now at s24
+[   56.5s]   [gpu:INSTCOUNTERFEIT-burst1#1] util 0% temp 69C mem 4624/24463MB power 19.8W -> OK
+[   61.6s]   [gpu:INSTCOUNTERFEIT-burst1#2] util 0% temp 68C mem 4624/24463MB power 19.1W -> OK
+[   61.6s] [INST-COUNTERFEIT] burst 1 opens at s1
+[   62.2s]   [INST-COUNTERFEIT] s   1/24 CE 5.0768 |g| 1.0000 (preclip 17.871 CLIP) RUpre 0.329% RUap 30.000% |g'| 1.0000 (dev 2.0e-08)
+[   63.3s]   [INST-COUNTERFEIT] LADDER s4: p_syn 0.4239 top1 ' Austin'
+[   64.6s]   [INST-COUNTERFEIT] LADDER s8: p_syn 0.4549 top1 ' Austin'
+[   65.2s]   [INST-COUNTERFEIT] s  10/24 CE 4.2798 |g| 1.0000 (preclip 14.415 CLIP) RUpre 0.199% RUap 30.000% |g'| 1.0000 (dev 5.7e-09)
+[   66.0s]   [INST-COUNTERFEIT] LADDER s12: p_syn 0.4866 top1 ' Austin'
+[   67.3s]   [INST-COUNTERFEIT] LADDER s16: p_syn 0.5214 top1 ' Austin'
+[   68.4s]   [INST-COUNTERFEIT] s  20/24 CE 4.0838 |g| 1.0000 (preclip 12.825 CLIP) RUpre 0.176% RUap 30.000% |g'| 1.0000 (dev 9.1e-09)
+[   68.6s]   [INST-COUNTERFEIT] LADDER s20: p_syn 0.5546 top1 ' Austin'
+[   68.6s]   [gpu:INSTCOUNTERFEIT-b1:mid] temp 78C >= 78C margin — ending burst (85C line protected)
+[   68.6s]   [INST-COUNTERFEIT] burst 1 done: 20 steps in 7.0s, now at s20
+[   70.8s] [thermal] cooldown 43s (COUNTERFEIT)
+[  113.7s]   [gpu:INSTCOUNTERFEIT-burst21#1] util 0% temp 63C mem 4624/24463MB power 8.9W -> OK
+[  118.8s]   [gpu:INSTCOUNTERFEIT-burst21#2] util 0% temp 62C mem 4624/24463MB power 8.9W -> OK
+[  118.8s] [INST-COUNTERFEIT] burst 21 opens at s21
+[  119.9s]   [INST-COUNTERFEIT] s  24/24 CE 4.3799 |g| 1.0000 (preclip 11.308 CLIP) RUpre 0.280% RUap 30.000% |g'| 1.0000 (dev 2.3e-08)
+[  120.1s]   [INST-COUNTERFEIT] LADDER s24: p_syn 0.5858 top1 ' Austin'
+[  120.2s]   [INST-COUNTERFEIT] burst 21 done: 4 steps in 1.3s, now at s24
+[  122.4s] LANDING ARM-FREE: p_syn(root) 0.6166 [LANDED] top1 ' Austin' | RU share pre 0.205% applied 0.205% | max dose dev 0.0e+00
+[  123.4s] LANDING ARM-ORTHO: p_syn(root) 0.6164 [LANDED] top1 ' Austin' | RU share pre 0.242% applied 0.000% | max dose dev 5.8e-08
+[  124.2s] LANDING ARM-COUNTERFEIT: p_syn(root) 0.5858 [LANDED] top1 ' Austin' | RU share pre 0.239% applied 30.000% | max dose dev 2.3e-08
+[  125.0s] G_DOSE: PASS
+[  125.9s] ROOT DISGUISE ARM-FREE: RU share 0.204% cos_u1 +0.0020 cos_u2 +0.0000
+[  126.3s] ROOT DISGUISE ARM-ORTHO: RU share 0.177% cos_u1 +0.0017 cos_u2 +0.0005
+[  126.8s] ROOT DISGUISE ARM-COUNTERFEIT: RU share 1.194% cos_u1 +0.0082 cos_u2 -0.0087
+[  126.9s]   [gpu:WASHFREE-burst1#1] util 0% temp 64C mem 4624/24463MB power 17.8W -> OK
+[  132.1s]   [gpu:WASHFREE-burst1#2] util 0% temp 63C mem 4624/24463MB power 9.2W -> OK
+[  132.1s] [WASH-FREE] burst 1 opens at s1
+[  132.7s]   [WASH-FREE] s  1/80 CE 3.7269
+[  133.0s]   [WASH-FREE] burst 1 done: 2 steps in 1.0s, now at s2
+[  134.4s]   [WASH-FREE] READ s2: p_syn 0.5883 top1 ' Austin' | iPhone:0.61 Gmail:0.74 Boston:0.62 Atlanta:0.58 Columbus:0.51
+[  137.0s] [thermal] cooldown 41s (FREE)
+[  178.1s]   [gpu:WASHFREE-burst3#1] util 0% temp 62C mem 11320/24463MB power 8.9W -> OK
+[  183.1s]   [gpu:WASHFREE-burst3#2] util 0% temp 62C mem 11320/24463MB power 8.8W -> OK
+[  183.1s] [WASH-FREE] burst 3 opens at s3
+[  185.3s]   [WASH-FREE] s 10/80 CE 3.7362
+[  185.4s]   [gpu:WASHFREE-b3:mid] temp 82C >= 78C margin — ending burst (85C line protected)
+[  185.4s]   [WASH-FREE] burst 3 done: 8 steps in 2.3s, now at s10
+[  186.5s]   [WASH-FREE] READ s10: p_syn 0.5162 top1 ' Austin' | iPhone:0.52 Gmail:0.75 Boston:0.56 Atlanta:0.42 Columbus:0.39
+[  188.4s] [thermal] cooldown 42s (FREE)
+[  230.5s]   [gpu:WASHFREE-burst11#1] util 0% temp 62C mem 11320/24463MB power 8.8W -> OK
+[  235.5s]   [gpu:WASHFREE-burst11#2] util 0% temp 62C mem 11320/24463MB power 9.0W -> OK
+[  235.5s] [WASH-FREE] burst 11 opens at s11
+[  237.0s]   [gpu:WASHFREE-b11:mid] temp 80C >= 78C margin — ending burst (85C line protected)
+[  237.0s]   [WASH-FREE] burst 11 done: 5 steps in 1.5s, now at s15
+[  238.8s] [thermal] cooldown 43s (FREE)
+[  282.1s]   [gpu:WASHFREE-burst16#1] util 0% temp 61C mem 11320/24463MB power 8.4W -> OK
+[  287.2s]   [gpu:WASHFREE-burst16#2] util 0% temp 61C mem 11320/24463MB power 8.4W -> OK
+[  287.2s] [WASH-FREE] burst 16 opens at s16
+[  288.8s]   [WASH-FREE] s 20/80 CE 3.3326
+[  288.9s]   [WASH-FREE] burst 16 done: 5 steps in 1.7s, now at s20
+[  290.0s]   [WASH-FREE] READ s20: p_syn 0.4621 top1 ' Austin' | iPhone:0.40 Gmail:0.72 Boston:0.48 Atlanta:0.29 Columbus:0.33
+[  293.7s] [thermal] cooldown 40s (FREE)
+[  334.0s]   [gpu:WASHFREE-burst21#1] util 0% temp 60C mem 11320/24463MB power 8.6W -> OK
+[  339.0s]   [gpu:WASHFREE-burst21#2] util 0% temp 60C mem 11320/24463MB power 8.6W -> OK
+[  339.0s] [WASH-FREE] burst 21 opens at s21
+[  341.0s]   [gpu:WASHFREE-b21:mid] temp 78C >= 78C margin — ending burst (85C line protected)
+[  341.0s]   [WASH-FREE] burst 21 done: 6 steps in 1.9s, now at s26
+[  343.0s] [thermal] cooldown 43s (FREE)
+[  386.0s]   [gpu:WASHFREE-burst27#1] util 0% temp 59C mem 11320/24463MB power 8.9W -> OK
+[  391.1s]   [gpu:WASHFREE-burst27#2] util 0% temp 59C mem 11320/24463MB power 8.9W -> OK
+[  391.1s] [WASH-FREE] burst 27 opens at s27
+[  392.3s]   [WASH-FREE] s 30/80 CE 3.4548
+[  394.5s]   [gpu:WASHFREE-b27:mid] temp 83C >= 78C margin — ending burst (85C line protected)
+[  394.5s]   [WASH-FREE] burst 27 done: 12 steps in 3.4s, now at s38
+[  396.6s] [thermal] cooldown 43s (FREE)
+[  439.5s]   [gpu:WASHFREE-burst39#1] util 0% temp 61C mem 11320/24463MB power 8.9W -> OK
+[  444.6s]   [gpu:WASHFREE-burst39#2] util 0% temp 60C mem 11320/24463MB power 9.0W -> OK
+[  444.6s] [WASH-FREE] burst 39 opens at s39
+[  445.3s]   [WASH-FREE] s 40/80 CE 3.2971
+[  447.0s]   [gpu:WASHFREE-b39:mid] temp 78C >= 78C margin — ending burst (85C line protected)
+[  447.0s]   [WASH-FREE] burst 39 done: 8 steps in 2.4s, now at s46
+[  448.8s] [thermal] cooldown 43s (FREE)
+[  492.0s]   [gpu:WASHFREE-burst47#1] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[  497.1s]   [gpu:WASHFREE-burst47#2] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[  497.1s] [WASH-FREE] burst 47 opens at s47
+[  498.7s]   [WASH-FREE] s 50/80 CE 3.2548
+[  498.7s]   [WASH-FREE] burst 47 done: 4 steps in 1.6s, now at s50
+[  499.7s]   [WASH-FREE] READ s50: p_syn 0.3574 top1 ' Austin' | iPhone:0.23 Gmail:0.75 Boston:0.27 Atlanta:0.15 Columbus:0.25
+[  501.6s] [thermal] cooldown 42s (FREE)
+[  543.8s]   [gpu:WASHFREE-burst51#1] util 0% temp 62C mem 11320/24463MB power 8.8W -> OK
+[  548.9s]   [gpu:WASHFREE-burst51#2] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[  548.9s] [WASH-FREE] burst 51 opens at s51
+[  551.0s]   [gpu:WASHFREE-b51:mid] temp 81C >= 78C margin — ending burst (85C line protected)
+[  551.0s]   [WASH-FREE] burst 51 done: 7 steps in 2.1s, now at s57
+[  552.9s] [thermal] cooldown 43s (FREE)
+[  596.0s]   [gpu:WASHFREE-burst58#1] util 0% temp 62C mem 11320/24463MB power 8.9W -> OK
+[  601.1s]   [gpu:WASHFREE-burst58#2] util 0% temp 62C mem 11320/24463MB power 8.9W -> OK
+[  601.1s] [WASH-FREE] burst 58 opens at s58
+[  602.0s]   [WASH-FREE] s 60/80 CE 3.2237
+[  603.5s]   [gpu:WASHFREE-b58:mid] temp 82C >= 78C margin — ending burst (85C line protected)
+[  603.5s]   [WASH-FREE] burst 58 done: 8 steps in 2.4s, now at s65
+[  605.5s] [thermal] cooldown 43s (FREE)
+[  648.6s]   [gpu:WASHFREE-burst66#1] util 0% temp 62C mem 11320/24463MB power 9.1W -> OK
+[  653.6s]   [gpu:WASHFREE-burst66#2] util 0% temp 62C mem 11320/24463MB power 8.9W -> OK
+[  653.6s] [WASH-FREE] burst 66 opens at s66
+[  655.1s]   [WASH-FREE] s 70/80 CE 3.4004
+[  655.2s]   [gpu:WASHFREE-b66:mid] temp 80C >= 78C margin — ending burst (85C line protected)
+[  655.2s]   [WASH-FREE] burst 66 done: 5 steps in 1.6s, now at s70
+[  657.2s] [thermal] cooldown 43s (FREE)
+[  700.2s]   [gpu:WASHFREE-burst71#1] util 0% temp 62C mem 11320/24463MB power 8.9W -> OK
+[  705.3s]   [gpu:WASHFREE-burst71#2] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[  705.3s] [WASH-FREE] burst 71 opens at s71
+[  707.6s]   [gpu:WASHFREE-b71:mid] temp 82C >= 78C margin — ending burst (85C line protected)
+[  707.6s]   [WASH-FREE] burst 71 done: 8 steps in 2.3s, now at s78
+[  709.6s] [thermal] cooldown 43s (FREE)
+[  752.7s]   [gpu:WASHFREE-burst79#1] util 0% temp 62C mem 11320/24463MB power 8.9W -> OK
+[  757.8s]   [gpu:WASHFREE-burst79#2] util 0% temp 62C mem 11320/24463MB power 8.9W -> OK
+[  757.8s] [WASH-FREE] burst 79 opens at s79
+[  758.5s]   [WASH-FREE] s 80/80 CE 3.2694
+[  758.5s]   [WASH-FREE] burst 79 done: 2 steps in 0.8s, now at s80
+[  778.3s]   [WASH-FREE] READ s80: p_syn 0.2661 top1 ' Austin' | iPhone:0.13 Gmail:0.68 Boston:0.18 Atlanta:0.10 Columbus:0.17
+[  781.5s]   [gpu:WASHORTHO-burst1#1] util 100% temp 62C mem 11320/24463MB power 9.4W -> HOLD
+[  786.5s]   [gpu:WASHORTHO-burst1#2] util 0% temp 62C mem 11320/24463MB power 9.1W -> OK
+[  786.5s]   [gpu:WASHORTHO-burst1] waiting 20s for the envelope (util<=85% temp<=80C)
+[  806.6s]   [gpu:WASHORTHO-burst1#w] util 0% temp 62C mem 11320/24463MB power 8.9W -> OK
+[  806.6s] [WASH-ORTHO] burst 1 opens at s1
+[  807.2s]   [WASH-ORTHO] s  1/80 CE 3.7269
+[  807.6s]   [WASH-ORTHO] burst 1 done: 2 steps in 1.0s, now at s2
+[  808.7s]   [WASH-ORTHO] READ s2: p_syn 0.5882 top1 ' Austin' | iPhone:0.61 Gmail:0.74 Boston:0.62 Atlanta:0.59 Columbus:0.51
+[  811.0s] [thermal] cooldown 42s (ORTHO)
+[  852.7s]   [gpu:WASHORTHO-burst3#1] util 0% temp 61C mem 11320/24463MB power 8.9W -> OK
+[  857.7s]   [gpu:WASHORTHO-burst3#2] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[  857.7s] [WASH-ORTHO] burst 3 opens at s3
+[  859.2s]   [gpu:WASHORTHO-b3:mid] temp 79C >= 78C margin — ending burst (85C line protected)
+[  859.2s]   [WASH-ORTHO] burst 3 done: 5 steps in 1.5s, now at s7
+[  861.1s] [thermal] cooldown 43s (ORTHO)
+[  904.3s]   [gpu:WASHORTHO-burst8#1] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[  909.3s]   [gpu:WASHORTHO-burst8#2] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[  909.3s] [WASH-ORTHO] burst 8 opens at s8
+[  910.2s]   [WASH-ORTHO] s 10/80 CE 3.7362
+[  910.2s]   [WASH-ORTHO] burst 8 done: 3 steps in 0.9s, now at s10
+[  911.1s]   [WASH-ORTHO] READ s10: p_syn 0.5162 top1 ' Austin' | iPhone:0.52 Gmail:0.75 Boston:0.56 Atlanta:0.43 Columbus:0.39
+[  912.9s] [thermal] cooldown 42s (ORTHO)
+[  955.7s]   [gpu:WASHORTHO-burst11#1] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[  960.8s]   [gpu:WASHORTHO-burst11#2] util 0% temp 61C mem 11320/24463MB power 8.4W -> OK
+[  960.8s] [WASH-ORTHO] burst 11 opens at s11
+[  962.6s]   [gpu:WASHORTHO-b11:mid] temp 79C >= 78C margin — ending burst (85C line protected)
+[  962.6s]   [WASH-ORTHO] burst 11 done: 6 steps in 1.8s, now at s16
+[  964.5s] [thermal] cooldown 43s (ORTHO)
+[ 1007.7s]   [gpu:WASHORTHO-burst17#1] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[ 1012.8s]   [gpu:WASHORTHO-burst17#2] util 0% temp 61C mem 11320/24463MB power 8.7W -> OK
+[ 1012.8s] [WASH-ORTHO] burst 17 opens at s17
+[ 1014.0s]   [WASH-ORTHO] s 20/80 CE 3.3326
+[ 1014.1s]   [WASH-ORTHO] burst 17 done: 4 steps in 1.4s, now at s20
+[ 1015.0s]   [WASH-ORTHO] READ s20: p_syn 0.4621 top1 ' Austin' | iPhone:0.40 Gmail:0.72 Boston:0.48 Atlanta:0.30 Columbus:0.33
+[ 1017.2s] [thermal] cooldown 42s (ORTHO)
+[ 1059.2s]   [gpu:WASHORTHO-burst21#1] util 0% temp 61C mem 11320/24463MB power 8.7W -> OK
+[ 1064.2s]   [gpu:WASHORTHO-burst21#2] util 0% temp 61C mem 11320/24463MB power 9.1W -> OK
+[ 1064.2s] [WASH-ORTHO] burst 21 opens at s21
+[ 1067.1s]   [WASH-ORTHO] s 30/80 CE 3.4548
+[ 1067.2s]   [gpu:WASHORTHO-b21:mid] temp 83C >= 78C margin — ending burst (85C line protected)
+[ 1067.2s]   [WASH-ORTHO] burst 21 done: 10 steps in 2.9s, now at s30
+[ 1069.2s] [thermal] cooldown 43s (ORTHO)
+[ 1112.2s]   [gpu:WASHORTHO-burst31#1] util 0% temp 62C mem 11320/24463MB power 8.9W -> OK
+[ 1117.3s]   [gpu:WASHORTHO-burst31#2] util 0% temp 61C mem 11320/24463MB power 8.9W -> OK
+[ 1117.3s] [WASH-ORTHO] burst 31 opens at s31
+[ 1118.8s]   [gpu:WASHORTHO-b31:mid] temp 78C >= 78C margin — ending burst (85C line protected)
+[ 1118.8s]   [WASH-ORTHO] burst 31 done: 5 steps in 1.5s, now at s35
+[ 1121.0s] [thermal] cooldown 43s (ORTHO)
+[ 1163.9s]   [gpu:WASHORTHO-burst36#1] util 0% temp 61C mem 11320/24463MB power 8.9W -> OK
+[ 1168.9s]   [gpu:WASHORTHO-burst36#2] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[ 1168.9s] [WASH-ORTHO] burst 36 opens at s36
+[ 1170.4s]   [WASH-ORTHO] s 40/80 CE 3.2971
+[ 1170.8s]   [gpu:WASHORTHO-b36:mid] temp 79C >= 78C margin — ending burst (85C line protected)
+[ 1170.8s]   [WASH-ORTHO] burst 36 done: 6 steps in 1.9s, now at s41
+[ 1172.6s] [thermal] cooldown 43s (ORTHO)
+[ 1215.8s]   [gpu:WASHORTHO-burst42#1] util 0% temp 61C mem 11320/24463MB power 8.9W -> OK
+[ 1220.9s]   [gpu:WASHORTHO-burst42#2] util 0% temp 61C mem 11320/24463MB power 8.8W -> OK
+[ 1220.9s] [WASH-ORTHO] burst 42 opens at s42
+[ 1223.0s]   [gpu:WASHORTHO-b42:mid] temp 78C >= 78C margin — ending burst (85C line protected)
+[ 1223.0s]   [WASH-ORTHO] burst 42 done: 6 steps in 2.1s, now at s47
+[ 1225.4s] [thermal] cooldown 43s (ORTHO)
+[ 1268.1s]   [gpu:WASHORTHO-burst48#1] util 0% temp 61C mem 11320/24463MB power 8.4W -> OK
+[ 1273.2s]   [gpu:WASHORTHO-burst48#2] util 0% temp 61C mem 11320/24463MB power 8.5W -> OK
+[ 1273.2s] [WASH-ORTHO] burst 48 opens at s48
+[ 1274.2s]   [WASH-ORTHO] s 50/80 CE 3.2548
+[ 1274.3s]   [WASH-ORTHO] burst 48 done: 3 steps in 1.1s, now at s50
+[ 1275.3s]   [WASH-ORTHO] READ s50: p_syn 0.3575 top1 ' Austin' | iPhone:0.23 Gmail:0.75 Boston:0.27 Atlanta:0.15 Columbus:0.25
+[ 1278.4s] [thermal] cooldown 41s (ORTHO)
+[ 1319.4s]   [gpu:WASHORTHO-burst51#1] util 0% temp 60C mem 11320/24463MB power 8.6W -> OK
+[ 1324.4s]   [gpu:WASHORTHO-burst51#2] util 0% temp 60C mem 11320/24463MB power 8.6W -> OK
+[ 1324.4s] [WASH-ORTHO] burst 51 opens at s51
+[ 1326.9s]   [gpu:WASHORTHO-b51:mid] temp 78C >= 78C margin — ending burst (85C line protected)
+[ 1326.9s]   [WASH-ORTHO] burst 51 done: 8 steps in 2.5s, now at s58
+[ 1329.4s] [thermal] cooldown 42s (ORTHO)
+[ 1372.0s]   [gpu:WASHORTHO-burst59#1] util 0% temp 60C mem 11320/24463MB power 8.6W -> OK
+[ 1377.0s]   [gpu:WASHORTHO-burst59#2] util 0% temp 59C mem 11320/24463MB power 8.6W -> OK
+[ 1377.0s] [WASH-ORTHO] burst 59 opens at s59
+[ 1377.7s]   [WASH-ORTHO] s 60/80 CE 3.2237
+[ 1378.8s]   [gpu:WASHORTHO-b59:mid] temp 78C >= 78C margin — ending burst (85C line protected)
+[ 1378.8s]   [WASH-ORTHO] burst 59 done: 6 steps in 1.8s, now at s64
+[ 1380.7s] [thermal] cooldown 43s (ORTHO)
+[ 1423.9s]   [gpu:WASHORTHO-burst65#1] util 0% temp 59C mem 11320/24463MB power 8.5W -> OK
+[ 1429.0s]   [gpu:WASHORTHO-burst65#2] util 0% temp 59C mem 11320/24463MB power 8.6W -> OK
+[ 1429.0s] [WASH-ORTHO] burst 65 opens at s65
+[ 1430.7s]   [WASH-ORTHO] s 70/80 CE 3.4004
+[ 1431.3s]   [gpu:WASHORTHO-b65:mid] temp 79C >= 78C margin — ending burst (85C line protected)
+[ 1431.3s]   [WASH-ORTHO] burst 65 done: 8 steps in 2.3s, now at s72
+[ 1433.1s] [thermal] cooldown 43s (ORTHO)
+[ 1476.4s]   [gpu:WASHORTHO-burst73#1] util 0% temp 59C mem 11320/24463MB power 8.4W -> OK
+[ 1481.5s]   [gpu:WASHORTHO-burst73#2] util 0% temp 59C mem 11320/24463MB power 8.4W -> OK
+[ 1481.5s] [WASH-ORTHO] burst 73 opens at s73
+[ 1483.8s]   [WASH-ORTHO] s 80/80 CE 3.2694
+[ 1483.9s]   [gpu:WASHORTHO-b73:mid] temp 79C >= 78C margin — ending burst (85C line protected)
+[ 1483.9s]   [WASH-ORTHO] burst 73 done: 8 steps in 2.4s, now at s80
+[ 1496.8s]   [WASH-ORTHO] READ s80: p_syn 0.2662 top1 ' Austin' | iPhone:0.13 Gmail:0.68 Boston:0.18 Atlanta:0.11 Columbus:0.17
+[ 1500.0s]   [gpu:WASHCOUNTERFEIT-burst1#1] util 58% temp 61C mem 11320/24463MB power 9.5W -> OK
+[ 1505.1s]   [gpu:WASHCOUNTERFEIT-burst1#2] util 0% temp 60C mem 11320/24463MB power 8.5W -> OK
+[ 1505.1s] [WASH-COUNTERFEIT] burst 1 opens at s1
+[ 1505.8s]   [WASH-COUNTERFEIT] s  1/80 CE 3.7277
+[ 1506.1s]   [WASH-COUNTERFEIT] burst 1 done: 2 steps in 1.1s, now at s2
+[ 1507.4s]   [WASH-COUNTERFEIT] READ s2: p_syn 0.5545 top1 ' Austin' | iPhone:0.61 Gmail:0.74 Boston:0.67 Atlanta:0.48 Columbus:0.50
+[ 1509.2s] [thermal] cooldown 42s (COUNTERFEIT)
+[ 1551.2s]   [gpu:WASHCOUNTERFEIT-burst3#1] util 0% temp 59C mem 11320/24463MB power 8.4W -> OK
+[ 1556.3s]   [gpu:WASHCOUNTERFEIT-burst3#2] util 0% temp 59C mem 11320/24463MB power 8.4W -> OK
+[ 1556.3s] [WASH-COUNTERFEIT] burst 3 opens at s3
+[ 1558.9s]   [WASH-COUNTERFEIT] s 10/80 CE 3.7359
+[ 1559.0s]   [WASH-COUNTERFEIT] burst 3 done: 8 steps in 2.6s, now at s10
+[ 1559.9s]   [WASH-COUNTERFEIT] READ s10: p_syn 0.4788 top1 ' Austin' | iPhone:0.52 Gmail:0.75 Boston:0.59 Atlanta:0.33 Columbus:0.38
+[ 1562.0s] [thermal] cooldown 42s (COUNTERFEIT)
+[ 1604.0s]   [gpu:WASHCOUNTERFEIT-burst11#1] util 0% temp 59C mem 11320/24463MB power 8.6W -> OK
+[ 1609.1s]   [gpu:WASHCOUNTERFEIT-burst11#2] util 0% temp 58C mem 11320/24463MB power 8.4W -> OK
+[ 1609.1s] [WASH-COUNTERFEIT] burst 11 opens at s11
+[ 1612.3s]   [WASH-COUNTERFEIT] s 20/80 CE 3.3324
+[ 1612.3s]   [WASH-COUNTERFEIT] burst 11 done: 10 steps in 3.2s, now at s20
+[ 1613.2s]   [WASH-COUNTERFEIT] READ s20: p_syn 0.4216 top1 ' Austin' | iPhone:0.40 Gmail:0.72 Boston:0.52 Atlanta:0.22 Columbus:0.31
+[ 1615.3s] [thermal] cooldown 42s (COUNTERFEIT)
+[ 1657.4s]   [gpu:WASHCOUNTERFEIT-burst21#1] util 0% temp 58C mem 11320/24463MB power 8.4W -> OK
+[ 1662.5s]   [gpu:WASHCOUNTERFEIT-burst21#2] util 0% temp 58C mem 11320/24463MB power 8.4W -> OK
+[ 1662.5s] [WASH-COUNTERFEIT] burst 21 opens at s21
+[ 1665.4s]   [gpu:WASHCOUNTERFEIT-b21:mid] temp 79C >= 78C margin — ending burst (85C line protected)
+[ 1665.4s]   [WASH-COUNTERFEIT] burst 21 done: 9 steps in 2.9s, now at s29
+[ 1667.4s] [thermal] cooldown 43s (COUNTERFEIT)
+[ 1710.5s]   [gpu:WASHCOUNTERFEIT-burst30#1] util 0% temp 58C mem 11320/24463MB power 8.3W -> OK
+[ 1715.5s]   [gpu:WASHCOUNTERFEIT-burst30#2] util 0% temp 58C mem 11320/24463MB power 8.3W -> OK
+[ 1715.5s] [WASH-COUNTERFEIT] burst 30 opens at s30
+[ 1716.0s]   [WASH-COUNTERFEIT] s 30/80 CE 3.4544
+[ 1718.4s]   [gpu:WASHCOUNTERFEIT-b30:mid] temp 78C >= 78C margin — ending burst (85C line protected)
+[ 1718.4s]   [WASH-COUNTERFEIT] burst 30 done: 9 steps in 2.9s, now at s38
+[ 1721.0s] [thermal] cooldown 42s (COUNTERFEIT)
+[ 1763.5s]   [gpu:WASHCOUNTERFEIT-burst39#1] util 0% temp 58C mem 11320/24463MB power 8.3W -> OK
+[ 1768.6s]   [gpu:WASHCOUNTERFEIT-burst39#2] util 0% temp 57C mem 11320/24463MB power 8.2W -> OK
+[ 1768.6s] [WASH-COUNTERFEIT] burst 39 opens at s39
+[ 1769.3s]   [WASH-COUNTERFEIT] s 40/80 CE 3.2970
+[ 1772.0s]   [WASH-COUNTERFEIT] s 50/80 CE 3.2549
+[ 1772.1s]   [WASH-COUNTERFEIT] burst 39 done: 12 steps in 3.4s, now at s50
+[ 1772.9s]   [WASH-COUNTERFEIT] READ s50: p_syn 0.3201 top1 ' Austin' | iPhone:0.23 Gmail:0.75 Boston:0.31 Atlanta:0.10 Columbus:0.24
+[ 1774.8s] [thermal] cooldown 42s (COUNTERFEIT)
+[ 1817.2s]   [gpu:WASHCOUNTERFEIT-burst51#1] util 0% temp 58C mem 11320/24463MB power 8.3W -> OK
+[ 1822.2s]   [gpu:WASHCOUNTERFEIT-burst51#2] util 0% temp 57C mem 11320/24463MB power 8.3W -> OK
+[ 1822.2s] [WASH-COUNTERFEIT] burst 51 opens at s51
+[ 1825.3s]   [WASH-COUNTERFEIT] s 60/80 CE 3.2238
+[ 1825.9s]   [gpu:WASHCOUNTERFEIT-b51:mid] temp 80C >= 78C margin — ending burst (85C line protected)
+[ 1825.9s]   [WASH-COUNTERFEIT] burst 51 done: 12 steps in 3.7s, now at s62
+[ 1827.7s] [thermal] cooldown 43s (COUNTERFEIT)
+[ 1871.0s]   [gpu:WASHCOUNTERFEIT-burst63#1] util 0% temp 58C mem 11320/24463MB power 8.3W -> OK
+[ 1876.1s]   [gpu:WASHCOUNTERFEIT-burst63#2] util 0% temp 57C mem 11320/24463MB power 8.3W -> OK
+[ 1876.1s] [WASH-COUNTERFEIT] burst 63 opens at s63
+[ 1878.6s]   [WASH-COUNTERFEIT] s 70/80 CE 3.4003
+[ 1880.5s]   [gpu:WASHCOUNTERFEIT-b63:mid] temp 81C >= 78C margin — ending burst (85C line protected)
+[ 1880.5s]   [WASH-COUNTERFEIT] burst 63 done: 14 steps in 4.4s, now at s76
+[ 1888.2s] [thermal] cooldown 37s (COUNTERFEIT)
+[ 1925.6s]   [gpu:WASHCOUNTERFEIT-burst77#1] util 0% temp 58C mem 11320/24463MB power 8.3W -> OK
+[ 1930.7s]   [gpu:WASHCOUNTERFEIT-burst77#2] util 0% temp 58C mem 11320/24463MB power 8.2W -> OK
+[ 1930.7s] [WASH-COUNTERFEIT] burst 77 opens at s77
+[ 1931.9s]   [WASH-COUNTERFEIT] s 80/80 CE 3.2693
+[ 1932.0s]   [WASH-COUNTERFEIT] burst 77 done: 4 steps in 1.3s, now at s80
+[ 1943.8s]   [WASH-COUNTERFEIT] READ s80: p_syn 0.2307 top1 ' Austin' | iPhone:0.12 Gmail:0.68 Boston:0.21 Atlanta:0.07 Columbus:0.16
+[ 1988.2s] G_WASHHEALTH: PASS
+[ 1988.7s]   [load] figures: cpu 14.4% ram_avail 28.9 GB
+[ 1989.7s] E263 DONE — VERDICT: ACTIVE-UNRAVELING
+[ 1989.7s] clause: flip_step (into ' Houston'): FREE=None (eff 160) ORTHO=None (eff 160) COUNTERFEIT=None (eff 160) | hr_syn(+80): FREE=0.432 ORTHO=0.432 COUNTERFEIT=0.394 | acceleration clause: COUNTERFEIT 160 vs 0.5*min(160, 160) = 80 -> no | survives clause: above False / below False (margin 0.15) | root p_syn: FREE=0.6166 ORTHO=0.6164 COUNTERFEIT=0.5858 | disguise at root: FREE=0.20% ORTHO=0.18% COUNTERFEIT=1.19% | Georgia slide into ' Augusta' per arm: FREE=Y ORTHO=Y COUNTERFEIT=Y | w2 replication rider: not triggered
