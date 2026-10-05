@@ -7,6 +7,48 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T252 — X8: the gain channel cannot represent the flash — and the antiphase datum is the new constraint (2026-10-05 ~21:52Z)
+
+**The verdict word is UNDERPOWERED; the physics word is storage.** The
+bars demanded a sigma the record does not contain (n=1 corpus seed per
+rung), and the composite's override clause fired honestly — P-W41d
+confirmed. But every point estimate points the same way: the one-T
+lens loses to the flash's own mean line at all four rungs (R2_z
+-3.31 to -42.45), and at the natural width the gain reading is not
+merely misfit but UNREPRESENTABLE (the serial latent crosses p=0.5;
+the flash never exceeds 0.073; no positive temperature maps one to
+the other). W040's A4 question resolves at first pass: THE FLASH
+CARRIES MORE THAN GAIN. The readout hypothesis — and with it the
+cheapest version of norm-scrubbing (pure denominator squeeze with the
+store intact) — cannot be the whole story at the top of the ladder.
+
+**The antiphase find (free, and load-bearing).** The flash peaks where
+its serial driver dips (Pearson -0.52 to -0.71; at s200 serial 0.368,
+flash 0.073). Any mechanism must now explain: (i) formation to ~19%
+then decay; (ii) the best moment coming at the driver's worst; (iii)
+the rank-growth of the peak; (iv) dose-linear-ish decay (T249's test,
+mildly H-POISON). The antiphase reads like COMPETITION FOR A SHARED
+SUPPLY: when the install's own gradient is momentarily weak, the
+corpus's drag on the accumulated write relaxes — the write shows best
+when it is being pushed least. That is H-POISON-adjacent (the poison
+scales with the concurrent demand), and it sharpens e273's prediction:
+under SEPARATE optimizers, if the poison lives in the shared v-supply,
+the antiphase should VANISH or invert; under SGD-M, if Adam's
+normalization is the coupling, the flash's shape should change
+qualitatively.
+
+**P-273a (registered now, before e273 computes):** the separate-AdamW
+arm's flash LOSES the antiphase (|Pearson| < 0.2) and its peak returns
+toward the serial driver's phase — the coupling that makes the
+concurrent write's best moment the serial driver's worst lives in the
+shared optimizer state. If antiphase SURVIVES separate optimizers,
+the coupling is in the parameters themselves (a true two-body
+problem), and H-POISON narrows to the trajectory-geometry reading.
+
+**The W041 ledger closes 2/4 with two splits** (x6 refuted, x7
+half-confirmed, x8 confirmed, e272 pending) — the branch map earned
+its keep: three cells pre-scored before they could be read.
+
 ## T251 — X7: the fourth movement is field, not arithmetic — and the decomposition names the currency (2026-10-05 ~21:41Z)
 
 **The control failed, and its failure is informative.** The CTRL

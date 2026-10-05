@@ -20,6 +20,17 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## x8 — the flash through the thermal lens (first pass): UNDERPOWERED (P-W41d CONFIRMED — the verdict hinges on sigma_seed, unmeasured at n=1 corpus seed/rung) — but the point estimates are unanimously STORAGE-FLAVORED: the one-T lens is worse than the flash's own mean line at every rung (R2_z -3.31 / -8.89 / -7.62 / -42.45 across 10k/40k/100k/237k; the STORAGE clause fired 4/4) and the 237k datum is STRUCTURAL: the serial latent crosses p=0.5 (positive logit) while the flash never exceeds 0.073 — no positive temperature maps one to the other; a pure-gain reading of the natural-width flash is UNREPRESENTABLE, not misfit; FREE FIND: the flash is ANTIPHASE with its serial driver at every rank (Pearson -0.52/-0.20/-0.24/-0.71 — it peaks where the driver dips: at s200 the serial dipped 0.368 while the flash peaked 0.073); T249's decay-shape test mildly favors H-POISON (dose-linear beats exponential erosion in all 3 informative rungs, ~0.03 R2); the (alpha,beta) race is MONOTONE in rank (Spearman 1.0, n=4) tracking the survival ladder's direction but overshooting the endpoint ratios 9x/2.7x/1.2x/1.1x (converging); neither family produces the flash's shape; under the in-data noise scale (S2, 0.18-0.35 z) the lens misfit is FAR outside the null — the verdict would read STORAGE-LIKE; under the misfit-scale null (S1) every CI crosses — hence the override; the prescription: a 3-corpus-seed pilot on 100k+237k to MEASURE sigma_seed (the one number the verdict hinges on, ~10 GPU min), then either the 50x-finer-grid x 5-seed cell (if S2-like) or the full-logit MLE dump (if S1-like) (2026-10-05 ~21:50Z) — DONE
+
+WHAT WE SAW: the readout hypothesis (W040's A4: the flash as gain) is
+dead at point estimate and structurally dead at the natural width; the
+flash carries information a gain channel cannot represent. The
+mechanism question narrows to H-POISON (mildly favored by decay shape)
+vs H-TRUE-FORMATION — e273's three barrels (separate-AdamW / SGD-M /
+weight-vs-read dissociation) are now the whole game, and the antiphase
+datum is a new constraint any mechanism must explain: the concurrent
+write's best moment is the serial driver's worst.
+
 ## x7 — the LN zero-sum control (W038's fourth movement on trial): CONSTRUCTIVE-FIELD — the control FAILED to match: the CTRL battery's best thickening anywhere in its committed trajectory is +2.64% (w1+10) = 13.8% of the fact battery's +19.15% (recomputed bit-exact: e242's wall, install-60 g-12, margin_sigma 0.9794 -> 1.1670; trajectory -1.9% at +1, +10.3% at +10, +20.0% at +50, +19.15% at +300); the LN zero-sum decomposition (EXACT identity, err 4.4e-16) puts the LN bookkeeping ceiling at ~+4% — ctrl's entire motion is scale-term (its raw gap shrank, gap factor 0.938) while the fact battery carries the GAP SURPLUS (+0.92 pct pts at w1+10, +2.26 at w1+2) — the re-formation layer is field, not arithmetic; and the one-T lens is PROVABLY invariant to pure logit rescaling (2.2e-16) — the +19.15% is not thermal-lens arithmetic; for law 3: the unwalled deep-state thinning is GAP DESTRUCTION (gap factors 0.60-0.87), not scale (2026-10-05 ~21:40Z) — DONE
 
 DISCLOSED: the consult's ideal control (ctrl under e242's OWN wall wash)
