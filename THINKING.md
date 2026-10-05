@@ -7,6 +7,82 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W040 — the R65 confluence layer engaged: one flow, two thresholds, and the two predictions registered BEFORE e271 reads (2026-10-05 ~20:47Z, the ideator's A1-A5 met with pushback)
+
+The R65 ideator's five confluences, engaged critically (the owner's
+dialogue rule applies to our own ideator too — push back, don't file):
+
+**A1 DELIVERY-IS-FREE (the rehearsal lane rank-independent?)** — the
+strongest composition on the table: the cons stream landed a dead 100k
+write at 0.8103 ABOVE its own serial 0.6884 (T248), the counterfeit's
+Georgia slid into Augusta in every arm (T245), the nearrel autopsy's
+standing runner-up won forever (T236). Joint reading: the trajectory
+DELIVERS mass to whatever stands, and only FORMATION costs dimensions.
+Pushback: the landing read carries the family's known instrument quirk
+(the serial cons-anchor lottery fires on LANDING reads, never WRITE
+reads — the e268-e270 letter/content split). So the C2 cell (rank-10
+rehearsal read) must pre-register the same-session discriminator and
+adjudicate on the WRITE read, or it inherits an unadjudicated lottery.
+The branches as minted (DELIVERY-FREE / SEED-NEEDED / LANE-REFUTED)
+are otherwise clean — and SEED-NEEDED would tie delivery to the
+residual flash mass, which A4 can test independently. RIPE.
+
+**A2 NOISE/SCALPEL (amplitude-limited bath + trace-directed kill)** —
+attractive, but the "desk-only, zero GPU" claim needs an instrument
+check BEFORE queueing: do the e268-e270 milestone journals record
+displacement VECTORS, or scalars only? If vectors are not in the
+journals, the decomposition loads checkpoints (preserved) and computes
+span-aligned vs orthogonal displacement on CPU — still zero-GPU but a
+heavier desk than advertised. Verify, then queue. The prediction
+itself is sharp: the orthogonal component carries the invariant ~0.02
+flash at every rank while the span-aligned component carries the death
+— if instead the death is orthogonal, the scalpel reading dies and the
+bath alone murders, which would collapse A2 into A3's ratchet.
+
+**A3 THE QUIET-TIME RATCHET (C1, the K-ladder)** — the day's best new
+cell, because it unifies the day's two laws as ONE OBJECT IN TWO
+CURRENCIES: the capacity number (~10k dims) is the width at which one
+notch of quiet advance outlasts one reset; turbulence kills not by
+dose but by guaranteeing zero consecutive quiet steps (the 1:1
+interleave is exactly that guarantee — which is why death coexists
+with a HEALTHIER organism). The step-vs-graded outcome cleanly
+separates ratchet from averaging, and branch (iii) DOSE-DEBT (K=8 dies
+at matched exposure) would hand the write-side kill to the undertow's
+memory — e258's v-load machinery tests that directly. NOTE the ladder
+must hold total CORPUS EXPOSURE constant across K or it measures dose
+twice — the design must state the exposure-matching rule verbatim.
+
+**A4 THE FLASH'S ONTOLOGICAL STATUS (storage vs readout)** — the
+flash is a RISE and has never met the thermal lens; if one-T fits it,
+it is readout gain (A2's floor lives in the gain); if it misfits like
+the hardest deaths, it is genuine transient storage — a new object
+class. Zero-GPU on committed checkpoints. Cheap and deep; queue as
+desk.
+
+**A5 THE TWO THRESHOLDS ON ONE AXIS — REGISTERED NOW, BEFORE e271
+READS (the card's reason for being written this beat):**
+- PREDICTION P-271a (extends the frozen TURBULENCE-TOTAL bar): e271
+  returns post-g0 < 0.5x serial (the extrapolation says 0.06-0.08x)
+  AND the concurrent flash stays ~0.02 — flash-invariant at the
+  natural width. A flash that GROWS with rank at 237k would be the
+  first sign the bath amplitude is not the fixed floor A2 claims.
+- PREDICTION P-271b (the Batchelor differential, wild-card D): under
+  a K=4 interleave the 2k rung (dead at every measured condition)
+  comes ALIVE if the threshold MOVES with turbulence intensity (the
+  flow reading — capacity is a ratio of rates); 2k stays dead at any
+  interleave if the threshold is FIXED (the geometric reading). One
+  added arm on C1's rig; registered here so the result cannot be
+  re-derived into whichever story wins.
+The Batchelor import, if it survives: the two laws stay two because
+they are two regimes of ONE process — the capacity number becomes
+formation-rate/turbulent-dissipation ratio, not storage geometry.
+
+Queue surgery waits for the auditor + critic; the confluences argue:
+corpus-dose tripling UPGRADED (add the flash-invariance bar), sham
+arm UPGRADED (A2's last causal control), {2k,5k} confirmatory,
+Lanczos GATED behind C1's GRADED-AVERAGING branch (the one outcome
+that re-opens the spectral program).
+
 **Registered discrimination OUTCOME (e063b, ~09:57Z): H-ii
 OPTIMIZER-ATTRACTOR — H-i decisively failed.** The e021 copy-task net
 (far-retrieval genuinely learned: +3.27 far-value, 99.96% copy acc;
