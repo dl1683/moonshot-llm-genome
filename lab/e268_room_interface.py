@@ -242,6 +242,8 @@ LADDER_SMOKE: tuple[tuple[int, int, int], ...] = (
 )
 LADDER = LADDER_SMOKE if SMOKE else LADDER_FULL
 RUNG = {k: ("K10K" if not SMOKE else f"K{k}") for k, _, _ in LADDER}
+ROOM_MODE = RUNG[LADDER[0][0]]       # the vehicle room's mode key (the
+                                     # hook's mode; smoke names it K512)
 E261.LADDER = LADDER            # the machinery's certify()/rooms read these
 E261.RUNG_NAMES = RUNG
 ARMS = ("SERIAL", "CONCURRENT")
@@ -361,6 +363,12 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE CATCHES (disclosed, the e260-family record intact): the "
+    "shakedown (E268_SMOKE=1, runs/e268_smoke/) caught TWO bugs before "
+    "any full compute — (1) the concurrent driver's hook mode was "
+    "hardcoded 'K10K' (broke the smoke room's name), (2) the figure calls "
+    "passed an undefined arg name; both fixed before the full run; the "
+    "bars, gates, adjudication and arms were untouched by either.",
     "NO FRESH FREE ARM (disclosed at birth): e264's G_FREE PASS on this "
     "session-generation (install L2 6.2e-4 vs the committed g1c install, "
     "behavioral |d| 1.3e-5, root in band) validates the instrumented path "
@@ -600,7 +608,7 @@ def chunked_install_concurrent(tag, net0, proj: "E261.LadderRooms",
             opt.zero_grad(set_to_none=True)
             loss.backward()
             torch.nn.utils.clip_grad_norm_(net.parameters(), 1.0)
-            led = proj.step_hook(list(net.parameters()), "K10K")
+            led = proj.step_hook(list(net.parameters()), ROOM_MODE)
             opt.step()
             if step % 10 == 0 or step == 1 or step == n_steps or SMOKE:
                 state["ledger"][step] = {
@@ -1620,9 +1628,9 @@ def main():
     }
 
     # ================= P10: figures ======================================
-    make_interface_plot(rd, arms_rec, ratio, ratio_fires, root_lo, root_hi,
+    make_interface_plot(RD, arms_rec, ratio, ratio_fires, root_lo, root_hi,
                         root_outside, verdict, clause, thermal_log)
-    make_instrument_plot(rd, arms_rec, cert, thermal_log)
+    make_instrument_plot(RD, arms_rec, cert, thermal_log)
     metrics["status"] = ("COMPLETE — adjudicated (this write replaces all "
                          "PARTIAL progressive writes)")
     metrics["outputs"] = [str(RD / "metrics.json"),
