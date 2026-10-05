@@ -34,6 +34,30 @@ read — the composition's sharper predictor).
 
 ---
 
+## e270 — the 100k concurrent branch (the flow story's closing cell): MIXED by the letter (the serial cons-anchor lottery again — root |d| 0.0392, the known family; the WRITE anchor bit-faithful at |d| 1.0e-6) / TURBULENCE-TOTAL in content — THE CONCURRENT 100K WRITE DIES (post g0 0.0109 vs serial 0.4360 — the ratio 0.0250x, 20x below the bar): THE TURBULENCE DOMINATES THE WHOLE MEASURED LADDER {10k, 40k, 100k}; THE TRANSIENT DOES NOT KEEP SCALING (the s100 chain: 0.000272 -> 0.0245 (90x) -> 0.00073 (0.03x) — the flash DELAYS and SATURATES (~0.02 peak), it does not grow; only the endpoint residue creeps 3.3x per 2.5x rank); the rehearsal lane triply confirmed (the dead write lands at 0.8103 — ABOVE its serial's 0.6884); the low-v/room-drag mechanics repeat (2026-10-05 ~23:20Z) — DONE
+
+WHAT WE DID: the frozen far-side cell — e269's machinery;
+the serial arm re-run fresh (bit-reproduces e264's committed
+100k rung at |d post| 1.0e-6); a fresh corpus seed 27001;
+12/12 gates PASS; thermal max 78.0C. Script
+lab/e270_100k_concurrent.py; runs/e270/ (metrics + 2 PNGs +
+REPORT).
+
+WHAT WE SAW (T248): THE FLOW STORY CLOSES AT THREE RUNGS —
+every confined write dies under concurrency regardless of
+rank; the two laws stay two everywhere measured. THE
+TRANSIENT'S SATURATION (the branch's second prong): the
+flash peaks ~0.02 at every rank and only shifts later in
+time with rank — a fixed-amplitude noise, not a growing
+signal. THE REHEARSAL LANE TRIPLY CONFIRMED — and now its
+sharpest form: the dead write lands ABOVE its own serial
+(the cons re-teaches better than the quiet write formed).
+
+HONESTY: n=1 per arm; the letter/content split stated per
+the frozen composite; nothing guaranteed.
+
+---
+
 ## e269 — the above-threshold interleave pair (the cliff's other side): MIXED by the frozen letter (a serial cons-lottery anchor catch on the LANDING read only) — THE CONTENT READ UNAMBIGUOUS: THE CONCURRENT 40K WRITE ALSO DIES (post g0 0.0033 vs 0.3465 serial — the survival ratio 0.0094x, 53x below the bar; the milestone trajectory never sticks) — THE THRESHOLD IS NOT THE TURBULENCE-PROOF SIZE: rank buys serial expression (the serial re-run reproduces the committed rung bit-perfectly) but does NOT confer concurrent survival; the capacity law and the dynamics-barrier do NOT unify at {10k, 40k} — the barrier is dose/rank-independent on the write side; the one room-size signature: the 40k concurrent TRANSIENT is ~90x the 10k's at every milestone (a bigger early life, the same death); the rehearsal lane doubly confirmed (the dead write lands at 0.7047 vs 0.7034); the corpus again wrote in low-v (v-excess 0.26 vs 0.88 — the supply-channel texture repeats) (2026-10-05 ~22:00Z) — DONE
 
 WHAT WE DID: the frozen pair — e268's machinery ported whole

@@ -685,6 +685,33 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T248 — e270: the flow story closes at three rungs — the turbulence is total, the flash saturates (2026-10-05 ~23:22Z)
+
+The far side answers and the arc completes. THE LADDER'S
+CONCURRENT LEDGER: 10k dies at 0.00015x, 40k at 0.0094x,
+100k at 0.0250x — the survival ratio CREEPS toward the bar
+(3.3x per 2.5x rank) but sits 20x below it at the top of
+the measured ladder; the turbulence is TOTAL across every
+confined write tested. THE FLASH SATURATES: the transient's
+peak holds ~0.02 at every rank and only arrives LATER (the
+s100 chain 0.0003 -> 0.024 -> 0.0007: the 40k flash was
+early, the 100k flash delayed to s200 at the same amplitude)
+— a FIXED-AMPLITUDE noise the bigger rooms merely postpone.
+THE ENDPOINT CREEP (the honest forward pointer): the ratio's
+3.3x-per-2.5x climb means the extrapolated crossing sits
+far beyond the essential-support rank (~237k is 2.4x away —
+one more rung would test it; the natural install's own k50
+is exactly 237k — THE NATURAL WRITE'S OWN WIDTH is the
+next-to-last datum the story wants). THE REHEARSAL LANE'S
+SHARPEST FORM: the dead 100k write lands at 0.8103, ABOVE
+its own serial's 0.6884 — the cons re-teaches better than
+the quiet write formed; the LANDING read and the WRITE read
+are now fully divorced objects. THE CLOSED PICTURE: the
+memory is a flow; the barrier is the flow's turbulence
+(total at every measured room); the cliff is the
+quiet-water mark; and the flash a memory makes when it dies
+is fixed-amplitude noise, merely postponed by size.
+
 ## T247 — e269: the turbulence dominates every confined write — the two laws stay two (2026-10-05 ~22:02Z)
 
 The other side of the cliff answers: the 40k write —
