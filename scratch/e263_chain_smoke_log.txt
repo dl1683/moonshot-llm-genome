@@ -1,69 +1,104 @@
 C:\Users\devan\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\cuda\__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
   import pynvml  # type: ignore[import]
 [    0.0s] E263 — THE COUNTERFEIT SELF (smoke=True) -> C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\e263_smoke
-[    0.5s]   [load] launch: cpu 11.9% ram_avail 41.0 GB
-[    1.6s] committed runner-ups runtime-read: Georgia->Atlanta ->  Augusta (46820) | Massachusetts->Boston ->  Worcester (50075) | the matched band [0.5302, 0.6481] (near t0 mean 0.5891 +-10%)
-[    1.6s] synthetic fact committed record: Texas->Austin p(t0)=0.3990 rank 0 (gate False, kept False)
-[    2.1s]   [load] organism+corpus: cpu 7.4% ram_avail 41.0 GB
-Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7838.83it/s]
-[   12.5s] organism: openai-community/gpt2@607a30d7 — 124,439,808 params (CPU fp32)
+[    0.5s]   [load] launch: cpu 5.5% ram_avail 41.0 GB
+[    1.9s] committed runner-ups runtime-read: Georgia->Atlanta ->  Augusta (46820) | Massachusetts->Boston ->  Worcester (50075) | the matched band [0.5302, 0.6481] (near t0 mean 0.5891 +-10%)
+[    1.9s] synthetic fact committed record: Texas->Austin p(t0)=0.3990 rank 0 (gate False, kept False)
+[    2.4s]   [load] organism+corpus: cpu 4.9% ram_avail 41.1 GB
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 11245.80it/s]
+[   11.9s] organism: openai-community/gpt2@607a30d7 — 124,439,808 params (CPU fp32)
 [transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (331770 > 1024). Running this sequence through the model will result in indexing errors
-[   14.3s] G_CORPUS: PASS
-[   14.8s]   [load] batteries: cpu 5.8% ram_avail 40.0 GB
-[   15.9s] G_BATT: PASS | fact: n 20 maxdp 0.00e+00 | ctrl: n 12 maxdp 3.28e-06 | near: n 3 maxdp 0.00e+00
-[   16.4s]   [load] synthetic probe t0: cpu 6.7% ram_avail 40.0 GB
-[   16.6s] G_SYN: PASS — Texas->Austin p(t0) 0.3990 (committed 0.3990) top1 ' Austin' | RUNNER-UP ' Houston' (6995) | committed RUs re-verified: Georgia->Atlanta:rank1 Massachusetts->Boston:rank1
-[   17.1s]   [load] RU supports: cpu 11.4% ram_avail 40.1 GB
+[   13.9s] G_CORPUS: PASS
+[   14.4s]   [load] batteries: cpu 10.3% ram_avail 40.2 GB
+[   15.4s] G_BATT: PASS | fact: n 20 maxdp 0.00e+00 | ctrl: n 12 maxdp 3.28e-06 | near: n 3 maxdp 0.00e+00
+[   15.9s]   [load] synthetic probe t0: cpu 8.6% ram_avail 40.2 GB
+[   16.0s] G_SYN: PASS — Texas->Austin p(t0) 0.3990 (committed 0.3990) top1 ' Austin' | RUNNER-UP ' Houston' (6995) | committed RUs re-verified: Georgia->Atlanta:rank1 Massachusetts->Boston:rank1
+[   16.5s]   [load] RU supports: cpu 9.8% ram_avail 40.2 GB
 [   19.2s] G_RU: PASS — fd(Aug) +8.838e-01 fd(Wor) +9.246e-01 mutual cos +0.0092 determinism 0.9999999
-[   19.8s]   [load] draws: cpu 3.7% ram_avail 36.7 GB
-[   20.5s] G_DRAWS: PASS
-[   21.0s]   [load] coordination: cpu 3.1% ram_avail 37.5 GB
-[   24.5s] G_COORD: PASS — 0 live lab procs; e261 tail '...NE (honesty + provenance + figures))
-[  817.2s] total 817.2s'; gpu util 0% temp 65C
-[   24.9s]   [gpu:INSTFREE-burst1#1] util 12% temp 66C mem 1260/24463MB power 32.8W -> OK
-[   29.9s]   [gpu:INSTFREE-burst1#2] util 0% temp 65C mem 1260/24463MB power 27.7W -> OK
-[   29.9s] [INST-FREE] burst 1 opens at s1
-[   31.0s]   [INST-FREE] s   1/3 CE 5.0768 |g| 1.0000 (preclip 17.871 CLIP) RUpre 0.329% RUap 0.329% |g'| 1.0000 (dev 0.0e+00)
-[   31.2s]   [INST-FREE] LADDER s1: p_syn 0.5536 top1 ' Austin'
-[   31.4s]   [INST-FREE] s   2/3 CE 4.1063 |g| 1.0000 (preclip 11.969 CLIP) RUpre 0.228% RUap 0.228% |g'| 1.0000 (dev 0.0e+00)
-[   31.6s]   [INST-FREE] LADDER s2: p_syn 0.7031 top1 ' Austin'
-[   31.8s]   [INST-FREE] s   3/3 CE 4.1385 |g| 1.0000 (preclip 13.972 CLIP) RUpre 0.239% RUap 0.239% |g'| 1.0000 (dev 0.0e+00)
-[   32.0s]   [INST-FREE] LADDER s3: p_syn 0.8098 top1 ' Austin'
-[   32.0s]   [INST-FREE] burst 1 done: 3 steps in 2.1s, now at s3
-[   34.0s]   [gpu:INSTORTHO-burst1#1] util 0% temp 67C mem 4624/24463MB power 28.1W -> OK
-[   39.1s]   [gpu:INSTORTHO-burst1#2] util 0% temp 65C mem 4624/24463MB power 15.0W -> OK
-[   39.1s] [INST-ORTHO] burst 1 opens at s1
-[   39.7s]   [INST-ORTHO] s   1/3 CE 5.0768 |g| 1.0000 (preclip 17.871 CLIP) RUpre 0.329% RUap 0.000% |g'| 1.0000 (dev 5.8e-08)
-[   39.8s]   [INST-ORTHO] LADDER s1: p_syn 0.5543 top1 ' Austin'
-[   40.0s]   [INST-ORTHO] s   2/3 CE 4.1063 |g| 1.0000 (preclip 11.969 CLIP) RUpre 0.226% RUap 0.000% |g'| 1.0000 (dev 5.0e-08)
-[   40.2s]   [INST-ORTHO] LADDER s2: p_syn 0.7033 top1 ' Austin'
-[   40.4s]   [INST-ORTHO] s   3/3 CE 4.1384 |g| 1.0000 (preclip 13.972 CLIP) RUpre 0.240% RUap 0.000% |g'| 1.0000 (dev 2.8e-08)
-[   40.7s]   [INST-ORTHO] LADDER s3: p_syn 0.8098 top1 ' Austin'
-[   40.8s]   [INST-ORTHO] burst 1 done: 3 steps in 1.7s, now at s3
-[   42.9s]   [gpu:INSTCOUNTERFEIT-burst1#1] util 6% temp 66C mem 4624/24463MB power 18.1W -> OK
-[   47.9s]   [gpu:INSTCOUNTERFEIT-burst1#2] util 0% temp 65C mem 4624/24463MB power 12.3W -> OK
-[   47.9s] [INST-COUNTERFEIT] burst 1 opens at s1
-[   48.6s]   [INST-COUNTERFEIT] s   1/3 CE 5.0768 |g| 1.0000 (preclip 17.871 CLIP) RUpre 0.329% RUap 30.000% |g'| 1.0000 (dev 2.0e-08)
-[   48.8s]   [INST-COUNTERFEIT] LADDER s1: p_syn 0.3981 top1 ' Austin'
-[   49.0s]   [INST-COUNTERFEIT] s   2/3 CE 4.1116 |g| 1.0000 (preclip 11.935 CLIP) RUpre 0.351% RUap 30.000% |g'| 1.0000 (dev 3.5e-08)
-[   49.2s]   [INST-COUNTERFEIT] LADDER s2: p_syn 0.5925 top1 ' Austin'
-[   49.5s]   [INST-COUNTERFEIT] s   3/3 CE 4.1452 |g| 1.0000 (preclip 14.135 CLIP) RUpre 0.214% RUap 30.000% |g'| 1.0000 (dev 1.1e-08)
-[   49.6s]   [INST-COUNTERFEIT] LADDER s3: p_syn 0.7194 top1 ' Austin'
-[   49.7s]   [INST-COUNTERFEIT] burst 1 done: 3 steps in 1.7s, now at s3
-[   51.8s] LANDING ARM-FREE: p_syn(root) 0.8098 [NOT] top1 ' Austin' | RU share pre 0.239% applied 0.239% | max dose dev 0.0e+00
-[   52.6s] LANDING ARM-ORTHO: p_syn(root) 0.8098 [NOT] top1 ' Austin' | RU share pre 0.240% applied 0.000% | max dose dev 5.8e-08
-[   53.4s] LANDING ARM-COUNTERFEIT: p_syn(root) 0.7194 [NOT] top1 ' Austin' | RU share pre 0.329% applied 30.000% | max dose dev 3.5e-08
-[   54.0s] G_DOSE: PASS
+[   19.9s]   [load] draws: cpu 18.9% ram_avail 36.8 GB
+[   20.4s] G_DRAWS: PASS
+[   20.9s]   [load] coordination: cpu 11.0% ram_avail 37.0 GB
+[   21.9s] G_COORD: PASS — 0 live lab procs; e261 tail '...NE (honesty + provenance + figures))
+[  817.2s] total 817.2s'; gpu util 0% temp 56C
+[   23.0s]   [INST-FREE] RESUMED from e263_smoke_FREE_inst_resume.pt at step 3/3
+[   23.0s]   [INST-FREE] resume ckpt already COMPLETE at s3
+[   23.6s]   [INST-ORTHO] RESUMED from e263_smoke_ORTHO_inst_resume.pt at step 3/3
+[   23.6s]   [INST-ORTHO] resume ckpt already COMPLETE at s3
+[   24.2s]   [INST-COUNTERFEIT] RESUMED from e263_smoke_COUNTERFEIT_inst_resume.pt at step 3/3
+[   24.2s]   [INST-COUNTERFEIT] resume ckpt already COMPLETE at s3
+[   24.5s] LANDING ARM-FREE: p_syn(root) 0.8098 [NOT] top1 ' Austin' | RU share pre 0.239% applied 0.239% | max dose dev 0.0e+00
+[   26.2s] LANDING ARM-ORTHO: p_syn(root) 0.8098 [NOT] top1 ' Austin' | RU share pre 0.240% applied 0.000% | max dose dev 5.8e-08
+[   27.1s] LANDING ARM-COUNTERFEIT: p_syn(root) 0.7194 [NOT] top1 ' Austin' | RU share pre 0.329% applied 30.000% | max dose dev 3.5e-08
+[   27.8s] G_DOSE: PASS
+[   28.8s] ROOT DISGUISE ARM-FREE: RU share 0.166% cos_u1 +0.0017 cos_u2 -0.0000
+[   29.4s] ROOT DISGUISE ARM-ORTHO: RU share 0.216% cos_u1 +0.0020 cos_u2 +0.0008
+[   29.9s] ROOT DISGUISE ARM-COUNTERFEIT: RU share 1.403% cos_u1 -0.0030 cos_u2 -0.0137
+[   30.0s]   [gpu:WASHFREE-burst1#1] util 0% temp 57C mem 1260/24463MB power 26.3W -> OK
+[   35.1s]   [gpu:WASHFREE-burst1#2] util 0% temp 56C mem 1260/24463MB power 12.1W -> OK
+[   35.1s] [WASH-FREE] burst 1 opens at s1
+[   36.2s]   [WASH-FREE] s  1/3 CE 3.7057
+[   36.2s]   [WASH-FREE] burst 1 done: 1 steps in 1.1s, now at s1
+[   38.6s]   [WASH-FREE] READ s1: p_syn 0.8100 top1 ' Austin' | iPhone:0.61 Gmail:0.73 Boston:0.65 Atlanta:0.58 Columbus:0.59
+[   38.6s] [thermal] cooldown 43s (FREE)
+[   81.3s]   [gpu:WASHFREE-burst2#1] util 0% temp 55C mem 9104/24463MB power 8.0W -> OK
+[   86.4s]   [gpu:WASHFREE-burst2#2] util 0% temp 55C mem 9104/24463MB power 8.1W -> OK
+[   86.4s] [WASH-FREE] burst 2 opens at s2
+[   86.7s]   [WASH-FREE] s  2/3 CE 3.6813
+[   86.8s]   [WASH-FREE] burst 2 done: 1 steps in 0.4s, now at s2
+[   89.8s]   [WASH-FREE] READ s2: p_syn 0.7976 top1 ' Austin' | iPhone:0.60 Gmail:0.73 Boston:0.65 Atlanta:0.56 Columbus:0.57
+[   89.8s] [thermal] cooldown 42s (FREE)
+[  131.9s]   [gpu:WASHFREE-burst3#1] util 0% temp 55C mem 11462/24463MB power 8.0W -> OK
+[  137.0s]   [gpu:WASHFREE-burst3#2] util 0% temp 55C mem 11462/24463MB power 7.9W -> OK
+[  137.0s] [WASH-FREE] burst 3 opens at s3
+[  137.3s]   [WASH-FREE] s  3/3 CE 3.7042
+[  137.4s]   [WASH-FREE] burst 3 done: 1 steps in 0.4s, now at s3
+[  152.2s]   [WASH-FREE] READ s3: p_syn 0.7860 top1 ' Austin' | iPhone:0.58 Gmail:0.72 Boston:0.64 Atlanta:0.53 Columbus:0.55
+[  152.6s]   [gpu:WASHORTHO-burst1#1] util 1% temp 55C mem 11464/24463MB power 8.4W -> OK
+[  157.6s]   [gpu:WASHORTHO-burst1#2] util 0% temp 55C mem 11464/24463MB power 8.3W -> OK
+[  157.6s] [WASH-ORTHO] burst 1 opens at s1
+[  158.3s]   [WASH-ORTHO] s  1/3 CE 3.7057
+[  158.4s]   [WASH-ORTHO] burst 1 done: 1 steps in 0.7s, now at s1
+[  160.7s]   [WASH-ORTHO] READ s1: p_syn 0.8102 top1 ' Austin' | iPhone:0.61 Gmail:0.73 Boston:0.63 Atlanta:0.57 Columbus:0.59
+[  160.7s] [thermal] cooldown 43s (ORTHO)
+[  203.5s]   [gpu:WASHORTHO-burst2#1] util 0% temp 56C mem 11464/24463MB power 8.2W -> OK
+[  208.5s]   [gpu:WASHORTHO-burst2#2] util 0% temp 56C mem 11464/24463MB power 8.2W -> OK
+[  208.5s] [WASH-ORTHO] burst 2 opens at s2
+[  208.9s]   [WASH-ORTHO] s  2/3 CE 3.6813
+[  209.0s]   [WASH-ORTHO] burst 2 done: 1 steps in 0.4s, now at s2
+[  211.9s]   [WASH-ORTHO] READ s2: p_syn 0.7978 top1 ' Austin' | iPhone:0.60 Gmail:0.73 Boston:0.63 Atlanta:0.55 Columbus:0.58
+[  211.9s] [thermal] cooldown 42s (ORTHO)
+[  254.0s]   [gpu:WASHORTHO-burst3#1] util 0% temp 56C mem 11464/24463MB power 8.2W -> OK
+[  259.1s]   [gpu:WASHORTHO-burst3#2] util 0% temp 56C mem 11464/24463MB power 8.2W -> OK
+[  259.1s] [WASH-ORTHO] burst 3 opens at s3
+[  259.5s]   [WASH-ORTHO] s  3/3 CE 3.7042
+[  259.6s]   [WASH-ORTHO] burst 3 done: 1 steps in 0.5s, now at s3
+[  274.8s]   [WASH-ORTHO] READ s3: p_syn 0.7862 top1 ' Austin' | iPhone:0.58 Gmail:0.72 Boston:0.62 Atlanta:0.52 Columbus:0.55
+[  275.2s]   [gpu:WASHCOUNTERFEIT-burst1#1] util 0% temp 57C mem 11464/24463MB power 8.5W -> OK
+[  280.3s]   [gpu:WASHCOUNTERFEIT-burst1#2] util 0% temp 57C mem 11464/24463MB power 8.5W -> OK
+[  280.3s] [WASH-COUNTERFEIT] burst 1 opens at s1
+[  280.9s]   [WASH-COUNTERFEIT] s  1/3 CE 3.7077
+[  281.0s]   [WASH-COUNTERFEIT] burst 1 done: 1 steps in 0.7s, now at s1
+[  283.7s]   [WASH-COUNTERFEIT] READ s1: p_syn 0.7112 top1 ' Austin' | iPhone:0.60 Gmail:0.72 Boston:0.79 Atlanta:0.71 Columbus:0.51
+[  283.7s] [thermal] cooldown 42s (COUNTERFEIT)
+[  326.1s]   [gpu:WASHCOUNTERFEIT-burst2#1] util 0% temp 56C mem 11464/24463MB power 8.1W -> OK
+[  331.2s]   [gpu:WASHCOUNTERFEIT-burst2#2] util 0% temp 56C mem 11464/24463MB power 8.2W -> OK
+[  331.2s] [WASH-COUNTERFEIT] burst 2 opens at s2
+[  331.5s]   [WASH-COUNTERFEIT] s  2/3 CE 3.6869
+[  331.6s]   [WASH-COUNTERFEIT] burst 2 done: 1 steps in 0.5s, now at s2
+[  335.1s]   [WASH-COUNTERFEIT] READ s2: p_syn 0.6937 top1 ' Austin' | iPhone:0.59 Gmail:0.71 Boston:0.79 Atlanta:0.69 Columbus:0.49
+[  335.1s] [thermal] cooldown 42s (COUNTERFEIT)
+[  376.7s]   [gpu:WASHCOUNTERFEIT-burst3#1] util 0% temp 56C mem 11464/24463MB power 8.2W -> OK
+[  381.8s]   [gpu:WASHCOUNTERFEIT-burst3#2] util 0% temp 56C mem 11464/24463MB power 8.0W -> OK
+[  381.8s] [WASH-COUNTERFEIT] burst 3 opens at s3
+[  382.1s]   [WASH-COUNTERFEIT] s  3/3 CE 3.7031
+[  382.2s]   [WASH-COUNTERFEIT] burst 3 done: 1 steps in 0.4s, now at s3
+[  399.6s]   [WASH-COUNTERFEIT] READ s3: p_syn 0.6770 top1 ' Austin' | iPhone:0.57 Gmail:0.70 Boston:0.77 Atlanta:0.66 Columbus:0.46
+[  440.7s] G_WASHHEALTH: PASS
 Traceback (most recent call last):
-  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1998, in <module>
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 2027, in <module>
     sys.exit(main())
              ~~~~^^
-  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1771, in main
-    root_shares[tag] = root_ru_share(flat0, installs[tag]["sd"],
-                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                     u1c, u2c, n_params)
-                                     ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1136, in root_ru_share
-    assert sum(sd[k].numel() for k in ks) == n_params == flat0.numel(), \
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: state_dict flat order must align with parameters() (all float entries are parameters; GPT-2's mask buffers are non-persistent)
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1874, in main
+    "anchors": {pr: {"p": [light0[pr]["p"]]
+                           ~~~~~~^^^^
+KeyError: 'The email service made by Google->Gmail'

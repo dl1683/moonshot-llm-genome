@@ -51,3 +51,32 @@ Traceback (most recent call last):
     assert sum(sd[k].numel() for k in ks) == n_params == flat0.numel(), \
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: state_dict flat order must align with parameters() (all float entries are parameters; GPT-2's mask buffers are non-persistent)
+[chain 16:41:41] chain start: waiting for the GPU lane (e264 owns it)
+[chain 16:42:20] LANE FREE — running the SMOKE first (e246's discipline)
+[chain 16:49:48] smoke exit 1
+[chain 16:49:48] SMOKE FAILED — chain STOPS (the autopsy record); tail:
+[  281.0s]   [WASH-COUNTERFEIT] burst 1 done: 1 steps in 0.7s, now at s1
+[  283.7s]   [WASH-COUNTERFEIT] READ s1: p_syn 0.7112 top1 ' Austin' | iPhone:0.60 Gmail:0.72 Boston:0.79 Atlanta:0.71 Columbus:0.51
+[  283.7s] [thermal] cooldown 42s (COUNTERFEIT)
+[  326.1s]   [gpu:WASHCOUNTERFEIT-burst2#1] util 0% temp 56C mem 11464/24463MB power 8.1W -> OK
+[  331.2s]   [gpu:WASHCOUNTERFEIT-burst2#2] util 0% temp 56C mem 11464/24463MB power 8.2W -> OK
+[  331.2s] [WASH-COUNTERFEIT] burst 2 opens at s2
+[  331.5s]   [WASH-COUNTERFEIT] s  2/3 CE 3.6869
+[  331.6s]   [WASH-COUNTERFEIT] burst 2 done: 1 steps in 0.5s, now at s2
+[  335.1s]   [WASH-COUNTERFEIT] READ s2: p_syn 0.6937 top1 ' Austin' | iPhone:0.59 Gmail:0.71 Boston:0.79 Atlanta:0.69 Columbus:0.49
+[  335.1s] [thermal] cooldown 42s (COUNTERFEIT)
+[  376.7s]   [gpu:WASHCOUNTERFEIT-burst3#1] util 0% temp 56C mem 11464/24463MB power 8.2W -> OK
+[  381.8s]   [gpu:WASHCOUNTERFEIT-burst3#2] util 0% temp 56C mem 11464/24463MB power 8.0W -> OK
+[  381.8s] [WASH-COUNTERFEIT] burst 3 opens at s3
+[  382.1s]   [WASH-COUNTERFEIT] s  3/3 CE 3.7031
+[  382.2s]   [WASH-COUNTERFEIT] burst 3 done: 1 steps in 0.4s, now at s3
+[  399.6s]   [WASH-COUNTERFEIT] READ s3: p_syn 0.6770 top1 ' Austin' | iPhone:0.57 Gmail:0.70 Boston:0.77 Atlanta:0.66 Columbus:0.46
+[  440.7s] G_WASHHEALTH: PASS
+Traceback (most recent call last):
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 2027, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1874, in main
+    "anchors": {pr: {"p": [light0[pr]["p"]]
+                           ~~~~~~^^^^
+KeyError: 'The email service made by Google->Gmail'
