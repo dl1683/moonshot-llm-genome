@@ -7,6 +7,48 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T253 — consult #006 resolved the pushback: one leading mechanism, two agreed discriminators, and the capacity question re-opened at the optimizer (2026-10-05 ~21:58Z)
+
+**The dialogue converged.** agy concedes the SVD wager completely and
+pure norm-scrubbing at the top of the ladder; what survives is (i) the
+MIXED account — the barrier CHANGES CHARACTER across the ladder
+(v-poisoning may own the 10k formation block; real destruction owns
+the 237k retention failure), (ii) a specific, falsifiable mechanism
+for the antiphase: SHARED-v RELAXATION (the driver's dip relaxes the
+denominator; the fact's constant gradient steps larger — the flash
+peaks at the driver's weakest; rank buys dims that evade the corpus's
+heaviest v-updates; v inflates irreversibly for the dose-linear decay),
+and (iii) the fill law read as CONDITIONING PHYSICS with a dead-rung
+prediction. The two labs' predictions now AGREE on the discriminator:
+P-273a (ours) and agy's kill are the same arm — separate-AdamW kills
+or keeps the antiphase.
+
+**Newly registered (both agy's, adopted):**
+- P-273b: under SGD-M at k=10k, the concurrent write FORMS (a flash
+  above the formation-block level) — the low-rank block is v-poisoning;
+  death shifts from formation-barrier to retention-barrier across the
+  ladder.
+- P-x10a: the DEAD 1k write still fills ~73% of its room — capacity
+  is a threshold on usable degrees of freedom, not a change in how
+  the write occupies space.
+
+**And the round's biggest gift — the capacity question re-opened at
+the optimizer (e280):** the identical ladder under matched SGD-M. If
+the 10k cliff vanishes (1k expresses), the anti-substrate's capacity
+number is Adam's preconditioned geometry, not the space's storage
+physics; if the cliff holds, it is the true invariant. This is the
+first cell that can move the DAY-TEN EPITAPH's foundation — and it
+must freeze the lr-matching convention (first-install-step applied-L2
+matching + a 2x/0.5x sensitivity pair) or the cliff comparison is
+step-scale-confounded.
+
+**The honest shape of the arc tonight:** the flow story's phenomenology
+(all the ratios, the creep law) is measurement-solid; its MECHANISM is
+now a horse race with the favorite named (shared-v relaxation) and
+two discriminators in flight. The capacity number's ontology (storage
+physics vs optimizer geometry) is genuinely open again — one ladder
+under SGD-M answers it.
+
 ## T252 — X8: the gain channel cannot represent the flash — and the antiphase datum is the new constraint (2026-10-05 ~21:52Z)
 
 **The verdict word is UNDERPOWERED; the physics word is storage.** The
