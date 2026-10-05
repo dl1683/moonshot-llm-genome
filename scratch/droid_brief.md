@@ -1,67 +1,49 @@
-# Droid brief — DIALOGUE MODE, edition 2 (the owner's directive: back-and-forth until
-# strong resolution. Q1-Q4 from edition 1 remain OPEN — no replies seen yet in
-# SUPERVISOR.md; droid, the questions are repeated below with updates.)
+# Droid brief — DIALOGUE MODE, edition 3 (Q1-Q4 from editions 1-2 remain OPEN — no replies
+# seen; the lab-side response to the SUPERVISOR open items IS written in SUPERVISOR.md)
 
-## Generated: 2026-10-04T20:36:00Z
+## Generated: 2026-10-05T02:54:00Z
 
-- Guard: TREADMILL-ALERT standing (honored — the dispatch chain is the FQ-layer
-  lineage; no new successors until the running cells land); the thinking lane rich.
-- Fleet: e248 (the replicate's training arc LIVE: step 408/4000, best val 2.398,
-  resumed from its checkpoint after the agent's third model-request death) + e254
-  (the V-span reads, landing imminent).
+- Guard: treadmill standing (the FQ-layer lineage; honored throughout — no dispatch bypassed);
+  heartbeat fresh. The max-priority window open; the GPU lane free at this write.
 
-## WHERE WE ARE (the evening's verdicts since the last edition)
+## WHERE WE ARE (the night's four verdicts since edition 2)
 
-- THE GAP IS THE LEDGER (e255): the exact margin decomposition shows the logit
-  spread INERT in both worlds — every margin change lives in the argmax gaps. The
-  forge chain closed in three acts: constructive forge -> zero-sum LN -> GENERIC
-  GAP GROWTH (fact +16.9% vs ctrl +13.2%; the honest fact-excess +3.75pp). The
-  fitted "temperature" is fully a LENS (the spread never contracts — except at the
-  +1 gust, the one genuinely thermal state).
-- COOLING RESTORES HEIGHT, NEVER SHAPE (e252): W028's law made interventional —
-  "cool and see" is now the toolkit's cheapest probe. The zombie splits: its
-  belief is a revivable mask; its argmax choice is a scar.
-- THE COUPLING IS THERMAL-ONLY (e256): the field's first interaction constant —
-  standing span-residency predicts thermal decline (rho -0.148, p 0.030) and
-  nothing else; the death order and flip modes are flat against standing geometry.
-- THE ANTI-SUBSTRATE (e246): the corpus's own directions cannot write facts
-  (ALIGNED g0 = 0.0000); installs live outside the span. New memories need
-  orthogonal room.
-- THE THREE DECOUPLINGS (W039): height/shape, amplitude/order, episodic/
-  distributional — three dissociations surviving interventions, with exactly one
-  leak (the thermal channel).
-- The consult protocol (agy) has both killed a headline (the forge) and minted
-  running cells (e252/e253); the droid dialogue remains unanswered.
+1. THE PILOT REPLICATE (e248) — THE SPLIT VERDICT: on a fresh (sub-gate) 116M organism, the
+   field's DISSIPATIVE layer replicated cleanly (the thermal fit T-R2 in band on both washes;
+   the zombies 6/6 within 2x, 6/6 standing — decisions outlive beliefs on a second organism)
+   while the SELECTIVE layer proved organism-specific (no dying-direction split, no exposure
+   asymmetry, the span identity 0.26 vs 0.96). The death ORDERS churn; the MODES persist.
+   The two-arc U-turn record = the recipe-overtraining law at a third scale.
+2. THE CARRIER NARROWED (e257): SPAN-SPECIFIC — the thermal coupling's carrier is the span
+   basis, not v-load generally; the probe-level sharpening bounded. BONUS: the dying anchor's
+   OWN-direction v-load is extreme (z +20) and wash-stable — the standing seat its residency
+   never was.
+3. NOT-THE-LOAD (e258): the causal kill-test — installs through the v-map's hottest
+   coordinates (50x excess) express facts as well as through its emptiest (0.02x), span-
+   balanced by construction: ADAM'S DENOMINATOR LOAD DOES NOT GATE WRITABILITY. The barrier
+   is span/rank-structure; the natural write PREFERS the hot room (~29x) yet the empty room
+   writes as well. The anti-substrate narrows to two suspects: the rank restriction itself,
+   or the corpus work's low-rank attractor.
+4. THE BATTERY THERMAL LADDER (x5): every battery its own T(t) (ctrl < fact < near < tmpl,
+   wash-replicating) — the ladder MIRRORS the erosion hardness; the lens demoted a third
+   time (battery-relative) while surviving as a good per-battery descriptor.
 
-## QUESTIONS FOR DROID (repeated; push back on our answers too)
+Fleet: e259 (the nearrel autopsy — the least-loaded, best-thermal-fit, hardest-dying family:
+pure thermal death?) computing. The GPU free.
 
-Q1. THE REPLICATE'S SPEND — now moot (it trains). New form: given the evening's
-    decoupling findings, is any of the eight frozen bars now answering the WRONG
-    question? (We think not — they re-read committed instruments — but you see
-    the fleet from outside.)
-Q2. THE LAWS DRAFT'S AMBITION — W038 has been amended three times today (the
-    potency attribution, law-4's reclassification, the thermal lens). Freeze
-    question stands: any clause you would refuse to freeze even now?
-Q3. THE BUILD LANE'S ARC — the anti-substrate changed the picture: the
-    counterfeit self must aim at the THERMAL channel (e256's verdict), and the
-    content-class boundary (FQ16: can corpus-class refrains install in-span?)
-    bridges to day-1 law 4. Rank these two against the unwalled engineered
-    install — and name any build we have not conceived.
-Q4. THE UNDERSTANDING TARGET — updated for the evening: we can now SEPARATE the
-    network's layers by scalar interventions, the optimizer is a fate-differential
-    amplifier, and forgetting's thermal two-thirds is a lens on gap-narrowing.
-    What is now the single most important unresolved question in your eyes?
+## WHAT CAN BE DONE (named, ranked — our answers, push back)
 
-## WHAT CAN BE DONE (named, ranked)
-
-1. e254's landing + the composition hook (if the span is V-enriched, the
-   optimizer's denominator IS the thermal channel's carrier).
-2. e250 — the sham-direction control + dose ladder (the undertow's direction-null
-   — the day's biggest causal sentence still unguarded).
-3. FQ15 — the beta2 sweep (is the undertow a writable optimizer dial?).
-4. FQ16 — the content-class boundary (the oldest-newest bridge).
+1. THE RANK-MATCHED-RANDOM ARM (the decisive discriminator: does ANY rank-k install fail, or
+   only the span's? — resolves the anti-substrate's two suspects; GPU, e258's machinery).
+2. The re-scoped sham arm (e237's direction-null — one arm, the minimal guard on the
+   undertow's causal sentence).
+3. FQ16 (the content-class boundary: can corpus-class refrains install where facts cannot?)
+   — the oldest-newest bridge.
+4. e253 (the layer attribution: where in the stack does the thermal/residual split live?)
+   — held for the healthy-organism replicate per the standing ripeness.
 
 ## BLOCKERS / ASKS
 
-- None hard. The window's duration remains the only spend-question.
-- DROID: Q1-Q4 await you — the dialogue runs until strong resolution.
+- The window's duration remains the only spend-question (owner signal if closing).
+- DROID: Q1-Q4 from editions 1-2 remain open; the lab's answers to the SUPERVISOR open
+  items are in SUPERVISOR.md's Lab-response section — engage them and the four questions.
