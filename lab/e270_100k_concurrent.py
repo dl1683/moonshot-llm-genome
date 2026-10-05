@@ -436,11 +436,17 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
-    "THE SMOKE RECORD (the e260-family discipline; to be filled by the "
-    "shakedown's own outcome): the machinery smoke runs FIRST "
-    "(E270_SMOKE=1, runs/e270_smoke/); any catch is disclosed here and "
-    "fixed BEFORE the full compute; the bars, gates, adjudication and "
-    "arms are untouchable by any such fix.",
+    "THE SMOKE RECORD (the e260-family discipline): the machinery smoke "
+    "ran FIRST (E270_SMOKE=1, runs/e270_smoke/, 209.7s) and caught "
+    "NOTHING — all 12 hard gates PASS (G_ROOMK100K and G_SERIAL_ANCHOR "
+    "vacuous at smoke k/steps, disclosed), both drivers + both cons + "
+    "the adjudication + both figures exercise cleanly, thermal max 57.0C "
+    "over 40 per-step polls (both arms' rows landing in the one rebound "
+    "ledger — the instrumentation fix verified live); the smoke's own "
+    "verdict line (TURBULENCE-CEILING at post 0.000019 vs 0.000013 — "
+    "dead-zero vs dead-zero noise, no s100 milestone) carries the SMOKE "
+    "stamp and adjudicates nothing. No fix was needed; the bars, gates, "
+    "adjudication and arms are exactly the birth-committed forms.",
     "THE SERIAL ARM IS A FRESH RE-RUN, NOT A CITE (the dispatch's choice, "
     "stated): 'cite e264's rung OR re-run at the registered seeds — state "
     "which' -> RE-RUN at the registered seeds (e268/e269's precedent): "
