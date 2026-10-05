@@ -697,7 +697,7 @@ room of at least ~10,000 dimensions — 0.37% of the 2.74M
 parameter space — to express at all. Below the threshold no
 write sticks; above it expression is cheap and landing is
 smooth (the 237k room lands within 0.2% of the natural
-install's strength). THE ARC'S FULL LINE: the corpus's
+install's strength). THE STRIKING SIDE-READ: the threshold rung's write is a SIX-PERCENT-DOSE write (kept 0.060) that lands at the ladder's HIGHEST root g0 — RANK WRITES THE CURVE, NOT DOSE. THE G-12 LOTTERY: three cons draws on the same bit-identical 237k arm — root g0 stable {0.669-0.724, range 0.056} but root g-12 WILD {0.209-0.879, range 0.67}: the g-12 ruler is a height lottery of the cons stream, never used by adjudication (an instrument note for every future g-12 read). THE FINE BRACKET: the {2k, 5k} pair finishes the threshold's edge. THE ARC'S FULL LINE: the corpus's
 directions cannot write facts (e246) -> not the load (e258)
 -> not the span's identity (e260) -> dead at 1k (e261) ->
 THE THRESHOLD AT ~10K (e264). THE JACOBIAN LANE'S GIFT: the
