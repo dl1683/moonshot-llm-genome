@@ -685,6 +685,33 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T239 — e261: the expression cliff — dead at 1k, alive at 237k (2026-10-05 ~14:57Z)
+
+The triaged bracket delivers the anti-substrate's final
+quantitative form despite its letter-verdict (TEXTURE on a
+cons-lottery scatter; the install side exact — the instrument
+sound). THE BRACKET: rank-10 dead, rank-1k dead (0.0004 — only
+15x above rank-10: a 1000x rank increase bought almost
+nothing), rank-237k alive and in-band — AN 884x ADJACENT JUMP.
+The expression curve is a STEP at this resolution: the
+threshold lives inside [1k, 237k], and the deferred middle
+rungs will pin it (the consult's wild-card — its binary
+search). THE ANTI-SUBSTRATE'S COMPLETE ARC (e246 -> e261): the
+corpus's directions cannot write facts (observed) -> not the
+load (e258) -> not the span's identity (e260) -> A DIMENSIONAL
+CLIFF somewhere between 1k and 237k of the 2.74M-parameter
+space: new memories need a room of at least ~0.4-8.7% of the
+parameters' dimensions to express at all. THE CAPACITY
+READING: the cliff IS the memory capacity's geometric form —
+below it, no write sticks; above it, expression is cheap (the
+random room lands within 0.2%). THE SCATTER NOTE: the cons
+lottery's cross-session law (root g0 |d| 0.042 at n=1) joins
+the height class — e260's G_FREE disclosed the same; a
+cons-seed replicate prices it. REGISTERED: the middle rungs
+(the cliff pinned); the cons replicate; the occupancy question
+(whether the corpus's specific room erodes differently — now
+the anti-substrate's only surviving branch).
+
 ## T238 — e262: the lens calibrated — and its one mispricing is the sharpest thread (2026-10-05 ~14:37Z)
 
 The join lands exactly at its frozen bar (0.80/0.80 — zero

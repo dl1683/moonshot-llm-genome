@@ -34,6 +34,31 @@ read — the composition's sharper predictor).
 
 ---
 
+## e261 — the rank/dose ladder (recovery-resumed): VERDICT BY THE LETTER: TEXTURE (G_ANCHOR cons-side) — but the coarse bracket reads A CLIFF: rank-10 dead (2.86e-5) + rank-1k dead (post g0 0.0004, root 0.5769 under) + rank-237k ALIVE (post g0 0.3844 == e260's committed, root g0 0.7106 IN-BAND) — 884x max adjacent jump (the >10x bar FIRES), the floor crossed AT 237k, the threshold bracket [1k, 237k]; the anchor's INSTALL reproduced e260 essentially exactly (L2 6.7e-5, post g0 |d| 5e-7) — the divergence is the CONS lottery (root g0 |d| 0.0419 / g-12 |d| 0.1483 over the 0.02 session-texture bars; n=1 cross-pass scatter); the middle rungs deferred (K10K's ckpt s278/400 on disk) (2026-10-05 ~14:55Z) — DONE
+
+WHAT WE DID: the triaged 2-rung decisive bracket to completion via
+the journal-resume path (the machine died mid-anchor ~02:40Z;
+FREE/K1K fast-forwarded bit-exact; the K237K anchor rung run
+fresh; thermal max 79C, zero >= 84C). Bars frozen verbatim at
+birth. Script lab/e261_rank_ladder.py; runs/e261/{metrics.json
+COMPLETE, 2 PNGs}.
+
+WHAT WE SAW (T239): THE EXPRESSION CURVE IS A STEP AT THIS
+RESOLUTION — 1k as dead as rank-10 (both > 100x under the
+floor) while 237k expresses at 884x the 1k rung and lands
+in-band; the landing curve enters the band at a locatable
+rung. THE LETTER: TEXTURE (the anchor gate's cons-side scatter
+past its 0.02 guess — the install side matched exactly, the
+instrument sound, the scatter the cons lottery's cross-session
+n=1 law). HONESTY: kept covaries with rung (~sqrt(k/N),
+co-plotted; e258's VLIGHT bounds the confound); n=1 per rung —
+the SHAPE is the object. NEXT (T239): the deferred rungs
+(10k/40k/100k — the cliff located inside [1k, 237k]; the
+recovery protocol's first GPU cell) + a cons-seed replicate at
+237k pricing the anchor scatter.
+
+---
+
 ## e262 — T232's registered join, the T-ladder vs the decline: T-TRACKS-DECLINE — fired exactly AT the frozen bar (per-wash Spearman 0.80/0.80, n=4; pooled rho 0.881 p 0.0036, OLS slope +0.710) — the battery T-ladder IS the erosion ordering's coarse-graining UP TO ONE SYSTEMATIC ADJACENT TRANSPOSITION (tmpl hottest, near deadliest — identically in both washes: systematic, not noise); the co-read: decline ~ R2 = 1.00/1.00 (T236's death-meter law replicates exactly); the s80-only sensitivity fails (0.80/0.40 — the w2 slice's transposition) — priced in the honesty block (2026-10-05 ~14:35Z) — DONE
 
 WHAT WE DID: the frozen join — x5's committed per-battery
