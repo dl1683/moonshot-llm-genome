@@ -351,7 +351,8 @@ discriminating look when the replicate batteries land.
 **And the quiet unifier: x7's gap share is 0.95-1.15 across ALL
 batteries.** Every battery's erosion runs through the gap channel at
 the same intensity — the scale channel carries nothing battery-
-specific. Combined with W042's bridge, the currency question is
+specific. [R66 STAMP: x7's control leg is a cross-organism proxy —
+the within-organism replicate is owed.] Combined with W042's bridge, the currency question is
 closing from two sides: the wash side (all gap, x9), and — pending
 P-273c — the concurrent side (gap antiphase?). One currency, three
 regimes, if the mechanism cell cooperates.
