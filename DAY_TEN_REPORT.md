@@ -5,6 +5,16 @@
 # travel arrival ~14:10Z; the overnight session of day nine flowed into it without a
 # seam except the 11.5h travel gap)
 #
+# [SECOND AMENDMENT 2026-10-05 ~23:06Z, e272 RANK-WRITES-THE-CURVE: the report's
+# central scalar RELOCATES — the "~10,000 dimensions / 0.37%" headline was a
+# ladder-spacing artifact (the critic's exact warning): the expression edge is
+# BRACKETED AT (1k, 2k] (the 1k->2k firing pair at 61.2x; 2k 0.0266, 5k 0.1271,
+# 10k 0.2646 — a broad climb, not a wall); ~1-2k dims to express at all (0.04-0.07%
+# of the space), ~5k to clear the 0.05 floor. Dose ACQUITTED at matched rank (the
+# kept-matched 1k arm stays dead; P-272a confirmed). The room lottery priced (~21%
+# spread at the cliff rung, in-band). The flow story is unaffected — every turbulence
+# rung sits far above the relocated edge.]
+#
 # [R65 AMENDMENT 2026-10-05 ~21:00Z, folded before e271 read: the report's
 # "84% norm-shared" figure is NOT-IN-RECORD (stored: λ1/trace 71.9–72.3%); the
 # capacity number's location is only BRACKETED (1k,10k] with the {2k,5k} edge +

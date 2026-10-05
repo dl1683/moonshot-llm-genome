@@ -7,6 +7,51 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T255 — E272: the edge relocates and the arc gets its cleanest physics — the conjunction resolves (2026-10-05 ~23:08Z)
+
+**The repair cell's double verdict.** RANK-WRITES-THE-CURVE fires on
+both clauses — and the second clause is the night's biggest correction:
+THE EDGE IS AT (1k, 2k], NOT AT 10k. The full quiet-water ladder now
+reads 0.000435 → 0.0266 → 0.1271 → 0.2646 across 1k/2k/5k/10k: a steep
+RAMP with its one cliff-like pair at 1k→2k (61.2x) and only 4.8x from
+2k to 5k. The day-ten headline — "a fact needs ~10,000 dimensions
+(0.37% of the space) to express at all" — was the ladder-spacing
+artifact the critic named: 10k was simply the first rung of a 10x-
+spaced ladder above an edge that sits 5-10x lower. THE CAPACITY
+NUMBER'S TRUE FORM: ~1-2k dims to express at all (0.04-0.07%), ~5k to
+clear the 0.05 floor, still climbing at 10k.
+
+**The dose acquittal is a fortiori.** The kept-matched 1k arm (lr x
+3.7306, the factor re-derived at runtime from the md5-bound kept
+curve) received MORE end-to-end in-room displacement than the 10k rung
+itself (11.96 vs 8.70) and still died at 0.001245. P-272a confirmed
+with room to spare: dose does not buy expression; the room's WIDTH
+does. And the room lottery is priced, not hidden: the fresh-seed 10k
+replicate lands 0.2097 vs 0.2646 committed — a ~21% draw spread,
+inside the trust band, the edge located identically either way.
+
+**The W041 conjunction resolves to the cleanest physics the arc has
+had:** FORMATION NEEDS A THRESHOLD ROOM (~1-2k dims, dose-acquitted,
+ramp above); THE WRITE FILLS THE ROOM (x6: dense, ~73% at every
+granted width); RETENTION DIES BY FLOW (the ratio ladder — every
+turbulence rung sits far above the relocated edge, so the flow story
+is untouched by the relocation). Three sentences, three instruments,
+one story. P-W41a scored: the RANK-WRITES verdict word right, the band
+placement wrong (2k already transitional-alive; I predicted 2k dead —
+the edge is SHARPER and LOWER than my guess). W041's final ledger:
+2/4 confirmed, 1 half, 1 refuted — the branch map paid for itself.
+
+**What the relocation moves downstream:** e280's question sharpens —
+is the ~1-2k edge Adam's preconditioned geometry or the space's own?
+(a 5-10x smaller cliff for SGD-M to erase or confirm); the anti-
+substrate story's wording eases (the corpus's directions fail to
+search a SMALLER room than claimed — the poverty is deeper, not
+shallower); and the rehearsal lane's 5-for-5 (the dead 0.0012 write
+LANDS at 0.6879 under the cons stream) now brackets the whole ladder —
+delivery is free even at the floor of expression. x10 (dispatching
+now) asks the matching question on the storage side: does the dead 1k
+write still FILL its room?
+
 ## W043 — is the fact's death a runaway or a drain? x9's β=1.31 deserves its discriminator (2026-10-05 ~22:32Z, paper before any cell)
 
 **The datum.** Every battery erodes as a clean exponential at its own

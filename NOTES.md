@@ -20,6 +20,26 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e272 — the capacity repair ladder (R65's top bill; the critic's most-exposed claim on trial): RANK-WRITES-THE-CURVE — dose ACQUITTED at matched rank (the kept-matched 1k arm — lr compensated ~3.7x to match the 10k arm's applied in-room dose, matched at 1.12 first-order, measured never nominal — STAYS DEAD: post g0 0.001245 < 0.01; P-272a CONFIRMED: dose does not buy expression) AND THE EDGE RELOCATES: the full ladder 1k 0.000435 -> 2k 0.0266 -> 5k 0.1271 -> 10k 0.2646 — the expression edge BRACKETED AT (1k, 2k] (the firing pair 1000->2000 at 61.2x, dead side 0.000435), the 0.05 floor first crossed at k=5000 — THE DAY-TEN HEADLINE ("~10k dims = 0.37%") WAS A LADDER-SPACING ARTIFACT EXACTLY AS THE CRITIC WARNED: the capacity number's true form is ~1-2k dims to express at all (0.04-0.07% of the space), ~5k to clear the 0.05 floor, still climbing at 10k; the ROOM LOTTERY priced: the fresh-seed 10k replicate lands 0.2097 vs the committed 0.2646 (a ~21% room-draw spread — real, and INSIDE the [0.15,0.45] trust band: the cliff pair stands); the root g0 landing lottery carried under the family caveat, never adjudicated; gates pass 13/13; the compensation OVER-DELIVERED and the acquittal is A FORTIORI: the end-to-end in-room displacement ||P.room d-theta|| was 11.96 (kept-matched 1k) vs 8.70 (the 10k rung itself) — the compensated arm received MORE in-room write than the arm it matched and still died; the curve above the edge is a steep RAMP not a step (2k->5k only 4.8x); the rehearsal lane 5-FOR-5 (the dead 0.0012 write landed root g0 0.6879, in band); thermal max 79.0C over 2,800 polls, 0 violations; one smoke catch (an instrument-page f-string) fixed pre-run (2026-10-05 ~23:05Z) — DONE
+
+WHAT WE SAW: the repair cell did exactly what R65 billed — it caught
+the lab's most-quoted scalar before it could embarrass it. The 609x
+"cliff at 10k" was the first-rung-above-the-edge artifact of a 10x-
+spaced ladder; the true edge is a factor-2 bracket at (1k,2k] and the
+curve above it is a broad climb, not a wall. W041's conjunction
+resolves to its cleanest form (see T255): formation needs a threshold
+room of ~1-2k dims (dose-acquitted); the write DENSELY FILLS whatever
+room it is granted (x6's 73%); retention dies by flow (the ratio
+ladder — every turbulence rung sits far above the relocated edge, so
+the flow story is UNAFFECTED). The room lottery's 21% spread at the
+cliff rung is now a priced instrument property, not a hidden risk.
+
+WHAT'S NEXT: e273 (the three-barrel mechanism cell — P-273a/b) + x10
+(the dead rung's fill — P-x10a: does the dead 1k write still fill ~73%
+of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
+(second amendment); e280 (the SGD-M ladder) inherits a SHARPER
+question: is the ~1-2k edge Adam's geometry or the space's?
+
 ## x9 — the rate-fits instrument (T238's mispricing resolver): MIXED (both clauses fire: L_ratio 2.969 > 2 AND max |delta beta_bar| 0.231 >= 0.15) — but the mispricing resolves cleanly: NEAR's "hot" one-T reading is HONEST RATE (lambda_eff 0.0422 = 5-7x ctrl/fact's 0.0059/0.0076 at beta ~1, PURE EXPONENTIAL — EXP's induced T(t) reproduces near's committed ladder to RMSE 0.011) while TMPL — the hottest battery by one-T — is a SHAPE ARTIFACT of the lens (rate only 1.2-1.6x, CI-overlapping; one-T's own L0-anchored family wins tmpl/w2 outright AICc 69.55 vs 71.31); SO THE T-LADDER IS TO FIRST ORDER A RATE LADDER (Spearman T-vs-lambda_eff 0.8 vs 0.4 for beta); the MIXED beta leg lives on FACT (beta_bar 1.31, steepening on the cold side); x7's gap channel UNIFORM across batteries (0.95-1.15 — gap-dominated everywhere); T238's two worries resolved: "the lens undercounts near" DEAD (the rate premium maps 1:1 onto the T premium — T236's public death confirmed in rate currency), "tmpl inflated by battery structure" CONFIRMED and localized to the one-T family's own shape (a second-order mispricing <= 0.062 T); EXP wins 7 of 8 fits (stretched/power never earn their parameter) (2026-10-05 ~22:20Z) — DONE
 
 WHAT WE SAW: the thermal metaphor cashes out. The batteries' one-T
