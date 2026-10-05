@@ -34,6 +34,39 @@ read — the composition's sharper predictor).
 
 ---
 
+## e258 — the causal v-heavy/v-light install: NOT-THE-LOAD — both arms LAND at matched strength (VHEAVY root g0 0.6881 / VLIGHT 0.8039, both in the family band; retentions 0.904/0.943 inside the draw spread) — the denominator's standing v-load is NOT the barrier to writing new memories; the unwritability is SPAN-SPECIFIC BEYOND V (T233's span-specific verdict gains its causal twin); the e246 ALIGNED failure re-reads as RANK/SPAN STRUCTURE, not load; the composition's mechanism story takes its honest bound (2026-10-05 ~02:30Z) — DONE
+
+WHAT WE DID: the frozen causal cell — the v-map at the 2.74M
+root (the e240 fp64 recursion ported; G_MOMENT 7e-8); the two
+projected installs at matched rank and dose (VHEAVY: the top
+v-mass coordinates' span, ~660x load; VLIGHT: the lightest, ~0x;
+the natural gradient sits ~24x) + the wash; the e246 machinery
+ported whole with its smoke catching 3 instrument fixes before
+compute. All gates PASS. Script lab/e258_vload_install.py;
+runs/e258/ (metrics + PNGs).
+
+WHAT WE SAW (T235): NOT-THE-LOAD — the 660x-load arm expresses
+the fact as well as the 0x arm. THE ANTI-SUBSTRATE'S MECHANISM
+NARROWS: not the denominator's magnitude — the barrier lives in
+WHAT the span directions ARE (the 2-dim corpus-work structure,
+the rank restriction itself, or the specific overlap with the
+ongoing gradient's low-rank attractor). THE COMPOSITION'S
+HONEST BOUND: the denominator owns the span (e254) and
+freezes span-resident probes (the thermal coupling) but does
+not BAR writes by load — the amplifier and the barrier are
+DIFFERENT objects. THE REGISTERED DISCRIMINATORS THAT REMAIN:
+the rank-matched RANDOM install (T226's original cell — now
+the live question: does ANY rank-k restriction fail, or only
+the span's?) and the moment-level vs gradient-level cut arms
+(e250's family).
+
+HONESTY: n=1 per arm (the lottery caveat carried); one
+lineage; the rider (a) not fired (the counterfeit-self's
+v-load target weakened — its aim returns to the span's
+structure); the rider (b) deferred per the registered option.
+
+---
+
 ## e248 — the organism replicate (the owner-lane; the lab's first multi-phase cell): INSTRUMENT-DEAD at the frozen gate vocabulary (G_ORGANISM FALSE — the two-arc U-turn record; G_SUPPORTFD FALSE — a diagnosed sign-convention port class), 2/5 primaries, SUB-GATE PILOT labeled — and the pilot's descriptive story is the night's payoff: THE THERMAL LAYER REPLICATES (T-R2 3/4 deep cells in band, both washes, T rising 1.2 -> 2.2) and THE ZOMBIES REPLICATE (6/6 cells within 2x, 6/6 standing — decisions outlive beliefs on a fresh organism); the misses are the organism-specificity map: P-FIRST modality weak (TOGETHER/NEITHER grew), the seat's dying-direction split absent, the span identity 0.263 vs 0.9 (the sign-shadow clause: recipe+organism minimum), the anchor exposure 0.31/0.23 vs [5,10], the residual-order 0.835 vs the amended 0.85 (magnitudes 9 orders above the null); the two-arc U-turn record = the recipe-overtraining law's third scale (2026-10-05 ~01:10Z) — DONE
 
 WHAT WE DID: the R64 auditor's dispatch, run as the lab's

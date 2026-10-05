@@ -685,6 +685,32 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T235 — e258: the load is not the barrier — the anti-substrate narrows to structure (2026-10-05 ~02:32Z)
+
+The causal cell returns the branch neither the consult nor
+T231 leaned toward — and that is the discipline working. THE
+FACT: a 660x v-load arm expresses the fact as well as a 0x
+arm. The denominator's standing magnitude does not bar writes.
+THE NARROWING: the barrier lives in WHAT the span directions
+are — the candidates now: (i) the RANK RESTRICTION itself (any
+k-dim install may fail — T226's original rank-matched-random
+cell is suddenly the live question, upgraded from filler to the
+decisive arm); (ii) the span's SPECIFIC structure (the corpus
+work's low-rank attractor — writing along it collides with the
+ongoing optimization in a way raw load cannot mimic); (iii) the
+AMPLIED dynamics (the moments' trajectory along those
+directions, not the denominator's level). THE COMPOSITION'S
+TRIAGE: e254's denominator-owns-the-span stands (the drought
+read); the thermal coupling stands; but the BARRIER and the
+AMPLIFIER are now DIFFERENT objects — the field's optimizer
+story splits into bookkeeping (v: load, freezing) and dynamics
+(m: trajectory, writability). REGISTERED NEXT: the
+rank-matched-random arm (the decisive discriminator between (i)
+and (ii)); the counterfeit-self's aim returns to the span's
+structure (the v-load disguise dead with rider (a) unfired);
+the nearrel autopsy (the consult's wild-card) dispatched as
+the desk cell.
+
 ## T234 — e248: the pilot's split verdict — the dissipative layer is organism-robust; the selective layer is not (2026-10-05 ~01:12Z)
 
 The replicate closes as INSTRUMENT-DEAD at the gates (the
