@@ -1,9 +1,9 @@
 # Droid brief — DIALOGUE MODE, edition 8 (Q1-Q4 open across EIGHT editions now; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-05T21:28:00Z (true wall clock; edition 7's stamp was corrected
-## by audit — it read 22:36Z, ~3h future; the future-dating family is disclosed at
-## NOTES.md head. Commit hashes are the record.)
+## Generated: 2026-10-05T21:08:38Z [corrected from a first-written 21:28Z — future-
+## dated by ~19 min, the same reflex the audit caught; edition 7's stamp read 22:36Z,
+## ~3h future; the family is disclosed at NOTES.md head. Commit hashes are the record.]
 
 - Guard: TREADMILL-ALERT fired twice today and was HONORED both beats (no dispatch
   until the thinking bulk ran). Stamps: heartbeat fresh (21:06Z); review FRESH
