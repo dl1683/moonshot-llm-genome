@@ -34,6 +34,42 @@ read — the composition's sharper predictor).
 
 ---
 
+## e260 — the rank-matched-random install: RANK-IS-THE-BARRIER by the frozen conjunction — both rank-k rooms miss the landing floor by a hair (RANDOM root g0 0.6686 / SPAN 0.6567 vs 0.6703; 0.23%/1.36% under the +-10% band) — AND E246'S FAILURE SIGNATURE IS DEAD AT MATCHED RANK: neither room failed to EXPRESS (post g0 0.3844/0.4922 — 13-17kx e246-ALIGNED's 2.86e-5); the anti-substrate's expression barrier is a RANK-10 OBJECT (padding the span to rank 237,123 restores full expression); a generic dense random room at the essential-support rank (8.66% of N) expresses and lands within 0.2% of the band (2026-10-05 ~04:20Z) — DONE
+
+WHAT WE DID: the decisive discriminator at k hard-bound to
+e258's frozen 237,123 — ARM-RANDOM (a dense random rank-k
+room), ARM-SPAN (the committed late span Gram-Woodbury-
+extended to the same k), ARM-FREE (all four G_FREE tiers
+clean; the FREE-ledger cross-check vs e258 exact); the rooms
+certified (kept2 0.0868 vs k/N 0.0866; containment 4.4e-15;
+the random room's span overlap exactly its sqrt(k/N)
+expectation); 15/15 gates PASS; thermal max 79.0C. Script
+lab/e260_rank_matched.py; runs/e260/ (metrics + 2 PNGs) +
+the rooms' checkpoint.
+
+WHAT WE SAW (T237): THE VERDICT'S LETTER (the frozen
+conjunction: both rooms under the landing floor) AND ITS
+SPIRIT PULL APART — the firing prong is a root-band hair-miss
+at n=1, while the EXPRESSION prong fired for neither arm.
+THE CLEAN CLAIMS: (1) e246's "cannot express at all" is a
+RANK-10 artifact — the span padded to the essential-support
+rank expresses fully; (2) at 8.66% of N, a rank restriction
+costs at most LANDING strength, not writability. THE
+ANTI-SUBSTRATE'S NARROWED FORM: the expression barrier lives
+at very low rank (H-ii revived in the rank dimension); the
+span's occupancy story is now confined to the WASH/RETENTION
+side. THE E246 RE-READ: ALIGNED was a rank-10 object, not
+"the span" as such.
+
+HONESTY: n=1 per arm (the lottery note on the firing prong);
+the masked arms' root g-12 low (e258's texture repeating);
+the wash on FREE only (the landed-arms-only registration).
+NEXT (T237): the rank/dose ladder (where does the last ~0.08
+of root g0 live between k=237k and full space?); the
+occupancy question moved to the retention side.
+
+---
+
 ## e259 — the nearrel autopsy (the consult's wild-card): STRUCTURAL-DESPITE-THERMAL — the cooled revival fires on the BR arm (0.228/0.373, under the 0.4 line; the family's OWN hotter lens does not rescue it; the a-priori flip-bounded ceiling at w1+80 is 0.433 — NO factor reaches 0.6) while the MODE clause is positive (all 5 committed near flips are MIS-DIALS to the probes' own t0 runner-ups — Georgia->'Augusta' in all three washes; 0 prior-collapses); THE PARADOX IS NOW A NUMBER: rho(decline, R2_own) = +1.00 across the four batteries — near is simultaneously the best-described death AND the least-reviving battery; the family with the least private structure dies the most PUBLIC death, and what makes it structural is THE COMMITMENT LAYER'S LOCAL SLIDE: the thermal mask on top of choice-scars (2026-10-05 ~03:10Z) — DONE
 
 WHAT WE DID: the frozen wild-card cell — the cooled revival

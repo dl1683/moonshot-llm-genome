@@ -685,7 +685,35 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
-## T236 — e259: the lens is a death-meter — and the public death (2026-10-05 ~03:12Z)
+## T237 — e260: the barrier is rank-thin — e246's unwritability was a rank-10 artifact (2026-10-05 ~04:22Z)
+
+The decisive cell returns a verdict whose letter and spirit
+pull apart, and the record carries both. THE LETTER: RANK-IS-
+THE-BARRIER by the frozen conjunction (both rooms under the
+landing floor by 0.2-1.4% — a hair at n=1). THE SPIRIT (the
+clean claims the data supports): e246's expression-
+unwritability is DEAD at matched rank — the span padded to
+237,123 dims expresses at 13-17kx its rank-10 failure, and a
+random room of the same rank lands within 0.2% of the band.
+THE ANTI-SUBSTRATE'S THIRD FORM: the expression barrier is a
+VERY-LOW-RANK object (H-ii revived in the rank dimension);
+the occupancy question survives only on the WASH side (does
+the corpus's room erode faster what was written into it?).
+THE CASCADE OF RE-READS: e246's ALIGNED = a rank-10 object;
+e258's NOT-THE-LOAD + this = the barrier is neither the
+denominator's magnitude nor the span's identity but the
+DIMENSIONALITY of the writing room itself below some
+threshold; THE NATURAL-WRITE PICTURE (T235's texture): the
+natural install spreads across ~29x-v-excess coordinates
+BECAUSE expression needs the room — the optimizer's own
+preference for the hot room was never about the heat.
+REGISTERED NEXT: the rank/dose ladder (the landing curve
+from k=237k to full space — where does the last ~0.08 of
+root g0 live? the expression threshold's location); the
+occupancy cell on the retention side (the wash's treatment
+of in-room vs out-room installs at matched expression).
+
+## T236 — e259: the lens is a death-meter — and the public death (2026-10-05 ~03:12Z)## T236 — e259: the lens is a death-meter — and the public death (2026-10-05 ~03:12Z)
 
 The autopsy resolves the inversion with an emblem. THE LAW IT
 HANDS OVER: rho(decline, R2_own) = +1.00 across all four
