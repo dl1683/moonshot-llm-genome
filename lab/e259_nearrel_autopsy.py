@@ -545,7 +545,8 @@ def main():
 
     revival = {}
     read_states: tuple[int, ...] = (10,) if SMOKE else (ADJ_STATES + CO_STATES)
-    for w in WASHES:
+    read_washes: tuple[str, ...] = ("w1",) if SMOKE else WASHES
+    for w in read_washes:
         for s in read_states:
             stem = tags[f"{w}+{s}"]
             z = np.load(E238_RUN / f"logits_{stem}.npz", allow_pickle=True)
