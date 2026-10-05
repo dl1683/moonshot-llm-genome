@@ -685,7 +685,7 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
-## T241 — e265: the cliff is not the knee — the unification's first honest bound (2026-10-05 ~17:07Z)
+## T241 — e265: the Fisher's observable window is nearly isotropic — and the natural-gradient picture corrected (2026-10-05 ~17:07Z) [FULL-REPORT AMENDMENTS ~17:15Z: (1) THE WINDOW IS FLAT: erank(1%) = 76-77 of 80 — the Fisher's observable head is NEARLY ISOTROPIC (the one-object story fails at observable scale; whatever shields small rooms, it is not the head's anisotropy); the norm-free direction spectrum PR 32-35 (the step-1 norm transient, not structure, drove the raw knee); (2) THE SPAN = TOP EIGENSPACE HOLDS AS IDENTITY-OF-PLACE, NOT DOMINANCE: wash-stable at cos 0.86-0.92 yet carrying only ~37% of mass, decorrelated by k=10; (3) THE NTK BLOCK ASYMMETRY INVERTS INSIDE THE REACHABLE SUBSPACE: killed/living 0.7x in-span vs 2.2-3.2x full-space; the supports' span-capture is 0.2% — the killed probes' overlap excess is UNREACHABLE by the wash's gradients; (4) THE NATURAL-STEP CORRECTION: with a flat spectrum F^-1 g concentrates on the window's LOW end (PC1 mass ~1e-4), and Adam's diagonal DAMPS the top-eigenvector component (~half in w1/w2) — diag(F) knows the span's SCALE (e254), not the natural step's DIRECTION; (5) the tail beyond the window is the join's honest open branch — a bigger cache or a Lanczos on a live replay can test whether the bracket is the TAIL's kneel]
 
 The Fisher census returns CLIFF-IS-SEPARATE, and the bound is
 informative rather than deflating. THE SPECTRUM'S SHAPE: top-

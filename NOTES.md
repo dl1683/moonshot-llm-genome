@@ -34,7 +34,7 @@ read — the composition's sharper predictor).
 
 ---
 
-## e265 — the Fisher/NTK census (the Jacobian directive's first cell): CLIFF-IS-SEPARATE — the Fisher spectrum's knee is at k=1-2 (the top eigengap; the decay SMOOTH thereafter: e_2/e_1 ~ 0.19-0.24, e_10/e_1 ~ 0.04-0.06, e_80/e_1 ~ 0.006-0.010 — no kneel anywhere near the expression bracket [1k, 237k]; the spectrum-estimate caveat: 80 samples bound the TOP of the 124M-dim operator's spectrum) — THE MEMORY CAPACITY CLIFF AND THE FISHER'S SAMPLED DECAY ARE DISTINCT OBJECTS; the NTK blocks + the natural-gradient gap in the committed record (2026-10-05 ~17:05Z) — DONE
+## e265 — the Fisher/NTK census (the Jacobian directive's first cell): CLIFF-IS-SEPARATE — the Fisher spectrum's knee is at k=1-2 (the top eigengap; the decay SMOOTH thereafter: e_2/e_1 ~ 0.19-0.24, e_10/e_1 ~ 0.04-0.06, e_80/e_1 ~ 0.006-0.010 — no kneel anywhere near the expression bracket [1k, 237k]; the spectrum-estimate caveat: 80 samples bound the TOP of the 124M-dim operator's spectrum) — THE MEMORY CAPACITY CLIFF AND THE FISHER'S SAMPLED DECAY ARE DISTINCT OBJECTS; the window NEARLY ISOTROPIC (erank(1%) = 76-77/80; the norm-free PR 32-35); the top-2 eigenspace wash-stable (cos 0.86-0.92) yet only ~37% of mass (identity-of-place, not dominance); the NTK block asymmetry INVERTS in-span (killed/living 0.7x reachable vs 2.8x full; the supports' span-capture 0.2% — the killed excess unreachable); the natural step concentrates on the window's LOW end (PC1 mass 1e-4) and Adam's diagonal DAMPS the top eigenvector (scale, not direction); the tail beyond the window = the join's open branch (2026-10-05 ~17:05Z) — DONE
 
 WHAT WE DID: the frozen census — the committed 80x80 wash
 Grams eigen-decomposed (w1/w2/w3; the empirical Fisher's
