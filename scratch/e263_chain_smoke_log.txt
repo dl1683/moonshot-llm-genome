@@ -1,0 +1,69 @@
+C:\Users\devan\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\cuda\__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+[    0.0s] E263 — THE COUNTERFEIT SELF (smoke=True) -> C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\e263_smoke
+[    0.5s]   [load] launch: cpu 11.9% ram_avail 41.0 GB
+[    1.6s] committed runner-ups runtime-read: Georgia->Atlanta ->  Augusta (46820) | Massachusetts->Boston ->  Worcester (50075) | the matched band [0.5302, 0.6481] (near t0 mean 0.5891 +-10%)
+[    1.6s] synthetic fact committed record: Texas->Austin p(t0)=0.3990 rank 0 (gate False, kept False)
+[    2.1s]   [load] organism+corpus: cpu 7.4% ram_avail 41.0 GB
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7838.83it/s]
+[   12.5s] organism: openai-community/gpt2@607a30d7 — 124,439,808 params (CPU fp32)
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (331770 > 1024). Running this sequence through the model will result in indexing errors
+[   14.3s] G_CORPUS: PASS
+[   14.8s]   [load] batteries: cpu 5.8% ram_avail 40.0 GB
+[   15.9s] G_BATT: PASS | fact: n 20 maxdp 0.00e+00 | ctrl: n 12 maxdp 3.28e-06 | near: n 3 maxdp 0.00e+00
+[   16.4s]   [load] synthetic probe t0: cpu 6.7% ram_avail 40.0 GB
+[   16.6s] G_SYN: PASS — Texas->Austin p(t0) 0.3990 (committed 0.3990) top1 ' Austin' | RUNNER-UP ' Houston' (6995) | committed RUs re-verified: Georgia->Atlanta:rank1 Massachusetts->Boston:rank1
+[   17.1s]   [load] RU supports: cpu 11.4% ram_avail 40.1 GB
+[   19.2s] G_RU: PASS — fd(Aug) +8.838e-01 fd(Wor) +9.246e-01 mutual cos +0.0092 determinism 0.9999999
+[   19.8s]   [load] draws: cpu 3.7% ram_avail 36.7 GB
+[   20.5s] G_DRAWS: PASS
+[   21.0s]   [load] coordination: cpu 3.1% ram_avail 37.5 GB
+[   24.5s] G_COORD: PASS — 0 live lab procs; e261 tail '...NE (honesty + provenance + figures))
+[  817.2s] total 817.2s'; gpu util 0% temp 65C
+[   24.9s]   [gpu:INSTFREE-burst1#1] util 12% temp 66C mem 1260/24463MB power 32.8W -> OK
+[   29.9s]   [gpu:INSTFREE-burst1#2] util 0% temp 65C mem 1260/24463MB power 27.7W -> OK
+[   29.9s] [INST-FREE] burst 1 opens at s1
+[   31.0s]   [INST-FREE] s   1/3 CE 5.0768 |g| 1.0000 (preclip 17.871 CLIP) RUpre 0.329% RUap 0.329% |g'| 1.0000 (dev 0.0e+00)
+[   31.2s]   [INST-FREE] LADDER s1: p_syn 0.5536 top1 ' Austin'
+[   31.4s]   [INST-FREE] s   2/3 CE 4.1063 |g| 1.0000 (preclip 11.969 CLIP) RUpre 0.228% RUap 0.228% |g'| 1.0000 (dev 0.0e+00)
+[   31.6s]   [INST-FREE] LADDER s2: p_syn 0.7031 top1 ' Austin'
+[   31.8s]   [INST-FREE] s   3/3 CE 4.1385 |g| 1.0000 (preclip 13.972 CLIP) RUpre 0.239% RUap 0.239% |g'| 1.0000 (dev 0.0e+00)
+[   32.0s]   [INST-FREE] LADDER s3: p_syn 0.8098 top1 ' Austin'
+[   32.0s]   [INST-FREE] burst 1 done: 3 steps in 2.1s, now at s3
+[   34.0s]   [gpu:INSTORTHO-burst1#1] util 0% temp 67C mem 4624/24463MB power 28.1W -> OK
+[   39.1s]   [gpu:INSTORTHO-burst1#2] util 0% temp 65C mem 4624/24463MB power 15.0W -> OK
+[   39.1s] [INST-ORTHO] burst 1 opens at s1
+[   39.7s]   [INST-ORTHO] s   1/3 CE 5.0768 |g| 1.0000 (preclip 17.871 CLIP) RUpre 0.329% RUap 0.000% |g'| 1.0000 (dev 5.8e-08)
+[   39.8s]   [INST-ORTHO] LADDER s1: p_syn 0.5543 top1 ' Austin'
+[   40.0s]   [INST-ORTHO] s   2/3 CE 4.1063 |g| 1.0000 (preclip 11.969 CLIP) RUpre 0.226% RUap 0.000% |g'| 1.0000 (dev 5.0e-08)
+[   40.2s]   [INST-ORTHO] LADDER s2: p_syn 0.7033 top1 ' Austin'
+[   40.4s]   [INST-ORTHO] s   3/3 CE 4.1384 |g| 1.0000 (preclip 13.972 CLIP) RUpre 0.240% RUap 0.000% |g'| 1.0000 (dev 2.8e-08)
+[   40.7s]   [INST-ORTHO] LADDER s3: p_syn 0.8098 top1 ' Austin'
+[   40.8s]   [INST-ORTHO] burst 1 done: 3 steps in 1.7s, now at s3
+[   42.9s]   [gpu:INSTCOUNTERFEIT-burst1#1] util 6% temp 66C mem 4624/24463MB power 18.1W -> OK
+[   47.9s]   [gpu:INSTCOUNTERFEIT-burst1#2] util 0% temp 65C mem 4624/24463MB power 12.3W -> OK
+[   47.9s] [INST-COUNTERFEIT] burst 1 opens at s1
+[   48.6s]   [INST-COUNTERFEIT] s   1/3 CE 5.0768 |g| 1.0000 (preclip 17.871 CLIP) RUpre 0.329% RUap 30.000% |g'| 1.0000 (dev 2.0e-08)
+[   48.8s]   [INST-COUNTERFEIT] LADDER s1: p_syn 0.3981 top1 ' Austin'
+[   49.0s]   [INST-COUNTERFEIT] s   2/3 CE 4.1116 |g| 1.0000 (preclip 11.935 CLIP) RUpre 0.351% RUap 30.000% |g'| 1.0000 (dev 3.5e-08)
+[   49.2s]   [INST-COUNTERFEIT] LADDER s2: p_syn 0.5925 top1 ' Austin'
+[   49.5s]   [INST-COUNTERFEIT] s   3/3 CE 4.1452 |g| 1.0000 (preclip 14.135 CLIP) RUpre 0.214% RUap 30.000% |g'| 1.0000 (dev 1.1e-08)
+[   49.6s]   [INST-COUNTERFEIT] LADDER s3: p_syn 0.7194 top1 ' Austin'
+[   49.7s]   [INST-COUNTERFEIT] burst 1 done: 3 steps in 1.7s, now at s3
+[   51.8s] LANDING ARM-FREE: p_syn(root) 0.8098 [NOT] top1 ' Austin' | RU share pre 0.239% applied 0.239% | max dose dev 0.0e+00
+[   52.6s] LANDING ARM-ORTHO: p_syn(root) 0.8098 [NOT] top1 ' Austin' | RU share pre 0.240% applied 0.000% | max dose dev 5.8e-08
+[   53.4s] LANDING ARM-COUNTERFEIT: p_syn(root) 0.7194 [NOT] top1 ' Austin' | RU share pre 0.329% applied 30.000% | max dose dev 3.5e-08
+[   54.0s] G_DOSE: PASS
+Traceback (most recent call last):
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1998, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1771, in main
+    root_shares[tag] = root_ru_share(flat0, installs[tag]["sd"],
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                     u1c, u2c, n_params)
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1136, in root_ru_share
+    assert sum(sd[k].numel() for k in ks) == n_params == flat0.numel(), \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: state_dict flat order must align with parameters() (all float entries are parameters; GPT-2's mask buffers are non-persistent)

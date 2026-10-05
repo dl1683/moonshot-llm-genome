@@ -22,3 +22,32 @@ Traceback (most recent call last):
     r["gate_pass"] = bool((r["top1"] and r["p"] >= GATE_TOP1_P)
                            ~^^^^^^^^
 KeyError: 'top1'
+[chain 16:10:06] chain start: waiting for the GPU lane (e264 owns it)
+[chain 16:28:58] LANE FREE — running the SMOKE first (e246's discipline)
+[chain 16:29:58] smoke exit 1
+[chain 16:29:58] SMOKE FAILED — chain STOPS (the autopsy record); tail:
+[   47.9s] [INST-COUNTERFEIT] burst 1 opens at s1
+[   48.6s]   [INST-COUNTERFEIT] s   1/3 CE 5.0768 |g| 1.0000 (preclip 17.871 CLIP) RUpre 0.329% RUap 30.000% |g'| 1.0000 (dev 2.0e-08)
+[   48.8s]   [INST-COUNTERFEIT] LADDER s1: p_syn 0.3981 top1 ' Austin'
+[   49.0s]   [INST-COUNTERFEIT] s   2/3 CE 4.1116 |g| 1.0000 (preclip 11.935 CLIP) RUpre 0.351% RUap 30.000% |g'| 1.0000 (dev 3.5e-08)
+[   49.2s]   [INST-COUNTERFEIT] LADDER s2: p_syn 0.5925 top1 ' Austin'
+[   49.5s]   [INST-COUNTERFEIT] s   3/3 CE 4.1452 |g| 1.0000 (preclip 14.135 CLIP) RUpre 0.214% RUap 30.000% |g'| 1.0000 (dev 1.1e-08)
+[   49.6s]   [INST-COUNTERFEIT] LADDER s3: p_syn 0.7194 top1 ' Austin'
+[   49.7s]   [INST-COUNTERFEIT] burst 1 done: 3 steps in 1.7s, now at s3
+[   51.8s] LANDING ARM-FREE: p_syn(root) 0.8098 [NOT] top1 ' Austin' | RU share pre 0.239% applied 0.239% | max dose dev 0.0e+00
+[   52.6s] LANDING ARM-ORTHO: p_syn(root) 0.8098 [NOT] top1 ' Austin' | RU share pre 0.240% applied 0.000% | max dose dev 5.8e-08
+[   53.4s] LANDING ARM-COUNTERFEIT: p_syn(root) 0.7194 [NOT] top1 ' Austin' | RU share pre 0.329% applied 30.000% | max dose dev 3.5e-08
+[   54.0s] G_DOSE: PASS
+Traceback (most recent call last):
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1998, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1771, in main
+    root_shares[tag] = root_ru_share(flat0, installs[tag]["sd"],
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                     u1c, u2c, n_params)
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1136, in root_ru_share
+    assert sum(sd[k].numel() for k in ks) == n_params == flat0.numel(), \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: state_dict flat order must align with parameters() (all float entries are parameters; GPT-2's mask buffers are non-persistent)
