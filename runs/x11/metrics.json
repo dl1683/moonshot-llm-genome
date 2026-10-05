@@ -1,0 +1,519 @@
+{
+ "experiment": "x11_consolidation_ledger",
+ "phase": "THE CONSOLIDATION LEDGER (P-x11a, T256) \u2014 is the expression edge a CONSOLIDATION-RATE threshold? final in-room write mass / cumulative applied in-room displacement per committed rung, across e272's relocated edge (1k,2k]; CPU-only desk cell, committed records only",
+ "date": "2026-10-05T22:40:15+00:00",
+ "status": "COMPLETE \u2014 adjudicated",
+ "cpu_only": true,
+ "threads": {
+  "torch": 4,
+  "pocketfft": 4
+ },
+ "gates": {
+  "G_ENDPOINTS": {
+   "md5_binds": {
+    "e001": {
+     "path": "runs\\checkpoints\\e001.pt",
+     "md5": "d114536d1c0983ab3be67f67ff0667c8",
+     "claimed": "d114536d1c0983ab3be67f67ff0667c8",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e261_K1K": {
+     "path": "runs\\checkpoints\\e261_K1K_inst_resume.pt",
+     "md5": "f2975890c7870480d7f48b74dee33041",
+     "claimed": "f2975890c7870480d7f48b74dee33041",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e272_K1KM": {
+     "path": "runs\\checkpoints\\e272_K1KM_inst_resume.pt",
+     "md5": "2306a448b450f192ef2d7d1f9aa90e2e",
+     "claimed": "2306a448b450f192ef2d7d1f9aa90e2e",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e272_K2K": {
+     "path": "runs\\checkpoints\\e272_K2K_inst_resume.pt",
+     "md5": "f31b437cb81ae6f06aa35daceb3b4d67",
+     "claimed": "f31b437cb81ae6f06aa35daceb3b4d67",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e272_K5K": {
+     "path": "runs\\checkpoints\\e272_K5K_inst_resume.pt",
+     "md5": "62049b93c2435639a945ce80cbc46470",
+     "claimed": "62049b93c2435639a945ce80cbc46470",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e261_K10K": {
+     "path": "runs\\checkpoints\\e261_K10K_inst_resume.pt",
+     "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+     "claimed": "0f6dc1cf46850ce655dfafc9c853d467",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e272_K10KR": {
+     "path": "runs\\checkpoints\\e272_K10KR_inst_resume.pt",
+     "md5": "6ce712a7aae8482a4c78d1b87f3194b1",
+     "claimed": "6ce712a7aae8482a4c78d1b87f3194b1",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e261_K237K": {
+     "path": "runs\\checkpoints\\e261_K237K_inst_resume.pt",
+     "md5": "458e5211ef61aae7e14cd3b966f23dfc",
+     "claimed": "458e5211ef61aae7e14cd3b966f23dfc",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e261_rooms": {
+     "path": "runs\\checkpoints\\e261_rooms.pt",
+     "md5": "f81571c40bb6009d4ed1cfab66e73f6c",
+     "claimed": "f81571c40bb6009d4ed1cfab66e73f6c",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e264_rooms": {
+     "path": "runs\\checkpoints\\e264_rooms.pt",
+     "md5": "2d524655575cce00a3bc1c8770f4b211",
+     "claimed": "2d524655575cce00a3bc1c8770f4b211",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e272_rooms": {
+     "path": "runs\\checkpoints\\e272_rooms.pt",
+     "md5": "066944855b3295e8796c6ca28b2e498c",
+     "claimed": "066944855b3295e8796c6ca28b2e498c",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e261_metrics": {
+     "path": "runs\\e261\\metrics.json",
+     "md5": "f460475d8e6b76f0719e91c1e9c6041b",
+     "claimed": "f460475d8e6b76f0719e91c1e9c6041b",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e264_metrics": {
+     "path": "runs\\e264\\metrics.json",
+     "md5": "a42ff4786784b04cb9819a69b545e343",
+     "claimed": "a42ff4786784b04cb9819a69b545e343",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "e272_metrics": {
+     "path": "runs\\e272\\metrics.json",
+     "md5": "eb9f624708bcb6576c4115161dfd7042",
+     "claimed": "eb9f624708bcb6576c4115161dfd7042",
+     "source": "x10's committed G_ENDPOINTS table",
+     "match": true
+    },
+    "x10_metrics": {
+     "path": "runs\\x10\\metrics.json",
+     "md5": "2d1cec68a0e7d471fd991e3693913d01",
+     "claimed": "2d1cec68a0e7d471fd991e3693913d01",
+     "source": "FRESH BIND (this cell)",
+     "match": true
+    }
+   },
+   "note": "all 15 files hard-gated against x10's committed table (which carries x6's original binds + x10's fresh binds); runs/x10/metrics.json itself fresh-bound here for future cells",
+   "pass": true
+  },
+  "G_FLATBASIS": {
+   "params_count": 65,
+   "buffers_count": 0,
+   "key_order_matches_parameters": true,
+   "n_params": 2739072,
+   "pass": true
+  },
+  "G_ROOMS": {
+   "K1K": {
+    "file": "runs\\checkpoints\\e261_rooms.pt",
+    "k": 1000,
+    "seeds": [
+     26111,
+     26112
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K1KM": {
+    "file": "runs\\checkpoints\\e272_rooms.pt",
+    "k": 1000,
+    "seeds": [
+     26111,
+     26112
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K2K": {
+    "file": "runs\\checkpoints\\e272_rooms.pt",
+    "k": 2000,
+    "seeds": [
+     27211,
+     27212
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K5K": {
+    "file": "runs\\checkpoints\\e272_rooms.pt",
+    "k": 5000,
+    "seeds": [
+     27213,
+     27214
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K10K": {
+    "file": "runs\\checkpoints\\e264_rooms.pt",
+    "k": 10000,
+    "seeds": [
+     26113,
+     26114
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K10KR": {
+    "file": "runs\\checkpoints\\e272_rooms.pt",
+    "k": 10000,
+    "seeds": [
+     27215,
+     27216
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K237K": {
+    "file": "runs\\checkpoints\\e261_rooms.pt",
+    "k": 237123,
+    "seeds": [
+     26011,
+     26012
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K1KM_bit_equals_committed_K1K": true
+  },
+  "G_LEDGER": {
+   "K1K": {
+    "ledger_steps": 41,
+    "gpn_min": 0.013460324610422543,
+    "gpn_max": 0.02017044431160988,
+    "committed_lr_scale": null,
+    "lr_scale_this_cell": 1.0,
+    "lr_scale_consistent": true,
+    "committed_median_gpn": 0.014916445625570523,
+    "resumed_final": false
+   },
+   "K1KM": {
+    "ledger_steps": 41,
+    "gpn_min": 0.01177033492563739,
+    "gpn_max": 0.02017044450689354,
+    "committed_lr_scale": 3.7305567687315575,
+    "lr_scale_this_cell": 3.7305567687315575,
+    "lr_scale_consistent": true,
+    "committed_median_gpn": 0.015709231231653045,
+    "resumed_final": false
+   },
+   "K2K": {
+    "ledger_steps": 41,
+    "gpn_min": 0.018980168506686775,
+    "gpn_max": 0.02737649752239546,
+    "committed_lr_scale": 1.0,
+    "lr_scale_this_cell": 1.0,
+    "lr_scale_consistent": true,
+    "committed_median_gpn": 0.021194866231145575,
+    "resumed_final": false
+   },
+   "K5K": {
+    "ledger_steps": 41,
+    "gpn_min": 0.030631038104261724,
+    "gpn_max": 0.04207881662897578,
+    "committed_lr_scale": 1.0,
+    "lr_scale_this_cell": 1.0,
+    "lr_scale_consistent": true,
+    "committed_median_gpn": 0.033158247341697096,
+    "resumed_final": false
+   },
+   "K10K": {
+    "ledger_steps": 41,
+    "gpn_min": 0.0442823911261103,
+    "gpn_max": 0.060802672143153824,
+    "committed_lr_scale": null,
+    "lr_scale_this_cell": 1.0,
+    "lr_scale_consistent": true,
+    "committed_median_gpn": 0.0488731768354665,
+    "resumed_final": true
+   },
+   "K10KR": {
+    "ledger_steps": 41,
+    "gpn_min": 0.043159510525345446,
+    "gpn_max": 0.06078188599673779,
+    "committed_lr_scale": 1.0,
+    "lr_scale_this_cell": 1.0,
+    "lr_scale_consistent": true,
+    "committed_median_gpn": 0.04876984031409782,
+    "resumed_final": false
+   },
+   "K237K": {
+    "ledger_steps": 41,
+    "gpn_min": 0.21805240182723837,
+    "gpn_max": 0.2954496049585836,
+    "committed_lr_scale": null,
+    "lr_scale_this_cell": 1.0,
+    "lr_scale_consistent": true,
+    "committed_median_gpn": 0.2945742095300929,
+    "resumed_final": false
+   }
+  },
+  "G_DOSE_REPRO": {
+   "K1KM": {
+    "this_cell_median": 4.903974292104162e-05,
+    "committed": 4.903974292104162e-05,
+    "rel_diff": 0.0,
+    "pass": true
+   },
+   "K2K": {
+    "this_cell_median": 1.925611105888784e-05,
+    "committed": 1.925611105888784e-05,
+    "rel_diff": 0.0,
+    "pass": true
+   },
+   "K5K": {
+    "this_cell_median": 3.0349046917670057e-05,
+    "committed": 3.0349046917670057e-05,
+    "rel_diff": 0.0,
+    "pass": true
+   },
+   "K10KR": {
+    "this_cell_median": 4.384148621663227e-05,
+    "committed": 4.384148621663227e-05,
+    "rel_diff": 0.0,
+    "pass": true
+   },
+   "tol_rel": 1e-09,
+   "form": "median over the 41 ledgered steps of lr(s) x gpn(s) == the parent's committed applied_dose_proxy_median (e272 arms)",
+   "pass": true
+  },
+  "G_DISPL": {
+   "K1K": {
+    "committed_in_own_room_norm_ratio": 0.8990001680413359,
+    "squared": 0.8082013021383502,
+    "this_cell_inside_share": 0.8082013021416116,
+    "abs_diff": 3.26139115713886e-12,
+    "source": "e261 metrics install displacement_loads",
+    "pass": true
+   },
+   "K1KM": {
+    "committed_in_own_room_norm_ratio": 0.7955550758680459,
+    "squared": 0.6329078787394122,
+    "this_cell_inside_share": 0.6329078787368246,
+    "abs_diff": 2.5875968034938523e-12,
+    "source": "e272 metrics install displacement_loads",
+    "pass": true
+   },
+   "K2K": {
+    "committed_in_own_room_norm_ratio": 0.9090426956346246,
+    "squared": 0.8263586224866647,
+    "this_cell_inside_share": 0.8263586224802592,
+    "abs_diff": 6.405542762877303e-12,
+    "source": "e272 metrics install displacement_loads",
+    "pass": true
+   },
+   "K5K": {
+    "committed_in_own_room_norm_ratio": 0.9244495344843363,
+    "squared": 0.8546069418083061,
+    "this_cell_inside_share": 0.8546069418119193,
+    "abs_diff": 3.613220833642572e-12,
+    "source": "e272 metrics install displacement_loads",
+    "pass": true
+   },
+   "K10K": {
+    "committed_in_own_room_norm_ratio": 0.9441588788935659,
+    "squared": 0.8914359885935552,
+    "this_cell_inside_share": 0.8914359886030363,
+    "abs_diff": 9.481082585693912e-12,
+    "source": "e264 metrics install displacement_loads",
+    "pass": true
+   },
+   "K10KR": {
+    "committed_in_own_room_norm_ratio": 0.9445320495247138,
+    "squared": 0.8921407925793564,
+    "this_cell_inside_share": 0.8921407925827126,
+    "abs_diff": 3.3562042034418482e-12,
+    "source": "e272 metrics install displacement_loads",
+    "pass": true
+   },
+   "K237K": {
+    "committed_in_own_room_norm_ratio": 0.9804893255327712,
+    "squared": 0.9613593174837086,
+    "this_cell_inside_share": 0.9613593174841532,
+    "abs_diff": 4.445332990599127e-13,
+    "source": "e261 metrics install displacement_loads",
+    "pass": true
+   },
+   "tol": 0.002,
+   "form": "committed in_own_room (norm ratio)^2 == this cell's fp64 inside_share",
+   "pass": true
+  },
+  "G_DISP_NORM": {
+   "K1KM": {
+    "committed_in_room_disp_norm": 11.95964168990308,
+    "this_cell": 11.959641689828477,
+    "rel_diff": 6.237932245421334e-12,
+    "pass": true
+   },
+   "K2K": {
+    "committed_in_room_disp_norm": 6.521311124475332,
+    "this_cell": 6.521311124507878,
+    "rel_diff": 4.990640871422941e-12,
+    "pass": true
+   },
+   "K5K": {
+    "committed_in_room_disp_norm": 7.3312512540040835,
+    "this_cell": 7.331251254016174,
+    "rel_diff": 1.6492099927381741e-12,
+    "pass": true
+   },
+   "K10KR": {
+    "committed_in_room_disp_norm": 8.701848935447199,
+    "this_cell": 8.701848935411471,
+    "rel_diff": 4.105778596697868e-12,
+    "pass": true
+   },
+   "tol_rel": 0.005,
+   "form": "this cell's ||P dW|| == e272's committed in_room_disp_norm (e272 arms)",
+   "pass": true
+  }
+ },
+ "phase_note": "P8 COMPLETE (report + figure)",
+ "date_updated": "2026-10-05T22:40:24+00:00",
+ "ledger": {
+  "K1K": {
+   "k": 1000,
+   "lr_scale": 1.0,
+   "dW_l2": 6.7285240761786795,
+   "numerator_in_room_mass": 6.048944275167012,
+   "denominator_cum_applied": 0.0048288755544210245,
+   "denominator_cum_applied_holdleft": 0.004831475466107049,
+   "consolidation_ratio": 1252.6610402351262,
+   "consolidation_ratio_holdleft": 1251.9869587666428,
+   "inside_share": 0.8082013021416116,
+   "post_g0_cited": 0.00043458465370349586
+  },
+  "K1KM": {
+   "k": 1000,
+   "lr_scale": 3.7305567687315575,
+   "dW_l2": 15.033078227555173,
+   "numerator_in_room_mass": 11.959641689828477,
+   "denominator_cum_applied": 0.018985069811440998,
+   "denominator_cum_applied_holdleft": 0.019066590363174044,
+   "consolidation_ratio": 629.9498399853775,
+   "consolidation_ratio_holdleft": 627.2564450184966,
+   "inside_share": 0.6329078787368246,
+   "post_g0_cited": 0.0012453667586669326
+  },
+  "K2K": {
+   "k": 2000,
+   "lr_scale": 1.0,
+   "dW_l2": 7.173822699252281,
+   "numerator_in_room_mass": 6.521311124507878,
+   "denominator_cum_applied": 0.006824597944490095,
+   "denominator_cum_applied_holdleft": 0.006826393128288497,
+   "consolidation_ratio": 955.5597527577315,
+   "consolidation_ratio_holdleft": 955.3084626028403,
+   "inside_share": 0.8263586224802592,
+   "post_g0_cited": 0.026616254821419716
+  },
+  "K5K": {
+   "k": 5000,
+   "lr_scale": 1.0,
+   "dW_l2": 7.930396393233184,
+   "numerator_in_room_mass": 7.331251254016174,
+   "denominator_cum_applied": 0.01084706464393349,
+   "denominator_cum_applied_holdleft": 0.010845079348536752,
+   "consolidation_ratio": 675.8742106433718,
+   "consolidation_ratio_holdleft": 675.9979358754371,
+   "inside_share": 0.8546069418119193,
+   "post_g0_cited": 0.12709596753120422
+  },
+  "K10K": {
+   "k": 10000,
+   "lr_scale": 1.0,
+   "dW_l2": 9.1788432658723,
+   "numerator_in_room_mass": 8.666286367491834,
+   "denominator_cum_applied": 0.01584158927103276,
+   "denominator_cum_applied_holdleft": 0.01583230690851184,
+   "consolidation_ratio": 547.0591503933654,
+   "consolidation_ratio_holdleft": 547.3798870607178,
+   "inside_share": 0.8914359886030363,
+   "post_g0_cited": 0.26464763283729553
+  },
+  "K10KR": {
+   "k": 10000,
+   "lr_scale": 1.0,
+   "dW_l2": 9.21286783203794,
+   "numerator_in_room_mass": 8.701848935411471,
+   "denominator_cum_applied": 0.01581204483214847,
+   "denominator_cum_applied_holdleft": 0.015800986004645117,
+   "consolidation_ratio": 550.3303986160722,
+   "consolidation_ratio_holdleft": 550.7155650193812,
+   "inside_share": 0.8921407925827126,
+   "post_g0_cited": 0.2097209095954895
+  },
+  "K237K": {
+   "k": 237123,
+   "lr_scale": 1.0,
+   "dW_l2": 15.057764961634879,
+   "numerator_in_room_mass": 14.763977811267791,
+   "denominator_cum_applied": 0.0942880772376666,
+   "denominator_cum_applied_holdleft": 0.09413974389865219,
+   "consolidation_ratio": 156.583719212484,
+   "consolidation_ratio_holdleft": 156.83044376201207,
+   "inside_share": 0.9613593174841532,
+   "post_g0_cited": 0.38436421751976013
+  }
+ },
+ "verdict": {
+  "word": "MIXED",
+  "primary_word_from_edge": "RATIO-INVERTED",
+  "edge_jump_J_ratio_2k_over_1k": 0.7628238781804627,
+  "edge_jump_holdleft": 0.7630338766019844,
+  "clause_trace": {
+   "cliff_J_ge_3": false,
+   "inverted_J_lt_1": true,
+   "flat_1_le_J_lt_3": false,
+   "mixed_a_above_family_spread_gt_3": true,
+   "above_family_spread": 6.102548576337222,
+   "mixed_b_K1KM_ratio_gt_K2K": false,
+   "mixed_c_holdleft_flips_primary": false
+  },
+  "ratios": {
+   "K1K": 1252.6610402351262,
+   "K1KM": 629.9498399853775,
+   "K2K": 955.5597527577315,
+   "K5K": 675.8742106433718,
+   "K10K": 547.0591503933654,
+   "K10KR": 550.3303986160722,
+   "K237K": 156.583719212484
+  },
+  "bars_verbatim": {
+   "RATIO-CLIFF": "the ratio jumps >= 3x at the (1k,2k] edge \u2014 the floor is a rate threshold; P-x11a fires",
+   "RATIO-FLAT": "no jump \u2014 the edge is absolute-scale; the dose acquittal becomes the puzzle",
+   "RATIO-INVERTED": "below-edge rooms consolidate BETTER per unit displacement \u2014 a pure decay-side threshold",
+   "MIXED": "the families verbatim, no inflation"
+  },
+  "operationalizations": {
+   "numerator": "||P_room dW||_2 fp64 CPU, dW = flat(inst_resume s400) - flat(e001), P the SRCT projector (x6's convention)",
+   "denominator": "sum_{s=1..400} lr(s) x gpn(s); lr(s) = 1e-3 x lr_scale x cosine_lr(s-1, 1000) (house schedule ported BY VALUE, warmup 100); gpn piecewise-LINEAR over the committed 41-point ledger {1,10,...,400}; lr_scale 1.0 except K1KM 3.7305567687315575",
+   "proxy_form_disclosure": "first-order lr x ||g'|| \u2014 Adam's per-coordinate preconditioner and AdamW's decoupled weight decay UNMODELED (e272's dose_control caveat verbatim: 'the proxy is the gradient-norm channel; the displacement norms are the state channel'); used as a consistent cross-rung currency; hold-left sensitivity co-reported",
+   "k10k_resume": "K10K's ledger is e264's committed resume-completed record (e261 cut at s278; e264 pass-1 completed to s400; the journal-resume design) covering s1..s400 whole",
+   "verdict": "J := r(K2K)/r(K1K); CLIFF iff J >= 3; INVERTED iff J < 1; FLAT iff 1 <= J < 3; MIXED overrides on (a) above-edge family max/min > 3, or (b) r(K1KM) > r(K2K), or (c) the primary word flips under hold-left interpolation",
+   "coreports": "K1KM (dead at matched kept-dose, lr x3.7306) and K10KR (fresh-room 10k replicate) enter only through the MIXED clauses, never as the primary edge read"
+  }
+ },
+ "outputs": {
+  "figure": "runs/x11/x11_consolidation.png",
+  "metrics": "runs/x11/metrics.json",
+  "report": "runs/x11/REPORT.md"
+ }
+}

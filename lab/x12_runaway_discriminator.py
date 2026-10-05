@@ -633,13 +633,13 @@ for wash, states in WASH_STATES.items():
     das = np.array(das)
     BOOT[wash] = {
         "B": BOOT_B, "seed": BOOT_SEED, "note": "single-start polish from "
-        "full-data thetas (disclosed); dA_str_minus_biexp = AICc_STR - "
-        "AICc_BIEXP, positive = stretched wins",
+        "full-data thetas (disclosed); das = AICc_STR - AICc_BIEXP, "
+        "NEGATIVE = stretched wins by that margin",
         "median": float(np.median(das)),
         "ci95": [float(np.percentile(das, 2.5)),
                  float(np.percentile(das, 97.5))],
-        "frac_str_wins_ge2": float((das >= DA_BAR).mean()),
-        "frac_biexp_wins_le_minus2": float((das <= -DA_BAR).mean()),
+        "frac_stretched_wins_by2": float((das <= -DA_BAR).mean()),
+        "frac_biexp_wins_by2": float((das >= DA_BAR).mean()),
     }
     log(f"boot {wash}: median dA(s-b)={BOOT[wash]['median']:.2f} "
         f"ci [{BOOT[wash]['ci95'][0]:.2f}, {BOOT[wash]['ci95'][1]:.2f}]")
@@ -700,9 +700,12 @@ for ax, wash in zip((axes[0, 0], axes[0, 1]), WASH_STATES):
     for fam in ("EXP", "STR", "BIEXP"):
         th = np.array(FITS[wash][fam]["theta"])
         Qm = fam_q(th, fam, anchors["fact"], tt).mean(axis=0)
-        lbl = {"EXP": "EXP", "STR": f"STR (beta={th[1]:.3f})",
-               "BIEXP": (f"BIEXP (w={th[2]:.3f}, "
-                         f"lam1={th[0]:.4f}, lam2={th[1]:.4f})")}[fam]
+        if fam == "EXP":
+            lbl = "EXP"
+        elif fam == "STR":
+            lbl = f"STR (beta={th[1]:.3f})"
+        else:
+            lbl = f"BIEXP (w={th[2]:.3f}, lam1={th[0]:.4f}, lam2={th[1]:.4f})"
         ax.plot(tt, Qm, "-", color=COL[fam], lw=1.8,
                 label=f"{lbl}; AICc {FITS[wash][fam]['aicc']:.2f}")
     ax.set_xlabel("wash steps t")
@@ -817,12 +820,16 @@ slow probes imitating acceleration, H-SHAPE-MISMATCH)?
 **{a_channel}** (bar |dA| >= 2 on both washes).
 
 Bootstrap stability (B=200 probe-level resamples, single-start polish,
-co-report never a bar): w1 median AICc_STR - AICc_BIEXP
-{BOOT['w1']['median']:+.2f} (95% [{BOOT['w1']['ci95'][0]:+.2f},
-{BOOT['w1']['ci95'][1]:+.2f}], stretched wins >= 2 in
-{100*BOOT['w1']['frac_str_wins_ge2']:.0f}% of resamples); w2 median
+co-report never a bar; das := AICc_STR - AICc_BIEXP, negative = stretched
+wins by that margin): w1 median {BOOT['w1']['median']:+.2f} (95%
+[{BOOT['w1']['ci95'][0]:+.2f}, {BOOT['w1']['ci95'][1]:+.2f}]; stretched
+wins by >= 2 in {100*BOOT['w1']['frac_stretched_wins_by2']:.0f}% of
+resamples, BIEXP wins by >= 2 in
+{100*BOOT['w1']['frac_biexp_wins_by2']:.0f}%); w2 median
 {BOOT['w2']['median']:+.2f} (95% [{BOOT['w2']['ci95'][0]:+.2f},
-{BOOT['w2']['ci95'][1]:+.2f}], {100*BOOT['w2']['frac_str_wins_ge2']:.0f}%).
+{BOOT['w2']['ci95'][1]:+.2f}]; stretched
+{100*BOOT['w2']['frac_stretched_wins_by2']:.0f}% / BIEXP
+{100*BOOT['w2']['frac_biexp_wins_by2']:.0f}%).
 The EXP-vs-STR context: x9's committed fact EXP AICc w1
 {x9_fit['fact/w1/EXP']['aicc']:.2f} / w2 {x9_fit['fact/w2/EXP']['aicc']:.2f}
 (this cell reproduced them, G_REPRO).

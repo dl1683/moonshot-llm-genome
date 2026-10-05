@@ -750,7 +750,7 @@ Clause trace: cliff (J >= 3) = {vt['cliff_J_ge_3']}; inverted (J < 1) =
 {vt['inverted_J_lt_1']}; flat (1 <= J < 3) = {vt['flat_1_le_J_lt_3']};
 MIXED clause (a) above-edge family spread {spread_above:.3f} > 3 =
 {vt['mixed_a_above_family_spread_gt_3']}; clause (b) r(K1KM) >
-r(K2K) = {vt['mixed_b_K1KM_ratio_gt_K2K} (r(K1KM) = {r['K1KM']:.2f});
+r(K2K) = {vt['mixed_b_K1KM_ratio_gt_K2K']} (r(K1KM) = {r['K1KM']:.2f});
 clause (c) hold-left flips the primary word = {vt['mixed_c_holdleft_flips_primary']}
 (primary {primary} -> {primary_h}).
 

@@ -1,0 +1,461 @@
+{
+ "experiment": "x12_runaway_discriminator",
+ "phase": "P6 COMPLETE (report + figure)",
+ "date": "2026-10-05T22:43:03Z",
+ "status": "COMPLETE \u2014 adjudicated",
+ "cpu_only": true,
+ "threads": 1,
+ "provenance": {
+  "versions": {
+   "numpy": "2.3.5",
+   "scipy": "1.16.2",
+   "matplotlib": "3.10.6",
+   "python": "3.13.7"
+  }
+ },
+ "gates": {
+  "G_SHA": {
+   "checks": {
+    "x9_metrics": {
+     "path": "runs/x9/metrics.json",
+     "sha16": "10a8ff05c3f62310",
+     "committed": "10a8ff05c3f62310",
+     "source": "FRESH BIND (this cell)",
+     "match": true
+    },
+    "e228_journal": {
+     "path": "runs/e228/journal.json",
+     "sha16": "e1f476405746ad70",
+     "committed": "e1f476405746ad70",
+     "source": "FRESH BIND (this cell)",
+     "match": true
+    },
+    "e228_metrics": {
+     "path": "runs/e228/metrics.json",
+     "sha16": "da0fb7af1a3d105e",
+     "committed": "da0fb7af1a3d105e",
+     "source": "FRESH BIND (this cell)",
+     "match": true
+    },
+    "e238_t0": {
+     "path": "runs/e238/logits_t0.npz",
+     "sha16": "fd1d302f5713ec82",
+     "committed": "fd1d302f5713ec82",
+     "source": "x9's committed G_SHA table",
+     "match": true
+    },
+    "e238_w1s2": {
+     "path": "runs/e238/logits_w1s2.npz",
+     "sha16": "59e6c0aa1b220518",
+     "committed": "59e6c0aa1b220518",
+     "source": "x9's committed G_SHA table",
+     "match": true
+    },
+    "e238_w1s10": {
+     "path": "runs/e238/logits_w1s10.npz",
+     "sha16": "cd4fdedb5a7d605a",
+     "committed": "cd4fdedb5a7d605a",
+     "source": "x9's committed G_SHA table",
+     "match": true
+    },
+    "e238_w1s50": {
+     "path": "runs/e238/logits_w1s50.npz",
+     "sha16": "465bac8aca6b4076",
+     "committed": "465bac8aca6b4076",
+     "source": "x9's committed G_SHA table",
+     "match": true
+    },
+    "e238_w1s80": {
+     "path": "runs/e238/logits_w1s80.npz",
+     "sha16": "f13897401fe60341",
+     "committed": "f13897401fe60341",
+     "source": "x9's committed G_SHA table",
+     "match": true
+    },
+    "e238_w2s10": {
+     "path": "runs/e238/logits_w2s10.npz",
+     "sha16": "b120737f96a65398",
+     "committed": "b120737f96a65398",
+     "source": "x9's committed G_SHA table",
+     "match": true
+    },
+    "e238_w2s50": {
+     "path": "runs/e238/logits_w2s50.npz",
+     "sha16": "06b46035fb76be1a",
+     "committed": "06b46035fb76be1a",
+     "source": "x9's committed G_SHA table",
+     "match": true
+    },
+    "e238_w2s80": {
+     "path": "runs/e238/logits_w2s80.npz",
+     "sha16": "9c807dbf906e2cbc",
+     "committed": "9c807dbf906e2cbc",
+     "source": "x9's committed G_SHA table",
+     "match": true
+    }
+   },
+   "pass": true
+  },
+  "G_REPRO": {
+   "fact/w1/EXP": {
+    "x9_nll": 45.46002421737688,
+    "this_nll": 45.46002421737688,
+    "nll_abs_diff": 0.0,
+    "x9_aicc": 95.07589259059792,
+    "this_aicc": 95.07589259059792,
+    "aicc_abs_diff": 0.0,
+    "theta_max_abs_diff": 0.0,
+    "pass": true
+   },
+   "fact/w1/STR": {
+    "x9_nll": 45.393979043436346,
+    "this_nll": 45.393979043436346,
+    "nll_abs_diff": 0.0,
+    "x9_aicc": 97.1037475605569,
+    "this_aicc": 97.1037475605569,
+    "aicc_abs_diff": 0.0,
+    "theta_max_abs_diff": 0.0,
+    "pass": true
+   },
+   "fact/w1/oneT": {
+    "x9_T": {
+     "2": 0.995426488888485,
+     "10": 1.0206246372417065,
+     "50": 1.2853047895964504,
+     "80": 1.3522936791146836
+    },
+    "this_T": {
+     "2": 0.995426488888485,
+     "10": 1.0206246372417065,
+     "50": 1.2853047895964504,
+     "80": 1.3522936791146836
+    },
+    "max_abs_dT": 0.0,
+    "x9_nll": 45.55741233801853,
+    "this_nll": 45.55741233801853,
+    "nll_abs_diff": 0.0,
+    "pass": true
+   },
+   "fact/w2/EXP": {
+    "x9_nll": 36.309888693952885,
+    "this_nll": 36.309888693952885,
+    "nll_abs_diff": 0.0,
+    "x9_aicc": 76.83030370369525,
+    "this_aicc": 76.83030370369525,
+    "aicc_abs_diff": 0.0,
+    "theta_max_abs_diff": 0.0,
+    "pass": true
+   },
+   "fact/w2/STR": {
+    "x9_nll": 36.22813235505489,
+    "this_nll": 36.22813235505489,
+    "nll_abs_diff": 0.0,
+    "x9_aicc": 78.88483613868121,
+    "this_aicc": 78.88483613868121,
+    "aicc_abs_diff": 0.0,
+    "theta_max_abs_diff": 0.0,
+    "pass": true
+   },
+   "fact/w2/oneT": {
+    "x9_T": {
+     "10": 1.034868514634684,
+     "50": 1.2628071932322087,
+     "80": 1.373368675181737
+    },
+    "this_T": {
+     "10": 1.034868514634684,
+     "50": 1.2628071932322087,
+     "80": 1.373368675181737
+    },
+    "max_abs_dT": 0.0,
+    "x9_nll": 36.587769579784265,
+    "this_nll": 36.587769579784265,
+    "nll_abs_diff": 0.0,
+    "pass": true
+   },
+   "pass": true
+  }
+ },
+ "date_updated": "2026-10-05T22:43:39Z",
+ "family_fits": {
+  "w1": {
+   "EXP": {
+    "theta": [
+     0.00701371585249236,
+     0.0
+    ],
+    "param_names": [
+     "lam",
+     "c"
+    ],
+    "k": 2,
+    "nll": 45.46002421737688,
+    "bound_hit": true,
+    "n_obs": 80,
+    "aicc": 95.07589259059792,
+    "lam_eff": 0.00701371585249236
+   },
+   "STR": {
+    "theta": [
+     0.008356145262363307,
+     1.2672074269499347,
+     0.0
+    ],
+    "param_names": [
+     "lam",
+     "beta",
+     "c"
+    ],
+    "k": 3,
+    "nll": 45.393979043436346,
+    "bound_hit": true,
+    "n_obs": 80,
+    "aicc": 97.1037475605569,
+    "lam_eff": 0.007503611231322227
+   },
+   "BIEXP": {
+    "theta": [
+     0.015437191016719254,
+     0.007013715817918478,
+     0.0,
+     0.0
+    ],
+    "param_names": [
+     "lam1",
+     "lam2",
+     "w",
+     "c"
+    ],
+    "k": 4,
+    "nll": 45.46002421737688,
+    "bound_hit": true,
+    "n_obs": 80,
+    "aicc": 99.4533817680871,
+    "lam_eff": 0.007013715817918478
+   },
+   "oneT": {
+    "theta": null,
+    "param_names": null,
+    "k": 4,
+    "n_obs": 80,
+    "nll": 45.55741233801853,
+    "aicc": 99.64815800937039,
+    "T_per_state": {
+     "2": 0.995426488888485,
+     "10": 1.0206246372417065,
+     "50": 1.2853047895964504,
+     "80": 1.3522936791146836
+    },
+    "bound_hit": false
+   }
+  },
+  "w2": {
+   "EXP": {
+    "theta": [
+     0.007151354312896728,
+     0.0
+    ],
+    "param_names": [
+     "lam",
+     "c"
+    ],
+    "k": 2,
+    "nll": 36.309888693952885,
+    "bound_hit": true,
+    "n_obs": 60,
+    "aicc": 76.83030370369525,
+    "lam_eff": 0.007151354312896726
+   },
+   "STR": {
+    "theta": [
+     0.008770020508518576,
+     1.3458041838854968,
+     0.0
+    ],
+    "param_names": [
+     "lam",
+     "beta",
+     "c"
+    ],
+    "k": 3,
+    "nll": 36.22813235505489,
+    "bound_hit": true,
+    "n_obs": 60,
+    "aicc": 78.88483613868121,
+    "lam_eff": 0.007758505870809883
+   },
+   "BIEXP": {
+    "theta": [
+     0.004532201583085821,
+     0.007151354218773708,
+     0.0,
+     0.0
+    ],
+    "param_names": [
+     "lam1",
+     "lam2",
+     "w",
+     "c"
+    ],
+    "k": 4,
+    "nll": 36.309888693952885,
+    "bound_hit": true,
+    "n_obs": 60,
+    "aicc": 81.3470501151785,
+    "lam_eff": 0.007151354218773708
+   },
+   "oneT": {
+    "theta": null,
+    "param_names": null,
+    "k": 3,
+    "n_obs": 60,
+    "nll": 36.587769579784265,
+    "aicc": 79.60411058813996,
+    "T_per_state": {
+     "10": 1.034868514634684,
+     "50": 1.2628071932322087,
+     "80": 1.373368675181737
+    },
+    "bound_hit": false
+   }
+  }
+ },
+ "derivative_test": {
+  "ctrl": {
+   "n_probes": 12,
+   "n_neg_margins": 0,
+   "rho_pooled": 0.059464987352047825,
+   "p_pooled": 0.5910499244178806,
+   "n_pairs_pooled": 84,
+   "per_wash": {
+    "w1": {
+     "n_pairs": 48,
+     "rho": 0.02735562310030395,
+     "p": 0.8535710758945133
+    },
+    "w2": {
+     "n_pairs": 36,
+     "rho": 0.10836550836550837,
+     "p": 0.5292812911512151
+    }
+   }
+  },
+  "fact": {
+   "n_probes": 20,
+   "n_neg_margins": 0,
+   "rho_pooled": 0.08568335886588323,
+   "p_pooled": 0.31413552095933134,
+   "n_pairs_pooled": 140,
+   "per_wash": {
+    "w1": {
+     "n_pairs": 80,
+     "rho": 0.03204406938584154,
+     "p": 0.7778112432310139
+    },
+    "w2": {
+     "n_pairs": 60,
+     "rho": 0.1709919422061684,
+     "p": 0.19145732027908294
+    }
+   },
+   "rho_pooled_margin_sigma": -0.004935490926174576
+  },
+  "near": {
+   "n_probes": 3,
+   "n_neg_margins": 0,
+   "rho_pooled": 0.21969461205570823,
+   "p_pooled": 0.3386277855507457,
+   "n_pairs_pooled": 21,
+   "per_wash": {
+    "w1": {
+     "n_pairs": 12,
+     "rho": -0.006993006993006993,
+     "p": 0.9827917689028476
+    },
+    "w2": {
+     "n_pairs": 9,
+     "rho": 0.5,
+     "p": 0.17047066078705375
+    }
+   }
+  },
+  "tmpl": {
+   "n_probes": 19,
+   "n_neg_margins": 0,
+   "rho_pooled": 0.3601662440211046,
+   "p_pooled": 2.0604328407025117e-05,
+   "n_pairs_pooled": 133,
+   "per_wash": {
+    "w1": {
+     "n_pairs": 76,
+     "rho": 0.2582365003417635,
+     "p": 0.024303794685305927
+    },
+    "w2": {
+     "n_pairs": 57,
+     "rho": 0.5112133782732694,
+     "p": 4.8306079297153006e-05
+    }
+   }
+  }
+ },
+ "bootstrap_coreport": {
+  "w1": {
+   "B": 200,
+   "seed": 20261006,
+   "note": "single-start polish from full-data thetas (disclosed); das = AICc_STR - AICc_BIEXP, NEGATIVE = stretched wins by that margin",
+   "median": -2.364517912995886,
+   "ci95": [
+    -3.023247103140411,
+    -2.260640227853733
+   ],
+   "frac_stretched_wins_by2": 1.0,
+   "frac_biexp_wins_by2": 0.0
+  },
+  "w2": {
+   "B": 200,
+   "seed": 20261006,
+   "note": "single-start polish from full-data thetas (disclosed); das = AICc_STR - AICc_BIEXP, NEGATIVE = stretched wins by that margin",
+   "median": -2.492262088673776,
+   "ci95": [
+    -2.7696188690077466,
+    -2.334493544577582
+   ],
+   "frac_stretched_wins_by2": 1.0,
+   "frac_biexp_wins_by2": 0.0
+  }
+ },
+ "verdict": {
+  "word": "MIXED",
+  "a_channel": "STR-wins",
+  "dA_w1": 2.349634207530201,
+  "dA_w2": 2.4622139764972957,
+  "rho_primary_fact_pooled": 0.08568335886588323,
+  "rho_bar": -0.5,
+  "b_channel_fires": false,
+  "clause_trace": {
+   "biexp_wins_both_washes": false,
+   "str_wins_both_washes": true,
+   "rho_le_minus_0_5": false,
+   "no_dA_signal_either_wash": false
+  },
+  "underpowered_note": null,
+  "bars_verbatim": {
+   "RUNAWAY": "bi-exp loses to beta>1 by AICc AND the damage-strength anti-correlation is real \u2014 Spearman <= -0.5 across states",
+   "MIXTURE": "bi-exp wins by AICc >= 2 \u2014 W043's acceleration was superposition",
+   "MIXED": "the remaining contradiction / partial-signal cases, verbatim",
+   "UNDERPOWERED": "no signal on either channel \u2014 say what would fix it"
+  },
+  "operationalizations": {
+   "family_test": "fact battery, x9's data/grid/machinery ported BY VALUE; families EXP(k=2)/STR(k=3)/BIEXP(k=4: lam1,lam2,w,c)/oneT(k=n_states); AICc x9 formula; dA_w = AICc_BIEXP - AICc_STR; STR-wins iff dA>=2 both washes; BIEXP-wins iff dA<=-2 both washes",
+   "derivative_test": "e228 journal margin_raw; damage_i = -(m(s')-m(s))/(s'-s); strength = m(s) (from-state); transitions w1 0->2->10->50->80, w2 0->10->50->80; PRIMARY rho = Spearman pooled over both washes, fact battery (140 pairs); bar rho <= -0.5",
+   "arithmetic_disclosure": "per-probe pure exponential gives damage = lam*strength -> rho -> +1; a cross-probe mixture of exponentials keeps rho > 0; the -0.5 bar is deep per-probe acceleration territory \u2014 the runaway-specific channel",
+   "verdict_routing": "MIXTURE iff BIEXP-wins; else RUNAWAY iff STR-wins and rho <= -0.5; else UNDERPOWERED iff |dA| < 2 both washes and rho > -0.5; else MIXED"
+  }
+ },
+ "outputs": {
+  "figure": "runs/x12/x12_runaway.png",
+  "metrics": "runs/x12/metrics.json",
+  "report": "runs/x12/REPORT.md"
+ }
+}
