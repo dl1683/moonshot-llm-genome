@@ -34,6 +34,39 @@ read — the composition's sharper predictor).
 
 ---
 
+## e268 — the room-optimizer interface (the day's capstone: the cliff's carrier test): DYNAMICAL-CARRIER — the expression read fired at 6609x (bar 2x): the SERIAL threshold-rung write expresses (post g0 0.2646, reproducing e264's committed rung at |d| 0.0000) while the CONCURRENT one never sticks (post g0 0.00004 — g0 <= 0.00074 at every milestone; the organism HEALTHIER, corpus CE 1.00 -> 0.81) — the write's fate depends on what the optimizer is DOING between the writes: THE BARRIER IS WRITTEN IN THE DYNAMICS; the Lanczos branch does not inherit at this dose; the landing read splits from the write read (the cons re-teaches a dead write — root in-band 0.7119: a rehearsal lane, not a survival lane); the mechanics: the corpus stream dragged a third of the displacement off-room (0.94 -> 0.67 in-own-room) and wrote in low-v coordinates (v-excess 1.01 -> 0.24 — the undertow's supply channel) (2026-10-05 ~21:00Z) — DONE
+
+WHAT WE DID: the frozen discriminator — the committed k=10k
+threshold rung as the vehicle, both arms sharing the SAME
+bit-bound room, the SAME install stream and dose (kept
+0.0600/0.0597), the same cons seed; SERIAL (the ladder's
+condition, re-run fresh — reproduces the committed rung) vs
+CONCURRENT (one free corpus step after every install step,
+1:1, through the ONE shared AdamW; the interleave
+registered). All 13 gates PASS; thermal max 76.0C. Script
+lab/e268_room_interface.py; runs/e268/ (metrics + 2 PNGs +
+REPORT).
+
+WHAT WE SAW (T246): DYNAMICAL-CARRIER — the static/
+dynamical split's mechanism story COMPLETES: the cliff is
+not in the room's eigenstructure (e265-e267) nor in the
+load (e258) but in the INTERFERENCE between the confined
+write and the concurrent trajectory — a sub-threshold write
+survives when the optimizer is quiet and dies when it is
+busy. THE REHEARSAL-LANE FINDING: the cons can re-teach a
+dead write to landing strength — the LANDING read and the
+WRITE read are different objects (the root g0 measures the
+cons, not the write's survival). THE MECHANICS: the corpus
+stream's interleaving drags displacement off-room and into
+low-v coordinates — the undertow's supply channel
+(unadjudicated texture, the named follow-up).
+
+HONESTY: n=1 per arm; the threshold-rung marginality stated
+(the above-threshold interleave pair named); the claim
+bounded to the write at the cliff's edge.
+
+---
+
 ## e263 — the counterfeit self (the consult's everything-changer): ACTIVE-UNRAVELING — the three geometries' fates are INDISTINGUISHABLE (hr_syn at +80: FREE 0.432 / ORTHO 0.432 / COUNTERFEIT 0.394 — the counterfeit arm's 0.038 deficit inside the noise; no flip acceleration, no survival separation); THE DISGUISSE DID TAKE at the root (the counterfeit arm's install carries 6.6x the runner-up-span mass of the controls: 1.19% vs 0.18-0.20%) yet it bought NOTHING under the wash; the Georgia slide into 'Augusta' happens in ALL THREE arms (Y/Y/Y) — THE SLIDE IS OPTIMIZER-DRIVEN, NOT BASIN-DRIVEN: the network's self is NOT a forgeable geometric basin; the counterfeit-self hypothesis bounded (2026-10-05 ~19:30Z) — DONE
 
 WHAT WE DID: the frozen build cell — Texas->Austin (the

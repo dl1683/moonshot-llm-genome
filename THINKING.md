@@ -685,6 +685,36 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T246 — e268: the barrier is written in the dynamics — the day's metaphysics lands its mechanism (2026-10-05 ~21:02Z)
+
+The capstone fires: DYNAMICAL-CARRIER at 6609x. A
+sub-threshold write in the SAME bit-bound room, at the SAME
+dose, with the SAME optimizer, survives when the optimizer is
+quiet between the writes (serial: 0.2646) and never sticks
+when the optimizer is busy (concurrent: 0.00004 — with the
+organism HEALTHIER). THE COMPLETE PICTURE OF THE CLIFF: the
+expression threshold is not a property of the room
+(e260/e261), nor the load (e258), nor any measurable
+eigenstructure of either distribution (e265-e267) — IT IS
+THE INTERFERENCE BETWEEN THE CONFINED WRITE AND THE
+TRAJECTORY: a fact at the cliff's edge needs the optimizer's
+QUIET to form. THE STATIC/DYNAMICAL SPLIT'S MECHANISM STORY:
+the barrier (dynamical), the killer (the undertow's memory, a
+low-pass), the destination (the optimizer-driven slide) —
+all three now have dynamics as their writing surface. THE
+REHEARSAL-LANE FINDING (the day's quiet bonus): the cons
+re-teaches a dead write to landing strength — THE LANDING
+READ AND THE WRITE READ ARE DIFFERENT OBJECTS (the root g0
+measures the cons's rehearsal, not the write's survival;
+every prior ladder read re-reads: the landing curve measured
+the rehearsal lane all along — the expression curve was the
+write's own). THE MECHANICS' TEASER: the corpus stream wrote
+in LOW-V coordinates (v-excess 1.01 -> 0.24) — the
+interference routes through the undertow's supply channel;
+the above-threshold pair and the corpus-dose tripling are
+the named next cells. THE DAY'S ONE-SENTENCE: THE NETWORK'S
+MEMORY IS A FLOW — AND ITS BARRIER IS THE FLOW'S OWN TURBULENCE.
+
 ## T245 — e263: the self is not a basin — the slide is the optimizer's (2026-10-05 ~19:32Z)
 
 The everything-changer returns the stranger branch, and it
