@@ -1,7 +1,7 @@
 {
   "experiment": "e261_rank_ladder",
   "phase": "THE RANK/DOSE LADDER \u2014 where does the last ~0.08 of root g0 live between k=237k and full space? Random-room installs at k in {1k, 10k, 40k, 100k, 237k(anchor)} + FREE (the ceiling); the expression + landing curves vs k locate the threshold \u2014 SHARP vs GRADUAL vs MIXED",
-  "date": "2026-10-05T02:19:12Z",
+  "date": "2026-10-05T02:40:11Z",
   "status": "PARTIAL: startup",
   "registration": "bars + question frozen VERBATIM from the dispatch letter (T237's registered next cell); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
   "registered": {
@@ -18,7 +18,7 @@
   "envelope": {
     "device": "cuda fp32 training (the owner's max-priority window; this cell owns the GPU lane) + CPU fp64 dense projections (pocketfft workers 2), CPU probing threads 4",
     "bursts": "<= 175s, per-step thermal polls at a 78C margin from the first burst, cooldown 40s, the 84C never-past line recorded",
-    "trainings": "6 installs s400 (5 hooked rungs + FREE) + 6 cons s300; NO washes (the registered readouts are the curves; the v-map is LOADED from e258's committed artifact)"
+    "trainings": "3 installs s400 (2 hooked rungs + FREE) + 3 cons s300; NO washes (the registered readouts are the curves; the v-map is LOADED from e258's committed artifact)"
   },
   "deviations": [
     "NO WASH IN THIS CELL (the largest intentional trim, disclosed at birth): the registered readouts are post-install g0 + root g0 + kept-fraction per rung \u2014 the CURVES are the object; e260's wash driver, the margin/thermal-family readouts, G_INPUTS/G_BITROOT and G_FREE tier (iv) (the W1 wash tier) are all DROPPED with it; the retention/occupancy question (does the corpus's room erode faster what was written into it?) is T237's separately registered follow-up, not this cell.",
@@ -30,8 +30,40 @@
     "e225 is NOT bound in this cell (no wash -> no retention spread); the matched band (not the draw spread) is the landing ruler, per the dispatch. e228's margin instrument is NOT imported (no margin readouts without the wash states; the e228_run.log append side effect avoided).",
     "n=1 per rung, one lineage, one session (the g-series standing caveat \u2014 the critic's lottery note carried verbatim); the curve's SHAPE is the registered object, not any single point; nothing guaranteed.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "THE TRIAGE (coordinator priority order 2026-10-05, user travel deadline \u2014 a hard wall in minutes; disclosed, never re-registered): the ladder was cut to the 2-rung bracket {1k, 237k(anchor)}; rungs 10k/40k/100k are DEFERRED to the recovery protocol (K10K was cut mid-install at s278/400 with its resume ckpt on disk; 40k/100k never started). The bars stay frozen VERBATIM; the adjudication carries the deferral in its clause and the honest read of the coarse bracket \u2014 e246's rank-10 dead point (post g0 2.86e-5) + K1K + K237K spans 4.5 orders of magnitude, enough for the coarse SHARP/GRADUAL discrimination the dispatch asked for at this resolution; the full curve re-registers when the machine returns. No washes were ever in this cell; retentions defer with the rungs.",
     "Smoke mode (E261_SMOKE=1): 8-step install/cons, ladder {64, 512} FIXED (the anchor room at e260's own smoke seeds but with NO committed full-run record \u2014 the anchor gate is an explicit vacuous pass, disclosed), own smoke dir; NOTHING adjudicated or gated (SMOKE stamp on every read)."
   ],
+  "triage": {
+    "order": "coordinator priority order 2026-10-05 (user travel deadline \u2014 a hard wall): TRIAGE THE LADDER to the 2-rung bracket {1k, 237k(anchor)}; 10k/40k/100k DEFERRED to the recovery protocol",
+    "deferred_rungs": [
+      {
+        "k": 10000,
+        "seeds": [
+          26113,
+          26114
+        ],
+        "state": "cut MID-INSTALL at s278/400 (the coordinator's triage); resume ckpt e261_K10K_inst_resume.pt on disk for the recovery protocol"
+      },
+      {
+        "k": 40000,
+        "seeds": [
+          26115,
+          26116
+        ],
+        "state": "never started"
+      },
+      {
+        "k": 100000,
+        "seeds": [
+          26117,
+          26118
+        ],
+        "state": "never started"
+      }
+    ],
+    "coarse_bracket": "e246 rank-10 dead (post g0 2.86e-5) + K1K + K237K \u2014 4.5 orders of magnitude; the coarse SHARP/GRADUAL read; the full curve re-registers when the machine returns",
+    "bars_unchanged": "the registered bars stay frozen VERBATIM; the cut is a disclosed deviation"
+  },
   "builds_on": [
     "T237 / e260 (THE registration: the rank/dose ladder is its registered next cell; the machinery PORTED WHOLE \u2014 the SRCT projector, the hook order, the certified-construction rooms, the G_FREE tiers, the thermal envelope; the committed RANDOM arm is this ladder's TOP RUNG and ANCHOR: root g0 0.6686, post g0 0.3844, kept 0.2946, k 237,123)",
     "T235 / e258 (the k50 rank convention the top rung freezes; the committed v-map this cell LOADS; the VLIGHT kept-0.10 landing \u2014 the dose-honesty precedent that bounds the kept-k coupling)",
@@ -255,59 +287,14 @@
             "span_overlap_mean": 0.01953466340958459,
             "span_overlap_expect": 0.01910725395249952
           },
-          "K10K": {
-            "k": 10000,
-            "seeds": [
-              26113,
-              26114
-            ],
-            "idempotency_max": 5.650063533050028e-16,
-            "kept2_mean": 0.003668452249287149,
-            "kept2_expect": 0.0036508715360530864,
-            "kept2_bar_10sig": 0.0002581556020384085,
-            "kept2_pass": true,
-            "idempotency_pass": true,
-            "span_overlap_mean": 0.06038652639299012,
-            "span_overlap_expect": 0.06042244232115321
-          },
-          "K40K": {
-            "k": 40000,
-            "seeds": [
-              26115,
-              26116
-            ],
-            "idempotency_max": 5.871776573779682e-16,
-            "kept2_mean": 0.014545032357826624,
-            "kept2_expect": 0.014603486144212346,
-            "kept2_bar_10sig": 0.000516311204076817,
-            "kept2_pass": true,
-            "idempotency_pass": true,
-            "span_overlap_mean": 0.12061492441754593,
-            "span_overlap_expect": 0.12084488464230642
-          },
-          "K100K": {
-            "k": 100000,
-            "seeds": [
-              26117,
-              26118
-            ],
-            "idempotency_max": 6.21714424740132e-16,
-            "kept2_mean": 0.03661078121637117,
-            "kept2_expect": 0.036508715360530866,
-            "kept2_bar_10sig": 0.0008163596931733776,
-            "kept2_pass": true,
-            "idempotency_pass": true,
-            "span_overlap_mean": 0.19109056581465328,
-            "span_overlap_expect": 0.19107253952499523
-          },
           "K237K": {
             "k": 237123,
             "seeds": [
               26011,
               26012
             ],
-            "idempotency_max": 6.710008545475577e-16,
-            "kept2_mean": 0.08667451286237746,
+            "idempotency_max": 6.706807122531089e-16,
+            "kept2_mean": 0.08665111799738338,
             "kept2_expect": 0.0865705611243516,
             "kept2_bar_10sig": 0.0012570958544777704,
             "kept2_pass": true,
@@ -375,33 +362,6 @@
           "k_fraction_of_N": 0.00036508715360530864
         },
         {
-          "k": 10000,
-          "name": "K10K",
-          "seeds": [
-            26113,
-            26114
-          ],
-          "k_fraction_of_N": 0.0036508715360530864
-        },
-        {
-          "k": 40000,
-          "name": "K40K",
-          "seeds": [
-            26115,
-            26116
-          ],
-          "k_fraction_of_N": 0.014603486144212346
-        },
-        {
-          "k": 100000,
-          "name": "K100K",
-          "seeds": [
-            26117,
-            26118
-          ],
-          "k_fraction_of_N": 0.036508715360530866
-        },
-        {
           "k": 237123,
           "name": "K237K",
           "seeds": [
@@ -417,18 +377,6 @@
       "K1K": [
         26111,
         26112
-      ],
-      "K10K": [
-        26113,
-        26114
-      ],
-      "K40K": [
-        26115,
-        26116
-      ],
-      "K100K": [
-        26117,
-        26118
       ],
       "K237K": [
         26011,
@@ -456,59 +404,14 @@
           "span_overlap_mean": 0.01953466340958459,
           "span_overlap_expect": 0.01910725395249952
         },
-        "K10K": {
-          "k": 10000,
-          "seeds": [
-            26113,
-            26114
-          ],
-          "idempotency_max": 5.650063533050028e-16,
-          "kept2_mean": 0.003668452249287149,
-          "kept2_expect": 0.0036508715360530864,
-          "kept2_bar_10sig": 0.0002581556020384085,
-          "kept2_pass": true,
-          "idempotency_pass": true,
-          "span_overlap_mean": 0.06038652639299012,
-          "span_overlap_expect": 0.06042244232115321
-        },
-        "K40K": {
-          "k": 40000,
-          "seeds": [
-            26115,
-            26116
-          ],
-          "idempotency_max": 5.871776573779682e-16,
-          "kept2_mean": 0.014545032357826624,
-          "kept2_expect": 0.014603486144212346,
-          "kept2_bar_10sig": 0.000516311204076817,
-          "kept2_pass": true,
-          "idempotency_pass": true,
-          "span_overlap_mean": 0.12061492441754593,
-          "span_overlap_expect": 0.12084488464230642
-        },
-        "K100K": {
-          "k": 100000,
-          "seeds": [
-            26117,
-            26118
-          ],
-          "idempotency_max": 6.21714424740132e-16,
-          "kept2_mean": 0.03661078121637117,
-          "kept2_expect": 0.036508715360530866,
-          "kept2_bar_10sig": 0.0008163596931733776,
-          "kept2_pass": true,
-          "idempotency_pass": true,
-          "span_overlap_mean": 0.19109056581465328,
-          "span_overlap_expect": 0.19107253952499523
-        },
         "K237K": {
           "k": 237123,
           "seeds": [
             26011,
             26012
           ],
-          "idempotency_max": 6.710008545475577e-16,
-          "kept2_mean": 0.08667451286237746,
+          "idempotency_max": 6.706807122531089e-16,
+          "kept2_mean": 0.08665111799738338,
           "kept2_expect": 0.0865705611243516,
           "kept2_bar_10sig": 0.0012570958544777704,
           "kept2_pass": true,
