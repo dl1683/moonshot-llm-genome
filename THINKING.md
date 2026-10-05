@@ -7,6 +7,82 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W041 — the joint branch map: what every combination of the four in-flight cells would MEAN (written before any of them can be read, 2026-10-05 ~21:26Z)
+
+Four cells are computing (e272 the capacity repair; x6 the SVD bet; x7
+the LN zero-sum; x8 the flash thermal lens). Each has its own frozen
+bars. This card maps the CONJUNCTIONS — the cross-cell outcomes whose
+meaning is bigger than any single verdict — so the harvest cannot be
+assembled into whichever story is convenient.
+
+**The e272 × x6 conjunction (the capacity number's fate):**
+- RANK-WRITES (dose-control dead) + SEARCH-BOTTLENECK (ΔW low-rank):
+  the cleanest physics the arc has ever had — FORMATION NEEDS
+  SEARCH-ROOM (~10k dims to FIND the fact), STORAGE IS CHEAP (the
+  found fact is rank-50), RETENTION DIES BY TURBULENCE (the ratio
+  ladder). Three sentences, each owned by one instrument. The
+  anti-substrate story rewords itself: the corpus's directions cannot
+  even SEARCH for the fact, let alone store it.
+- RANK-WRITES + GENUINELY-SPREAD (ΔW ~10k-spread): the storage reading
+  stands; the room is BOTH scaffold and warehouse; agy's wager denied.
+- DOSE-WRITES (kept-matched 1k expresses) + anything: the capacity
+  number falls to a dose artifact — the critic's embarrassment
+  scenario; DAY_TEN's epitaph rewrites (the quiet-water mark becomes a
+  dose mark); P-272a dies and the pre-registration discipline gets its
+  first big save-the-record moment.
+- ROOM-LOTTERY (the replicate leaves band): every cliff-pair claim
+  softens to n=1-until-replicated; the repair cell becomes the
+  replicate ladder.
+
+**The x8 × e273-to-come conjunction (the flash's ontological status ×
+the mechanism triplet):**
+- x8 READOUT-LIKE (single-T fits both limbs) is CONSISTENT WITH
+  norm-scrubbing (the LN denominator IS a readout channel): if the
+  later e273 SGD-M arm SURVIVES, the whole kill re-reads as
+  denominator physics — death without touching the fact's weights, the
+  gentlest murder imaginable, and the "turbulence" word retires.
+- x8 STORAGE-LIKE (misfit/rise-decay inconsistency) is consistent with
+  H-TRUE-FORMATION (a real trace forming and being washed) AND with
+  H-POISON (a poisoned v-supply throttling retention): the e273
+  separate-AdamW arm then decides between them (flash shrinks ⇒
+  poison; flash persists ⇒ race).
+- x8 UNDERPOWERED (5 points, honestly): the flash-power rider (2 seeds
+  + s25/s50) rides e273/e275's next GPU slot; the verdict word waits
+  for the instrument, not the other way around.
+
+**The x7 branch (W038's fourth movement):**
+- LN-ARITHMETIC: the re-formation layer is a bookkeeping illusion; the
+  laws draft keeps three movements (tide, undertow, friction) and the
+  fourth becomes "readout" — which dovetails with x8's question (both
+  are the measurement channel asking to be counted as physics or
+  artifact; TWO cells now interrogating the same suspect from
+  different ends).
+- CONSTRUCTIVE-FIELD: the walled/unwalled asymmetry survives its
+  control; W038 stands as drafted.
+
+**The card's own registered predictions (so the harvest is scored):**
+- P-W41a: e272 returns RANK-WRITES with the edge BETWEEN 2k and 10k
+  (my read: 2k dead, 5k transitional — the cliff is a band, not a
+  line, because rooms are lottery draws at the margin).
+- P-W41b: x6 returns MIXED — top-50 energy high (>90%) in the
+  dominant matrices but the 99%-dimensionality well above 500 —
+  because the install's Adam-realized step concentrates but the room
+  restriction spreads; neither side of the bet gets its clean win.
+- P-W41c: x7 returns CONSTRUCTIVE-FIELD narrowly (CTRL thickening
+  20-50% of the fact battery's) — the LN arithmetic is real but does
+  not exhaust the asymmetry; the fourth movement survives wounded.
+- P-W41d: x8 returns UNDERPOWERED — five points cannot separate a
+  one-T from a race at these effect sizes, and the honest cell says
+  so; the rider inherits.
+
+The deep pattern this card is watching for: the week's biggest
+surprises (the counterfeit's null, the flash's growth, the healthier
+organism) all point at the SAME suspect — the MEASUREMENT CHANNEL
+(denominators, readout gain, relative mass) doing physics we had
+booked to the weights. If x7 and x8 both come back
+arithmetic/readout, the lab's next synthesis is: THE CHANNEL IS PART
+OF THE ORGANISM — you cannot subtract the instrument from the fact.
+
 ## T249 — E271: the ratio curve closes at the natural boundary — and the flash breaks its own saturation law (2026-10-05 ~21:12Z)
 
 **The closing datum, read twice.** The letter/content split fires one
