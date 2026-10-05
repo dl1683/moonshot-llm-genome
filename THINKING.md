@@ -7,6 +7,35 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W047 — the wash charges rent: no feedback anywhere, and the whole wash-side story compresses (2026-10-05, datetime.now = 22:57Z)
+
+x12's quiet co-reports deserve their own card: the damage-strength
+Spearman is ~0 for EVERY battery — fact +0.086, ctrl +0.06, near
++0.22, tmpl +0.36. NOTHING in the family couples per-step damage to
+remaining strength. Combined with x9 (the T-ladder is a rate ladder;
+every battery a clean exponential at its own rate) and x7 (the gap
+channel carries every battery's erosion uniformly, 0.95-1.15), the
+wash-side story compresses to three sentences:
+
+THE WASH CHARGES RENT. THE BATTERIES DIFFER IN WHAT THEY CAN PAY PER
+STEP. NOBODY'S DEATH FEEDS BACK.
+
+That is a much cleaner object than the laws draft's friction
+movement had: not a family of mechanisms, but ONE mechanism (a
+constant additive drain through the gap channel) with battery-
+specific rates. The fact's apparent acceleration (β=1.31) is the
+measuring rod (x12's third mechanism) — and the fact's PROTECTION
+(W038's wall story) is then a question about its RATE, not its
+structure: the wall doesn't change how the fact dies, only how fast.
+
+The cross-check this invites (desk, minutes, when convenient): x9's
+fitted per-battery rates vs the batteries' initial margin gaps — if
+rate ~ inversely tracks initial gap (the rich pay proportionally less
+relative to wealth), the rent is CONSTANT IN ABSOLUTE TERMS (a flat
+tax); if rate is uniform, the rent is proportional (a wealth tax).
+Either answer prices the wall's protection in the only currency the
+wash accepts.
+
 ## W046 — two power laws, two exponents, one quotient: the serial curve joins the creep law (2026-10-05, datetime.now = 22:44Z, desk arithmetic on committed numbers)
 
 Nobody has stated the obvious about tonight's relocated ladder: the
