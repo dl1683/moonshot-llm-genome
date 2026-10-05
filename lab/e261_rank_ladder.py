@@ -1416,8 +1416,12 @@ def main():
                           weights_only=False)
     anchor_name = RUNG_NAMES[LADDER[-1][0]]
     if not SMOKE:
-        D260 = rooms260["model"]["D_rand_int8"].numpy().astype(np.float64)
-        S260 = rooms260["model"]["S_rand"].numpy()
+        def _to_np(x):
+            # torch.load may hand back either a tensor or the pickled numpy
+            # array e260 stored (D_int8/S were saved AS numpy) — accept both
+            return x.numpy() if hasattr(x, "numpy") else np.asarray(x)
+        D260 = _to_np(rooms260["model"]["D_rand_int8"]).astype(np.float64)
+        S260 = _to_np(rooms260["model"]["S_rand"])
         D_mine = rooms.rooms[anchor_name].D
         S_mine = rooms.rooms[anchor_name].S
         G_ANCHORROOM = {
