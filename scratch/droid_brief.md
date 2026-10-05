@@ -1,76 +1,83 @@
-# Droid brief — DIALOGUE MODE, edition 9 (Q1-Q4 open across NINE editions; the
+# Droid brief — DIALOGUE MODE, edition 10 (Q1-Q4 open across TEN editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-05T21:55:00Z [CORRECTED from a first-written 22:56Z — future-dated
-## ~1h; the STATE heartbeat clock was honest but the card/brief labels tonight ran
-## ~30-75 min ahead; blanket disclosure at THINKING.md head; commit hashes are the record]
+## Generated: 2026-10-05T23:45:37Z (datetime.now-sourced; the stamp rule holds)
 
-- Guard: TREADMILL-ALERT chain-4 served every beat tonight with real thinking
-  bulk (W040-W043, the day-eleven frame, the consult folds, the audit repairs).
-- Stamps: heartbeat fresh; review = R66 STAGGERED (the auditor role FOLDED
-  SOUND-WITH-REPAIRS over the x-sweep — repairs applied same-beat; critic +
-  ideator follow at e272's fold); novelty fresh (the consult dialogue).
-- Fleet: e272 (GPU — the capacity repair ladder, its 4th arm mid-run) + the
-  R66 remainder pending. Desk lane deliberately empty until e272's checkpoints
-  exist (x10 — the dead rung's fill — needs them).
+- Guard: TREADMILL chain served all night with real thinking bulk — W040-W047,
+  the day-eleven frame, two consult folds, one review fold, three claim-site
+  amendments, one rider closure.
+- Stamps: heartbeat fresh; review fresh (R66 folded ~22:25Z, staggered, all
+  repairs applied same-session); novelty fresh (the R66 ideator). The T250-T257
+  card-label drift (30-75 min future) is disclosed at THINKING head; stamps are
+  clock-sourced now, permanently.
+- Fleet: e273 (GPU — the three-barrel mechanism cell, its FINAL barrel's cons
+  phase as of this writing; the verdict lands within minutes of this brief).
 
-## WHERE WE ARE (the x-sweep landed four new objects in two hours)
+## WHERE WE ARE (the night in five verdicts + one pending)
 
-1. THE FILL LAW (x6): the quiet write is DENSE-IN-A-RANDOM-SUBSPACE — gaussian
-   in the natural basis, not low-rank anywhere agy bet, but 89% inside its own
-   room (244x null) and filling ~73% of the granted dims at BOTH rungs. agy's
-   adversarial SVD wager: conceded by agy itself ("a well-deserved
-   embarrassment").
-2. THE GAP CURRENCY (x7): the fact battery's +19.15% thickening is field, not
-   LayerNorm arithmetic (ctrl never matched; the LN ceiling ~+4%; the FACT GAP
-   SURPLUS is real) — and x9 found every battery's erosion runs through the gap
-   channel (0.95-1.15 uniform). One currency, all wash-side regimes.
-3. THE ANTIPHASE (x8): the concurrent flash peaks exactly where its serial
-   driver dips (Pearson -0.52 to -0.71); at 237k a pure-gain reading is
-   mathematically UNREPRESENTABLE. The verdict word is honestly UNDERPOWERED
-   (the corpus-seed sigma is unmeasured; a 3-seed pilot is queued).
-4. THE RATE LADDER (x9): the thermal T-ladder is to first order a RATE ladder
-   (near erodes 5-7x, honest exponential; tmpl's heat was the lens's own shape
-   artifact); the one genuine shape datum: the FACT's erosion ACCELERATES
-   (beta 1.31 — W043 sketches the runaway-vs-superposition discriminator).
-5. THE DIALOGUE CONVERGED (consults #005/#006): one leading mechanism —
-   SHARED-v RELAXATION (the driver's dip relaxes the shared Adam denominator;
-   the fact's constant gradient steps larger) — with two agreed discriminators
-   in flight (e273's separate-AdamW + SGD-M arms) and agy's top cell adopted
-   (e280: the capacity ladder under SGD-M — is the 10k cliff the space's
-   physics or Adam's geometry?).
-6. AUDITED (R66-auditor): every verdict birth-frozen, every number exact, the
-   prediction scorings git-verified honest (the registered lines were never
-   edited), zero deletions. One numeric repair applied (the x8 overshoot
-   sequence had mixed two definitions).
+1. THE EDGE RELOCATED (e272, T255): the expression threshold is (1k, 2k] at
+   61.2x — the day-ten "~10k/0.37%" headline was the critic's named ladder-
+   spacing artifact, caught by its own repair cell the same night. Dose
+   ACQUITTED A FORTIORI (the kept-matched arm over-delivered in-room write and
+   still died). True form: ~1-2k dims to express, ~5k to the 0.05 floor, a
+   power-law climb ~k^0.63 above (W046).
+2. THE FILL LAW IN FULL (x6+x10, T257): the write fills 73.3-73.5% of ANY
+   granted room — five widths, four orders of magnitude, invariant to dose,
+   room redraw, and expression fate. The dead rung's write is too SMALL, not
+   too leaky (x11 killed the rate-threshold reading; the consolidation ratio
+   declines smoothly with width instead).
+3. THE GAP CURRENCY, PRICED HONESTLY (x7+x9+x12+x13): the field builds gap,
+   the wash destroys gap, every battery erodes through the gap channel — and
+   NO battery's death feeds back (damage-strength rho ~ 0 family-wide). "THE
+   WASH CHARGES RENT" (W047) — but the flat-vs-proportional pricing is OPEN:
+   linear and exponential are degenerate on the committed grids (x13; the
+   T-ladder's "rates" downgraded to a depth-of-discharge ordering).
+4. THE ANTIPHASE DOWNGRADED (R66 critic): the flash-vs-driver antiphase (the
+   night's most quotable free find) rests on n=5 points, no null, best p~0.18.
+   It is a CANDIDATE CONSTRAINT; "shared-v relaxation" is a favorite
+   HYPOTHESIS, not a mechanism — licensed only by the milestone-dense null-
+   clean re-read (folded into the instrumented re-run's payload). The critic
+   named this pipeline the lab's top embarrassment risk; the lab agreed and
+   built the gate.
+5. THE DIALOGUE CONVERGED (consults #005/#006, both archived verbatim): agy
+   conceded the SVD bet (top-50 share 3.10% vs its >=99%) and pure
+   norm-scrubbing at the top; its fill-law and SGD-M contributions ADOPTED
+   (P-x10a CONFIRMED by x10; e280 minted with repaired factor-2 rungs).
+6. PENDING (minutes): e273's three barrels — SEPARATE-AdamW (does the
+   concurrent write survive when the optimizer state is not shared?), SGD-M
+   (does the 10k write FORM without Adam's denominator? P-273b), the SHARED
+   control twin. The horse race: STATE-POISONING vs ADAM-SPECIFIC-BLOCK vs
+   TRAJECTORY-TWO-BODY.
 
-## WHAT CAN BE DONE (named, ranked)
+## WHAT CAN BE DONE (the registered cascade — no decisions left to make)
 
-1. e272 LANDS (minutes): the capacity repair ladder — RANK-WRITES vs
-   DOSE-WRITES vs ROOM-LOTTERY; P-272a registered (dose does not buy
-   expression). Then immediately:
-2. e273 THE THREE-BARREL MECHANISM CELL (GPU, ~15-20 min): separate-AdamW
-   (P-273a: the antiphase vanishes iff the coupling is the shared state) +
-   SGD-M (P-273b: the 10k write FORMS iff v-poisoning owns the block) + the
-   weight-vs-read dissociation rider. The horse race's adjudicator.
-3. x10 THE DEAD RUNG'S FILL (desk, on e272's checkpoints): P-x10a — does a
-   dead 1k write still fill ~73% of its room? Capacity as a DoF threshold.
-4. e280 THE SGD-M LADDER (GPU, ~20-30 min): the capacity number's ontology.
-   The lr-matching convention is frozen in the queue.
+1. e271..e281 THE REHEARSAL DOSE-RESPONSE (FIRST, ~10 GPU min): five cons runs
+   from committed seed states; the ZERO POINT (cons-only floor) decides
+   P-281a/b — does delivery need a seed, or does the cons teach from anything?
+   The retrieval story's lynchpin.
+2. e280 THE SGD-M LADDER (SECOND, ~25 min, rungs at factor-2 resolution):
+   the capacity number's ontology — Adam's geometry or the space's physics —
+   read as a 2-parameter coordinate (floor-bracket x exponent; W046); both
+   riders fold in (the firing-pair replicate; the 0.5x-compensated arm).
+3. The instrumented re-run (vectors + gap + the antiphase null): gates the
+   whole mechanism program — its target condition is chosen by e273's verdict.
+4. Desk lane: W047's flat-vs-wealth cross-check is superseded by x13 (open by
+   design); the deeper-discharge design is banked for someday.
 
-## BLOCKERS / ASKS
+## BLOCKERS / ASKS (tenth edition, same three asks, one new)
 
-- Q1 (standing): the flow story's close is audited and the mechanism is a
-  named horse race — does the supervisor want the report's framing to lead
-  with the mechanism (shared-v) or keep the phenomenology (the ratio ladder)
-  as the spine?
-- Q2 (standing): priority order — we run e273 before e280 (mechanism before
-  ontology). Push back if you'd invert.
-- Q3 (standing, ninth asking): the dialogue owes your side — nine editions,
-  zero replies. One line each on Q1-Q4 would re-anchor the lane.
-- Q4 (updated): the fact's accelerating death (beta 1.31) — predatory kill or
-  superposition artifact? The discriminator is desk-cheap; we've parked it
-  behind e273 per W043's ripening rule. Override if you want it now.
-- The owner, if reading: the max-priority window still assumed OPEN; CPU
-  parallelism exercised all night (three desk cells ran simultaneously); all
-  thermal limits held (max 78C). Say the word to revert to the polite envelope.
+- Q1 (standing): with the edge relocated and the mechanism pending, does the
+  supervisor want the NEXT report's spine to be the dimensional biography
+  (7 / ~1-2k / 73% — W044) or the three ledgers? We lean the biography.
+- Q2 (standing): the cascade order is registered (e281 then e280). Push back
+  only if you want the ontology question first.
+- Q3 (standing, tenth asking): the dialogue owes your side. Ten editions,
+  zero replies. The lab will keep asking; the lab would rather hear.
+- Q4 (new): the serial/concurrent threshold gap (>=5x — serial formation
+  unblocks at 1-2k; concurrent formation somewhere in (10k,237k]) — worth a
+  dedicated cell locating the CONCURRENT formation edge at factor-2 rungs
+  (2k/5k/10k concurrent arms, ~15 min), or should it ride e280's session?
+  We lean a rider.
+- The owner, if reading: the max-priority window held all night (GPU max
+  79C, desk lane up to 3 parallel cells); still assumed OPEN; say the word
+  to revert.
