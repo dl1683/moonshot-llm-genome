@@ -80,3 +80,32 @@ Traceback (most recent call last):
     "anchors": {pr: {"p": [light0[pr]["p"]]
                            ~~~~~~^^^^
 KeyError: 'The email service made by Google->Gmail'
+[chain 16:53:17] chain start: waiting for the GPU lane (e264 owns it)
+[chain 16:53:54] LANE FREE — running the SMOKE first (e246's discipline)
+[chain 16:54:43] smoke exit 1
+[chain 16:54:43] SMOKE FAILED — chain STOPS (the autopsy record); tail:
+[  817.2s] total 817.2s'; gpu util 0% temp 57C
+[   23.5s]   [INST-FREE] RESUMED from e263_smoke_FREE_inst_resume.pt at step 3/3
+[   23.5s]   [INST-FREE] resume ckpt already COMPLETE at s3
+[   24.0s]   [INST-ORTHO] RESUMED from e263_smoke_ORTHO_inst_resume.pt at step 3/3
+[   24.0s]   [INST-ORTHO] resume ckpt already COMPLETE at s3
+[   24.6s]   [INST-COUNTERFEIT] RESUMED from e263_smoke_COUNTERFEIT_inst_resume.pt at step 3/3
+[   24.6s]   [INST-COUNTERFEIT] resume ckpt already COMPLETE at s3
+[   24.9s] LANDING ARM-FREE: p_syn(root) 0.8098 [NOT] top1 ' Austin' | RU share pre 0.239% applied 0.239% | max dose dev 0.0e+00
+[   25.7s] LANDING ARM-ORTHO: p_syn(root) 0.8098 [NOT] top1 ' Austin' | RU share pre 0.240% applied 0.000% | max dose dev 5.8e-08
+[   26.6s] LANDING ARM-COUNTERFEIT: p_syn(root) 0.7194 [NOT] top1 ' Austin' | RU share pre 0.329% applied 30.000% | max dose dev 3.5e-08
+[   27.3s] G_DOSE: PASS
+[   28.2s] ROOT DISGUISE ARM-FREE: RU share 0.166% cos_u1 +0.0017 cos_u2 -0.0000
+[   28.8s] ROOT DISGUISE ARM-ORTHO: RU share 0.216% cos_u1 +0.0020 cos_u2 +0.0008
+[   29.2s] ROOT DISGUISE ARM-COUNTERFEIT: RU share 1.403% cos_u1 -0.0030 cos_u2 -0.0137
+[   30.0s]   [WASH-FREE] RESUMED from e263_smoke_FREE_wash_resume.pt at step 3/3
+[   30.6s]   [WASH-ORTHO] RESUMED from e263_smoke_ORTHO_wash_resume.pt at step 3/3
+[   31.2s]   [WASH-COUNTERFEIT] RESUMED from e263_smoke_COUNTERFEIT_wash_resume.pt at step 3/3
+Traceback (most recent call last):
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 2034, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1836, in main
+    ppl80 = washes[tag]["reads"][WASH_STEPS]["ppl"]["ppl"]
+            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 3
