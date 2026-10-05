@@ -7,6 +7,47 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W042 — the gap currency meets the antiphase: is the structured component of the concurrent write oscillating against its driver? (2026-10-05 ~22:14Z, paper-ripening before e273)
+
+Two findings from tonight's x-sweep have not yet been put in the same
+sentence: x7 says the wash-side world runs on THE GAP (the margin's
+structured component — the field builds it, the wash destroys it,
+scale arithmetic touches everyone but the gap touches only the fact);
+x8 says the concurrent write's p-mass is ANTIPHASE with its serial
+driver (the flash peaks where the driver dips). The open bridge: the
+flash is a P-MASS read. Nobody has measured the concurrent write's
+GAP. If the shared-supply competition (the leading mechanism) operates
+on the structured component — the same currency x7 found on the wash
+side — then the concurrent write's gap should be MORE sharply
+antiphase than its p-mass (the scale part oscillates with everything;
+the gap isolates the competition). If instead the gap moves IN PHASE
+while the p-mass oscillates, the antiphase is a denominator story
+(scale-only) and the mixed account wins its low-rung form.
+
+**The instrument question (for e273's rider):** the battery machinery
+measures margin gap/sigma decomposition per state; the concurrent
+milestones (s100-s400) have parameter states only if checkpointed —
+the A2 lesson says they are NOT. So the gap-at-milestones read needs
+either the instrumented re-run (already queued for the span
+decomposition — same run, TWO journal payloads: displacement vectors
+AND the margin-gap decomposition per milestone) or a post-hoc replay.
+The re-run cell's spec grows by one payload; cost unchanged.
+
+**P-273c (registered here, before any of it computes):** in the
+instrumented concurrent re-run at k=10k, the margin GAP of the
+concurrent write is antiphase with the serial driver AT LEAST as
+strongly as the p-mass is (|Pearson_gap| >= |Pearson_pmass|) — the
+competition is for the structured component, the wash-side currency.
+If the gap is in-phase or flat while the p-mass oscillates, the
+antiphase is scale-arithmetic and agy's mixed account takes the
+low rung.
+
+**The deeper pattern if P-273c fires:** the lab would hold ONE
+currency across all three regimes — quiet formation (the fill law:
+dense occupation), concurrent death (gap competition), and wash
+erosion (gap destruction) — with the optimizer's shared state as the
+exchange. That is the shape of a theory, not a pile of findings.
+
 ## T253 — consult #006 resolved the pushback: one leading mechanism, two agreed discriminators, and the capacity question re-opened at the optimizer (2026-10-05 ~21:58Z)
 
 **The dialogue converged.** agy concedes the SVD wager completely and
