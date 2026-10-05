@@ -34,6 +34,33 @@ read — the composition's sharper predictor).
 
 ---
 
+## e269 — the above-threshold interleave pair (the cliff's other side): MIXED by the frozen letter (a serial cons-lottery anchor catch on the LANDING read only) — THE CONTENT READ UNAMBIGUOUS: THE CONCURRENT 40K WRITE ALSO DIES (post g0 0.0033 vs 0.3465 serial — the survival ratio 0.0094x, 53x below the bar; the milestone trajectory never sticks) — THE THRESHOLD IS NOT THE TURBULENCE-PROOF SIZE: rank buys serial expression (the serial re-run reproduces the committed rung bit-perfectly) but does NOT confer concurrent survival; the capacity law and the dynamics-barrier do NOT unify at {10k, 40k} — the barrier is dose/rank-independent on the write side; the one room-size signature: the 40k concurrent TRANSIENT is ~90x the 10k's at every milestone (a bigger early life, the same death); the rehearsal lane doubly confirmed (the dead write lands at 0.7047 vs 0.7034); the corpus again wrote in low-v (v-excess 0.26 vs 0.88 — the supply-channel texture repeats) (2026-10-05 ~22:00Z) — DONE
+
+WHAT WE DID: the frozen pair — e268's machinery ported whole
+(the 1:1 interleave, the shared AdamW; the FRESH corpus seed
+26901 registered); the serial arm re-run fresh at the
+registered seeds (bit-faithful to e264's committed rung at
+install L2 5.7e-5); 12/12 gates PASS; thermal max 79.0C.
+Script lab/e269_above_threshold.py; runs/e269/ (metrics + 2
+PNGs + REPORT).
+
+WHAT WE SAW (T247): TURBULENCE-BLOCKS-ALL in substance (the
+MIXED letter rides a landing-read anchor catch — the write
+read's anchor is bit-faithful; the same-session pair is the
+discriminator). THE FLOW'S TURBULENCE DOMINATES EVERY
+CONFINED WRITE at these rungs: the serial expression curve
+(T242) and the concurrent death (e268/e269) are DIFFERENT
+laws — what rank buys is the quiet-optimizer regime only.
+THE TRANSIENT/RANK SCALING: the early life grows ~90x per
+4x rank while the fate stays death — the dose/rank law's far
+side named (the 100k rung under concurrency: the honest open
+branch). THE REHEARSAL LANE doubly confirmed.
+
+HONESTY: n=1 per arm; the anchor-catch disclosure verbatim;
+the fresh corpus seed stated; nothing guaranteed.
+
+---
+
 ## e268 — the room-optimizer interface (the day's capstone: the cliff's carrier test): DYNAMICAL-CARRIER — the expression read fired at 6609x (bar 2x): the SERIAL threshold-rung write expresses (post g0 0.2646, reproducing e264's committed rung at |d| 0.0000) while the CONCURRENT one never sticks (post g0 0.00004 — g0 <= 0.00074 at every milestone; the organism HEALTHIER, corpus CE 1.00 -> 0.81) — the write's fate depends on what the optimizer is DOING between the writes: THE BARRIER IS WRITTEN IN THE DYNAMICS; the Lanczos branch does not inherit at this dose; the landing read splits from the write read (the cons re-teaches a dead write — root in-band 0.7119: a rehearsal lane, not a survival lane); the mechanics: the corpus stream dragged a third of the displacement off-room (0.94 -> 0.67 in-own-room) and wrote in low-v coordinates (v-excess 1.01 -> 0.24 — the undertow's supply channel) (2026-10-05 ~21:00Z) — DONE
 
 WHAT WE DID: the frozen discriminator — the committed k=10k

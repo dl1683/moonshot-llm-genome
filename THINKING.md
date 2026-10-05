@@ -685,6 +685,31 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T247 — e269: the turbulence dominates every confined write — the two laws stay two (2026-10-05 ~22:02Z)
+
+The other side of the cliff answers: the 40k write —
+comfortably above the expression threshold — ALSO dies under
+concurrency (0.0033 vs 0.3465: the ratio 0.0094x; the
+trajectory never sticks). THE THRESHOLD IS NOT THE
+TURBULENCE-PROOF SIZE. THE TWO LAWS STAY TWO: the capacity
+curve (T242: rank buys serial expression, the threshold
+~10k) and the dynamics-barrier (T246: concurrency kills
+regardless of rank at these rungs) — what rank buys is
+expression in the QUIET regime only; the busy regime is a
+different book. THE TRANSIENT SCALING (the texture that
+points forward): the concurrent early life grows ~90x per 4x
+rank while the fate stays death — a bigger flash, the same
+extinction; the 100k rung under concurrency is the named open
+branch (if the transient keeps scaling, somewhere the flash
+survives; if it saturates, the turbulence is total). THE
+REHEARSAL LANE doubly confirmed (the dead write lands at
+full strength). THE DAY'S PICTURE AMENDED ONE LAST TIME:
+the memory is a flow; its barrier is the flow's turbulence;
+AND THE CAPACITY CLIFF IS THE QUIET-WATER MARK — the line
+below which even quiet cannot hold a write. What no
+engineered geometry moved (T245) and no eigenstructure
+explains (T244), the trajectory's own turbulence enforces.
+
 ## T246 — e268: the barrier is written in the dynamics — the day's metaphysics lands its mechanism (2026-10-05 ~21:02Z)
 
 The capstone fires: DYNAMICAL-CARRIER at 6609x. A
