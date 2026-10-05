@@ -685,6 +685,34 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T242 — e264: the capacity number — ~10k dimensions, 0.37% of the space (2026-10-05 ~17:42Z)
+
+The ladder completes and the anti-substrate's arc closes on a
+number. THE CURVE: rank-1k dead (0.0004 — indistinguishable
+from rank-10), rank-10k ALIVE (0.2646, root in-band), and
+smoothly stronger above — A STEP, adjudicated SHARP-THRESHOLD
+at the frozen bars (the 609x adjacent jump; the floor crossed
+at 10k). THE CAPACITY LAW'S FINAL FORM: a new memory needs a
+room of at least ~10,000 dimensions — 0.37% of the 2.74M
+parameter space — to express at all. Below the threshold no
+write sticks; above it expression is cheap and landing is
+smooth (the 237k room lands within 0.2% of the natural
+install's strength). THE ARC'S FULL LINE: the corpus's
+directions cannot write facts (e246) -> not the load (e258)
+-> not the span's identity (e260) -> dead at 1k (e261) ->
+THE THRESHOLD AT ~10K (e264). THE JACOBIAN LANE'S GIFT: the
+cliff is now LOCATED — the install-side Fisher census (the
+teach-stream Grams) can test whether THAT distribution's
+spectrum kneels at ~10k: the unification ('the network stores
+what the Fisher cannot normalize away') gets its second chance
+with numbers on both sides. THE CONS REPLICATE prices the
+anchor scatter at session scale (0.0137) — the letter-verdict
+texture of e261 explained, not a flaw. REGISTERED: the
+install-side census (the next Jacobian cell); the occupancy-
+retention question (whether the corpus's room erodes
+differently — the anti-substrate's surviving branch, now
+testable at threshold-adjacent ranks).
+
 ## T241 — e265: the Fisher's observable window is nearly isotropic — and the natural-gradient picture corrected (2026-10-05 ~17:07Z) [FULL-REPORT AMENDMENTS ~17:15Z: (1) THE WINDOW IS FLAT: erank(1%) = 76-77 of 80 — the Fisher's observable head is NEARLY ISOTROPIC (the one-object story fails at observable scale; whatever shields small rooms, it is not the head's anisotropy); the norm-free direction spectrum PR 32-35 (the step-1 norm transient, not structure, drove the raw knee); (2) THE SPAN = TOP EIGENSPACE HOLDS AS IDENTITY-OF-PLACE, NOT DOMINANCE: wash-stable at cos 0.86-0.92 yet carrying only ~37% of mass, decorrelated by k=10; (3) THE NTK BLOCK ASYMMETRY INVERTS INSIDE THE REACHABLE SUBSPACE: killed/living 0.7x in-span vs 2.2-3.2x full-space; the supports' span-capture is 0.2% — the killed probes' overlap excess is UNREACHABLE by the wash's gradients; (4) THE NATURAL-STEP CORRECTION: with a flat spectrum F^-1 g concentrates on the window's LOW end (PC1 mass ~1e-4), and Adam's diagonal DAMPS the top-eigenvector component (~half in w1/w2) — diag(F) knows the span's SCALE (e254), not the natural step's DIRECTION; (5) the tail beyond the window is the join's honest open branch — a bigger cache or a Lanczos on a live replay can test whether the bracket is the TAIL's kneel]
 
 The Fisher census returns CLIFF-IS-SEPARATE, and the bound is

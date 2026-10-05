@@ -34,6 +34,33 @@ read — the composition's sharper predictor).
 
 ---
 
+## e264 — the middle rungs (the full rank ladder): SHARP-THRESHOLD — the expression curve is step-like (post g0 jumps 609x between k=1,000 and k=10,000; the expression floor first crossed AT k=10,000) AND the landing curve enters the band at a locatable rung (first in-band k=10,000; the bracket [1k, 10k]) — THE ANTI-SUBSTRATE'S FINAL FORM: A DIMENSIONAL THRESHOLD AT k ~ 10,000 of 2,738,880 parameters (~0.37% of the space) — new memories need a room of at least ~10k dimensions to express at all; below it, no write sticks (rank-1k as dead as rank-10); above it, expression is cheap and landing smooth; the cons-seed replicate at 237k read |d| 0.0137 (the anchor scatter priced, within the session band) (2026-10-05 ~17:40Z) — DONE
+
+WHAT WE DID: the full 5-rung ladder (FREE + 1k/10k/40k/100k/237k,
+the latter md5-stitched from e261's committed record) + the
+K237K cons-seed replicate (seed 10902) pricing the anchor
+scatter. All gates PASS (the rooms certified per rung; the
+K10K resume bit-gated). Script lab/e261_rank_ladder.py (the
+e264 continuation); runs/e264/{metrics.json, the curve PNGs}.
+
+WHAT WE SAW (T242): THE COMPLETE CURVE — dead (0.0004) at 1k,
+ALIVE (0.2646, in-band root 0.7708) at 10k, and smoothly
+strong above (40k 0.3465 / 100k / 237k 0.3844): the
+expression cliff is a STEP at ~10k dimensions. THE CAPACITY
+NUMBER: a fact needs >= ~0.37% of the parameter space's
+dimensions to exist at all. THE CONS REPLICATE: the anchor's
+scatter is session-scale (0.0137), not code-scale. THE
+JACOBIAN LANE'S SHARPENED TARGET: the install-side Fisher
+census can now test a LOCATED kneel (~10k) against a LOCATED
+cliff (~10k) — the unification's second chance with numbers
+on both sides.
+
+HONESTY: n=1 per rung; the kept~sqrt(k/N) covariation
+co-plotted; the stitch disclosed; the scatter-fragile calls
+named.
+
+---
+
 ## e265 — the Fisher/NTK census (the Jacobian directive's first cell): CLIFF-IS-SEPARATE — the Fisher spectrum's knee is at k=1-2 (the top eigengap; the decay SMOOTH thereafter: e_2/e_1 ~ 0.19-0.24, e_10/e_1 ~ 0.04-0.06, e_80/e_1 ~ 0.006-0.010 — no kneel anywhere near the expression bracket [1k, 237k]; the spectrum-estimate caveat: 80 samples bound the TOP of the 124M-dim operator's spectrum) — THE MEMORY CAPACITY CLIFF AND THE FISHER'S SAMPLED DECAY ARE DISTINCT OBJECTS; the window NEARLY ISOTROPIC (erank(1%) = 76-77/80; the norm-free PR 32-35); the top-2 eigenspace wash-stable (cos 0.86-0.92) yet only ~37% of mass (identity-of-place, not dominance); the NTK block asymmetry INVERTS in-span (killed/living 0.7x reachable vs 2.8x full; the supports' span-capture 0.2% — the killed excess unreachable); the natural step concentrates on the window's LOW end (PC1 mass 1e-4) and Adam's diagonal DAMPS the top eigenvector (scale, not direction); the tail beyond the window = the join's open branch (2026-10-05 ~17:05Z) — DONE
 
 WHAT WE DID: the frozen census — the committed 80x80 wash

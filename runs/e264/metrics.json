@@ -1,8 +1,8 @@
 {
   "experiment": "e264_middle_rungs",
   "phase": "THE MIDDLE RUNGS \u2014 e261's deferred ladder recovered: K10K (resume) + K40K + K100K at the same dose/conventions; the FULL 5-rung expression + landing curves vs k; the cliff pinned inside [1k, 237k] \u2014 SHARP vs GRADUAL vs MIXED",
-  "date": "2026-10-05T16:12:38Z",
-  "status": "PARTIAL: startup",
+  "date": "2026-10-05T16:34:06Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
   "registration": "bars + question frozen VERBATIM (e261's ORIGINAL un-triaged registration, recovered whole); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
   "registered": {
     "question_verbatim": "pin the expression cliff inside [1k, 237k]. e261's coarse bracket read the expression curve a STEP at 2-rung resolution (rank-10 dead 2.86e-5; rank-1k dead 0.000435; rank-237k alive 0.3844 with an in-band landing; 884x adjacent jump). WHERE inside [1k, 237k] does the cliff sit? The three deferred rungs {10k, 40k, 100k} complete the registered 5-rung curve at the same dose/conventions.",
@@ -224,7 +224,28 @@
       ],
       "ledger_max_key": 400,
       "n_chunks_at_cut": 3,
-      "pass": true
+      "pass": true,
+      "post": {
+        "traj_steps": [
+          1,
+          100,
+          200,
+          300,
+          400
+        ],
+        "expected_traj_steps": [
+          1,
+          100,
+          200,
+          300,
+          400
+        ],
+        "ledger_max_key": 400,
+        "expected_ledger_max": 400,
+        "vehicle_step_now": 400,
+        "steps_ran": 400,
+        "pass": true
+      }
     },
     "G_BASE": {
       "checkpoint": "runs/checkpoints/e001.pt",
@@ -358,7 +379,7 @@
       "pass": true
     }
   },
-  "phase_note": "P3/P4 ARM-K40K root built + landing read",
+  "phase_note": "P9 DONE (honesty + provenance + figures)",
   "device_events": [],
   "rooms": {
     "ladder": {
@@ -2379,6 +2400,1032 @@
         "landed": true,
         "expresses": true
       }
+    },
+    "K100K": {
+      "desc": "e264 arm",
+      "install": {
+        "traj": [
+          {
+            "step": 1,
+            "g0_pz": 1.3658516763825901e-05,
+            "g0_argmax": 0.0,
+            "gm12_pz": 1.464835622755345e-05,
+            "ce_r": 1.6154580116271973,
+            "ce_batch": 1.0701713562011719,
+            "kept_frac": 0.19060383748508472,
+            "v_excess_post": 1.8370993789118781,
+            "in_span_frac": 0.060957351157374585,
+            "applied_in_span_frac": 0.011659413076472754,
+            "elapsed_s": 194.5
+          },
+          {
+            "step": 100,
+            "g0_pz": 0.4980168342590332,
+            "g0_argmax": 0.7,
+            "gm12_pz": 0.28655338287353516,
+            "ce_r": 1.6597626209259033,
+            "ce_batch": 0.8786808252334595,
+            "kept_frac": 0.19090829464796394,
+            "v_excess_post": 1.9972676470979518,
+            "in_span_frac": 0.07249215441111923,
+            "applied_in_span_frac": 0.013570533173655627,
+            "elapsed_s": 292.8
+          },
+          {
+            "step": 200,
+            "g0_pz": 0.42669618129730225,
+            "g0_argmax": 0.36666666666666664,
+            "gm12_pz": 0.11529616266489029,
+            "ce_r": 1.657733678817749,
+            "ce_batch": 0.8302689790725708,
+            "kept_frac": 0.1917914070844611,
+            "v_excess_post": 2.0467565168437307,
+            "in_span_frac": 0.12782151074483047,
+            "applied_in_span_frac": 0.024402929699497686,
+            "elapsed_s": 446.0
+          },
+          {
+            "step": 300,
+            "g0_pz": 0.35233062505722046,
+            "g0_argmax": 0.15,
+            "gm12_pz": 0.105711929500103,
+            "ce_r": 1.6575703620910645,
+            "ce_batch": 0.8617436289787292,
+            "kept_frac": 0.19149872751202718,
+            "v_excess_post": 1.9191551313117734,
+            "in_span_frac": 0.0803664095074812,
+            "applied_in_span_frac": 0.015415318212995667,
+            "elapsed_s": 548.6
+          },
+          {
+            "step": 400,
+            "g0_pz": 0.43598243594169617,
+            "g0_argmax": 0.3333333333333333,
+            "gm12_pz": 0.07043259590864182,
+            "ce_r": 1.6554499864578247,
+            "ce_batch": 0.8418036699295044,
+            "kept_frac": 0.19215567021830604,
+            "v_excess_post": 1.8227605016162383,
+            "in_span_frac": 0.04194317521010087,
+            "applied_in_span_frac": 0.007790288562336082,
+            "elapsed_s": 705.8
+          }
+        ],
+        "ledger": {
+          "1": {
+            "ce": 1.0701713562011719,
+            "gn": 0.9999992301549671,
+            "gpn": 0.19060369074966718,
+            "kept_frac": 0.19060383748508472,
+            "v_excess_pre": 24.05204300244515,
+            "v_excess_post": 1.8370993789118781,
+            "in_span_frac": 0.060957351157374585,
+            "applied_in_span_frac": 0.011659413076472754
+          },
+          "10": {
+            "ce": 1.0192904472351074,
+            "gn": 0.9560801985253512,
+            "gpn": 0.1823384712442992,
+            "kept_frac": 0.1907146194697226,
+            "v_excess_pre": 19.309494415123233,
+            "v_excess_post": 1.6894314924788516,
+            "in_span_frac": 0.047817129840753654,
+            "applied_in_span_frac": 0.008968631878073424
+          },
+          "20": {
+            "ce": 0.9480411410331726,
+            "gn": 0.8501080746652987,
+            "gpn": 0.16279206618822537,
+            "kept_frac": 0.19149572982508048,
+            "v_excess_pre": 28.86737622614462,
+            "v_excess_post": 2.0603399087601533,
+            "in_span_frac": 0.12028854840718262,
+            "applied_in_span_frac": 0.02239868829556891
+          },
+          "30": {
+            "ce": 0.913742184638977,
+            "gn": 0.7086790031092519,
+            "gpn": 0.13586272210874625,
+            "kept_frac": 0.19171263930871854,
+            "v_excess_pre": 17.245318878626755,
+            "v_excess_post": 1.5972517394170715,
+            "in_span_frac": 0.04573704823323695,
+            "applied_in_span_frac": 0.008861926683593386
+          },
+          "40": {
+            "ce": 0.9384077787399292,
+            "gn": 0.7675114988164728,
+            "gpn": 0.14645292542690308,
+            "kept_frac": 0.19081528505141376,
+            "v_excess_pre": 17.08437288829701,
+            "v_excess_post": 1.5875186833723456,
+            "in_span_frac": 0.030696026244459277,
+            "applied_in_span_frac": 0.006019851513722114
+          },
+          "50": {
+            "ce": 0.9154016375541687,
+            "gn": 0.7909470829812665,
+            "gpn": 0.15085816763018328,
+            "kept_frac": 0.19073104999839333,
+            "v_excess_pre": 21.112000136517484,
+            "v_excess_post": 1.7213281370439502,
+            "in_span_frac": 0.07337252027303244,
+            "applied_in_span_frac": 0.014338090479375867
+          },
+          "60": {
+            "ce": 0.9031962156295776,
+            "gn": 0.8815549022612182,
+            "gpn": 0.16859831434108244,
+            "kept_frac": 0.19125106548511275,
+            "v_excess_pre": 25.273106109914856,
+            "v_excess_post": 1.8982196421409518,
+            "in_span_frac": 0.06705124460869408,
+            "applied_in_span_frac": 0.012828675698852597
+          },
+          "70": {
+            "ce": 0.8565568327903748,
+            "gn": 0.9201193715124831,
+            "gpn": 0.17568166538528382,
+            "kept_frac": 0.1909335579974803,
+            "v_excess_pre": 25.730219678302362,
+            "v_excess_post": 1.8892350764871852,
+            "in_span_frac": 0.08112463671258498,
+            "applied_in_span_frac": 0.01587294204382101
+          },
+          "80": {
+            "ce": 0.901124119758606,
+            "gn": 0.9103196090428921,
+            "gpn": 0.17358123999136524,
+            "kept_frac": 0.19068164441043753,
+            "v_excess_pre": 26.376587402330717,
+            "v_excess_post": 1.8927367860305349,
+            "in_span_frac": 0.06783376450730579,
+            "applied_in_span_frac": 0.012873641596698569
+          },
+          "90": {
+            "ce": 0.910679042339325,
+            "gn": 0.9318206180126567,
+            "gpn": 0.17808456511398155,
+            "kept_frac": 0.19111464338897327,
+            "v_excess_pre": 23.99130869051295,
+            "v_excess_post": 1.8407440075225279,
+            "in_span_frac": 0.03907118139577076,
+            "applied_in_span_frac": 0.007185690909949141
+          },
+          "100": {
+            "ce": 0.8786808252334595,
+            "gn": 0.9438463324231173,
+            "gpn": 0.1801880937326326,
+            "kept_frac": 0.19090829464796394,
+            "v_excess_pre": 27.073133564061845,
+            "v_excess_post": 1.9972676470979518,
+            "in_span_frac": 0.07249215441111923,
+            "applied_in_span_frac": 0.013570533173655627
+          },
+          "110": {
+            "ce": 0.8837487697601318,
+            "gn": 0.9999991392212498,
+            "gpn": 0.19144331519310198,
+            "kept_frac": 0.1914434799835814,
+            "v_excess_pre": 28.9248342278444,
+            "v_excess_post": 2.015323266186021,
+            "in_span_frac": 0.13049452316981244,
+            "applied_in_span_frac": 0.025353157308215597
+          },
+          "120": {
+            "ce": 0.8720892667770386,
+            "gn": 0.9994738493231309,
+            "gpn": 0.1914631220756541,
+            "kept_frac": 0.19156391355843658,
+            "v_excess_pre": 32.45808240946355,
+            "v_excess_post": 2.1315080134302793,
+            "in_span_frac": 0.06733734791868948,
+            "applied_in_span_frac": 0.012868381804389145
+          },
+          "130": {
+            "ce": 0.840330958366394,
+            "gn": 0.9999991462996767,
+            "gpn": 0.19155942338695872,
+            "kept_frac": 0.19155958692143998,
+            "v_excess_pre": 27.478258659057566,
+            "v_excess_post": 1.9896742516690815,
+            "in_span_frac": 0.0999981076336703,
+            "applied_in_span_frac": 0.01939914559206549
+          },
+          "140": {
+            "ce": 0.8551784157752991,
+            "gn": 0.961453406376983,
+            "gpn": 0.18386445804884124,
+            "kept_frac": 0.19123595259981693,
+            "v_excess_pre": 21.343142035109373,
+            "v_excess_post": 1.7684743336083546,
+            "in_span_frac": 0.050292719227277675,
+            "applied_in_span_frac": 0.00979424859092465
+          },
+          "150": {
+            "ce": 0.8512458205223083,
+            "gn": 0.9999990855249319,
+            "gpn": 0.19177681981032443,
+            "kept_frac": 0.19177699518560518,
+            "v_excess_pre": 23.893307939605336,
+            "v_excess_post": 1.8515999705199286,
+            "in_span_frac": 0.0678641456930755,
+            "applied_in_span_frac": 0.013046917797046106
+          },
+          "160": {
+            "ce": 0.8537482023239136,
+            "gn": 0.9999990406925192,
+            "gpn": 0.19179812559072001,
+            "kept_frac": 0.19179830958427319,
+            "v_excess_pre": 23.922206553337553,
+            "v_excess_post": 1.8319187306392892,
+            "in_span_frac": 0.08791583603320574,
+            "applied_in_span_frac": 0.016963279210981404
+          },
+          "170": {
+            "ce": 0.8308661580085754,
+            "gn": 0.999999005443668,
+            "gpn": 0.19096957714702986,
+            "kept_frac": 0.19096976707722094,
+            "v_excess_pre": 23.948451673631126,
+            "v_excess_post": 1.8466520688940642,
+            "in_span_frac": 0.057991250503093214,
+            "applied_in_span_frac": 0.010441074062862292
+          },
+          "180": {
+            "ce": 0.8514312505722046,
+            "gn": 0.9999990177786788,
+            "gpn": 0.19130582279489028,
+            "kept_frac": 0.19130601069973285,
+            "v_excess_pre": 27.89888059742495,
+            "v_excess_post": 2.024584565736417,
+            "in_span_frac": 0.07808125936263663,
+            "applied_in_span_frac": 0.01526551283199978
+          },
+          "190": {
+            "ce": 0.8532272577285767,
+            "gn": 0.9505911272296552,
+            "gpn": 0.1822562950059893,
+            "kept_frac": 0.19172943002018747,
+            "v_excess_pre": 25.35057451883923,
+            "v_excess_post": 1.9273472738020894,
+            "in_span_frac": 0.09806736228857489,
+            "applied_in_span_frac": 0.018803865653150103
+          },
+          "200": {
+            "ce": 0.8302689790725708,
+            "gn": 0.999999087325529,
+            "gpn": 0.1917912320413401,
+            "kept_frac": 0.1917914070844611,
+            "v_excess_pre": 28.155170236773916,
+            "v_excess_post": 2.0467565168437307,
+            "in_span_frac": 0.12782151074483047,
+            "applied_in_span_frac": 0.024402929699497686
+          },
+          "210": {
+            "ce": 0.8621023297309875,
+            "gn": 0.9999990811759744,
+            "gpn": 0.19145407714345,
+            "kept_frac": 0.19145425305621752,
+            "v_excess_pre": 26.227390458715888,
+            "v_excess_post": 1.9263064743455864,
+            "in_span_frac": 0.0866968319260211,
+            "applied_in_span_frac": 0.016656537515661495
+          },
+          "220": {
+            "ce": 0.8380815982818604,
+            "gn": 0.9999992536564695,
+            "gpn": 0.19209075070819537,
+            "kept_frac": 0.19209089407399144,
+            "v_excess_pre": 36.347679860525346,
+            "v_excess_post": 2.304337132751517,
+            "in_span_frac": 0.10944941696680967,
+            "applied_in_span_frac": 0.02082152139019468
+          },
+          "230": {
+            "ce": 0.8371199369430542,
+            "gn": 0.999999177243215,
+            "gpn": 0.1918107952677967,
+            "kept_frac": 0.19181095308155977,
+            "v_excess_pre": 25.286469860258453,
+            "v_excess_post": 1.8821991708289243,
+            "in_span_frac": 0.054978063074169255,
+            "applied_in_span_frac": 0.010560435584026133
+          },
+          "240": {
+            "ce": 0.8192189931869507,
+            "gn": 0.9999990298618643,
+            "gpn": 0.19149122641626443,
+            "kept_frac": 0.19149141218938606,
+            "v_excess_pre": 23.878444501574123,
+            "v_excess_post": 1.854125760844277,
+            "in_span_frac": 0.04787450510841071,
+            "applied_in_span_frac": 0.00892703049695619
+          },
+          "250": {
+            "ce": 0.8565087914466858,
+            "gn": 0.999999102503774,
+            "gpn": 0.1911996092581437,
+            "kept_frac": 0.19119978085922543,
+            "v_excess_pre": 23.369753839038246,
+            "v_excess_post": 1.8447482068043648,
+            "in_span_frac": 0.08547053945924817,
+            "applied_in_span_frac": 0.01579842779187362
+          },
+          "260": {
+            "ce": 0.8380762934684753,
+            "gn": 0.9999991184126699,
+            "gpn": 0.1912560128356245,
+            "kept_frac": 0.19125618144465084,
+            "v_excess_pre": 40.06757852240896,
+            "v_excess_post": 2.4524367331350656,
+            "in_span_frac": 0.09833380767203655,
+            "applied_in_span_frac": 0.018772568562597926
+          },
+          "270": {
+            "ce": 0.8387801051139832,
+            "gn": 0.9999990556220241,
+            "gpn": 0.19154832981774247,
+            "kept_frac": 0.1915485107119373,
+            "v_excess_pre": 19.338975049567097,
+            "v_excess_post": 1.6936290020647013,
+            "in_span_frac": 0.10054669304863198,
+            "applied_in_span_frac": 0.019611748755313133
+          },
+          "280": {
+            "ce": 0.8422706127166748,
+            "gn": 0.9875506736252576,
+            "gpn": 0.1896310598837474,
+            "kept_frac": 0.19202159944625388,
+            "v_excess_pre": 19.373079988480285,
+            "v_excess_post": 1.6922828218344155,
+            "in_span_frac": 0.05163091804470442,
+            "applied_in_span_frac": 0.010037140529660121
+          },
+          "290": {
+            "ce": 0.8536350131034851,
+            "gn": 0.9999992120055229,
+            "gpn": 0.19221996086108378,
+            "kept_frac": 0.1922201123294707,
+            "v_excess_pre": 27.025662343100024,
+            "v_excess_post": 1.931174433942698,
+            "in_span_frac": 0.10821924292971502,
+            "applied_in_span_frac": 0.021071180592528986
+          },
+          "300": {
+            "ce": 0.8617436289787292,
+            "gn": 0.9999992331501224,
+            "gpn": 0.19149858066125144,
+            "kept_frac": 0.19149872751202718,
+            "v_excess_pre": 26.238457905850268,
+            "v_excess_post": 1.9191551313117734,
+            "in_span_frac": 0.0803664095074812,
+            "applied_in_span_frac": 0.015415318212995667
+          },
+          "310": {
+            "ce": 0.8094719648361206,
+            "gn": 0.9999991542708682,
+            "gpn": 0.1920231878552323,
+            "kept_frac": 0.19202335025497363,
+            "v_excess_pre": 25.426392224998143,
+            "v_excess_post": 1.8970031247981938,
+            "in_span_frac": 0.06402113003086857,
+            "applied_in_span_frac": 0.012911805461194456
+          },
+          "320": {
+            "ce": 0.8428236842155457,
+            "gn": 0.9999990694624844,
+            "gpn": 0.19168060993233016,
+            "kept_frac": 0.19168078829849466,
+            "v_excess_pre": 28.748292307613447,
+            "v_excess_post": 2.000982637419844,
+            "in_span_frac": 0.09141434299426023,
+            "applied_in_span_frac": 0.017198813435661455
+          },
+          "330": {
+            "ce": 0.8516072034835815,
+            "gn": 0.999999195155971,
+            "gpn": 0.1911154102657143,
+            "kept_frac": 0.1911155640839349,
+            "v_excess_pre": 29.68783017698632,
+            "v_excess_post": 2.01234537448741,
+            "in_span_frac": 0.08178772396184533,
+            "applied_in_span_frac": 0.01532573086771329
+          },
+          "340": {
+            "ce": 0.8099772930145264,
+            "gn": 0.9999990403445693,
+            "gpn": 0.19182567052993998,
+            "kept_frac": 0.19182585461666313,
+            "v_excess_pre": 25.28854020215215,
+            "v_excess_post": 1.913909043951299,
+            "in_span_frac": 0.05794114964924663,
+            "applied_in_span_frac": 0.011036797533299897
+          },
+          "350": {
+            "ce": 0.8209768533706665,
+            "gn": 0.9999990631236931,
+            "gpn": 0.19158728641204073,
+            "kept_frac": 0.19158746590579823,
+            "v_excess_pre": 31.29130357669877,
+            "v_excess_post": 2.1345395317924645,
+            "in_span_frac": 0.11556672273527784,
+            "applied_in_span_frac": 0.022239272963787624
+          },
+          "360": {
+            "ce": 0.8235862255096436,
+            "gn": 0.9999991689966267,
+            "gpn": 0.19138604462693076,
+            "kept_frac": 0.19138620366951162,
+            "v_excess_pre": 25.997318910429588,
+            "v_excess_post": 1.9025950951522872,
+            "in_span_frac": 0.04431804247036256,
+            "applied_in_span_frac": 0.00965884384779808
+          },
+          "370": {
+            "ce": 0.7948493361473083,
+            "gn": 0.9999991537547724,
+            "gpn": 0.1912719974308588,
+            "kept_frac": 0.19127215929401076,
+            "v_excess_pre": 25.76809252433747,
+            "v_excess_post": 1.9023460448879606,
+            "in_span_frac": 0.0535027828106788,
+            "applied_in_span_frac": 0.010394389957881727
+          },
+          "380": {
+            "ce": 0.8223868012428284,
+            "gn": 0.9999991077713283,
+            "gpn": 0.1920048096069685,
+            "kept_frac": 0.19200498091931759,
+            "v_excess_pre": 19.746425970147474,
+            "v_excess_post": 1.6876392725033602,
+            "in_span_frac": 0.04454997646839737,
+            "applied_in_span_frac": 0.008875464608477617
+          },
+          "390": {
+            "ce": 0.8555984497070312,
+            "gn": 0.9999992071467301,
+            "gpn": 0.19094189644123818,
+            "kept_frac": 0.1909420478302652,
+            "v_excess_pre": 25.649979123047682,
+            "v_excess_post": 1.9077150025660685,
+            "in_span_frac": 0.07730529637907277,
+            "applied_in_span_frac": 0.014320650926814095
+          },
+          "400": {
+            "ce": 0.8418036699295044,
+            "gn": 0.9999991819935831,
+            "gpn": 0.19215551303373476,
+            "kept_frac": 0.19215567021830604,
+            "v_excess_pre": 23.046561036683563,
+            "v_excess_post": 1.8227605016162383,
+            "in_span_frac": 0.04194317521010087,
+            "applied_in_span_frac": 0.007790288562336082
+          }
+        },
+        "ledger_kept_frac_median": 0.19149141218938606,
+        "ledger_v_excess_pre_median": 25.426392224998143,
+        "ledger_v_excess_post_median": 1.8982196421409518,
+        "ledger_in_span_frac_median": 0.07249215441111923,
+        "ledger_applied_in_span_frac_median": 0.013570533173655627,
+        "chunk_table": [
+          {
+            "chunk": 1,
+            "device": "cuda",
+            "t_start": 192.3,
+            "seconds": 175.3,
+            "steps_done": 165,
+            "capped": true,
+            "max_temp_c": 69.0
+          },
+          {
+            "chunk": 2,
+            "device": "cuda",
+            "t_start": 411.6,
+            "seconds": 175.8,
+            "steps_done": 336,
+            "capped": true,
+            "max_temp_c": 72.0
+          },
+          {
+            "chunk": 3,
+            "device": "cuda",
+            "t_start": 632.6,
+            "seconds": 73.3,
+            "steps_done": 400,
+            "capped": false,
+            "max_temp_c": 71.0
+          }
+        ],
+        "steps": 400,
+        "post_cells": {
+          "gm12": 0.07043259590864182,
+          "g0": 0.43598243594169617,
+          "gp12": 0.043233711272478104,
+          "ce_r": 1.6554499864578247
+        },
+        "displacement_loads": {
+          "v_excess": 0.796872916787166,
+          "cos_to_span": 0.005795170603048114,
+          "in_own_room": 0.9814438753749198
+        },
+        "resumed_final": true
+      },
+      "consolidation": {
+        "traj": [
+          {
+            "step": 25,
+            "g0_pz": 0.6644805073738098,
+            "ce_r": 2.0277798175811768,
+            "elapsed_s": 757.2
+          },
+          {
+            "step": 50,
+            "g0_pz": 0.48275986313819885,
+            "ce_r": 1.8712862730026245,
+            "elapsed_s": 760.4
+          },
+          {
+            "step": 75,
+            "g0_pz": 0.4053458273410797,
+            "ce_r": 1.8025437593460083,
+            "elapsed_s": 763.7
+          },
+          {
+            "step": 100,
+            "g0_pz": 0.5349797010421753,
+            "ce_r": 1.7374911308288574,
+            "elapsed_s": 767.0
+          },
+          {
+            "step": 125,
+            "g0_pz": 0.6173416972160339,
+            "ce_r": 1.7435415983200073,
+            "elapsed_s": 770.4
+          },
+          {
+            "step": 150,
+            "g0_pz": 0.6535552740097046,
+            "ce_r": 1.7188900709152222,
+            "elapsed_s": 773.7
+          },
+          {
+            "step": 175,
+            "g0_pz": 0.38734596967697144,
+            "ce_r": 1.7398635149002075,
+            "elapsed_s": 822.5
+          },
+          {
+            "step": 200,
+            "g0_pz": 0.6139791011810303,
+            "ce_r": 1.718454122543335,
+            "elapsed_s": 825.9
+          },
+          {
+            "step": 225,
+            "g0_pz": 0.4027809798717499,
+            "ce_r": 1.6996887922286987,
+            "elapsed_s": 829.4
+          },
+          {
+            "step": 250,
+            "g0_pz": 0.5238362550735474,
+            "ce_r": 1.7011940479278564,
+            "elapsed_s": 833.0
+          },
+          {
+            "step": 275,
+            "g0_pz": 0.6507084965705872,
+            "ce_r": 1.6990004777908325,
+            "elapsed_s": 836.8
+          },
+          {
+            "step": 300,
+            "g0_pz": 0.7276116609573364,
+            "ce_r": 1.668790578842163,
+            "elapsed_s": 885.4
+          }
+        ],
+        "chunk_table": [
+          {
+            "chunk": 1,
+            "device": "cuda",
+            "t_start": 753.7,
+            "seconds": 21.7,
+            "steps_done": 167,
+            "capped": true,
+            "max_temp_c": 78.0
+          },
+          {
+            "chunk": 2,
+            "device": "cuda",
+            "t_start": 820.6,
+            "seconds": 18.4,
+            "steps_done": 297,
+            "capped": true,
+            "max_temp_c": 78.0
+          },
+          {
+            "chunk": 3,
+            "device": "cuda",
+            "t_start": 884.2,
+            "seconds": 1.3,
+            "steps_done": 300,
+            "capped": false,
+            "max_temp_c": 70.0
+          }
+        ]
+      },
+      "root": {
+        "cells": {
+          "g-12": 0.38097867369651794,
+          "g+0": 0.7276116609573364,
+          "g+12": 0.3989852964878082,
+          "held30_gm12": 0.3604302704334259,
+          "ce_r": 1.668790578842163
+        },
+        "gm12": 0.38097867369651794,
+        "g0": 0.7276116609573364,
+        "displacement_loads": {
+          "v_excess": 0.6726400101089411,
+          "cos_to_span": 0.009484607147999357,
+          "in_own_room": 0.6483555611778506
+        },
+        "checkpoint": "runs/checkpoints/e264_K100K_root.pt",
+        "landed": true,
+        "expresses": true
+      }
     }
-  }
+  },
+  "cons_seed_replicate": {
+    "desc": "e261's committed K237K install-final (its ckpt's model, bit-as-saved) + e113-cons-VERBATIM arithmetic at seed 10902 (the next seed; the ONE delta vs the rung's cons is the draw) \u2014 prices the anchor scatter (co-report, never a rung)",
+    "cons_seed": 10902,
+    "steps": 300,
+    "traj": [
+      {
+        "step": 25,
+        "g0_pz": 0.2989366948604584,
+        "ce_r": 1.8995378017425537,
+        "elapsed_s": 897.4
+      },
+      {
+        "step": 50,
+        "g0_pz": 0.3220037519931793,
+        "ce_r": 1.844230055809021,
+        "elapsed_s": 901.1
+      },
+      {
+        "step": 75,
+        "g0_pz": 0.5839982628822327,
+        "ce_r": 1.7839282751083374,
+        "elapsed_s": 904.6
+      },
+      {
+        "step": 100,
+        "g0_pz": 0.7381933927536011,
+        "ce_r": 1.7545398473739624,
+        "elapsed_s": 908.6
+      },
+      {
+        "step": 125,
+        "g0_pz": 0.5885177254676819,
+        "ce_r": 1.7467846870422363,
+        "elapsed_s": 912.2
+      },
+      {
+        "step": 150,
+        "g0_pz": 0.6170188784599304,
+        "ce_r": 1.7097923755645752,
+        "elapsed_s": 915.6
+      },
+      {
+        "step": 175,
+        "g0_pz": 0.2772565186023712,
+        "ce_r": 1.7106605768203735,
+        "elapsed_s": 963.6
+      },
+      {
+        "step": 200,
+        "g0_pz": 0.5932551026344299,
+        "ce_r": 1.691030502319336,
+        "elapsed_s": 967.7
+      },
+      {
+        "step": 225,
+        "g0_pz": 0.6418202519416809,
+        "ce_r": 1.7139538526535034,
+        "elapsed_s": 971.8
+      },
+      {
+        "step": 250,
+        "g0_pz": 0.48595520853996277,
+        "ce_r": 1.6747833490371704,
+        "elapsed_s": 975.7
+      },
+      {
+        "step": 275,
+        "g0_pz": 0.1102113425731659,
+        "ce_r": 1.6947776079177856,
+        "elapsed_s": 979.7
+      },
+      {
+        "step": 300,
+        "g0_pz": 0.7243111729621887,
+        "ce_r": 1.6927794218063354,
+        "elapsed_s": 983.8
+      }
+    ],
+    "chunk_table": [
+      {
+        "chunk": 1,
+        "device": "cuda",
+        "t_start": 893.8,
+        "seconds": 22.7,
+        "steps_done": 159,
+        "capped": true,
+        "max_temp_c": 78.0
+      },
+      {
+        "chunk": 2,
+        "device": "cuda",
+        "t_start": 961.7,
+        "seconds": 22.1,
+        "steps_done": 300,
+        "capped": false,
+        "max_temp_c": 75.0
+      }
+    ],
+    "root": {
+      "g0": 0.7243111729621887,
+      "gm12": 0.8792710900306702,
+      "ce_r": 1.6927794218063354,
+      "in_own_room": 0.6674167432796251
+    },
+    "checkpoint": "runs/checkpoints/e264_K237KCONS2_root.pt",
+    "reads_vs": {
+      "e261_rung_root_g0": 0.7105798125267029,
+      "abs_diff_root_g0": 0.01373136043548584,
+      "e260_committed_root_g0": 0.6686325073242188,
+      "abs_diff_vs_e260": 0.05567866563796997,
+      "e261_rung_root_gm12": 0.3573005497455597,
+      "abs_diff_root_gm12": 0.5219705402851105,
+      "anchor_scatter_cross_session": {
+        "root_g0": 0.04194730520248413,
+        "root_gm12": 0.14829494059085846
+      }
+    },
+    "room237_bit_identity": {
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "pass": true
+    }
+  },
+  "adjudication": {
+    "bars_verbatim": {
+      "SHARP-THRESHOLD": "the expression curve is step-like (post_g0 jumps > 10x between adjacent rungs somewhere) AND the landing curve enters the band at a locatable rung \u2014 the anti-substrate's final form: a dimensional threshold at k ~ [the rung]; memories need k* dimensions, full stop",
+      "GRADUAL": "both curves rise smoothly (no rung-to-rung jump > 10x in expression; the landing approaches the band asymptotically) \u2014 the barrier is a soft capacity gradient, not a threshold; the last 0.08 of root g0 is spread across the ladder",
+      "MIXED": "the curves verbatim; expression step-like but landing gradual (or vice versa) \u2014 mapped honestly"
+    },
+    "composite_order": "TEXTURE -> SHARP-THRESHOLD -> GRADUAL -> MIXED (frozen; e261's original)",
+    "gates_pass": true,
+    "reads": {
+      "ladder_ks": [
+        1000,
+        10000,
+        40000,
+        100000,
+        237123
+      ],
+      "rung_sources": {
+        "1000": "e261 (committed)",
+        "10000": "e264 (K10K resume)",
+        "40000": "e264 (fresh)",
+        "100000": "e264 (fresh)",
+        "237123": "e261 (committed)"
+      },
+      "post_g0_curve": {
+        "1000": 0.00043458465370349586,
+        "10000": 0.26464763283729553,
+        "40000": 0.346476286649704,
+        "100000": 0.43598243594169617,
+        "237123": 0.38436421751976013
+      },
+      "root_g0_curve": {
+        "1000": 0.5768678784370422,
+        "10000": 0.7707884907722473,
+        "40000": 0.7519555687904358,
+        "100000": 0.7276116609573364,
+        "237123": 0.7105798125267029
+      },
+      "root_gm12_curve": {
+        "1000": 0.16171452403068542,
+        "10000": 0.6697325110435486,
+        "40000": 0.3787538409233093,
+        "100000": 0.38097867369651794,
+        "237123": 0.3573005497455597
+      },
+      "kept_frac_curve": {
+        "1000": 0.016095496225535792,
+        "10000": 0.060045162390265784,
+        "40000": 0.12105602142254653,
+        "100000": 0.19149141218938606,
+        "237123": 0.2945979051104054
+      },
+      "FREE_this_session": {
+        "post_g0": 0.5302072763442993,
+        "root_g0": 0.7155759930610657,
+        "root_gm12": 0.9139230251312256
+      },
+      "FREE_e261_cited": {
+        "post_g0": 0.5302198529243469,
+        "root_g0": 0.769062340259552,
+        "root_gm12": 0.9118462204933167
+      },
+      "FREE_g1c_committed_root_g0": 0.7447534203529358,
+      "e246_context": {
+        "rank": 10,
+        "post_g0": 2.8589747671503574e-05
+      },
+      "e260_committed_RANDOM_at_237k": {
+        "post_g0": 0.38436469435691833,
+        "root_g0": 0.6686325073242188
+      },
+      "adjacent_ratios": [
+        {
+          "from_k": 1000,
+          "to_k": 10000,
+          "ratio": 608.9668159747231
+        },
+        {
+          "from_k": 10000,
+          "to_k": 40000,
+          "ratio": 1.3091985102421695
+        },
+        {
+          "from_k": 40000,
+          "to_k": 100000,
+          "ratio": 1.2583326846332923
+        },
+        {
+          "from_k": 100000,
+          "to_k": 237123,
+          "ratio": 0.8816048212803717
+        }
+      ],
+      "max_ratio": 608.9668159747231,
+      "max_ratio_row": {
+        "from_k": 1000,
+        "to_k": 10000,
+        "ratio": 608.9668159747231
+      },
+      "jump_fires": true,
+      "jump_bar": 10.0,
+      "floor_cross_k": 10000,
+      "expression_floor": 0.05,
+      "in_band_rungs": [
+        10000,
+        40000,
+        100000,
+        237123
+      ],
+      "over_band_rungs": [],
+      "under_band_rungs": [
+        1000
+      ],
+      "threshold_k": 10000,
+      "threshold_bracket": [
+        1000,
+        10000
+      ],
+      "top_rung_root_g0": 0.7105798125267029,
+      "approaches_band": true,
+      "reach": 0.05,
+      "matched_band_g0": [
+        0.6702780783176422,
+        0.8192287623882294
+      ],
+      "scatter_fragile": {
+        "1000": false,
+        "10000": false,
+        "40000": false,
+        "100000": false,
+        "237123": true
+      },
+      "scatter_edge": {
+        "1000": "floor",
+        "10000": "ceiling",
+        "40000": "ceiling",
+        "100000": "floor",
+        "237123": "floor"
+      },
+      "scatter_bar_g0": 0.04194730520248413,
+      "landed": {
+        "FREE": true,
+        "K10K": true,
+        "K40K": true,
+        "K100K": true
+      },
+      "expresses": {
+        "FREE": true,
+        "K10K": true,
+        "K40K": true,
+        "K100K": true
+      }
+    },
+    "SHARP_THRESHOLD": true,
+    "GRADUAL": false,
+    "MIXED": false,
+    "the_stitch": {
+      "cited_rungs": {
+        "1000": {
+          "post_g0": 0.00043458465370349586,
+          "post_gm12": 0.00035702373133972287,
+          "root_g0": 0.5768678784370422,
+          "root_gm12": 0.16171452403068542,
+          "kept": 0.016095496225535792
+        },
+        "237123": {
+          "post_g0": 0.38436421751976013,
+          "post_gm12": 0.07495748135108948,
+          "root_g0": 0.7105798125267029,
+          "root_gm12": 0.3573005497455597,
+          "kept": 0.2945979051104054
+        }
+      },
+      "source_md5": "f460475d8e6b76f0719e91c1e9c6041b",
+      "post_g0_stitch_rationale": "install-deterministic (e261's G_ANCHOR: install L2 6.7e-5, |d post g0| 5e-7 cross-session)",
+      "root_g0_scatter": {
+        "cross_session_anchor": 0.04194730520248413,
+        "cons_seed_replicate": 0.01373136043548584
+      }
+    },
+    "verdict": "SHARP-THRESHOLD",
+    "clause": "THE STITCH: rungs 1k/237k cited from e261's committed record (md5-bound; post g0 stitches cleanly \u2014 the install is deterministic; root reads carry the cons lottery's scatter 0.0419 g0 / 0.1483 g-12 cross-session on a bit-identical arm): scatter-fragile calls: k=237123 (near its floor); the K237K cons-seed replicate (seed 10902) read root g0 0.7243 \u2014 |d| 0.0137 vs the cited rung, |d| 0.0557 vs e260's committed. the expression curve is step-like (post g0 jumps 609.0x between k=1000 and k=10000; the floor 0.05 first crossed at k=10000) AND the landing curve enters the band at a locatable rung (first in-band k=10000, bracket 1000->10000) \u2014 the anti-substrate's final form: a dimensional threshold at k ~ 10000; memories need k* dimensions, full stop",
+    "smoke_stamp": null
+  },
+  "honesty": {
+    "intervention_not_logits": "all arms share bit-identical install streams (one generator, seed 24314, one draw order), identical dose/schedule/optimizer, the same fresh fact-free base; the ONLY delta across rungs is the pre-Adam gradient PROJECTION onto that rung's independent random rank-k room (each room certified: idempotency ~1e-15, kept^2 == k/N at the 10-sigma bar); K10K's install CONTINUED bit-exactly from e261's cut vehicle (model + optimizer + generator state + ledger, md5/step-gated) \u2014 fate differences across rungs are rank-caused or nothing is",
+    "n_and_scope": "n=1 per rung, one lineage, TWO sessions stitched (e261: rungs 1k/237k + FREE-context; e264: the middle rungs + FREE; the g-series standing lottery caveat carried verbatim); the curve's SHAPE is the registered object, not any single point; the bracket between adjacent rungs is the honest resolution of the threshold's location",
+    "the_stitch_disclosed": "rungs 1k/237k are e261's committed reads (md5-bound): the post-install curve stitches cleanly (the install is deterministic; e261's G_ANCHOR install L2 6.7e-5, |d post g0| 5e-7 cross-session), the landing curve carries the cons lottery's cross-session scatter (root g0 |d| 0.0419, root g-12 |d| 0.1483 on a bit-identical arm) \u2014 per-rung scatter-fragile flags mark every call within that band of an edge, and the cons-seed replicate at 237k prices it directly",
+    "loads_measured_not_nominal": "every rung's ACTUAL geometry is reported: the per-step kept fraction (the dose actually delivered; median over the install ledger), v-excess pre/post (vs e258's LOADED committed v-map), in-span fraction pre AND applied (vs e246's committed LATE span), and the displacement cos-to-span + in-own-room fractions at post-install and root \u2014 never nominal",
+    "the_confound_disclosed": "the kept-k coupling: the projection's norm is NOT rescaled, so the delivered dose covaries with the rung (kept ~ sqrt(k/N)) \u2014 an inherent property of a rank-k restriction, disclosed on every rung and co-plotted on the instrument page (root g0 vs kept); e258's committed VLIGHT LANDED at kept ~0.10, so kept alone does not bar landing",
+    "nothing_guaranteed": "the dispatch's own caveat carried: no outcome was promised; the bars cover all three branches and the curves are reported verbatim regardless"
+  },
+  "provenance": {
+    "git_head_at_start": "dc8ff4cb2076d6131de4ce6b82b843f51f693f28",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e264_middle_rungs.py",
+    "machinery_imported_from": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e261_rank_ladder.py",
+    "checkpoints": {
+      "base": "runs/checkpoints/e001.pt",
+      "reference_root": {
+        "file": "runs/checkpoints/g1c_root.pt",
+        "flat_md5": "a7f02b367c5342535aecfc814d780631"
+      },
+      "span_ledger": "runs/checkpoints/e246_late_span.pt",
+      "vmap": "runs/checkpoints/e258_vmap.pt",
+      "k10k_resume_vehicle": {
+        "file": "runs/checkpoints/e261_K10K_inst_resume.pt",
+        "md5_at_registration": "0f6dc1cf46850ce655dfafc9c853d467",
+        "md5_at_load": "0f6dc1cf46850ce655dfafc9c853d467",
+        "note": "overwritten by the resume to the s400 final (the journal-resume path's design; the cut preserved by this frozen md5)"
+      },
+      "rooms": "runs/checkpoints/e264_rooms.pt",
+      "arm_roots": {
+        "FREE": "runs/checkpoints/e264_FREE_root.pt",
+        "K10K": "runs/checkpoints/e264_K10K_root.pt",
+        "K40K": "runs/checkpoints/e264_K40K_root.pt",
+        "K100K": "runs/checkpoints/e264_K100K_root.pt"
+      },
+      "cons_seed_replicate_root": "runs/checkpoints/e264_K237KCONS2_root.pt"
+    },
+    "machinery": {
+      "install_cons": "e261's chunked drivers VERBATIM BY IMPORT (E43.exposure Dmix / e113 consolidate; the dense-room hook + the thermal envelope); the committed lab/e261_rank_ladder.py unmodified",
+      "hook": "e237's pre-Adam projection as a DENSE ROOM projector (backward -> clip 1.0 -> project (CPU fp64 SRCT; write fp32) -> step; norm not rescaled; fp64 ledger dots)",
+      "rooms": "one INDEPENDENT SRCT room per rung (e261's registered deferred seeds 26113-26118)"
+    },
+    "eval": {
+      "device": "cpu fp32 probes / cuda fp32 training / cpu fp64 dense projections",
+      "threads": 4
+    },
+    "thermal_envelope": {
+      "burst_cap_s": 175.0,
+      "cooldown_s": 40.0,
+      "per_step_polls": true,
+      "early_end_margin_c": 78.0,
+      "hard_line_c": 84.0,
+      "max_temp_seen_c": null,
+      "violations_ge_84c": 0
+    },
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "numpy": "2.3.5",
+      "scipy": "1.16.2",
+      "matplotlib": "3.10.6"
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e264\\metrics.json",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e264\\e264_middle_rungs.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e264\\e264_instrument.png"
+  ]
 }
