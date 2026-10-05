@@ -685,6 +685,40 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T244 — e267: the unification measured on both streams, landing on neither — the carrier goes dynamical (2026-10-05 ~18:42Z)
+
+The teach-Gram census closes the Jacobian program's first
+campaign with a clean scoreboard. MEASURED: the supports
+(Jacobian columns, stable); the diag Fisher (v, the span-
+loaded); the top eigenspaces (wash-stable, the span; teach-
+stable, the mean direction); the NTK blocks (the killed
+excess unreachable); the natural steps (low-end
+concentrated); the wash Gram (flat); the teach Gram (head-
+heavy + wash-like tail); both full-res diagonals (73k and
+35k — both outside the band). NOT FOUND: any spectral object
+kneeling at the expression cliff's 10k. THE THREE-CHANCE
+ARC (e265 wash -> e266 inventory -> e267 teach): each miss
+localized the next missing measurement; the last one measured
+everything the committed record could give. THE CARRIER'S
+TWO SURVIVING FORMS: (i) NON-SPECTRAL — the room-optimizer
+interface: the DYNAMICAL interference between a room's random
+directions and the corpus trajectory's curvature over the
+install's 400 steps (an object no per-state eigenstructure
+sees — it lives in the TRAJECTORY, like the undertow's
+memory); (ii) THE DEEP SPECTRUM below every window (the
+Lanczos on a live replay — a bigger ask, banked with the
+teach Gram as the substrate). THE REGISTERED DISCRIMINATOR
+(the cheap one first): the room-optimizer interface test —
+install through TWO different random rooms at k=10k (the
+threshold) with the corpus wash running CONCURRENTLY vs
+AFTER — if the interference is dynamical, the concurrent
+write's fate differs; the eigenstructures are identical by
+construction. THE CONNECTION WORTH SAVORING: the cliff's
+carrier being trajectory-like rhymes with the undertow's
+memory being the supply's low-pass — THE LAB'S TWO DEEPEST
+OBJECTS (the barrier and the killer) both refuse static
+geometry and live in the dynamics.
+
 ## T243 — e266: the second chance misses — the carrier is the never-cached instantaneous Fisher (2026-10-05 ~18:02Z)
 
 The install-side census returns WASH-LIKE, and the miss is

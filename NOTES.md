@@ -34,6 +34,35 @@ read — the composition's sharper predictor).
 
 ---
 
+## e267 — the teach-Gram census (the never-cached distribution measured; the unification's third chance): MIXED — a 50x rank-1 head (lambda2/lambda1 0.0197, knee@1 in all three flavors) riding a wash-like tail (PR 1.93); the head = the shared mean corpus-gradient direction (84% norm-shared), only 0.38% inside the wash span; erank(1e-2) 73/80 vs the wash's 76-77 (TEACH-FLAT misses by 3 ranks -> MIXED per the frozen rule; the teach top HEAD-HEAVIER, not flat); the full-res teach diagonal k50 34,819 (3.5x the cliff, 2x more concentrated than the wash v-map, still outside the band); NO OBJECT ON EITHER DISTRIBUTION PUTS STRUCTURE AT ~10k — THE JACOBIAN UNIFICATION MEASURED ON BOTH STREAMS LANDS ON NEITHER: the cliff's carrier is NON-SPECTRAL or below every window; the room-optimizer interface stands as the live carrier; the teach Gram + diagonal now banked for any future deep-spectrum cell (2026-10-05 ~18:40Z) — DONE
+
+WHAT WE DID: 80 post-clip batch gradients of the gen-24314
+Dmix teach stream (the installs' own batches) replayed
+WITHOUT optimizer steps at the bit-gated g1c root; the 80x80
+fp64 Gram; the spectrum via e265's module-imported
+spectrum_stats; the full-res diagonal co-report; the
+two-stream angles. All 10 gates PASS (the root bit-matched;
+the stream certified |d| 0.0 vs the committed install
+trajectory). CPU-only, 162s. Script lab/e267_teach_gram.py;
+runs/e267/{metrics.json, 3 PNGs}.
+
+WHAT WE SAW (T244): THE TEACH TOP IS HEAD-HEAVIER than any
+wash reference (a 50x rank-1 head — the shared mean gradient
+direction, 84% norm-shared across the stream's steps) yet
+its TAIL is wash-like — and nothing anywhere kneels at the
+cliff's 10k. THE THIRD CHANCE CLOSES with the same honesty
+as the first two. THE SCOREBOARD: supports (columns), diag
+Fisher, top eigenspaces, NTK blocks, natural steps, wash
+Gram, teach Gram, both diagonals — all measured; the cliff's
+carrier: NON-SPECTRAL (the room-optimizer interface — the
+dynamical interference between a random room and the corpus
+trajectory) or below every window (the Lanczos's
+territory). THE TRANSIENT/ACCUMULATED GEOMETRY: per-step
+span coupling 29.5x floor at the root vs 44x at install
+time — the coupling weakens as the write forms.
+
+---
+
 ## e266 — the install-side Fisher census (the Jacobian lane's second chance at the LOCATED cliff): WASH-LIKE — no committed read on either distribution kneels at the cliff's ~10k; THE INVENTORY: no teach-stream Gram exists anywhere (the installs' gradients survive only as per-step scalars); THE FULL-RESOLUTION LAYER added: the wash diagonal's k50 = 73,481 (the closest approach — 7.3x above 10k, outside the factor-3 band; cum@10k 0.263 = 72x linear: head-heavy but bulk-flat) and the natural teach write's k50 = 237,123 EXACT (the successful write occupies the OLD bracket's top, not the located cliff; erank(0.01) 1.87M); the teach gradient isotropic vs random rooms at every rung (0.84-1.00; an alignment test, not a rank test — disclosed); the resolvable couplings all live at rank 10-80 (teach-grads -> corpus-span 1906x mass excess; the install-final write only 7.2x — alignment TRANSIENT, not cumulative); the cliff's carrier: the teach stream's INSTANTANEOUS Fisher (never cached — the next cell's ask: a 20-step teach-Gram at the g1c root) or non-spectral (2026-10-05 ~18:00Z) — DONE
 
 WHAT WE DID: the frozen census over every committed record (8
