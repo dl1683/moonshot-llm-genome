@@ -1,0 +1,1657 @@
+{
+ "experiment": "e265_fisher_census",
+ "phase": "THE FISHER/NTK CENSUS \u2014 desk-only, committed records: the wash Grams' full nonzero spectrum (the empirical Fisher over each wash distribution), the knee-vs-cliff join at both scales, the NTK blocks through the gradient basis, the natural-gradient gap co-report",
+ "date": "2026-10-05T16:04:57+00:00",
+ "registration": "bars VERBATIM from the e265 dispatch (T240 cell (a)), frozen before compute; see docstring; no bar shopping",
+ "bars_verbatim": {
+  "CLIFF-IS-THE-KNEEL": "the Fisher spectrum's knee (largest log-eigengap) lands inside the expression threshold's bracket [1k, 237k] (or within a factor 3 of its edges at both scales measured) \u2014 THE MEMORY CAPACITY LAW AND THE OPTIMIZATION GEOMETRY ARE ONE OBJECT: the network stores what the Fisher cannot normalize away",
+  "CLIFF-IS-SEPARATE": "the knee sits far from the bracket (> 3x either edge) \u2014 the capacity cliff and the Fisher's decay are distinct objects; the honest map",
+  "MIXED": "the spectra verbatim (both scales), no inflation"
+ },
+ "operationalization": {
+  "knee": "argmax_i log10(lam_{i-1}/lam_i); the split index k",
+  "factor3_band": "[1000/3, 3*237123]",
+  "bracket": {
+   "lo": 1000,
+   "hi": 237123,
+   "source": "runs/e261/metrics.json adjudication.reads.threshold_bracket (the 2.74M g1c root)"
+  },
+  "scales": [
+   "2.74M: e231 J1 committed Gram-SVD sv (20 steps)",
+   "124M: e234 committed gram_scaled_{w} (80 steps)"
+  ],
+  "adjudication": "KNEEL iff knee in band at BOTH scales; SEPARATE iff knee outside band at BOTH scales; MIXED otherwise or when window caps prevent adjudication at one scale",
+  "erank": "smallest k with cumulative explained mass >= 1-tol; k == window size means LOWER BOUND ONLY",
+  "fates": "killed := p(+80) < 0.5*p(0) (e240's frozen clause)"
+ },
+ "spectrum_estimate_caveat": "80 samples give at most 80 nonzero eigenvalues of a 124,439,808-dim operator (the rest of the SAMPLE sum is exactly zero); 20 steps bound the 2.74M side the same way. This census measures the TOP of the empirical Fisher's spectrum and its decay shape within the window \u2014 NOT the tail's extent. Deep-threshold eranks that hit the window cap are lower bounds.",
+ "compute": {
+  "device": "CPU desk only (threads: numpy default, tiny matrices)",
+  "gpu_touched": false
+ },
+ "gates": {
+  "G_UNITS": {
+   "check": "max |G[t,t] - gnorm_t^2| / max gnorm^2 (the unit conversion identity; G_scaled rows are 2^14-scaled unit grads)",
+   "max_dev": 6.332617811290407e-05,
+   "tol": 0.001,
+   "pass": true
+  },
+  "G_SYMMETRY": {
+   "max_dev": 0.0,
+   "tol": 1e-12,
+   "pass": true
+  },
+  "G_PR231": {
+   "check": "PR(e231 J1 sv^2) vs the committed 4.117363094870959",
+   "dev": 3.552713678800501e-15,
+   "tol": 1e-06,
+   "pass": true
+  },
+  "G_PR246": {
+   "check": "PR(e246 late sv^2) vs the committed 2.0277648570019418",
+   "dev": 0.0,
+   "tol": 1e-06,
+   "pass": true
+  },
+  "G_FATES": {
+   "check": "fates recomputed from e234 traj under e240's definition",
+   "recomputed": {
+    "w1": 28,
+    "w2": 26,
+    "w3": 29
+   },
+   "e240_committed": {
+    "w1": 28,
+    "w2": 26,
+    "w3": 29
+   },
+   "pass": true
+  },
+  "G_WIND": {
+   "check": "split-half TOP-2 wind share median vs e234's committed wind_share_median_A (its kA=2 knee convention; recompute identity)",
+   "recomputed": {
+    "w1": 0.05528856465742007,
+    "w2": 0.057170082712768175,
+    "w3": 0.021459122327842372
+   },
+   "committed": {
+    "w1": 0.05528856465742009,
+    "w2": 0.057170082712768175,
+    "w3": 0.021459122287842882
+   },
+   "tol": 0.005,
+   "pass": true
+  },
+  "G_COSG": {
+   "check": "e240 committed cos_g vs e234 dmat cos(g_t, s_i) (unit-normalized), max dev over all steps x probes",
+   "max_dev": 2.9323922127677537e-05,
+   "tol": 0.0001,
+   "pass": true
+  }
+ },
+ "provenance_records": {
+  "e234_journal": {
+   "file": "runs/e234/journal.json",
+   "md5": "3354e59d7736b294160573ccfac6a21d"
+  },
+  "e234_metrics": {
+   "file": "runs/e234/metrics.json",
+   "md5": "1dbc33df87a27894ba6070b0cebc202b"
+  },
+  "e231_metrics": {
+   "file": "runs/e231/metrics.json",
+   "md5": "f5db4dc79080c1a2bf7ca00b961e05e7"
+  },
+  "e240_journal": {
+   "file": "runs/e240/journal.json",
+   "md5": "8a775c01a4383bb32efd72d9fc255fe5"
+  },
+  "e240_metrics": {
+   "file": "runs/e240/metrics.json",
+   "md5": "24b10e3821aacd88e9dc41ea29451a1e"
+  },
+  "e246_metrics": {
+   "file": "runs/e246/metrics.json",
+   "md5": "67c62744e6ffc253de86b08640760745"
+  },
+  "e261_metrics": {
+   "file": "runs/e261/metrics.json",
+   "md5": "f460475d8e6b76f0719e91c1e9c6041b"
+  },
+  "e254_metrics": {
+   "file": "runs/e254/metrics.json",
+   "md5": "89f2909a70fb70da7f97b51c87f1b001"
+  }
+ },
+ "fisher_spectra_124M": {
+  "w1": {
+   "n": 80,
+   "lambda_1": 678.0523180342636,
+   "lambda_n_over_1": 0.007251314144584014,
+   "n_negative_clipped": 0,
+   "participation_ratio": 9.209354064251515,
+   "erank": {
+    "0.01": {
+     "k": 76,
+     "window_capped": false
+    },
+    "0.001": {
+     "k": 80,
+     "window_capped": true
+    },
+    "1e-06": {
+     "k": 80,
+     "window_capped": true
+    },
+    "1e-10": {
+     "k": 80,
+     "window_capped": true
+    }
+   },
+   "cum_at": {
+    "1": 0.3085872485803761,
+    "2": 0.37530762872642026,
+    "3": 0.4217659981726108,
+    "5": 0.4844265132238199,
+    "10": 0.5711109805078209,
+    "20": 0.6883029455576943,
+    "40": 0.8413051031885821,
+    "80": 1.0000000000000004
+   },
+   "decay_ei_over_e1": {
+    "1": 1.0,
+    "2": 0.21621236928286697,
+    "3": 0.15055181203992551,
+    "5": 0.09447064904500274,
+    "10": 0.049268944393582065,
+    "20": 0.031870931936610794,
+    "40": 0.019457783988015728,
+    "80": 0.007251314144584014
+   },
+   "knee_loggap": {
+    "k": 1,
+    "log10_ratio": 0.6651194641401988,
+    "top5": [
+     {
+      "i": 1,
+      "log10_ratio": 0.6651194641401988
+     },
+     {
+      "i": 2,
+      "log10_ratio": 0.15719454881604006
+     },
+     {
+      "i": 5,
+      "log10_ratio": 0.15610914030497514
+     },
+     {
+      "i": 3,
+      "log10_ratio": 0.14191445343173886
+     },
+     {
+      "i": 4,
+      "log10_ratio": 0.060474634497004714
+     }
+    ]
+   },
+   "spectrum": [
+    678.0523180342636,
+    146.60329817992817,
+    102.08200513793025,
+    73.62659880546542,
+    64.0560425711655,
+    44.71476615093431,
+    40.70668361664201,
+    37.40317782069924,
+    34.23842045853993,
+    33.40692195316956,
+    31.397781939216216,
+    29.56263418641807,
+    28.001324092363138,
+    26.71756546054247,
+    26.572657989175784,
+    24.617139317094015,
+    23.35278643683867,
+    23.029817761725745,
+    22.641591386478808,
+    21.610159277531192,
+    20.738573683849378,
+    20.702412207671475,
+    20.131001535814608,
+    19.25588186976057,
+    18.90496875382524,
+    18.463527177539586,
+    18.07983307330411,
+    17.92893026009963,
+    17.70154418844684,
+    16.551123717573034,
+    16.30892099149377,
+    15.818683477047836,
+    15.644166903233593,
+    15.353406249667097,
+    15.094971035427426,
+    14.837679140037787,
+    14.29047031463183,
+    13.801439456664784,
+    13.387516719375068,
+    13.193395536884042,
+    12.996464618960642,
+    12.392477267879599,
+    12.24561345449946,
+    12.142184979388503,
+    11.898373934418219,
+    11.571928188293281,
+    11.487803319861978,
+    11.118240592909675,
+    10.691978384941736,
+    10.483742922024662,
+    10.296623347853258,
+    10.036662103963339,
+    9.867005422734142,
+    9.653094078719382,
+    9.504137878809855,
+    9.233110732661608,
+    9.031376073309774,
+    8.88591212674929,
+    8.842311615961142,
+    8.745314919454609,
+    8.612254825926415,
+    8.477713862235758,
+    8.161971601090748,
+    7.818758873202019,
+    7.640054345981081,
+    7.57469721463156,
+    7.442368655399293,
+    7.2715156279871875,
+    7.208778905055222,
+    7.108822837380295,
+    6.887613995720738,
+    6.8227605819185815,
+    6.663748940917396,
+    6.311719084573959,
+    6.1141273366510624,
+    6.026826100077095,
+    5.948910357680469,
+    5.555907451094622,
+    5.007306304446141,
+    4.916770364529834
+   ],
+   "fisher_lambda_1": 8.475653975428296,
+   "trace_identity_dev": 2.0695930104051002e-16,
+   "n_negative_raw": 0
+  },
+  "w2": {
+   "n": 80,
+   "lambda_1": 827.5248053787861,
+   "lambda_n_over_1": 0.005920558197563316,
+   "n_negative_clipped": 0,
+   "participation_ratio": 7.1209812963002594,
+   "erank": {
+    "0.01": {
+     "k": 76,
+     "window_capped": false
+    },
+    "0.001": {
+     "k": 80,
+     "window_capped": true
+    },
+    "1e-06": {
+     "k": 80,
+     "window_capped": true
+    },
+    "1e-10": {
+     "k": 80,
+     "window_capped": true
+    }
+   },
+   "cum_at": {
+    "1": 0.35965320469067347,
+    "2": 0.4262794315320054,
+    "3": 0.46363134947728046,
+    "5": 0.5065008382036588,
+    "10": 0.5875045988610762,
+    "20": 0.7000335604819719,
+    "40": 0.8463307138987793,
+    "80": 1.0
+   },
+   "decay_ei_over_e1": {
+    "1": 1.0,
+    "2": 0.18525130868397263,
+    "3": 0.1038553736158149,
+    "5": 0.057683247551928,
+    "10": 0.03920951734534783,
+    "20": 0.02585345817100204,
+    "40": 0.016062281932745583,
+    "80": 0.005920558197563316
+   },
+   "knee_loggap": {
+    "k": 1,
+    "log10_ratio": 0.7322387153204543,
+    "top5": [
+     {
+      "i": 1,
+      "log10_ratio": 0.7322387153204543
+     },
+     {
+      "i": 2,
+      "log10_ratio": 0.25133231225021846
+     },
+     {
+      "i": 3,
+      "log10_ratio": 0.22745860326762485
+     },
+     {
+      "i": 6,
+      "log10_ratio": 0.052816094986258715
+     },
+     {
+      "i": 5,
+      "log10_ratio": 0.04106959612128264
+     }
+    ]
+   },
+   "spectrum": [
+    827.5248053787861,
+    153.3000531648699,
+    85.94289783896835,
+    50.9039390179437,
+    47.73431820402556,
+    43.42712989563253,
+    38.45431085845761,
+    36.64378393600165,
+    35.409197720193795,
+    32.446848210205104,
+    30.32376324233452,
+    28.804550353303156,
+    28.54840058457651,
+    27.122305836752833,
+    26.291161615796266,
+    25.250169307531852,
+    24.358864634173973,
+    24.024175814884863,
+    22.7997263298922,
+    21.394377941327054,
+    21.3028754326043,
+    20.383706093870938,
+    20.339420425117222,
+    19.39528674020104,
+    18.69825505819171,
+    18.195136817657026,
+    17.980889553625456,
+    17.64103832048686,
+    17.09764803321938,
+    16.957947703080208,
+    16.685938049672334,
+    16.114090105543067,
+    15.693944430873746,
+    15.164639530605998,
+    15.034564560158149,
+    14.705529391432908,
+    14.37349018595714,
+    14.028979508413718,
+    13.52929381974072,
+    13.29193673033448,
+    12.913506670023523,
+    12.713396595172993,
+    12.61311435430949,
+    12.257408017597426,
+    11.812421678134575,
+    11.73596822541409,
+    11.320769803881365,
+    11.25210073891724,
+    11.046338053049231,
+    10.84536811815157,
+    10.544128163420503,
+    10.46420581606687,
+    10.362888264765136,
+    10.270941693856678,
+    9.71942996027076,
+    9.544064867394665,
+    9.297039446796004,
+    9.209844915306313,
+    8.922673927396698,
+    8.903348049518435,
+    8.808968887972103,
+    8.58476980716945,
+    8.278087145965175,
+    8.079559115935776,
+    8.028414804440649,
+    7.956137560362715,
+    7.537521135907355,
+    7.350065656340281,
+    7.344226000876166,
+    6.968579725984554,
+    6.844177973141623,
+    6.7574690476693435,
+    6.256958095003467,
+    6.126549351643747,
+    6.050793384600954,
+    5.759392646189726,
+    5.616445240467109,
+    5.472648920319899,
+    5.1079942648605705,
+    4.89940877017236
+   ],
+   "fisher_lambda_1": 10.344060067234826,
+   "trace_identity_dev": 0.0,
+   "n_negative_raw": 0
+  },
+  "w3": {
+   "n": 80,
+   "lambda_1": 548.4340885353267,
+   "lambda_n_over_1": 0.009800837504494756,
+   "n_negative_clipped": 0,
+   "participation_ratio": 11.526272945807355,
+   "erank": {
+    "0.01": {
+     "k": 77,
+     "window_capped": false
+    },
+    "0.001": {
+     "k": 80,
+     "window_capped": true
+    },
+    "1e-06": {
+     "k": 80,
+     "window_capped": true
+    },
+    "1e-10": {
+     "k": 80,
+     "window_capped": true
+    }
+   },
+   "cum_at": {
+    "1": 0.2677984165936613,
+    "2": 0.33253802831168217,
+    "3": 0.39343531529183345,
+    "5": 0.4529120162942434,
+    "10": 0.5427590236748641,
+    "20": 0.6682712248729799,
+    "40": 0.8291838106724347,
+    "80": 1.0000000000000002
+   },
+   "decay_ei_over_e1": {
+    "1": 1.0,
+    "2": 0.2417475522876307,
+    "3": 0.2273997275814839,
+    "5": 0.09172151949703057,
+    "10": 0.05640151399136192,
+    "20": 0.039138708361686675,
+    "40": 0.023714361029704683,
+    "80": 0.009800837504494756
+   },
+   "knee_loggap": {
+    "k": 1,
+    "log10_ratio": 0.6166379144873884,
+    "top5": [
+     {
+      "i": 1,
+      "log10_ratio": 0.6166379144873884
+     },
+     {
+      "i": 3,
+      "log10_ratio": 0.24160053514617924
+     },
+     {
+      "i": 4,
+      "log10_ratio": 0.1527181641117862
+     },
+     {
+      "i": 5,
+      "log10_ratio": 0.08443035432380608
+     },
+     {
+      "i": 9,
+      "log10_ratio": 0.052372153306335475
+     }
+    ]
+   },
+   "spectrum": [
+    548.4340885353267,
+    132.58259849451298,
+    124.71376232933272,
+    71.50128484627584,
+    50.30320794442916,
+    41.41573064949582,
+    39.336626914162565,
+    37.41913329640918,
+    34.896940765306255,
+    30.932512917865054,
+    30.435805476299784,
+    29.204378528351587,
+    28.593007122584485,
+    27.86970043840576,
+    25.780170477213513,
+    24.854569973672643,
+    23.478855018194626,
+    23.099588718573145,
+    22.259910691478687,
+    21.4650018467916,
+    21.041182678902945,
+    20.332979286210495,
+    19.886899984574157,
+    19.466988068083605,
+    18.80350608475522,
+    18.381824430476602,
+    17.88206255864038,
+    16.863648841226517,
+    16.816108884925796,
+    16.02517011211928,
+    15.943433988366357,
+    15.293068517886487,
+    15.206081691481454,
+    14.985882484438358,
+    14.545990395499219,
+    14.337981662512592,
+    13.91208815448153,
+    13.667472033948984,
+    13.140585808277304,
+    13.00576397652376,
+    12.975998334608335,
+    12.564292772380268,
+    12.214265295072854,
+    11.665309917399174,
+    11.580424404035329,
+    11.319998891351329,
+    11.049796377608299,
+    10.987613315207042,
+    10.757343867316777,
+    10.462958576295312,
+    10.3316975412794,
+    10.118530758812156,
+    9.86103928526192,
+    9.61084024849241,
+    9.421516326974755,
+    9.238991291053939,
+    9.15630723800448,
+    9.061784677295474,
+    8.750319010143397,
+    8.670685050304602,
+    8.458122768875814,
+    8.325119771847737,
+    8.204484766024065,
+    8.036207460948937,
+    7.950716704519319,
+    7.780223625499603,
+    7.687100183138905,
+    7.514058804080387,
+    7.223984580518475,
+    6.97570844426301,
+    6.9434550912634165,
+    6.761355334327843,
+    6.529894587291948,
+    6.338799050915397,
+    6.300648013952696,
+    6.146361167318917,
+    6.005542059348653,
+    5.914831909799271,
+    5.549227557141135,
+    5.375113383660428
+   ],
+   "fisher_lambda_1": 6.855426106691584,
+   "trace_identity_dev": 1.1102575775585915e-16,
+   "n_negative_raw": 0
+  }
+ },
+ "knee_normfree_coreport": {
+  "w1": {
+   "knee": 1,
+   "log10_ratio": 0.2913771145313402,
+   "erank_1e-2": 77,
+   "participation_ratio": 32.68946750212429,
+   "note": "unit-direction Gram (norm-free): the wash's DIRECTION spectrum; co-report only"
+  },
+  "w2": {
+   "knee": 1,
+   "log10_ratio": 0.3748081074064847,
+   "erank_1e-2": 77,
+   "participation_ratio": 32.324418329313154,
+   "note": "unit-direction Gram (norm-free): the wash's DIRECTION spectrum; co-report only"
+  },
+  "w3": {
+   "knee": 79,
+   "log10_ratio": 0.3163011242923587,
+   "erank_1e-2": 77,
+   "participation_ratio": 35.12017220782013,
+   "note": "unit-direction Gram (norm-free): the wash's DIRECTION spectrum; co-report only"
+  }
+ },
+ "cross_wash_eigenspace_alignment": {
+  "w1|w2": {
+   "k1": 0.963180078411273,
+   "k2": 0.9196712727302283,
+   "k5": 0.7139539131119558,
+   "k10": 0.5536478276028227,
+   "k20": 0.49513659302041546
+  },
+  "w1|w3": {
+   "k1": 0.9659250006835548,
+   "k2": 0.8892887161290469,
+   "k5": 0.7284644233609661,
+   "k10": 0.5691414590530912,
+   "k20": 0.47792641100538225
+  },
+  "w2|w3": {
+   "k1": 0.9551712978359781,
+   "k2": 0.8625671711948545,
+   "k5": 0.6562916245478208,
+   "k10": 0.5323188049279682,
+   "k20": 0.47648568827998367
+  }
+ },
+ "status": "DONE (verdict CLIFF-IS-SEPARATE; all gates PASS)",
+ "fisher_spectrum_2_74M": {
+  "primary": {
+   "source": "runs/e231/metrics.json cells.J1.primary_stream.span.sv (the e131 consolidated root \u2014 g1b's own root; the B1 bridge organism; seed-10902 20-step unwalled AdamW history, e225's chunked fp64 Gram-SVD)",
+   "n_params": null,
+   "stats": {
+    "n": 20,
+    "lambda_1": 3.8405633829354744,
+    "lambda_n_over_1": 0.0019414312656566592,
+    "n_negative_clipped": 0,
+    "participation_ratio": 4.117363094870963,
+    "erank": {
+     "0.01": {
+      "k": 14,
+      "window_capped": false
+     },
+     "0.001": {
+      "k": 19,
+      "window_capped": false
+     },
+     "1e-06": {
+      "k": 20,
+      "window_capped": true
+     },
+     "1e-10": {
+      "k": 20,
+      "window_capped": true
+     }
+    },
+    "cum_at": {
+     "1": 0.40639026898098946,
+     "2": 0.6343063971744143,
+     "3": 0.7586505698555182,
+     "5": 0.8836732771829494,
+     "10": 0.9745172489071674,
+     "20": 1.0
+    },
+    "decay_ei_over_e1": {
+     "1": 1.0,
+     "2": 0.5608306733449037,
+     "3": 0.30597231816818077,
+     "5": 0.11878605020768432,
+     "10": 0.02029889330191155,
+     "20": 0.0019414312656566592
+    },
+    "knee_loggap": {
+     "k": 2,
+     "log10_ratio": 0.263149621442476,
+     "top5": [
+      {
+       "i": 2,
+       "log10_ratio": 0.263149621442476
+      },
+      {
+       "i": 1,
+       "log10_ratio": 0.2511682416531335
+      },
+      {
+       "i": 15,
+       "log10_ratio": 0.21572485357348692
+      },
+      {
+       "i": 3,
+       "log10_ratio": 0.20955150949160303
+      },
+      {
+       "i": 4,
+       "log10_ratio": 0.20136518570318196
+      }
+     ]
+    },
+    "spectrum": [
+     3.8405633829354744,
+     2.1539057480754833,
+     1.1751060813485976,
+     0.7253131716856489,
+     0.4562053548311672,
+     0.29664123134449744,
+     0.22580586234552624,
+     0.1420851002552147,
+     0.11602334804127018,
+     0.07795918632943566,
+     0.055128744482107354,
+     0.04498439339062507,
+     0.033012370204662106,
+     0.027958998824499634,
+     0.025125464512412217,
+     0.015289357868604333,
+     0.012638070610344958,
+     0.01043624421953892,
+     0.008793158667852042,
+     0.007456189829367039
+    ]
+   },
+   "committed_mass_plateau_knee": {
+    "k": 6,
+    "rule": "cumulative mass >= 0.9 (e231's committed rule, co-reported)",
+    "mass_at_k": 0.9150624505351155
+   }
+  },
+  "co_report_g1c_root": {
+   "source": "runs/e246/metrics.json span.span.sv (the g1c root \u2014 the root where e261 measured the cliff; LATE half segments 11-20 only; 10 SVs)",
+   "stats": {
+    "n": 10,
+    "lambda_1": 1.4879313395082605,
+    "lambda_n_over_1": 0.005396609232847619,
+    "n_negative_clipped": 0,
+    "participation_ratio": 2.0277648570019418,
+    "erank": {
+     "0.01": {
+      "k": 8,
+      "window_capped": false
+     },
+     "0.001": {
+      "k": 10,
+      "window_capped": true
+     },
+     "1e-06": {
+      "k": 10,
+      "window_capped": true
+     },
+     "1e-10": {
+      "k": 10,
+      "window_capped": true
+     }
+    },
+    "cum_at": {
+     "1": 0.6737818849182214,
+     "2": 0.8577832868515031,
+     "3": 0.9200477331498188,
+     "5": 0.9676559767501333,
+     "10": 1.0
+    },
+    "decay_ei_over_e1": {
+     "1": 1.0,
+     "2": 0.2730874872891756,
+     "3": 0.09241038931444859,
+     "5": 0.02682776605516654,
+     "10": 0.005396609232847619
+    },
+    "knee_loggap": {
+     "k": 1,
+     "log10_ratio": 0.5636981985265384,
+     "top5": [
+      {
+       "i": 1,
+       "log10_ratio": 0.5636981985265384
+      },
+      {
+       "i": 2,
+       "log10_ratio": 0.4705810015921821
+      },
+      {
+       "i": 3,
+       "log10_ratio": 0.32394461152730913
+      },
+      {
+       "i": 5,
+       "log10_ratio": 0.23259518071887386
+      },
+      {
+       "i": 4,
+       "log10_ratio": 0.21319167782540546
+      }
+     ]
+    },
+    "spectrum": [
+     1.4879313395082605,
+     0.40633543076512807,
+     0.13750031435712734,
+     0.0652167390500868,
+     0.039917873882478194,
+     0.023365346238921766,
+     0.017131707684117665,
+     0.012451095419858182,
+     0.010448275810795734,
+     0.008029784004633604
+    ]
+   },
+   "steps_L2_counts": [
+    1.654317855834961,
+    1.0876227617263794,
+    0.8470239043235779,
+    0.7278790473937988,
+    0.6917338967323303,
+    0.6514564752578735,
+    0.6229239106178284,
+    0.6015200018882751,
+    0.5667940974235535,
+    0.5393994450569153,
+    0.5207093954086304,
+    0.5073005557060242,
+    0.4961196780204773,
+    0.48561105132102966,
+    0.4742302894592285,
+    0.46171870827674866,
+    0.4508240520954132,
+    0.44592463970184326,
+    0.4277830421924591,
+    0.41781336069107056
+   ],
+   "disclosure": "coarser: 10 SVs of the late half; no full 20x20 Gram committed at the g1c root"
+  },
+  "pr_cross_checks": {
+   "e231_committed": 4.117363094870959,
+   "recomputed": 4.117363094870963,
+   "e246_committed": 2.0277648570019418,
+   "recomputed_late": 2.0277648570019418
+  }
+ },
+ "cliff_join": {
+  "band_factor3": {
+   "lo": 333.3333333333333,
+   "hi": 711369.0
+  },
+  "bracket": {
+   "lo": 1000,
+   "hi": 237123
+  },
+  "sides": {
+   "2.74M_e231J1": {
+    "name": "2.74M (e231 J1, 20-step window)",
+    "n_params": 2739072,
+    "window": 20,
+    "knee": 2,
+    "knee_in_band": false,
+    "knee_over_bracket_lo": 500.0,
+    "erank": {
+     "0.01": 14,
+     "0.001": 19,
+     "1e-06": 20,
+     "1e-10": 20
+    },
+    "erank_window_capped": {
+     "0.01": false,
+     "0.001": false,
+     "1e-06": true,
+     "1e-10": true
+    },
+    "erank_as_fraction": {
+     "0.01": 5.111220150474321e-06,
+     "0.001": 6.9366559185008645e-06,
+     "1e-06": 7.301743072106173e-06,
+     "1e-10": 7.301743072106173e-06
+    },
+    "erank_in_bracket": {
+     "0.01": false,
+     "0.001": false,
+     "1e-06": false,
+     "1e-10": false
+    },
+    "bracket_as_fraction": {
+     "lo": 0.00036508715360530864,
+     "hi": 0.0865705611243516
+    },
+    "participation_ratio": 4.117363094870963,
+    "cum_at_knee": 0.6343063971744143
+   },
+   "124M_w1": {
+    "name": "124M wash w1 (80-step window)",
+    "n_params": 124439808,
+    "window": 80,
+    "knee": 1,
+    "knee_in_band": false,
+    "knee_over_bracket_lo": 1000.0,
+    "erank": {
+     "0.01": 76,
+     "0.001": 80,
+     "1e-06": 80,
+     "1e-10": 80
+    },
+    "erank_window_capped": {
+     "0.01": false,
+     "0.001": true,
+     "1e-06": true,
+     "1e-10": true
+    },
+    "erank_as_fraction": {
+     "0.01": 6.107370400314343e-07,
+     "0.001": 6.428810947699309e-07,
+     "1e-06": 6.428810947699309e-07,
+     "1e-10": 6.428810947699309e-07
+    },
+    "erank_in_bracket": {
+     "0.01": false,
+     "0.001": false,
+     "1e-06": false,
+     "1e-10": false
+    },
+    "bracket_as_fraction": {
+     "lo": 8.036013684624135e-06,
+     "hi": 0.001905523672939129
+    },
+    "participation_ratio": 9.209354064251515,
+    "cum_at_knee": 0.3085872485803761
+   },
+   "124M_w2": {
+    "name": "124M wash w2 (80-step window)",
+    "n_params": 124439808,
+    "window": 80,
+    "knee": 1,
+    "knee_in_band": false,
+    "knee_over_bracket_lo": 1000.0,
+    "erank": {
+     "0.01": 76,
+     "0.001": 80,
+     "1e-06": 80,
+     "1e-10": 80
+    },
+    "erank_window_capped": {
+     "0.01": false,
+     "0.001": true,
+     "1e-06": true,
+     "1e-10": true
+    },
+    "erank_as_fraction": {
+     "0.01": 6.107370400314343e-07,
+     "0.001": 6.428810947699309e-07,
+     "1e-06": 6.428810947699309e-07,
+     "1e-10": 6.428810947699309e-07
+    },
+    "erank_in_bracket": {
+     "0.01": false,
+     "0.001": false,
+     "1e-06": false,
+     "1e-10": false
+    },
+    "bracket_as_fraction": {
+     "lo": 8.036013684624135e-06,
+     "hi": 0.001905523672939129
+    },
+    "participation_ratio": 7.1209812963002594,
+    "cum_at_knee": 0.35965320469067347
+   },
+   "124M_w3": {
+    "name": "124M wash w3 (80-step window)",
+    "n_params": 124439808,
+    "window": 80,
+    "knee": 1,
+    "knee_in_band": false,
+    "knee_over_bracket_lo": 1000.0,
+    "erank": {
+     "0.01": 77,
+     "0.001": 80,
+     "1e-06": 80,
+     "1e-10": 80
+    },
+    "erank_window_capped": {
+     "0.01": false,
+     "0.001": true,
+     "1e-06": true,
+     "1e-10": true
+    },
+    "erank_as_fraction": {
+     "0.01": 6.187730537160585e-07,
+     "0.001": 6.428810947699309e-07,
+     "1e-06": 6.428810947699309e-07,
+     "1e-10": 6.428810947699309e-07
+    },
+    "erank_in_bracket": {
+     "0.01": false,
+     "0.001": false,
+     "1e-06": false,
+     "1e-10": false
+    },
+    "bracket_as_fraction": {
+     "lo": 8.036013684624135e-06,
+     "hi": 0.001905523672939129
+    },
+    "participation_ratio": 11.526272945807355,
+    "cum_at_knee": 0.2677984165936613
+   },
+   "2.74M_g1c_late_e246": {
+    "name": "2.74M g1c root LATE half (e246, 10-SV window)",
+    "n_params": 2739072,
+    "window": 10,
+    "knee": 1,
+    "knee_in_band": false,
+    "knee_over_bracket_lo": 1000.0,
+    "erank": {
+     "0.01": 8,
+     "0.001": 10,
+     "1e-06": 10,
+     "1e-10": 10
+    },
+    "erank_window_capped": {
+     "0.01": false,
+     "0.001": true,
+     "1e-06": true,
+     "1e-10": true
+    },
+    "erank_as_fraction": {
+     "0.01": 2.920697228842469e-06,
+     "0.001": 3.6508715360530867e-06,
+     "1e-06": 3.6508715360530867e-06,
+     "1e-10": 3.6508715360530867e-06
+    },
+    "erank_in_bracket": {
+     "0.01": false,
+     "0.001": false,
+     "1e-06": false,
+     "1e-10": false
+    },
+    "bracket_as_fraction": {
+     "lo": 0.00036508715360530864,
+     "hi": 0.0865705611243516
+    },
+    "participation_ratio": 2.0277648570019418,
+    "cum_at_knee": 0.6737818849182214
+   }
+  },
+  "verdict": "CLIFF-IS-SEPARATE",
+  "verdict_logic": {
+   "knees_in_band": {
+    "2.74M": false,
+    "124M_w1": false,
+    "124M_w2": false,
+    "124M_w3": false
+   },
+   "any_knee_window_capped": false,
+   "rule": "KNEEL iff all in band; SEPARATE iff none in band and no knee at its window cap; MIXED otherwise",
+   "texture_disclosed": "deep-threshold eranks are window-capped lower bounds: the bracket CANNOT be excluded as the Fisher tail's scale \u2014 the join adjudicates the KNEE (the head's decay), not the tail; this is the measurement limit, not a verdict input"
+  }
+ },
+ "ntk_blocks": {
+  "w1": {
+   "gram_rank_at_1e-12": 80,
+   "lam_min_over_max_reported": 0.00792728413530593,
+   "pinv_floor_sensitivity_max_rel_dev_1e-9_vs_1e-12": 0.0,
+   "support_span_capture": {
+    "mean": 0.0018277482949078244,
+    "median": 0.0010611513019103936,
+    "min": 0.00018958314897287525,
+    "max": 0.03586837647561655,
+    "per_fact": {
+     "France->Paris": 0.0006572157133943936,
+     "Greece->Athens": 0.003410341612298877,
+     "Poland->Warsaw": 0.0012980871275659464,
+     "Portugal->Lisbon": 0.0010167028119792405,
+     "Egypt->Cairo": 0.001102562501444371,
+     "Ireland->Dublin": 0.0003318785574179787,
+     "France->French": 0.0013826611049083711,
+     "Germany->German": 0.0015423055589961461,
+     "Japan->Japanese": 0.0017372851951261731,
+     "Italy->Italian": 0.0018992284529829,
+     "Spain->Spanish": 0.001037803606555795,
+     "Russia->Russian": 0.0016815751863128255,
+     "China->Chinese": 0.0006409190011301831,
+     "England->English": 0.0013429970405472017,
+     "Greece->Greek": 0.001995854970415109,
+     "Poland->Polish": 0.0011289192313132153,
+     "Japan->yen": 0.003138624170054889,
+     "the United Kingdom->pound": 0.0013849387961161145,
+     "the United States->dollar": 0.00022401215880294472,
+     "China->yuan": 0.0011915931254377892,
+     "The social network founded by Mark Zuckerberg->Facebook": 0.00023486227269858825,
+     "The electric car company founded by Elon Musk->Tesla": 0.0003741299954264838,
+     "The rocket company founded by Elon Musk->SpaceX": 0.000596716787122452,
+     "The search engine founded by Larry Page->Google": 0.00018958314897287525,
+     "The online encyclopedia that anyone can edit->Wikipedia": 0.0016734133962271172,
+     "The gaming console made by Microsoft->Xbox": 0.0003228454014790771,
+     "The web browser made by Google->Chrome": 0.0002262477236084381,
+     "The phone made by Apple->iPhone": 0.005969392462112177,
+     "The tablet made by Apple->iPad": 0.0011772709870490532,
+     "The email service made by Google->Gmail": 0.0003181301667981721,
+     "The music store made by Apple->iTunes": 0.00028111325711755873,
+     "The game console made by Sony->PlayStation": 0.0002152255991827395,
+     "Massachusetts->Boston": 0.0002063335444746792,
+     "Georgia->Atlanta": 0.0004109136291010879,
+     "Ohio->Columbus": 0.00037876264864103253,
+     "Boston->Massachusetts": 0.0010579317984684726,
+     "Atlanta->Georgia": 0.0005621804347650007,
+     "Sacramento->California": 0.0010643708053523146,
+     "Austin->Texas": 0.0014170396770955098,
+     "Columbus->Ohio": 0.0012796761459623871,
+     "Denver->Colorado": 0.0018713434399223927,
+     "Little Rock->Arkansas": 0.0006668808815776417,
+     "Hartford->Connecticut": 0.0007661681834908203,
+     "Dover->Delaware": 0.0019267360591298545,
+     "Tallahassee->Florida": 0.0011277406688857215,
+     "Honolulu->Hawaii": 0.03586837647561655,
+     "Boise->Idaho": 0.0013103710738185212,
+     "Indianapolis->Indiana": 0.003008027983119645,
+     "Des Moines->Iowa": 0.0010567032679703423,
+     "Topeka->Kansas": 0.0008989070724986897,
+     "Baton Rouge->Louisiana": 0.0005489431432145276,
+     "Annapolis->Maryland": 0.0017316321508033757,
+     "Lansing->Michigan": 0.001016868506923236,
+     "Jackson->Mississippi": 0.0007980632135955231
+    }
+   },
+   "blocks_inspan_cos": {
+    "within_killed": 0.42710125863860576,
+    "within_living": 0.5804259678773585,
+    "cross": 0.478114085114169,
+    "killed_over_living": 0.735841058594488
+   },
+   "blocks_fullspace_e240_committed": {
+    "killed": 0.02421974898020478,
+    "living": 0.008656070320444229,
+    "cross": 0.012064452400965835
+   },
+   "block_ratio_fullspace": 2.798007419487071
+  },
+  "w2": {
+   "gram_rank_at_1e-12": 80,
+   "lam_min_over_max_reported": 0.006495410589172677,
+   "pinv_floor_sensitivity_max_rel_dev_1e-9_vs_1e-12": 0.0,
+   "support_span_capture": {
+    "mean": 0.001609900972082696,
+    "median": 0.0009788732405936786,
+    "min": 0.00016330630917245245,
+    "max": 0.03174359802611395,
+    "per_fact": {
+     "France->Paris": 0.0004773388639038639,
+     "Greece->Athens": 0.0028509648259372367,
+     "Poland->Warsaw": 0.0011561413816539151,
+     "Portugal->Lisbon": 0.0007904177872594222,
+     "Egypt->Cairo": 0.0009888657494227392,
+     "Ireland->Dublin": 0.00026315448111605567,
+     "France->French": 0.0011302761264127045,
+     "Germany->German": 0.0011787484866926737,
+     "Japan->Japanese": 0.0013188962985922206,
+     "Italy->Italian": 0.0014860617645576454,
+     "Spain->Spanish": 0.0008075964052305837,
+     "Russia->Russian": 0.0012292841808409854,
+     "China->Chinese": 0.0005123763954328553,
+     "England->English": 0.0012564088844665136,
+     "Greece->Greek": 0.0014853524949491406,
+     "Poland->Polish": 0.0009280059806368129,
+     "Japan->yen": 0.0034323482445534027,
+     "the United Kingdom->pound": 0.0015850890289624791,
+     "the United States->dollar": 0.00019687205930101655,
+     "China->yuan": 0.0012372908228772204,
+     "The social network founded by Mark Zuckerberg->Facebook": 0.00023112244170710918,
+     "The electric car company founded by Elon Musk->Tesla": 0.00040673238479511687,
+     "The rocket company founded by Elon Musk->SpaceX": 0.0005897894504522314,
+     "The search engine founded by Larry Page->Google": 0.0001990424204983171,
+     "The online encyclopedia that anyone can edit->Wikipedia": 0.0016259665882453172,
+     "The gaming console made by Microsoft->Xbox": 0.00024911327734846773,
+     "The web browser made by Google->Chrome": 0.00016330630917245245,
+     "The phone made by Apple->iPhone": 0.005207272988822498,
+     "The tablet made by Apple->iPad": 0.0010581502341835177,
+     "The email service made by Google->Gmail": 0.00026620201879531215,
+     "The music store made by Apple->iTunes": 0.00023865196679307413,
+     "The game console made by Sony->PlayStation": 0.00022225358490928057,
+     "Massachusetts->Boston": 0.0001918547763238002,
+     "Georgia->Atlanta": 0.00043610396223676425,
+     "Ohio->Columbus": 0.00029518910157094914,
+     "Boston->Massachusetts": 0.0009885488788575227,
+     "Atlanta->Georgia": 0.0005802974563880739,
+     "Sacramento->California": 0.0009495201176753282,
+     "Austin->Texas": 0.0011688960095499413,
+     "Columbus->Ohio": 0.000986671982019714,
+     "Denver->Colorado": 0.0012819533099650653,
+     "Little Rock->Arkansas": 0.0005927177093546506,
+     "Hartford->Connecticut": 0.0007178167861806867,
+     "Dover->Delaware": 0.0017844425188038966,
+     "Tallahassee->Florida": 0.001093934312972372,
+     "Honolulu->Hawaii": 0.03174359802611395,
+     "Boise->Idaho": 0.0011896299817164564,
+     "Indianapolis->Indiana": 0.0027748535266648917,
+     "Des Moines->Iowa": 0.0010717060614221093,
+     "Topeka->Kansas": 0.0007717267770460341,
+     "Baton Rouge->Louisiana": 0.00031580836175514846,
+     "Annapolis->Maryland": 0.001600624538357702,
+     "Lansing->Michigan": 0.0009710744991676434,
+     "Jackson->Mississippi": 0.000658589869800685
+    }
+   },
+   "blocks_inspan_cos": {
+    "within_killed": 0.38795858667854516,
+    "within_living": 0.5749405775134233,
+    "cross": 0.4618974477427041,
+    "killed_over_living": 0.6747803196574473
+   },
+   "blocks_fullspace_e240_committed": {
+    "killed": 0.023233671820371046,
+    "living": 0.010570070610084142,
+    "cross": 0.012643927588368844
+   },
+   "block_ratio_fullspace": 2.198062120626278
+  },
+  "w3": {
+   "gram_rank_at_1e-12": 80,
+   "lam_min_over_max_reported": 0.009800837504494753,
+   "pinv_floor_sensitivity_max_rel_dev_1e-9_vs_1e-12": 0.0,
+   "support_span_capture": {
+    "mean": 0.0016405314025068269,
+    "median": 0.0009050188810380722,
+    "min": 0.0001620502627147715,
+    "max": 0.0333832294213025,
+    "per_fact": {
+     "France->Paris": 0.0006027064703207192,
+     "Greece->Athens": 0.0029482581139970263,
+     "Poland->Warsaw": 0.0010710317831812022,
+     "Portugal->Lisbon": 0.0008540366367792936,
+     "Egypt->Cairo": 0.0009488654412734462,
+     "Ireland->Dublin": 0.00026763230373040537,
+     "France->French": 0.0010097312162877137,
+     "Germany->German": 0.0011293005845607266,
+     "Japan->Japanese": 0.0012290962398580907,
+     "Italy->Italian": 0.0013810445842070151,
+     "Spain->Spanish": 0.0008073629160276394,
+     "Russia->Russian": 0.0012231638281363804,
+     "China->Chinese": 0.0005630464454880221,
+     "England->English": 0.0011740785772344396,
+     "Greece->Greek": 0.0014751269473422856,
+     "Poland->Polish": 0.0008155819682895046,
+     "Japan->yen": 0.002617624302283466,
+     "the United Kingdom->pound": 0.0015055268030577643,
+     "the United States->dollar": 0.00023877074924947997,
+     "China->yuan": 0.0014406821541627247,
+     "The social network founded by Mark Zuckerberg->Facebook": 0.00020199380511541583,
+     "The electric car company founded by Elon Musk->Tesla": 0.00035803429900378,
+     "The rocket company founded by Elon Musk->SpaceX": 0.000736108023766219,
+     "The search engine founded by Larry Page->Google": 0.0002122363338793367,
+     "The online encyclopedia that anyone can edit->Wikipedia": 0.0015753498464715623,
+     "The gaming console made by Microsoft->Xbox": 0.0002626133699885452,
+     "The web browser made by Google->Chrome": 0.0001620502627147715,
+     "The phone made by Apple->iPhone": 0.0053513486724962355,
+     "The tablet made by Apple->iPad": 0.0010219759519690449,
+     "The email service made by Google->Gmail": 0.0002651442367671634,
+     "The music store made by Apple->iTunes": 0.00028037285974766746,
+     "The game console made by Sony->PlayStation": 0.00021840419817813092,
+     "Massachusetts->Boston": 0.0002021511031383568,
+     "Georgia->Atlanta": 0.00039267745808488027,
+     "Ohio->Columbus": 0.0003705142638577294,
+     "Boston->Massachusetts": 0.0010018322364338408,
+     "Atlanta->Georgia": 0.00036443447401796216,
+     "Sacramento->California": 0.0008544051442431817,
+     "Austin->Texas": 0.0011493745983821944,
+     "Columbus->Ohio": 0.0011310319362069301,
+     "Denver->Colorado": 0.0014468868700497765,
+     "Little Rock->Arkansas": 0.0005907987418983082,
+     "Hartford->Connecticut": 0.0008193298112711845,
+     "Dover->Delaware": 0.0020040611382433886,
+     "Tallahassee->Florida": 0.001125280598905824,
+     "Honolulu->Hawaii": 0.0333832294213025,
+     "Boise->Idaho": 0.0011518783729969645,
+     "Indianapolis->Indiana": 0.0030339295565977305,
+     "Des Moines->Iowa": 0.0010235560429550023,
+     "Topeka->Kansas": 0.0008611723208026983,
+     "Baton Rouge->Louisiana": 0.0005234615204681955,
+     "Annapolis->Maryland": 0.001572856150115443,
+     "Lansing->Michigan": 0.0008572278527077899,
+     "Jackson->Mississippi": 0.0007803061971235512
+    }
+   },
+   "blocks_inspan_cos": {
+    "within_killed": 0.40791811049425447,
+    "within_living": 0.5744032127485266,
+    "cross": 0.4591579873110101,
+    "killed_over_living": 0.7101598693056768
+   },
+   "blocks_fullspace_e240_committed": {
+    "killed": 0.02468662500170929,
+    "living": 0.007625017842338178,
+    "cross": 0.011642667880233775
+   },
+   "block_ratio_fullspace": 3.2375825882840483
+  }
+ },
+ "natural_gradient_gap": {
+  "split_half_exact": {
+   "w1": {
+    "natural_step_def": "n_k = F_A^{+k} g_t with F_A the first-half empirical Fisher, top-k eigen-truncation; cos(g_t, n_k) exact in the coefficient domain (see the algebra comment)",
+    "cos_g_nk_median": {
+     "1": 0.17949744510231808,
+     "2": 0.18427212074370464,
+     "5": 0.25617842726107853,
+     "10": 0.3198941454271824,
+     "20": 0.34355901829215624,
+     "40": 0.36915346558054696
+    },
+    "cos_g_nk_q1_q3": {
+     "1": [
+      0.10605954919512928,
+      0.2571551255117309
+     ],
+     "2": [
+      0.10024301963878407,
+      0.2379957116417819
+     ],
+     "5": [
+      0.19872752284807468,
+      0.313711995034221
+     ],
+     "10": [
+      0.2789839612002696,
+      0.3702693137940367
+     ],
+     "20": [
+      0.32536162640517646,
+      0.39242915678884555
+     ],
+     "40": [
+      0.338619341917194,
+      0.3988979910528952
+     ]
+    },
+    "natural_step_pc1_mass_median": 0.00011582910393304618,
+    "wind_share_median_fullspan": 0.24727708709529503,
+    "wind_share_median_top2": 0.05528856465742007,
+    "e234_committed_wind_share_median_A": 0.05528856465742009,
+    "wind_def_note": "e234's committed wind_share_median_A is the TOP-2 truncated share (its kA=2 knee); the full-40-span share is the new co-read here"
+   },
+   "w2": {
+    "natural_step_def": "n_k = F_A^{+k} g_t with F_A the first-half empirical Fisher, top-k eigen-truncation; cos(g_t, n_k) exact in the coefficient domain (see the algebra comment)",
+    "cos_g_nk_median": {
+     "1": 0.1979677621411771,
+     "2": 0.17886395111092157,
+     "5": 0.2627938812059588,
+     "10": 0.2889885813773406,
+     "20": 0.319172353444815,
+     "40": 0.34026356953161563
+    },
+    "cos_g_nk_q1_q3": {
+     "1": [
+      0.07923177455502753,
+      0.2800017081488388
+     ],
+     "2": [
+      0.06414239257039976,
+      0.27273759481603443
+     ],
+     "5": [
+      0.1780272973403421,
+      0.31267961734943767
+     ],
+     "10": [
+      0.24061303897637168,
+      0.33278509280424573
+     ],
+     "20": [
+      0.3008893873380703,
+      0.3553402049438801
+     ],
+     "40": [
+      0.3138841344451402,
+      0.3662661887276509
+     ]
+    },
+    "natural_step_pc1_mass_median": 9.246407792284727e-05,
+    "wind_share_median_fullspan": 0.22017176507998504,
+    "wind_share_median_top2": 0.057170082712768175,
+    "e234_committed_wind_share_median_A": 0.057170082712768175,
+    "wind_def_note": "e234's committed wind_share_median_A is the TOP-2 truncated share (its kA=2 knee); the full-40-span share is the new co-read here"
+   },
+   "w3": {
+    "natural_step_def": "n_k = F_A^{+k} g_t with F_A the first-half empirical Fisher, top-k eigen-truncation; cos(g_t, n_k) exact in the coefficient domain (see the algebra comment)",
+    "cos_g_nk_median": {
+     "1": 0.11511288068926738,
+     "2": 0.11826553884867697,
+     "5": 0.26095284916363726,
+     "10": 0.29656197991408095,
+     "20": 0.33967234382030664,
+     "40": 0.37040152898580014
+    },
+    "cos_g_nk_q1_q3": {
+     "1": [
+      0.05469429330170878,
+      0.243709571632943
+     ],
+     "2": [
+      0.05887456773898468,
+      0.21298972260643334
+     ],
+     "5": [
+      0.21995220860119397,
+      0.34940824996740744
+     ],
+     "10": [
+      0.25639502757719157,
+      0.35993720890155134
+     ],
+     "20": [
+      0.302684731719535,
+      0.3895028520299781
+     ],
+     "40": [
+      0.33342110944399844,
+      0.3981686670249408
+     ]
+    },
+    "natural_step_pc1_mass_median": 8.488781461398287e-05,
+    "wind_share_median_fullspan": 0.2438390636584737,
+    "wind_share_median_top2": 0.021459122327842372,
+    "e234_committed_wind_share_median_A": 0.021459122287842882,
+    "wind_def_note": "e234's committed wind_share_median_A is the TOP-2 truncated share (its kA=2 knee); the full-40-span share is the new co-read here"
+   }
+  },
+  "adam_window_reads": {
+   "w1": {
+    "window_def": "54-support window: cos profiles <x, s_i>; the full-space angle(d_t, n_t) is NOT computable from committed records (no per-coordinate v); these are window reads, labeled as such",
+    "cos_d_g_window": {
+     "median": 0.1411056094785832,
+     "mean": 0.1116384417758121,
+     "q1_q3": [
+      -0.12401237587265167,
+      0.3403734712759486
+     ]
+    },
+    "cos_d_top1_window": {
+     "median": -0.1770601772352811,
+     "mean": -0.1373996403507661
+    },
+    "cos_g_top1_window": {
+     "median": -0.36668915694619875,
+     "mean": -0.08368668975915114
+    },
+    "prof1_norm": 0.034561605382767806,
+    "prof2_norm": 0.03454782550001648,
+    "cos_g_vs_dmat_dev_max": 2.183651964840494e-05
+   },
+   "w2": {
+    "window_def": "54-support window: cos profiles <x, s_i>; the full-space angle(d_t, n_t) is NOT computable from committed records (no per-coordinate v); these are window reads, labeled as such",
+    "cos_d_g_window": {
+     "median": 0.1546967569241714,
+     "mean": 0.16449997313363007,
+     "q1_q3": [
+      -0.12356075606915112,
+      0.43640593367339087
+     ]
+    },
+    "cos_d_top1_window": {
+     "median": -0.155299374532313,
+     "mean": -0.1517484438409018
+    },
+    "cos_g_top1_window": {
+     "median": -0.24054761030422153,
+     "mean": -0.071892179687045
+    },
+    "prof1_norm": 0.025211350795101003,
+    "prof2_norm": 0.02620205343974769,
+    "cos_g_vs_dmat_dev_max": 1.4944239027023243e-05
+   },
+   "w3": {
+    "window_def": "54-support window: cos profiles <x, s_i>; the full-space angle(d_t, n_t) is NOT computable from committed records (no per-coordinate v); these are window reads, labeled as such",
+    "cos_d_g_window": {
+     "median": 0.2707544920617282,
+     "mean": 0.21334532515357782,
+     "q1_q3": [
+      0.021880346711123544,
+      0.4464363339585278
+     ]
+    },
+    "cos_d_top1_window": {
+     "median": -0.21091405606403685,
+     "mean": -0.1301210405470991
+    },
+    "cos_g_top1_window": {
+     "median": -0.0814680318426689,
+     "mean": -0.020827527952606662
+    },
+    "prof1_norm": 0.02647949698549035,
+    "prof2_norm": 0.0524818825507512,
+    "cos_g_vs_dmat_dev_max": 2.9323922127677537e-05
+   }
+  },
+  "e254_v_mass_context": {
+   "what": "Adam's own denominator v = E[g^2] (the diag Fisher): committed squared-L2 span-mass fractions on the top-k first-half basis (e254, certified vs random nulls)",
+   "tables": {
+    "w1_s2_k1": 0.4686827975707958,
+    "w1_s2_k2": 0.8510109407381299,
+    "w1_s2_k5": 0.852981613464904,
+    "w1_s2_k10": 0.8608132415390718,
+    "w1_s2_k20": 0.8636757250899304,
+    "w1_s10_k1": 0.32978866339763935,
+    "w1_s10_k2": 0.7466252265743603,
+    "w1_s10_k5": 0.7986229046029919,
+    "w1_s10_k10": 0.8075957348132325,
+    "w1_s10_k20": 0.8106123747449314,
+    "w1_s50_k1": 0.2416389118497641,
+    "w1_s50_k2": 0.5937418724730135,
+    "w1_s50_k5": 0.6866856174788234,
+    "w1_s50_k10": 0.6938680892804039,
+    "w1_s50_k20": 0.7104227898559443,
+    "w1_s80_k1": 0.1578464600479827,
+    "w1_s80_k2": 0.423267216675818,
+    "w1_s80_k5": 0.6064862825022461,
+    "w1_s80_k10": 0.6125397093402178,
+    "w1_s80_k20": 0.6437379454231856,
+    "w2_s10_k1": 0.32044941834656687,
+    "w2_s10_k2": 0.7143820279711888,
+    "w2_s10_k5": 0.7904501643010624,
+    "w2_s10_k10": 0.7988322540204045,
+    "w2_s10_k20": 0.8097868506495615,
+    "w2_s50_k1": 0.24522659894001628,
+    "w2_s50_k2": 0.6018917299241676,
+    "w2_s50_k5": 0.6923674244842355,
+    "w2_s50_k10": 0.7001346096159428,
+    "w2_s50_k20": 0.7097893519900326,
+    "w2_s80_k1": 0.24741208242570056,
+    "w2_s80_k2": 0.5842507033637399,
+    "w2_s80_k5": 0.6476524226090064,
+    "w2_s80_k10": 0.6680276782637024,
+    "w2_s80_k20": 0.6814090999867197,
+    "w3_s10_k1": 0.3612312157282666,
+    "w3_s10_k2": 0.6806782534826363,
+    "w3_s10_k5": 0.8001934391443123,
+    "w3_s10_k10": 0.8047952572554102,
+    "w3_s10_k20": 0.8125034920728181,
+    "w3_s50_k1": 0.15457550878888418,
+    "w3_s50_k2": 0.35301061249813,
+    "w3_s50_k5": 0.5766183105852232,
+    "w3_s50_k10": 0.5847127179002918,
+    "w3_s50_k20": 0.5945622618620522,
+    "w3_s80_k1": 0.07003821227394276,
+    "w3_s80_k2": 0.1888269919816083,
+    "w3_s80_k5": 0.582664869089404,
+    "w3_s80_k10": 0.5851681503610439,
+    "w3_s80_k20": 0.5944820337178262
+   },
+   "range_k2_all_states_washes": [
+    0.1888269919816083,
+    0.8510109407381299
+   ]
+  },
+  "honesty": "the diagonal captures the span's SCALE (v-mass 42-85% at k=2, e254) but the window reads show the applied direction's alignment with the top eigenvector vs the gradient's own \u2014 the directionality gap is the number above; full-space angle not recoverable from committed records"
+ },
+ "adjudication": {
+  "verdict": "CLIFF-IS-SEPARATE",
+  "bars_verbatim": {
+   "CLIFF-IS-THE-KNEEL": "the Fisher spectrum's knee (largest log-eigengap) lands inside the expression threshold's bracket [1k, 237k] (or within a factor 3 of its edges at both scales measured) \u2014 THE MEMORY CAPACITY LAW AND THE OPTIMIZATION GEOMETRY ARE ONE OBJECT: the network stores what the Fisher cannot normalize away",
+   "CLIFF-IS-SEPARATE": "the knee sits far from the bracket (> 3x either edge) \u2014 the capacity cliff and the Fisher's decay are distinct objects; the honest map",
+   "MIXED": "the spectra verbatim (both scales), no inflation"
+  },
+  "logic": {
+   "knees_in_band": {
+    "2.74M": false,
+    "124M_w1": false,
+    "124M_w2": false,
+    "124M_w3": false
+   },
+   "any_knee_window_capped": false,
+   "rule": "KNEEL iff all in band; SEPARATE iff none in band and no knee at its window cap; MIXED otherwise",
+   "texture_disclosed": "deep-threshold eranks are window-capped lower bounds: the bracket CANNOT be excluded as the Fisher tail's scale \u2014 the join adjudicates the KNEE (the head's decay), not the tail; this is the measurement limit, not a verdict input"
+  },
+  "the_numbers": {
+   "knee_2_74M": 2,
+   "knee_124M": {
+    "w1": 1,
+    "w2": 1,
+    "w3": 1
+   },
+   "bracket": [
+    1000,
+    237123
+   ],
+   "knee_below_bracket_lo_by": {
+    "2.74M_x": 500.0,
+    "124M_w1_x": 1000.0
+   },
+   "eranks": {
+    "2.74M_e231J1": {
+     "0.01": 14,
+     "0.001": 19,
+     "1e-06": 20,
+     "1e-10": 20
+    },
+    "124M_w1": {
+     "0.01": 76,
+     "0.001": 80,
+     "1e-06": 80,
+     "1e-10": 80
+    },
+    "124M_w2": {
+     "0.01": 76,
+     "0.001": 80,
+     "1e-06": 80,
+     "1e-10": 80
+    },
+    "124M_w3": {
+     "0.01": 77,
+     "0.001": 80,
+     "1e-06": 80,
+     "1e-10": 80
+    },
+    "2.74M_g1c_late_e246": {
+     "0.01": 8,
+     "0.001": 10,
+     "1e-06": 10,
+     "1e-10": 10
+    }
+   }
+  }
+ },
+ "honesty_reflex": {
+  "previsible_head": "the head of these spectra was already committed (e234's half-split metaA spectra; e231's knee k=6): this cell's new content is the FULL-80 decomposition, the both-scale join formalization, the NTK blocks, and the natural-gap reads \u2014 not the top-of-spectrum shape",
+  "spectrum_estimate": "80 samples give at most 80 nonzero eigenvalues of a 124,439,808-dim operator (the rest of the SAMPLE sum is exactly zero); 20 steps bound the 2.74M side the same way. This census measures the TOP of the empirical Fisher's spectrum and its decay shape within the window \u2014 NOT the tail's extent. Deep-threshold eranks that hit the window cap are lower bounds.",
+  "logits_predict": "the join is a geometry-vs-capacity identity check, not a behavioral prediction; the intervention links live elsewhere and stand: e237 (cutting the aligned component flips fates), e254 (the span carries 42-85% of v at k=2), e261 (the rank installs)",
+  "no_inflation": "deep eranks reported as window caps (lower bounds); the tail's extent is unmeasured and the bracket is NOT excluded as the tail's scale \u2014 stated in the verdict texture, not adjudicated"
+ },
+ "plot_outputs": [
+  "runs/e265/e265_spectrum.png",
+  "runs/e265/e265_cliff_join.png",
+  "runs/e265/e265_ntk_blocks.png"
+ ],
+ "builds_on": [
+  "T240 (the connection map: this cell's registration)",
+  "T239/e261 (the expression cliff bracket [1k, 237k] \u2014 the join's other side)",
+  "e234's committed journal (the 80x80 wash Grams + dmat + traj \u2014 the primary record)",
+  "e231 J1 + e246 (the 2.74M side's committed gradient-history spectra)",
+  "e240 (the applied-direction records + the fates definition + the full-space overlaps)",
+  "e254 (the v-mass span certification \u2014 the diagonal-Fisher context)",
+  "e226/e228 (the supports = the Jacobian columns; the margins)"
+ ],
+ "whats_new": [
+  "the FIRST full nonzero-spectrum measurement of the empirical Fisher in this organism lineage (the 80x80 wash Grams eigen-decomposed; decay, eranks, PR, knee, cross-wash eigenspace alignment)",
+  "the knee-vs-cliff join at BOTH scales against e261's bracket \u2014 the capacity-vs-optimization-geometry identity question answered on its frozen bars",
+  "the NTK block structure formalized from the committed dmat (the 54x54 cross-probe kernel through the gradient basis; killed/living asymmetry vs e240's full-space numbers)",
+  "the natural-gradient gap co-report: exact split-half natural steps in the coefficient domain + Adam's applied direction read through the support window against the exact top-eigenvector profiles"
+ ],
+ "all_gates_pass": true
+}
