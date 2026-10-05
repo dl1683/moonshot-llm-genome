@@ -7,6 +7,100 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T257 — X10 + the R66 critic's bill: the fill law measured at the floor, the antiphase DOWNGRADED, and P-271b re-baselined (2026-10-05 ~23:50Z)
+
+**X10 FILLS-ANYWAY (P-x10a confirmed; the card the numbers live in is
+the NOTES entry).** The fill 0.733-0.735 across ALL five rungs — the
+dead 1k write fills exactly like the natural-width write, dose and
+room-redraw invariance on top. The critic's wound #3 (T255's sentence
+2 generalized a two-point law) is CLOSED BY THIS LANDING: the fill law
+is now measured at the threshold room and below the edge; the
+conjunction's sentence 2 stands on five points, not two. The Anderson
+wild-card died its registered adjudication; agy's conditioning account
+wins its second test.
+
+**THE ANTIPHASE DOWNGRADE (the critic's front-runner, applied NOW,
+before e273's harvest):** the antiphase is henceforth a CANDIDATE
+CONSTRAINT (point estimates, n=5, a shared baseline point, no null
+distribution; best individual p ~ 0.18; the 4/4-negative-signs bundle
+p ~ 0.125). "Shared-v relaxation" is a LEADING HYPOTHESIS, not a
+leading mechanism — T252/T253/W042's language is amended accordingly;
+the day-eleven report's "one leading mechanism" softens to "one
+favorite hypothesis." THE ASYMMETRY THE CRITIC NAMED IS NOW THE RULE:
+e273's P-273a "kills the antiphase" reading is licensed ONLY IF the
+milestone-dense, null-clean re-read (folded into the instrumented
+re-run's payload: s25/s50 milestones + a phase-randomization null)
+first confirms the datum is not noise. A mechanism confirmed on an
+artifact would be worse than the artifact.
+
+**P-271b RE-BASELINED (the critic's registration catch — my error,
+owned):** P-271b registered "the 2k rung (dead at every measured
+condition)" — but 2k had NEVER been measured at registration; e272
+now shows 2k serial-ALIVE at 0.0266. The scoring frame is re-baselined
+BEFORE e275 computes: the 2k-under-K4 arm is adjudicated as a SURVIVAL
+RATIO against its own serial 0.0266 (>= 0.5x = the threshold moved
+with turbulence; < 0.5x = fixed), never as alive-vs-dead.
+
+**THE NEW DATUM the relocation created (the critic's 5c, now on the
+record):** serial expression unblocks at (1k,2k]; concurrent FORMATION
+unblocks somewhere in (10k,237k] — THE SERIAL/CONCURRENT THRESHOLD GAP
+IS >= 5x. W040's "two thresholds on one axis" story has its number:
+the flow's tax on formation is a factor >= 5 in width.
+
+**Also owed (queue riders, named):** the firing-pair replicate (one
+fresh 1k + one fresh 2k room, ~20 GPU min — the edge's cushion is ~6x
+on n=1 rooms, lottery priced only at 10k); the 0.5x-compensated arm
+(lr x1.865, ~10 min — closes the dose sweet-spot world); T251's
+cross-organism proxy STAMPED on its carriers; the K5K alive-write
+out-of-band landing (root 0.6112 — supports the landing-read
+dissociation, first flagged by the critic); the dispatch letters
+archived + agy's verbatim replies committed (the attribution gap).
+
+## T256 — the R66 ideator layer, pre-registered where it is time-critical (2026-10-05 ~23:35Z — registered BEFORE e273/x10/e278 can be read)
+
+**P-C2 (registered, e273 mid-flight; the read addition sent to the
+executor with this card's timestamp):** under SHARED-v ownership, the
+separate-AdamW arm moves THREE reads together — the antiphase vanishes
+(|Pearson| < 0.2), the flash's PEAK AMPLITUDE falls toward the
+volume-null, and the ENDPOINT rises toward serial. Trajectory-
+ownership moves none. The three-move signature is the v-account's
+fingerprint; any partial pattern is MIXED with the reads verbatim.
+
+**P-C-x (registered, before e278 computes):** the ISOTOPE arm KILLS
+TOO (the max-entropy corpus still feeds the shared denominator) iff
+the shared-v account owns the kill; any semantic-alignment account
+predicts the isotope spares. e278 thus promotes from semantics probe
+to MECHANISM DISCRIMINATOR.
+
+**P-x11a (registered, before x11 computes — the consolidation
+ledger):** RATIO-CLIFF — the consolidation ratio (final in-room write
+mass / cumulative applied in-room displacement, per committed rung)
+jumps >= 3x at the (1k,2k] edge. If FLAT, the edge is absolute-scale
+and the dose acquittal becomes the puzzle; if INVERTED, the threshold
+is pure decay-side.
+
+**P-x12a (registered, before the runaway discriminator computes):**
+the bi-exponential re-fit LOSES to beta > 1 (AICc) on the fact
+battery AND per-step damage anti-correlates with remaining strength —
+H-DRAIN-RUNAWAY (the predatory kill). If the bi-exp wins, W043's
+acceleration was superposition and the laws draft keeps its plain
+friction sentence.
+
+**The e280 RUNG-SET REPAIR (the ideator's catch, applied to the
+queue before dispatch):** e280 inherits e272's factor-2 resolution
+{1k, 2k, 5k, 10k, ...} — NOT the old 10x spacing. On the old ladder a
+2-5x threshold move is invisible between rungs; that invisibility is
+literally the artifact e272 just caught in the day-ten headline. The
+2k/5k rooms are already committed (e272's rooms file).
+
+**And the one-sentence synthesis the ideator earned:** the capacity
+number is TWO numbers wearing one — a formation edge at ~1-2k of
+ROOM and a retrieval floor at <= ~730 dims of WRITE — both
+denominated in the gap, policed by one channel with two clocks
+(shared v: instantaneous for the antiphase, cumulative for the
+decay). The dimensional biography (W044) gains its fourth number:
+what the CONS can re-teach from.
+
 ## W044 — the dimensional biography of a fact: 7 / ~1-2k / 73%-of-anything (2026-10-05 ~23:22Z, savoring the triangle the relocation completed)
 
 One fact, three dimensional numbers, three different verbs:

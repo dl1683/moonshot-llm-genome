@@ -65,7 +65,10 @@ epitaph's foundation is genuinely open again, one ladder away.
 
 ## The horse race, as of this frame
 
-- SHARED-v RELAXATION (the favorite, consult #006's clean story): the driver's
+- SHARED-v RELAXATION (the favorite HYPOTHESIS, consult #006's clean story —
+  DOWNGRADED from "leading mechanism" by the R66 critic: the antiphase datum it
+  rests on is n=5 point estimates with no null, best p ~ 0.18; licensed only
+  after the milestone-dense null-clean re-read): the driver's
   dip relaxes the shared denominator; the fact's constant gradient steps larger —
   antiphase, rank-growing peak, dose-linear decay, and (at low rank) total
   formation block, all from one object.

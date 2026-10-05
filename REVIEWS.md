@@ -91,6 +91,75 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R66 — the night sweep reviewed staggered: the auditor clean, the critic's new front-runner named (the antiphase pipeline), the ideator's synthesis (two numbers wearing one), and the repairs applied same-session (2026-10-05/06, folded ~23:55Z)
+
+Trigger: the clock restarted from the x-dispatches; run staggered
+(auditor over the x-sweep first, critic + ideator after e272's fold).
+
+**AUDITOR — SOUND-WITH-REPAIRS.** All four x-cell verdicts route
+through birth-frozen bars; every adjudicative number recomputes
+exactly; prediction scorings git-verified honest (registered lines
+never edited); deletion sweep clean. One numeric repair (the x8
+race-overshoot sequence mixed two definitions — corrected at both
+mutable sites under one definition, 08f5a5b) + two disclosure
+placement notes (x6's benign post-birth diff, x9's commit-only
+disclosure).
+
+**CRITIC — the relocated edge SURVIVES (~6x cushion over the 10x bar
+on both sides; the acquittal SURVIVES on two committed numbers: no
+instability signature — K1KM ends at its maximum region — and the
+cross-arm non-monotonicity — K2K expressed 21x more on HALF the
+displacement); x9's beta>1 SURVIVES CI-supported (fact CIs
+[1.137,2.894]/[1.148,2.357], the only battery excluding 1). THE NEW
+FRONT-RUNNER FOR EMBARRASSMENT: THE ANTIPHASE-TO-MECHANISM PIPELINE —
+"shared-v relaxation" accreted to a drafted unification on an n=5
+Pearson (shared baseline, no null, best p~0.18), the exact accretion
+pattern R65 unwound on the capacity number; a mechanism confirmed on
+an artifact would be worse than the artifact. Also caught: P-271b was
+misregistered (2k "dead at every measured condition" — 2k had never
+been measured; e272 shows it serial-alive 0.0266); e280's rungs would
+have re-committed the spacing artifact; T255's sentence 2 generalized
+a two-point law (closed by x10's landing, same session); the
+cross-organism proxy silently dropped by carriers; the K5K alive
+write's out-of-band landing (unflagged until now).**
+
+**IDEATOR — the confluence layer:** A1 the ~730-dim floor is a
+FORWARD-PATH threshold (the K1KM rehearsal landing is a below-edge
+RETRIEVAL — the capacity number is TWO numbers wearing one: a
+formation edge ~1-2k of ROOM, a retrieval floor <= ~730 dims of
+WRITE); A2 one channel two clocks (the antiphase instantaneous, the
+decay cumulative — both on v; P-C2 registered: three reads move
+together under separate-AdamW iff v owns the kill); A3 the cons and
+the wash are MIRROR OPERATIONS on the gap (the runaway, if real, is
+interruptible by a cons pulse); A4 the rung-set repair (applied
+BEFORE dispatch); A5 the rehearsal lane's evidential fork (e281, the
+dose-response rig, minted). C1 x11 the consolidation ledger
+(P-x11a: RATIO-CLIFF >= 3x at the edge); the Anderson-localization
+wild-card — DIED its registered adjudication against x10 (the dead
+rung fills identically, not less).
+
+**REPAIRS APPLIED THIS SESSION (all three roles):** the x8 sequence
+(08f5a5b); the antiphase DOWNGRADED to candidate constraint at T252's
+carriers + the day-eleven report + the P-273a licensing rule (the
+milestone-dense null-clean re-read gates the mechanism program —
+folded into the instrumented re-run's payload); P-271b re-baselined
+(a survival ratio vs 2k's own serial 0.0266); e280's rung set
+repaired to factor-2 {1k,2k,5k,10k,...} with the end-to-end
+displacement ledger as the match diagnostic; e281 minted (merges
+e274+e276); P-C2/P-C-x registered before their cells; x10's landing
+closed the critic's fill-law wound; T255 stamped. OWED (riders,
+queued): the firing-pair replicate (2 arms, ~20 min); the
+0.5x-compensated arm (~10 min, P registered: dead — dose acquitted
+at three lr points); the cross-organism stamp on T251's carriers; the
+dispatch-letter archive (scratch/dispatches/); agy's verbatim replies
+committed.
+
+**Stamps:** last_review = R66; novelty = the ideator's confluence
+layer (the two-numbers synthesis). The serial/concurrent threshold
+gap (>=5x) enters the record as the relocation's newest datum.
+
+---
+
 ## R65 — day ten audited whole: every number exact, the discipline held, and the honest bill is three cells, one figure struck, and a queue re-sync (2026-10-05, folded ~21:00Z)
 
 Trigger: review 25.5 h overdue (R64 folded 2026-10-04T19:02Z; day-ten ran

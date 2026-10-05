@@ -40,6 +40,18 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## x10 — the dead rung's fill (P-x10a on trial): FILLS-ANYWAY — P-x10a CONFIRMED, and the fill law graduates to a LAW IN FULL: the fill fraction is 0.7330 / 0.7350 / 0.7352 / 0.7342 / 0.7350 across 1k(DEAD)/2k/5k/10k/237k — FOUR ORDERS OF MAGNITUDE of room width, ONE occupancy style; not just the 99% point: the whole normalized in-room spectrum collapses (m50/k 0.119-0.124, m90/k 0.431-0.445 at every rung — the spectra are one curve); INVARIANTS: dose (K1KM's 3.7x-compensated dead arm fills 0.7270), room redraw (K10KR 0.7330), expression fate (the dead rung = the natural width = 0.735); CAPACITY IS A THRESHOLD ON USABLE DoF (~730 dims cannot assemble the logits; 1,466 partially; 3,676 more) — occupancy style and expression fate are FULLY DECOUPLED; the R66 ideator's Anderson-localization wild-card DIED its registered adjudication (it predicted the dead rung fills substantially less; it fills identically); G_X6REPRO bit-exact before any new rung was believed; the DEAD-DIFFERENTLY top-50 clause honestly traced to the trivial 50/1000-vs-50/10000 room-size consequence (checkpoints: e261_K1K + e272's four inst_resumes — no committed md5 anywhere, bound by fresh md5 + content match ~1e-12, disclosed) (2026-10-05 ~23:40Z) — DONE
+
+WHAT WE SAW: whatever the optimizer is doing in the room, it does it
+the SAME WAY at every width — the write's shape-in-the-room is a fixed
+statistical object (a universal occupancy profile) and the expression
+edge is purely HOW MUCH of it there is. The dimensional biography
+(W044) hardens: ~7 to read, ~1-2k dims of ROOM to form, 73.5% of
+ANYTHING to store — and now the storage number is width-, dose-,
+seed-, and fate-invariant. The Batchelor reading and the localization
+import both lose their edge-accounts; the conditioning account
+(agy's) wins its second test (P-x10a was its prediction).
+
 ## x9 — the rate-fits instrument (T238's mispricing resolver): MIXED (both clauses fire: L_ratio 2.969 > 2 AND max |delta beta_bar| 0.231 >= 0.15) — but the mispricing resolves cleanly: NEAR's "hot" one-T reading is HONEST RATE (lambda_eff 0.0422 = 5-7x ctrl/fact's 0.0059/0.0076 at beta ~1, PURE EXPONENTIAL — EXP's induced T(t) reproduces near's committed ladder to RMSE 0.011) while TMPL — the hottest battery by one-T — is a SHAPE ARTIFACT of the lens (rate only 1.2-1.6x, CI-overlapping; one-T's own L0-anchored family wins tmpl/w2 outright AICc 69.55 vs 71.31); SO THE T-LADDER IS TO FIRST ORDER A RATE LADDER (Spearman T-vs-lambda_eff 0.8 vs 0.4 for beta); the MIXED beta leg lives on FACT (beta_bar 1.31, steepening on the cold side); x7's gap channel UNIFORM across batteries (0.95-1.15 — gap-dominated everywhere); T238's two worries resolved: "the lens undercounts near" DEAD (the rate premium maps 1:1 onto the T premium — T236's public death confirmed in rate currency), "tmpl inflated by battery structure" CONFIRMED and localized to the one-T family's own shape (a second-order mispricing <= 0.062 T); EXP wins 7 of 8 fits (stretched/power never earn their parameter) (2026-10-05 ~22:20Z) — DONE
 
 WHAT WE SAW: the thermal metaphor cashes out. The batteries' one-T
