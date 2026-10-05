@@ -34,6 +34,31 @@ read — the composition's sharper predictor).
 
 ---
 
+## e266 — the install-side Fisher census (the Jacobian lane's second chance at the LOCATED cliff): WASH-LIKE — no committed read on either distribution kneels at the cliff's ~10k; THE INVENTORY: no teach-stream Gram exists anywhere (the installs' gradients survive only as per-step scalars); THE FULL-RESOLUTION LAYER added: the wash diagonal's k50 = 73,481 (the closest approach — 7.3x above 10k, outside the factor-3 band; cum@10k 0.263 = 72x linear: head-heavy but bulk-flat) and the natural teach write's k50 = 237,123 EXACT (the successful write occupies the OLD bracket's top, not the located cliff; erank(0.01) 1.87M); the teach gradient isotropic vs random rooms at every rung (0.84-1.00; an alignment test, not a rank test — disclosed); the resolvable couplings all live at rank 10-80 (teach-grads -> corpus-span 1906x mass excess; the install-final write only 7.2x — alignment TRANSIENT, not cumulative); the cliff's carrier: the teach stream's INSTANTANEOUS Fisher (never cached — the next cell's ask: a 20-step teach-Gram at the g1c root) or non-spectral (2026-10-05 ~18:00Z) — DONE
+
+WHAT WE DID: the frozen census over every committed record (8
+metrics/journals + 10 checkpoints, 18 md5s; e265's
+spectrum_stats module-imported); the full-resolution layer
+(the v-map's diagonal; the natural write's k50 reproduced as a
+gate); the teach ledgers; the conditioning profile. All 8
+gates PASS. Script lab/e266_install_fisher.py; runs/e266/
+{metrics.json, 3 PNGs}.
+
+WHAT WE SAW (T243): THE SECOND CHANCE DOES NOT LAND at any
+resolvable scale — both distributions' tops flat, the diagonal
+7.3x above, the natural write 23x above. THE HONEST INVENTORY
+(the cell's quiet yield): the teach stream's gradients were
+never cached as a Gram — the cliff's most-carrier-like object
+does not exist in the record. THE TRANSIENT/ACCUMULATED
+DISSOCIATION: the teach gradient couples to the corpus span at
+1906x per-step, but the FINAL write only 7.2x — the
+per-step Fisher is NOT the write's geometry. REGISTERED (the
+decisive next cell): the 20-step teach-Gram at the g1c root
+(the install machinery already computes the gradients — a
+cache, not a new instrument).
+
+---
+
 ## e264 — the middle rungs (the full rank ladder): SHARP-THRESHOLD — the expression curve is step-like (post g0 jumps 609x between k=1,000 and k=10,000; the expression floor first crossed AT k=10,000) AND the landing curve enters the band at a locatable rung (first in-band k=10,000; the bracket [1k, 10k]) — THE ANTI-SUBSTRATE'S FINAL FORM: A DIMENSIONAL THRESHOLD AT k ~ 10,000 of 2,738,880 parameters (~0.37% of the space) — new memories need a room of at least ~10k dimensions to express at all; below it, no write sticks (rank-1k as dead as rank-10); above it, expression is cheap and landing smooth; the cons-seed replicate at 237k read |d| 0.0137 (the anchor scatter priced, within the session band) (2026-10-05 ~17:40Z) — DONE
 
 WHAT WE DID: the full 5-rung ladder (FREE + 1k/10k/40k/100k/237k,

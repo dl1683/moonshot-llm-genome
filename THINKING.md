@@ -685,6 +685,36 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T243 — e266: the second chance misses — the carrier is the never-cached instantaneous Fisher (2026-10-05 ~18:02Z)
+
+The install-side census returns WASH-LIKE, and the miss is
+well-localized. NO committed object — wash Grams (knees <= 2),
+the v-diagonal (k50 73k, 7.3x above), the natural write
+(k50 237k, 23x above), the room ledgers (isotropic) — puts
+ANY structure at the cliff's 10k. THE QUIET YIELD: the
+inventory found that THE TEACH STREAM'S GRADIENTS WERE NEVER
+CACHED — the one distribution the cliff was actually measured
+on has no Gram anywhere in the record; every "install-side"
+read was an alignment scalar. THE TRANSIENT/ACCUMULATED
+DISSOCIATION (the cell's real finding): the teach gradient
+couples to the corpus span at 1906x per-step, but the
+install's FINAL write carries only 7.2x in that span — THE
+PER-STEP FISHER IS NOT THE WRITE'S GEOMETRY; whatever
+accumulates into a fact is not the average of the steps'
+Fishers. THE DECISIVE NEXT CELL (registered, cheap): a 20-step
+teach-Gram at the g1c root (the install machinery already
+computes the gradients — a cache-compute, not a new
+instrument); if THAT spectrum kneels at ~10k, the unification
+lands on the right object; if flat too, the cliff's carrier
+is NON-SPECTRAL — the room-optimizer interface (perhaps the
+interference between the room's random directions and the
+corpus stream's trajectory, a dynamical object no eigen-
+structure sees). THE JACOBIAN LANE'S HONEST SCORECARD: the
+supports (columns), the diag Fisher, the top eigenspace, the
+NTK blocks, the natural step — all measured; the cliff's
+carrier — still open, now with the exact missing measurement
+named.
+
 ## T242 — e264: the capacity number — ~10k dimensions, 0.37% of the space (2026-10-05 ~17:42Z)
 
 The ladder completes and the anti-substrate's arc closes on a
