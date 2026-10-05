@@ -163,3 +163,47 @@ standing seat — each death handing back a sharper instrument: the gap-ledger,
 the cool-and-see probe, the trajectory seat. The lab's law held one more level:
 **the findings split into shape and height; so do the findings about the
 findings.**
+
+
+---
+
+## THE NIGHT SECTION (appended ~04:30Z Oct-5 — the overnight session's six verdicts)
+
+The evening's record ended at the three decouplings. The night added six cells that
+narrowed the field's biggest objects one by one:
+
+**The carrier narrowed to the span** (e257): the thermal coupling's carrier is the span
+basis specifically, not v-load generally — with the bonus that the dying anchor's
+own-direction v-load (z +20) is the stable standing seat its span residency never was.
+
+**The pilot replicate split the field into physics and biography** (e248, sub-gate,
+INSTRUMENT-DEAD at the gates per its honest vocabulary): on a fresh organism the
+dissipative layer replicated cleanly (the thermal fit; the zombies — decisions outlive
+beliefs on a second organism) while the selective layer proved organism-specific (no
+dying-direction split, no exposure asymmetry, the span identity 0.26). The death ORDERS
+churn; the MODES persist. And the two-arc U-turn record extended the recipe-overtraining
+law to a third scale (0.87M-mint / 10M / 116M).
+
+**The load was acquitted** (e258): at a 2500x measured v-load contrast, span-balanced by
+construction, both arms expressed and landed — Adam's denominator load does not gate
+writability, and the natural write's preference for the hot room (~29x) was about the
+space, never the heat.
+
+**The lens was demoted to a death-meter** (x5 + e259): every battery its own T(t)
+(ctrl < fact < near < tmpl, wash-replicating — the ladder mirroring erosion hardness);
+and rho(decline, R2) = +1.00 across batteries — the lens fits hardest exactly where the
+dying is hardest because dying hard IS flattening. The nearrel family — least load,
+furthest from the span, best thermal fit — dies the most PUBLIC death: no private armor,
+the generic channel takes it, and its structural face is the commitment layer's local
+slide (the standing runner-up wins forever under any scalar).
+
+**The barrier thinned to rank** (e260): e246's "the corpus's directions cannot write
+facts" is a RANK-10 artifact — the span padded to the essential-support rank (8.66% of
+parameters) expresses fully, and a random room of the same rank lands within 0.2%. The
+anti-substrate's final overnight form: new memories need ROOM — enough dimensions, not
+any particular room; the occupancy question survives only on the wash/retention side.
+
+The field's overnight ledger, one sentence: **the organism's memory bookkeeping split
+into load (acquitted), span (the carrier), and rank (the barrier); the deaths split into
+public (the unarmored) and private (the loaded); and the only things that replicated on
+a fresh organism were the flattening and the zombies.**
