@@ -70,7 +70,11 @@ s100..s400 in p-space.
   0.030 -> 0.104; Spearman 1.0, n=4 disclosed) — the race's quasi-static
   retention level tracks the survival-ratio ladder's direction
   (1.5e-4 -> 9.4e-3 -> 2.5e-2 -> 9.1e-2), overshooting the measured endpoint
-  ratio 9x / 2.7x / 1.2x / 1.1x — converging as rank grows. The race
+  ratio [R66 REPAIR 2026-10-05: the originally-quoted "9x / 2.7x / 1.2x / 1.1x"
+  mixed two definitions; under ONE definition (quasi-static (alpha/beta)/measured):
+  10.1x / 2.74x / 1.21x / 1.14x — monotone-converging; under the fitted-end
+  definition: 8.95x / 2.74x / 1.11x / 1.34x — NOT monotone at the last pair;
+  the convergence claim holds only under the first]. The race
   "understands" the ladder's direction but not its magnitude at low rank.
 - **Driver-following is not the ceiling problem**: the race fitted to the
   serial curve with itself as driver reaches R2 = 0.9999 (fast-tracking
