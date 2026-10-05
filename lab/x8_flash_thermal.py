@@ -600,9 +600,9 @@ def main():
     trends["spearman_T_vs_k"] = _spearman(ks, trends["T_full"])
     trends["spearman_beta_vs_k"] = _spearman(ks, trends["beta"])
     trends["spearman_aob_vs_k"] = _spearman(ks, trends["alpha_over_beta"])
-    trends["disclosure"] = "n=4 rungs; Spearman on 4 points is a "
-                           "direction-only read (p undefined at this n); "
-                           "reported as trend texture, never adjudicating"
+    trends["disclosure"] = ("n=4 rungs; Spearman on 4 points is a "
+                            "direction-only read (p undefined at this n); "
+                            "reported as trend texture, never adjudicating")
     metrics["rank_trends"] = trends
     metrics["status"] = "PARTIAL — bootstrap"
     write_metrics(metrics)
@@ -758,24 +758,43 @@ def main():
             rationale = "neither bar's clauses fired; no spanning evidence"
 
     # grid prescription (quantitative, for whichever verdict)
-    mults = [boot["per_rung"][r]["S1_lens_residual_rms"]["milestone_multiplier_for_halfbar"]
-             for r in RUNG_ORDER]
-    mults_r2 = [boot["per_rung"][r]["S1_lens_residual_rms"]["milestone_multiplier_for_R2width_0.1"]
-                for r in RUNG_ORDER]
-    mult_max = max((m for m in mults if math.isfinite(m)), default=float("nan"))
-    mult_r2_max = max((m for m in mults_r2 if math.isfinite(m)), default=float("nan"))
+    def _mx(rung, sname, field):
+        v = boot["per_rung"][rung][sname][field]
+        return v if (v is not None and math.isfinite(v)) else float("nan")
+    s1_half = [_mx(r, "S1_lens_residual_rms",
+                   "milestone_multiplier_for_halfbar") for r in RUNG_ORDER]
+    s1_r2w = [_mx(r, "S1_lens_residual_rms",
+                  "milestone_multiplier_for_R2width_0.1") for r in RUNG_ORDER]
+    s2_half = [_mx(r, "S2_driver_wobble_rms",
+                   "milestone_multiplier_for_halfbar") for r in RUNG_ORDER]
+    s2_r2w = [_mx(r, "S2_driver_wobble_rms",
+                  "milestone_multiplier_for_R2width_0.1") for r in RUNG_ORDER]
+    s2_half_max = max(s2_half)
+    s2_r2w_max = max(s2_r2w)
     prescription = {
         "current_interior_milestones_per_curve": 4,
-        "milestone_multiplier_needed_halfbar_max": mult_max,
-        "milestone_multiplier_needed_R2width0.1_max": mult_r2_max,
-        "concrete_design": f"milestone grid every 10 steps (40 interior "
-                           f"points, ~10x) with J=3 corpus seeds per rung "
-                           f"(N_eff ~ 120 = 30x) on the top two rungs "
-                           f"(100k, 237k) covers the worst required "
-                           f"multiplier "
-                           f"{mult_max:.1f}x (halfbar) / {mult_r2_max:.1f}x "
-                           f"(R2 width 0.1) computed from S1; S2 multipliers "
-                           f"co-reported per rung in bootstrap.per_rung",
+        "S1_multipliers_halfbar": s1_half,
+        "S1_multipliers_R2width0.1": s1_r2w,
+        "S2_multipliers_halfbar": s2_half,
+        "S2_multipliers_R2width0.1": s2_r2w,
+        "S1_verdict_on_feasibility": (
+            "under S1 (misfit-scale noise) the worst required multipliers "
+            f"reach {max(s1_half):.3g}x (halfbar) / {max(s1_r2w):.3g}x "
+            "(R2 width 0.1) — NO feasible milestone grid x seed budget "
+            "settles the question under S1; the noise scale itself must "
+            "be measured first"),
+        "concrete_design": (
+            "(1) FIRST, a 3-corpus-seed pilot on the top two rungs "
+            "(100k, 237k; same rig, milestone grid unchanged) to MEASURE "
+            "sigma_seed — the one number the verdict hinges on (S1-like "
+            "~3 z-units vs S2-like ~0.3 z-units). (2) If S2-like: a "
+            "milestone grid every 2 install steps (200 interior points, "
+            "50x) with J=5 corpus seeds per rung (N_eff ~ 250x) on the "
+            "top two rungs covers S2's worst required multiplier "
+            f"{s2_half_max:.3g}x (halfbar) / {s2_r2w_max:.3g}x (R2 width "
+            "0.1). (3) If S1-like: no grid is feasible — go directly to "
+            "the full-logit MLE dump mini-cell (the x5 form) instead of "
+            "buying milestones."),
         "assumption": "sigma is seed-level (PROXY; see caveat_verbatim) — "
                       "the multiplier scales as 1/N_eff for milestone "
                       "count times seeds",
@@ -799,6 +818,31 @@ def main():
                                           "(linear=H-POISON vs "
                                           "exponential=wash) co-report per "
                                           "rung in rungs.*.decay_shape",
+            "S2_calibration_read": {
+                r: {
+                    "observed_R2_z": rungs_out[r]["lens"]["full"]["R2_z"],
+                    "S2_null_CI90_R2_z": boot["per_rung"][r][
+                        "S2_driver_wobble_rms"]["CI90_R2_z"],
+                    "P_R2_below_0.7_under_S2": boot["per_rung"][r][
+                        "S2_driver_wobble_rms"]["P_R2_below_0.7"],
+                } for r in RUNG_ORDER
+            },
+            "verdict_sensitivity_disclosure": (
+                "the verdict word rests on the FROZEN composite: S1 "
+                "(misfit-scale noise) + the CI-crossing stability test. "
+                "Carried verbatim alongside it: (i) at the point "
+                "estimates every rung's lens R2_z is deeply negative "
+                "(worse than the mean line) and the top rung's limb "
+                "temperatures have OPPOSITE SIGNS — unanimously "
+                "storage-flavored; (ii) under S2 (the only fluctuation "
+                "scale visible in-data, 0.18-0.35 z-units) the observed "
+                "lens misfit lies far OUTSIDE the S2 noise null at every "
+                "rung (a calibrated rejection of the one-T family); "
+                "(iii) under S1 the same misfit could be noise "
+                "(P(R2<0.7) 0.72-0.93). Which sigma is right cannot be "
+                "known at n=1 corpus seed per rung — that is the precise "
+                "sense in which 5 points cannot discriminate, and why "
+                "the seed pilot is prescription item (1)."),
             "follow_up_if_storage": "full-logit MLE one-T on milestone "
                                     "logit dumps (the x5 form; a dump "
                                     "mini-cell) — the desk lens is the "

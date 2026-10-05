@@ -1,0 +1,981 @@
+{
+ "experiment": "x8_flash_thermal (desk cell, first pass)",
+ "phase": "THE FLASH THROUGH THE THERMAL LENS \u2014 is the concurrent flash a READOUT event (one-T-fittable gain in the measurement channel) or a STORAGE event (a genuine transient trace)? CPU-only desk instrument on the committed e268-e271 milestone curves",
+ "envelope": {
+  "device": "CPU ONLY (desk cell; owner directive 2026-10-05 ~21:20Z) \u2014 no GPU touched, no envelope-log writes",
+  "threads": "OMP/MKL/OPENBLAS/NUMEXPR/VECLIB pinned to 4 before numpy import",
+  "runtime_note": "pure numpy/scipy/matplotlib desk work; no model loads, no checkpoints"
+ },
+ "registration": {
+  "bars_verbatim": {
+   "READOUT-LIKE": "a single scalar per rung fits BOTH limbs cleanly (R2 >= 0.9 all rungs) \u2014 the flash is gain, not store; H-POISON's floor lives in the measurement channel",
+   "STORAGE-LIKE": "the fits misfit (any rung R2 < 0.7) OR the rise and decay limbs demand inconsistent scalars (|T_rise - T_decay| > 50%) \u2014 the flash is a genuine transient store; a new object class (W040's A4)",
+   "UNDERPOWERED": "5 points per curve cannot discriminate at these effect sizes (be honest \u2014 this is a REAL possibility; if so, state exactly what finer milestone grid + seeds would be needed, quantitatively)",
+   "MIXED": "anything else"
+  },
+  "operationalizations": "see lab/x8_flash_thermal.py docstring (frozen at the birth commit BEFORE any compute); one-T := logit-gain lens z_c=z_s/T (the two-class reduction of the x5 softmax(L/T) family \u2014 the full-logit MLE needs milestone logit dumps that do not exist; DISCLOSED); race := dX/dt=alpha*G-beta*X with G the rung's own serial curve (consult #005 kinetic form); limbs split at the concurrent interior argmax; s1 floor is the race IC, never a lens fit point",
+  "composite_order": "(a) READOUT iff all rungs R2_z>=0.9 AND all I<=0.5 no sign-flip AND all T>0; (b) STORAGE iff any R2_z<0.7 OR any (I>0.5 or sign-flip); (c) OVERRIDE to UNDERPOWERED if STORAGE fired only through bootstrap-unstable drivers and no stable driver remains; (d) if neither a nor b: UNDERPOWERED iff >=2 rungs' R2_z CI spans [0.7,0.9] or I CI spans 0.5; else MIXED"
+ },
+ "status": "COMPLETE \u2014 adjudicated",
+ "data_gate": {
+  "files": {
+   "e268": {
+    "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e268\\metrics.json",
+    "sha256_16": "44b9f480ba82fde6"
+   },
+   "e269": {
+    "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e269\\metrics.json",
+    "sha256_16": "f3af07141bcbcbce"
+   },
+   "e270": {
+    "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e270\\metrics.json",
+    "sha256_16": "f4543e5f2d04112d"
+   },
+   "e271": {
+    "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e271\\metrics.json",
+    "sha256_16": "57ccbb55cb03737e"
+   }
+  },
+  "checks": {
+   "10k_e268:concurrent==embed": true,
+   "10k_e268:serial==embed": true,
+   "40k_e269:concurrent==embed": true,
+   "40k_e269:serial==embed": true,
+   "100k_e270:concurrent==embed": true,
+   "100k_e270:serial==embed": true,
+   "237k_e271:concurrent==embed": true,
+   "237k_e271:serial==embed": true,
+   "e271_ladder_verbatim:10k_e268": true,
+   "e271_ladder_verbatim:40k_e269": true,
+   "e271_ladder_verbatim:100k_e270": true,
+   "e271_ladder_verbatim:237k_e271": true,
+   "e261_committed_serial==embed": true
+  },
+  "pass": true
+ },
+ "data": {
+  "10k_e268": {
+   "concurrent": [
+    1.3246100024844054e-05,
+    0.0002721511118579656,
+    0.00023426816915161908,
+    0.0007357693975791335,
+    4.004325455753133e-05
+   ],
+   "serial": [
+    1.3466438758769073e-05,
+    0.30591899156570435,
+    0.21840216219425201,
+    0.21022741496562958,
+    0.26464739441871643
+   ]
+  },
+  "40k_e269": {
+   "concurrent": [
+    1.315838653681567e-05,
+    0.024467766284942627,
+    0.00911789108067751,
+    0.005631699226796627,
+    0.003268091706559062
+   ],
+   "serial": [
+    1.3541608495870605e-05,
+    0.37455758452415466,
+    0.37828463315963745,
+    0.4843420684337616,
+    0.3464753329753876
+   ]
+  },
+  "100k_e270": {
+   "concurrent": [
+    1.3522996596293524e-05,
+    0.0007310498622246087,
+    0.02207603119313717,
+    0.006495761685073376,
+    0.010897441767156124
+   ],
+   "serial": [
+    1.3658516763825901e-05,
+    0.49801623821258545,
+    0.4266950488090515,
+    0.3523316979408264,
+    0.4359813928604126
+   ]
+  },
+  "237k_e271": {
+   "concurrent": [
+    1.3693145774595905e-05,
+    0.019378451630473137,
+    0.0729694813489914,
+    0.03993295133113861,
+    0.034998517483472824
+   ],
+   "serial": [
+    1.3798319741908927e-05,
+    0.5885881781578064,
+    0.3677981197834015,
+    0.5534284114837646,
+    0.38436517119407654
+   ],
+   "serial_e261_committed": [
+    1.3798317922919523e-05,
+    0.5885877013206482,
+    0.36779922246932983,
+    0.5534279942512512,
+    0.38436421751976013
+   ]
+  }
+ },
+ "rungs": {
+  "10k_e268": {
+   "concurrent": [
+    1.3246100024844054e-05,
+    0.0002721511118579656,
+    0.00023426816915161908,
+    0.0007357693975791335,
+    4.004325455753133e-05
+   ],
+   "serial": [
+    1.3466438758769073e-05,
+    0.30591899156570435,
+    0.21840216219425201,
+    0.21022741496562958,
+    0.26464739441871643
+   ],
+   "peak": {
+    "t_peak": 300,
+    "p_peak": 0.0007357693975791335,
+    "p_floor_s1": 1.3246100024844054e-05
+   },
+   "lens": {
+    "full": {
+     "T": 0.13662070758477823,
+     "g": 7.319534627497539,
+     "R2_z": -3.310068293053514,
+     "SS_res_z": 18.959865445310484,
+     "n": 4,
+     "physical": true,
+     "R2_p": -20.573062833225954,
+     "pred_p": [
+      0.0024808674899045036,
+      8.849971854538993e-05,
+      6.203139772974102e-05,
+      0.0005638201029370245
+     ]
+    },
+    "T_rise": 0.15033501215201325,
+    "T_rise_n": 3,
+    "T_decay": 0.14054195725022134,
+    "T_decay_n": 2,
+    "R2_rise_z": -12.11466568137645,
+    "R2_decay_z": -2.0671963335118337,
+    "limb_inconsistency_I": 0.06733468738977229,
+    "sign_flip": false,
+    "clause_fires": {
+     "R2_below_0.7": true,
+     "I_above_0.5": false,
+     "sign_flip": false
+    }
+   },
+   "race": {
+    "alpha": 1.9045276948844373e-05,
+    "beta": 0.012485485312444164,
+    "SS_res": 2.8218604520478193e-07,
+    "R2_p": -0.08167741612912072,
+    "alpha_over_beta": 0.0015253934046009512,
+    "tau_steps": 80.09300199194577,
+    "end_ratio_fit": 0.0013542393873076375,
+    "end_ratio_measured": 0.00015130794937726159,
+    "z_space": {
+     "alpha": 0.0,
+     "beta": 0.0009179848162341494,
+     "R2_z": -1.8095612223234543,
+     "SS_res": 12.359178350252037
+    }
+   },
+   "race_pred": [
+    0.00020393891220317118,
+    0.0003340168197940815,
+    0.0003280502236760932,
+    0.00035839592527016524
+   ],
+   "decay_shape": {
+    "n": 2,
+    "winner": "uninformative (n<=2)",
+    "linear_R2_z": null,
+    "exp_R2_z": null,
+    "delta_R2": null
+   },
+   "serial_reference": {
+    "lens_self_T": 1.0,
+    "lens_self_R2": 1.0,
+    "driver_z_wobble_rms": 0.1894416226441863,
+    "race_ceiling": {
+     "alpha": 3.0034048984186437,
+     "beta": 3.0000000000000004,
+     "SS_res": 8.3010795056532e-07,
+     "R2_p": 0.999859816950579
+    }
+   },
+   "antiphase_note": {
+    "pearson_serial_vs_concurrent_interior": -0.5241973804247673
+   }
+  },
+  "40k_e269": {
+   "concurrent": [
+    1.315838653681567e-05,
+    0.024467766284942627,
+    0.00911789108067751,
+    0.005631699226796627,
+    0.003268091706559062
+   ],
+   "serial": [
+    1.3541608495870605e-05,
+    0.37455758452415466,
+    0.37828463315963745,
+    0.4843420684337616,
+    0.3464753329753876
+   ],
+   "peak": {
+    "t_peak": 100,
+    "p_peak": 0.024467766284942627,
+    "p_floor_s1": 1.315838653681567e-05
+   },
+   "lens": {
+    "full": {
+     "T": 0.11211504677407445,
+     "g": 8.919409381464403,
+     "R2_z": -8.891670970944915,
+     "SS_res_z": 22.15431527205983,
+     "n": 4,
+     "physical": true,
+     "R2_p": -469.8144586106555,
+     "pred_p": [
+      0.010220330213812873,
+      0.011757010146275448,
+      0.3638203639230141,
+      0.0034705085932985142
+     ]
+    },
+    "T_rise": 0.13911167977241792,
+    "T_rise_n": 1,
+    "T_decay": 0.11211504677407445,
+    "T_decay_n": 4,
+    "R2_rise_z": -Infinity,
+    "R2_decay_z": -8.891670970944915,
+    "limb_inconsistency_I": 0.21491847917182041,
+    "sign_flip": false,
+    "clause_fires": {
+     "R2_below_0.7": true,
+     "I_above_0.5": false,
+     "sign_flip": false
+    }
+   },
+   "race": {
+    "alpha": 0.07743048726445137,
+    "beta": 3.0000000000000004,
+    "SS_res": 0.0002998183841731379,
+    "R2_p": -0.09843438237786373,
+    "alpha_over_beta": 0.025810162421483786,
+    "tau_steps": 0.33333333333333326,
+    "end_ratio_fit": 0.025844396343267306,
+    "end_ratio_measured": 0.009432393580501202,
+    "z_space": {
+     "alpha": 26.160189793180724,
+     "beta": 3.0000000000000004,
+     "R2_z": -9.119798638125108,
+     "SS_res": 22.665251419838583
+    }
+   },
+   "race_pred": [
+    0.009635168617494898,
+    0.009763267170966204,
+    0.012491822921731363,
+    0.00895444582858143
+   ],
+   "decay_shape": {
+    "n": 4,
+    "linear_R2_z": 0.9692997466320484,
+    "exp_R2_z": 0.9451360809734795,
+    "winner": "linear(H-POISON dose-erosion)",
+    "delta_R2": 0.024163665658568978
+   },
+   "serial_reference": {
+    "lens_self_T": 1.0,
+    "lens_self_R2": 1.0,
+    "driver_z_wobble_rms": 0.21669222724626394,
+    "race_ceiling": {
+     "alpha": 3.002271854050363,
+     "beta": 3.0000000000000004,
+     "SS_res": 1.5296880627389361e-06,
+     "R2_p": 0.99986132317387
+    }
+   },
+   "antiphase_note": {
+    "pearson_serial_vs_concurrent_interior": -0.1999199246883324
+   }
+  },
+  "100k_e270": {
+   "concurrent": [
+    1.3522996596293524e-05,
+    0.0007310498622246087,
+    0.02207603119313717,
+    0.006495761685073376,
+    0.010897441767156124
+   ],
+   "serial": [
+    1.3658516763825901e-05,
+    0.49801623821258545,
+    0.4266950488090515,
+    0.3523316979408264,
+    0.4359813928604126
+   ],
+   "peak": {
+    "t_peak": 200,
+    "p_peak": 0.02207603119313717,
+    "p_floor_s1": 1.3522996596293524e-05
+   },
+   "lens": {
+    "full": {
+     "T": 0.09707906484287245,
+     "g": 10.300882086354585,
+     "R2_z": -7.615116999663986,
+     "SS_res_z": 56.50430078298514,
+     "n": 4,
+     "physical": true,
+     "R2_p": -950.2520767620272,
+     "pred_p": [
+      0.47957676617386025,
+      0.04554903313025807,
+      0.0018863281460370664,
+      0.06584430399594528
+     ]
+    },
+    "T_rise": 0.074169846015834,
+    "T_rise_n": 2,
+    "T_decay": 0.09810830712965808,
+    "T_decay_n": 3,
+    "R2_rise_z": -7.61115552902892,
+    "R2_decay_z": -6.155456553347143,
+    "limb_inconsistency_I": 0.27790477987777834,
+    "sign_flip": false,
+    "clause_fires": {
+     "R2_below_0.7": true,
+     "I_above_0.5": false,
+     "sign_flip": false
+    }
+   },
+   "race": {
+    "alpha": 0.0004414861964036257,
+    "beta": 0.014605570841900404,
+    "SS_res": 0.00016691096533120453,
+    "R2_p": 0.3182271475020232,
+    "alpha_over_beta": 0.030227246930814362,
+    "tau_steps": 68.46702609741236,
+    "end_ratio_fit": 0.02772042041143181,
+    "end_ratio_measured": 0.024995199211735944,
+    "z_space": {
+     "alpha": 1.6886257226854713,
+     "beta": 0.16206946853635176,
+     "R2_z": 0.2978735756597798,
+     "SS_res": 4.605063711862419
+    }
+   },
+   "race_pred": [
+    0.0071424048177660135,
+    0.012195001658228165,
+    0.011668677498143775,
+    0.012085587501652253
+   ],
+   "decay_shape": {
+    "n": 3,
+    "linear_R2_z": 0.33235530632655885,
+    "exp_R2_z": 0.30411700914308026,
+    "winner": "linear(H-POISON dose-erosion)",
+    "delta_R2": 0.02823829718347859
+   },
+   "serial_reference": {
+    "lens_self_T": 1.0,
+    "lens_self_R2": 1.0,
+    "driver_z_wobble_rms": 0.1773809002537286,
+    "race_ceiling": {
+     "alpha": 3.0030555696561967,
+     "beta": 3.0000000000000004,
+     "SS_res": 2.1807756761293206e-06,
+     "R2_p": 0.9997960578416689
+    }
+   },
+   "antiphase_note": {
+    "pearson_serial_vs_concurrent_interior": -0.24256360238840102
+   }
+  },
+  "237k_e271": {
+   "concurrent": [
+    1.3693145774595905e-05,
+    0.019378451630473137,
+    0.0729694813489914,
+    0.03993295133113861,
+    0.034998517483472824
+   ],
+   "serial": [
+    1.3798319741908927e-05,
+    0.5885881781578064,
+    0.3677981197834015,
+    0.5534284114837646,
+    0.38436517119407654
+   ],
+   "peak": {
+    "t_peak": 200,
+    "p_peak": 0.0729694813489914,
+    "p_floor_s1": 1.3693145774595905e-05
+   },
+   "lens": {
+    "full": {
+     "T": 0.8095302635920999,
+     "g": 1.2352842691300205,
+     "R2_z": -42.4537960271691,
+     "SS_res_z": 41.919645990432734,
+     "n": 4,
+     "physical": true,
+     "R2_p": -523.4856971128146,
+     "pred_p": [
+      0.6088295329521399,
+      0.3386934496445255,
+      0.5658671774933445,
+      0.3584968704853623
+     ]
+    },
+    "T_rise": -14.841284907089198,
+    "T_rise_n": 2,
+    "T_decay": 0.2486901827850394,
+    "T_decay_n": 3,
+    "R2_rise_z": -21.88574999740306,
+    "R2_decay_z": -53.08313625017239,
+    "limb_inconsistency_I": 2.0,
+    "sign_flip": true,
+    "clause_fires": {
+     "R2_below_0.7": true,
+     "I_above_0.5": true,
+     "sign_flip": true
+    }
+   },
+   "race": {
+    "alpha": 0.0015857911529062476,
+    "beta": 0.015301391203120204,
+    "SS_res": 0.0012183017586855091,
+    "R2_p": 0.20059299443844347,
+    "alpha_over_beta": 0.10363705703981209,
+    "tau_steps": 65.35353463782323,
+    "end_ratio_fit": 0.12203389852374183,
+    "end_ratio_measured": 0.09105538198153003,
+    "z_space": {
+     "alpha": 0.0,
+     "beta": 0.006292423530027166,
+     "R2_z": -12.077205129901019,
+     "SS_res": 12.615510259379171
+    }
+   },
+   "race_pred": [
+    0.02976864549323557,
+    0.04307239726588422,
+    0.04857770978055516,
+    0.04690558029755859
+   ],
+   "decay_shape": {
+    "n": 3,
+    "linear_R2_z": 0.8777697919760554,
+    "exp_R2_z": 0.8496296558279854,
+    "winner": "linear(H-POISON dose-erosion)",
+    "delta_R2": 0.028140136148069983
+   },
+   "serial_reference": {
+    "lens_self_T": 1.0,
+    "lens_self_R2": 1.0,
+    "driver_z_wobble_rms": 0.3504620551197903,
+    "race_ceiling": {
+     "alpha": 3.0032284477153,
+     "beta": 3.0000000000000004,
+     "SS_res": 4.009877207204675e-06,
+     "R2_p": 0.9998965239357754
+    }
+   },
+   "antiphase_note": {
+    "pearson_serial_vs_concurrent_interior": -0.7050322655816853
+   }
+  }
+ },
+ "rank_trends": {
+  "k_thousands": [
+   10,
+   40,
+   100,
+   237
+  ],
+  "T_full": [
+   0.13662070758477823,
+   0.11211504677407445,
+   0.09707906484287245,
+   0.8095302635920999
+  ],
+  "alpha": [
+   1.9045276948844373e-05,
+   0.07743048726445137,
+   0.0004414861964036257,
+   0.0015857911529062476
+  ],
+  "beta": [
+   0.012485485312444164,
+   3.0000000000000004,
+   0.014605570841900404,
+   0.015301391203120204
+  ],
+  "alpha_over_beta": [
+   0.0015253934046009512,
+   0.025810162421483786,
+   0.030227246930814362,
+   0.10363705703981209
+  ],
+  "R2_z_lens": [
+   -3.310068293053514,
+   -8.891670970944915,
+   -7.615116999663986,
+   -42.4537960271691
+  ],
+  "R2_p_race": [
+   -0.08167741612912072,
+   -0.09843438237786373,
+   0.3182271475020232,
+   0.20059299443844347
+  ],
+  "measured_ratio": [
+   0.00015130794937726159,
+   0.009432393580501202,
+   0.024995199211735944,
+   0.09105538198153003
+  ],
+  "fit_end_ratio": [
+   0.0013542393873076375,
+   0.025844396343267306,
+   0.02772042041143181,
+   0.12203389852374183
+  ],
+  "spearman_T_vs_k": 0.19999999999999998,
+  "spearman_beta_vs_k": 0.39999999999999997,
+  "spearman_aob_vs_k": 1.0,
+  "disclosure": "n=4 rungs; Spearman on 4 points is a direction-only read (p undefined at this n); reported as trend texture, never adjudicating"
+ },
+ "bootstrap": {
+  "draws": 2000,
+  "seed": 20261005,
+  "caveat_verbatim": "both sigmas are PROXIES. The serial replicate says the arms are deterministic to ~1e-6 run-to-run; the concurrent flash has ONE corpus seed per rung (fresh per cell) \u2014 its seed-to-seed variance is UNMEASURED at n=1, so the bootstrap can only UNDERSTATE it",
+  "per_rung": {
+   "10k_e268": {
+    "S1_lens_residual_rms": {
+     "sigma_z": 2.177146380317047,
+     "CI90_T_full": [
+      0.11266575383224728,
+      0.17613668279494923
+     ],
+     "CI90_T_rise": [
+      0.10997814489964855,
+      0.18404840206517778
+     ],
+     "CI90_T_decay": [
+      0.10583389925873789,
+      0.19321490751557785
+     ],
+     "CI90_I": [
+      0.010841699383937321,
+      0.3376569315367814
+     ],
+     "CI90_R2_z": [
+      -2.5316089754055313,
+      0.8557099617911116
+     ],
+     "width90_R2_z": 8.092280653271596,
+     "P_R2_below_0.7": 0.7975,
+     "P_I_above_0.5": 0.0025,
+     "sign_stability_Tdecay_minus_Trise": 0.4925,
+     "MDD90_limb_diff": 0.07233055758614644,
+     "milestone_multiplier_for_halfbar": 0.9893385576982762,
+     "milestone_multiplier_for_R2width_0.1": 6548.500617131375
+    },
+    "S2_driver_wobble_rms": {
+     "sigma_z": 0.1894416226441863,
+     "CI90_T_full": [
+      0.13402053052836352,
+      0.1391476800612663
+     ],
+     "CI90_T_rise": [
+      0.13380293273256766,
+      0.1394223621265868
+     ],
+     "CI90_T_decay": [
+      0.1331533378747324,
+      0.14020319456968303
+     ],
+     "CI90_I": [
+      0.0008974923706106253,
+      0.028354714482245826
+     ],
+     "CI90_R2_z": [
+      0.9681841848072306,
+      0.9986601880843777
+     ],
+     "width90_R2_z": 0.03398825470765499,
+     "P_R2_below_0.7": 0.0,
+     "P_I_above_0.5": 0.0,
+     "sign_stability_Tdecay_minus_Trise": 0.515,
+     "MDD90_limb_diff": 0.005481512035408468,
+     "milestone_multiplier_for_halfbar": 0.00568201077823335,
+     "milestone_multiplier_for_R2width_0.1": 0.11552014580724317
+    },
+    "stability": {
+     "R2_driver_stable": false,
+     "R2_ci_spans_[0.7,0.9]": true,
+     "I_driver_stable": false,
+     "I_ci_spans_0.5": false
+    }
+   },
+   "40k_e269": {
+    "S1_lens_residual_rms": {
+     "sigma_z": 2.353418538640111,
+     "CI90_T_full": [
+      0.07741404752545115,
+      0.21528730206572327
+     ],
+     "CI90_T_rise": [
+      0.05666743482546277,
+      0.4142062782990407
+     ],
+     "CI90_T_decay": [
+      0.07741404752545115,
+      0.21528730206572327
+     ],
+     "CI90_I": [
+      0.02664178473107706,
+      1.4379697975908632
+     ],
+     "CI90_R2_z": [
+      -1.8924603283728205,
+      0.9039418398957404
+     ],
+     "width90_R2_z": 8.07218436406094,
+     "P_R2_below_0.7": 0.7145,
+     "P_I_above_0.5": 0.2635,
+     "sign_stability_Tdecay_minus_Trise": 0.4775,
+     "MDD90_limb_diff": 9.660234480072743,
+     "milestone_multiplier_for_halfbar": 23657.216240306352,
+     "milestone_multiplier_for_R2width_0.1": 6516.016040738991
+    },
+    "S2_driver_wobble_rms": {
+     "sigma_z": 0.21669222724626394,
+     "CI90_T_full": [
+      0.1078125649822991,
+      0.1169596500745984
+     ],
+     "CI90_T_rise": [
+      0.10402258810284669,
+      0.12171405987936741
+     ],
+     "CI90_T_decay": [
+      0.1078125649822991,
+      0.1169596500745984
+     ],
+     "CI90_I": [
+      0.0024537323339095794,
+      0.07649383195258519
+     ],
+     "CI90_R2_z": [
+      0.9748656459740576,
+      0.9989898692725145
+     ],
+     "width90_R2_z": 0.027195034177647324,
+     "P_R2_below_0.7": 0.0,
+     "P_I_above_0.5": 0.0,
+     "sign_stability_Tdecay_minus_Trise": 0.5015,
+     "MDD90_limb_diff": 0.01226689386489673,
+     "milestone_multiplier_for_halfbar": 0.038146747870484075,
+     "milestone_multiplier_for_R2width_0.1": 0.07395698839234059
+    },
+    "stability": {
+     "R2_driver_stable": false,
+     "R2_ci_spans_[0.7,0.9]": true,
+     "I_driver_stable": false,
+     "I_ci_spans_0.5": true
+    }
+   },
+   "100k_e270": {
+    "S1_lens_residual_rms": {
+     "sigma_z": 3.7584671337855657,
+     "CI90_T_full": [
+      0.04605201355521695,
+      0.35472461106565883
+     ],
+     "CI90_T_rise": [
+      -0.46244452482200854,
+      0.44761903782880746
+     ],
+     "CI90_T_decay": [
+      0.04615290759448133,
+      0.35515391288471176
+     ],
+     "CI90_I": [
+      0.06999029430046035,
+      2.0
+     ],
+     "CI90_R2_z": [
+      -2.251731131071751,
+      0.8666901024948683
+     ],
+     "width90_R2_z": 7.557072811946566,
+     "P_R2_below_0.7": 0.834,
+     "P_I_above_0.5": 0.6345,
+     "sign_stability_Tdecay_minus_Trise": 0.6985,
+     "MDD90_limb_diff": 48.954513527806554,
+     "milestone_multiplier_for_halfbar": 1291948.0368384167,
+     "milestone_multiplier_for_R2width_0.1": 5710.9349485061975
+    },
+    "S2_driver_wobble_rms": {
+     "sigma_z": 0.1773809002537286,
+     "CI90_T_full": [
+      0.09329703489961937,
+      0.10110128565260361
+     ],
+     "CI90_T_rise": [
+      0.08875225950407163,
+      0.10750529017304226
+     ],
+     "CI90_T_decay": [
+      0.09331202134595142,
+      0.10109756391808188
+     ],
+     "CI90_I": [
+      0.0029570696683981477,
+      0.10678762746471314
+     ],
+     "CI90_R2_z": [
+      0.9871399521587823,
+      0.9994525920903676
+     ],
+     "width90_R2_z": 0.013213881547667934,
+     "P_R2_below_0.7": 0.0,
+     "P_I_above_0.5": 0.0,
+     "sign_stability_Tdecay_minus_Trise": 0.492,
+     "MDD90_limb_diff": 0.014746690793511598,
+     "milestone_multiplier_for_halfbar": 0.11723268615651927,
+     "milestone_multiplier_for_R2width_0.1": 0.017460666555579908
+    },
+    "stability": {
+     "R2_driver_stable": false,
+     "R2_ci_spans_[0.7,0.9]": true,
+     "I_driver_stable": false,
+     "I_ci_spans_0.5": true
+    }
+   },
+   "237k_e271": {
+    "S1_lens_residual_rms": {
+     "sigma_z": 3.237269141978804,
+     "CI90_T_full": [
+      -2.026347563666815,
+      2.2292852761533073
+     ],
+     "CI90_T_rise": [
+      -1.3619761427337882,
+      1.5797747401080087
+     ],
+     "CI90_T_decay": [
+      -1.7331530355885945,
+      2.101463503965648
+     ],
+     "CI90_I": [
+      0.06813680084610399,
+      2.0
+     ],
+     "CI90_R2_z": [
+      -2.9270914085306936,
+      0.7458892865533513
+     ],
+     "width90_R2_z": 10.16316855394358,
+     "P_R2_below_0.7": 0.9335,
+     "P_I_above_0.5": 0.708,
+     "sign_stability_Tdecay_minus_Trise": 0.509,
+     "MDD90_limb_diff": 86.54961383193445,
+     "milestone_multiplier_for_halfbar": 526.3482773475819,
+     "milestone_multiplier_for_R2width_0.1": 10328.999505586762
+    },
+    "S2_driver_wobble_rms": {
+     "sigma_z": 0.3504620551197903,
+     "CI90_T_full": [
+      0.5106959004483023,
+      1.7585500700740302
+     ],
+     "CI90_T_rise": [
+      0.45949452906093113,
+      2.4204008077809207
+     ],
+     "CI90_T_decay": [
+      0.4962414359003446,
+      2.0247906196421983
+     ],
+     "CI90_I": [
+      0.024968865386019404,
+      1.0359950540473826
+     ],
+     "CI90_R2_z": [
+      -0.023623906071221355,
+      0.9619336854607146
+     ],
+     "width90_R2_z": 1.4650631142506272,
+     "P_R2_below_0.7": 0.412,
+     "P_I_above_0.5": 0.216,
+     "sign_stability_Tdecay_minus_Trise": 0.4945,
+     "MDD90_limb_diff": 37.479601307569006,
+     "milestone_multiplier_for_halfbar": 98.70357018853397,
+     "milestone_multiplier_for_R2width_0.1": 214.6409928737746
+    },
+    "stability": {
+     "R2_driver_stable": false,
+     "R2_ci_spans_[0.7,0.9]": true,
+     "I_driver_stable": false,
+     "I_ci_spans_0.5": true
+    }
+   }
+  }
+ },
+ "adjudication": {
+  "per_rung_R2_z": {
+   "10k_e268": -3.310068293053514,
+   "40k_e269": -8.891670970944915,
+   "100k_e270": -7.615116999663986,
+   "237k_e271": -42.4537960271691
+  },
+  "per_rung_clauses": {
+   "10k_e268": {
+    "R2_below_0.7": true,
+    "I_above_0.5": false,
+    "sign_flip": false
+   },
+   "40k_e269": {
+    "R2_below_0.7": true,
+    "I_above_0.5": false,
+    "sign_flip": false
+   },
+   "100k_e270": {
+    "R2_below_0.7": true,
+    "I_above_0.5": false,
+    "sign_flip": false
+   },
+   "237k_e271": {
+    "R2_below_0.7": true,
+    "I_above_0.5": true,
+    "sign_flip": true
+   }
+  },
+  "drivers": [
+   {
+    "rung": "10k_e268",
+    "driver": "R2<0.7",
+    "stable": false
+   },
+   {
+    "rung": "40k_e269",
+    "driver": "R2<0.7",
+    "stable": false
+   },
+   {
+    "rung": "100k_e270",
+    "driver": "R2<0.7",
+    "stable": false
+   },
+   {
+    "rung": "237k_e271",
+    "driver": "R2<0.7",
+    "stable": false
+   },
+   {
+    "rung": "237k_e271",
+    "driver": "limb-inconsistency",
+    "stable": false
+   }
+  ],
+  "stable_drivers": [],
+  "spanning_rungs_count": 4,
+  "verdict": "UNDERPOWERED",
+  "rationale": "STORAGE clauses fired at the point estimates but every driver is bootstrap-unstable under S1; the point estimates are carried verbatim",
+  "co_reports": {
+   "W041_P-W41d_prediction": "x8 returns UNDERPOWERED (registered in THINKING.md W041 before this cell could be read; scored, never an input)",
+   "T249_discriminator_context": "decay-shape reads (linear=H-POISON vs exponential=wash) co-report per rung in rungs.*.decay_shape",
+   "S2_calibration_read": {
+    "10k_e268": {
+     "observed_R2_z": -3.310068293053514,
+     "S2_null_CI90_R2_z": [
+      0.9681841848072306,
+      0.9986601880843777
+     ],
+     "P_R2_below_0.7_under_S2": 0.0
+    },
+    "40k_e269": {
+     "observed_R2_z": -8.891670970944915,
+     "S2_null_CI90_R2_z": [
+      0.9748656459740576,
+      0.9989898692725145
+     ],
+     "P_R2_below_0.7_under_S2": 0.0
+    },
+    "100k_e270": {
+     "observed_R2_z": -7.615116999663986,
+     "S2_null_CI90_R2_z": [
+      0.9871399521587823,
+      0.9994525920903676
+     ],
+     "P_R2_below_0.7_under_S2": 0.0
+    },
+    "237k_e271": {
+     "observed_R2_z": -42.4537960271691,
+     "S2_null_CI90_R2_z": [
+      -0.023623906071221355,
+      0.9619336854607146
+     ],
+     "P_R2_below_0.7_under_S2": 0.412
+    }
+   },
+   "verdict_sensitivity_disclosure": "the verdict word rests on the FROZEN composite: S1 (misfit-scale noise) + the CI-crossing stability test. Carried verbatim alongside it: (i) at the point estimates every rung's lens R2_z is deeply negative (worse than the mean line) and the top rung's limb temperatures have OPPOSITE SIGNS \u2014 unanimously storage-flavored; (ii) under S2 (the only fluctuation scale visible in-data, 0.18-0.35 z-units) the observed lens misfit lies far OUTSIDE the S2 noise null at every rung (a calibrated rejection of the one-T family); (iii) under S1 the same misfit could be noise (P(R2<0.7) 0.72-0.93). Which sigma is right cannot be known at n=1 corpus seed per rung \u2014 that is the precise sense in which 5 points cannot discriminate, and why the seed pilot is prescription item (1).",
+   "follow_up_if_storage": "full-logit MLE one-T on milestone logit dumps (the x5 form; a dump mini-cell) \u2014 the desk lens is the two-class reduction"
+  },
+  "prescription": {
+   "current_interior_milestones_per_curve": 4,
+   "S1_multipliers_halfbar": [
+    0.9893385576982762,
+    23657.216240306352,
+    1291948.0368384167,
+    526.3482773475819
+   ],
+   "S1_multipliers_R2width0.1": [
+    6548.500617131375,
+    6516.016040738991,
+    5710.9349485061975,
+    10328.999505586762
+   ],
+   "S2_multipliers_halfbar": [
+    0.00568201077823335,
+    0.038146747870484075,
+    0.11723268615651927,
+    98.70357018853397
+   ],
+   "S2_multipliers_R2width0.1": [
+    0.11552014580724317,
+    0.07395698839234059,
+    0.017460666555579908,
+    214.6409928737746
+   ],
+   "S1_verdict_on_feasibility": "under S1 (misfit-scale noise) the worst required multipliers reach 1.29e+06x (halfbar) / 1.03e+04x (R2 width 0.1) \u2014 NO feasible milestone grid x seed budget settles the question under S1; the noise scale itself must be measured first",
+   "concrete_design": "(1) FIRST, a 3-corpus-seed pilot on the top two rungs (100k, 237k; same rig, milestone grid unchanged) to MEASURE sigma_seed \u2014 the one number the verdict hinges on (S1-like ~3 z-units vs S2-like ~0.3 z-units). (2) If S2-like: a milestone grid every 2 install steps (200 interior points, 50x) with J=5 corpus seeds per rung (N_eff ~ 250x) on the top two rungs covers S2's worst required multiplier 98.7x (halfbar) / 215x (R2 width 0.1). (3) If S1-like: no grid is feasible \u2014 go directly to the full-logit MLE dump mini-cell (the x5 form) instead of buying milestones.",
+   "assumption": "sigma is seed-level (PROXY; see caveat_verbatim) \u2014 the multiplier scales as 1/N_eff for milestone count times seeds"
+  }
+ },
+ "timing": {
+  "total_s": 0.9
+ },
+ "written_at": "2026-10-05T21:27:33Z"
+}
