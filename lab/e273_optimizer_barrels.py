@@ -121,6 +121,27 @@ they do not move the bars):
     branch). "present in (c)" := Pearson(c) <= -0.2 (the antiphase is
     directional — the flash peaks where the driver dips);
     "vanishes in (a)" := |Pearson(a)| < 0.2.
+  * THE DIVERGENCE-ROUTING RULE (pre-registered after the smoke, BEFORE
+    the full compute — a routing rule, NOT a bar move): the smoke pass
+    (runs/e273_smoke) caught that the registered first-install-step-
+    in-room-L2-matched SGD-M lr makes the FREE corpus steps (unprojected,
+    ~lr x ||g_corp|| full-L2 each, momentum-compounding toward x10) run
+    the model away (smoke: install CE 1.07 -> 98 by s8) — SGD's linear
+    step cannot match Adam's sign-equalized streams simultaneously. THE
+    SIGN-STEP LAW (the smoke's second catch, measured + verified on the
+    room itself): ||P sign(P g)|| ~= 0.80 x ||sign|| for the SRCT room
+    (vs sqrt(k/N) ~ 0.09 for a random sign vector) — Adam's first step
+    is ~80% in-room, so the in-room-matched LR_SGD is ~22 (factor
+    ~2.2e4 x 1e-3) and the corpus steps at that scale are destructive.
+    RULE: an SGD barrel is DIVERGED iff its install-ledger CE beyond
+    s100 exceeds 2x its first-batch CE or any read is non-finite; a
+    diverged SGD barrel's formation clause is labeled DIVERGENCE-
+    CONFOUNDED and cannot hand a barrel the headline (a death-by-
+    divergence cannot make TTB2's clause informative; a garbage-logits
+    flash cannot make ASB's) — any headline that would rest on a
+    confounded clause routes to MIXED (named branch). The registered
+    SGDM arm still RUNS AS CALIBRATED (verbatim); the x0.01 stability
+    rider (SGD001X) carries the stable-scale read, never adjudicated.
   * COMPOSITE (frozen): TEXTURE (hard-gate failure; nothing
     adjudicated) -> STATE-POISONING (BOTH its clauses: (a) survives
     AND antiphase vanishes in (a) while present in (c)) ->
@@ -162,11 +183,13 @@ they do not move the bars):
     fact-free base's own g0 battery read, co-reported.
 
 CHECKS (the dispatch's, in force): the machinery smoke FIRST (the
-e260-family record: 2-3 bugs caught per build); the room certified AND
-bit-bound to e272's committed K10KR room; the interleave registered
-exactly (above); the first-install-batch CE identical across arms (the
-draw-integrity texture check, non-halting); n=1 per arm (the lottery
-note); nothing guaranteed.
+e260-family record: 2-3 bugs caught per build — THIS cell's smoke caught
+TWO: the SRCT sign-step law and the SGD-M corpus-step divergence, both
+disclosed in deviations with their pre-registered responses); the room
+certified AND bit-bound to e272's committed K10KR room; the interleave
+registered exactly (above); the first-install-batch CE identical across
+arms (the draw-integrity texture check, non-halting); n=1 per arm (the
+lottery note); nothing guaranteed.
 
 COMPUTE ENVELOPE: 2,739,072 params (inside the <=100M free tier);
 bursts <= 175s (E261's family discipline, inside the dispatch's <=180s
@@ -294,9 +317,10 @@ E261.LADDER = LADDER            # the machinery's certify()/rooms read these
 E261.RUNG_NAMES = RUNG
 
 # the barrels (execution order: serial anchors; the control twin before
-# the two new drivers; the SGD sensitivity pair LAST, optional)
+# the two new drivers; the SGD sensitivity riders LAST, optional,
+# informative-first)
 ARMS_MAIN = ("SERIAL", "SHARED", "SEPARATE", "SGDM")
-ARMS_SENS = ("SGD2X", "SGD05X")
+ARMS_SENS = ("SGD05X", "SGD001X", "SGD2X")
 ARMS_RUN = ARMS_MAIN + ARMS_SENS if (SENSITIVITY and not SMOKE) else ARMS_MAIN
 
 # this cell's OWN REGISTERED FRESH corpus stream (the e268-family
@@ -362,8 +386,8 @@ CONS_SEED_SCATTER_G0 = 0.0137           # e264's cons-seed replicate
 SGD_MOMENTUM = 0.9
 SGD_WD = 0.0                      # disclosed: AdamW's decoupled wd NOT carried
 DOSE_LR_TOL = 0.05                # the calibration's verification bar (rel)
-SENS_FACTORS = {"SGDM": 1.0, "SGD2X": 2.0, "SGD05X": 0.5}
-SGD_BARRELS = ("SGDM", "SGD2X", "SGD05X")
+SENS_FACTORS = {"SGDM": 1.0, "SGD2X": 2.0, "SGD05X": 0.5, "SGD001X": 0.01}
+SGD_BARRELS = ("SGDM", "SGD2X", "SGD05X", "SGD001X")
 
 TRAJ_MILE_MAIN = (1, 100, 200, 300, 400)
 TRAJ_MILE_SGD = (1, 25, 50, 100, 200, 300, 400)   # the flash-power rider
@@ -396,7 +420,14 @@ ARM_DESC = {
     "SGD2X": "the SGD-M sensitivity rider at lr x2 (E273_SENSITIVITY=1 "
              "only; never adjudicated — confirmatory)",
     "SGD05X": "the SGD-M sensitivity rider at lr x0.5 "
-              "(E273_SENSITIVITY=1 only; never adjudicated — confirmatory)",
+              "(E273_SENSITIVITY=1 only; never adjudicated — "
+              "confirmatory)",
+    "SGD001X": "the SGD-M STABILITY DIAGNOSTIC at lr x0.01 (the "
+               "smoke-catch response: the registered first-step-matched "
+               "lr diverges via the free corpus steps — x0.01 sits near "
+               "the steady-state-matched scale, corpus steps ~momentum x "
+               "0.01 x LR_SGD; E273_SENSITIVITY=1 only; never "
+               "adjudicated — a diagnostic read, disclosed)",
 }
 
 REGISTERED = {
@@ -493,6 +524,31 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE CATCHES (pass 1, runs/e273_smoke/, all 14 gates PASS, "
+    "exit clean — the e260-family record intact, TWO catches): "
+    "(1) THE SRCT SIGN-STEP LAW — the live calibration probe measured "
+    "the AdamW first step's applied in-room L2 at 80% of its FULL L2 "
+    "(1.319 of 1.645 at smoke k), and a dedicated room-side check "
+    "confirmed the law: ||P sign(P g)|| ~= 0.80 x ||sign|| for the SRCT "
+    "room while a RANDOM sign vector lands at ~sqrt(k/N) — Adam's "
+    "coordinate normalization converts a ~1.3%-in-room gradient into an "
+    "~80%-in-room step (itself a mechanism datum: Adam's sign step is "
+    "nearly compatible with ANY random subspace containing the "
+    "gradient). Consequence: the in-room-matched LR_SGD is ~22 at the "
+    "full room (factor ~2.2e4 vs 1e-3) — measured, not assumed. "
+    "(2) THE SGD-M CORPUS-STEP DIVERGENCE — at that registered lr the "
+    "FREE unprojected corpus steps (~lr x ||g_corp|| full-L2 each, "
+    "momentum compounding toward x10) run the model away (smoke: "
+    "install CE 1.07 -> 98 by s8; |d| -> 78). SGD's linear step cannot "
+    "match Adam's sign-equalized streams simultaneously — the asymmetry "
+    "IS part of Adam's normalization, disclosed as texture. RESPONSES "
+    "(both pre-registered BEFORE the full compute): the DIVERGENCE-"
+    "ROUTING RULE (a diverged SGD barrel's formation clause is labeled "
+    "DIVERGENCE-CONFOUNDED and cannot hand a barrel the headline — "
+    "routed to MIXED named) + the SGD001X stability rider (x0.01, near "
+    "the steady-state-matched scale, never adjudicated). The registered "
+    "SGDM arm RUNS AS CALIBRATED, verbatim — no bar, no calibration "
+    "convention, no arm form was changed.",
     "THE CORPUS STREAM IS SHARED ACROSS BARRELS (registered at birth): "
     "all three concurrent barrels (a)/(b)/(c) draw from the ONE "
     f"registered fresh corpus generator (seed {CORPUS_GEN_SEED}) — so "
@@ -927,6 +983,9 @@ def pearson(xs, ys):
     n = len(xs)
     if n < 3:
         return None
+    if any(not math.isfinite(v) for v in xs) or any(not math.isfinite(v)
+                                                    for v in ys):
+        return None                      # a diverged read carries no phase
     mx, my = sum(xs) / n, sum(ys) / n
     dx = [x - mx for x in xs]
     dy = [y - my for y in ys]
@@ -935,6 +994,36 @@ def pearson(xs, ys):
     if sxx <= 0.0 or syy <= 0.0:
         return None
     return sum(a * b for a, b in zip(dx, dy)) / math.sqrt(sxx * syy)
+
+
+def finite_max(vals):
+    """max over the FINITE values only (a diverged arm's nan reads carry
+    no amplitude); None if none are finite."""
+    fv = [v for v in vals if v is not None and math.isfinite(v)]
+    return max(fv) if fv else None
+
+
+def arm_diverged(inst_rec: dict) -> dict:
+    """THE DIVERGENCE SIGNATURE (pre-registered): the install ledger's CE
+    beyond s100 (beyond the halfway mark in smoke) exceeding 2x the
+    first-batch CE, or any non-finite read — the SGD-M corpus-step
+    runaway the smoke caught."""
+    led = inst_rec["ledger"]
+    n_steps = E261.INST_STEPS
+    horizon = 100 if n_steps >= 100 else n_steps // 2
+    ces = sorted((int(k), v["ce"]) for k, v in led.items())
+    first_ce = ces[0][1] if ces else None
+    tail = [c for s, c in ces if s > horizon]
+    mx = finite_max([c for _, c in ces])
+    nonfinite = any(first_ce is None or not math.isfinite(c)
+                    for _, c in ces)
+    runaway = bool(first_ce is not None and tail
+                   and finite_max(tail) is not None
+                   and finite_max(tail) > 2.0 * first_ce)
+    return {"first_batch_ce": first_ce,
+            "max_ce_beyond_s100": finite_max(tail),
+            "max_ce": mx, "nonfinite": bool(nonfinite),
+            "diverged": bool(runaway or nonfinite)}
 
 
 def antiphase_read(traj_arm: list[dict], traj_serial: list[dict]) -> dict:
@@ -951,9 +1040,11 @@ def antiphase_read(traj_arm: list[dict], traj_serial: list[dict]) -> dict:
     r4 = pearson(x4, y4)
     dip_i = min(range(len(x4)), key=lambda i: x4[i])
     dip_step = steps4[dip_i]
-    if y4:
-        pk_i = max(range(len(y4)), key=lambda i: y4[i])
-        peak_step, peak_amp = steps4[pk_i], y4[pk_i]
+    fin = [(s, v) for s, v in zip(steps4, y4)
+           if math.isfinite(v)]
+    if fin:
+        pk_i = max(range(len(fin)), key=lambda i: fin[i][1])
+        peak_step, peak_amp = fin[pk_i][0], fin[pk_i][1]
     else:
         peak_step, peak_amp = None, None
     return {"n5": len(common_steps), "pearson_n5": r5,
@@ -1878,8 +1969,9 @@ def main():
             "post_gm12": inst_arm["post_cells"]["gm12"],
             "kept_frac_median": inst_arm["ledger_kept_frac_median"],
             "traj_g0": {t["step"]: t["g0_pz"] for t in inst_arm["traj"]},
-            "peak_traj_g0_all_milestones": max(
+            "peak_traj_g0_all_milestones": finite_max(
                 t["g0_pz"] for t in inst_arm["traj"]),
+            "divergence_signature": arm_diverged(inst_arm),
             "peak_traj_g0_n4": ap["peak_traj_g0"],
             "ratio_vs_serial_session": (inst_arm["post_cells"]["g0"]
                                         / max(post_ser, RATIO_DEN_FLOOR)),
@@ -1921,7 +2013,9 @@ def main():
     post_sep = arms_rec["SEPARATE"]["install"]["post_cells"]["g0"]
     post_sgd = arms_rec["SGDM"]["install"]["post_cells"]["g0"]
     peak_sep = antiphase_reads["SEPARATE"]["peak_traj_g0"]
-    peak_sgd = max(t["g0_pz"] for t in arms_rec["SGDM"]["install"]["traj"])
+    peak_sgd = reads["SGDM"]["peak_traj_g0_all_milestones"]
+    peak_sgd = peak_sgd if peak_sgd is not None else float("-inf")
+    div_sgd = reads["SGDM"]["divergence_signature"]["diverged"]
     r4_sep = antiphase_reads["SEPARATE"]["pearson_n4"]
     r4_shr = antiphase_reads["SHARED"]["pearson_n4"]
     r5_sep = antiphase_reads["SEPARATE"]["pearson_n5"]
@@ -1937,6 +2031,13 @@ def main():
     clause_ASB = bool(peak_sgd > FORMATION_BAR)
     clause_TTB1 = bool(post_sep < SURVIVE_FRAC * post_ser)
     clause_TTB2 = bool(peak_sgd <= FORMATION_BAR)
+    # THE DIVERGENCE-ROUTING RULE (pre-registered after the smoke): a
+    # diverged SGD-M barrel's formation clause is CONFOUNDED — it cannot
+    # hand a barrel the headline (either direction); any headline that
+    # would rest on it routes to MIXED (named)
+    sgd_confounded = bool(div_sgd)
+    clause_ASB_informative = bool(clause_ASB and not sgd_confounded)
+    clause_TTB2_informative = bool(clause_TTB2 and not sgd_confounded)
     # the convention straddle (n=5 vs n=4) on the antiphase clauses
     SP2a_5 = bool(_abs(r5_sep) < ANTIPHASE_VANISH_BAR)
     SP2b_5 = bool(r5_shr is not None and r5_shr <= ANTIPHASE_PRESENT_BAR)
@@ -1966,7 +2067,7 @@ def main():
                       "the barrier is written in the shared optimizer "
                       "state; turbulence narrows to optimizer-state "
                       "poisoning — P-273a CONFIRMED")
-        elif clause_ASB:
+        elif clause_ASB_informative:
             verdict = "ADAM-SPECIFIC-BLOCK"
             barrels_fired.append("ADAM-SPECIFIC-BLOCK")
             clause = (f"under SGD-M (b) the write FORMS (peak traj_g0 "
@@ -1975,7 +2076,7 @@ def main():
                       f"whether or not it retains (post g0 {post_sgd:.6f}) "
                       "— P-273b confirmed; the low-rung block is Adam's "
                       "normalization, not the corpus")
-        elif clause_TTB1 and clause_TTB2:
+        elif clause_TTB1 and clause_TTB2_informative:
             verdict = "TRAJECTORY-TWO-BODY"
             barrels_fired.append("TRAJECTORY-TWO-BODY")
             clause = (f"the SEPARATE-AdamW write still DIES (post g0 "
@@ -2002,6 +2103,22 @@ def main():
             if not clause_ASB and not clause_TTB2:
                 named.append(f"the SGD-M peak sits AT the formation bar "
                              f"({peak_sgd:.6f} vs {FORMATION_BAR})")
+            if sgd_confounded:
+                named.append(
+                    ("the SGD-M barrel DIVERGED at the registered "
+                     "calibration (max CE beyond s100 "
+                     f"{reads['SGDM']['divergence_signature']['max_ce_beyond_s100']} "
+                     f"vs first-batch "
+                     f"{reads['SGDM']['divergence_signature']['first_batch_ce']:.4f})"
+                     " — its formation clause is DIVERGENCE-CONFOUNDED "
+                     "and cannot adjudicate Adam-specificity at this "
+                     "scale; the x0.01 stability rider (SGD001X) carries "
+                     "the stable-scale read" if not clause_ASB else
+                     "the SGD-M flash formed ON A DIVERGED trajectory "
+                     "(max CE beyond s100 "
+                     f"{reads['SGDM']['divergence_signature']['max_ce_beyond_s100']}) "
+                     "— the formation read is divergence-confounded, "
+                     "not the mechanism's formation"))
             if straddle:
                 named.append(f"the antiphase-convention straddle (n=4 vs "
                              f"n=5) flips a clause — the n=4 PRIMARY stands, "
@@ -2028,9 +2145,20 @@ def main():
             "bar": ANTIPHASE_PRESENT_BAR, "fires": clause_SP2b},
         "ASB_sgdm_forms": {"peak_traj_g0": peak_sgd,
                            "bar": FORMATION_BAR, "fires": clause_ASB,
+                           "informative": clause_ASB_informative,
+                           "divergence_confounded": bool(
+                               sgd_confounded and clause_ASB),
                            "block_level_context": FORMATION_BLOCK_LEVEL},
         "TTB1_separate_write_dies": {"fires": clause_TTB1},
-        "TTB2_sgdm_dies_without_forming": {"fires": clause_TTB2},
+        "TTB2_sgdm_dies_without_forming": {"fires": clause_TTB2,
+                                           "informative":
+                                               clause_TTB2_informative,
+                                           "divergence_confounded": bool(
+                                               sgd_confounded
+                                               and clause_TTB2)},
+        "sgdm_divergence_signature": reads["SGDM"]["divergence_signature"],
+        "sgd001x_stability_rider": (reads["SGD001X"][
+            "divergence_signature"] if "SGD001X" in reads else None),
         "convention_straddle_n4_vs_n5": straddle,
     }
 
@@ -2209,9 +2337,10 @@ def make_barrels_plot(rd, arms_rec, reads, antiphase_reads, verdict, clause,
     fig, axes = plt.subplots(2, 2, figsize=(16.0, 10.6))
     cols = {"SERIAL": "tab:blue", "SHARED": "tab:red",
             "SEPARATE": "tab:orange", "SGDM": "tab:green",
-            "SGD2X": "tab:purple", "SGD05X": "tab:brown"}
-    arms = [a for a in ("SERIAL", "SHARED", "SEPARATE", "SGDM", "SGD2X",
-                        "SGD05X") if a in arms_rec]
+            "SGD2X": "tab:purple", "SGD05X": "tab:brown",
+            "SGD001X": "tab:cyan"}
+    arms = [a for a in ("SERIAL", "SHARED", "SEPARATE", "SGDM", "SGD05X",
+                        "SGD001X", "SGD2X") if a in arms_rec]
 
     # (0,0) THE INSTALL TRAJECTORIES (log y — the deaths live at 1e-4)
     ax = axes[0, 0]
@@ -2237,16 +2366,18 @@ def make_barrels_plot(rd, arms_rec, reads, antiphase_reads, verdict, clause,
     # (0,1) THE DISCRIMINATOR BAR READS
     ax = axes[0, 1]
     xs = np.arange(len(arms))
-    posts = [arms_rec[a]["install"]["post_cells"]["g0"] for a in arms]
-    ax.bar(xs - 0.2, [max(p, 1e-8) for p in posts], width=0.38, alpha=0.9,
+    posts = [p if (p is not None and math.isfinite(p)) else 1e-8
+             for p in [arms_rec[a]["install"]["post_cells"]["g0"]
+                       for a in arms]]
+    ax.bar(xs - 0.2, posts, width=0.38, alpha=0.9,
            color=[cols[a] for a in arms], label="post g0 (the WRITE read)")
     ax.axhline(SURVIVE_FRAC * post_ser, color="crimson", ls="--", lw=1.4,
                label=f"the {SURVIVE_FRAC:.0%} survive bar "
                      f"({SURVIVE_FRAC * post_ser:.4f})")
     ax.axhline(post_ser, color="tab:blue", ls=":", lw=1.2,
                label=f"serial twin {post_ser:.4f}")
-    peaks = [reads[a].get("peak_traj_g0_all_milestones",
-                          reads[a].get("peak_traj_g0")) for a in arms]
+    peaks = [reads[a].get("peak_traj_g0_all_milestones")
+             or reads[a].get("peak_traj_g0") or 1e-8 for a in arms]
     ax2 = ax.twinx()
     ax2.bar(xs + 0.2, [max(p, 1e-8) for p in peaks], width=0.38, alpha=0.55,
             hatch="//", color=[cols[a] for a in arms],
@@ -2356,19 +2487,22 @@ def write_report(rd, arms_rec, reads, antiphase_reads, clauses_table, cal,
       f"{ser['kept_frac_median']:.4f} | "
       f"{ser['in_own_room_post']:.4f} | {ser['v_excess_post']:.2f} | "
       f"{ser['root_g0_carried']:.4f} |")
-    for arm in [a for a in ("SHARED", "SEPARATE", "SGDM", "SGD2X", "SGD05X")
+    for arm in [a for a in ("SHARED", "SEPARATE", "SGDM", "SGD05X",
+                            "SGD001X", "SGD2X")
                 if a in reads]:
         r = reads[arm]
         ap = r["antiphase_vs_serial"]
         p4 = ap["pearson_n4"]
         p5 = ap["pearson_n5"]
+        dv = r.get("divergence_signature", {})
 
         def _f(v):
             return f"{v:+.3f}" if v is not None else "n/a"
         A(f"| {arm} | {r['post_g0']:.6f} | {r['ratio_vs_serial_session']:.4f}x "
           f"| {r['peak_traj_g0_all_milestones']:.6f} | "
-          f"{'YES' if r['peak_traj_g0_all_milestones'] > FORMATION_BAR else 'no'}"
-          f" | {_f(p4)} | {_f(p5)} | "
+          f"{'YES' if (r['peak_traj_g0_all_milestones'] or -1) > FORMATION_BAR else 'no'}"
+          f"{(' **DIVERGED**' if dv.get('diverged') else '')} | "
+          f"{_f(p4)} | {_f(p5)} | "
           f"{'yes' if ap['peak_aligned_with_driver_dip'] else 'no'} "
           f"(pk@{ap['arm_peak_step']}, dip@{ap['serial_dip_step']}) | "
           f"{r['kept_frac_median']:.4f} | {r['in_own_room_post']:.4f} | "
