@@ -239,6 +239,8 @@ def g_flatbasis(keys: list[str]) -> dict:
     spec = importlib.util.spec_from_file_location(
         "x6_common", REPO / "lab" / "common.py")
     mod = importlib.util.module_from_spec(spec)
+    import sys
+    sys.modules["x6_common"] = mod      # dataclass needs a registered module
     spec.loader.exec_module(mod)
     net = mod.TinyGPT(mod.Cfg())
     pnames = [n for n, _ in net.named_parameters()]
@@ -372,8 +374,9 @@ def load_room(path: Path, rung: str, seeds_expect: list[int]) -> SRCT:
     k, seeds = int(entry["k"]), [int(x) for x in entry["seeds"]]
     assert seeds == seeds_expect, (seeds, seeds_expect)
     fresh = SRCT(N, k, seeds[0], seeds[1])
-    D_stored = entry["D_int8"].numpy().astype(np.float64)
-    S_stored = entry["S"].numpy()
+    _as_np = lambda t: t.numpy() if hasattr(t, "numpy") else np.asarray(t)
+    D_stored = _as_np(entry["D_int8"]).astype(np.float64)
+    S_stored = _as_np(entry["S"])
     assert np.array_equal(D_stored, fresh.D), "room D mismatch vs fresh seeds"
     assert np.array_equal(S_stored, fresh.S), "room S mismatch vs fresh seeds"
     log(f"room {rung}: loaded + BIT-VERIFIED vs fresh seeds {seeds} (k={k})")
@@ -477,9 +480,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
 
-def dec(a: np.ndarray, n: int = 4000) -> np.ndarray:
-    return a[np.unique(np.linspace(0, len(a) - 1, min(n, len(a)))
-                      .astype(int))]
+def dec_idx(n: int, m: int = 4000) -> np.ndarray:
+    return np.unique(np.linspace(0, n - 1, min(m, n)).astype(int))
 
 
 def cum_curve(dw: np.ndarray) -> np.ndarray:
@@ -494,7 +496,8 @@ for nm, dw_, c in (("K10K (the bet)", dW, "crimson"),
                    ("K237K", dW237, "steelblue"),
                    ("null (norm-matched)", g, "gray")):
     cum = cum_curve(dw_)
-    ax.plot(np.arange(1, len(cum) + 1), dec(cum), color=c, lw=1.4,
+    ix = dec_idx(len(cum))
+    ax.plot(np.arange(1, len(cum) + 1)[ix], cum[ix], color=c, lw=1.4,
             label=f"{nm}  m99={int(np.searchsorted(cum, 0.99) + 1):,}")
 ax.set_xscale("log")
 ax.set_xlim(1, N)
@@ -512,7 +515,8 @@ ax = axes[1]
 for nm, sp, c in (("K10K (the bet)", svd10["_global_spectrum"], "crimson"),
                   ("K237K", svd237["_global_spectrum"], "steelblue")):
     cum = np.cumsum(sp) / float(sp.sum())
-    ax.plot(np.arange(1, len(sp) + 1), dec(cum), color=c, lw=1.4,
+    ix = dec_idx(len(cum))
+    ax.plot(np.arange(1, len(sp) + 1)[ix], cum[ix], color=c, lw=1.4,
             label=f"{nm}  cross99 r={int(np.searchsorted(cum, 0.99) + 1):,}")
 ax.set_xscale("log")
 ax.axvline(50, color="k", ls="-", lw=1.0, alpha=0.7)
@@ -529,7 +533,8 @@ for nm, rr, c in (("K10K in own room", METRICS["dW_10k"]["room"], "crimson"),
                    "steelblue")):
     ce = rr["in_room_spectrum"]["_coeff_energy_sorted"]
     cum = np.cumsum(ce) / float(ce.sum())
-    ax.plot(np.arange(1, len(ce) + 1), dec(cum), color=c, lw=1.4,
+    ix = dec_idx(len(cum))
+    ax.plot(np.arange(1, len(ce) + 1)[ix], cum[ix], color=c, lw=1.4,
             label=f"{nm} k={rr['k']:,}  inside={rr['inside_share']:.4f}")
 ax.set_xscale("log")
 for th, st in ((0.5, ":"), (0.9, "--"), (0.99, "-.")):
@@ -575,7 +580,7 @@ bases read on CPU from committed records; no training, no GPU.
    disclosed, covered by the natural read).
 3. **The room's reading:** {100 * ro['inside_share']:.2f}% of dW's energy
    lies INSIDE its own committed 10k SRCT room (k/N = 10000/2739072 =
-   {10000 / N:.3f}% by volume); the in-room coefficient spectrum's own top-50
+   {100 * 10000 / N:.3f}% by volume); the in-room coefficient spectrum's own top-50
    share = {ro['in_room_spectrum']['top50_share']:.4f}, in-room m99 =
    {ro['in_room_spectrum']['m']['99']:,}.
 
