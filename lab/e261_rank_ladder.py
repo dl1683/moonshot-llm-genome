@@ -238,7 +238,7 @@ LADDER_FULL: tuple[tuple[int, int, int], ...] = (
 )
 LADDER_SMOKE: tuple[tuple[int, int, int], ...] = (
     (64, 26111, 26112),
-    (512, 26011, 26112),          # e260's own smoke room seeds (no committed
+    (512, 26011, 26012),          # e260's own smoke room seeds (no committed
                                   # full-run record at smoke k — anchor vacuous)
 )
 LADDER = LADDER_SMOKE if SMOKE else LADDER_FULL
