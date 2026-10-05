@@ -439,6 +439,11 @@ deviations: list[str] = [
     "untouched): the battery-candidate merges dropped top1/top5 — "
     "e1.select_battery needs them (KeyError at P1); the three update "
     "sites now carry p/rank/top1/top5 verbatim (e237's own merge form).",
+    "SMOKE CATCH #3 (caught 16:5xZ, fixed pre-full-run): the roots' "
+    "probe read only the synthetic + near rows — P8's fate table needs "
+    "the ANCHORS' root reads too (KeyError at the anchors' hr); the "
+    "light battery (syn + Gmail/iPhone + near) is now defined once and "
+    "probed at every root.",
     "SMOKE CATCH #2 (caught 16:2xZ, fixed pre-full-run): GPT-2's "
     "state_dict double-counts the TIED lm_head.weight — the root-"
     "displacement flat alignment assert fired; root_ru_share now reads "
@@ -1745,11 +1750,17 @@ def main():
     root_rows: dict[str, list] = {}
     evl = copy.deepcopy(net0).to(CPU)
     dose_rows = {}
+    # the LIGHT battery (defined here — the roots need it too; the smoke's
+    # catch #3: the anchors' root reads feed P8's fate table)
+    light_rows = ([syn_row]
+                  + [r for r in cbattery if r["fact"] in (ANCHOR_G,
+                                                          ANCHOR_I)]
+                  + nbattery)
     for tag in ARMS:
         sd = installs[tag]["sd"]
         roots[tag] = sd
         evl.load_state_dict(sd)
-        rows = probe_rows(evl, [syn_row] + list(nbattery))
+        rows = probe_rows(evl, light_rows)
         root_rows[tag] = rows
         syn_r = rows[0]
         led = installs[tag]["ledger"]
@@ -1806,10 +1817,6 @@ def main():
     metrics["root_disguise"] = root_shares
 
     # ------------------------------------------- P7 the washes (the fates)
-    light_rows = ([syn_row]
-                  + [r for r in cbattery if r["fact"] in (ANCHOR_G,
-                                                          ANCHOR_I)]
-                  + nbattery)
     full_rows = battery + cbattery
     washes: dict[str, dict] = {}
     for tag in ARMS:
