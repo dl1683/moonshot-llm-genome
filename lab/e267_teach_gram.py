@@ -537,7 +537,7 @@ def main() -> int:
         nm = nll[:name_bs][m[:name_bs]]
         cm = nll[name_bs:]
         return (nm.sum() + cm.sum()) / (nm.numel() + cm.numel()), \
-            float(nm.mean()), float(cm.mean())
+            float(nm.detach().mean()), float(cm.detach().mean())
 
     # G_STREAM: the step-1 batch certified at the e001 BASE against g1c's
     # committed install traj step-1 CE (the only committed stream anchor)
@@ -601,8 +601,9 @@ def main() -> int:
     if not SMOKE:
         assert G_SPAN["pass"], f"span gate FAILED: {G_SPAN}"
     metrics["gates"]["G_SPAN"] = G_SPAN
-    log(f"P3 G_SPAN: md5 {'OK' if G_SPAN['md5'] == E246_SPAN_MD5 else 'DRIFT'"
-        }; shape {list(Vp.shape)}; orth dev {orth_dev:.1e}: "
+    log(f"P3 G_SPAN: md5 "
+        f"{'OK' if G_SPAN['md5'] == E246_SPAN_MD5 else 'DRIFT'}; "
+        f"shape {list(Vp.shape)}; orth dev {orth_dev:.1e}: "
         f"{'PASS' if G_SPAN['pass'] else 'FAIL (smoke: recorded only)'}")
 
     root_net.eval()
@@ -795,13 +796,15 @@ def main() -> int:
     else:
         verdict = "MIXED"
 
-    # principal angles: the teach Gram's top-10 eigenspace (sample basis)
-    # vs e246's late span (parameter basis)
+    # principal angles: the teach Gram's top-k eigenspace (sample basis)
+    # vs e246's late span (parameter basis); k_ang = min(10, N) so the
+    # smoke path (N=4) stays well-formed
+    k_ang = min(TOPK_ANGLES, N_SAMPLES)
     w, V = np.linalg.eigh(Gp)
     order = np.argsort(w)[::-1]
-    lam_top = w[order][:TOPK_ANGLES]
-    V_top = V[:, order][:, :TOPK_ANGLES]              # (N, 10)
-    U = np.zeros((TOPK_ANGLES, n_par), dtype=np.float64)
+    lam_top = w[order][:k_ang]
+    V_top = V[:, order][:, :k_ang]                    # (N, k_ang)
+    U = np.zeros((k_ang, n_par), dtype=np.float64)
     for lo in range(0, n_par, CHUNK):
         blk = grads[:, lo:lo + CHUNK].double().numpy()
         U[:, lo:lo + CHUNK] = V_top.T @ blk
@@ -813,10 +816,11 @@ def main() -> int:
                                   # the span
     in_span_med = float(np.median([r["in_span_frac"] for r in rows]))
     angles_block = {
-        "what": "the two streams' geometry: the teach Gram's top-10 "
-                "eigenvectors (mapped through the gradient basis, unit "
-                "normalized) vs e246's committed LATE span (rank 10) — "
-                "principal angles as cosines",
+        "what": "the two streams' geometry: the teach Gram's top-k "
+                "eigenvectors (k = min(10, N), mapped through the gradient "
+                "basis, unit normalized) vs e246's committed LATE span "
+                "(rank 10) — principal angles as cosines",
+        "k_used": int(k_ang),
         "cos_principal_angles": [float(c) for c in cos_sv],
         "top_eigvec_mass_in_span": [float(s) for s in span_energy],
         "top_eigenvalues": [float(l) for l in lam_top],
@@ -963,7 +967,7 @@ def main() -> int:
 
     # (3) the two-stream angles
     fig, (b1, b2) = plt.subplots(1, 2, figsize=(12.5, 5.0))
-    b1.bar(np.arange(1, TOPK_ANGLES + 1), cos_sv, color="C0", alpha=0.8)
+    b1.bar(np.arange(1, k_ang + 1), cos_sv, color="C0", alpha=0.8)
     b1.set_xlabel("principal angle index i")
     b1.set_ylabel("cos theta_i")
     b1.set_title("teach top-10 eigenspace vs corpus wash-span (rank 10)")
