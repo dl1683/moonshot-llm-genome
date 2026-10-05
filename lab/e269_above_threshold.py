@@ -384,6 +384,12 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE CATCH (disclosed, the e260-family record intact): the "
+    "shakedown (E269_SMOKE=1, runs/e269_smoke/) caught ONE bug before any "
+    "full compute — the jitter-pool window build read train_text (str) "
+    "where the vehicle uses the train_ids TENSOR slice (e268's line, "
+    "transcription slip); fixed before the full run. The bars, gates, "
+    "adjudication and arms were untouched by the fix.",
     "THE SERIAL ARM IS A FRESH RE-RUN, NOT A CITE (the dispatch's choice, "
     "stated): 'cite e264's rung OR re-run at the same seeds — state "
     "which' -> RE-RUN at the registered seeds (e268's precedent): one "
