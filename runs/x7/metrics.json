@@ -1,0 +1,799 @@
+{
+  "experiment": "x7_ln_zero_sum",
+  "phase": "desk control (consult #001 clause c): did the CTRL battery's margins also thicken ~19%? \u2014 the LN zero-sum adjudication on committed records",
+  "date": "2026-10-05T21:22:58Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "bars frozen VERBATIM from the dispatch brief in the module docstring BEFORE any compute (script committed at birth); adjudicate against exactly this; no bar shopping",
+  "registered_bars": {
+    "LN-ARITHMETIC": "the CTRL battery's matched thickening is >= 50% of the fact battery's ~19% \u2014 W038's re-formation layer demoted to arithmetic; the laws draft gets the amendment.",
+    "CONSTRUCTIVE-FIELD": "the CTRL thickening is <= 20% of the fact battery's \u2014 the field reading survives its control.",
+    "MIXED/UNDERPOWERED": "in between or the committed margins lack the required fields \u2014 report exactly what's missing."
+  },
+  "envelope": {
+    "device": "CPU-ONLY (CUDA_VISIBLE_DEVICES=-1 forced before torch import)",
+    "torch_threads": 4,
+    "gpu_calls": 0,
+    "envelope_log_writes": 0
+  },
+  "gates": {
+    "e228_journal": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e228\\journal.json",
+      "sha256_16": "e1f476405746ad70"
+    },
+    "e242_metrics": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e242\\metrics.json",
+      "sha256_16": "5cd289827bb02e6d"
+    },
+    "x5_metrics": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x5\\metrics.json",
+      "sha256_16": "c69037c447aa877e"
+    },
+    "e238_metrics": {
+      "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\metrics.json",
+      "sha256_16": "95290a45b9aaf7e4"
+    },
+    "sha_match": true,
+    "G_FIELDS_E228": {
+      "missing": [],
+      "n_states": 8,
+      "pass": true
+    },
+    "G_MS_IDENTITY": {
+      "max_abs_err": 0.0,
+      "tol": 1e-09,
+      "pass": true
+    },
+    "G_NO_CTRL_WALL": {
+      "e242_probe_fields": [
+        "argmax_is_z",
+        "fact",
+        "margin_sigma",
+        "p",
+        "top1_id",
+        "top2_id"
+      ],
+      "has_sigma": false,
+      "has_margin_raw": false,
+      "non_install_probes": [],
+      "single_battery_deviation_quoted": true,
+      "pass": true
+    },
+    "G_X5_T": {
+      "x5_ctrl_w1_T_mle": {
+        "10": 1.0430748020048268,
+        "50": 1.1835854844229838,
+        "80": 1.2649678250862952,
+        "2": 1.0049600072951197
+      },
+      "e238_w1_pooled_T_via_x5": {
+        "10": 1.0597956498145238,
+        "50": 1.3489839391244727,
+        "80": 1.4525923182890421,
+        "2": 1.0014473256519658
+      },
+      "pass": true
+    },
+    "G_ENV": {
+      "cpu_load_pct_at_launch": 13.2,
+      "threads": 4,
+      "pass": true
+    }
+  },
+  "phase_note": "P5 DONE (adjudication + figure + report)",
+  "elapsed_s": 0.68,
+  "wall_arm_e242": {
+    "what": "e242's committed install-60 g-12 FACT battery (the 2.74M walled world, W1 wash, R=0.7): battery MEDIAN margin_sigma per state \u2014 the +19.15% thickening W038's law 4 cites",
+    "states": {
+      "t0": {
+        "step": 0,
+        "median_ms": 0.9794073282786698,
+        "n": 60,
+        "growth_pct": 0.0
+      },
+      "w1+1": {
+        "step": 1,
+        "median_ms": 0.9611918699600377,
+        "n": 60,
+        "growth_pct": -1.8598450095984265
+      },
+      "w1+2": {
+        "step": 2,
+        "median_ms": 0.9933262426349674,
+        "n": 60,
+        "growth_pct": 1.4211568521506068
+      },
+      "w1+4": {
+        "step": 4,
+        "median_ms": 0.9632744808830553,
+        "n": 60,
+        "growth_pct": -1.6472050933055926
+      },
+      "w1+10": {
+        "step": 10,
+        "median_ms": 1.0801870072706619,
+        "n": 60,
+        "growth_pct": 10.289863684103185
+      },
+      "w1+50": {
+        "step": 50,
+        "median_ms": 1.1753321683243787,
+        "n": 60,
+        "growth_pct": 20.004428636454175
+      },
+      "w1+100": {
+        "step": 100,
+        "median_ms": 1.1397841935007293,
+        "n": 60,
+        "growth_pct": 16.374889240815204
+      },
+      "w1+200": {
+        "step": 200,
+        "median_ms": 1.0717460701295862,
+        "n": 60,
+        "growth_pct": 9.428022354417532
+      },
+      "w1+300": {
+        "step": 300,
+        "median_ms": 1.1670049513746559,
+        "n": 60,
+        "growth_pct": 19.15419842995183
+      }
+    },
+    "fact_thickening_pct": 19.15419842995183,
+    "thermal_leg_quote": {
+      "t0": 1.0000001089780448,
+      "w1+1": 1.3089933564469043,
+      "w1+2": 0.9642851663129937,
+      "w1+4": 1.0289645331892097,
+      "w1+10": 0.8938458726638275,
+      "w1+50": 0.8423125157928674,
+      "w1+100": 0.8645557494479506,
+      "w1+200": 0.9021596334061261,
+      "w1+300": 0.8495807216775402
+    },
+    "note": "recomputed medians match e242's committed aggregates bit-exactly; growth = 100*(median(s)/median(t0)-1); the thermal leg is QUOTED UNDECOMPOSED (e242 committed no sigma per state)"
+  },
+  "ctrl_arm_e228": {
+    "what": "e228's committed journal (the 124M unwalled world, washes w1/w2): the ONLY committed ctrl-battery margin trajectory \u2014 per battery MEDIAN margin_sigma, t0 shared",
+    "t0_medians": {
+      "fact": 0.7381708953361316,
+      "ctrl": 0.47298935420106686,
+      "near": 0.43488736443571857,
+      "tmpl": 1.111376227127817
+    },
+    "states": {
+      "w1+2": {
+        "fact": {
+          "median_ms": 0.7619192159287917,
+          "growth_pct": 3.2171846306465746
+        },
+        "ctrl": {
+          "median_ms": 0.47744055063279733,
+          "growth_pct": 0.9410775088688927
+        },
+        "near": {
+          "median_ms": 0.42829929075397777,
+          "growth_pct": -1.5148919514571424
+        },
+        "tmpl": {
+          "median_ms": 1.1109636318364422,
+          "growth_pct": -0.03712471810207729
+        }
+      },
+      "w1+10": {
+        "fact": {
+          "median_ms": 0.7725848163827873,
+          "growth_pct": 4.662053362451402
+        },
+        "ctrl": {
+          "median_ms": 0.4854537860020549,
+          "growth_pct": 2.6352457386788153
+        },
+        "near": {
+          "median_ms": 0.24983083208296178,
+          "growth_pct": -42.5527498580866
+        },
+        "tmpl": {
+          "median_ms": 0.8884334017264892,
+          "growth_pct": -20.06006786536091
+        }
+      },
+      "w1+50": {
+        "fact": {
+          "median_ms": 0.5988728107429535,
+          "growth_pct": -18.87070940798169
+        },
+        "ctrl": {
+          "median_ms": 0.39692345822189345,
+          "growth_pct": -16.08194672957437
+        },
+        "near": {
+          "median_ms": 0.09503217413186196,
+          "growth_pct": -78.14786496380057
+        },
+        "tmpl": {
+          "median_ms": 0.4183421659579817,
+          "growth_pct": -62.35818656665677
+        }
+      },
+      "w1+80": {
+        "fact": {
+          "median_ms": 0.46919572031702983,
+          "growth_pct": -36.43806288198641
+        },
+        "ctrl": {
+          "median_ms": 0.38236467147735576,
+          "growth_pct": -19.15998360613984
+        },
+        "near": {
+          "median_ms": 0.0442574034171714,
+          "growth_pct": -89.8232491820964
+        },
+        "tmpl": {
+          "median_ms": 0.20196680362783348,
+          "growth_pct": -81.82732375428023
+        }
+      },
+      "w2+10": {
+        "fact": {
+          "median_ms": 0.7766845193969091,
+          "growth_pct": 5.217440067620127
+        },
+        "ctrl": {
+          "median_ms": 0.47419487127681803,
+          "growth_pct": 0.25487192577249296
+        },
+        "near": {
+          "median_ms": 0.25452890741377227,
+          "growth_pct": -41.4724528168271
+        },
+        "tmpl": {
+          "median_ms": 0.8438010154233273,
+          "growth_pct": -24.076024407683892
+        }
+      },
+      "w2+50": {
+        "fact": {
+          "median_ms": 0.6018682121028767,
+          "growth_pct": -18.464922431165277
+        },
+        "ctrl": {
+          "median_ms": 0.4189412592063313,
+          "growth_pct": -11.426915746556066
+        },
+        "near": {
+          "median_ms": 0.28118834843593604,
+          "growth_pct": -35.34225837975594
+        },
+        "tmpl": {
+          "median_ms": 0.37079986544106647,
+          "growth_pct": -66.63597291446999
+        }
+      },
+      "w2+80": {
+        "fact": {
+          "median_ms": 0.46599848760226775,
+          "growth_pct": -36.871191949382954
+        },
+        "ctrl": {
+          "median_ms": 0.3225946024079779,
+          "growth_pct": -31.796646257952876
+        },
+        "near": {
+          "median_ms": 0.08380271440273002,
+          "growth_pct": -80.73001856205528
+        },
+        "tmpl": {
+          "median_ms": 0.35380326410414314,
+          "growth_pct": -68.16530213009018
+        }
+      }
+    },
+    "ctrl_growth_pct_by_state": {
+      "w1+2": 0.9410775088688927,
+      "w1+10": 2.6352457386788153,
+      "w1+50": -16.08194672957437,
+      "w1+80": -19.15998360613984,
+      "w2+10": 0.25487192577249296,
+      "w2+50": -11.426915746556066,
+      "w2+80": -31.796646257952876
+    },
+    "ctrl_matched_thickening_pct": 2.6352457386788153,
+    "ctrl_best_state": "w1+10"
+  },
+  "ln_zero_sum_decomposition": {
+    "identity": "ms(t)/ms(t0) = [margin_raw(t)/margin_raw(t0)] x [sigma(t0)/sigma(t)] \u2014 exact per probe (G_IDENT max err below); the SCALE factor is the LN bookkeeping term (the recorded activation-scale change with the raw structure frozen), the GAP factor is the constructive term",
+    "zerosum_prediction": "ms_pred_i(t) = margin_raw_i(t0)/sigma_i(t) \u2014 gap frozen at t0, only the recorded activation scale moves; NO field",
+    "identity_max_abs_err": 4.440892098500626e-16,
+    "states": {
+      "w1+2": {
+        "fact": {
+          "n": 20,
+          "median_scale_factor": 1.025665766257389,
+          "median_gap_factor": 1.0080446026513568,
+          "observed_growth_pct": 3.2171846306465746,
+          "zerosum_predicted_growth_pct": 0.9548724493247063,
+          "field_surplus_pct": 2.2623121813218683
+        },
+        "ctrl": {
+          "n": 12,
+          "median_scale_factor": 1.0074188705039222,
+          "median_gap_factor": 0.9816888175049712,
+          "observed_growth_pct": 0.9410775088688927,
+          "zerosum_predicted_growth_pct": 0.7037013829699346,
+          "field_surplus_pct": 0.23737612589895818
+        },
+        "near": {
+          "n": 3,
+          "median_scale_factor": 1.0257169460886149,
+          "median_gap_factor": 0.9722909384243076,
+          "observed_growth_pct": -1.5148919514571424,
+          "zerosum_predicted_growth_pct": 1.2918090218423606,
+          "field_surplus_pct": -2.806700973299503
+        },
+        "tmpl": {
+          "n": 19,
+          "median_scale_factor": 1.0261437496545873,
+          "median_gap_factor": 0.9916524074526748,
+          "observed_growth_pct": -0.03712471810207729,
+          "zerosum_predicted_growth_pct": 2.6143749654587323,
+          "field_surplus_pct": -2.6514996835608096
+        }
+      },
+      "w1+10": {
+        "fact": {
+          "n": 20,
+          "median_scale_factor": 1.0290981845656884,
+          "median_gap_factor": 1.0421938049997668,
+          "observed_growth_pct": 4.662053362451402,
+          "zerosum_predicted_growth_pct": 3.746523214398545,
+          "field_surplus_pct": 0.9155301480528566
+        },
+        "ctrl": {
+          "n": 12,
+          "median_scale_factor": 1.028362503332112,
+          "median_gap_factor": 0.937866925279335,
+          "observed_growth_pct": 2.6352457386788153,
+          "zerosum_predicted_growth_pct": 3.175935897401305,
+          "field_surplus_pct": -0.5406901587224899
+        },
+        "near": {
+          "n": 3,
+          "median_scale_factor": 1.0438912154980418,
+          "median_gap_factor": 0.5518060410504616,
+          "observed_growth_pct": -42.5527498580866,
+          "zerosum_predicted_growth_pct": 4.107686158260004,
+          "field_surplus_pct": -46.6604360163466
+        },
+        "tmpl": {
+          "n": 19,
+          "median_scale_factor": 1.0081672805037425,
+          "median_gap_factor": 0.8427217997632819,
+          "observed_growth_pct": -20.06006786536091,
+          "zerosum_predicted_growth_pct": 1.354073492774499,
+          "field_surplus_pct": -21.41414135813541
+        }
+      },
+      "w1+50": {
+        "fact": {
+          "n": 20,
+          "median_scale_factor": 1.015533369119082,
+          "median_gap_factor": 0.7593678320595451,
+          "observed_growth_pct": -18.87070940798169,
+          "zerosum_predicted_growth_pct": 2.077395886950839,
+          "field_surplus_pct": -20.948105294932528
+        },
+        "ctrl": {
+          "n": 12,
+          "median_scale_factor": 1.048377907254106,
+          "median_gap_factor": 0.6588699822305997,
+          "observed_growth_pct": -16.08194672957437,
+          "zerosum_predicted_growth_pct": 4.060510308347398,
+          "field_surplus_pct": -20.142457037921766
+        },
+        "near": {
+          "n": 3,
+          "median_scale_factor": 1.0259553054865422,
+          "median_gap_factor": 0.28311938169635453,
+          "observed_growth_pct": -78.14786496380057,
+          "zerosum_predicted_growth_pct": 2.956426165657966,
+          "field_surplus_pct": -81.10429112945855
+        },
+        "tmpl": {
+          "n": 19,
+          "median_scale_factor": 0.9413839199480803,
+          "median_gap_factor": 0.4664157946285891,
+          "observed_growth_pct": -62.35818656665677,
+          "zerosum_predicted_growth_pct": -6.703346297542934,
+          "field_surplus_pct": -55.65484026911383
+        }
+      },
+      "w1+80": {
+        "fact": {
+          "n": 20,
+          "median_scale_factor": 1.0296427174823364,
+          "median_gap_factor": 0.6010991099170373,
+          "observed_growth_pct": -36.43806288198641,
+          "zerosum_predicted_growth_pct": 2.595345589763798,
+          "field_surplus_pct": -39.03340847175021
+        },
+        "ctrl": {
+          "n": 12,
+          "median_scale_factor": 1.0515187361822103,
+          "median_gap_factor": 0.6347964777796358,
+          "observed_growth_pct": -19.15998360613984,
+          "zerosum_predicted_growth_pct": 3.8499339311221847,
+          "field_surplus_pct": -23.009917537262023
+        },
+        "near": {
+          "n": 3,
+          "median_scale_factor": 1.0092657556107256,
+          "median_gap_factor": 0.07887514650321398,
+          "observed_growth_pct": -89.8232491820964,
+          "zerosum_predicted_growth_pct": 2.719332011926312,
+          "field_surplus_pct": -92.54258119402272
+        },
+        "tmpl": {
+          "n": 19,
+          "median_scale_factor": 0.9302820861682106,
+          "median_gap_factor": 0.24352622407389113,
+          "observed_growth_pct": -81.82732375428023,
+          "zerosum_predicted_growth_pct": -7.8165840526244645,
+          "field_surplus_pct": -74.01073970165577
+        }
+      },
+      "w2+10": {
+        "fact": {
+          "n": 20,
+          "median_scale_factor": 1.0338839255974261,
+          "median_gap_factor": 1.0100456557194917,
+          "observed_growth_pct": 5.217440067620127,
+          "zerosum_predicted_growth_pct": 4.237161265691913,
+          "field_surplus_pct": 0.9802788019282138
+        },
+        "ctrl": {
+          "n": 12,
+          "median_scale_factor": 1.0396030808671162,
+          "median_gap_factor": 0.9119489766313873,
+          "observed_growth_pct": 0.25487192577249296,
+          "zerosum_predicted_growth_pct": 3.9759378465709316,
+          "field_surplus_pct": -3.7210659207984387
+        },
+        "near": {
+          "n": 3,
+          "median_scale_factor": 1.0610500112388577,
+          "median_gap_factor": 0.5624241218031645,
+          "observed_growth_pct": -41.4724528168271,
+          "zerosum_predicted_growth_pct": 5.798210306569129,
+          "field_surplus_pct": -47.27066312339623
+        },
+        "tmpl": {
+          "n": 19,
+          "median_scale_factor": 1.0181799685406152,
+          "median_gap_factor": 0.8447197720443075,
+          "observed_growth_pct": -24.076024407683892,
+          "zerosum_predicted_growth_pct": 1.7441107739771367,
+          "field_surplus_pct": -25.82013518166103
+        }
+      },
+      "w2+50": {
+        "fact": {
+          "n": 20,
+          "median_scale_factor": 1.0215762966487254,
+          "median_gap_factor": 0.8663659876164727,
+          "observed_growth_pct": -18.464922431165277,
+          "zerosum_predicted_growth_pct": 2.221048586494856,
+          "field_surplus_pct": -20.685971017660133
+        },
+        "ctrl": {
+          "n": 12,
+          "median_scale_factor": 1.053857330506328,
+          "median_gap_factor": 0.6636979469576754,
+          "observed_growth_pct": -11.426915746556066,
+          "zerosum_predicted_growth_pct": 4.667585336847169,
+          "field_surplus_pct": -16.094501083403234
+        },
+        "near": {
+          "n": 3,
+          "median_scale_factor": 1.0566717724337913,
+          "median_gap_factor": 0.48157517343796635,
+          "observed_growth_pct": -35.34225837975594,
+          "zerosum_predicted_growth_pct": 6.453352987811822,
+          "field_surplus_pct": -41.79561136756776
+        },
+        "tmpl": {
+          "n": 19,
+          "median_scale_factor": 0.963477037151402,
+          "median_gap_factor": 0.3998083222395917,
+          "observed_growth_pct": -66.63597291446999,
+          "zerosum_predicted_growth_pct": -4.655394585074268,
+          "field_surplus_pct": -61.98057832939572
+        }
+      },
+      "w2+80": {
+        "fact": {
+          "n": 20,
+          "median_scale_factor": 0.9978560191797421,
+          "median_gap_factor": 0.7588322622155583,
+          "observed_growth_pct": -36.871191949382954,
+          "zerosum_predicted_growth_pct": 0.12761884968663928,
+          "field_surplus_pct": -36.998810799069595
+        },
+        "ctrl": {
+          "n": 12,
+          "median_scale_factor": 1.0448193342810583,
+          "median_gap_factor": 0.6322152492528366,
+          "observed_growth_pct": -31.796646257952876,
+          "zerosum_predicted_growth_pct": 3.715766328463932,
+          "field_surplus_pct": -35.51241258641681
+        },
+        "near": {
+          "n": 3,
+          "median_scale_factor": 1.0238883936165915,
+          "median_gap_factor": 0.28636348558728897,
+          "observed_growth_pct": -80.73001856205528,
+          "zerosum_predicted_growth_pct": 2.3888393616591452,
+          "field_surplus_pct": -83.11885792371443
+        },
+        "tmpl": {
+          "n": 19,
+          "median_scale_factor": 0.9039117909395635,
+          "median_gap_factor": 0.35415334534674187,
+          "observed_growth_pct": -68.16530213009018,
+          "zerosum_predicted_growth_pct": -10.879042559572671,
+          "field_surplus_pct": -57.286259570517515
+        }
+      }
+    },
+    "within_world_ratios_texture": {
+      "w1+2": {
+        "fact_growth_pct": 3.2171846306465746,
+        "ctrl_growth_pct": 0.9410775088688927,
+        "ctrl_over_fact_ratio": 0.2925158537387888
+      },
+      "w1+10": {
+        "fact_growth_pct": 4.662053362451402,
+        "ctrl_growth_pct": 2.6352457386788153,
+        "ctrl_over_fact_ratio": 0.5652543061611697
+      },
+      "w1+50": {
+        "fact_growth_pct": -18.87070940798169,
+        "ctrl_growth_pct": -16.08194672957437,
+        "ctrl_over_fact_ratio": 0.852217390554074
+      },
+      "w1+80": {
+        "fact_growth_pct": -36.43806288198641,
+        "ctrl_growth_pct": -19.15998360613984,
+        "ctrl_over_fact_ratio": 0.5258233311741664
+      },
+      "w2+10": {
+        "fact_growth_pct": 5.217440067620127,
+        "ctrl_growth_pct": 0.25487192577249296,
+        "ctrl_over_fact_ratio": 0.04884999587331144
+      },
+      "w2+50": {
+        "fact_growth_pct": -18.464922431165277,
+        "ctrl_growth_pct": -11.426915746556066,
+        "ctrl_over_fact_ratio": 0.6188445030925018
+      },
+      "w2+80": {
+        "fact_growth_pct": -36.871191949382954,
+        "ctrl_growth_pct": -31.796646257952876,
+        "ctrl_over_fact_ratio": 0.8623709887546773
+      }
+    },
+    "note": "the within-world ctrl/fact ratios are the consult's ideal form (one organism, both batteries, one wash) \u2014 TEXTURE ONLY, never adjudicating; the frozen adjudication denominator is e242's 19.15"
+  },
+  "thermal_arithmetic": {
+    "T_app_definition": "T_app(s) = median sigma(s)/median sigma(t0): the apparent one-T a pure activation-scale change produces with NO field (softmax(L0/T) scales every logit by 1/T, hence sigma by 1/T; quoted against the committed one-T fits)",
+    "median_sigma_t0": {
+      "fact": 3.7950745820999146,
+      "ctrl": 4.037630081176758,
+      "near": 3.9146299362182617,
+      "tmpl": 3.8878443241119385
+    },
+    "states": {
+      "w1+2": {
+        "fact": {
+          "median_sigma": 3.6889432668685913,
+          "T_app_from_scale_alone": 0.9720344586291113
+        },
+        "ctrl": {
+          "median_sigma": 4.010807991027832,
+          "T_app_from_scale_alone": 0.9933569718845793
+        },
+        "near": {
+          "median_sigma": 3.8647053241729736,
+          "T_app_from_scale_alone": 0.9872466585964144
+        },
+        "tmpl": {
+          "median_sigma": 3.7681288719177246,
+          "T_app_from_scale_alone": 0.969207755708799
+        }
+      },
+      "w1+10": {
+        "fact": {
+          "median_sigma": 3.6873579025268555,
+          "T_app_from_scale_alone": 0.9716167160242062
+        },
+        "ctrl": {
+          "median_sigma": 3.9395140409469604,
+          "T_app_from_scale_alone": 0.975699596481805
+        },
+        "near": {
+          "median_sigma": 3.760173797607422,
+          "T_app_from_scale_alone": 0.9605438723129848
+        },
+        "tmpl": {
+          "median_sigma": 3.803392171859741,
+          "T_app_from_scale_alone": 0.9782778976698128
+        }
+      },
+      "w1+50": {
+        "fact": {
+          "median_sigma": 3.768024206161499,
+          "T_app_from_scale_alone": 0.9928722412818966
+        },
+        "ctrl": {
+          "median_sigma": 3.8961427211761475,
+          "T_app_from_scale_alone": 0.9649578200191697
+        },
+        "near": {
+          "median_sigma": 3.802220106124878,
+          "T_app_from_scale_alone": 0.9712846854172945
+        },
+        "tmpl": {
+          "median_sigma": 4.129924297332764,
+          "T_app_from_scale_alone": 1.0622658607289068
+        }
+      },
+      "w1+80": {
+        "fact": {
+          "median_sigma": 3.7466284036636353,
+          "T_app_from_scale_alone": 0.9872344594583771
+        },
+        "ctrl": {
+          "median_sigma": 3.876809597015381,
+          "T_app_from_scale_alone": 0.9601695844027133
+        },
+        "near": {
+          "median_sigma": 3.8109962940216064,
+          "T_app_from_scale_alone": 0.9735265800637158
+        },
+        "tmpl": {
+          "median_sigma": 4.15891170501709,
+          "T_app_from_scale_alone": 1.0697217682364555
+        }
+      },
+      "w2+10": {
+        "fact": {
+          "median_sigma": 3.681394100189209,
+          "T_app_from_scale_alone": 0.9700452574906174
+        },
+        "ctrl": {
+          "median_sigma": 3.9199767112731934,
+          "T_app_from_scale_alone": 0.9708607852779632
+        },
+        "near": {
+          "median_sigma": 3.7000908851623535,
+          "T_app_from_scale_alone": 0.945195572876254
+        },
+        "tmpl": {
+          "median_sigma": 3.790799856185913,
+          "T_app_from_scale_alone": 0.9750390036647899
+        }
+      },
+      "w2+50": {
+        "fact": {
+          "median_sigma": 3.7293219566345215,
+          "T_app_from_scale_alone": 0.9826742204815879
+        },
+        "ctrl": {
+          "median_sigma": 3.844815969467163,
+          "T_app_from_scale_alone": 0.9522457214175005
+        },
+        "near": {
+          "median_sigma": 3.6773195266723633,
+          "T_app_from_scale_alone": 0.939378584077566
+        },
+        "tmpl": {
+          "median_sigma": 4.008258819580078,
+          "T_app_from_scale_alone": 1.0309720465712435
+        }
+      },
+      "w2+80": {
+        "fact": {
+          "median_sigma": 3.804439067840576,
+          "T_app_from_scale_alone": 1.0024675366815796
+        },
+        "ctrl": {
+          "median_sigma": 3.846039891242981,
+          "T_app_from_scale_alone": 0.9525488501715496
+        },
+        "near": {
+          "median_sigma": 3.8232975006103516,
+          "T_app_from_scale_alone": 0.9766689477432081
+        },
+        "tmpl": {
+          "median_sigma": 4.284158706665039,
+          "T_app_from_scale_alone": 1.101936793120858
+        }
+      }
+    },
+    "committed_oneT_quotes": {
+      "e238_fact_side_pooled54_w1": {
+        "10": 1.0597956498145238,
+        "50": 1.3489839391244727,
+        "80": 1.4525923182890421
+      },
+      "x5_ctrl_w1": {
+        "10": 1.0430748020048268,
+        "50": 1.1835854844229838,
+        "80": 1.2649678250862952
+      },
+      "e242_wall_undecomposed": {
+        "t0": 1.0000001089780448,
+        "w1+1": 1.3089933564469043,
+        "w1+2": 0.9642851663129937,
+        "w1+4": 1.0289645331892097,
+        "w1+10": 0.8938458726638275,
+        "w1+50": 0.8423125157928674,
+        "w1+100": 0.8645557494479506,
+        "w1+200": 0.9021596334061261,
+        "w1+300": 0.8495807216775402
+      }
+    },
+    "oneT_invariance_demo": {
+      "claim": "a pure one-T (or pure LN uniform) logit rescaling leaves margin_sigma EXACTLY invariant \u2014 gap and sigma both scale by 1/T; a margin_sigma thickening is therefore NEVER thermal-lens arithmetic; only a sigma-drop-with-gap-held (the zero-sum redistribution form) can fake it",
+      "T_tested": 1.37,
+      "n_probes": 54,
+      "max_abs_err": 2.220446049250313e-16
+    },
+    "wall_disclosure": "e242's wall T(t) (1.309 transient -> 0.842-0.865 flat) is quoted UNDECOMPOSED: e242 committed no per-state sigma, so whether the wall's cooling is scale-arithmetic cannot be tested on its own record \u2014 the scale read runs only on e228's 124M pair"
+  },
+  "adjudication": {
+    "bars": {
+      "LN-ARITHMETIC": {
+        "fires": false
+      },
+      "CONSTRUCTIVE-FIELD": {
+        "fires": true
+      },
+      "MIXED/UNDERPOWERED": {
+        "fires": false
+      }
+    },
+    "verdict": "CONSTRUCTIVE-FIELD",
+    "clause": "the CTRL battery's matched thickening is +2.64% at its best state (w1+10; every other committed state lower or negative: w1+2 +0.94%, w1+10 +2.64%, w1+50 -16.08%, w1+80 -19.16%, w2+10 +0.25%, w2+50 -11.43%, w2+80 -31.80%) = 13.8% of the fact battery's +19.15% (e242's committed wall read) \u2014 UNDER the 20% bar: the ctrl battery NEVER matched the ~19% magnitude anywhere in its committed trajectory",
+    "reads": {
+      "fact_thickening_pct": 19.15419842995183,
+      "ctrl_matched_thickening_pct": 2.6352457386788153,
+      "ctrl_best_state": "w1+10",
+      "r_ctrl_over_fact19": 0.13758058048297261,
+      "bar_ln_arithmetic_threshold_pct": 9.577099214975915,
+      "bar_constructive_threshold_pct": 3.830839685990366,
+      "missing_fields_report": [
+        "e242 (the wall, the +19.15% arm) committed NO ctrl battery \u2014 its deviations name install-60 g-12 only (machine-checked: 0 non-install probes)",
+        "e242 committed NO per-state sigma/margin_raw \u2014 its margins are sigma-normalized only, so the wall's own +19.15% cannot be decomposed into scale vs gap on its own record (non-identified observables)",
+        "the ctrl trajectory therefore lives on the OTHER committed arm: e228's 124M journal (the only one with ctrl margins + the full decomposition fields) \u2014 a cross-organism proxy for the consult's ideal (ctrl under the wall's own wash), disclosed as the verdict's scope limit"
+      ]
+    },
+    "order": "LN-ARITHMETIC / CONSTRUCTIVE-FIELD / MIXED (frozen; the missing-fields clause re-routes to MIXED only if the core computation were impossible \u2014 it ran, so the absences ride as disclosures)",
+    "gates_summary": {
+      "e228_journal": true,
+      "e242_metrics": true,
+      "x5_metrics": true,
+      "e238_metrics": true,
+      "G_FIELDS_E228": true,
+      "G_MS_IDENTITY": true,
+      "G_NO_CTRL_WALL": true,
+      "G_X5_T": true,
+      "G_ENV": true
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x7\\metrics.json",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x7\\x7_ln_zerosum.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x7\\REPORT.md"
+  ]
+}
