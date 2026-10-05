@@ -404,7 +404,7 @@ Day-ten, all DONE (see NOTES + T240–T248):
 | e268 | room-optimizer interface | DONE (T246: DYNAMICAL-CARRIER 6609x; the rehearsal lane; the mechanics — off-room drag + low-v writes [R65: the separate-optimizer null owed — see e273]) |
 | e269 | 40k concurrent | DONE (T247: ratio 0.0094x; MIXED-by-anchor per frozen composite) |
 | e270 | 100k concurrent | DONE (T248: ratio 0.0250x; TURBULENCE-TOTAL across three rungs; the flash ~0.02; the dead write lands 0.8103 above its serial) |
-| e271 | 237k concurrent (natural width) | RUNNING (P-271a/P-271b registered pre-read in W040) |
+| e271 | 237k concurrent (natural width) | DONE (T249: dies 0.0911x — TURBULENCE-TOTAL across the usable range; the creep law held out-of-sample; the flash BREAKS saturation — peaks 0.073, the barrier at the top is RETENTION not formation; MIXED-by-anchor letter, write read bit-faithful) |
 
 The repair/next cells (R65's bill, priority order):
 

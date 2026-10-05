@@ -7,6 +7,75 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T249 — E271: the ratio curve closes at the natural boundary — and the flash breaks its own saturation law (2026-10-05 ~21:12Z)
+
+**The closing datum, read twice.** The letter/content split fires one
+last time exactly as its birth registration ordered (MIXED-by-anchor:
+the serial re-run's root |d| 0.0334 against e261's committed root — the
+cons lottery family 0.0419, bar 0.02 — with the WRITE read bit-faithful
+at 9.5e-7); on the discriminator's primary read the natural-width write
+DIES at 0.0911x serial (0.0350 vs 0.3844, bar 0.5x). The ladder closes:
+0.00015x / 0.0094x / 0.0250x / 0.0911x across 10k/40k/100k/237k. THE
+CREEP LAW SURVIVED ITS ONE OUT-OF-SAMPLE TEST (measured 3.64x per 2.37x
+rank vs extrapolated 3.3x per 2.5x; the point landed a hair above the
+0.06-0.08x band) — the endpoint ratio is a smooth power in rank, and
+immunity (0.5x) extrapolates to k ≳ 1.5M: BEYOND THE ORGANISM'S OWN
+WRITE WIDTH, past half the parameter space. THE TURBULENCE IS TOTAL
+ACROSS THE ENTIRE USABLE RANGE. The day-ten epitaph stands with its
+final number attached.
+
+**The surprise — P-271a's second clause dies.** The flash does NOT stay
+~0.02: the concurrent 237k transient peaks 0.0730 at s200 (3.5x the
+band, 100x the 10k flash) and even the endpoint (0.0350) sits above it.
+T248's saturation claim is wounded by its own family's newest point —
+and what the wound REVEALS is better than the claim: at the natural
+width the write FORMS to ~19% of serial strength (0.073/0.384) and then
+decays to 9%. The transient grows with rank roughly as the endpoint
+does. So at the top of the ladder THE BARRIER IS RETENTION, NOT
+FORMATION — the turbulence does not prevent the write from forming; it
+prevents the write from HOLDING. (At 10k the opposite was true: no
+formation at all — the concurrent trajectory never left the floor,
+0.0007 peak. The barrier CHANGES CHARACTER up the ladder: formation-
+blocked at the threshold rung, retention-blocked at the natural width.)
+
+**Two hypotheses for the flash's rank-growth, both discriminated by
+cells already queued:**
+- H-POISON: the shared optimizer's v-supply is the killer — a poisoned
+  denominator grows with the room's width (more coordinates share the
+  low-v supply; the interference compounds) — predicting the flash
+  SHRINKS back toward ~0.02 under SEPARATE optimizers. e273's null,
+  one arm.
+- H-TRUE-FORMATION: the flash is the write genuinely forming and being
+  washed by the corpus steps — a real formation/erosion race whose
+  transient peak grows with rank because formation itself is rank-
+  easier (the serial curve is flatter up top: 0.265→0.436→0.384) —
+  predicting the flash SURVIVES separate optimizers and QUIET-K
+  interleave raises the endpoint toward the serial (e275's K-ladder:
+  the retention ceiling should climb with K if retention is a quiet-
+  time ratchet — P-271b's rider now asks this too).
+- Discriminating observation on paper: the flash's DECAY SHAPE. H-POISON
+  predicts decay tracks the corpus dose accumulated after the peak
+  (smooth, dose-linear erosion); H-TRUE-FORMATION predicts decay tracks
+  the corpus steps' TURBULENCE (non-monotone, s300 0.040 < s400 0.035
+  — the datum already shows a non-monotone tail, mildly favoring
+  H-TRUE-FORMATION but n=1, 5 milestones; e277's s25/s50 rider would
+  settle it).
+
+**The creep law's new dignity.** A smooth power law in rank across four
+decades of ratio (0.00015 → 0.091) is a QUANTITATIVE SCALING LAW for
+memory death under concurrency — the lab's first closed-form candidate
+since the shape/height split. If e273 keeps it intact under separate
+optimizers, the law belongs to the TRAJECTORY; if it breaks, it belongs
+to the OPTIMIZER'S STATE. Either way the ratio ladder is now the
+calibration curve every future intervention reads itself against.
+
+**Registered prediction (P-272a, before e272 computes):** the capacity
+repair ladder's kept-matched 1k arm (dose-compensated to kept~0.06)
+STILL DIES below the expression floor — dose does not buy expression;
+rank does. If it EXPRESSES, "rank writes the curve" falls and the
+capacity number becomes a dose artifact — the critic's embarrassment
+scenario, caught by the repair cell before it could embarrass anyone.
+
 > **[R65 DISCLOSURES 2026-10-05 ~20:55Z]** (1) TIMESTAMP: the T245–T248
 > card stamps run ~1.7–3.2 h ahead of their commits' true UTC times;
 > ordering + commit hashes are the record (see NOTES head block).

@@ -20,6 +20,31 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## e271 — the 237k concurrent datum (the natural write's own width; the ratio curve's closing point): MIXED-by-anchor (the standing letter lottery, write read bit-faithful 9.5e-7) with the content read TURBULENCE-TOTAL-AT-NATURAL-WIDTH — the concurrent natural-width write DIES at 0.0911x serial (post g0 0.0350 vs 0.3844; bar 0.5x): the ratio ladder closes 0.00015x / 0.0094x / 0.0250x / 0.0911x — the creep law HELD (measured 3.64x per 2.37x rank vs the extrapolated 3.3x per 2.5x; the datum landed just above the extrapolated 0.06-0.08x band) and immunity lies beyond the organism's own write width — extrapolating the creep, 0.5x needs k ≳ 1.5M, past the space itself; AND P-271a's SECOND CLAUSE REFUTED: the flash does NOT stay ~0.02 — the concurrent 237k transient peaks 0.0730 at s200 (3.5x the band; 100x the 10k flash), forming at 19% of serial strength then decaying to 9% — at the natural width the barrier is RETENTION, not FORMATION (the write forms transiently and is washed); the organism HEALTHIER again (corpus CE median 0.875; root g-12 0.572 vs serial 0.297); the rehearsal lane's FOURTH confirmation (the dead write lands root 0.7648 ABOVE its serial 0.7439) and the low-v drag four-for-four (v-excess 0.28 vs 0.72); executor-disclosed erratum: the metrics' DERIVED field `measured_vs_extrapolation_x` divided the creep factor by the endpoint (annotation only — no raw read, no bar input touched); thermal max 77.0C, 12/12 gates PASS (2026-10-05 ~21:10Z) — DONE
+
+WHAT WE SAW: the closing measurement of the flow story. The letter/content
+split fires once more exactly as pre-registered (e269's birth carried the
+MIXED-by-anchor branch verbatim into e271's composite; the serial re-run's
+root read differs from e261's committed root by |d| 0.0334 — the cons
+lottery family, bar 0.02 — while the WRITE read, the discriminator's
+primary, is bit-faithful at 9.5e-7). On the write read: dies at 0.0911x.
+The creep law survives its one out-of-sample test (3.64x measured vs 3.3x
+extrapolated per the rank step) — the endpoint ratio is a smooth power in
+rank, and the 0.5x bar sits ~5.5x above the last measurable point. The
+NEW PHYSICS is the flash: T248's "~0.02 saturation" breaks at the natural
+width (peak 0.073, endpoint 0.035, both above the band) — the transient
+grows with rank roughly as the endpoint does; the write at its own natural
+width FORMS (to ~19% of serial) and then decays by half. RETENTION, not
+formation, is what the turbulence takes at the top of the ladder.
+
+WHAT'S NEXT: e272 THE CAPACITY REPAIR LADDER (R65's top bill — {2k,5k} +
+the kept-matched 1k dose-control + a 10k room-seed replicate) dispatches
+now; e273 the separate-optimizer null (the flash's growth makes the
+optimizer-state question SHARPER — a poisoned v-supply would explain a
+rank-growing transient exactly); e275's K-ladder gains a second stake:
+P-271b's threshold-move rider now also asks whether quiet runs raise the
+RETENTION ceiling the flash reveals.
+
 ## x5 — the battery-genericity of the one-T fit: BATTERY-SPECIFIC — T229's registered prediction REFUTED at the bars — every battery has its own T(t) in a stable wash-replicating ordering (ctrl 1.18-1.27 < fact-only 1.26-1.37 < pooled < near 1.42-1.63 < tmpl 1.51-1.65): ctrl diverges from the fact curve by > 0.15 at 4 of 6 states and its own-fit R2 leaves [0.2, 0.6]; the lens still fits WELL per battery (ctrl R2 0.52-0.63; near 0.93-0.99) — each battery individually well-described by ITS OWN scalar, the scalars disagreeing; x4's +10 bracket magnitude was an instrument artifact (~+0.02 at full precision vs the bracket's +0.32); the fact-only reference discharge disclosed (the R2 clause carries the verdict either way) (2026-10-04 ~22:50Z) — DONE
 
 WHAT WE DID: the proper full-logit adjudication (the fresh dumps

@@ -13,6 +13,16 @@
 # separating null (the separate-optimizer concurrent arm) before it can be
 # distinguished from optimizer-state poisoning. The day's measured numbers all
 # recompute exactly — see REVIEWS R65.]
+#
+# [CLOSING LINE 2026-10-05 ~21:12Z, e271 landed: the ratio curve closed at the
+# natural boundary — 0.00015x / 0.0094x / 0.0250x / 0.0911x, the creep law
+# surviving its one out-of-sample test (3.64x per 2.37x rank), immunity
+# extrapolating past the space itself (k ≳ 1.5M of 2.74M): THE TURBULENCE IS
+# TOTAL ACROSS THE ENTIRE USABLE RANGE. And the day's last surprise: the flash
+# does NOT saturate at ~0.02 — at the natural width it peaks 0.073 (the write
+# forms to 19% of serial, then decays to 9%): at the top of the ladder the
+# barrier is RETENTION, not formation — the turbulence takes the HOLDING, not
+# the MAKING. See T249.]
 
 ## The day in one sentence
 
