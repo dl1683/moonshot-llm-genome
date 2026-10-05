@@ -685,6 +685,45 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T240 — the Jacobian connection (the owner's directive; the map drawn before the cells) (2026-10-05 ~16:40Z)
+
+The owner asked for Jacobians + the natural gradient. The map,
+because the lab has been measuring Jacobian objects for two
+days under other names: (1) THE SUPPORTS ARE JACOBIAN COLUMNS
+— each probe's grad p(answer|ctx) is a column of d(output)/
+d(params); their cross-wash stability (cos 0.997) and common
+rotation (87%) ARE the empirical Jacobian's column geometry;
+the cross-probe overlaps (within-killed 0.024 vs within-living
+0.008) are the empirical NTK's block structure. (2) v IS THE
+DIAGONAL FISHER — Adam's denominator is diag E[gg^T]; e254's
+finding (the 2-dim span carries 42-85% of v's mass) is a
+statement about where the Fisher lives. (3) THE SPAN IS THE
+TOP FISHER EIGENSPACE — the wash gradients' dominant subspace
+= the leading eigenvectors of the empirical Fisher over the
+corpus distribution; its cross-wash identity (cos 0.96) says
+the top eigenspace is a distribution property, not a draw. (4)
+THE UNDERTOW IS NATURAL-GRADIENT-FLAVORED — Adam's step is
+diag(F)^{-1} g; e237 showed cutting the aligned gradient
+component flips fates (the 7x amplifier = the preconditioner
+concentrating along its own dominant direction). (5) THE
+EXPRESSION CLIFF MAY BE THE FISHER'S EFFECTIVE RANK — the
+memory-capacity threshold [1k, 237k] could coincide with the
+Fisher spectrum's kneel: writes below the effective rank get
+normalized away; writes above it stick. THE REGISTERED CELLS:
+(a) e265 THE FISHER/NTK CENSUS (desk, from the committed
+gradient caches: the 80x80 Gram gives the empirical Fisher's
+FULL nonzero spectrum over the wash distribution; the
+eigenvalue decay, the effective rank at several thresholds,
+and THE CLIFF JOIN — does the expression threshold coincide
+with the spectrum's kneel?); (b) the natural-gradient read
+(diag(F)^{-1} g vs the full F^{-1} g via the cached Lanczos —
+how far is Adam from the natural step?); (c) the NTK block
+structure (the supports' cross-probe Gram as the tangent
+kernel — the killed/living block asymmetry formalized). THE
+PAYOFF IF THE CLIFF JOIN FIRES: the memory capacity law and
+the optimization geometry become ONE object — the network
+stores what the Fisher cannot normalize away.
+
 ## T239 — e261: the expression cliff — dead at 1k, alive at 237k (2026-10-05 ~14:57Z)
 
 The triaged bracket delivers the anti-substrate's final
