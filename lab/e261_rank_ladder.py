@@ -228,13 +228,24 @@ CONS_STEPS = 300 if not SMOKE else 8
 MATCH_BAND = 0.10                 # the pre-registered +-10% matched band
 
 # ---- THE LADDER (registered): (k, seed_d, seed_s); the TOP rung is e260's
-# committed RANDOM room VERBATIM (seeds 26011/26012 = the anchor)
+# committed RANDOM room VERBATIM (seeds 26011/26012 = the anchor).
+# TRIAGE (coordinator priority order 2026-10-05, user travel deadline — a
+# hard wall): the middle rungs DEFERRED to the recovery protocol; the
+# coarse bracket (e246's rank-10 dead point + K1K + K237K) spans 4.5
+# orders of magnitude — enough for the coarse SHARP/GRADUAL read; the
+# full curve re-registers when the machine returns. The bars stay frozen
+# VERBATIM; the cut is a disclosed deviation, never a re-registration.
 LADDER_FULL: tuple[tuple[int, int, int], ...] = (
     (1_000, 26111, 26112),
-    (10_000, 26113, 26114),
-    (40_000, 26115, 26116),
-    (100_000, 26117, 26118),
     (237_123, 26011, 26012),      # THE ANCHOR (e260's RANDOM room, bit-bound)
+)
+DEFERRED_RUNGS: tuple[dict, ...] = (
+    {"k": 10_000, "seeds": [26113, 26114],
+     "state": "cut MID-INSTALL at s278/400 (the coordinator's triage); "
+              "resume ckpt e261_K10K_inst_resume.pt on disk for the "
+              "recovery protocol"},
+    {"k": 40_000, "seeds": [26115, 26116], "state": "never started"},
+    {"k": 100_000, "seeds": [26117, 26118], "state": "never started"},
 )
 LADDER_SMOKE: tuple[tuple[int, int, int], ...] = (
     (64, 26111, 26112),
@@ -435,6 +446,18 @@ deviations: list[str] = [
     "guaranteed.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator "
     "folds).",
+    "THE TRIAGE (coordinator priority order 2026-10-05, user travel "
+    "deadline — a hard wall in minutes; disclosed, never re-registered): "
+    "the ladder was cut to the 2-rung bracket {1k, 237k(anchor)}; rungs "
+    "10k/40k/100k are DEFERRED to the recovery protocol (K10K was cut "
+    "mid-install at s278/400 with its resume ckpt on disk; 40k/100k never "
+    "started). The bars stay frozen VERBATIM; the adjudication carries "
+    "the deferral in its clause and the honest read of the coarse "
+    "bracket — e246's rank-10 dead point (post g0 2.86e-5) + K1K + K237K "
+    "spans 4.5 orders of magnitude, enough for the coarse SHARP/GRADUAL "
+    "discrimination the dispatch asked for at this resolution; the full "
+    "curve re-registers when the machine returns. No washes were ever in "
+    "this cell; retentions defer with the rungs.",
     "Smoke mode (E261_SMOKE=1): 8-step install/cons, ladder {64, 512} "
     "FIXED (the anchor room at e260's own smoke seeds but with NO "
     "committed full-run record — the anchor gate is an explicit vacuous "
@@ -1053,6 +1076,19 @@ def main():
                          "LOADED from e258's committed artifact)",
         },
         "deviations": deviations,
+        "triage": None if SMOKE else {
+            "order": "coordinator priority order 2026-10-05 (user travel "
+                     "deadline — a hard wall): TRIAGE THE LADDER to the "
+                     "2-rung bracket {1k, 237k(anchor)}; 10k/40k/100k "
+                     "DEFERRED to the recovery protocol",
+            "deferred_rungs": list(DEFERRED_RUNGS),
+            "coarse_bracket": "e246 rank-10 dead (post g0 2.86e-5) + K1K + "
+                              "K237K — 4.5 orders of magnitude; the coarse "
+                              "SHARP/GRADUAL read; the full curve "
+                              "re-registers when the machine returns",
+            "bars_unchanged": "the registered bars stay frozen VERBATIM; "
+                              "the cut is a disclosed deviation",
+        },
         "builds_on": [
             "T237 / e260 (THE registration: the rank/dose ladder is its "
             "registered next cell; the machinery PORTED WHOLE — the SRCT "
@@ -1845,6 +1881,14 @@ def main():
         verdict = "MIXED"
         clause = "; ".join(why) + " — the curves verbatim, mapped honestly"
 
+    if not SMOKE and DEFERRED_RUNGS:
+        clause = ("TRIAGED (coordinator order, user travel deadline): rungs "
+                  "10k/40k/100k DEFERRED to the recovery protocol (K10K cut "
+                  "mid-install s278/400, resume ckpt on disk) — this is the "
+                  "COARSE bracket (rank-10 dead + 1k + 237k, 4.5 orders); "
+                  "the read at this resolution is disclosed and the full "
+                  "curve re-registers when the machine returns. " + clause)
+
     log("=" * 78)
     log(f"E261 VERDICT: {verdict}")
     log("  THE LADDER (post g0 -> root g0 | kept | in-band):")
@@ -1902,6 +1946,8 @@ def main():
         "SHARP_THRESHOLD": sharp_fires,
         "GRADUAL": gradual_fires,
         "MIXED": bool(gates_pass and not sharp_fires and not gradual_fires),
+        "triaged": bool(not SMOKE and DEFERRED_RUNGS),
+        "deferred_rungs": list(DEFERRED_RUNGS) if not SMOKE else [],
         "verdict": verdict, "clause": clause,
         "smoke_stamp": "SMOKE — nothing adjudicated" if SMOKE else None,
     }
