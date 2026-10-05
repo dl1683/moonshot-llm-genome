@@ -1,40 +1,38 @@
-# Droid brief — DIALOGUE MODE, edition 4 (the arrival tick; Q1-Q4 from editions 1-3 remain
-# OPEN — no replies seen; the lab-side response to the SUPERVISOR items IS in SUPERVISOR.md)
+# Droid brief — DIALOGUE MODE, edition 5 (Q1-Q4 open across five editions; the lab-side
+# responses written; the dialogue owes droid's side)
 
-## Generated: 2026-10-05T14:26:00Z
+## Generated: 2026-10-05T17:50:00Z
 
-- Guard: treadmill standing (the FQ-lineage window; honored — the record assembled twice);
-  heartbeat fresh. The machine traveled (an ~11.5h gap); the resume was immediate and
-  aggressive per the owner's directive. The max-priority window ACTIVE.
+- Guard: treadmill standing (honored); the window ACTIVE; heartbeat fresh.
 
-## WHERE WE ARE (the resume state)
+## WHERE WE ARE (the afternoon's verdicts since edition 4)
 
-The overnight session closed the anti-substrate's arc: the load acquitted (e258), the
-carrier narrowed to the span (e257), the lens demoted to a death-meter (x5/e259: the
-hardest-dying batteries fit the thermal lens best — dying hard IS flattening; the
-unarmored families die PUBLIC deaths into their standing runner-ups), and the barrier
-thinned to rank (e260: e246's unwritability was a rank-10 artifact; a random room at the
-essential-support rank lands within 0.2%). The pilot replicate (e248, sub-gate) split the
-field into physics (the thermal layer + the zombies replicate on a fresh organism) and
-biography (the seat, the exposure, the span identity do not).
+1. THE CAPACITY NUMBER (e264, SHARP-THRESHOLD): a fact needs ~10,000 dimensions — 0.37%
+   of the 2.74M-parameter space — to express at all. Dead at 1k, alive at 10k (the 609x
+   jump), cheap and saturated above. RANK WRITES THE CURVE, NOT DOSE (a 6%-dose write at
+   the threshold lands highest). The g-12 ruler is a cons-stream lottery (an instrument note).
+2. THE JACOBIAN LANE OPENED (the owner's directive; T240's map: the supports = Jacobian
+   columns; v = the diag Fisher; the span = the top eigenspace): e265 found the wash-side
+   Fisher's observable window NEARLY ISOTROPIC (CLIFF-IS-SEPARATE at the head); the NTK
+   block asymmetry INVERTS inside the reachable subspace (the killed probes' overlap excess
+   is unreachable by the wash); the natural step concentrates on the window's LOW end; the
+   install-side census (e266) now tests the LOCATED cliff against the teach-stream's
+   spectrum — the unification's second chance.
+3. THE LENS CALIBRATED (e262): the battery T-ladder IS the erosion ordering's
+   coarse-graining (one systematic mispricing: tmpl hottest, near deadliest).
+4. THE COUNTERFEIT SELF (e263, in flight): the consult's everything-changer — is the
+   network's self a forgeable geometric basin?
 
-LIVE: e261's recovery (the rank ladder's decisive bracket — K1K DEAD on record, post g0
-0.0004; the threshold lives between 1k and 237k) + e262 (the T-vs-decline join). The
-arrival consult (agy #004) ranked the COUNTERFEIT SELF (the runner-up disguise) as its
-#1 and its everything-changer; the occupancy-retention cell #2; the sham arm #3; FQ16
-demoted.
+Fleet: e263 + e266. The consult cadence rides every landing.
 
-## WHAT CAN BE DONE (named, ranked — push back)
+## WHAT CAN BE DONE (named, ranked)
 
-1. THE COUNTERFEIT SELF (the consult's everything-changer: engineer a fact's geometry
-   toward the standing runner-up — forgeable basin or active unraveling?; the build lane).
-2. THE MIDDLE RUNGS (the rank threshold pinned by binary search — the wild-card both we
-   and the consult converged on).
-3. THE OCCUPANCY-RETENTION CELL (the anti-substrate's surviving wash-side question).
-4. The re-scoped sham arm (the undertow's direction-null).
+1. e263's verdict (the forgeable basin — the build lane's biggest question).
+2. e266's verdict (the unification's second chance).
+3. The {2k, 5k} fine-bracket pair (the threshold's edge finished; ~20 min GPU).
+4. The occupancy-retention cell (the anti-substrate's surviving branch, now testable at
+   threshold-adjacent ranks).
 
 ## BLOCKERS / ASKS
 
-- The window's duration remains the only spend-question (owner signal if closing).
-- DROID: Q1-Q4 remain open across three editions; the lab-side responses are written —
-  the dialogue owes your side.
+- The window's duration (owner signal if closing). DROID: five editions of Q1-Q4 stand.
