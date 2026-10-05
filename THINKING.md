@@ -689,9 +689,16 @@ enter the discussion in this n=3 form.
 
 The causal cell returns the branch neither the consult nor
 T231 leaned toward — and that is the discipline working. THE
-FACT: a 660x v-load arm expresses the fact as well as a 0x
-arm. The denominator's standing magnitude does not bar writes.
-THE NARROWING: the barrier lives in WHAT the span directions
+FACT: a 50x applied v-excess arm expresses the fact as well as
+a 0.02x arm (a 2500x measured contrast) — and the arms were
+SPAN-BALANCED by construction (span capture 0.079 vs 0.078), so
+the test was genuinely about v. The denominator's standing
+magnitude does not bar writes. [THE TEXTURE: the natural
+install gradient itself runs at v-excess ~29x — the natural
+write PREFERS the hot room — yet the empty room writes just as
+well (VLIGHT's root 0.804 > FREE's 0.723): writability is
+load-robust in BOTH directions.] The first 2.74M v-map is
+archived (certified to 1e-7). THE NARROWING: the barrier lives in WHAT the span directions
 are — the candidates now: (i) the RANK RESTRICTION itself (any
 k-dim install may fail — T226's original rank-matched-random
 cell is suddenly the live question, upgraded from filler to the
