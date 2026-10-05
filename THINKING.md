@@ -7,6 +7,43 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W046 — two power laws, two exponents, one quotient: the serial curve joins the creep law (2026-10-05, datetime.now = 22:44Z, desk arithmetic on committed numbers)
+
+Nobody has stated the obvious about tonight's relocated ladder: the
+SERIAL expression curve is a POWER LAW in width above the edge —
+across 2k → 237k (118x width), post g0 runs 0.0266 → 0.3844 (14.4x),
+slope ~0.63 in log-log (the 5k and 10k points sit on it: predicted
+0.083/0.175 vs actual 0.127/0.265 — the curve is slightly CONVEX to
+the power early, settling onto it by 10k-237k). And the CONCURRENT
+survival ratio is its own power (0.00015 → 0.0911 over the same
+range, slope ~0.88 — T249's creep law, restated as an exponent).
+
+TWO EXPONENTS: formation ~0.63, survival ~0.88. The survival ladder
+is (approximately) the QUOTIENT structure: concurrent post g0 ≈
+serial(k) x f(k) with f a rising power — the kill weakens with width
+FASTER than expression strengthens, yet never catches it (the 0.5x
+bar extrapolates past the space).
+
+What this buys e280's design (before its letter): "the edge moves
+under SGD-M" is not one question but two — does SGD-M shift the
+INTERCEPT (the floor at (1k,2k]), the FORMATION EXPONENT (0.63), or
+both? A pure intercept shift with the exponent intact says Adam's
+geometry sets the floor but the width-scaling is the space's; an
+exponent change says the optimizer shapes the whole climb. The
+frozen read: fit the two-parameter power to each optimizer's ladder
+and report (floor-bracket, exponent) as the cell's coordinate — the
+SGD-M cell's verdict becomes a POINT in a 2-parameter space instead
+of a binary, and the two-optimizer comparison becomes overlayable.
+Same compute, richer coordinate — worth one paragraph in e280's
+dispatch letter.
+
+And the quiet echo: exponents near 0.6-0.9 are the classic range for
+transport-limited aggregation in disordered media (percolation
+clusters ~0.6, anomalous diffusion exponents < 1). The Batchelor
+import died as the EDGE's account; its ghost survives as the
+EXPONENTS' language. Not a claim — a pattern to watch when e280's
+two exponents land.
+
 ## W045 — the cons-only floor is the lynchpin: registering e281's fork before its letter exists (2026-10-05, datetime.now = 22:39Z)
 
 The ideator's A5 fork, sharpened by what the record already half-
