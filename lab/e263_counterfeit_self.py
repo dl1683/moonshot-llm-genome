@@ -80,16 +80,23 @@ turf; e233/e237's arm machinery ported whole):
      windows (the synthetic probe's own 2-shot prompt + ' Austin'; CE
      masked to the answer position) + 4 corpus windows x 128 ctx (the
      archive's own filtered corpus, seed 26301 HELD) per step; union
-     CE; AdamW (0.9, 0.95) wd 0.1 constant lr 5e-5 (the archive's own
-     eroding scale); clip 1.0. THE DOSE LADDER (the e246 discipline):
-     the FREE arm runs first; p(answer) read at {10,20,30,40,60,80,
-     120,160,240,320} and the FREE install STOPS at the FIRST ladder
-     point landing in the matched band; N := that point; identical N
-     for all arms; NO per-arm adjustment (an under-landing projected
-     arm is the CANNOT-LAND finding). THE MATCHED BAND := the near
-     family's committed t0 mean p 0.5891445080439249 (e259,
-     runtime-read) +-10% -> [0.5302, 0.6481] — the class's natural
-     standing strength.
+     CE; AdamW (0.9, 0.95) wd 0.1 constant lr 3e-6 (CALIBRATION
+     AMENDMENT, pre-full-run post-smoke: the smoke measured the climb
+     at the archive's 5e-5 crossing the whole band in ~2 steps —
+     unresolvable by any ladder; 3e-6 crosses it in ~13 steps);
+     clip 1.0. THE DOSE LADDER (the e246 discipline): the FREE arm
+     runs first; p(answer) read at {4,8,12,16,20,24,28,32,40,48,56,
+     64,80,96,120,160,200,240,320} and the FREE install STOPS at the
+     first ladder point at or above the ANCHOR (the near family's
+     committed t0 mean 0.5891 — 'the class's natural standing
+     strength'; the first-crossing rule was phase-fragile: it landed
+     FREE at the band floor where the counterfeit's ~30% dose
+     diversion predictably misses); N := that point; identical N for
+     all arms; NO per-arm adjustment (an under-landing projected arm
+     is the CANNOT-LAND finding). THE MATCHED BAND (the landing
+     tolerance for EVERY arm) := the near family's committed t0 mean
+     p 0.5891445080439249 (e259, runtime-read) +-10% -> [0.5302,
+     0.6481].
   5. THE WASH: w1's certified stream (seed 18202; the draws reproduced
      and certified BIT-EXACTLY against the archived generator state —
      e226's G_DRAWS convention) continued VERBATIM from EACH ARM'S
@@ -302,7 +309,8 @@ INST_CORP_SEED = 26301             # the install corpus draws (registered)
 WASH_STEPS = 3 if SMOKE else 80
 WASH_CK: tuple[int, ...] = (1, 2, 3) if SMOKE else (2, 10, 20, 50, 80)
 LADDER: tuple[int, ...] = (1, 2, 3) if SMOKE else (
-    10, 20, 30, 40, 60, 80, 120, 160, 240, 320)
+    4, 8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64, 80, 96, 120, 160,
+    200, 240, 320)      # CALIBRATION AMENDMENT (see deviations)
 N_SMOKEN = 3
 FD_EPS = (0.05,) if SMOKE else (0.02, 0.05)   # e204's/e226's sizes (L2)
 TOL_T0_DP = 0.010                  # e226's G_BATT tolerance
@@ -317,7 +325,11 @@ DOSE_TOL = 1e-4                    # ||g'|| vs ||g|| rel dev bar
 INST_FACT_WIN = 4                  # identical verbatim fact windows
 INST_CORP_WIN = 4                  # corpus anchor windows
 INST_CTX = 128                     # the install corpus ctx
-INST_LR = 5e-5                     # the archive's own eroding scale
+INST_LR = 3e-6                     # CALIBRATION AMENDMENT: the smoke's
+                                   # measured climb at 5e-5 crossed the
+                                   # band in ~2 steps; 3e-6 crosses it
+                                   # in ~13 (the committed trajectory
+                                   # table rides the metrics)
 
 # the synthetic fact (frozen; the committed near-miss record)
 SYN_SUBJECT, SYN_ANSWER = "Texas", "Austin"
@@ -427,6 +439,28 @@ deviations: list[str] = [
     "untouched): the battery-candidate merges dropped top1/top5 — "
     "e1.select_battery needs them (KeyError at P1); the three update "
     "sites now carry p/rank/top1/top5 verbatim (e237's own merge form).",
+    "SMOKE CATCH #2 (caught 16:2xZ, fixed pre-full-run): GPT-2's "
+    "state_dict double-counts the TIED lm_head.weight — the root-"
+    "displacement flat alignment assert fired; root_ru_share now reads "
+    "the root through a loaded module's parameters() (the tied "
+    "parameter appears exactly once).",
+    "CALIBRATION AMENDMENT (pre-full-run, post-smoke, bars untouched; "
+    "the committed CPU trajectory table): the smoke measured the "
+    "install's p-climb at the archive's 5e-5 crossing the ENTIRE "
+    "matched band in ~2 steps (0.399 -> 0.554 -> 0.703 -> 0.810 at "
+    "s1/s2/s3) — no ladder could resolve it and the moments would "
+    "barely form. The CPU calibration probe (the pristine organism, "
+    "the same install batch/seed, lr {1e-5, 3e-6}) measured: at 3e-6 "
+    "the band spans ~13 steps (s15 0.534 ... s26 0.634). FROZEN: "
+    "lr_install 3e-6 + the ladder {4,8,12,16,20,24,28,32,40,48,56,64,"
+    "80,96,120,160,200,240,320} + FREE stops at the first ladder point "
+    "at/above the ANCHOR 0.5891 (the class's committed mean — the "
+    "band's own center): the first-crossing rule was phase-fragile "
+    "(it landed FREE at the band FLOOR where the counterfeit's ~30% "
+    "dose diversion predictably misses the tolerance) — stopping at "
+    "the anchor is the registration's own 'the class's natural "
+    "standing strength' reading, and every arm keeps the full +-10% "
+    "band as its landing tolerance.",
     "THE SHARE FORM (the design's one invention, frozen before compute): "
     "the counterfeit is a fixed MATERIAL SHARE rho=0.30 of every install "
     "gradient's norm written through span{u1,u2} (the memory's own "
@@ -799,8 +833,8 @@ def run_install(tag: str, net0, fact_x, fact_y, corp, syn_row, u1g, u2g,
                 f"top1 {row['top1']!r}")
             if stop_band is not None and stop_band[0] <= row["p"] \
                     <= stop_band[1]:
-                log(f"  [INST-{tag}] STOP-ON-LAND at s{step} "
-                    f"(p {row['p']:.4f} in the band) — N frozen")
+                log(f"  [INST-{tag}] STOP-ON-ANCHOR at s{step} "
+                    f"(p {row['p']:.4f} at/above the anchor) — N frozen")
                 stopped_early = True
         # ---- burst bookkeeping / thermal guard (per-step polls)
         temp_ok = burst_temp_check(f"INST{tag}-b{burst_id}")
@@ -1128,15 +1162,13 @@ def make_ledger_plot(rd, installs, root_shares) -> str:
 
 
 # ------------------------------------------------------------ helpers
-def root_ru_share(flat0: torch.Tensor, sd: dict, u1c, u2c,
-                  n_params: int) -> dict:
+def root_ru_share(flat0: torch.Tensor, net, u1c, u2c) -> dict:
     """The measured disguise of a root displacement: the RU-span fraction
-    + the per-direction cos (fp64, CPU)."""
-    ks = flat_keys(sd)
-    assert sum(sd[k].numel() for k in ks) == n_params == flat0.numel(), \
-        "state_dict flat order must align with parameters() (all float " \
-        "entries are parameters; GPT-2's mask buffers are non-persistent)"
-    flat = torch.cat([sd[k].reshape(-1) for k in ks])
+    + the per-direction cos (fp64, CPU). The root is read through a
+    LOADED MODULE's parameters() (state_dict double-counts GPT-2's tied
+    lm_head.weight — the smoke's catch #2)."""
+    flat = torch.cat([p.detach().reshape(-1) for p in net.parameters()])
+    assert flat.numel() == flat0.numel(), "flat alignment"
     d = flat.double() - flat0.double()
     n = float(torch.norm(d).item())
     if n <= 0:
@@ -1147,17 +1179,6 @@ def root_ru_share(flat0: torch.Tensor, sd: dict, u1c, u2c,
     c2 = float(torch.dot(d, u2f).item())
     return {"ru_share": math.sqrt(c1 * c1 + c2 * c2) / n,
             "cos_u1": c1 / n, "cos_u2": c2 / n}
-
-
-_PARAM_ORDER_CACHE = {}
-
-
-def flat_keys(sd: dict) -> list:
-    """The state_dict keys in parameters() order (GPT-2: all state_dict
-    entries are parameters; wte/wpe/h.*/ln_* — verified by length sum ==
-    124,439,808; buffers (attn.bias masks) are excluded by shape)."""
-    ks = [k for k, v in sd.items() if v.dtype.is_floating_point]
-    return ks
 
 
 def draft_notes(bar, m) -> str:
@@ -1681,7 +1702,13 @@ def main():
     n_steps: int | None = N_SMOKEN if SMOKE else None
     for tag in ARMS:                        # FREE FIRST (the ladder)
         resume_ck = CK_DIR / f"{NAME}_{tag}_inst_resume.pt"
-        stop_band = band if (tag == "FREE" and not SMOKE) else None
+        # CALIBRATION AMENDMENT: FREE stops at the first ladder point at
+        # or above the ANCHOR (the class's committed t0 mean — the band's
+        # own center; the first-crossing rule was phase-fragile and
+        # landed FREE at the band floor where the counterfeit's ~30%
+        # dose diversion predictably misses)
+        stop_band = ((near_mean_t0, 1.0) if (tag == "FREE" and not SMOKE)
+                     else None)
         bound = n_steps if n_steps is not None else max(LADDER)
         res = run_install(tag, net0, fact_x, fact_y, corp, syn_row,
                           u1g, u2g, set(LADDER), resume_ck, bound,
@@ -1690,14 +1717,14 @@ def main():
         if tag == "FREE" and not SMOKE:
             land = [s for s in LADDER
                     if s in res["ladder"]
-                    and band[0] <= res["ladder"][s]["p"] <= band[1]]
+                    and res["ladder"][s]["p"] >= near_mean_t0]
             if not land:
-                log("FREE never lands in the matched band — the dose "
-                    "ladder failed; TEXTURE (nothing adjudicated)")
+                log("FREE never reaches the anchor — the dose ladder "
+                    "failed; TEXTURE (nothing adjudicated)")
                 metrics["gates"]["G_DOSE"] = {
                     "pass": False,
-                    "note": "the FREE ladder has no point inside the "
-                            f"band [{band[0]:.4f}, {band[1]:.4f}]; "
+                    "note": "the FREE ladder has no point at or above "
+                            f"the anchor {near_mean_t0:.4f}; "
                             "ladder: " + json.dumps(
                                 {str(k): v["p"]
                                  for k, v in res["ladder"].items()})}
@@ -1705,9 +1732,12 @@ def main():
                               "cannot calibrate; TEXTURE")
                 return 1
             n_steps = min(land)
+            assert n_steps == res["steps_ran"], \
+                "the FREE stop step must equal the frozen N"
             metrics["n_install_steps"] = n_steps
             log(f"N FROZEN from the FREE ladder: {n_steps} steps for "
-                f"ALL arms")
+                f"ALL arms (p {res['ladder'][n_steps]['p']:.4f} >= the "
+                f"anchor {near_mean_t0:.4f})")
         write_metrics(f"PARTIAL: ARM-{tag} install done (P6/{tag})")
 
     # the landing readout per arm (G_DOSE)
@@ -1765,11 +1795,10 @@ def main():
 
     # the root displacement disguise reads (measured, never nominal)
     flat0 = torch.cat([p.detach().reshape(-1) for p in net0.parameters()])
-    n_params = int(flat0.numel())
     root_shares = {}
     for tag in ARMS:
-        root_shares[tag] = root_ru_share(flat0, installs[tag]["sd"],
-                                         u1c, u2c, n_params)
+        evl.load_state_dict(roots[tag])
+        root_shares[tag] = root_ru_share(flat0, evl, u1c, u2c)
         log(f"ROOT DISGUISE ARM-{tag}: RU share "
             f"{root_shares[tag]['ru_share']*100:.3f}% cos_u1 "
             f"{root_shares[tag]['cos_u1']:+.4f} cos_u2 "
