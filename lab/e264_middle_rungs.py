@@ -1139,9 +1139,9 @@ def main():
                 k10k_path, map_location="cpu", weights_only=False)["step"]),
             "steps_ran": arms_rec["K10K"]["install"]["steps"],
         }
-        post["pass"] = bool(k10k_traj_steps == K10K_TRAJ_STEPS + [300, 400]
-                            and k10k_ledger_max == 400
-                            and post["vehicle_step_now"] == 400)
+        post["pass"] = bool(k10k_traj_steps == K10K_TRAJ_STEPS
+                            and k10k_ledger_max == K10K_LEDGER_MAX
+                            and post["vehicle_step_now"] == K10K_STEP)
         metrics["gates"]["G_K10KRESUME"]["post"] = post
         log(f"G_K10KRESUME post-read: traj {k10k_traj_steps}, ledger to "
             f"s{k10k_ledger_max}, vehicle now s{post['vehicle_step_now']}: "
