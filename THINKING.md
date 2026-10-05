@@ -685,6 +685,36 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T241 — e265: the cliff is not the knee — the unification's first honest bound (2026-10-05 ~17:07Z)
+
+The Fisher census returns CLIFF-IS-SEPARATE, and the bound is
+informative rather than deflating. THE SPECTRUM'S SHAPE: top-
+heavy and SMOOTH — a 4-5x drop to e2 (the 2-dim span's
+dominance, exactly e254's top eigenspace), then a steady ~an-
+order-per-decade decay to e80 at ~0.6-1.0% of e1. No kneel
+anywhere near [1k, 237k]. THE CAVEAT THAT MATTERS: 80
+gradient samples bound only the TOP of a 124M-dim operator —
+the cliff's rank lies below the sampled floor, so what this
+cell tested is whether the KNEE (the top's dominant gap)
+coincides with the cliff; it does not. THREE LIVE CARRIERS
+for the cliff, re-ranked: (i) THE DEEP SPECTRUM — a randomized
+Lanczos on the committed gradient cache (or a larger sample)
+could resolve the spectrum down to ~1k dims; (ii) THE INSTALL-
+SIDE JACOBian — the cliff was measured on the INSTALL's
+gradient geometry (e258/e260's rooms), not the wash's Fisher;
+the install-time Fisher at the fresh root may kneel where the
+wash-time one does not (the two distributions differ — the
+teach stream vs the corpus); (iii) A NON-SPECTRAL GEOMETRY —
+the cliff may be the Jacobian's CONDITIONING profile (the
+ratio of singular values along the writing directions), not
+the eigenvalue mass. REGISTERED (the next cells): the
+install-side Fisher census (the teach-stream Grams from the
+committed install histories — e246/e258's caches) — if ITS
+knee lands in the bracket, the unification survives with the
+right distribution; the Lanczos deep read if not. THE NTK
+BLOCK + the natural-gradient gap: folded in the record — the
+tangent kernel's killed/living block asymmetry formalized.
+
 ## T240 — the Jacobian connection (the owner's directive; the map drawn before the cells) (2026-10-05 ~16:40Z)
 
 The owner asked for Jacobians + the natural gradient. The map,

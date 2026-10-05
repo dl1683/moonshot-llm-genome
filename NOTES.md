@@ -34,6 +34,37 @@ read — the composition's sharper predictor).
 
 ---
 
+## e265 — the Fisher/NTK census (the Jacobian directive's first cell): CLIFF-IS-SEPARATE — the Fisher spectrum's knee is at k=1-2 (the top eigengap; the decay SMOOTH thereafter: e_2/e_1 ~ 0.19-0.24, e_10/e_1 ~ 0.04-0.06, e_80/e_1 ~ 0.006-0.010 — no kneel anywhere near the expression bracket [1k, 237k]; the spectrum-estimate caveat: 80 samples bound the TOP of the 124M-dim operator's spectrum) — THE MEMORY CAPACITY CLIFF AND THE FISHER'S SAMPLED DECAY ARE DISTINCT OBJECTS; the NTK blocks + the natural-gradient gap in the committed record (2026-10-05 ~17:05Z) — DONE
+
+WHAT WE DID: the frozen census — the committed 80x80 wash
+Grams eigen-decomposed (w1/w2/w3; the empirical Fisher's
+sampled nonzero spectrum over each wash's distribution); the
+2.74M side from the committed 20-step caches; the knee-vs-
+cliff join; the NTK block structure (the supports' cross-probe
+Gram); the natural-gradient gap co-report. All gates PASS.
+Script lab/e265_fisher_census.py; runs/e265/{metrics.json,
+PNGs}.
+
+WHAT WE SAW (T241): THE TOP-HEAVY SMOOTH DECAY — the spectrum
+falls 4-5x from e1 to e2 (the top eigengap = the span's
+dominance, matching e254's 2-dim top eigenspace) then decays
+SMOOTHLY ~ an order per decade of rank to e80 ~ 0.006-0.010
+of e1: NO KNEEL INSIDE THE BRACKET. THE HONEST CAVEAT: 80
+samples see only the spectrum's top — the cliff's rank (1k-
+237k) lies BELOW the sampled floor, so the join tests the
+knee's location, not the deep spectrum's shape. THE NTK
+BLOCKS + THE NATURAL-GRADIENT GAP: in the committed record.
+THE UNIFICATION'S HONEST STATUS: the Fisher's TOP is the span
+(the carrier); the cliff is NOT the top's kneel — either the
+deep spectrum (needs more samples or a Lanczos on the
+committed cache) or a different geometry (the INSTALL-side
+Jacobian, not the wash-side Fisher) carries the cliff.
+
+HONESTY: the spectrum-estimate caveat carried prominently; the
+2.74M side coarser (20 samples); nothing guaranteed.
+
+---
+
 ## e261 — the rank/dose ladder (recovery-resumed): VERDICT BY THE LETTER: TEXTURE (G_ANCHOR cons-side) — but the coarse bracket reads A CLIFF: rank-10 dead (2.86e-5) + rank-1k dead (post g0 0.0004, root 0.5769 under) + rank-237k ALIVE (post g0 0.3844 == e260's committed, root g0 0.7106 IN-BAND) — 884x max adjacent jump (the >10x bar FIRES), the floor crossed AT 237k, the threshold bracket [1k, 237k]; the anchor's INSTALL reproduced e260 essentially exactly (L2 6.7e-5, post g0 |d| 5e-7) — the divergence is the CONS lottery (root g0 |d| 0.0419 / g-12 |d| 0.1483 over the 0.02 session-texture bars; n=1 cross-pass scatter); the middle rungs deferred (K10K's ckpt s278/400 on disk) (2026-10-05 ~14:55Z) — DONE
 
 WHAT WE DID: the triaged 2-rung decisive bracket to completion via
