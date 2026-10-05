@@ -347,14 +347,14 @@ def main() -> int:
 
     # ---------------- load committed records + provenance
     src, prov = {}, {}
-    files = [("e231_metrics", "runs/e231/metrics.json"),
-             ("e234_journal", "runs/e234/journal.json"),
-             ("e246_metrics", "runs/e246/metrics.json"),
-             ("e258_metrics", "runs/e258/metrics.json"),
-             ("e260_metrics", "runs/e260/metrics.json"),
-             ("e261_metrics", "runs/e261/metrics.json"),
-             ("e264_metrics", "runs/e264/metrics.json"),
-             ("e265_metrics", "runs/e265/metrics.json")]
+    files = [("e231_metrics", "e231/metrics.json"),
+             ("e234_journal", "e234/journal.json"),
+             ("e246_metrics", "e246/metrics.json"),
+             ("e258_metrics", "e258/metrics.json"),
+             ("e260_metrics", "e260/metrics.json"),
+             ("e261_metrics", "e261/metrics.json"),
+             ("e264_metrics", "e264/metrics.json"),
+             ("e265_metrics", "e265/metrics.json")]
     ckpts = [("e258_vmap", "e258_vmap.pt"),
              ("e001_base", "e001.pt"),
              ("g1c_root", "g1c_root.pt"),
@@ -644,17 +644,32 @@ def main() -> int:
             kept_tab[str(k)]["in_band_structure"] for k in RUNG_KS),
         "structure_rungs": [k for k in RUNG_KS
                             if kept_tab[str(k)]["in_band_structure"]],
+        "t1_diagnostic_power": (
+            "disclosed limit: a RANDOM room's capture has expectation "
+            "k/N for ANY gradient (linearity over the room's modes), so "
+            "T1 cannot detect low-rankness of the teach gradient — it "
+            "tests alignment with the DCT-random family specifically. "
+            "Flat ratios = no such alignment. The one departure (the "
+            "1k rung at 0.842, 16% below) is a single room draw sitting "
+            "low on a possibly heavy-tailed DCT-mode mass distribution "
+            "— texture, not adjudicated structure"),
         "arm_context": ctx,
         "span_coupling": {
             "corpus_span_rank": 10,
             "random_mass_expectation": 10 / N,
             "random_norm_expectation": float(np.sqrt(10 / N)),
+            "in_span_median_source": "runs/e260/metrics.json arms.FREE."
+                                     "install.ledger_in_span_frac_median "
+                                     "(the NATURAL teach stream)",
+            "teach_in_span_median_e260_FREE": src["e260_metrics"]["arms"][
+                "FREE"]["install"]["ledger_in_span_frac_median"],
             "teach_grad_mass_excess_vs_random": float(
-                (kept_tab["10000"]["in_span_median"] ** 2) / (10 / N)),
-            "note": "the teach gradient's mass in the corpus 10-span vs "
-                    "the random floor (in_span medians ~0.08: ~1900x "
-                    "excess); location = rank 10 — 333x below the band "
-                    "floor; cannot fire the TEACH bar",
+                src["e260_metrics"]["arms"]["FREE"]["install"][
+                    "ledger_in_span_frac_median"] ** 2 / (10 / N)),
+            "note": "the natural teach gradient's mass in the corpus "
+                    "10-span vs the random floor (in_span median 0.0834: "
+                    "~1900x excess); location = rank 10 — 333x below "
+                    "the band floor; cannot fire the TEACH bar",
         },
     }
     write_metrics(metrics, "PARTIAL: cell 3 (the teach ledger census) done")

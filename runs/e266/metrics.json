@@ -1,0 +1,1168 @@
+{
+ "experiment": "e266_install_fisher",
+ "phase": "THE INSTALL-SIDE FISHER CENSUS \u2014 desk-only, committed records: the honest inventory (no teach Gram exists), the top of every held Gram re-derived, the full-resolution join (the v-map diagonal + the natural writes' dimension profiles) against the LOCATED cliff at ~10k, the teach ledger census, the conditioning profile co-report",
+ "date": "2026-10-05T16:51:27+00:00",
+ "registration": "bars VERBATIM from the e266 dispatch (T242's registered cell), frozen before compute; see docstring; no bar shopping",
+ "bars_verbatim": {
+  "TEACH-KNEELS-NEAR-CLIFF": "any committed teach/install-side spectrum or subspace read shows structure (a knee, an erank, a dimension ratio) within a factor 3 of the cliff's ~10k at its resolvable scale \u2014 the unification's second chance lands: the cliff is the INSTALL-distribution Fisher's effective rank",
+  "WASH-LIKE": "the install-side top is as isotropic as the wash's (erank at the window's edge; no knee) \u2014 both distributions' observable tops are flat; the cliff's carrier is below both windows or non-spectral; the honest map",
+  "MIXED": "the tables verbatim, all distributions, no inflation"
+ },
+ "operationalization": {
+  "cliff_k": 10000,
+  "cliff_source": "runs/e264/metrics.json adjudication.reads.floor_cross_k (SHARP-THRESHOLD; the 609x adjacent jump 1k -> 10k)",
+  "factor3_band": {
+   "lo": 3333.3333333333335,
+   "hi": 30000.0,
+   "as_fraction": {
+    "lo": 0.0012169571786843623,
+    "hi": 0.01095261460815926
+   }
+  },
+  "n_params": 2739072,
+  "teach_structure_locations": {
+   "T1_keptfrac": "any rung k in {1k,10k,40k,100k,237k} whose kept-frac isotropy ratio median_t(kept)/sqrt(k/N) leaves [0.5, 2.0]; location = k",
+   "T2_write": "per natural write: {k50, erank(0.1), erank(0.01)} of the squared-mass profile",
+   "T3_span": "the corpus-span coupling sits at rank 10 \u2014 333x below the band floor; cannot fire; disclosed"
+  },
+  "wash_flatness": "held Gram tops' knees at k <= 2 (e265's committed facts re-verified by module-import) AND the v-map diagonal's locations out of band",
+  "verdict_rule": "TEACH-KNEELS-NEAR-CLIFF iff any teach-side location in band; WASH-LIKE iff no teach location AND no v-map location in band AND all held wash knees <= 2; MIXED otherwise",
+  "vmap_cannot_fire_teach": "the v-map is WASH-derived (the seed-10902 wash history's second moment): it enters the WASH-LIKE clause and the MIXED branch, never the TEACH bar",
+  "rung_circularity": "rung roots' ranks are set by the rooms (the intervention): profiled as outcome context, excluded from the verdict",
+  "principal_angles": "teach-span vs corpus-span principal angles NOT computable (no teach-span vectors committed) \u2014 disclosed"
+ },
+ "resolution_disclosure": "the committed windows resolve k <= 80 (the 124M wash Grams), k <= 20 (e231 J1) and k <= 10 (e246's late half); the cliff at k = 10,000 of 2,739,072 (0.37%) lies 125x / 500x / 1000x beyond them and CANNOT be seen in any held Gram. k = 10k is resolvable ONLY in the full-resolution objects this census adds: the wash-derived v-map diagonal (2.74M coords) and the teach stream's write displacements (2.74M coords).",
+ "compute": {
+  "device": "CPU desk only (torch threads 4; e263 owns the GPU \u2014 untouched)",
+  "gpu_touched": false
+ },
+ "gates": {
+  "G_UNITS": {
+   "check": "e265's G_UNITS identity re-run on the e234 Grams",
+   "max_dev": 6.332617811290407e-05,
+   "tol": 0.001,
+   "pass": true
+  },
+  "G_SYMMETRY": {
+   "max_dev": 0.0,
+   "tol": 1e-12,
+   "pass": true
+  },
+  "G_IMPORT": {
+   "check": "module-import identity: PR(e231 sv^2) via e265's spectrum_stats vs the committed 4.117363094870959",
+   "recomputed": 4.117363094870963,
+   "committed": 4.117363094870959,
+   "dev": 3.552713678800501e-15,
+   "tol": 1e-06,
+   "pass": true
+  },
+  "G_PR265": {
+   "check": "re-derived 124M wash PRs vs e265's committed w1/w2/w3",
+   "recomputed": {
+    "w1": 9.209354064251515,
+    "w2": 7.1209812963002594,
+    "w3": 11.526272945807355
+   },
+   "committed": {
+    "w1": 9.209354064251515,
+    "w2": 7.1209812963002594,
+    "w3": 11.526272945807355
+   },
+   "tol": 1e-06,
+   "pass": true
+  },
+  "G_VMAP": {
+   "check": "loaded v-map's stats vs e258's committed v_stats (fp32 storage tolerance) + meta identity",
+   "n_coords": 2739072,
+   "meta_experiment": "e258",
+   "meta_k": 237123,
+   "rel_devs": {
+    "mean": 1.0561556960360582e-10,
+    "median": 1.0091801927687948e-06,
+    "q25": 4.356356970345407e-08,
+    "q75": 2.681623978609651e-08,
+    "q95": 5.104057644718467e-07,
+    "q99": 2.55688862107867e-06
+   },
+   "tol": 0.0002,
+   "pass": true
+  },
+  "G_K50": {
+   "check": "g1c displacement k50 == e258's committed k_raw 237123 (exact) and L2 vs the committed 21.5596 (fp32 storage tolerance)",
+   "k50_recomputed": 237123,
+   "k50_committed": 237123,
+   "L2_recomputed": 21.560241580825423,
+   "L2_committed": 21.559598922729492,
+   "L2_rel_dev": 2.980844394341398e-05,
+   "tol_L2": 0.001,
+   "pass": true
+  },
+  "G_LEDGER": {
+   "check": "kept-frac medians recomputed from the committed ledgers vs e264's committed kept_frac_curve",
+   "recomputed": {
+    "1000": 0.016095496225535792,
+    "237123": 0.2945979051104054,
+    "10000": 0.060045162390265784,
+    "40000": 0.12105602142254653,
+    "100000": 0.19149141218938606
+   },
+   "committed": {
+    "1000": 0.016095496225535792,
+    "10000": 0.060045162390265784,
+    "40000": 0.12105602142254653,
+    "100000": 0.19149141218938606,
+    "237123": 0.2945979051104054
+   },
+   "max_dev": 0.0,
+   "tol": 1e-09,
+   "pass": true
+  },
+  "G_NOGPU": {
+   "check": "every loaded tensor on CPU (e263 owns the GPU)",
+   "pass": true
+  }
+ },
+ "provenance_records": {
+  "e231_metrics": {
+   "file": "runs/e231/metrics.json",
+   "md5": "f5db4dc79080c1a2bf7ca00b961e05e7"
+  },
+  "e234_journal": {
+   "file": "runs/e234/journal.json",
+   "md5": "3354e59d7736b294160573ccfac6a21d"
+  },
+  "e246_metrics": {
+   "file": "runs/e246/metrics.json",
+   "md5": "67c62744e6ffc253de86b08640760745"
+  },
+  "e258_metrics": {
+   "file": "runs/e258/metrics.json",
+   "md5": "30043db4d107c9b866a1cfe96abf121f"
+  },
+  "e260_metrics": {
+   "file": "runs/e260/metrics.json",
+   "md5": "4f1d26641c6bc982f600620c14bfa11a"
+  },
+  "e261_metrics": {
+   "file": "runs/e261/metrics.json",
+   "md5": "f460475d8e6b76f0719e91c1e9c6041b"
+  },
+  "e264_metrics": {
+   "file": "runs/e264/metrics.json",
+   "md5": "a42ff4786784b04cb9819a69b545e343"
+  },
+  "e265_metrics": {
+   "file": "runs/e265/metrics.json",
+   "md5": "588c64f77775cc9e0398a4e2304659d7"
+  },
+  "ckpt_e258_vmap": {
+   "file": "runs/checkpoints/e258_vmap.pt",
+   "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c"
+  },
+  "ckpt_e001_base": {
+   "file": "runs/checkpoints/e001.pt",
+   "md5": "d114536d1c0983ab3be67f67ff0667c8"
+  },
+  "ckpt_g1c_root": {
+   "file": "runs/checkpoints/g1c_root.pt",
+   "md5": "9c7d4ca1b60c8a1158d080f932e2c95f"
+  },
+  "ckpt_e264_FREE_root": {
+   "file": "runs/checkpoints/e264_FREE_root.pt",
+   "md5": "d128e082484354e02625eecdeafb7246"
+  },
+  "ckpt_e264_K10K_root": {
+   "file": "runs/checkpoints/e264_K10K_root.pt",
+   "md5": "e3af1b8f5c4b18a23b34b3832a0912c1"
+  },
+  "ckpt_e264_K40K_root": {
+   "file": "runs/checkpoints/e264_K40K_root.pt",
+   "md5": "5fd8667478d880d7f71afb3ef11876c6"
+  },
+  "ckpt_e264_K100K_root": {
+   "file": "runs/checkpoints/e264_K100K_root.pt",
+   "md5": "c7515aa0681453608802315b15cc4b6b"
+  },
+  "ckpt_e264_K237KCONS2_root": {
+   "file": "runs/checkpoints/e264_K237KCONS2_root.pt",
+   "md5": "8e9bc56f019ddbdd7fd932e0241201c5"
+  },
+  "ckpt_e261_K1K_root": {
+   "file": "runs/checkpoints/e261_K1K_root.pt",
+   "md5": "fae9b281274b3a01601697dc69318545"
+  },
+  "ckpt_e261_K237K_root": {
+   "file": "runs/checkpoints/e261_K237K_root.pt",
+   "md5": "3a353cdcbff1eea29acf0ff9d9007c7d"
+  }
+ },
+ "gram_spectra_reverified": {
+  "W2_e231J1": {
+   "name": "2.74M e131-root wash (e231 J1, 20 steps)",
+   "distribution": "corpus wash",
+   "n_params": 2739072,
+   "window": 20,
+   "resolves_k_upto": 20,
+   "cliff_over_window": 500.0,
+   "cliff_resolvable": false,
+   "knee": 2,
+   "knee_loggap": 0.263149621442476,
+   "erank_1e-2": 14,
+   "erank_frac_of_window": 0.7,
+   "participation_ratio": 4.117363094870963,
+   "lambda_n_over_1": 0.0019414312656566592,
+   "decay_ei_over_e1": {
+    "1": 1.0,
+    "2": 0.5608306733449037,
+    "3": 0.30597231816818077,
+    "5": 0.11878605020768432,
+    "10": 0.02029889330191155,
+    "20": 0.0019414312656566592
+   },
+   "spectrum": [
+    3.8405633829354744,
+    2.1539057480754833,
+    1.1751060813485976,
+    0.7253131716856489,
+    0.4562053548311672,
+    0.29664123134449744,
+    0.22580586234552624,
+    0.1420851002552147,
+    0.11602334804127018,
+    0.07795918632943566,
+    0.055128744482107354,
+    0.04498439339062507,
+    0.033012370204662106,
+    0.027958998824499634,
+    0.025125464512412217,
+    0.015289357868604333,
+    0.012638070610344958,
+    0.01043624421953892,
+    0.008793158667852042,
+    0.007456189829367039
+   ]
+  },
+  "W3_e246late": {
+   "name": "2.74M g1c-root wash LATE half (e246, 10 SVs)",
+   "distribution": "corpus wash",
+   "n_params": 2739072,
+   "window": 10,
+   "resolves_k_upto": 10,
+   "cliff_over_window": 1000.0,
+   "cliff_resolvable": false,
+   "knee": 1,
+   "knee_loggap": 0.5636981985265384,
+   "erank_1e-2": 8,
+   "erank_frac_of_window": 0.8,
+   "participation_ratio": 2.0277648570019418,
+   "lambda_n_over_1": 0.005396609232847619,
+   "decay_ei_over_e1": {
+    "1": 1.0,
+    "2": 0.2730874872891756,
+    "3": 0.09241038931444859,
+    "5": 0.02682776605516654,
+    "10": 0.005396609232847619
+   },
+   "spectrum": [
+    1.4879313395082605,
+    0.40633543076512807,
+    0.13750031435712734,
+    0.0652167390500868,
+    0.039917873882478194,
+    0.023365346238921766,
+    0.017131707684117665,
+    0.012451095419858182,
+    0.010448275810795734,
+    0.008029784004633604
+   ],
+   "steps_L2_counts": [
+    1.654317855834961,
+    1.0876227617263794,
+    0.8470239043235779,
+    0.7278790473937988,
+    0.6917338967323303,
+    0.6514564752578735,
+    0.6229239106178284,
+    0.6015200018882751,
+    0.5667940974235535,
+    0.5393994450569153,
+    0.5207093954086304,
+    0.5073005557060242,
+    0.4961196780204773,
+    0.48561105132102966,
+    0.4742302894592285,
+    0.46171870827674866,
+    0.4508240520954132,
+    0.44592463970184326,
+    0.4277830421924591,
+    0.41781336069107056
+   ],
+   "l2_disclosure": "the g1c wash's 20-step L2 history (1.654 -> 0.418); no full 20x20 Gram was ever committed at the g1c root"
+  },
+  "W1_e234_w1": {
+   "name": "124M wash w1 (e234, 80x80 Gram)",
+   "distribution": "corpus wash",
+   "n_params": 124439808,
+   "window": 80,
+   "resolves_k_upto": 80,
+   "cliff_over_window": 125.0,
+   "cliff_resolvable": false,
+   "knee": 1,
+   "knee_loggap": 0.6651194641401988,
+   "erank_1e-2": 76,
+   "erank_frac_of_window": 0.95,
+   "participation_ratio": 9.209354064251515,
+   "lambda_n_over_1": 0.007251314144584014,
+   "decay_ei_over_e1": {
+    "1": 1.0,
+    "2": 0.21621236928286697,
+    "3": 0.15055181203992551,
+    "5": 0.09447064904500274,
+    "10": 0.049268944393582065,
+    "20": 0.031870931936610794,
+    "40": 0.019457783988015728,
+    "80": 0.007251314144584014
+   },
+   "spectrum": [
+    678.0523180342636,
+    146.60329817992817,
+    102.08200513793025,
+    73.62659880546542,
+    64.0560425711655,
+    44.71476615093431,
+    40.70668361664201,
+    37.40317782069924,
+    34.23842045853993,
+    33.40692195316956,
+    31.397781939216216,
+    29.56263418641807,
+    28.001324092363138,
+    26.71756546054247,
+    26.572657989175784,
+    24.617139317094015,
+    23.35278643683867,
+    23.029817761725745,
+    22.641591386478808,
+    21.610159277531192,
+    20.738573683849378,
+    20.702412207671475,
+    20.131001535814608,
+    19.25588186976057,
+    18.90496875382524,
+    18.463527177539586,
+    18.07983307330411,
+    17.92893026009963,
+    17.70154418844684,
+    16.551123717573034,
+    16.30892099149377,
+    15.818683477047836,
+    15.644166903233593,
+    15.353406249667097,
+    15.094971035427426,
+    14.837679140037787,
+    14.29047031463183,
+    13.801439456664784,
+    13.387516719375068,
+    13.193395536884042,
+    12.996464618960642,
+    12.392477267879599,
+    12.24561345449946,
+    12.142184979388503,
+    11.898373934418219,
+    11.571928188293281,
+    11.487803319861978,
+    11.118240592909675,
+    10.691978384941736,
+    10.483742922024662,
+    10.296623347853258,
+    10.036662103963339,
+    9.867005422734142,
+    9.653094078719382,
+    9.504137878809855,
+    9.233110732661608,
+    9.031376073309774,
+    8.88591212674929,
+    8.842311615961142,
+    8.745314919454609,
+    8.612254825926415,
+    8.477713862235758,
+    8.161971601090748,
+    7.818758873202019,
+    7.640054345981081,
+    7.57469721463156,
+    7.442368655399293,
+    7.2715156279871875,
+    7.208778905055222,
+    7.108822837380295,
+    6.887613995720738,
+    6.8227605819185815,
+    6.663748940917396,
+    6.311719084573959,
+    6.1141273366510624,
+    6.026826100077095,
+    5.948910357680469,
+    5.555907451094622,
+    5.007306304446141,
+    4.916770364529834
+   ]
+  },
+  "W1_e234_w2": {
+   "name": "124M wash w2 (e234, 80x80 Gram)",
+   "distribution": "corpus wash",
+   "n_params": 124439808,
+   "window": 80,
+   "resolves_k_upto": 80,
+   "cliff_over_window": 125.0,
+   "cliff_resolvable": false,
+   "knee": 1,
+   "knee_loggap": 0.7322387153204543,
+   "erank_1e-2": 76,
+   "erank_frac_of_window": 0.95,
+   "participation_ratio": 7.1209812963002594,
+   "lambda_n_over_1": 0.005920558197563316,
+   "decay_ei_over_e1": {
+    "1": 1.0,
+    "2": 0.18525130868397263,
+    "3": 0.1038553736158149,
+    "5": 0.057683247551928,
+    "10": 0.03920951734534783,
+    "20": 0.02585345817100204,
+    "40": 0.016062281932745583,
+    "80": 0.005920558197563316
+   },
+   "spectrum": [
+    827.5248053787861,
+    153.3000531648699,
+    85.94289783896835,
+    50.9039390179437,
+    47.73431820402556,
+    43.42712989563253,
+    38.45431085845761,
+    36.64378393600165,
+    35.409197720193795,
+    32.446848210205104,
+    30.32376324233452,
+    28.804550353303156,
+    28.54840058457651,
+    27.122305836752833,
+    26.291161615796266,
+    25.250169307531852,
+    24.358864634173973,
+    24.024175814884863,
+    22.7997263298922,
+    21.394377941327054,
+    21.3028754326043,
+    20.383706093870938,
+    20.339420425117222,
+    19.39528674020104,
+    18.69825505819171,
+    18.195136817657026,
+    17.980889553625456,
+    17.64103832048686,
+    17.09764803321938,
+    16.957947703080208,
+    16.685938049672334,
+    16.114090105543067,
+    15.693944430873746,
+    15.164639530605998,
+    15.034564560158149,
+    14.705529391432908,
+    14.37349018595714,
+    14.028979508413718,
+    13.52929381974072,
+    13.29193673033448,
+    12.913506670023523,
+    12.713396595172993,
+    12.61311435430949,
+    12.257408017597426,
+    11.812421678134575,
+    11.73596822541409,
+    11.320769803881365,
+    11.25210073891724,
+    11.046338053049231,
+    10.84536811815157,
+    10.544128163420503,
+    10.46420581606687,
+    10.362888264765136,
+    10.270941693856678,
+    9.71942996027076,
+    9.544064867394665,
+    9.297039446796004,
+    9.209844915306313,
+    8.922673927396698,
+    8.903348049518435,
+    8.808968887972103,
+    8.58476980716945,
+    8.278087145965175,
+    8.079559115935776,
+    8.028414804440649,
+    7.956137560362715,
+    7.537521135907355,
+    7.350065656340281,
+    7.344226000876166,
+    6.968579725984554,
+    6.844177973141623,
+    6.7574690476693435,
+    6.256958095003467,
+    6.126549351643747,
+    6.050793384600954,
+    5.759392646189726,
+    5.616445240467109,
+    5.472648920319899,
+    5.1079942648605705,
+    4.89940877017236
+   ]
+  },
+  "W1_e234_w3": {
+   "name": "124M wash w3 (e234, 80x80 Gram)",
+   "distribution": "corpus wash",
+   "n_params": 124439808,
+   "window": 80,
+   "resolves_k_upto": 80,
+   "cliff_over_window": 125.0,
+   "cliff_resolvable": false,
+   "knee": 1,
+   "knee_loggap": 0.6166379144873884,
+   "erank_1e-2": 77,
+   "erank_frac_of_window": 0.9625,
+   "participation_ratio": 11.526272945807355,
+   "lambda_n_over_1": 0.009800837504494756,
+   "decay_ei_over_e1": {
+    "1": 1.0,
+    "2": 0.2417475522876307,
+    "3": 0.2273997275814839,
+    "5": 0.09172151949703057,
+    "10": 0.05640151399136192,
+    "20": 0.039138708361686675,
+    "40": 0.023714361029704683,
+    "80": 0.009800837504494756
+   },
+   "spectrum": [
+    548.4340885353267,
+    132.58259849451298,
+    124.71376232933272,
+    71.50128484627584,
+    50.30320794442916,
+    41.41573064949582,
+    39.336626914162565,
+    37.41913329640918,
+    34.896940765306255,
+    30.932512917865054,
+    30.435805476299784,
+    29.204378528351587,
+    28.593007122584485,
+    27.86970043840576,
+    25.780170477213513,
+    24.854569973672643,
+    23.478855018194626,
+    23.099588718573145,
+    22.259910691478687,
+    21.4650018467916,
+    21.041182678902945,
+    20.332979286210495,
+    19.886899984574157,
+    19.466988068083605,
+    18.80350608475522,
+    18.381824430476602,
+    17.88206255864038,
+    16.863648841226517,
+    16.816108884925796,
+    16.02517011211928,
+    15.943433988366357,
+    15.293068517886487,
+    15.206081691481454,
+    14.985882484438358,
+    14.545990395499219,
+    14.337981662512592,
+    13.91208815448153,
+    13.667472033948984,
+    13.140585808277304,
+    13.00576397652376,
+    12.975998334608335,
+    12.564292772380268,
+    12.214265295072854,
+    11.665309917399174,
+    11.580424404035329,
+    11.319998891351329,
+    11.049796377608299,
+    10.987613315207042,
+    10.757343867316777,
+    10.462958576295312,
+    10.3316975412794,
+    10.118530758812156,
+    9.86103928526192,
+    9.61084024849241,
+    9.421516326974755,
+    9.238991291053939,
+    9.15630723800448,
+    9.061784677295474,
+    8.750319010143397,
+    8.670685050304602,
+    8.458122768875814,
+    8.325119771847737,
+    8.204484766024065,
+    8.036207460948937,
+    7.950716704519319,
+    7.780223625499603,
+    7.687100183138905,
+    7.514058804080387,
+    7.223984580518475,
+    6.97570844426301,
+    6.9434550912634165,
+    6.761355334327843,
+    6.529894587291948,
+    6.338799050915397,
+    6.300648013952696,
+    6.146361167318917,
+    6.005542059348653,
+    5.914831909799271,
+    5.549227557141135,
+    5.375113383660428
+   ]
+  }
+ },
+ "status": "DONE (verdict WASH-LIKE; all gates PASS)",
+ "vmap_diag_census": {
+  "what": "the wash-history diagonal second-moment (Adam's standing ruler at the installs) \u2014 the ONLY held object with k = 10k resolvable; WASH-derived, cannot fire the TEACH bar (disclosed)",
+  "convention": "e258's fp64 AdamW (0.9, 0.95) recursion over the 20-step seed-10902 unwalled wash history at the g1c root (post-clip supply)",
+  "stats": {
+   "n": 2739072,
+   "total_mass": 0.540568170063993,
+   "participation_ratio": 56465.99638355557,
+   "k50": 73481,
+   "erank": {
+    "0.5": 73481,
+    "0.1": 1078138,
+    "0.01": 2111262
+   },
+   "erank_as_fraction": {
+    "0.5": 0.026826969134071687,
+    "0.1": 0.3936143336137203,
+    "0.01": 0.7707946340950512
+   },
+   "cum_at_k": {
+    "1": 0.001085959294754802,
+    "10": 0.005279084321194212,
+    "100": 0.023780391242547144,
+    "1000": 0.08657023855818902,
+    "3333": 0.1600549784273775,
+    "10000": 0.26317874906432,
+    "30000": 0.3916263479687981,
+    "100000": 0.5384169518996216,
+    "237123": 0.6556731875710514,
+    "500000": 0.7715426462664096,
+    "1000000": 0.8874555181153794,
+    "2739072": 0.9999999999999959
+   },
+   "excess_over_linear_at_k": {
+    "1": 2974.520697402625,
+    "10": 1445.9792049822072,
+    "100": 651.3620380150609,
+    "1000": 237.1221164680559,
+    "3333": 131.53378633994413,
+    "10000": 72.08655425571051,
+    "30000": 35.75642547278639,
+    "100000": 14.747627972736003,
+    "237123": 7.573858584897353,
+    "500000": 4.226621718388454,
+    "1000000": 2.4308045609153286,
+    "2739072": 0.9999999999999959
+   }
+  },
+  "structure_locations": {
+   "k50": 73481,
+   "erank(0.1)": 1078138,
+   "erank(0.01)": 2111262
+  },
+  "locations_in_band": {
+   "k50": false,
+   "erank(0.1)": false,
+   "erank(0.01)": false
+  },
+  "cum_at_cliff": 0.26317874906432,
+  "excess_over_linear_at_cliff": 72.08655425571051,
+  "context_quantiles_e258": {
+   "mean": 1.9735449455913735e-07,
+   "median": 6.045241757117187e-08,
+   "q25": 2.0388100097079587e-08,
+   "q75": 1.3248366315110616e-07,
+   "q95": 5.234346645011101e-07,
+   "q99": 2.376100610490539e-06
+  }
+ },
+ "teach_write_profiles": {
+  "g1c_root": {
+   "label": "the committed lineage root (install s400 + cons s300 \u2014 the natural write the cliff's organism carries)",
+   "L2": 21.560241580825423,
+   "stats": {
+    "n": 2739072,
+    "total_mass": 464.84401702353324,
+    "participation_ratio": 557245.6817515913,
+    "k50": 237123,
+    "erank": {
+     "0.5": 237123,
+     "0.1": 1020335,
+     "0.01": 1874293
+    },
+    "erank_as_fraction": {
+     "0.5": 0.0865705611243516,
+     "0.1": 0.3725112008738726,
+     "0.01": 0.6842802963923548
+    },
+    "cum_at_k": {
+     "1": 7.678260425248974e-05,
+     "10": 0.0006288761793400047,
+     "100": 0.003231635127755069,
+     "1000": 0.014337512386686421,
+     "3333": 0.03167604280998995,
+     "10000": 0.06661543575589618,
+     "30000": 0.14013253755878033,
+     "100000": 0.3047600368163083,
+     "237123": 0.5000005231339001,
+     "500000": 0.7109797767133736,
+     "1000000": 0.8955558829531739,
+     "2739072": 1.0000000000012352
+    },
+    "excess_over_linear_at_k": {
+     "1": 210.3130813950756,
+     "10": 172.25371342971852,
+     "100": 88.51681292650333,
+     "1000": 39.27147872802595,
+     "3333": 26.031491728666307,
+     "10000": 18.246447484677407,
+     "30000": 12.794436997206784,
+     "100000": 8.347596835625192,
+     "237123": 5.775641472575069,
+     "500000": 3.8948495979237077,
+     "1000000": 2.452992043432316,
+     "2739072": 1.0000000000012352
+    }
+   },
+   "structure_locations": {
+    "k50": 237123,
+    "erank(0.1)": 1020335,
+    "erank(0.01)": 1874293
+   },
+   "locations_in_band": {
+    "k50": false,
+    "erank(0.1)": false,
+    "erank(0.01)": false
+   },
+   "cum_at_cliff": 0.06661543575589618
+  },
+  "e264_FREE_root": {
+   "label": "this session's natural-install replicate (unprojected)",
+   "L2": 21.554048671002985,
+   "stats": {
+    "n": 2739072,
+    "total_mass": 464.5770141119449,
+    "participation_ratio": 557328.6162712701,
+    "k50": 236865,
+    "erank": {
+     "0.5": 236865,
+     "0.1": 1019793,
+     "0.01": 1873588
+    },
+    "erank_as_fraction": {
+     "0.5": 0.08647636863872143,
+     "0.1": 0.3723133236366185,
+     "0.01": 0.684022909949063
+    },
+    "cum_at_k": {
+     "1": 7.624586038257321e-05,
+     "10": 0.0006277991041294022,
+     "100": 0.0032174996464475318,
+     "1000": 0.01430483343302006,
+     "3333": 0.03165247945993472,
+     "10000": 0.06654652878781388,
+     "30000": 0.14021757128105683,
+     "100000": 0.304933927941667,
+     "237123": 0.5002880294506608,
+     "500000": 0.7112774669867923,
+     "1000000": 0.8956716484873701,
+     "2739072": 1.0000000000014126
+    },
+    "excess_over_linear_at_k": {
+     "1": 208.8429012898156,
+     "10": 171.958694774593,
+     "100": 88.12963191594334,
+     "1000": 39.181968721049124,
+     "3333": 26.012127278512544,
+     "10000": 18.227573369989493,
+     "30000": 12.802200780131562,
+     "100000": 8.352359838750377,
+     "237123": 5.7789625359137675,
+     "500000": 3.8964803881088943,
+     "1000000": 2.453309133565598,
+     "2739072": 1.0000000000014126
+    }
+   },
+   "structure_locations": {
+    "k50": 236865,
+    "erank(0.1)": 1019793,
+    "erank(0.01)": 1873588
+   },
+   "locations_in_band": {
+    "k50": false,
+    "erank(0.1)": false,
+    "erank(0.01)": false
+   },
+   "cum_at_cliff": 0.06654652878781388
+  }
+ },
+ "rung_context": {
+  "e261_K1K_root": {
+   "L2": 17.648948145277856,
+   "k50": 250470,
+   "erank(0.1)": 1074506,
+   "cum_at_10k": 0.06616575575175689,
+   "note": "intervention-set: the room forced this rank; outcome context, not Fisher evidence"
+  },
+  "e264_K10K_root": {
+   "L2": 18.693083646310154,
+   "k50": 266008,
+   "erank(0.1)": 1109674,
+   "cum_at_10k": 0.06091795238185326,
+   "note": "intervention-set: the room forced this rank; outcome context, not Fisher evidence"
+  },
+  "e264_K40K_root": {
+   "L2": 21.399274316923165,
+   "k50": 293173,
+   "erank(0.1)": 1156841,
+   "cum_at_10k": 0.05368438013348376,
+   "note": "intervention-set: the room forced this rank; outcome context, not Fisher evidence"
+  },
+  "e264_K100K_root": {
+   "L2": 22.127866676373234,
+   "k50": 299700,
+   "erank(0.1)": 1165868,
+   "cum_at_10k": 0.05168779761169921,
+   "note": "intervention-set: the room forced this rank; outcome context, not Fisher evidence"
+  },
+  "e264_K237KCONS2_root": {
+   "L2": 21.56530743003197,
+   "k50": 294510,
+   "erank(0.1)": 1157346,
+   "cum_at_10k": 0.05333720750427351,
+   "note": "intervention-set: the room forced this rank; outcome context, not Fisher evidence"
+  },
+  "e261_K237K_root": {
+   "L2": 21.96259274766064,
+   "k50": 296284,
+   "erank(0.1)": 1160224,
+   "cum_at_10k": 0.05222457193251196,
+   "note": "intervention-set: the room forced this rank; outcome context, not Fisher evidence"
+  }
+ },
+ "teach_ledger_census": {
+  "kept_frac_table": {
+   "1000": {
+    "source": "runs/e261/metrics.json arms.K1K",
+    "n_rows": 41,
+    "kept_median": 0.016095496225535792,
+    "kept_q1_q3": [
+     0.015525558785967992,
+     0.016539742591629016
+    ],
+    "isotropic_expectation": 0.01910725395249952,
+    "isotropy_ratio_median": 0.8423762130104653,
+    "in_band_structure": false,
+    "in_span_median": 0.04661016053827346,
+    "applied_in_span_median": 0.0019535432703276256
+   },
+   "237123": {
+    "source": "runs/e261/metrics.json arms.K237K",
+    "n_rows": 41,
+    "kept_median": 0.2945979051104054,
+    "kept_q1_q3": [
+     0.2944051014209195,
+     0.29478494132623173
+    ],
+    "isotropic_expectation": 0.2942287564538035,
+    "isotropy_ratio_median": 1.0012546314678792,
+    "in_band_structure": false,
+    "in_span_median": 0.0726552892121624,
+    "applied_in_span_median": 0.021828423728608413
+   },
+   "10000": {
+    "source": "runs/e264/metrics.json arms.K10K",
+    "n_rows": 41,
+    "kept_median": 0.060045162390265784,
+    "kept_q1_q3": [
+     0.059435926752064154,
+     0.060490707098702426
+    ],
+    "isotropic_expectation": 0.06042244232115321,
+    "isotropy_ratio_median": 0.9937559635725723,
+    "in_band_structure": false,
+    "in_span_median": 0.0508385113519611,
+    "applied_in_span_median": 0.0036147991254377185
+   },
+   "40000": {
+    "source": "runs/e264/metrics.json arms.K40K",
+    "n_rows": 41,
+    "kept_median": 0.12105602142254653,
+    "kept_q1_q3": [
+     0.12077174261032173,
+     0.12139114790946623
+    ],
+    "isotropic_expectation": 0.12084488464230642,
+    "isotropy_ratio_median": 1.001747171846496,
+    "in_band_structure": false,
+    "in_span_median": 0.06545234271317865,
+    "applied_in_span_median": 0.00818781458340071
+   },
+   "100000": {
+    "source": "runs/e264/metrics.json arms.K100K",
+    "n_rows": 41,
+    "kept_median": 0.19149141218938606,
+    "kept_q1_q3": [
+     0.1911155640839349,
+     0.19177699518560518
+    ],
+    "isotropic_expectation": 0.19107253952499523,
+    "isotropy_ratio_median": 1.0021922180206122,
+    "in_band_structure": false,
+    "in_span_median": 0.07249215441111923,
+    "applied_in_span_median": 0.013570533173655627
+   }
+  },
+  "structure_def": "isotropy ratio outside [0.5, 2.0] at a rung",
+  "any_teach_kept_structure": false,
+  "structure_rungs": [],
+  "t1_diagnostic_power": "disclosed limit: a RANDOM room's capture has expectation k/N for ANY gradient (linearity over the room's modes), so T1 cannot detect low-rankness of the teach gradient \u2014 it tests alignment with the DCT-random family specifically. Flat ratios = no such alignment. The one departure (the 1k rung at 0.842, 16% below) is a single room draw sitting low on a possibly heavy-tailed DCT-mode mass distribution \u2014 texture, not adjudicated structure",
+  "arm_context": {
+   "e260_RANDOM": {
+    "kept_frac": 0.2945979050906026,
+    "in_span_frac": 0.07265536330146734,
+    "applied_in_span_frac": 0.021828280390531675,
+    "v_excess_pre": 25.685857569995438
+   },
+   "e260_SPAN": {
+    "kept_frac": 0.30702541128598454,
+    "in_span_frac": 0.0917867664551148,
+    "applied_in_span_frac": 0.2979961420538583,
+    "v_excess_pre": 26.735613728770282
+   },
+   "e260_FREE": {
+    "kept_frac": 1.0,
+    "in_span_frac": 0.08342791673853514,
+    "applied_in_span_frac": 0.08342791673853514,
+    "v_excess_pre": 29.06328279806761
+   },
+   "e258_VHEAVY": {
+    "kept_frac": 0.7367237472893978,
+    "in_span_frac": 0.06894612763322122,
+    "v_excess_pre": 27.56378114869503
+   },
+   "e258_VLIGHT": {
+    "kept_frac": 0.0999874441497057,
+    "in_span_frac": 0.043230659725384285,
+    "v_excess_pre": 15.190163531252438
+   },
+   "e258_FREE": {
+    "kept_frac": 1.0,
+    "in_span_frac": 0.08342791177477463,
+    "v_excess_pre": 29.061850539663425
+   },
+   "e246_ALIGNED": {
+    "in_span_frac": 0.1073041739083656
+   },
+   "e246_ORTHO": {
+    "in_span_frac": 0.07022377828892476
+   },
+   "e246_FREE": {
+    "in_span_frac": 0.0834280483030866
+   }
+  },
+  "span_coupling": {
+   "corpus_span_rank": 10,
+   "random_mass_expectation": 3.6508715360530867e-06,
+   "random_norm_expectation": 0.0019107253952499524,
+   "in_span_median_source": "runs/e260/metrics.json arms.FREE.install.ledger_in_span_frac_median (the NATURAL teach stream)",
+   "teach_in_span_median_e260_FREE": 0.08342791673853514,
+   "teach_grad_mass_excess_vs_random": 1906.4536296603192,
+   "note": "the natural teach gradient's mass in the corpus 10-span vs the random floor (in_span median 0.0834: ~1900x excess); location = rank 10 \u2014 333x below the band floor; cannot fire the TEACH bar"
+  }
+ },
+ "conditioning_profile": {
+  "what": "the two streams' coupling, verbatim from committed records \u2014 the resolvable form of the dispatch's constructive alternative",
+  "couplings": {
+   "teach_grad_vs_corpus_span_mass_excess": 1906.4536296603192,
+   "supports_vs_124m_wash_window_mass_excess": 2843.0580861332132,
+   "write_install_final_cos_to_span_e260_FREE": 0.005137784183282509,
+   "write_root_cos_to_span_e260_FREE": 0.03572413724159042,
+   "note": "the teach GRADIENT couples to the corpus span (~1900x mass excess at rank 10) but the install-final displacement carries only ~7x the random floor in that span (cos 5.1e-3; the root after cons 3.6e-2): the per-step alignment is transient, not cumulative"
+  },
+  "dimension_ratio_ladder": {
+   "corpus_wash_window_eranks": {
+    "e231J1_20": 14,
+    "e246late_10": 8,
+    "e234_w1_80": 76
+   },
+   "wash_diag_v_k50": 73481,
+   "teach_write_k50": {
+    "g1c_root": 237123,
+    "e264_FREE_root": 236865
+   },
+   "the_cliff": 10000
+  },
+  "principal_angles": "NOT computable from committed records (no teach-span vectors exist); disclosed, not estimated",
+  "displacement_loads_verbatim": {
+   "e264_FREE_install": {
+    "v_excess": 0.4953194187014327,
+    "cos_to_span": 0.005137862827445811,
+    "in_own_room": null
+   },
+   "e264_FREE_root": {
+    "v_excess": 0.5754729716028576,
+    "cos_to_span": 0.03687956980417651,
+    "in_own_room": null
+   },
+   "e264_K10K_install": {
+    "v_excess": 1.0092428433036382,
+    "cos_to_span": 0.005966837249160527,
+    "in_own_room": 0.9441588788935659
+   },
+   "e264_K10K_root": {
+    "v_excess": 0.649765973782481,
+    "cos_to_span": 0.012530897044555948,
+    "in_own_room": 0.4131938182172563
+   },
+   "e264_K40K_install": {
+    "v_excess": 0.8808488346407944,
+    "cos_to_span": 0.005064055421129955,
+    "in_own_room": 0.976304753778287
+   },
+   "e264_K40K_root": {
+    "v_excess": 0.681806461195706,
+    "cos_to_span": 0.008710436418390984,
+    "in_own_room": 0.5832897019757636
+   },
+   "e264_K100K_install": {
+    "v_excess": 0.796872916787166,
+    "cos_to_span": 0.005795170603048114,
+    "in_own_room": 0.9814438753749198
+   },
+   "e264_K100K_root": {
+    "v_excess": 0.6726400101089411,
+    "cos_to_span": 0.009484607147999357,
+    "in_own_room": 0.6483555611778506
+   },
+   "e260_FREE_install": {
+    "v_excess": 0.4953193975821303,
+    "cos_to_span": 0.005137784183282509,
+    "in_own_room": null
+   },
+   "e260_FREE_root": {
+    "v_excess": 0.5750800953543299,
+    "cos_to_span": 0.03572413724159042,
+    "in_own_room": null
+   },
+   "e260_RANDOM_install": {
+    "v_excess": 0.719695350581684,
+    "cos_to_span": 0.006599851582954438,
+    "in_own_room": 0.9804893245793377
+   },
+   "e260_RANDOM_root": {
+    "v_excess": 0.6408027736462673,
+    "cos_to_span": 0.01013941121144893,
+    "in_own_room": 0.6591144670080298
+   },
+   "e260_SPAN_install": {
+    "v_excess": 0.7082115462459111,
+    "cos_to_span": 0.015027442005450217,
+    "in_own_room": 0.9782547576809251
+   },
+   "e260_SPAN_root": {
+    "v_excess": 0.6329196272213431,
+    "cos_to_span": 0.011565141361340563,
+    "in_own_room": 0.6528311577123995
+   }
+  }
+ },
+ "adjudication": {
+  "verdict": "WASH-LIKE",
+  "bars_verbatim": {
+   "TEACH-KNEELS-NEAR-CLIFF": "any committed teach/install-side spectrum or subspace read shows structure (a knee, an erank, a dimension ratio) within a factor 3 of the cliff's ~10k at its resolvable scale \u2014 the unification's second chance lands: the cliff is the INSTALL-distribution Fisher's effective rank",
+   "WASH-LIKE": "the install-side top is as isotropic as the wash's (erank at the window's edge; no knee) \u2014 both distributions' observable tops are flat; the cliff's carrier is below both windows or non-spectral; the honest map",
+   "MIXED": "the tables verbatim, all distributions, no inflation"
+  },
+  "logic": {
+   "teach_locations_in_band": [],
+   "vmap_locations_in_band": [],
+   "wash_knees_all_le_2": true,
+   "t3_disclosed": "the span coupling sits at rank 10 \u2014 below the band floor; cannot fire"
+  },
+  "the_numbers": {
+   "cliff_k": 10000,
+   "band": [
+    3333.3333333333335,
+    30000.0
+   ],
+   "held_gram_knees": {
+    "W2_e231J1": 2,
+    "W3_e246late": 1,
+    "W1_e234_w1": 1,
+    "W1_e234_w2": 1,
+    "W1_e234_w3": 1
+   },
+   "vmap": {
+    "k50": 73481,
+    "erank(0.1)": 1078138,
+    "erank(0.01)": 2111262
+   },
+   "teach_writes": {
+    "g1c_root": {
+     "k50": 237123,
+     "erank(0.1)": 1020335,
+     "erank(0.01)": 1874293
+    },
+    "e264_FREE_root": {
+     "k50": 236865,
+     "erank(0.1)": 1019793,
+     "erank(0.01)": 1873588
+    }
+   },
+   "kept_isotropy_ratios": {
+    "1000": 0.8423762130104653,
+    "10000": 0.9937559635725723,
+    "40000": 1.001747171846496,
+    "100000": 1.0021922180206122,
+    "237123": 1.0012546314678792
+   },
+   "vmap_cum_at_cliff": 0.26317874906432,
+   "write_cum_at_cliff": {
+    "g1c_root": 0.06661543575589618,
+    "e264_FREE_root": 0.06654652878781388
+   }
+  }
+ },
+ "plot_outputs": [
+  "runs/e266/e266_gram_tops.png",
+  "runs/e266/e266_full_res_join.png",
+  "runs/e266/e266_teach_reads.png"
+ ],
+ "honesty_reflex": {
+  "previsible_head": "the held Gram tops and their knees are e265's committed facts (re-derived here by module-import as gates, not as new content); the NEW content is the full-resolution layer: the v-map diagonal's census, the natural writes' dimension profiles (the g1c write's k50/erank published for the first time), the kept-frac isotropy table, and the no-teach-Gram inventory itself",
+  "resolution": "the committed windows resolve k <= 80 (the 124M wash Grams), k <= 20 (e231 J1) and k <= 10 (e246's late half); the cliff at k = 10,000 of 2,739,072 (0.37%) lies 125x / 500x / 1000x beyond them and CANNOT be seen in any held Gram. k = 10k is resolvable ONLY in the full-resolution objects this census adds: the wash-derived v-map diagonal (2.74M coords) and the teach stream's write displacements (2.74M coords).",
+  "logits_predict": "the join is a geometry-vs-capacity identity check on committed records; the intervention links live elsewhere and stand: e264 (the rank installs at the located rungs), e254 (the span carries 42-85% of v at k=2), e237 (cutting the aligned component flips fates)",
+  "no_inflation": "the rung roots' profiles are labeled intervention-set and excluded from the verdict; the v-map is labeled wash-derived and cannot fire the teach bar; the teach side's only full-res objects are OUTCOME displacements (the integrated write), disclosed as such \u2014 the teach INSTANTANEOUS Fisher remains unmeasured anywhere in the lab"
+ },
+ "builds_on": [
+  "T240/T241/T242 (the Jacobian map; the wash-side verdict; the LOCATED cliff \u2014 this cell's registration chain)",
+  "e265 (the census machinery \u2014 module-imported; the committed spectra, NTK span-captures and conventions this cell extends)",
+  "e264/e261 (the located cliff k~10k + the committed rung ledgers and roots \u2014 the teach-side material)",
+  "e258 (the committed v-map + k_rule k50=237123 \u2014 the full-res wash diagonal and the write gate)",
+  "e246 (the g1c wash history + late span; the cliff's organism)",
+  "e234/e231 (the 124M wash Grams; the 2.74M wash spectrum)",
+  "e260 (the displacement_loads conventions; RANDOM/SPAN context)"
+ ],
+ "whats_new": [
+  "the FIRST full-resolution distribution reads in the Jacobian lane: the v-map diagonal's and the natural writes' dimension profiles at 2,739,072 coordinates \u2014 the scale where the cliff lives, which every Gram window misses by 125-1000x",
+  "the honest inventory: no teach-stream Gram exists in any committed run \u2014 stated per distribution with resolution limits",
+  "the teach ledger census: the kept-frac isotropy table across the five committed rungs (the teach gradient is indistinguishable from isotropic at every probed rank) and the span-coupling excesses (~1900x mass at rank 10)",
+  "the conditioning profile co-report: the gradient-vs-write coupling asymmetry (the teach gradient couples to the corpus span; the integrated write escapes it, cos ~5e-3)"
+ ],
+ "all_gates_pass": true
+}
