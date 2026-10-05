@@ -7,6 +7,14 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+> **[R65 DISCLOSURES 2026-10-05 ~20:55Z]** (1) TIMESTAMP: the T245–T248
+> card stamps run ~1.7–3.2 h ahead of their commits' true UTC times;
+> ordering + commit hashes are the record (see NOTES head block).
+> (2) T244 SUBSTITUTION FLAGGED: the registered discriminator said
+> "corpus CONCURRENTLY vs AFTER"; e268 executed CONCURRENT vs ALONE —
+> the AFTER arm never ran anywhere (defensible: it approximates the
+> known wash; but the substitution went unflagged until R65).
+
 ## W040 — the R65 confluence layer engaged: one flow, two thresholds, and the two predictions registered BEFORE e271 reads (2026-10-05 ~20:47Z, the ideator's A1-A5 met with pushback)
 
 The R65 ideator's five confluences, engaged critically (the owner's

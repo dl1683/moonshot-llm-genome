@@ -91,6 +91,95 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R65 — day ten audited whole: every number exact, the discipline held, and the honest bill is three cells, one figure struck, and a queue re-sync (2026-10-05, folded ~21:00Z)
+
+Trigger: review 25.5 h overdue (R64 folded 2026-10-04T19:02Z; day-ten ran
+~11 cells unreviewed); the guard independently fired TREADMILL-ALERT
+(4-deep successor chain, 0 thinking commits in 6 h). Honored: no new
+dispatch; the review WAS the beat's bulk (plus W040, the confluence
+engagement, with P-271a/P-271b registered before e271 could be read).
+
+**AUDITOR — SOUND-WITH-REPAIRS.** Every headline recomputes exactly from
+the committed record: the rung curve (0.00043458 / 0.26464763 / 0.34647629
+/ 0.43598244 / 0.38436422; the jump 608.97x; 0.365%), the three
+concurrent ratios (6609.038 / 0.0094318x / 0.0249953x), the health
+trajectory (CE 1.004→0.814), the rehearsal numbers (0.810299 vs 0.688417),
+the counterfeit gates (hr 0.4316/0.4319/0.3938; ru_share 1.19% vs
+0.18–0.20%; Georgia→Augusta in all arms), 7-of-8 Fisher spot-checks.
+Every registration precedes its compute; every verdict honors a frozen
+branch (the e269/e270 MIXED-by-anchor branch was verified in birth
+commits 068b31d/6c40156 — the letter/content adjudication was NOT
+invented at harvest; the travel triage fully disclosed in metrics).
+REPAIRS FOUND: (a) "84% norm-shared" NOT-IN-RECORD; (b) QUEUE.md stale by
+a full day (zero rows for e261–e271); (c) a future-dating STAMP FAMILY —
+today's two (disclosed, 28b4c8d) plus three earlier silent instances
+(Sep-25, Oct-2 ×2) plus day-ten narrative labels running 1.7–3.2 h ahead
+of commit times; (d) day-ten registrations live in birth-committed
+docstrings, not scratch/*_design.md (verifiable; convention broke
+silently).
+
+**CRITIC — the capacity number is the most-exposed claim on the board.**
+(i) The threshold is only BRACKETED (1k,10k] — the sharpness verdict is a
+ladder-spacing artifact risk and the discriminating {2k,5k} edge is unrun
+(and was absent from the queue); (ii) the rank/dose confound is LIVE:
+kept-fraction varies 3.7x across the cliff pair BY CONSTRUCTION (norm not
+rescaled) and ZERO dose-at-matched-rank arms exist anywhere in the record
+— "rank writes the curve, not dose" rests on one anti-monotone root
+observation plus an unregistered invariance intuition; (iii) n=1 organism,
+n=1 room/rung. Also wounded: "turbulence" conflates trajectory
+displacement with OPTIMIZER-STATE POISONING (the shared AdamW was
+deliberate; the separating null — same 1:1 interleave, SEPARATE
+optimizers — never ran; if the write survives it, the capstone narrows
+from "written in the dynamics" to "written in the optimizer state"); the
+flash "saturation" (5 milestone reads, n=1); the rehearsal lane (the
+cons-only floor-pricing control never run); e263's "the disguise took" (a
+routing claim promoted to a representation claim — no post-install
+RU-span knockout); the Fisher "nothing spectral" phrasing (three uncomputed
+statistics — the room-restricted P·F_corpus·P spectrum vs k is exactly the
+operator the interference finding implicates). Verified SURVIVING: the
+bit-bound matching (|d| 1e-6 level), the 6609x phenomenon itself (the
+LR-schedule artifact dies on arithmetic), the counterfeit's null at its
+frozen margins, T244's registered AFTER-arm was substituted (CONCURRENT vs
+ALONE) without flagging — flagged now.
+
+**IDEATOR — the confluence layer (engaged critically in W040):** A1
+delivery-is-free (formation costs dimensions; delivery may not — the C2
+rank-10 rehearsal read, with the landing-read lottery named); A2
+noise/scalpel decomposition (span-aligned vs orthogonal displacement;
+instrument check owed); A3 the quiet-time ratchet (C1, the K-interleave
+ladder — the day's two laws as ONE object in two currencies; the
+exposure-matching rule must be verbatim); A4 the flash's ontological
+status (storage vs readout; the thermal lens, zero-GPU); A5 the two
+thresholds on one axis (e271 adjudicates). Queue re-ranked: corpus-dose
+tripling UPGRADED (add the flash-invariance bar), sham arm UPGRADED,
+{2k,5k} confirmatory, Lanczos GATED behind C1's GRADED-AVERAGING branch.
+Wild-card: the Batchelor-scale reading (capacity = formation-rate /
+turbulent-dissipation ratio; threshold MOVES with intensity vs FIXED —
+P-271b registered).
+
+**REPAIRS APPLIED AT CLAIM SITES (this fold):** "84% norm-shared" amended
+at both NOTES sites (quote 71.9–72.3%; sqrt≈0.848 the likely unstated
+derivation); DAY_TEN_REPORT header corrected + the R65 amendment block
+(the bracket + the confound + the separating null, disclosed in the
+report itself); timestamp disclosure blocks at NOTES head + THINKING head
+(commit hashes are the record); T244's substitution flagged at THINKING
+head.
+
+**REPAIRS QUEUED (the three cells the bill names):** e272 THE CAPACITY
+REPAIR LADDER ({2k,5k} + the kept-matched 1k dose-control arm + a 10k
+room-seed replicate — the critic's minimal repair, ~20–40 GPU min; TOP
+READY, runs when e271's GPU frees); e273 THE SEPARATE-OPTIMIZER NULL
+(the turbulence-vs-poisoning discriminator at k=10k, one added arm on
+e268's rig); e274 THE CONS-ONLY FLOOR (the rehearsal lane's missing
+control + 2 cons seeds). Then the ideator's C1/C2. The queue re-synced
+below with all day-ten rows.
+
+**Stamps:** last_review = R65 folded; last_novelty = the ideator's
+confluence layer (served); STATE current_experiment updated. The fleet at
+fold: e271 mid-run (serial anchor arm), no dispatch until its GPU frees.
+
+---
+
 ## R64 — the second cascade reviewed: the cleanest discipline yet, one load-bearing null-control named and added, the forge killed by a colleague, and the confluence layer minted (2026-10-04, folded ~19:30Z)
 
 Trigger: the cadence + the triangle's completion. STAGGERED (auditor -> critic ->

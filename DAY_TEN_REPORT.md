@@ -1,8 +1,18 @@
 ---
 
-# DAY TEN — the quiet-water mark (2026-10-05, written ~22:20Z; the day ran from the
+# DAY TEN — the quiet-water mark (2026-10-05, written ~22:20Z [R65: true commit time
+# 19:26Z — the label ran ~3h ahead; commit hashes are the record]; the day ran from the
 # travel arrival ~14:10Z; the overnight session of day nine flowed into it without a
 # seam except the 11.5h travel gap)
+#
+# [R65 AMENDMENT 2026-10-05 ~21:00Z, folded before e271 read: the report's
+# "84% norm-shared" figure is NOT-IN-RECORD (stored: λ1/trace 71.9–72.3%); the
+# capacity number's location is only BRACKETED (1k,10k] with the {2k,5k} edge +
+# a kept-matched 1k dose-control arm now queued as the top repair cell (zero
+# dose-at-matched-rank arms exist in the record); and "turbulence" awaits its
+# separating null (the separate-optimizer concurrent arm) before it can be
+# distinguished from optimizer-state poisoning. The day's measured numbers all
+# recompute exactly — see REVIEWS R65.]
 
 ## The day in one sentence
 

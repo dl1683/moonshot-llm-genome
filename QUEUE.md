@@ -390,3 +390,35 @@ lines when a load-bearing claim is single-seed.
 
 | e116 | re-barred census | DONE (T069: 3/6 — graduation denied; row-0 duality exposed; final form: structure 6/6, concentration family-dependent) |
 | e117 | maturity point | DONE (T070: BETWEEN — constant is a per-net idiosyncrasy, 31/42/54/77 non-monotone in steps and CE; the FORM is the law; maturity question closed negative) |
+
+## R65 RE-SYNC (2026-10-05 ~21:00Z) — day-ten rows (the queue had none of e261–e271) + the repair/next cells
+
+Day-ten, all DONE (see NOTES + T240–T248):
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| e261 | rank ladder (triaged 2-rung bracket) | DONE (T242: 1k dead 0.0004 / 237k alive 0.3844; middles deferred at travel, disclosed) |
+| e263 | counterfeit self (124M) | DONE (T245: ACTIVE-UNRAVELING — 6.6x disguise routed but bought nothing; the self not a forgeable basin) |
+| e264 | the full ladder | DONE (T242: SHARP-THRESHOLD — 10k 0.2646 the first alive rung; the 609x jump; rank writes the curve [R65: dose-control owed — see e272]) |
+| e265–e267 | Fisher/NTK census, both streams | DONE (T240/T241/T244: nothing spectral kneels at the cliff; wash Grams near-isotropic; teach Gram head-heavy; the carrier NON-SPECTRAL or below every window [R65: 84% figure struck; three uncomputed spectral stats named]) |
+| e268 | room-optimizer interface | DONE (T246: DYNAMICAL-CARRIER 6609x; the rehearsal lane; the mechanics — off-room drag + low-v writes [R65: the separate-optimizer null owed — see e273]) |
+| e269 | 40k concurrent | DONE (T247: ratio 0.0094x; MIXED-by-anchor per frozen composite) |
+| e270 | 100k concurrent | DONE (T248: ratio 0.0250x; TURBULENCE-TOTAL across three rungs; the flash ~0.02; the dead write lands 0.8103 above its serial) |
+| e271 | 237k concurrent (natural width) | RUNNING (P-271a/P-271b registered pre-read in W040) |
+
+The repair/next cells (R65's bill, priority order):
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| e272 | THE CAPACITY REPAIR LADDER | READY (TOP — dispatch when e271's GPU frees) | {2k,5k} edge + the kept-matched k=1k dose-control arm (norm-rescaled or lr-compensated to kept~0.06) + one 10k room-seed replicate — kills or confirms "rank writes the curve, not dose" and locates the edge; ~20–40 GPU min |
+| e273 | THE SEPARATE-OPTIMIZER NULL | READY | same 1:1 interleave, SEPARATE AdamW per stream, k=10k — if the write survives, "turbulence" narrows to OPTIMIZER-STATE POISONING (the capstone's renaming risk); one arm on e268's rig |
+| e274 | THE CONS-ONLY FLOOR | READY | fresh root + cons stream, NO install (seed 10901) + 2 extra cons seeds on the 100k dead-write arm — prices the rehearsal lane's floor; the same-session control that discriminates "dead-write residue facilitates" from "the cons teaches from anything" |
+| e275 | THE QUIET-TIME LADDER (C1) | READY (behind e272–e274) | K-interleave {2,4,8} at k=10k + the 2k-under-K4 rider (P-271b): RATCHET-STEP vs GRADED-AVERAGING vs DOSE-DEBT — the two laws as one object; exposure-matching rule verbatim before compute |
+| e276 | THE DELIVERY-IS-FREE READ (C2) | READY (behind e275) | rank-10 rehearsal read (dead at 1k, 2.86e-5) — DELIVERY-FREE vs SEED-NEEDED vs LANE-REFUTED; WRITE-read adjudication pre-registered (the landing-read lottery) |
+| e277 | corpus-dose tripling | READY (UPGRADED by W040/A2) | the concurrent ratio's dose response + the NEW flash-invariance bar (flash stays ~0.02 while the fate worsens — A2's decomposition's interventional leg) |
+| e278 | the re-scoped sham arm | READY | e237's direction-null, one arm — the scalpel's last causal control (e258 acquitted the load, e263 the geometry) |
+| e279 | occupancy-retention | READY (re-aimed) | the anti-substrate's surviving wash-side branch; in-room installs should erode via the aligned component only (couples to e278) |
+| — | rate-fits instrument | DESK | T238's mispricing resolver + A4's flash-through-the-thermal-lens (zero GPU, committed checkpoints) |
+| — | Lanczos deep read | GATED (R65) | run ONLY if e275 returns GRADED-AVERAGING (the one branch that re-opens the spectral program); else predicted null |
+| — | e263 follow-ups | PARKED-named | post-install RU-span ablation + FREE/COUNTERFEIT replicate seed (the representation claim's missing check) |
+| — | flash power | PARKED-named | 2 seeds at 40k/100k + s25/s50 milestones (rides any concurrent re-run) |

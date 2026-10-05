@@ -7,6 +7,17 @@ Append-only. Newest entries at the top. Format per experiment:
 WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 ```
 
+> **[R65 TIMESTAMP DISCLOSURE 2026-10-05 ~20:55Z]** The R65 audit
+> found the day-ten narrative time labels (and T245–T248 card stamps,
+> and DAY_TEN_REPORT's "written ~22:20Z") run **~1.7–3.2 h ahead of
+> their commits' true UTC times** (e263 "19:30Z" vs 17:46Z commit;
+> e268 "21:00Z" vs 18:42Z; e269 "22:00Z" vs 19:23Z; e270 "23:20Z" vs
+> 20:07Z), and three earlier silent same-family stamp fixes (Sep-25
+> ~01:24Z, Oct-2 ~14:06Z, Oct-2 ~18:58Z). Per the lab's own rule,
+> **ordering + commit hashes are the reliable record**; treat the
+> ~HH:MMZ labels in day-ten prose as approximate. Today's two
+> future-dated STATE stamps were corrected WITH disclosure (28b4c8d).
+
 ---
 
 ## x5 — the battery-genericity of the one-T fit: BATTERY-SPECIFIC — T229's registered prediction REFUTED at the bars — every battery has its own T(t) in a stable wash-replicating ordering (ctrl 1.18-1.27 < fact-only 1.26-1.37 < pooled < near 1.42-1.63 < tmpl 1.51-1.65): ctrl diverges from the fact curve by > 0.15 at 4 of 6 states and its own-fit R2 leaves [0.2, 0.6]; the lens still fits WELL per battery (ctrl R2 0.52-0.63; near 0.93-0.99) — each battery individually well-described by ITS OWN scalar, the scalars disagreeing; x4's +10 bracket magnitude was an instrument artifact (~+0.02 at full precision vs the bracket's +0.32); the fact-only reference discharge disclosed (the R2 clause carries the verdict either way) (2026-10-04 ~22:50Z) — DONE
@@ -148,7 +159,7 @@ synonym slides are gradual, not discrete); nothing guaranteed.
 
 ---
 
-## e267 — the teach-Gram census (the never-cached distribution measured; the unification's third chance): MIXED — a 50x rank-1 head (lambda2/lambda1 0.0197, knee@1 in all three flavors) riding a wash-like tail (PR 1.93); the head = the shared mean corpus-gradient direction (84% norm-shared), only 0.38% inside the wash span; erank(1e-2) 73/80 vs the wash's 76-77 (TEACH-FLAT misses by 3 ranks -> MIXED per the frozen rule; the teach top HEAD-HEAVIER, not flat); the full-res teach diagonal k50 34,819 (3.5x the cliff, 2x more concentrated than the wash v-map, still outside the band); NO OBJECT ON EITHER DISTRIBUTION PUTS STRUCTURE AT ~10k — THE JACOBIAN UNIFICATION MEASURED ON BOTH STREAMS LANDS ON NEITHER: the cliff's carrier is NON-SPECTRAL or below every window; the room-optimizer interface stands as the live carrier; the teach Gram + diagonal now banked for any future deep-spectrum cell (2026-10-05 ~18:40Z) — DONE
+## e267 — the teach-Gram census (the never-cached distribution measured; the unification's third chance): MIXED — a 50x rank-1 head (lambda2/lambda1 0.0197, knee@1 in all three flavors) riding a wash-like tail (PR 1.93); the head = the shared mean corpus-gradient direction (84% norm-shared [R65 AUDIT CORRECTION 2026-10-05: NOT-IN-RECORD — no stored metric or run.log line carries 84%; the stored number is λ1/trace = 71.9–72.3% in all three spectrum flavors (sqrt ≈ 84.8% is a possible but unstated derivation); quote 71.9–72.3%, not 84%]), only 0.38% inside the wash span; erank(1e-2) 73/80 vs the wash's 76-77 (TEACH-FLAT misses by 3 ranks -> MIXED per the frozen rule; the teach top HEAD-HEAVIER, not flat); the full-res teach diagonal k50 34,819 (3.5x the cliff, 2x more concentrated than the wash v-map, still outside the band); NO OBJECT ON EITHER DISTRIBUTION PUTS STRUCTURE AT ~10k — THE JACOBIAN UNIFICATION MEASURED ON BOTH STREAMS LANDS ON NEITHER: the cliff's carrier is NON-SPECTRAL or below every window; the room-optimizer interface stands as the live carrier; the teach Gram + diagonal now banked for any future deep-spectrum cell (2026-10-05 ~18:40Z) — DONE
 
 WHAT WE DID: 80 post-clip batch gradients of the gen-24314
 Dmix teach stream (the installs' own batches) replayed
@@ -162,7 +173,7 @@ runs/e267/{metrics.json, 3 PNGs}.
 
 WHAT WE SAW (T244): THE TEACH TOP IS HEAD-HEAVIER than any
 wash reference (a 50x rank-1 head — the shared mean gradient
-direction, 84% norm-shared across the stream's steps) yet
+direction, 84% [R65: NOT-IN-RECORD — stored λ1/trace 71.9–72.3%; sqrt≈0.848 the likely unstated derivation] norm-shared across the stream's steps) yet
 its TAIL is wash-like — and nothing anywhere kneels at the
 cliff's 10k. THE THIRD CHANCE CLOSES with the same honesty
 as the first two. THE SCOREBOARD: supports (columns), diag
