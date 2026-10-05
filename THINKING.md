@@ -692,7 +692,17 @@ composes perfectly with the day. THE FACT: a fact whose
 install carries 6.6x the standing winners' mass — the
 disguise demonstrably taken at the root — washes to exactly
 its controls' fate (0.394 vs 0.432/0.432), and Georgia
-slides into Augusta in every arm. THE READING: the runner-up
+slides into Augusta in every arm. THE FULL REPORT'S REFINEMENTS: the arms were FULL-RANK by
+design (a 30% SHARE through the RU span, not a room — T237's
+rank lesson honored); the synthetic fact's own runner-up was
+'Houston' (no flips anywhere — censored in all arms); and the
+sharpest control of all: GEORGIA slid into Augusta
+IDENTICALLY in all three arms — the counterfeited structure's
+own probe died on schedule, the disguise sitting beside its
+own target unnoticed. THE HONEST BOUNDARY (the report's own):
+a 24-step install vs the pretraining-deep near family — the
+depth question is this null's floor.
+THE READING: the runner-up
 structure is a DESTINATION, not a SCAFFOLD — the dynamics
 deliver dying probes to their standing neighbors regardless
 of what the probe was dressed as at birth. THE COMPOSITION
