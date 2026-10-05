@@ -7,6 +7,36 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T254 — X9: the thermal metaphor cashes out — and every battery erodes through the gap channel (2026-10-05 ~22:22Z)
+
+**The T-ladder is a rate ladder.** The batteries' one-T ordering — the
+x5 family's core object — is, to first order, an ordering in decay
+RATE (Spearman 0.8): near really does erode 5-7x faster than ctrl/fact
+(pure exponential, beta ~1, its induced T reproducing the committed
+ladder to RMSE 0.011 — T236's public death now confirmed in rate
+currency). The one impostor was tmpl: the hottest T-reading, the
+coldest honest rate (1.2-1.6x, CI-overlapping) — the LENS's own
+L0-anchored shape masquerading as heat. The mispricing is real,
+second-order (<= 0.062 T), and now localized to a named family
+failure — exactly what an instrument census is for.
+
+**The one genuine shape datum: fact's beta 1.31.** The cold side is
+not merely slow — it steepens (stretched-exponential beta > 1 means
+accelerating decay in the stretched frame). Nothing else in the
+family earns a shape parameter. If the fact battery's erosion
+ACCELERATES while every other battery decays exponentially at its own
+rate, the fact is not just protected — it is differently KILLED (a
+runaway, not a drain). Worth one paragraph in the laws draft and a
+discriminating look when the replicate batteries land.
+
+**And the quiet unifier: x7's gap share is 0.95-1.15 across ALL
+batteries.** Every battery's erosion runs through the gap channel at
+the same intensity — the scale channel carries nothing battery-
+specific. Combined with W042's bridge, the currency question is
+closing from two sides: the wash side (all gap, x9), and — pending
+P-273c — the concurrent side (gap antiphase?). One currency, three
+regimes, if the mechanism cell cooperates.
+
 ## W042 — the gap currency meets the antiphase: is the structured component of the concurrent write oscillating against its driver? (2026-10-05 ~22:14Z, paper-ripening before e273)
 
 Two findings from tonight's x-sweep have not yet been put in the same

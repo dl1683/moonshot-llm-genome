@@ -20,6 +20,17 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## x9 — the rate-fits instrument (T238's mispricing resolver): MIXED (both clauses fire: L_ratio 2.969 > 2 AND max |delta beta_bar| 0.231 >= 0.15) — but the mispricing resolves cleanly: NEAR's "hot" one-T reading is HONEST RATE (lambda_eff 0.0422 = 5-7x ctrl/fact's 0.0059/0.0076 at beta ~1, PURE EXPONENTIAL — EXP's induced T(t) reproduces near's committed ladder to RMSE 0.011) while TMPL — the hottest battery by one-T — is a SHAPE ARTIFACT of the lens (rate only 1.2-1.6x, CI-overlapping; one-T's own L0-anchored family wins tmpl/w2 outright AICc 69.55 vs 71.31); SO THE T-LADDER IS TO FIRST ORDER A RATE LADDER (Spearman T-vs-lambda_eff 0.8 vs 0.4 for beta); the MIXED beta leg lives on FACT (beta_bar 1.31, steepening on the cold side); x7's gap channel UNIFORM across batteries (0.95-1.15 — gap-dominated everywhere); T238's two worries resolved: "the lens undercounts near" DEAD (the rate premium maps 1:1 onto the T premium — T236's public death confirmed in rate currency), "tmpl inflated by battery structure" CONFIRMED and localized to the one-T family's own shape (a second-order mispricing <= 0.062 T); EXP wins 7 of 8 fits (stretched/power never earn their parameter) (2026-10-05 ~22:20Z) — DONE
+
+WHAT WE SAW: the thermal metaphor cashes out. The batteries' one-T
+ladder is a rate ladder wearing temperature's clothes — except where
+the lens's own shape (L0-anchored, early-steep/late-flat) masquerades
+as heat (tmpl). The fact battery's beta 1.31 says the cold side is not
+merely slow — it is differently-shaped (steepening), the one genuine
+shape datum in the family. And x7's gap share uniform 0.95-1.15 across
+ALL batteries: every battery's erosion is gap-channel erosion — the
+currency W042 bridges is the only channel there is.
+
 ## x8 — the flash through the thermal lens (first pass): UNDERPOWERED (P-W41d CONFIRMED — the verdict hinges on sigma_seed, unmeasured at n=1 corpus seed/rung) — but the point estimates are unanimously STORAGE-FLAVORED: the one-T lens is worse than the flash's own mean line at every rung (R2_z -3.31 / -8.89 / -7.62 / -42.45 across 10k/40k/100k/237k; the STORAGE clause fired 4/4) and the 237k datum is STRUCTURAL: the serial latent crosses p=0.5 (positive logit) while the flash never exceeds 0.073 — no positive temperature maps one to the other; a pure-gain reading of the natural-width flash is UNREPRESENTABLE, not misfit; FREE FIND: the flash is ANTIPHASE with its serial driver at every rank (Pearson -0.52/-0.20/-0.24/-0.71 — it peaks where the driver dips: at s200 the serial dipped 0.368 while the flash peaked 0.073); T249's decay-shape test mildly favors H-POISON (dose-linear beats exponential erosion in all 3 informative rungs, ~0.03 R2); the (alpha,beta) race is MONOTONE in rank (Spearman 1.0, n=4) tracking the survival ladder's direction but overshooting the endpoint ratios 9x/2.7x/1.2x/1.1x (converging); neither family produces the flash's shape; under the in-data noise scale (S2, 0.18-0.35 z) the lens misfit is FAR outside the null — the verdict would read STORAGE-LIKE; under the misfit-scale null (S1) every CI crosses — hence the override; the prescription: a 3-corpus-seed pilot on 100k+237k to MEASURE sigma_seed (the one number the verdict hinges on, ~10 GPU min), then either the 50x-finer-grid x 5-seed cell (if S2-like) or the full-logit MLE dump (if S1-like) (2026-10-05 ~21:50Z) — DONE
 
 WHAT WE SAW: the readout hypothesis (W040's A4: the flash as gain) is
