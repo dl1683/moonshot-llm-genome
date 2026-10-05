@@ -7,6 +7,40 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W045 — the cons-only floor is the lynchpin: registering e281's fork before its letter exists (2026-10-05, datetime.now = 22:39Z)
+
+The ideator's A5 fork, sharpened by what the record already half-
+knows: e272's K1KM root read (0.6879, in-band) proves a BELOW-EDGE
+write (~730 filled dims, dead on every probe) IS cons-retrievable —
+so the retrieval floor sits at-or-below 1k-of-write ALREADY, and
+e281's only genuinely open arm is the ZERO POINT (the cons-only
+floor: fresh root, no install, same cons seed). Everything hangs on
+it:
+
+- **P-281a (registered):** the cons-only floor lands BELOW 0.45 —
+  the write's residue carries the landing; "delivery is free"
+  survives as DELIVERY NEEDS A SEED; the retrieval floor is a real
+  second capacity number; the mirror-operations unification (A3)
+  keeps its cons-side leg.
+- **P-281b (the alternative):** the floor lands >= 0.65 — the cons
+  teaches from ANYTHING; the rehearsal lane carries zero write
+  information; "delivery is free" collapses; T246's rehearsal-lane
+  reading and W042's bridge both lose their object; the landing read
+  becomes a property of the CONS alone.
+- The mid-band (0.45-0.65) is MIXED with the five-point curve
+  verbatim — the MASS-SCALED branch (landing tracks seed write mass
+  continuously) then becomes the live reading.
+
+Note what P-281b would do to the night's structure: the antiphase
+downgrade (R66) already wounded the mechanism program's foundation;
+a high cons-only floor would independently wound the DELIVERY side.
+The two wounds are unrelated instruments pointing at the same
+caution: the concurrent/cons lane's most quotable objects (the
+mechanism story, the rehearsal lane) both rest on controls that were
+named late. e281 and the null-clean re-read are the two controls
+that decide whether day-eleven's evening is a theory's birth or a
+beautiful artifact's autopsy.
+
 ## T257 — X10 + the R66 critic's bill: the fill law measured at the floor, the antiphase DOWNGRADED, and P-271b re-baselined (2026-10-05 ~23:50Z)
 
 **X10 FILLS-ANYWAY (P-x10a confirmed; the card the numbers live in is
