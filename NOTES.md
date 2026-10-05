@@ -34,6 +34,36 @@ read — the composition's sharper predictor).
 
 ---
 
+## e263 — the counterfeit self (the consult's everything-changer): ACTIVE-UNRAVELING — the three geometries' fates are INDISTINGUISHABLE (hr_syn at +80: FREE 0.432 / ORTHO 0.432 / COUNTERFEIT 0.394 — the counterfeit arm's 0.038 deficit inside the noise; no flip acceleration, no survival separation); THE DISGUISSE DID TAKE at the root (the counterfeit arm's install carries 6.6x the runner-up-span mass of the controls: 1.19% vs 0.18-0.20%) yet it bought NOTHING under the wash; the Georgia slide into 'Augusta' happens in ALL THREE arms (Y/Y/Y) — THE SLIDE IS OPTIMIZER-DRIVEN, NOT BASIN-DRIVEN: the network's self is NOT a forgeable geometric basin; the counterfeit-self hypothesis bounded (2026-10-05 ~19:30Z) — DONE
+
+WHAT WE DID: the frozen build cell — Texas->Austin (the
+committed near-miss) installed in 3 geometries at identical
+dose (COUNTERFEIT: 30% of every install gradient through
+span{grad p('Augusta'|GA), grad p('Worcester'|MA)} — e259's
+committed standing winners; ORTHO: the span removed; FREE:
+natural), then the certified w1 wash; the slide-or-resist
+readout. The chain's smoke caught 2 real bugs pre-compute;
+the anchoring disclosure carried on every bar read. Script
+lab/e263_counterfeit_self.py; runs/e263/ (metrics + PNGs).
+
+WHAT WE SAW (T245): ACTIVE-UNRAVELING fires cleanly — the
+disguise took (6.6x the runner-up mass at the root) and
+changed nothing: the wash treats the counterfeit fact exactly
+like its controls. THE SLIDE IS THE OPTIMIZER'S doing, not
+the basin's: Georgia slides into Augusta in every arm. THE
+IMMUNE-SYSTEM METAPHOR'S ANSWER: the network has no pickable
+lock here — the standing runner-up structure is a DESTINATION
+the dynamics deliver probes to, not a scaffold that holds or
+releases them. THE CONSULT'S BOTH BRANCHES HONORED: "if it
+resists, the slide is an active optimizer unraveling" — the
+resistance is total.
+
+HONESTY: single-stream (the anchoring disclosure); n=1 per
+arm; the flip timing reads None at the grid (eff 160 — the
+synonym slides are gradual, not discrete); nothing guaranteed.
+
+---
+
 ## e267 — the teach-Gram census (the never-cached distribution measured; the unification's third chance): MIXED — a 50x rank-1 head (lambda2/lambda1 0.0197, knee@1 in all three flavors) riding a wash-like tail (PR 1.93); the head = the shared mean corpus-gradient direction (84% norm-shared), only 0.38% inside the wash span; erank(1e-2) 73/80 vs the wash's 76-77 (TEACH-FLAT misses by 3 ranks -> MIXED per the frozen rule; the teach top HEAD-HEAVIER, not flat); the full-res teach diagonal k50 34,819 (3.5x the cliff, 2x more concentrated than the wash v-map, still outside the band); NO OBJECT ON EITHER DISTRIBUTION PUTS STRUCTURE AT ~10k — THE JACOBIAN UNIFICATION MEASURED ON BOTH STREAMS LANDS ON NEITHER: the cliff's carrier is NON-SPECTRAL or below every window; the room-optimizer interface stands as the live carrier; the teach Gram + diagonal now banked for any future deep-spectrum cell (2026-10-05 ~18:40Z) — DONE
 
 WHAT WE DID: 80 post-clip batch gradients of the gen-24314

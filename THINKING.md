@@ -685,6 +685,33 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T245 — e263: the self is not a basin — the slide is the optimizer's (2026-10-05 ~19:32Z)
+
+The everything-changer returns the stranger branch, and it
+composes perfectly with the day. THE FACT: a fact whose
+install carries 6.6x the standing winners' mass — the
+disguise demonstrably taken at the root — washes to exactly
+its controls' fate (0.394 vs 0.432/0.432), and Georgia
+slides into Augusta in every arm. THE READING: the runner-up
+structure is a DESTINATION, not a SCAFFOLD — the dynamics
+deliver dying probes to their standing neighbors regardless
+of what the probe was dressed as at birth. THE COMPOSITION
+WITH T244: the barrier and the killer both refused static
+geometry (the cliff's carrier dynamical; the undertow's
+memory a low-pass); NOW the destination too refuses static
+geometry — THE STATIC/DYNAMICAL SPLIT IS COMPLETE: every
+object the lab tried to hold as a place turned out to be a
+process. W039's decouplings gain their metaphysics: the
+network's memory bookkeeping is not a warehouse of basins
+but a FLOW — what matters is not where things sit but how
+the dynamics move them. THE BUILD LANE'S HONEST SCORECARD:
+three cells (the seat geometry-blind; the load acquitted;
+the counterfeit inert) — the wall's protection, the writability
+barrier, and the fate destination are ALL indifferent to
+engineered geometry at install time; the controllable knobs
+live elsewhere (the rank; the undertow's supply; the
+optimizer's memory).
+
 ## T244 — e267: the unification measured on both streams, landing on neither — the carrier goes dynamical (2026-10-05 ~18:42Z)
 
 The teach-Gram census closes the Jacobian program's first
