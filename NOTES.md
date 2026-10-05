@@ -20,6 +20,40 @@ WHAT WE DID / WHAT WE SAW / WHAT'S NEXT
 
 ---
 
+## x7 — the LN zero-sum control (W038's fourth movement on trial): CONSTRUCTIVE-FIELD — the control FAILED to match: the CTRL battery's best thickening anywhere in its committed trajectory is +2.64% (w1+10) = 13.8% of the fact battery's +19.15% (recomputed bit-exact: e242's wall, install-60 g-12, margin_sigma 0.9794 -> 1.1670; trajectory -1.9% at +1, +10.3% at +10, +20.0% at +50, +19.15% at +300); the LN zero-sum decomposition (EXACT identity, err 4.4e-16) puts the LN bookkeeping ceiling at ~+4% — ctrl's entire motion is scale-term (its raw gap shrank, gap factor 0.938) while the fact battery carries the GAP SURPLUS (+0.92 pct pts at w1+10, +2.26 at w1+2) — the re-formation layer is field, not arithmetic; and the one-T lens is PROVABLY invariant to pure logit rescaling (2.2e-16) — the +19.15% is not thermal-lens arithmetic; for law 3: the unwalled deep-state thinning is GAP DESTRUCTION (gap factors 0.60-0.87), not scale (2026-10-05 ~21:40Z) — DONE
+
+DISCLOSED: the consult's ideal control (ctrl under e242's OWN wall wash)
+does not exist in the record (e242 measured one battery; G_NO_CTRL_WALL
+machine-checked) — the CTRL trajectory is e228's 124M journal, so the
+verdict is a CROSS-ORGANISM PROXY (124M unwalled ctrl vs 2.74M walled
+fact); the wall's own +19.15% is formally undecomposed on its record
+(the replicate's job); the within-world ctrl/fact ratio at w1+10 is 0.57
+(inside the LN-ARITHMETIC band if read naively — the decomposition
+defuses it: that ratio compares two mostly-scale quantities; the
+discriminating gap surplus is fact-specific).
+
+WHAT'S NEXT: P-W41c scored — the VERDICT WORD confirmed, the quantifier
+wrong-side (13.8% actual vs the predicted 20-50% band: the control failed
+MORE decisively than predicted). W041's channel-suspect pattern now hinges
+on x8 + e273's SGD-M (x7 came back field, not arithmetic).
+
+## x6 — the SVD bet (consult #005's adversarial wager on the capacity number): GENUINELY-SPREAD — the bet denied on both clauses, and the room read returns a better object: THE WRITE IS DENSE-IN-A-RANDOM-SUBSPACE — in the natural basis the 10k write's 99%-energy dimensionality is 2,011,557 of 2,739,072 (indistinguishable from the norm-matched gaussian null; m50 332,650); in the bet's own per-matrix SVD form the global top-50 singular share is 3.10% (the bet needed >=99%; cumulative crosses 99% only at rank 4,262); BUT 89.14% of ΔW's energy sits inside its own 10k SRCT room (vs the 0.365% volume null — a 244x concentration), and IN-ROOM the write fills its granted dims densely: 99%-energy m = 7,342 of 10,000; the 237k anchor carries the SAME fill (~73% of its own room at 99% energy: 73.4% vs 73.5%; in-room m99 174,283/237,123; its natural-basis spread identical to 10k's — T50 3.10% both) — THE WRITE FILLS ITS ROOM: occupancy's unit is the room, the write is not rank-limited inside it, and the capacity number stands as STORAGE (md5-verified checkpoints: e261_K10K_inst_resume s400 vs e001 root; rooms bit-verified; e261_rooms.pt holds only the triaged rungs — K10K rebuilt from e264_rooms.pt seeds, disclosed) (2026-10-05 ~21:35Z) — DONE
+
+WHAT WE SAW: consult #005's Q5 wager ("the fact is fundamentally low-rank;
+top-50 singulars ~99%; the capacity cliff is search-room, not storage")
+is denied in both its clauses and in its own chosen basis. What survives
+of the consult's instinct: the occupied subspace is the ROOM's, not the
+natural axes — but the room is genuinely, densely occupied (~7.3k of
+10k dims at 99% energy, 244x concentrated). The 237k fill invariant
+(~73% at both rungs) is a new law-flavored observation: whatever width
+is granted, the write fills three-quarters of it densely — expression
+scales with granted width (0.265 -> 0.384) while the fill fraction
+stays fixed.
+
+WHAT'S NEXT: e272's conjunction (W041): RANK-WRITES + GENUINELY-SPREAD
+= the storage reading stands with the edge located; the anti-substrate
+story keeps its wording. P-W41b (x6 MIXED) REFUTED — scored in T250.
+
 ## e271 — the 237k concurrent datum (the natural write's own width; the ratio curve's closing point): MIXED-by-anchor (the standing letter lottery, write read bit-faithful 9.5e-7) with the content read TURBULENCE-TOTAL-AT-NATURAL-WIDTH — the concurrent natural-width write DIES at 0.0911x serial (post g0 0.0350 vs 0.3844; bar 0.5x): the ratio ladder closes 0.00015x / 0.0094x / 0.0250x / 0.0911x — the creep law HELD (measured 3.64x per 2.37x rank vs the extrapolated 3.3x per 2.5x; the datum landed just above the extrapolated 0.06-0.08x band) and immunity lies beyond the organism's own write width — extrapolating the creep, 0.5x needs k ≳ 1.5M, past the space itself; AND P-271a's SECOND CLAUSE REFUTED: the flash does NOT stay ~0.02 — the concurrent 237k transient peaks 0.0730 at s200 (3.5x the band; 100x the 10k flash), forming at 19% of serial strength then decaying to 9% — at the natural width the barrier is RETENTION, not FORMATION (the write forms transiently and is washed); the organism HEALTHIER again (corpus CE median 0.875; root g-12 0.572 vs serial 0.297); the rehearsal lane's FOURTH confirmation (the dead write lands root 0.7648 ABOVE its serial 0.7439) and the low-v drag four-for-four (v-excess 0.28 vs 0.72); executor-disclosed erratum: the metrics' DERIVED field `measured_vs_extrapolation_x` divided the creep factor by the endpoint (annotation only — no raw read, no bar input touched); thermal max 77.0C, 12/12 gates PASS (2026-10-05 ~21:10Z) — DONE
 
 WHAT WE SAW: the closing measurement of the flow story. The letter/content

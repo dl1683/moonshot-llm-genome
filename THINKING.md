@@ -7,6 +7,78 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T251 — X7: the fourth movement is field, not arithmetic — and the decomposition names the currency (2026-10-05 ~21:41Z)
+
+**The control failed, and its failure is informative.** The CTRL
+battery never thickened (+2.64% at best vs the fact battery's
++19.15%); the LN bookkeeping's exact ceiling is ~+4%; the one-T lens
+is PROVABLY rescale-invariant (2.2e-16). W038's RE-FORMATION layer
+survives its first real control: the walled side's thickening is a
+constructive fact-specific GAP SURPLUS (+0.92 to +2.26 pct pts), not
+redistribution. And the unwalled deep-state thinning is GAP
+DESTRUCTION (gap factors 0.60-0.87) — the third movement (friction)
+and the fourth (re-formation) now share a currency: THE GAP, the
+margin's structured component, is what the field builds and the wash
+destroys. Scale arithmetic moves both sides; the gap moves one.
+
+**The honest scope:** the ideal control (ctrl under e242's OWN wall)
+does not exist in the record — the verdict leans on e228's 124M ctrl
+as a cross-organism proxy, and the wall's own +19.15% is formally
+undecomposed until the replicate. The within-world ratio 0.57 would
+read LN-ARITHMETIC naively; the decomposition defuses precisely that
+reading (two mostly-scale quantities; the gap surplus is the
+discriminator). This is why decompositions beat ratios.
+
+**P-W41c scored: the verdict word CONFIRMED, the quantifier
+wrong-side** (13.8% actual vs my 20-50% band — the control failed
+more decisively than predicted; the field is STRONGER than the
+prediction, not weaker). Prediction ledger for the quartet: 1.5/2
+(x6 refuted, x7 half). The channel-suspect pattern (W041's watch)
+takes this flank's hit: x7 says FIELD. Everything now rides x8
+(flash: readout vs storage) and e273's SGD-M barrel.
+
+## T250 — X6: the write is dense-in-a-random-subspace — the bet denied, the fill law found (2026-10-05 ~21:36Z)
+
+**Three bases, three different objects, one consistent story.** In the
+natural basis the quiet 10k write is indistinguishable from gaussian
+noise (99%-energy m = 2,011,557 of 2,739,072; the null's 2,012,495) —
+NO sparse code, no natural-axis privilege. In the per-matrix SVD (the
+bet's own chosen form) the top-50 share is 3.10% — the fact is not
+low-rank in ANY weight matrix's geometry; the mlp/c_proj matrices sit
+at ~0.44-0.64 top-50 with only the tiny vocab matrices near 0.93. In
+the room basis: 89.14% of the write's energy inside its own granted
+10k-dim room (244x the volume null), and IN-ROOM the write is DENSE —
+99%-energy m = 7,342 of 10,000. Consult #005's wager is denied in both
+clauses; what survives of its instinct is exactly the room reading:
+the occupied subspace is the search room's — but it is genuinely,
+densely occupied. STORAGE, not scaffolding.
+
+**THE FILL LAW (the cell's gift beyond the verdict):** both measured
+rungs fill ~73% of their own room at 99% energy (10k: 73.4% via m99
+7,342/10,000; 237k: 73.5% via 174,283/237,123) while their
+natural-basis spread is IDENTICAL (T50 3.10% both). The write does not
+concentrate as width grows and does not thin — it FILLS at a fixed
+fraction. Expression scales with granted width (serial 0.265 -> 0.384)
+at constant fill. This rhymes with e261's root-heights (the formation
+lottery's band) and asks its own question: is 0.73 the room's usable
+fraction (the basis's effective conditioning) or the write's own
+saturation? A one-arm read at k=5k (e272's rung, the checkpoints
+willing) extends the fill curve to a third width.
+
+**P-W41b scored: REFUTED.** W041 predicted x6 MIXED (high top-50 in
+dominant matrices + spread dimensionality); the cell returned cleanly
+GENUINELY-SPREAD — both spread clauses fired. The prediction ledger
+for the in-flight quartet now reads 0/1; the discipline is doing its
+job (my prior favored a compromise the data refused).
+
+**For the conjunction (W041's map, now half-resolved):** if e272
+returns RANK-WRITES, the arc's cleanest physics becomes: FORMATION
+NEEDS THE ROOM (a threshold width of search space, dose-acquitted),
+THE WRITE FILLS THE ROOM (73% dense, storage-real), RETENTION DIES BY
+FLOW (the ratio ladder, mechanism pending e273). The anti-substrate
+story keeps its wording — the corpus's directions cannot even search,
+and the fact they fail to write is room-real, not rank-50-compressible.
+
 ## W041 — the joint branch map: what every combination of the four in-flight cells would MEAN (written before any of them can be read, 2026-10-05 ~21:26Z)
 
 Four cells are computing (e272 the capacity repair; x6 the SVD bet; x7
