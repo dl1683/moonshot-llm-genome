@@ -507,14 +507,23 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
-    "THE SMOKE RECORD (the e260-family discipline; the smoke's own row "
-    "is filled by the smoke run and committed with it): the machinery "
-    "smoke ran FIRST (E271_SMOKE=1, runs/e271_smoke/) BEFORE any full "
-    "compute; its gates, drivers, figures and verdict line carry the "
-    "SMOKE stamp and adjudicate nothing (G_ROOMK237K and "
-    "G_SERIAL_ANCHOR vacuous at smoke k/steps, disclosed). The full "
-    "cell's bars, gates, adjudication and arms are exactly the "
-    "birth-committed forms.",
+    "THE SMOKE RECORD (the e260-family discipline): the machinery smoke "
+    "ran FIRST (E271_SMOKE=1, runs/e271_smoke/, pass 1 + the fixed pass "
+    "2) and caught ONE bug — the discriminator figure's list-alpha bar "
+    "(matplotlib rejects a per-bar alpha list; split into two bar calls; "
+    "e270's scalar form inherited, the 3-bar panel is this cell's own) — "
+    "plus one cosmetic smoke-only log wording; NOTHING else: after the "
+    "fix all 12 hard gates PASS (G_ROOMK237K and G_SERIAL_ANCHOR "
+    "vacuous at smoke k/steps, disclosed), both drivers + both cons + "
+    "the adjudication + both figures exercise cleanly, thermal max "
+    "53.0C (smoke pass 1; per-step polls in the one rebound ledger). "
+    "The smoke's own verdict line carries the SMOKE stamp and "
+    "adjudicates nothing — its straddle-MIXED is the expected smoke "
+    "artifact (the session ratio is dead-zero/dead-zero noise at s8 "
+    "while the committed cite is the full s400 rung — a category "
+    "mismatch that exists only in smoke, disclosed). No bar, gate or "
+    "arm form changed; the adjudication machinery is exactly the "
+    "birth-committed form.",
     "THE SERIAL REFERENCE IS CITED, AND THE WRITE ANCHOR IS A FRESH "
     "RE-RUN (the dispatch's two words honored together, stated): the "
     "dispatch says '(cite; the write anchor's bit-faithfulness is what "
@@ -1093,8 +1102,11 @@ def main():
     })
     log("E271 — THE 237K CONCURRENT DATUM (the natural write's own "
         f"width; T248's named last point) (smoke={SMOKE}) -> {RD}")
+    width_txt = ("k=237,123 == e258's v-map k — THE NATURAL WIDTH"
+                 if not SMOKE else
+                 f"smoke k={LADDER[0][0]} (the width claim is full-mode)")
     log(f"arms: {'/'.join(ARMS)}; vehicle = the committed K237K "
-        f"NATURAL-WIDTH rung (k={LADDER[0][0]} == e258's v-map k; room "
+        f"NATURAL-WIDTH rung ({width_txt}; room "
         f"seeds {LADDER[0][1]}/{LADDER[0][2]} — e260's RANDOM, bit-gated "
         f"vs {ROOMS261_CK}); e001 + Dmix s{E261.INST_STEPS} gen "
         f"{E261.FRESH_GEN} + e113 cons s{E261.CONS_STEPS} seed "
@@ -2267,9 +2279,9 @@ def make_interface_plot(rd, arms_rec, ratio, survives, ctx_lo, ctx_hi,
              arms_rec["SERIAL"]["install"]["post_cells"]["g0"],
              arms_rec["CONCURRENT"]["install"]["post_cells"]["g0"]]
     xs = [0, 1, 2]
-    ax.bar(xs, posts, width=0.55,
-           color=["black", cols["SERIAL"], cols["CONCURRENT"]],
-           alpha=[0.55, 0.85, 0.85])
+    ax.bar([xs[0]], [posts[0]], width=0.55, color="black", alpha=0.55)
+    ax.bar(xs[1:], posts[1:], width=0.55,
+           color=[cols["SERIAL"], cols["CONCURRENT"]], alpha=0.85)
     ax.axhline(SURVIVE_BAR * E261_K237K_POST_G0, color="crimson", ls="--",
                lw=1.4,
                label=f"the {SURVIVE_BAR}x survival bar "
