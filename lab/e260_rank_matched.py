@@ -384,6 +384,28 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "SMOKE AUTOPSY (before the full compute; the e246/e258 first-cell "
+    "discipline — the shakedown exists to catch real bugs): (1) CAUGHT: "
+    "with ZERO landed arms the G_INPUTS/G_BITROOT comparisons were "
+    "vacuous but left WITHOUT a pass key — the gate set then read them "
+    "as failures and the verdict would have said TEXTURE in exactly the "
+    "world (nothing lands) whose honest bar reading is RANK-IS-THE-"
+    "BARRIER or MIXED; fixed to an explicit vacuous pass (disclosed). "
+    "(2) VERIFIED CLEAN at the toy scale (k=512): the rooms' "
+    "certification reads ~1e-15 on every bar (roundtrip / idempotency / "
+    "containment), the kept^2 probe matches k/N to 4 decimals, and the "
+    "RANDOM room's measured span overlap 0.014 matches its sqrt(k/N) "
+    "0.0137 expectation; the SPAN room's APPLIED gradient ran 97% "
+    "in-span at the toy k (the span component dominates a 512-dim "
+    "filler) and its install expressed nothing through 8 steps — the "
+    "e246 ALIGNED failure signature reproduced at the toy scale; at the "
+    "real k=237,123 the filler's share rises to sqrt((k-10)/N) ~ 0.29 "
+    "of the off-span norm and the two arms become dose-matched. "
+    "(3) NOTED: the smoke's per-step CPU projection cost is ~0.6-1.0 s "
+    "per masked step INCLUDING the smoke's every-step CPU battery "
+    "evals — the real run evaluates every 100 steps and the ledger "
+    "every 10, so the dense hook's marginal cost is the 2 DCTs + dots "
+    "(~0.2-0.3 s/step).",
     "THE SPAN CONTROL AT MATCHED k (the design's one interpretive act, "
     "disclosed at birth): the dispatch's 'the ALIGNED re-run at the SAME "
     "k' is operationalized as the committed late span (10 dense "
@@ -2027,10 +2049,20 @@ def main():
             for a in landed_arms for s in common_steps))
         G_INPUTS["pass"] = G_INPUTS["identical"]
         assert G_INPUTS["pass"], "cross-arm wash input streams diverged"
+    else:
+        # the smoke's catch: with ZERO washed arms the comparison is
+        # vacuous — an explicit pass (not a missing key, which would
+        # poison the gate set and misread the verdict as TEXTURE)
+        G_INPUTS["steps_compared"] = 0
+        G_INPUTS["identical"] = None
+        G_INPUTS["pass"] = True
+        G_INPUTS["note"] += " — vacuous (no landed arms to wash)"
     metrics["gates"]["G_INPUTS"] = G_INPUTS
     if G_BITROOT:
         G_BITROOT["pass"] = bool(all(v["pass"] for v in G_BITROOT.values()
                                      if isinstance(v, dict) and "pass" in v))
+    else:
+        G_BITROOT["pass"] = True      # vacuous (no landed arms)
     metrics["gates"]["G_BITROOT"] = G_BITROOT
     log(f"G_INPUTS: per-step wash inputs bit-identical across the washed "
         f"arms (md5, {G_INPUTS.get('steps_compared', 0)} steps): PASS")
