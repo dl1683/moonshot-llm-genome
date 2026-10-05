@@ -34,6 +34,31 @@ read — the composition's sharper predictor).
 
 ---
 
+## e262 — T232's registered join, the T-ladder vs the decline: T-TRACKS-DECLINE — fired exactly AT the frozen bar (per-wash Spearman 0.80/0.80, n=4; pooled rho 0.881 p 0.0036, OLS slope +0.710) — the battery T-ladder IS the erosion ordering's coarse-graining UP TO ONE SYSTEMATIC ADJACENT TRANSPOSITION (tmpl hottest, near deadliest — identically in both washes: systematic, not noise); the co-read: decline ~ R2 = 1.00/1.00 (T236's death-meter law replicates exactly); the s80-only sensitivity fails (0.80/0.40 — the w2 slice's transposition) — priced in the honesty block (2026-10-05 ~14:35Z) — DONE
+
+WHAT WE DID: the frozen join — x5's committed per-battery
+T_mle (the deep-state means) vs e214's committed declines,
+per battery per wash; the form fits (linear vs log —
+degenerate, disclosed: Pearson(T, log T) 0.9995); the T~R2 and
+decline~R2 co-reads; the state-sensitivity sweep. 4/4 gates
+PASS; the provenance sha-recorded at runtime (x5/e238/e214/
+e182c2). Desk-only. Script lab/e262_t_decline_join.py;
+runs/e262/{metrics.json, journal.json, 2 PNGs}.
+
+WHAT WE SAW (T238): THE LENS CALIBRATED AS A DEATH-METER AT
+THE BATTERY LEVEL (the T-ladder tracks the declines with one
+named exception); the exception is the sharp open thread —
+near reads cooler than tmpl but dies hardest, both washes:
+the lens OVERPRICES the hardest death or UNDERPRICES the
+hottest battery; the registered next: per-battery erosion-
+RATE fits as the independent instrument (the decay curves,
+not two-state fractions).
+
+HONESTY: n=4 per wash; the bar fired with zero margin; the
+s80 sensitivity disclosed; the form degeneracy disclosed.
+
+---
+
 ## e260 — the rank-matched-random install: RANK-IS-THE-BARRIER by the frozen conjunction — both rank-k rooms miss the landing floor by a hair (RANDOM root g0 0.6686 / SPAN 0.6567 vs 0.6703; 0.23%/1.36% under the +-10% band) — AND E246'S FAILURE SIGNATURE IS DEAD AT MATCHED RANK: neither room failed to EXPRESS (post g0 0.3844/0.4922 — 13-17kx e246-ALIGNED's 2.86e-5); the anti-substrate's expression barrier is a RANK-10 OBJECT (padding the span to rank 237,123 restores full expression); a generic dense random room at the essential-support rank (8.66% of N) expresses and lands within 0.2% of the band (2026-10-05 ~04:20Z) — DONE
 
 WHAT WE DID: the decisive discriminator at k hard-bound to

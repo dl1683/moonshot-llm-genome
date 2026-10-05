@@ -685,6 +685,29 @@ training without the fact's windows (3 streams, 2 lrs, 3
 seeds, all types; one lineage)". W019's field-facing line may
 enter the discussion in this n=3 form.
 
+## T238 — e262: the lens calibrated — and its one mispricing is the sharpest thread (2026-10-05 ~14:37Z)
+
+The join lands exactly at its frozen bar (0.80/0.80 — zero
+margin, fully disclosed) and the picture completes: THE
+BATTERY T-LADDER IS THE EROSION ORDERING'S COARSE-GRAINING.
+Pooled rho 0.881; the co-read decline~R2 = 1.00 (T236's
+death-meter law, now exact on committed records). THE ONE
+EXCEPTION IS THE FINDING: tmpl reads hottest, near dies
+hardest — identically transposed in both washes (systematic,
+not noise). The lens OVERPRICES the hardest death or
+UNDERPRICES the hottest battery. REGISTERED (the independent
+instrument): per-battery erosion-RATE fits — the full decay
+curves as exponentials or power laws, not two-state fractions
+— the rate constants become the battery's fingerprint and the
+T-ladder's mispricing localizes (is near's rate genuinely
+above its T's prediction — a private component under the
+public death? — or is tmpl's T inflated by its battery
+structure?). CONNECTIONS: T236's public/private ledger (near
+dies publicly; the mispricing may be the private residue's
+signature); e259's commitment slide (near's structural face
+— its rate is scar-driven, not flattening-driven, so the
+lens undercounts it); the registered rate-fits cell.
+
 ## T237 — e260: the barrier is rank-thin — e246's unwritability was a rank-10 artifact (2026-10-05 ~04:22Z)
 
 The decisive cell returns a verdict whose letter and spirit
