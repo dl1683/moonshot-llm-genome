@@ -1,0 +1,352 @@
+{
+  "experiment": "e270_100k_concurrent",
+  "phase": "THE 100K CONCURRENT BRANCH \u2014 T247's named open branch (the transient/rank scaling's far side; the flow story's closing cell): the identical k=100k random-room install (the ladder's TOP rung, the strongest serial write) with the corpus stream running CONCURRENTLY (1:1 interleave, free corpus steps, one shared AdamW \u2014 e268's registered form carried through e269, corpus gen fresh 27001) vs ALONE (the ladder's committed condition, re-run fresh) \u2014 TURBULENCE-TOTAL vs TURBULENCE-CEILING vs MIXED",
+  "date": "2026-10-05T19:41:12Z",
+  "status": "PARTIAL: startup",
+  "registration": "bars + question frozen VERBATIM from the dispatch letter (T247's named open branch: the transient/rank scaling's far side \u2014 the flow story's closing cell); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "question_verbatim": "does the transient keep scaling with rank \u2014 and does ANY rank survive concurrency? The scaling so far: 10k concurrent transient ~0.00027 at s100; 40k ~0.0245 (90x); the 100k rung's serial post is 0.4360 (the strongest). If the 100k concurrent write's transient keeps scaling AND the write sticks (post g0 >= 0.5x its serial 0.4360), THE TURBULENCE HAS A CEILING \u2014 somewhere above 40k, memories outgrow the flow's noise (the threshold-IS-turbulence-proof reading returns at a higher rank); if it dies like its brothers (post < 0.5x), THE TURBULENCE IS TOTAL across the measured ladder \u2014 the flow story closes at three rungs.",
+    "bars_verbatim": {
+      "TURBULENCE-TOTAL": "the concurrent 100k write dies (post g0 < 0.5x its serial) \u2014 the turbulence dominates the whole measured ladder {10k, 40k, 100k}; the flow's story closes; the two laws stay two everywhere measured",
+      "TURBULENCE-CEILING": "the concurrent 100k write survives (post g0 >= 0.5x serial \u2014 report the ratio and the transient's scaling) \u2014 there IS a turbulence-proof size above 40k; the unification returns at the far side; the {2k..100k} curve re-reads as the quiet/concurrent boundary pair",
+      "MIXED": "the trajectories verbatim, both readouts, no inflation"
+    },
+    "operationalizations": "frozen BEFORE compute: THE VEHICLE := the committed 100K rung VERBATIM (K100K room seeds 26117/26118 rebuilt + bit-gated vs e264_rooms.pt; e001 base; Dmix s400 gen 24314; hook = clip 1.0 -> project CPU fp64 -> opt.step, norm NOT rescaled; e113 cons s300 seed 10901 HELD on both arms); ARM-SERIAL-100K := the vehicle run ALONE (e261's driver VERBATIM, RE-RUN FRESH \u2014 the dispatch's 'cite OR re-run' resolved to re-run; anchored to e264's committed K100K rung post 0.43598244 / root 0.72761166 / kept 0.19149141 by the NON-HALTING G_SERIAL_ANCHOR); THE INTERLEAVE := e268's registered form VERBATIM (carried through e269): after EVERY install step s, ONE corpus step (1:1, e174's convention): 48 windows = 16 anchors from the same 60-window bank + 32 random corpus windows (the g1c Dmix corpus convention; corpus generator seed REGISTERED FRESH = 27001; the paired step's lr; clip 1.0 -> opt.step FREE \u2014 no projection: the room constrains the install's writing directions only) through the ONE shared AdamW; 800 opt steps vs 400; install dose IDENTICAL, corpus exposure tripled (the concurrent stream IS the object under test); the discriminator := the DIRECTED ratio r = post_CONCURRENT / max(post_SERIAL, 1e-6): TURBULENCE-TOTAL iff hard gates pass AND r < 0.5; TURBULENCE-CEILING iff hard gates pass AND r >= 0.5 (the ratio AND the transient's scaling REPORTED verbatim per the bar's own clause); MIXED otherwise (named branches: |r - 0.5| <= 0.05 AT the edge, or G_SERIAL_ANCHOR texture contamination of a would-be firing read); composite order TEXTURE -> MIXED -> TURBULENCE-CEILING -> TURBULENCE-TOTAL; THE TRANSIENT SCALING co-reported hard-bound across the ladder (10k e268 / 40k e269 / 100k THIS cell); THE LANDING READ CARRIED, NEVER ADJUDICATED (T246's rehearsal-lane finding: the cons re-teaches \u2014 the root g0 measures the rehearsal, not the write's survival; +-10% of serial reported as CONTEXT; root g-12 NEVER adjudicated \u2014 the wild lottery); HARD GATES := {G_NAMEFREE, G_SPLICE, G_BATTERY, G_ANCHOR, G_INSTMASK, G_PARENTS, G_BASE, G_ROOT, G_VMBIND, G_SPANBIND, G_PROJ, G_ROOMK100K} (a failure HALTS); no fresh FREE arm (e264's G_FREE PASS + e268's serial-anchor PASS at L2 4.7e-5 + e269's serial re-run at L2 5.7e-5 are the instrument validations; disclosed).",
+    "registration": "bars + question frozen VERBATIM from the dispatch letter (T247's named open branch: the transient/rank scaling's far side \u2014 the flow story's closing cell); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "cuda fp32 training (the owner's max-priority window; this cell owns the GPU lane) + CPU fp64 dense projections (pocketfft workers 2), CPU probing threads 4",
+    "bursts": "<= 175s, per-step thermal polls (BOTH streams' opt steps) at a 78C margin, cooldown 40s, the 84C never-past line recorded",
+    "trainings": "2 installs s400 (SERIAL = e261's driver VERBATIM; CONCURRENT = e268's interleaved driver PORTED VERBATIM, 800 opt steps) + 2 cons s300 (seed 10901 HELD); NO washes; NO fresh FREE (e264's G_FREE PASS + e268's serial-anchor PASS cited)"
+  },
+  "interleave": {
+    "ratio": "1:1 \u2014 after EVERY install step s, ONE corpus step (e174's interleaved convention; e268's registered form carried verbatim)",
+    "install_step": "bit-identical to SERIAL's step s: draws ix(16)/aj(16)/rj(32) from gen seed 24314 (the same draw order), the 64-window Dmix batch, the masked union CE, lr 1e-3 x cosine_lr(s-1, 1000), clip 1.0 -> PROJECT onto the K100K room -> opt.step",
+    "corpus_step": "48 windows from the committed g1c Dmix corpus convention: 16 original-host anchors (the same 60-window anchor bank) + 32 random corpus windows (contiguous train_ids slices); full-window CE; draws from the REGISTERED FRESH corpus generator seed 27001 (this cell's own; e268's was 26801, e269's was 26901); the PAIRED install step's lr; clip 1.0 -> opt.step FREE (unprojected \u2014 the natural stream)",
+    "shared_optimizer": "ONE AdamW (0.9, 0.95) wd 0.1 across both streams \u2014 the moment coupling IS the interference channel",
+    "dose_delta_disclosed": "install dose IDENTICAL across arms (16 masked windows x 400); corpus exposure triples in CONCURRENT (in-batch 48 + interleaved 48 per iteration vs SERIAL's in-batch 48) \u2014 the concurrent stream is the object under test"
+  },
+  "deviations": [
+    "THE SMOKE RECORD (the e260-family discipline): the machinery smoke ran FIRST (E270_SMOKE=1, runs/e270_smoke/, 209.7s) and caught NOTHING \u2014 all 12 hard gates PASS (G_ROOMK100K and G_SERIAL_ANCHOR vacuous at smoke k/steps, disclosed), both drivers + both cons + the adjudication + both figures exercise cleanly, thermal max 57.0C over 40 per-step polls (both arms' rows landing in the one rebound ledger \u2014 the instrumentation fix verified live); the smoke's own verdict line (TURBULENCE-CEILING at post 0.000019 vs 0.000013 \u2014 dead-zero vs dead-zero noise, no s100 milestone) carries the SMOKE stamp and adjudicates nothing. No fix was needed; the bars, gates, adjudication and arms are exactly the birth-committed forms.",
+    "THE SERIAL ARM IS A FRESH RE-RUN, NOT A CITE (the dispatch's choice, stated): 'cite e264's rung OR re-run at the registered seeds \u2014 state which' -> RE-RUN at the registered seeds (e268/e269's precedent): one instrument, one session; the delta vs the committed rung doubles as the freshest cross-session scatter point (co-reported; the family's inherited laws: cross-pass cuBLAS/atomics install L2 ~ 5e-5-7e-5 on a bit-identical arm, cons root-g0 lottery ~0.04; e268's re-run deltas post |d| 2.4e-7 / root |d| 0.0067; e269's post |d| 9.5e-7 / root |d| 0.0486).",
+    "THE CORPUS GENERATOR IS A FRESH REGISTERED SEED (stated at birth): seed 27001 (e268's was 26801, e269's was 26901 \u2014 one fresh registered stream per concurrent cell). The corpus draws are this cell's own registered stream; the install stream's draws remain bit-identical to SERIAL's by construction (separate generators). No bar or gate-form change follows.",
+    "THE INTERLEAVED DRIVER PORTED VERBATIM FROM e269's COMMITTED TEXT (copied into this file, not imported): importing lab/e269_above_threshold.py would execute its module-level side effects (its own run_dir/log opening + its own E261 rebinding) inside THIS cell's process \u2014 so the driver's TEXT is carried whole instead (itself e268's text, carried through e269), differing only in the module globals it resolves at call time (this cell's log / NAME / ROOM_MODE=K100K / CORPUS_GEN_SEED). e268's smoke catches (the hardcoded room-mode string; the jitter-pool train_text-vs-train_ids slip, fixed in e269's committed line and inherited here) are honored by construction: the driver resolves ROOM_MODE, never a literal, and reads train_ids TENSOR slices.",
+    "NO FRESH FREE ARM (disclosed at birth; e268's skip carried): e264's G_FREE PASS on this session-generation (install L2 6.2e-4, behavioral |d| 1.3e-5, root in band) validates the instrumented path, e268's serial-anchor PASS at L2 4.7e-5 is its second-generation confirmation, and e269's serial re-run (install L2 5.7e-5, |d post g0| 9.5e-7) its third; THIS cell's live vehicle control is G_SERIAL_ANCHOR (the serial re-run vs e264's committed K100K rung). No ceiling arm runs; no bar or gate-form change follows.",
+    "THE ANCHOR-CONTAMINATION PRECEDENT CARRIED OPENLY (e269's own letter landed MIXED on this branch): G_SERIAL_ANCHOR's landing-read clause (|root g0 - committed| <= 0.02) sits BELOW the known cross-session cons lottery family (~0.0419, e261's G_ANCHOR on a bit-identical arm) \u2014 the anchor is EXPECTED to miss on the landing read about half the time, and a miss routes any firing read to MIXED per the frozen composite order. Kept verbatim anyway (the anchor conventions carried, per dispatch): the discriminator's primary object is the SAME-SESSION arm pair, and the letter/content split is reported honestly rather than the bar quietly moved.",
+    "THE THERMAL LEDGER REBINDING (this cell's one instrumentation improvement, disclosed): e261's drivers append their thermal rows to e261's module-level lists \u2014 in e269 those rows missed the metrics' thermal_envelope record (only the concurrent driver's local rows landed). HERE E261.thermal_log / E261.device_events are rebound to THIS cell's lists so BOTH arms' per-step polls land in one ledger. Arithmetic untouched; the envelope numbers get strictly more coverage.",
+    "THE CORPUS STEP IS UNPROJECTED (e268's registered choice, carried): the room constrains the INSTALL's writing directions (the vehicle verbatim); the concurrent corpus stream runs FREE \u2014 the natural stream, as in any wash/cons \u2014 so its trajectory can drag the state through and off the room between install writes. Projecting it would remove exactly the interface under test.",
+    "THE TOTAL-DOSE DELTA IS THE OBJECT (e268's disclosure, carried): the concurrent arm's install dose is bit-identical to SERIAL's, but its corpus exposure triples (in-batch 48 + interleaved 48 per iteration vs SERIAL's in-batch 48). The tripling is not a confound to remove \u2014 the concurrent corpus stream IS the intervention; the corpus ledger (CE + clipped-grad norm per step) and the trajectory reads make its footprint visible, never nominal.",
+    "THE LANDING READ IS NOT A BAR (T246's rehearsal-lane finding, carried; e269 doubly confirmed): the frozen bars adjudicate the WRITE read (post g0) only; the root g0 is reported with the +-10%-of-serial window as CONTEXT (e268's dead 10k write landed 0.7119; e269's dead 40k write landed 0.7047 vs serial 0.7034 \u2014 the cons re-teaches; the landing read measures the rehearsal lane). This is the dispatch's own caveat ('root g0 (the landing, the rehearsal caveat carried)'), operationalized.",
+    "e261's MACHINERY PORTED WHOLE BY IMPORT: the SRCT projector, the hooked chunked install/cons drivers (bit-identical arithmetic + draw order), the thermal envelope (per-step polls, 78C margin, 175s bursts, 40s cooldowns, the 84C line), the progressive-metrics + resume-ckpt conventions \u2014 the module-global rebinding (log/NAME/LADDER/RUNG_NAMES/thermal ledgers, disclosed in-code) retargets the drivers' I/O to this cell; the committed lab/e261_rank_ladder.py is NOT modified. The ONE ported driver is chunked_install_concurrent (e268's text through e269's committed copy, this file).",
+    "THE V-MAP IS LOADED, NOT RE-RUN (extend, don't repeat): e258's committed 2.74M v-map feeds the measured v-excess ledger; no new history is run. The installs' own fresh Adam state remains the mechanism's channel (the arms' shared-optimizer moments are the interference channel under test).",
+    "NO WASH IN THIS CELL (the ladder's inherited registration): the readouts are post g0 + the milestone trajectory (the transient's scaling) + root g0 (context) + kept per arm; the retention/occupancy question stays T237's separately registered follow-up.",
+    "n=1 per arm, one lineage, one session (the g-series standing caveat \u2014 the critic's lottery note carried verbatim); the arms' DIFFERENCE is the registered object, not any single point; nothing guaranteed.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "Smoke mode (E270_SMOKE=1): 8 install + 8 interleaved corpus steps, 8-step cons, room k=512 at the same seed pair (G_ROOMK100K vacuous \u2014 no committed record at smoke k; disclosed), all paths smoke_-prefixed, own smoke dir; NOTHING adjudicated or gated (SMOKE stamp on every read)."
+  ],
+  "builds_on": [
+    "T247 / e269 (THE 40k pair this cell's ladder composes with AND the machinery's own source: the concurrent 40k write died (post 0.003268 vs serial 0.346475, ratio 0.0094x) while its transient scaled ~90x over the 10k rung's (s100 0.0245 vs 0.00027) \u2014 'the 100k rung under concurrency is the named open branch (if the transient keeps scaling, somewhere the flash survives; if it saturates, the turbulence is total)' \u2014 THIS cell IS that named branch; the committed interleaved driver + the shared AdamW + the gates + the anchor conventions are ported whole from its record)",
+    "T246 / e268 (THE capstone: DYNAMICAL-CARRIER at 6609x \u2014 the k=10k at-threshold write dies under the 1:1 interleave (post g0 0.00004) while surviving serial (0.2646), same room/stream/dose; THE REHEARSAL-LANE FINDING: the landing read = the cons's rehearsal, so THIS cell's bars adjudicate the WRITE read only; the corpus wrote in low-v; the interleave's registered form ORIGINATES here)",
+    "T242 / e264 (the LOCATED cliff ~10k and the capacity curve: the 100k rung THIS cell uses as its vehicle \u2014 committed post g0 0.435982, root 0.727612, kept 0.1915, seeds 26117/26118; 'smoothly stronger above' the step \u2014 the strongest serial write the ladder holds; the G_FREE PASS cited from its record)",
+    "T239 / e261 (the ladder machinery PORTED WHOLE BY IMPORT: the SRCT projector, the hooked drivers, the thermal envelope)",
+    "T181 / g1c (the fresh-root lineage: e001 + Dmix s400 gen 24314 + e113 cons 10901; the committed root + install records are the controls)"
+  ],
+  "whats_new": [
+    "THE FAR SIDE, ASKED FOR THE FIRST TIME: e268 tested the AT-threshold (10k) write under concurrency and it died; e269 tested the 4x brother (40k) and it died with a 90x bigger transient; THIS cell holds everything fixed (the same interleave form, the same shared optimizer, the same install stream, the same cons) and moves ONLY the rung to 100k \u2014 the ladder's TOP measured room, 10x the threshold \u2014 asking whether ANY rank survives concurrency at all: TURBULENCE-TOTAL (the flow story closes at three rungs) vs TURBULENCE-CEILING (a turbulence-proof size exists; the two laws unify at the far side)",
+    "THE TRANSIENT SCALING as a REGISTERED co-readout (the ceiling bar's own clause): the concurrent milestone trajectories co-reported across the whole ladder, hard-bound \u2014 10k (e268), 40k (e269), 100k (THIS cell) \u2014 the s100 ratio chain and the fate reported together, never the post alone",
+    "THE DIRECTED SURVIVAL RATIO as the registered discriminator (r = post_CONCURRENT / post_SERIAL vs the 0.5x bar \u2014 the frozen bars' own clauses), with the landing read carried as context under T246's rehearsal-lane caveat (e269's open precedent: the anchor-contamination MIXED letter), never adjudicated",
+    "THE FRESH REGISTERED CORPUS GENERATOR (seed 27001): the interleave's corpus draws are this cell's own registered stream \u2014 the concurrent arm's fate cannot be an artifact of e268's or e269's particular corpus draw sequences"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g+0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "expected": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "seed": 170,
+        "n_windows": 16,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "note": "built for protocol identity; NO wash runs in this cell"
+      },
+      "pass": true
+    },
+    "G_INSTMASK": {
+      "name_positions": 420,
+      "expected": 420,
+      "pass": true
+    },
+    "G_PARENTS": {
+      "e264_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e264\\metrics.json",
+        "md5": "a42ff4786784b04cb9819a69b545e343",
+        "bound_md5": "a42ff4786784b04cb9819a69b545e343",
+        "verdict": "SHARP-THRESHOLD",
+        "K100K_post_g0": 0.43598243594169617,
+        "K100K_root_g0": 0.7276116609573364,
+        "K100K_kept_median": 0.19149141218938606,
+        "K100K_post_gm12": 0.07043259590864182,
+        "G_FREE_pass": true,
+        "G_FREE_install_l2": 0.0006242410945250543
+      },
+      "e261_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e261\\metrics.json",
+        "md5": "f460475d8e6b76f0719e91c1e9c6041b",
+        "bound_md5": "f460475d8e6b76f0719e91c1e9c6041b"
+      },
+      "e268_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e268\\metrics.json",
+        "md5": "c1149229b7f0191943a7b8eb0442b494",
+        "bound_md5": "c1149229b7f0191943a7b8eb0442b494",
+        "verdict": "DYNAMICAL-CARRIER",
+        "note": "the interleave's ORIGIN record (the registered form + the 10k pair this cell's transient-scaling ladder composes with)"
+      },
+      "e269_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e269\\metrics.json",
+        "md5": "58d3335662628f8927e78c054ca7ef1e",
+        "bound_md5": "58d3335662628f8927e78c054ca7ef1e",
+        "verdict": "MIXED",
+        "note": "THE MACHINERY'S OWN SOURCE (this cell ports its committed interleaved driver + gates + anchor conventions whole) + the 40k pair (the ladder's second concurrent rung); its serial re-run deltas (post |d| 9.5e-7, root |d| 0.0486, install L2 5.7e-5) are the freshest scatter points on the re-run discipline and the anchor-contamination MIXED precedent"
+      },
+      "k100k_vehicle": {
+        "path": "runs/checkpoints/e264_K100K_inst_resume.pt",
+        "md5": "8061c599c1b924e7165b5b05bb4b7906",
+        "bound_md5": "8061c599c1b924e7165b5b05bb4b7906",
+        "size": 32958618,
+        "bound_size": 32958618,
+        "state": {
+          "step": 400,
+          "traj_steps": [
+            1,
+            100,
+            200,
+            300,
+            400
+          ],
+          "ledger_max": 400
+        }
+      },
+      "e264_rooms": {
+        "path": "runs/checkpoints/e264_rooms.pt",
+        "md5": "2d524655575cce00a3bc1c8770f4b211"
+      },
+      "e246_span": {
+        "path": "runs/checkpoints/e246_late_span.pt",
+        "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+        "bound_md5": "3464ff6081d8e402103dd9ca65bfb53a"
+      },
+      "e258_vmap": {
+        "path": "runs/checkpoints/e258_vmap.pt",
+        "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c"
+      },
+      "hardbound": {
+        "e264_verdict": "SHARP-THRESHOLD",
+        "e264_K100K_post_g0": 0.43598243594169617,
+        "e264_K100K_root_g0": 0.7276116609573364,
+        "e264_K100K_kept_med": 0.19149141218938606,
+        "e264_K100K_post_gm12": 0.07043259590864182,
+        "e268_verdict": "DYNAMICAL-CARRIER",
+        "e268_serial_rerun_post_d": 2.3841885788109e-07,
+        "e268_serial_rerun_root_d": 0.0066771507243183,
+        "e269_verdict": "MIXED",
+        "e269_serial_rerun_post_d": 9.5367431640625e-07,
+        "e269_serial_rerun_root_d": 0.048597633838653564,
+        "e269_serial_rerun_inst_l2": 5.7423221566304206e-05,
+        "e269_K40K_pair": {
+          "post_serial": 0.3464753329753876,
+          "post_concurrent": 0.003268091706559062,
+          "ratio": 0.009432393580501202
+        },
+        "e268_K10K_pair": {
+          "post_serial": 0.26464739441871643,
+          "post_concurrent": 4.004325455753133e-05
+        },
+        "anchor_scatter_cross_session_root_g0": 0.04194730520248413,
+        "cons_seed_scatter_session_root_g0": 0.0137,
+        "vehicle_md5": "8061c599c1b924e7165b5b05bb4b7906",
+        "vehicle_step": 400,
+        "vehicle_traj_steps": [
+          1,
+          100,
+          200,
+          300,
+          400
+        ],
+        "vehicle_ledger_max": 400
+      },
+      "pass": true
+    },
+    "G_BASE": {
+      "checkpoint": "runs/checkpoints/e001.pt",
+      "params": 2739072,
+      "fact_free_gm12": 1.437231640011305e-05,
+      "ce_r": 1.6161081790924072,
+      "fact_free": true,
+      "pass": true
+    },
+    "G_ROOT": {
+      "checkpoint": "runs/checkpoints/g1c_root.pt",
+      "n_params": 2739072,
+      "expected_params": 2739072,
+      "battery_read_measured": 0.9026340246200562,
+      "battery_read_committed": 0.9026340246200562,
+      "abs_diff": 0.0,
+      "tol": 0.005,
+      "flat_md5": "a7f02b367c5342535aecfc814d780631",
+      "pass": true
+    },
+    "G_VMBIND": {
+      "path": "runs/checkpoints/e258_vmap.pt",
+      "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c",
+      "meta_experiment": "e258",
+      "meta_k": 237123,
+      "size": 2739072,
+      "expected_size": 2739072,
+      "mean_v": 1.9735449453829365e-07,
+      "pass": true
+    },
+    "G_SPANBIND": {
+      "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+      "rank": 10,
+      "N": 2739072,
+      "meta_experiment": "e246",
+      "pass": true
+    },
+    "G_PROJ": {
+      "form": "the K100K room certified (fp64 CPU, 4 probes, seed 26115): the DCT roundtrip identity; IDEMPOTENCY and the kept^2 rank probe (||P x||^2/||x||^2 vs k/N, the 10-sigma bar 5*sqrt(2k)/N); the span-overlap (expect ~sqrt(k/N))",
+      "reads": {
+        "probes": 4,
+        "seed": 26115,
+        "dct_roundtrip_rel": 8.201794444897636e-16,
+        "per_rung": {
+          "K100K": {
+            "k": 100000,
+            "seeds": [
+              26117,
+              26118
+            ],
+            "idempotency_max": 6.214389361374215e-16,
+            "kept2_mean": 0.036488492473449284,
+            "kept2_expect": 0.036508715360530866,
+            "kept2_bar_10sig": 0.0008163596931733776,
+            "kept2_pass": true,
+            "idempotency_pass": true,
+            "span_overlap_mean": 0.19109056581465328,
+            "span_overlap_expect": 0.19107253952499523
+          }
+        },
+        "pass": true
+      },
+      "bars": {
+        "roundtrip": 1e-08,
+        "idempotency": 1e-08,
+        "kept2": "10-sigma (5*sqrt(2k)/N)"
+      },
+      "pass": true
+    },
+    "G_ROOMK100K": {
+      "form": "the vehicle's room == the committed K100K room (seeds 26117/26118 at k=100,000): the +-1 diagonal and the index set bit-identical to e264_rooms.pt's stored K100K D/S (exact equality)",
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "e264_rooms_md5": "2d524655575cce00a3bc1c8770f4b211",
+      "pass": true
+    }
+  },
+  "phase_note": "P1 the vehicle room built (parents bound + v-map loaded + span loaded + certification + bit-bind)",
+  "device_events": [],
+  "rooms": {
+    "vehicle": {
+      "k": 100000,
+      "name": "K100K",
+      "seeds": [
+        26117,
+        26118
+      ],
+      "k_fraction_of_N": 0.036508715360530866,
+      "bit_bound_to": "runs/checkpoints/e264_rooms.pt (e264's committed K100K room)"
+    },
+    "cert_probes_seed": 26115,
+    "certification": {
+      "probes": 4,
+      "seed": 26115,
+      "dct_roundtrip_rel": 8.201794444897636e-16,
+      "per_rung": {
+        "K100K": {
+          "k": 100000,
+          "seeds": [
+            26117,
+            26118
+          ],
+          "idempotency_max": 6.214389361374215e-16,
+          "kept2_mean": 0.036488492473449284,
+          "kept2_expect": 0.036508715360530866,
+          "kept2_bar_10sig": 0.0008163596931733776,
+          "kept2_pass": true,
+          "idempotency_pass": true,
+          "span_overlap_mean": 0.19109056581465328,
+          "span_overlap_expect": 0.19107253952499523
+        }
+      },
+      "pass": true
+    },
+    "vmap_source": "runs/checkpoints/e258_vmap.pt (e258's committed 2.74M v-map; LOADED, not re-run)",
+    "span_source": "runs/checkpoints/e246_late_span.pt (e246's committed LATE span; rank 10; the ledger's in-span columns)",
+    "checkpoint": "runs/checkpoints/e270_rooms.pt"
+  }
+}
