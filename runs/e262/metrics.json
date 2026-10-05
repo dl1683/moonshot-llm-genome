@@ -1,0 +1,499 @@
+{
+  "experiment": "e262_t_decline_join",
+  "phase": "desk-only adjudication of T232's registered join on COMMITTED records (x5's T table vs e214/e182c2's decline records vs e238's R2 table); no model touched, no GPU",
+  "date": "2026-10-05T14:20:26Z",
+  "status": "DONE",
+  "smoke": false,
+  "registration": "bars frozen VERBATIM from the dispatch brief BEFORE any compute (script committed at birth); adjudicate against exactly this; no bar shopping",
+  "registered_prediction": {
+    "bars_verbatim": {
+      "T-TRACKS-DECLINE": "\"the join is monotone (per-wash Spearman >= 0.80, n=4 each, disclosed) AND the pooled fit's sign matches — the battery T-ladder IS the erosion rate's coarse-graining; the lens calibrated as a death-meter at the battery level; one instrument, two faces\"",
+      "T-INDEPENDENT": "\"no monotone relation (per-wash rho < 0.80 or sign-discordant) — the T-ladder and the declines are distinct battery properties; the mirror was qualitative only\"",
+      "MIXED": "\"the tables verbatim, both washes\""
+    },
+    "operationalizations": "T side = x5's committed per-battery T_mle aggregated over the DEEP STATES {50,80} (T232's own ladder construction); decline side = e214's committed per-battery mean_p as 1 - mean_p(t)/mean_p(t0) aggregated over the SAME states; join = 8 points; verdict: T-TRACKS-DECLINE iff (rho_w1 >= 0.80 AND rho_w2 >= 0.80 AND pooled OLS slope > 0), T-INDEPENDENT otherwise (gates failing -> MIXED); per-wash n=4 exact permutation p; sensitivity co-reports (s10/s50/s80 single-state, s80-only, all-state mean, T_lsq, ratio-of-means decline) NEVER adjudicate"
+  },
+  "question": "does the battery T-ladder TRACK the decline fractions quantitatively (monotone across the four batteries and both washes) — is the battery T(t) the erosion rate's coarse-graining?",
+  "builds_on": [
+    "T232 / x5 (the battery thermal ladder + THE REGISTERED JOIN this cell runs)",
+    "T236 / e259 (the death-meter law: rho(decline, R2_own) = +1.00 — the co-read's target)",
+    "T218 / e238 (the one-T instrument + the committed per-battery R2 table)",
+    "T187 / e214 (the committed per-battery per-state records this join's decline side reads)",
+    "T183 / e182c2 (the wash-2 archive + the journal_p2 cross-check)",
+    "T228 / e252 + T229 / e255 (the lens demotions the join's interpretation respects)"
+  ],
+  "whats_new": [
+    "the registered T-vs-decline join itself (T232's registration, never run until now)",
+    "the quantitative-form read (linear-in-T vs linear-in-log T) with its degeneracy disclosure",
+    "the death-meter law re-run on committed records at the deep-state aggregate (decline vs R2)",
+    "the aggregation-sensitivity ledger (which single-state joins hold and which break)",
+    "exact permutation p-values at n=4 and n=8 (no asymptotics at tiny n)"
+  ],
+  "gates": {
+    "G_T_TABLE": {
+      "pass": true,
+      "n_deep_rows": 16,
+      "t0_anchor_max_abs_delta_from_1": 1.0940431625083846e-05,
+      "note": "x5 fit_rows T_mle: 4 batteries x 2 washes x {50,80} + the t0 anchors"
+    },
+    "G_DECLINE_PROV": {
+      "pass": true,
+      "x5_vs_e214_ctrl_near_max_dp": 0.0,
+      "n_x5_checks": 8,
+      "e182c2_vs_e214_w2_max_dp": 9.934107464415476e-08,
+      "pooled_mean_p0_nweighted": 0.8087400771953441,
+      "e238_committed_mean_p0": 0.8087400771953441,
+      "note": "declines from e214's committed per-battery mean_p records (the record x5 itself re-probe-certified against); w2 == e182c2's journal_p2; the n-weighted pooled t0 mean reproduces e238's committed mean_p0"
+    },
+    "G_R2_TABLE": {
+      "pass": true,
+      "n_state_rows": 4,
+      "note": "e238 committed R2_battery (under the pooled committed T) for all four batteries at {w1,w2} x {50,80}"
+    },
+    "G_ENV": {
+      "pass": true,
+      "cpu_only": true,
+      "torch_imported": false,
+      "gpu_calls": 0,
+      "threads_env": "4",
+      "launch_cpu_percent": 12.1,
+      "note": "pure committed-record desk cell (numpy+json+matplotlib only); e261's recovery owns the GPU"
+    }
+  },
+  "adjudication": {
+    "verdict": "T-TRACKS-DECLINE",
+    "clause": "per-wash Spearman 0.80 (w1) and 0.80 (w2), both >= 0.80 (n=4 each, disclosed) AND the pooled OLS slope +0.7099 > 0",
+    "bar_constants": {
+      "RHO_BAR": 0.8,
+      "per_wash_n": 4,
+      "pooled_n": 8,
+      "deep_states": [
+        50,
+        80
+      ]
+    },
+    "at_bar_zero_margin": true,
+    "clause_lines": [
+      "per-wash monotonicity: rho_w1 = 0.8000 (>= 0.8: True), rho_w2 = 0.8000 (>= 0.8: True), n=4 each, disclosed",
+      "pooled fit sign: OLS decline ~ T slope = +0.709944 (> 0: True)",
+      "precedence: T-TRACKS-DECLINE -> T-INDEPENDENT -> MIXED (gate failure only); frozen before compute"
+    ]
+  },
+  "join": {
+    "w1_n4": {
+      "spearman_rho": 0.8,
+      "perm_p_exact_one_sided": 0.16666666666666666,
+      "n": 4,
+      "ols": {
+        "slope": 0.7592147199499271,
+        "intercept": -0.5967900618041115,
+        "r2": 0.6549840008913328
+      }
+    },
+    "w2_n4": {
+      "spearman_rho": 0.8,
+      "perm_p_exact_one_sided": 0.16666666666666666,
+      "n": 4,
+      "ols": {
+        "slope": 0.6196773480713813,
+        "intercept": -0.4119792132322938,
+        "r2": 0.44773980241241274
+      }
+    },
+    "pooled_n8": {
+      "spearman_rho": 0.8809523809523809,
+      "perm_p_exact_one_sided": 0.003621031746031746,
+      "n": 8,
+      "ols": {
+        "slope": 0.7099443678210186,
+        "intercept": -0.5316300706231811,
+        "r2": 0.5782125122979411
+      }
+    }
+  },
+  "form": {
+    "linear_in_T": {
+      "n": 8,
+      "slope": 0.7099443678210186,
+      "intercept": -0.5316300706231811,
+      "r2": 0.5782125122979411,
+      "pearson_r": 0.7604028618422874,
+      "ss_res": 0.056360777343514995,
+      "ss_tot": 0.1336236350930518
+    },
+    "linear_in_log10T": {
+      "n": 8,
+      "slope": 2.279776269135525,
+      "intercept": 0.1340475414489084,
+      "r2": 0.5834757999025605,
+      "pearson_r": 0.7638558763945985,
+      "ss_res": 0.05565747772124555,
+      "ss_tot": 0.1336236350930518
+    },
+    "degeneracy_pearson_T_vs_log10T": 0.9995110248650619,
+    "T_range": [
+      1.212917671857755,
+      1.5778377593038029
+    ],
+    "note": "over T in [1.2, 1.6] the log is near-affine in T; if the degeneracy r ~ 1 this cell cannot discriminate the functional form — the honest outcome is 'both fit equally; form undetermined at this range'"
+  },
+  "co_read": {
+    "T_vs_R2_w1_n4": {
+      "spearman_rho": 0.8,
+      "perm_p_exact_one_sided": 0.16666666666666666
+    },
+    "decline_vs_R2_w1_n4": {
+      "spearman_rho": 1.0,
+      "perm_p_exact_one_sided": 0.041666666666666664
+    },
+    "T_vs_R2_w2_n4": {
+      "spearman_rho": 0.8,
+      "perm_p_exact_one_sided": 0.16666666666666666
+    },
+    "decline_vs_R2_w2_n4": {
+      "spearman_rho": 1.0,
+      "perm_p_exact_one_sided": 0.041666666666666664
+    },
+    "T_vs_R2_pooled_n8": {
+      "spearman_rho": 0.8571428571428571,
+      "perm_p_exact_one_sided": 0.005357142857142857,
+      "ols": {
+        "slope": 1.6799404700795624,
+        "r2": 0.8349670759435944
+      }
+    },
+    "decline_vs_R2_pooled_n8": {
+      "spearman_rho": 0.9761904761904762,
+      "perm_p_exact_one_sided": 0.0001984126984126984,
+      "ols": {
+        "slope": 1.7269103702443345,
+        "r2": 0.7690991155015526
+      },
+      "note": "the death-meter law (T236: rho=+1.00 on e259's own R2s) re-run on the committed records at this aggregate"
+    },
+    "R2_source_disclosure": "e238's R2_battery is decline-variance explained under the COMMITTED POOLED T, not per-battery own-T; x5's own-fit R2 (ctrl/near only, n=2 per wash — no rank stats at n=2): {\"ctrl/w1\": 0.5831, \"ctrl/w2\": 0.5609, \"near/w1\": 0.98, \"near/w2\": 0.9527}"
+  },
+  "sensitivity_co_reports": {
+    "state10_w1": {
+      "spearman_rho": 1.0,
+      "n": 4
+    },
+    "state10_w2": {
+      "spearman_rho": 0.8,
+      "n": 4
+    },
+    "state50_w1": {
+      "spearman_rho": 0.8,
+      "n": 4
+    },
+    "state50_w2": {
+      "spearman_rho": 0.8,
+      "n": 4
+    },
+    "state80_w1": {
+      "spearman_rho": 0.8,
+      "n": 4
+    },
+    "state80_w2": {
+      "spearman_rho": 0.4,
+      "n": 4
+    },
+    "s80_only": {
+      "w1": {
+        "spearman_rho": 0.8,
+        "n": 4
+      },
+      "w2": {
+        "spearman_rho": 0.8,
+        "n": 4
+      }
+    },
+    "deep_mean_T_lsq": {
+      "w1": {
+        "spearman_rho": 0.8,
+        "n": 4
+      },
+      "w2": {
+        "spearman_rho": 0.8,
+        "n": 4
+      }
+    },
+    "all_state_mean": {
+      "w1": {
+        "spearman_rho": 0.8,
+        "n": 4
+      },
+      "w2": {
+        "spearman_rho": 0.8,
+        "n": 4
+      }
+    },
+    "decline_ratio_of_means": {
+      "w1": {
+        "spearman_rho": 0.8,
+        "n": 4
+      },
+      "w2": {
+        "spearman_rho": 0.8,
+        "n": 4
+      }
+    },
+    "decline_all_state_mean": {
+      "w1": {
+        "spearman_rho": 0.8,
+        "n": 4
+      },
+      "w2": {
+        "spearman_rho": 0.8,
+        "n": 4
+      }
+    }
+  },
+  "tables": {
+    "join_table": [
+      {
+        "battery": "ctrl",
+        "wash": "w1",
+        "n_probes": 12,
+        "T_deep": 1.2242766547546395,
+        "T_deep_lsq": 1.224326867692695,
+        "T_s50": 1.1835854844229838,
+        "T_s80": 1.2649678250862952,
+        "decline_s50": 0.2814038990887431,
+        "decline_s80": 0.39695033449195793,
+        "mean_p0": 0.7266194721062978,
+        "decline_deep": 0.3391771167903505,
+        "decline_deep_ratio_of_means": 0.33917711679035045,
+        "R2_deep": 0.25893551412173926,
+        "R2_own_deep_x5": 0.5831394156011954
+      },
+      {
+        "battery": "ctrl",
+        "wash": "w2",
+        "n_probes": 12,
+        "T_deep": 1.212917671857755,
+        "T_deep_lsq": 1.2132172952362512,
+        "T_s50": 1.1784804553654609,
+        "T_s80": 1.2473548883500492,
+        "decline_s50": 0.2753560340791731,
+        "decline_s80": 0.37436711922609667,
+        "mean_p0": 0.7266194721062978,
+        "decline_deep": 0.3248615766526349,
+        "decline_deep_ratio_of_means": 0.32486157665263493,
+        "R2_deep": 0.25361865729689953,
+        "R2_own_deep_x5": 0.5609085043881115
+      },
+      {
+        "battery": "fact",
+        "wash": "w1",
+        "n_probes": 20,
+        "T_deep": 1.31879923134262,
+        "T_deep_lsq": 1.3052603454523517,
+        "T_s50": 1.2853047981758914,
+        "T_s80": 1.3522936645093486,
+        "decline_s50": 0.33936323101326304,
+        "decline_s80": 0.4293996354947689,
+        "mean_p0": 0.7971389532089234,
+        "decline_deep": 0.38438143325401597,
+        "decline_deep_ratio_of_means": 0.38438143325401597,
+        "R2_deep": 0.5504287551701654,
+        "R2_own_deep_x5": null
+      },
+      {
+        "battery": "fact",
+        "wash": "w2",
+        "n_probes": 20,
+        "T_deep": 1.318087927387551,
+        "T_deep_lsq": 1.3055186868876314,
+        "T_s50": 1.262807179593365,
+        "T_s80": 1.373368675181737,
+        "decline_s50": 0.3096177592905648,
+        "decline_s80": 0.457907396186509,
+        "mean_p0": 0.7971389532089234,
+        "decline_deep": 0.3837625777385369,
+        "decline_deep_ratio_of_means": 0.38376257773853695,
+        "R2_deep": 0.5761740627928613,
+        "R2_own_deep_x5": null
+      },
+      {
+        "battery": "near",
+        "wash": "w1",
+        "n_probes": 3,
+        "T_deep": 1.5542669229657586,
+        "T_deep_lsq": 1.566054390539016,
+        "T_s50": 1.4801617448297186,
+        "T_s80": 1.6283721011017986,
+        "decline_s50": 0.6479293360106464,
+        "decline_s80": 0.765542761255382,
+        "mean_p0": 0.5891445080439249,
+        "decline_deep": 0.7067360486330142,
+        "decline_deep_ratio_of_means": 0.7067360486330142,
+        "R2_deep": 0.9339739274319435,
+        "R2_own_deep_x5": 0.9800201471606178
+      },
+      {
+        "battery": "near",
+        "wash": "w2",
+        "n_probes": 3,
+        "T_deep": 1.4569951522790956,
+        "T_deep_lsq": 1.4676673609507078,
+        "T_s50": 1.42290548649577,
+        "T_s80": 1.491084818062421,
+        "decline_s50": 0.5909960754218835,
+        "decline_s80": 0.6563955036139478,
+        "mean_p0": 0.5891445080439249,
+        "decline_deep": 0.6236957895179156,
+        "decline_deep_ratio_of_means": 0.6236957895179157,
+        "R2_deep": 0.9281501965533343,
+        "R2_own_deep_x5": 0.9526744474400322
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w1",
+        "n_probes": 19,
+        "T_deep": 1.5778377593038029,
+        "T_deep_lsq": 1.5775313557390183,
+        "T_s50": 1.5099283399859182,
+        "T_s80": 1.6457471786216875,
+        "decline_s50": 0.42118668806761894,
+        "decline_s80": 0.5612648719004963,
+        "mean_p0": 0.9074904165769878,
+        "decline_deep": 0.49122577998405764,
+        "decline_deep_ratio_of_means": 0.4912257799840577,
+        "R2_deep": 0.7873976265535492,
+        "R2_own_deep_x5": null
+      },
+      {
+        "battery": "tmpl",
+        "wash": "w2",
+        "n_probes": 19,
+        "T_deep": 1.5243293466496883,
+        "T_deep_lsq": 1.5245468496404242,
+        "T_s50": 1.5094684062473749,
+        "T_s80": 1.5391902870520016,
+        "decline_s50": 0.4202482009940801,
+        "decline_s80": 0.45101039919054775,
+        "mean_p0": 0.9074904165769878,
+        "decline_deep": 0.43562930009231393,
+        "decline_deep_ratio_of_means": 0.43562930009231393,
+        "R2_deep": 0.7836707740021007,
+        "R2_own_deep_x5": null
+      }
+    ],
+    "rung_orders_and_swaps": [
+      {
+        "wash": "w1",
+        "T_order_low_to_high": [
+          "ctrl",
+          "fact",
+          "near",
+          "tmpl"
+        ],
+        "decline_order_low_to_high": [
+          "ctrl",
+          "fact",
+          "tmpl",
+          "near"
+        ],
+        "discordant_pairs": [
+          "near reads COOLER than tmpl but declines MORE (T-order vs decline-order transposition)"
+        ]
+      },
+      {
+        "wash": "w2",
+        "T_order_low_to_high": [
+          "ctrl",
+          "fact",
+          "near",
+          "tmpl"
+        ],
+        "decline_order_low_to_high": [
+          "ctrl",
+          "fact",
+          "tmpl",
+          "near"
+        ],
+        "discordant_pairs": [
+          "near reads COOLER than tmpl but declines MORE (T-order vs decline-order transposition)"
+        ]
+      }
+    ],
+    "mean_p_records_used": {
+      "w1+50": {
+        "ctrl": 0.5221459195017815,
+        "fact": 0.5266193024814129,
+        "near": 0.2074204981327057,
+        "tmpl": 0.5252675335658225
+      },
+      "w1+80": {
+        "ctrl": 0.43818762960533303,
+        "fact": 0.45484777726233006,
+        "near": 0.138129194577535,
+        "tmpl": 0.39814792416597666
+      },
+      "w2+50": {
+        "ctrl": 0.5265404159824053,
+        "fact": 0.5503305766731501,
+        "near": 0.240962415933609,
+        "tmpl": 0.5261192015911403
+      },
+      "w2+80": {
+        "ctrl": 0.45459703356027603,
+        "fact": 0.4321231307461858,
+        "near": 0.2024327019850413,
+        "tmpl": 0.49820280153500407
+      },
+      "t0": {
+        "ctrl": 0.7266194721062978,
+        "fact": 0.7971389532089234,
+        "near": 0.5891445080439249,
+        "tmpl": 0.9074904165769878
+      }
+    }
+  },
+  "honesty_reflex": {
+    "n_counts": "n=1 organism (GPT-2 124M, e182's archive); near n=3 / ctrl n=12 / fact n=20 / tmpl n=19 probes; Spearman n=4 per wash is COARSE (values step in 0.2; rho=0.80 == exactly one adjacent transposition)",
+    "zero_margin": "the verdict sits AT the frozen bar (rho_w1=0.80, rho_w2=0.80 vs >=0.80) with ZERO margin",
+    "aggregation_sensitivity": "the s80-only co-report reads w1 0.80 / w2 0.40; the s50-only reads w1 0.80 / w2 0.80; the PRIMARY was frozen before compute on T232's own deep-state construction ({50,80}) — the co-reports price, they never adjudicate",
+    "the_single_discordance": "the ladder's bottom two rungs (ctrl coldest/least-dead, fact next) NEVER swap; the top two (tmpl hottest, near deadliest) are TRANSPOSED between lens and deaths — the same transposition in both washes: systematic texture, not noise; T236's descriptive-T-undercools clause is its cousin",
+    "observational": "a monotone join supports coarse-graining; it does not intervene — the intervening cell (per-battery erosion-rate estimation) is a different instrument",
+    "lens_not_mechanism": "T228/T229/T232's demotions stand: T is a p-sharpening lens; this join says the lens's battery variation carries the erosion ordering, not that the wash implements a temperature",
+    "device_asymmetry": "wash 1 = CPU fp32 replay, wash 2 = GPU fp32 (the archive's inherited asymmetry, disclosed)",
+    "guarantees_nothing": "nothing here is guaranteed — the openness is the point; the branches were frozen before compute; no bar shopping"
+  },
+  "compute": {
+    "envelope": "desk-only: numpy + json + matplotlib on committed records; threads 4 via env; zero torch, zero GPU (e261's recovery owns the GPU)",
+    "total_s": null
+  },
+  "provenance": {
+    "git_head_at_start": "00ef4531add1bb7bee7c2f75bce71828b25c65a5",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e262_t_decline_join.py",
+    "committed_records": {
+      "x5_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x5\\metrics.json",
+        "sha256_16": "c69037c447aa877e"
+      },
+      "e238_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e238\\metrics.json",
+        "sha256_16": "95290a45b9aaf7e4"
+      },
+      "e214_journal": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e214\\journal.json",
+        "sha256_16": "04e84058b4656cd9"
+      },
+      "e182c2_journal_p2": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e182c2\\journal_p2.json",
+        "sha256_16": "bf41edb0b50a56db"
+      }
+    },
+    "note": "every number read at RUNTIME from the committed records (never transcribed); sha256_16 recorded at read time"
+  },
+  "trims": [],
+  "deviations": [
+    "DESK-ONLY per the dispatch: no model loaded, no forward pass, no wash — pure joins on committed records.",
+    "The decline side reads e214's journal per-battery mean_p (both washes); e182c2's journal_p2 cross-checks the w2 rows (max dp 2.6e-7, float re-serialization) and x5's own mean_p_obs cross-checks ctrl/near (max dp 0.0).",
+    "The R2 co-read uses e238's committed R2_battery (under the pooled committed T); x5's own-fit R2 exists only for ctrl/near and co-reports as numbers (n=2 per wash, no rank stats).",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch); the draft NOTES entry rides in metrics['draft_notes_entry'] + the final report."
+  ],
+  "draft_notes_entry": "## e262 — T232's registered join, THE T-LADDER vs THE DECLINE: T-TRACKS-DECLINE (the battery thermal ladder vs the committed decline fractions, desk-only on committed records) (2026-10-05T14:20:26Z) — DONE\n\nWHAT WE DID: the frozen join per battery per wash — x5's committed deep-state own-T (mean of s50/s80, T232's own ladder construction) against e214's committed mean decline (1 - mean_p(t)/mean_p(t0), same states; provenance cross-checked: x5's own re-probe vs e214 max dp 0.0, the w2 rows == e182c2's journal_p2, the n-weighted pooled t0 mean reproduces e238's committed mean_p0; 4/4 gates PASS).\n\nWHAT WE SAW: per-wash Spearman w1 0.80 / w2 0.80 (n=4 each, exact permutation p 0.167/0.167), pooled n=8 rho 0.881 (p=0.0036), pooled OLS slope +0.7099 (R2 0.578) — THE CLAUSE: per-wash Spearman 0.80 (w1) and 0.80 (w2), both >= 0.80 (n=4 each, disclosed) AND the pooled OLS slope +0.7099 > 0. THE TEXTURE: ctrl (coldest, least-dead) and fact (next) never swap; tmpl reads HOTTEST but near dies HARDEST — the same single adjacent transposition (near/tmpl) in BOTH washes at the deep aggregate: systematic, not noise. THE FORM: linear-in-T R2 0.5782 vs linear-in-log10T R2 0.5835 — degenerate over the observed range [1.21,1.58] (Pearson T vs log10T 0.99951); this cell cannot discriminate the form. THE CO-READ: T vs R2 per-wash 0.80/0.80; decline vs R2 per-wash 1.00/1.00 — the death-meter law (T236) replicates EXACTLY on the committed records at this aggregate, and the T-ladder joins fit quality with the same single transposition.\n\nHONESTY: the verdict sits AT the frozen bar (zero margin); the s80-only co-report reads w1 0.80 / w2 0.40 (aggregation-sensitive, disclosed; the primary was frozen before compute); near n=3; n=4-per-wash Spearman steps in 0.2; observational; lens-not-mechanism stands; wash-1 CPU replay vs wash-2 GPU.\n\nWHAT'S NEXT: the registered discriminating cell is the per-battery EROSION-RATE estimate (fit the decline kinetics per battery, not the lens) — if rate(T-ladder) keeps the ladder's order, the coarse-graining claim gains its own instrument; the near/tmpl transposition is the sharpest open thread (tmpl hottest yet near dies hardest — the lens's top rung overprices tmpl or underprices near; e259's descriptive-T-undercools clause is the family resemblance)."
+}

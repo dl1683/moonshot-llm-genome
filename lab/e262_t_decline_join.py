@@ -456,7 +456,7 @@ def main() -> None:
                 "T_order_low_to_high": by_T,
                 "decline_order_low_to_high": by_d,
                 "discordant_pairs": [
-                    f"{a}>{b} in T but {b}>{a} in decline"
+                    f"{a} reads COOLER than {b} but declines MORE (T-order vs decline-order transposition)"
                     for i, a in enumerate(by_T)
                     for b in by_T[i + 1 :]
                     if by_d.index(a) > by_d.index(b)
