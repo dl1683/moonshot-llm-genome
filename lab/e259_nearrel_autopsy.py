@@ -749,6 +749,60 @@ def main():
     load_checks.append(cpu_load_check("texture"))
     mp228 = {(r["wash"], r["step"]): {b: r[b]["mean_p"] for b in BATTERIES}
              for r in e228j["states"]}
+
+    # R2_own for ALL FOUR batteries, x5's formula VERBATIM on the npz:
+    #   q = softmax(L0 / T_own)[ans]  (T_own = x5's committed battery T_mle)
+    #   R2_own = 1 - sum((p_obs - q)^2) / sum((p_obs - p0)^2)
+    # (x5 recorded R2_own only for ctrl/near — its DUMP_BATTERIES; the
+    #  fact/tmpl rows are its e238-npz co-reports with T_mle but no R2_own.
+    #  This cell recomputes all four on the committed dumps and CERTIFIES
+    #  the ctrl/near pair against x5's committed values — G_R2.)
+    zb0 = np.load(E238_RUN / "logits_t0.npz", allow_pickle=True)
+    bats0 = [str(x) for x in zb0["battery"]]
+    ans0 = zb0["ans_ids"].astype(np.int64)
+    r2_recomputed, r2_cert_rows = {}, []
+    for b in BATTERIES:
+        ib = [i for i, bb in enumerate(bats0) if bb == b]
+        p0_b = softmax_p(zb0["logits"][ib, :], ans0[ib], 1.0)
+        for w in WASHES:
+            for s in (50, 80):
+                zb = np.load(E238_RUN / f"logits_{tags[f'{w}+{s}']}.npz",
+                             allow_pickle=True)
+                p_obs = softmax_p(zb["logits"][ib, :], ans0[ib], 1.0)
+                T_own = x5_all.get((b, w, s), {}).get("T_mle")
+                q = softmax_p(zb0["logits"][ib, :], ans0[ib], 1.0 / T_own)
+                ss_res = float(((p_obs - q) ** 2).sum())
+                ss_tot = float(((p_obs - p0_b) ** 2).sum())
+                r2 = 1.0 - ss_res / ss_tot if ss_tot > 0 else float("nan")
+                r2_recomputed[(b, w, s)] = r2
+                if b in ("ctrl", "near"):
+                    r2_ref = x5_all[(b, w, s)].get("R2_own")
+                    if r2_ref is not None:
+                        r2_cert_rows.append({
+                            "battery": b, "state": f"{w}+{s}",
+                            "dR2": abs(r2 - r2_ref),
+                            "computed": r2, "x5_committed": r2_ref})
+    G_R2 = {
+        "formula": ("x5's VERBATIM (lab/x5_ctrl_logit_fit.py): R2_own = 1 - "
+                    "ss_res/ss_tot, q = softmax(L0/T_own)[ans], p_obs/p0 = "
+                    "factor-1.0 softmax of the committed npz"),
+        "cert_rows": r2_cert_rows,
+        "max_dR2_vs_x5_committed": max(r["dR2"] for r in r2_cert_rows),
+        "tol": 0.005,
+        "fact_tmpl_disclosure": ("x5 committed R2_own only for its two "
+                                 "DUMP_BATTERIES (ctrl/near); this cell "
+                                 "computes all four on the same committed "
+                                 "dumps with the same formula and the same "
+                                 "committed T_mle — certified on the "
+                                 "ctrl/near pair"),
+        "pass": bool(all(r["dR2"] <= 0.005 for r in r2_cert_rows)
+                     and len(r2_cert_rows) >= 4),
+    }
+    metrics["gates"]["G_R2"] = G_R2
+    log(f"G_R2: {'PASS' if G_R2['pass'] else 'FAIL'} — max dR2 vs x5's "
+        f"committed ctrl/near {G_R2['max_dR2_vs_x5_committed']:.2e} "
+        f"({len(r2_cert_rows)} rows)")
+
     texture = {}
     for b in BATTERIES:
         p0 = mp228[("t0", 0)][b]
@@ -764,9 +818,9 @@ def main():
             r5 = x5_all.get((b, w, 50), {})
             r8 = x5_all.get((b, w, 80), {})
             row[f"T_own_{w}80"] = r8.get("T_mle")
-            row[f"R2_own_{w}80"] = r8.get("R2_own")
+            row[f"R2_own_{w}80"] = r2_recomputed[(b, w, 80)]
             row[f"T_own_{w}50"] = r5.get("T_mle")
-            row[f"R2_own_{w}50"] = r5.get("R2_own")
+            row[f"R2_own_{w}50"] = r2_recomputed[(b, w, 50)]
         for w in WASHES:
             row[f"R2_pooledT_{w}80"] = next(
                 r["R2_battery"][b] for r in e238m["fit_rows"]
@@ -775,9 +829,9 @@ def main():
                 f"{w}+80"][b]["BR_b"]
         texture[b] = row
     dec = [texture[b]["decline_mean"] for b in BATTERIES]
-    r2o = [np.mean([texture[b][f"R2_own_{w}80"] for w in WASHES])
+    r2o = [float(np.mean([texture[b][f"R2_own_{w}80"] for w in WASHES]))
            for b in BATTERIES]
-    tow = [np.mean([texture[b][f"T_own_{w}80"] for w in WASHES])
+    tow = [float(np.mean([texture[b][f"T_own_{w}80"] for w in WASHES]))
            for b in BATTERIES]
     rho_dec_r2, _ = e252.spearman(dec, r2o)
     rho_dec_T, _ = e252.spearman(dec, tow)
@@ -885,7 +939,7 @@ def main():
                   or collapses > 0)
 
     gates_summary = {"G_NPZ": G_NPZ["pass"], "G_TFIT": G_TFIT["pass"],
-                     "G_CERTIFY": G_CERTIFY["pass"],
+                     "G_CERTIFY": G_CERTIFY["pass"], "G_R2": G_R2["pass"],
                      "G_MODE": G_MODE["pass"]}
     if pure:
         verdict = "PURE-THERMAL-DEATH"
