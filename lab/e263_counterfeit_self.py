@@ -439,6 +439,12 @@ deviations: list[str] = [
     "untouched): the battery-candidate merges dropped top1/top5 — "
     "e1.select_battery needs them (KeyError at P1); the three update "
     "sites now carry p/rank/top1/top5 verbatim (e237's own merge form).",
+    "SMOKE CATCH #4 (caught 17:0xZ, fixed pre-full-run): the wash "
+    "saved its resume state BEFORE populating the checkpoint's battery "
+    "read — a resumed wash returned reads missing the final state "
+    "(KeyError at G_WASHHEALTH); the read now precedes the save, and "
+    "the resume-complete path backfills any older file's missing final "
+    "read from the archived model.",
     "SMOKE CATCH #3 (caught 16:5xZ, fixed pre-full-run): the roots' "
     "probe read only the synthetic + near rows — P8's fate table needs "
     "the ANCHORS' root reads too (KeyError at the anchors' hr); the "
@@ -892,7 +898,19 @@ def run_wash(tag: str, root_mod, train_ids, offs, light_rows, full_rows,
         log(f"  [WASH-{tag}] RESUMED from {resume_ck.name} at step "
             f"{state['step']}/{n_steps}")
     if int(state.get("step", 0)) >= n_steps:
-        return {"sd": state["model"], "reads": state["reads"],
+        reads = state.get("reads", {})
+        if WASH_STEPS not in reads and not SMOKE:
+            # the backfill (catch #4's belt-and-braces): an older resume
+            # file may predate the read-before-save fix — recompute the
+            # final read from the archived model
+            evl_r = copy.deepcopy(root_mod).to(CPU)
+            evl_r.load_state_dict(state["model"])
+            reads[WASH_STEPS] = {
+                "light": probe_rows(evl_r, light_rows),
+                "full": probe_rows(evl_r, full_rows),
+                "ppl": e1.ppl_eval(evl_r, *bank_xy)}
+            del evl_r
+        return {"sd": state["model"], "reads": reads,
                 "ledger": state["ledger"], "steps_ran": n_steps,
                 "resumed_final": True}
     net = opt = evl = None
@@ -947,13 +965,9 @@ def run_wash(tag: str, root_mod, train_ids, offs, light_rows, full_rows,
             f"{t_end - t_burst:.1f}s, now at s{step}")
         sd = {k: v.detach().to("cpu", torch.float32).clone()
               for k, v in net.state_dict().items()}
-        torch.save({"model": sd,
-                    "opt": e2._opt_state_to_cpu(opt.state_dict()),
-                    "step": step, "reads": state["reads"],
-                    "ledger": state["ledger"],
-                    "meta": {"experiment": NAME, "arm": tag,
-                             "step": step}},
-                   resume_ck)
+        # the ckpt READ is populated BEFORE the resume save (the smoke's
+        # catch #4: save-then-read left the final state's read out of the
+        # resume file, and a resumed wash returned reads missing it)
         if hit_ckpt:
             torch.save({"model": sd,
                         "meta": {"experiment": NAME, "arm": tag,
@@ -972,6 +986,13 @@ def run_wash(tag: str, root_mod, train_ids, offs, light_rows, full_rows,
                 f"top1 {syn['top1']!r} | " + " ".join(
                     f"{r['fact'].split('->')[-1]}:{r['p']:.2f}"
                     for r in lr_ if r["fact"] != SYN_FACT))
+        torch.save({"model": sd,
+                    "opt": e2._opt_state_to_cpu(opt.state_dict()),
+                    "step": step, "reads": state["reads"],
+                    "ledger": state["ledger"],
+                    "meta": {"experiment": NAME, "arm": tag,
+                             "step": step}},
+                   resume_ck)
         if step >= n_steps:
             break
         burst_cooldown(tag, t_end)
