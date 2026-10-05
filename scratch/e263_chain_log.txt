@@ -1,0 +1,24 @@
+[chain 15:09:06] chain start: waiting for the GPU lane (e264 owns it)
+[chain 16:03:12] LANE FREE — running the SMOKE first (e246's discipline)
+[chain 16:03:41] smoke exit 1
+[chain 16:03:41] SMOKE FAILED — chain STOPS (the autopsy record); tail:
+C:\Users\devan\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\cuda\__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+[    0.0s] E263 — THE COUNTERFEIT SELF (smoke=True) -> C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\runs\e263_smoke
+[    0.5s]   [load] launch: cpu 13.2% ram_avail 41.8 GB
+[    2.0s] committed runner-ups runtime-read: Georgia->Atlanta ->  Augusta (46820) | Massachusetts->Boston ->  Worcester (50075) | the matched band [0.5302, 0.6481] (near t0 mean 0.5891 +-10%)
+[    2.0s] synthetic fact committed record: Texas->Austin p(t0)=0.3990 rank 0 (gate False, kept False)
+[    2.5s]   [load] organism+corpus: cpu 13.7% ram_avail 41.8 GB
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4359.74it/s]
+[   18.1s] organism: openai-community/gpt2@607a30d7 — 124,439,808 params (CPU fp32)
+Traceback (most recent call last):
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1990, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e263_counterfeit_self.py", line 1353, in main
+    e1.select_battery(cand)
+    ~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\devan\OneDrive\Desktop\Projects\AI Moonshots\moonshot-llm-genome\lab\e182c_forgetting_control.py", line 514, in select_battery
+    r["gate_pass"] = bool((r["top1"] and r["p"] >= GATE_TOP1_P)
+                           ~^^^^^^^^
+KeyError: 'top1'

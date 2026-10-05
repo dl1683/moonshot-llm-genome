@@ -5,11 +5,11 @@
 # FIRST (the e246 discipline) -> the FULL cell -> commit + push each
 # phase. A failed smoke STOPS the chain (the autopsy record commits);
 # the full run's own G_COORD re-checks the lane in-process and stands
-# down honestly if a new elder appeared. 3 h cap.
+# down honestly if a new elder appeared. 3 h cap. v2: logs as .txt (the .log gitignore silently ate the v1 autopsy commit — diagnosed and fixed).
 set -u
 REPO="C:/Users/devan/OneDrive/Desktop/Projects/AI Moonshots/moonshot-llm-genome"
 cd "$REPO/lab" || exit 9
-LOG="$REPO/scratch/e263_chain.log"
+LOG="$REPO/scratch/e263_chain_log.txt"
 PY=python
 
 log() { echo "[chain $(date -u +%H:%M:%S)] $*" >> "$LOG"; }
@@ -43,31 +43,31 @@ if [ "$lane_free" -ne 1 ]; then
 fi
 log "LANE FREE — running the SMOKE first (e246's discipline)"
 
-E263_SMOKE=1 $PY e263_counterfeit_self.py > "$REPO/scratch/e263_chain_smoke.log" 2>&1
+E263_SMOKE=1 $PY e263_counterfeit_self.py > "$REPO/scratch/e263_chain_smoke_log.txt" 2>&1
 src=$?
 log "smoke exit $src"
 if [ "$src" -ne 0 ]; then
   log "SMOKE FAILED — chain STOPS (the autopsy record); tail:"
-  tail -25 "$REPO/scratch/e263_chain_smoke.log" >> "$LOG"
-  cd "$REPO" && git add scratch/e263_chain.log scratch/e263_chain_smoke.log \
+  tail -25 "$REPO/scratch/e263_chain_smoke_log.txt" >> "$LOG"
+  cd "$REPO" && git add scratch/e263_chain_log.txt scratch/e263_chain_smoke_log.txt \
     && git commit -q -m "e263 smoke FAILED (caught by the chain, pre-full-run): the autopsy record — the compute stands down until fixed" \
     && git push -q origin main
   exit 4
 fi
 log "smoke PASSED — tail:"
-tail -8 "$REPO/scratch/e263_chain_smoke.log" >> "$LOG"
-cd "$REPO" && git add scratch/e263_chain.log scratch/e263_chain_smoke.log \
+tail -8 "$REPO/scratch/e263_chain_smoke_log.txt" >> "$LOG"
+cd "$REPO" && git add scratch/e263_chain_log.txt scratch/e263_chain_smoke_log.txt \
   && git commit -q -m "e263 smoke PASSED (end-to-end, all phases, SMOKE-stamped): the shakedown cleared — the full cell launches when the lane holds" \
   && git push -q origin main
 cd "$REPO/lab" || exit 9
 
 log "running the FULL cell"
-$PY e263_counterfeit_self.py > "$REPO/scratch/e263_chain_full.log" 2>&1
+$PY e263_counterfeit_self.py > "$REPO/scratch/e263_chain_full_log.txt" 2>&1
 frc=$?
 log "full run exit $frc"
 cd "$REPO" || exit 9
-git add runs/e263/metrics.json runs/e263/*.png scratch/e263_chain.log \
-  scratch/e263_chain_full.log 2>/dev/null
+git add runs/e263/metrics.json runs/e263/*.png scratch/e263_chain_log.txt \
+  scratch/e263_chain_full_log.txt 2>/dev/null
 if [ "$frc" -eq 2 ]; then
   git commit -q -m "e263 STOOD DOWN at G_COORD (a new elder cell owned the lane at launch): the certified P0-P4 instrument record + the registered stand-down; compute deferred" && git push -q origin main
   exit 5

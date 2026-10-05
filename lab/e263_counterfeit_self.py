@@ -422,6 +422,11 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "SMOKE CATCH #1 (the e246 discipline working; caught 2026-10-05 "
+    "16:03Z by the chain's smoke, fixed before any full compute, bars "
+    "untouched): the battery-candidate merges dropped top1/top5 — "
+    "e1.select_battery needs them (KeyError at P1); the three update "
+    "sites now carry p/rank/top1/top5 verbatim (e237's own merge form).",
     "THE SHARE FORM (the design's one invention, frozen before compute): "
     "the counterfeit is a fixed MATERIAL SHARE rho=0.30 of every install "
     "gradient's norm written through span{u1,u2} (the memory's own "
@@ -1349,7 +1354,8 @@ def main():
     assert banned == e_banned, "banned list diverged from e182's record"
     cand, _dropped = e1.build_candidates(tok)
     for r, b in zip(cand, e1.probe_battery(net0, cand)["probes"]):
-        r.update({"p": b["p"], "rank": b["rank"]})
+        r.update({"p": b["p"], "rank": b["rank"], "top1": b["top1"],
+                        "top5": b["top5"]})
     e1.select_battery(cand)
     battery = [r for r in cand if r["kept"]]
     answer_ids = {r["fact"]: r["ans_id"] for r in battery}
@@ -1381,14 +1387,16 @@ def main():
         tok, filtered.lower(), train_ids, e_banned,
         e1.CTRL_POOLS, e1.CTRL_TMPL)
     for r, b in zip(ccand, e1.probe_battery(net0, ccand)["probes"]):
-        r.update({"p": b["p"], "rank": b["rank"]})
+        r.update({"p": b["p"], "rank": b["rank"], "top1": b["top1"],
+                        "top5": b["top5"]})
     e1.select_battery(ccand)
     cbattery = [r for r in ccand if r["kept"]]
     ncand, _nd = e1.build_control_candidates(
         tok, filtered.lower(), train_ids, e_banned,
         {"near": e1.NEAR_POOL}, {"near": e1.NEAR_TMPL})
     for r, b in zip(ncand, e1.probe_battery(net0, ncand)["probes"]):
-        r.update({"p": b["p"], "rank": b["rank"]})
+        r.update({"p": b["p"], "rank": b["rank"], "top1": b["top1"],
+                        "top5": b["top5"]})
     e1.select_battery(ncand)
     nbattery = [r for r in ncand if r["kept"]]
     bats = {"fact": battery, "ctrl": cbattery, "near": nbattery}
