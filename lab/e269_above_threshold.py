@@ -951,7 +951,7 @@ def main():
     for j in G1.JITTERS:
         jwins = []
         for p, h in install_occ:
-            pre = train_text[p - G1.PRE - j: p]
+            pre = train_ids[p - G1.PRE - j: p]
             post = train_ids[p + len(h): p + len(h) + G1.POST_CAP - j]
             w = torch.cat([pre, name_ids, post])
             if len(w) != G1.BLOCK:
