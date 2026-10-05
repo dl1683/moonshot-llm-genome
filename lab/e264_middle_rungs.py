@@ -1402,7 +1402,8 @@ def main():
         "gates_pass": gates_pass,
         "reads": {
             "ladder_ks": ladder_ks,
-            "rung_sources": {str(k): src_map[k] for k in ladder_ks},
+            "rung_sources": {str(k): src_map.get(k, "e264 (smoke)")
+                             for k in ladder_ks},
             "post_g0_curve": {str(k): post_g0_of(k) for k in ladder_ks},
             "root_g0_curve": {str(k): root_g0_of(k) for k in ladder_ks},
             "root_gm12_curve": {str(k): root_gm12_of(k) for k in ladder_ks},
