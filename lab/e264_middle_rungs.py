@@ -220,13 +220,24 @@ E261.RUNG_NAMES = RUNG_NAMES
 FULL_LADDER_KS = (1_000, 10_000, 40_000, 100_000, 237_123)
 CITED_KS = (1_000, 237_123)
 
-# THE RESUME VEHICLE (bit-gated): e261's cut, frozen as-is
+# THE RESUME VEHICLE (bit-gated): e261's cut, as COMPLETED by pass 1.
+# AMENDMENT 2026-10-05 (pass 2, disclosed before pass-2 compute): pass 1
+# (birth a789e10 + the smoke-fix commit) ran FREE (G_FREE PASS: install
+# L2 6.2e-4, root g0 0.7156 in band), CONTINUED the s278 cut to s400
+# (the K10K rung: post g0 0.264648, root g0 0.7708 in band), completed
+# K40K (post 0.346476, root 0.7520 in band), and was killed
+# mid-K100K-install BEFORE that arm's first chunk-end save (nothing
+# lost — K100K restarts fresh). The bit-gate re-binds to the completed
+# vehicle below; the ORIGINAL s278 cut's md5 (ce70e580c5f2c8223dc2eb6a5b1e6e6,
+# size 32956239, traj [1,100,200], ledger to s270) is preserved in the
+# birth commit and in e261's committed triage record. No bar, gate-form
+# or adjudication change — the fast-path is the journal-resume design.
 K10K_CK = "e261_K10K_inst_resume.pt"
-K10K_MD5 = "ce70e580c5f2c8223dc2eb6a5b11e6e6"
-K10K_STEP = 278
-K10K_SIZE = 32956239
-K10K_TRAJ_STEPS = [1, 100, 200]
-K10K_LEDGER_MAX = 270
+K10K_MD5 = "0f6dc1cf46850ce655dfafc9c853d467"
+K10K_STEP = 400
+K10K_SIZE = 32958479
+K10K_TRAJ_STEPS = [1, 100, 200, 300, 400]
+K10K_LEDGER_MAX = 400
 
 # THE STITCH (e261's committed record, HARD-BOUND — Rule 12; md5-gated)
 E261_METRICS = E43.REPO / "runs" / "e261" / "metrics.json"
@@ -271,8 +282,9 @@ REGISTERED = {
     "bars_verbatim": E261.REGISTERED["bars_verbatim"],   # e261's ORIGINAL
     "operationalizations": (
         "frozen BEFORE compute: THE CELL := the three deferred rungs at "
-        "e261's registered seeds (K10K 26113/26114 RESUMED from e261's cut "
-        f"vehicle {K10K_CK} at s{K10K_STEP}/400, md5/step/ledger bit-gated "
+        "e261's registered seeds (K10K 26113/26114 via e261's vehicle "
+        f"{K10K_CK} — pass 1 continued the s278 cut to s400, pass 2 "
+        "fast-paths the completed vehicle, md5/step/ledger bit-gated "
         "(G_K10KRESUME); K40K 26115/26116 and K100K 26117/26118 FRESH); "
         "every arm the SAME fresh root (e001) and SAME dose (Dmix s400 gen "
         "24314 + e113 cons s300 seed 10901 HELD; bit-identical streams); "
@@ -312,12 +324,13 @@ deviations: list[str] = [
     "THE RECOVERY (disclosed): e264's first executor died ~2 min in on a "
     "model-request failure; verified NO partial artifacts (clean tree, no "
     "runs/e264, no e264 ckpts) — this cell re-dispatches whole.",
-    "THE RESUME VEHICLE: completing K10K overwrites "
-    f"{K10K_CK} with the s400 final (the journal-resume path's design; "
-    "the machinery saves its vehicle every chunk); the s278 cut state is "
-    "preserved by the frozen md5 in this registration + e261's committed "
-    "triage record; the K10K bit-gate (md5 + step + ledger extent, "
-    "checked BEFORE compute) binds the load to exactly that cut.",
+    "THE RESUME VEHICLE: pass 1 completed K10K — "
+    f"{K10K_CK} now holds the s400 final (the journal-resume path's "
+    "design; the machinery saves its vehicle every chunk); the ORIGINAL "
+    "s278 cut's md5 (ce70e580c5f2c8223dc2eb6a5b11e6e6) is preserved in "
+    "the birth commit + e261's committed triage record, and the "
+    "completed vehicle is itself md5/step/ledger bit-gated "
+    "(G_K10KRESUME, re-bound in pass 2's disclosed amendment).",
     "THE STITCH (this cell's one interpretive act, disclosed at birth): "
     "rungs 1k/237k/FREE-ceiling-context are CITED from e261's committed "
     "record rather than re-run — the post-install curve stitches cleanly "
@@ -737,9 +750,10 @@ def main():
         G_K10K = {
             "form": f"the K10K resume vehicle bit-gated BEFORE compute: "
                     f"{K10K_CK} exists with md5 == the frozen "
-                    f"{K10K_MD5}, step == {K10K_STEP}, traj steps == "
-                    f"{K10K_TRAJ_STEPS}, max ledger key == {K10K_LEDGER_MAX} "
-                    f"(e261's cut, committed in its triage record)",
+                    f"{K10K_MD5}, step == {K10K_STEP} (the s278 cut, "
+                    f"COMPLETED by pass 1 — the amendment block above), "
+                    f"traj steps == {K10K_TRAJ_STEPS}, max ledger key == "
+                    f"{K10K_LEDGER_MAX}",
             "exists": bool(k10k_path.exists()),
             "md5": md5of(k10k_path), "md5_expected": K10K_MD5,
             "size": k10k_path.stat().st_size, "size_expected": K10K_SIZE,
@@ -1118,7 +1132,7 @@ def main():
                               arms_rec["K10K"]["install"]["ledger"].keys())
         post = {
             "traj_steps": k10k_traj_steps,
-            "expected_traj_steps": K10K_TRAJ_STEPS + [300, 400],
+            "expected_traj_steps": K10K_TRAJ_STEPS,
             "ledger_max_key": k10k_ledger_max,
             "expected_ledger_max": 400,
             "vehicle_step_now": int(torch.load(
