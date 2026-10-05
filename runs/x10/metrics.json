@@ -1,0 +1,402 @@
+{
+ "experiment": "x10_dead_rung_fill",
+ "phase": "THE DEAD RUNG'S FILL (P-x10a, T253) \u2014 does the DEAD 1k write still fill ~73% of its 1,000-dim room? The fill curve across e272's relocated expression edge (1k dead / 2k transitional / 5k alive-ish / 10k / 237k), x6's conventions; CPU-only desk cell, committed records only",
+ "date": "2026-10-05T22:24:04+00:00",
+ "status": "COMPLETE \u2014 adjudicated",
+ "cpu_only": true,
+ "threads": {
+  "torch": 4,
+  "pocketfft": 4
+ },
+ "gates": {
+  "G_ENDPOINTS": {
+   "md5_binds": {
+    "e001": {
+     "path": "runs\\checkpoints\\e001.pt",
+     "md5": "d114536d1c0983ab3be67f67ff0667c8",
+     "claimed": "d114536d1c0983ab3be67f67ff0667c8",
+     "source": "x6's e267 base bind",
+     "match": true
+    },
+    "e261_K1K": {
+     "path": "runs\\checkpoints\\e261_K1K_inst_resume.pt",
+     "md5": "f2975890c7870480d7f48b74dee33041",
+     "claimed": null,
+     "source": "no committed md5 anywhere in the record (searched) \u2014 FRESH BIND",
+     "match": true
+    },
+    "e272_K2K": {
+     "path": "runs\\checkpoints\\e272_K2K_inst_resume.pt",
+     "md5": "f31b437cb81ae6f06aa35daceb3b4d67",
+     "claimed": null,
+     "source": "no committed md5 anywhere in the record (searched) \u2014 FRESH BIND",
+     "match": true
+    },
+    "e272_K5K": {
+     "path": "runs\\checkpoints\\e272_K5K_inst_resume.pt",
+     "md5": "62049b93c2435639a945ce80cbc46470",
+     "claimed": null,
+     "source": "no committed md5 anywhere in the record (searched) \u2014 FRESH BIND",
+     "match": true
+    },
+    "e261_K10K": {
+     "path": "runs\\checkpoints\\e261_K10K_inst_resume.pt",
+     "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+     "claimed": "0f6dc1cf46850ce655dfafc9c853d467",
+     "source": "x6's e264 G_K10KRESUME bind",
+     "match": true
+    },
+    "e261_K237K": {
+     "path": "runs\\checkpoints\\e261_K237K_inst_resume.pt",
+     "md5": "458e5211ef61aae7e14cd3b966f23dfc",
+     "claimed": "458e5211ef61aae7e14cd3b966f23dfc",
+     "source": "x6's e271 vehicle bind",
+     "match": true
+    },
+    "e272_K1KM": {
+     "path": "runs\\checkpoints\\e272_K1KM_inst_resume.pt",
+     "md5": "2306a448b450f192ef2d7d1f9aa90e2e",
+     "claimed": null,
+     "source": "no committed md5 anywhere in the record (searched) \u2014 FRESH BIND",
+     "match": true
+    },
+    "e272_K10KR": {
+     "path": "runs\\checkpoints\\e272_K10KR_inst_resume.pt",
+     "md5": "6ce712a7aae8482a4c78d1b87f3194b1",
+     "claimed": null,
+     "source": "no committed md5 anywhere in the record (searched) \u2014 FRESH BIND",
+     "match": true
+    },
+    "e261_rooms": {
+     "path": "runs\\checkpoints\\e261_rooms.pt",
+     "md5": "f81571c40bb6009d4ed1cfab66e73f6c",
+     "claimed": "f81571c40bb6009d4ed1cfab66e73f6c",
+     "source": "x6's e271 bind",
+     "match": true
+    },
+    "e264_rooms": {
+     "path": "runs\\checkpoints\\e264_rooms.pt",
+     "md5": "2d524655575cce00a3bc1c8770f4b211",
+     "claimed": null,
+     "source": "no committed md5 anywhere in the record (searched) \u2014 FRESH BIND",
+     "match": true
+    },
+    "e272_rooms": {
+     "path": "runs\\checkpoints\\e272_rooms.pt",
+     "md5": "066944855b3295e8796c6ca28b2e498c",
+     "claimed": null,
+     "source": "no committed md5 anywhere in the record (searched) \u2014 FRESH BIND",
+     "match": true
+    },
+    "e261_metrics": {
+     "path": "runs\\e261\\metrics.json",
+     "md5": "f460475d8e6b76f0719e91c1e9c6041b",
+     "claimed": "f460475d8e6b76f0719e91c1e9c6041b",
+     "source": "e272 G_PARENTS bind",
+     "match": true
+    },
+    "e264_metrics": {
+     "path": "runs\\e264\\metrics.json",
+     "md5": "a42ff4786784b04cb9819a69b545e343",
+     "claimed": "a42ff4786784b04cb9819a69b545e343",
+     "source": "e272 G_PARENTS bind",
+     "match": true
+    },
+    "e272_metrics": {
+     "path": "runs\\e272\\metrics.json",
+     "md5": "eb9f624708bcb6576c4115161dfd7042",
+     "claimed": null,
+     "source": "this cell's parent (no prior bind \u2014 fresh-bound)",
+     "match": true
+    },
+    "x6_metrics": {
+     "path": "runs\\x6\\metrics.json",
+     "md5": "bebc3d0bbf7062a65829ed2d4203e689",
+     "claimed": null,
+     "source": "this cell's fill-law source (fresh-bound)",
+     "match": true
+    }
+   },
+   "note": "fresh binds recorded for future cells (the e267 base-bind precedent); rooms additionally BIT-verified vs fresh seed reconstruction in G_ROOMS; inst_resumes content-bound in G_DISPL (step 400 + committed displacement-load match)",
+   "pass": true
+  },
+  "G_FLATBASIS": {
+   "params_count": 65,
+   "buffers_count": 0,
+   "key_order_matches_parameters": true,
+   "n_params": 2739072,
+   "pass": true
+  },
+  "G_ROOMS": {
+   "K1K": {
+    "file": "runs\\checkpoints\\e261_rooms.pt",
+    "k": 1000,
+    "seeds": [
+     26111,
+     26112
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K2K": {
+    "file": "runs\\checkpoints\\e272_rooms.pt",
+    "k": 2000,
+    "seeds": [
+     27211,
+     27212
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K5K": {
+    "file": "runs\\checkpoints\\e272_rooms.pt",
+    "k": 5000,
+    "seeds": [
+     27213,
+     27214
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K10K": {
+    "file": "runs\\checkpoints\\e264_rooms.pt",
+    "k": 10000,
+    "seeds": [
+     26113,
+     26114
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K237K": {
+    "file": "runs\\checkpoints\\e261_rooms.pt",
+    "k": 237123,
+    "seeds": [
+     26011,
+     26012
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K1KM": {
+    "file": "runs\\checkpoints\\e272_rooms.pt",
+    "k": 1000,
+    "seeds": [
+     26111,
+     26112
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K10KR": {
+    "file": "runs\\checkpoints\\e272_rooms.pt",
+    "k": 10000,
+    "seeds": [
+     27215,
+     27216
+    ],
+    "bit_verified_vs_fresh": true
+   },
+   "K1KM_bit_equals_committed_K1K": true
+  },
+  "G_DISPL": {
+   "K1K": {
+    "committed_in_own_room_norm_ratio": 0.8990001680413359,
+    "squared": 0.8082013021383502,
+    "this_cell_inside_share": 0.8082013021415997,
+    "abs_diff": 3.2495117707753707e-12,
+    "source": "e261 metrics install displacement_loads",
+    "pass": true
+   },
+   "K2K": {
+    "committed_in_own_room_norm_ratio": 0.9090426956346246,
+    "squared": 0.8263586224866647,
+    "this_cell_inside_share": 0.8263586224802458,
+    "abs_diff": 6.418865439172805e-12,
+    "source": "e272 metrics install displacement_loads",
+    "pass": true
+   },
+   "K5K": {
+    "committed_in_own_room_norm_ratio": 0.9244495344843363,
+    "squared": 0.8546069418083061,
+    "this_cell_inside_share": 0.8546069418119028,
+    "abs_diff": 3.596678510575657e-12,
+    "source": "e272 metrics install displacement_loads",
+    "pass": true
+   },
+   "K237K": {
+    "committed_in_own_room_norm_ratio": 0.9804893255327712,
+    "squared": 0.9613593174837086,
+    "this_cell_inside_share": 0.9613593174841455,
+    "abs_diff": 4.368727601899991e-13,
+    "source": "e261 metrics install displacement_loads",
+    "pass": true
+   },
+   "K1KM": {
+    "committed_in_own_room_norm_ratio": 0.7955550758680459,
+    "squared": 0.6329078787394122,
+    "this_cell_inside_share": 0.6329078787368193,
+    "abs_diff": 2.592925874012053e-12,
+    "source": "e272 metrics install displacement_loads",
+    "pass": true
+   },
+   "K10KR": {
+    "committed_in_own_room_norm_ratio": 0.9445320495247138,
+    "squared": 0.8921407925793564,
+    "this_cell_inside_share": 0.8921407925826946,
+    "abs_diff": 3.3382185904429207e-12,
+    "source": "e272 metrics install displacement_loads",
+    "pass": true
+   },
+   "tol": 0.002,
+   "form": "committed in_own_room (norm ratio)^2 == this cell's fp64 inside_share",
+   "pass": true
+  },
+  "G_X6REPRO": {
+   "K10K": {
+    "x6_inside_share": 0.8914359886030179,
+    "this_inside_share": 0.8914359886030179,
+    "inside_abs_diff": 0.0,
+    "x6_m": {
+     "50": 1243,
+     "90": 4428,
+     "99": 7342
+    },
+    "this_m": {
+     "50": 1243,
+     "90": 4428,
+     "99": 7342
+    },
+    "m_exact_match": true,
+    "x6_top50": 0.04958612457788772,
+    "this_top50": 0.04958612457788772,
+    "pass": true
+   },
+   "K237K": {
+    "x6_inside_share": 0.9613593174841455,
+    "this_inside_share": 0.9613593174841455,
+    "inside_abs_diff": 0.0,
+    "x6_m": {
+     "50": 29330,
+     "90": 105413,
+     "99": 174283
+    },
+    "this_m": {
+     "50": 29330,
+     "90": 105413,
+     "99": 174283
+    },
+    "m_exact_match": true,
+    "x6_top50": 0.003152541008408758,
+    "this_top50": 0.003152541008408758,
+    "pass": true
+   }
+  }
+ },
+ "phase_note": "P7 COMPLETE (report + figure)",
+ "date_updated": "2026-10-05T22:24:17+00:00",
+ "fill_curve": {
+  "K1K": {
+   "k": 1000,
+   "post_g0": 0.00043458465370349586,
+   "inside_share": 0.8082013021415997,
+   "top50_share": 0.29334792687314015,
+   "m50": 119,
+   "m90": 431,
+   "m99": 735,
+   "fill": 0.735
+  },
+  "K2K": {
+   "k": 2000,
+   "post_g0": 0.026616254821419716,
+   "inside_share": 0.8263586224802458,
+   "top50_share": 0.17223770901259008,
+   "m50": 247,
+   "m90": 893,
+   "m99": 1466,
+   "fill": 0.733
+  },
+  "K5K": {
+   "k": 5000,
+   "post_g0": 0.12709596753120422,
+   "inside_share": 0.8546069418119028,
+   "top50_share": 0.08914710562611078,
+   "m50": 615,
+   "m90": 2231,
+   "m99": 3676,
+   "fill": 0.7352
+  },
+  "K10K": {
+   "k": 10000,
+   "post_g0": 0.26464763283729553,
+   "inside_share": 0.8914359886030179,
+   "top50_share": 0.04958612457788772,
+   "m50": 1243,
+   "m90": 4428,
+   "m99": 7342,
+   "fill": 0.7342
+  },
+  "K237K": {
+   "k": 237123,
+   "post_g0": 0.38436421751976013,
+   "inside_share": 0.9613593174841455,
+   "top50_share": 0.003152541008408758,
+   "m50": 29330,
+   "m90": 105413,
+   "m99": 174283,
+   "fill": 0.7349898575844603
+  }
+ },
+ "coreports_never_bars": {
+  "K1KM": {
+   "k": 1000,
+   "post_g0": 0.0012453667586669326,
+   "inside_share": 0.6329078787368193,
+   "top50_share": 0.2827070421122749,
+   "m50": 120,
+   "m90": 441,
+   "m99": 727,
+   "fill": 0.727
+  },
+  "K10KR": {
+   "k": 10000,
+   "post_g0": 0.2097209095954895,
+   "inside_share": 0.8921407925826946,
+   "top50_share": 0.04806919395042433,
+   "m50": 1256,
+   "m90": 4454,
+   "m99": 7330,
+   "fill": 0.733
+  }
+ },
+ "verdict": {
+  "word": "FILLS-ANYWAY",
+  "fill_1k": 0.735,
+  "top50_1k": 0.29334792687314015,
+  "top50_10k": 0.04958612457788772,
+  "top50_ratio_1k_over_10k": 5.915927678767516,
+  "clause_trace": {
+   "fills_anyway_window_0.55_0.90": true,
+   "dead_diff_fill_below_0.40": false,
+   "dead_diff_top50_ge_2x_10k": true,
+   "upper_1.00_eps_clause_vacuous": true,
+   "trend_break_2k": false
+  },
+  "bars_verbatim": {
+   "FILLS-ANYWAY": "the dead 1k rung's fill fraction is within [0.55, 0.90] \u2014 occupancy style is width-invariant across the expression edge; capacity = a DoF threshold",
+   "DEAD-DIFFERENTLY": "the 1k fill is outside [0.40, 1.00-epsilon] range in the specific direction of CONCENTRATION (top-50 in-room share >= 2x the 10k rung's) \u2014 the dead write is a failed, over-concentrated attempt; expression failure has a geometric signature",
+   "MIXED": "the fill is in-between or the 2k transitional rung breaks the trend \u2014 the fill curve verbatim, no inflation"
+  },
+  "operationalizations": {
+   "object": "per rung dW = flat(inst_resume s400) - flat(e001.pt) (x6's convention verbatim; plain-IO fp64 CPU loads)",
+   "ladder": "1k e261_K1K (dead, own room e261_rooms K1K) / 2k e272_K2K (e272_rooms) / 5k e272_K5K (e272_rooms) / 10k e261_K10K (e264_rooms K10K \u2014 x6's object) / 237k e261_K237K (e261_rooms K237K \u2014 x6's anchor)",
+   "inside_share": "||P dW||^2 / ||dW||^2, P the SRCT projector in fp64 CPU",
+   "in_room_spectrum": "c = dct(D.dW) over the room's k frequencies; |c|^2 sorted desc; m(th) = searchsorted(cum, th*tot)+1, th in {50,90,99}%",
+   "fill_fraction": "m99/k (x6's convention: 10k 0.7342, 237k 0.7350)",
+   "verdict": "FILLS-ANYWAY iff 0.55 <= fill_1k <= 0.90; DEAD-DIFFERENTLY iff fill_1k < 0.40 AND top50_1k >= 2*top50_10k (the upper 1.00-eps clause vacuous, m99 <= k by construction); MIXED otherwise; 2k trend-break := fill_2k outside [min,max]-0.05/+0.05 of the other four rungs' fills",
+   "coreports_never_bars": "K1KM (e272's kept-matched dead 1k arm, lr x3.7306) + K10KR (e272's fresh-room 10k replicate)",
+   "x6repro_gate": "the 10k/237k reads must reproduce x6's committed inside_share + in-room m's before any new rung is believed",
+   "displ_content_bind": "e261/e272 committed in_own_room (a NORM ratio) squared must equal this cell's inside_share within 2e-3 per arm",
+   "null_note": "an unprojected gaussian carries in-room share ~k/N (x6's null: 0.0036 at 10k) \u2014 the fill law's contrast, cited not re-run"
+  }
+ },
+ "outputs": {
+  "figure": "runs/x10/x10_fill_curve.png",
+  "metrics": "runs/x10/metrics.json",
+  "report": "runs/x10/REPORT.md"
+ }
+}
