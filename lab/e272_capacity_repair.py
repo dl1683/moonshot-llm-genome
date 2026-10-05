@@ -1714,10 +1714,10 @@ def make_instrument_plot(rd, arms_rec, cert, thermal_log, dose_control):
         led = arms_rec[a]["install"]["ledger"]
         xs_l = sorted(int(s) for s in led)
         get = lambda s: led[s] if s in led else led[str(s)]  # noqa: E731
+        med_a = arms_rec[a]["install"]["ledger_kept_frac_median"]
         ax.plot(xs_l, [get(s)["kept_frac"] for s in xs_l], "o-", ms=3.0,
                 lw=1.2, alpha=0.9, color=cols[a],
-                label=f"{a} (med {arms_rec[a]['install']"
-                      f"['ledger_kept_frac_median']:.4f})")
+                label=f"{a} (med {med_a:.4f})")
     for k, _, _ in LADDER:
         ax.axhline(math.sqrt(k / N), ls=":", lw=0.8, color="gray",
                    alpha=0.5)
