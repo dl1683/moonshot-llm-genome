@@ -7,6 +7,46 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W043 — is the fact's death a runaway or a drain? x9's β=1.31 deserves its discriminator (2026-10-05 ~22:32Z, paper before any cell)
+
+**The datum.** Every battery erodes as a clean exponential at its own
+rate (β ≈ 1) — except the FACT battery, whose stretched-exponential β
+= 1.31 (w1 1.27, w2 1.35): its decay ACCELERATES as it proceeds. T254
+named this "differently killed — a runaway, not a drain." Two stories
+fit the same curve:
+
+- H-DRAIN-RUNAWAY (positive feedback): the fact's own weakening
+  unmasks it further — as the margin gap thins, the wash's per-step
+  damage GROWS (the predators find the wounded; the undertow's pull
+  strengthens along the dying probe's support as that support rotates
+  into alignment with the corpus's preferred directions). Predicts:
+  per-step damage (the derivative of the gap) INCREASES as strength
+  falls — damage anti-correlates with remaining strength.
+- H-SHAPE-MISMATCH (an artifact of superposition): the fact battery's
+  curve is a SUM of two exponentials (two fact-fragments at different
+  rates — e.g. the anchored half and the spread half, per x6's
+  dense-in-a-room picture) and a bi-exponential fit with no
+  acceleration would win at the same data. Predicts: the two-rate
+  mixture fits as well or better than β>1, and the fast component's
+  share matches a structural split we can name (room-inside vs
+  room-outside mass; or the anchored vs unanchored battery rows).
+
+**The discriminator is desk, on committed records:** (i) re-fit the
+fact battery's curves with the bi-exponential family (x9's grid,
+one more family — minutes); (ii) if β>1 survives the mixture, read
+the per-step damage vs remaining strength from the committed wash
+milestones (e228's journal has margin_raw per state; the derivative
+test is arithmetic). If H-DRAIN-RUNAWAY survives both, the laws
+draft's FRICTION movement gains its sharpest sentence yet: THE WASH
+DOES NOT PUSH THE FACT OUT — IT FOLLOWS THE FACT DOWN. The kill is
+predatory, not gravitational. And the 0.60-0.87 gap-destruction
+factors (x7) already whisper the same thing: the unwalled side's gap
+collapses fastest exactly where it was thinnest.
+
+**Ripening rule:** this rides the desk lane AFTER x10 (the fill-law
+extension) — no new cell until e273's mechanism verdict reshapes what
+the runaway would even mean.
+
 ## T254 — X9: the thermal metaphor cashes out — and every battery erodes through the gap channel (2026-10-05 ~22:22Z)
 
 **The T-ladder is a rate ladder.** The batteries' one-T ordering — the
