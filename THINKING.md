@@ -7,6 +7,40 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T262 — E280: a real floor, optimizer-shifted — the division of labor between space and optimizer, settled at factor-2 resolution (2026-10-06, datetime.now ~05:25Z)
+
+**The ladder's clean division.** Below the floor: both optimizers dead (1k:
+0.000127 / 0.000435). At the floor: AdamW (1k,2k], SGD-M (2k,5k] — the
+optimizers differ by exactly one bracket. Above the floor: agreement within
+~20% (SGD-M's 5k EXCEEDS AdamW's committed rung at 1/100 the dose). THE
+SPACE SETS THE FLOOR'S EXISTENCE AND THE CLIMB'S SHAPE; THE OPTIMIZER SETS
+THE FLOOR'S HEIGHT. Adam's one purchase is a 2x lower door. The W046
+coordinate read honestly: an intercept shift, the exponent broadly intact
+(and the SGD exponent a 2-rung fit — weak, disclosed).
+
+**The motel's survival generalizes the morning's oddest finding.** The
+SGD-M missile walked 0.455 in-room (median) — the funnel is not Adam's
+normalizer. The disclosed mechanism — the shared MOMENTUM buffer carrying
+install-stream in-room content into corpus steps — is testable and named:
+the separate-buffer missile. If a buffer-separated SGD missile preserves
+orthogonality (< 0.20 in-room), the re-aimer is momentum-sharing; if it
+still funnels, the landscape itself bends steps (the stranger world). THE
+ROACH MOTEL'S OWNERSHIP IS THE LAST OPEN MECHANISM QUESTION.
+
+**The free datum (the normalizer's second face):** SGD's writes sit
+100.0000% in-own-room vs AdamW's 94.45% — the normalizer rotates ~5.5% of
+the write OUT of the room. The same machinery that re-aims incoming
+gradients IN also leaks the write's own mass OUT. Adam: a wider door, a
+leakier room. The trade writes itself into the biography's storage line:
+the 73.5% fill is SGD-pure; under AdamW the room holds ~94% of the write.
+
+**The biography, final form for now:** ~7 dims to read; a floor of room to
+form — 1-2k under Adam, 2-5k under momentum, never zero; 73.5% dense fill
+(SGD-measured; ~94% room-residency under AdamW); nothing special to
+re-teach (the cons, from anything); and no age protection once written
+(transport). Two instruments' worth of numbers, one small organism,
+twelve days.
+
 ## T261 — E283: the kill splits by age — collision for the forming, transport for the established (2026-10-06, datetime.now ~03:05Z)
 
 **T244's AFTER arm, four days late, worth the wait.** The established
