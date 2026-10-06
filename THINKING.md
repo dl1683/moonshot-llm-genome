@@ -7,6 +7,51 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T271 — E289+C1: the economics closes where re-teaching cannot go (2026-10-06, datetime.now ~16:50Z)
+
+**The hinge, measured.** A corpus that actively denies the fact (the
+masked positions carrying the original host openings — decode-verified
+60/60; the pre-contexts bit-identical to the battery's rows) kills the
+passive read below the dead bar in 400 steps. The same stream, the
+same draws, plus the error-gated controller: the fact holds at 3.62x
+its loaded baseline — ABOVE the founding win taken under neutral
+traffic. The tug costs nothing measurable at this dose (the maintenance
+lr +6% vs neutral; the budget inside its allowance; the denial corpus
+itself learning happily, CE 0.66->0.14). THE CONTROLLER'S ECONOMIC
+CASE IS NOT A CORNER — it is strongest exactly where re-teaching is
+impossible: under contradiction, the cons stream teaches the OPPOSITE,
+and preservation is the only channel.
+
+**The replicate's quiet marvel.** C1 landed at 1.005x the founding
+number — a two-draw error bar of half a percent on a 21-40x effect.
+The organism's draw-to-draw variance is real elsewhere (the flat
+twins differ 1.9x across sessions) — the controller's closed loop
+SUPPRESSES the lottery: the error-gating reads the true deficit each
+step, so the outcome converges regardless of the draw. The founding
+success is triple-confirmed (replicated, generalized, defended), and
+its stability is itself a property of the design.
+
+**The program's closing shape (the laws-draft skeleton, v2):**
+1. EVERY DEATH IS A STEP-DEATH (storage perfect; nothing fades).
+2. THE TWO KILL CHANNELS: momentum-shared re-aiming (collision, the
+   forming regime — engineerable: separate the buffers) and context
+   transport (the established regime — a coupling constant of a few
+   parts in a thousand; passive buys time on a ~1,040-step geometric
+   clock, never permanence).
+3. THE FLOOR: formation needs a threshold room (~1-2k dims under
+   Adam, 2-5k under momentum — the space sets the floor, the
+   optimizer sets its height; the write fills 73.5% of any room).
+4. THE CONTROLLER: the organism's own read error, sampled and dosed,
+   is a sufficient preservation signal — the gentlest traveler, the
+   peace-keeper (family-scaling confirmed), and the winner under
+   contradiction. PRESERVATION REQUIRES NO EXTERNAL SCAFFOLD.
+5. THE ECONOMICS: re-teach when the stream is friendly (free, from
+   anything); preserve when it contradicts, when latency binds, or
+   when the room must be held.
+The open items: the distinct-name scaling (e293, computing), the
+substrate question (C2), the scale direction (the 10M point).
+
+
 ## T270 — E291: the family is one organism — the antibodies are the same antibody (2026-10-06, datetime.now ~14:55Z)
 
 **The scaling answer, honestly scoped.** Five facts held — but the five
