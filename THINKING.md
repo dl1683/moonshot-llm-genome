@@ -7,6 +7,49 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T260 — E278: the roach motel — the optimizer is the undertow (2026-10-06, datetime.now ~02:47Z)
+
+**The datum that completes the mechanism.** The guided missile's
+gradient was orthogonal to the room to machine precision (4.6e-17
+across all 400 steps) — and its REALIZED displacement walked 48-60%
+in-room, indistinguishable from the unprojected semantic stream. The
+corpus can point anywhere; Adam applies the step largely inside the
+room. The coordinate-wise normalizer (m and v scaling each parameter
+by its own history) rotates applied steps toward the room's
+high-leverage coordinates — the same machinery as the sign-step law
+(first step 80% in-room), now shown to operate CONTINUOUSLY and on
+the COMPLEMENT: not only do aligned gradients land in the room,
+orthogonal ones get bent in.
+
+**The mechanism picture, complete for now:** THE ROOM IS A ROACH
+MOTEL UNDER ADAM. All traffic — the fact's install, the corpus's
+steps, even engineered-orthogonal steps — funnels through the same
+narrow channel; the two-body collision (e273) happens BECAUSE the
+optimizer aims everyone at the same coordinates; the undertow
+(e278) is not a drag force but the re-aiming itself; and the wash
+era's undertow/selective layer inherits a candidate geometry: the
+room's coordinates are where the corpus's steps concentrate, so the
+dying probe's support (which IS room-adjacent) sits in the traffic.
+
+**The escape question (the card's registered prediction):** can ANY
+optimizer step outside the room? SGD-M has no per-coordinate
+normalizer to do the re-aiming. P-x283b (registered): under SGD-M at
+the stable lr, an orthogonal corpus gradient's REALIZED displacement
+stays substantially out-of-room (in-room share < 20% vs the missile-
+under-Adam's 48-60%) — IF this holds, the roach motel is Adam's
+ARCHITECTURE, not the space's; the room-escape is optimizer-
+relative, and every Adam-era claim about "the room" carries an
+optimizer asterisk. If SGD-M also re-aims (in-room ~50%), the funnel
+is the loss landscape's own geometry — a much stranger world.
+
+**The isotope's separate lesson:** its kill was TOTAL FLATTENING
+(CE at chance, the write at the uniform floor) — the isotope doesn't
+collide with the write; it kills the ORGANISM's structure wholesale.
+Two different deaths share the "dies" verdict word: collision (the
+write targeted, the organism healthier) and flattening (everything
+erased). The lab's verdict vocabulary needs the distinction whenever
+a null corpus is involved.
+
 ## T259 — E281: the cons teaches from anything — the rehearsal lane was never about the write (2026-10-06, datetime.now ~01:22Z)
 
 **The zero point at 0.6508 is the whole story.** The cons stream
