@@ -12,9 +12,12 @@ interpretation entry, the next heartbeat thinks instead of runs.
 **The number.** The read dies at a few parts in a thousand of
 orthogonal drift — the threshold bracket (0.071%, 0.323%] of the
 write's norm, 20-100x tighter than the single-datum bound. The curve
-is an INVERSE LAW: survival ~ 1/drift across 2.5 orders. And the
-holding rung still descends — passive preservation buys TIME at
-~1/drift-rate, never permanence. THE CONTROLLER IS ALWAYS NECESSARY,
+is CONSISTENT WITH AN INVERSE LAW (survival ~ 1/drift; the reviewer's
+refit slope -1.005, R2 0.974) over 1.9 in-session orders (2.5 with the
+cross-session e285 anchor), with ceiling-flattening at the top rung and
+4 paired draws — a summary, not yet a law. And the holding rung still
+descends — on a CONSTANT GEOMETRIC CLOCK (half-life ~1,040 steps; R69's
+find): passive preservation buys TIME, never permanence. THE CONTROLLER IS ALWAYS NECESSARY,
 EVENTUALLY, FOR ANY MOVING ORGANISM.
 
 **What the tightness means.** The function-space coupling between
@@ -40,8 +43,11 @@ twelve days, one small organism.
 
 **The founding success, stated once plainly.** An established memory,
 under continuous corpus traffic, maintained by its own name signal
-gated by its own read deficit, survives — and overshoots its original
-read 3.5x while the organism's corpus loss keeps IMPROVING. The
+gated by its own read deficit, SURVIVES THE BAR (>=0.5x, budget held,
+stream live) while the organism's corpus loss keeps IMPROVING — and
+overshoots its original read 3.5x [R69: unbarred; possibly
+self-fulfilling; the paraphrase discriminator rides e291; ce_r +3%;
+n=1 — the survival is bar-backed, the multiplier is not]. The
 controller never touched its budget cap (it self-limited at 68% of
 its allowance); the troughs between maintenance steps rose 19x
 monotone (the read is dynamically caught, not pinned); and the whole

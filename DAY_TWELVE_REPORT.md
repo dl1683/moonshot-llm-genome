@@ -83,9 +83,10 @@ aim." The afternoon opened the BUILD lane and closed it the same day:
 passive protection failed on context coupling (e285); active mixed-gradient
 maintenance failed on signal (e286 — and its misbind was caught, disclosed,
 and corrected in-session); the pure name signal proved the mechanism (e287:
-every window a lift); and the ERROR-GATED CONTROLLER HOLDS (e288): the read
-overshoots its original baseline 3.5x under continuous traffic, the budget
-self-limited at 68% of allowance, the stream learning throughout, the
+every window a lift); and the ERROR-GATED CONTROLLER HOLDS (e288): the read survives the bar
+under continuous traffic — and overshoots its original baseline 3.5x
+[unbarred; possibly self-fulfilling; the paraphrase discriminator pending
+on e291; n=1], the budget self-limited at 68% of allowance, the stream learning throughout, the
 troughs rising 19x. THE ORGANISM'S OWN ERROR IS A SUFFICIENT PRESERVATION
 SIGNAL. The lab's first engineered survival — from mechanism laws, in four
 iterations, each honest about its failure. The epitaph's morning clause
