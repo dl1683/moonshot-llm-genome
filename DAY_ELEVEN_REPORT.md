@@ -89,6 +89,33 @@ score, landing as this report is committed); e273/e280/x10 designed and frozen i
 the queue; x9 (the rate-fits mispricing resolver) on the desk lane; the droid
 dialogue at edition 8, still owed the supervisor's side.
 
+## The honest ledger — the night's prediction scorecard (assembled ~01:10Z)
+
+Fourteen registrations; ten scored by night's end; every verdict pre-spoken for:
+
+| prediction | registered | scored | outcome |
+|---|---|---|---|
+| P-271a death <0.5x + flash ~0.02 | W040, pre-e271 | SPLIT | death confirmed; flash-invariance REFUTED (peak 0.073) |
+| P-W41a e272 RANK-WRITES, edge 2k-10k band | W041 | HALF | verdict word right; the edge sharper and LOWER than the band |
+| P-W41b x6 MIXED | W041 | REFUTED | cleanly GENUINELY-SPREAD |
+| P-W41c x7 CONSTRUCTIVE narrow (20-50%) | W041 | HALF | verdict confirmed; 13.8% — stronger than predicted |
+| P-W41d x8 UNDERPOWERED | W041 | CONFIRMED | exactly |
+| P-272a kept-matched 1k still dies | T249 | CONFIRMED | a fortiori |
+| P-x10a the dead rung fills ~73% | agy via T253 | CONFIRMED | 0.735 — agy's second win |
+| P-x11a consolidation RATIO-CLIFF | T256 | REFUTED | no cliff; inverted direction |
+| P-x12a bi-exp loses AND damage-strength anticouples | T256 | SPLIT | clause 1 confirmed decisively; clause 2 refuted |
+| P-273a antiphase vanishes under separate-AdamW iff shared-state coupling | T252/#006 | REFUTED | both clauses — it INVERTED and the write died harder |
+| P-273b SGD-M forms the 10k write | agy via T253 | FORECLOSED | unanswerable at matched scale (SGD-M diverges) |
+| P-C2 the three-move v-fingerprint | T256 | REFUTED | the moves went opposite |
+| P-273c the concurrent gap at-least-as-antiphase | W042 | MOOT | the antiphase died as evidence first |
+| P-281a/b the cons-only floor | W045 | PENDING | e281 computing now |
+
+The pattern that matters: the REFUTED column is the night's most productive —
+three of the five biggest corrections (the edge's location, the antiphase, the
+mechanism) came from predictions the lab registered AGAINST ITS OWN LEANING or
+against its favorite colleague's. The pre-registration discipline did not just
+keep the record honest; it aimed the instruments.
+
 ## The epitaph line, CLOSED at 00:30Z (e273 landed)
 
 Day ten said the memory is a flow; day eleven asked what drives the flow — and
