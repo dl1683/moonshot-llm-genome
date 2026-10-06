@@ -431,3 +431,4 @@ The repair/next cells (R65's bill, priority order):
 | — | Lanczos deep read | GATED (R65) | run ONLY if e275 returns GRADED-AVERAGING (the one branch that re-opens the spectral program); else predicted null |
 | — | e263 follow-ups | PARKED-named | post-install RU-span ablation + FREE/COUNTERFEIT replicate seed (the representation claim's missing check) |
 | — | flash power | PARKED-named | 2 seeds at 40k/100k + s25/s50 milestones (rides any concurrent re-run) |
+| — | x14 THE TRANSPORT INTERVENTION | DONE (T263: MIXED/INCONCLUSIVE — the coupling caveat fired; DIRECTIONAL TRANSPORT: the out-of-room context carries 4,328x of the kill; the write's mass 84.35% intact + write-aligned (cos 0.9931) — OVERWRITE DEAD as a reading; the linear null's undershoot disclosed) |
