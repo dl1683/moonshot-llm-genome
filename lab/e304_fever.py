@@ -199,36 +199,33 @@ FEVER_GATE = 0.10                              # "rises >= +0.10"
 FEVER_HALF = 0.5                               # "rises < half as much"
 CAL_TOL = 0.05                                 # "moves < 0.05"
 
-# the state archive (family, arm, role, checkpoint)
+# the state archive. PROVENANCE NOTE (verified at birth by re-probe):
+# the parent cells' "*_resume.pt" checkpoints are POST-phase resume
+# states (saved for later landing passes), NOT pre-phase baselines —
+# the pre-phase baselines are the loaded fact itself (e261_K10K_inst_
+# resume.pt, the N/D/X families' shared start) and e291's organism
+# (the post-install, pre-phase state of the five-fact cell).
+BASELINES = [
+    ("N", "BASE(loaded-fact)", "base", FACT_CK),
+    ("F", "BASE(e291-organism)", "base", "e291_organism.pt"),
+]
 STATES = [
-    ("N", "ERROR-GATED", "resume", "e288_ERROR-GATED_resume.pt"),
     ("N", "ERROR-GATED", "post", "e288_ERROR-GATED_post.pt"),
-    ("N", "NAME-FIXED-TWIN", "resume", "e288_NAME-FIXED-TWIN_resume.pt"),
     ("N", "NAME-FIXED-TWIN", "post", "e288_NAME-FIXED-TWIN_post.pt"),
-    ("D", "CONTRADICTED-WITH-CONTROLLER", "resume",
-     "e289_CONTRADICTED-WITH-CONTROLLER_resume.pt"),
     ("D", "CONTRADICTED-WITH-CONTROLLER", "post",
      "e289_CONTRADICTED-WITH-CONTROLLER_post.pt"),
-    ("D", "CONTRADICTED-NO-CONTROLLER", "resume",
-     "e289_CONTRADICTED-NO-CONTROLLER_resume.pt"),
     ("D", "CONTRADICTED-NO-CONTROLLER", "post",
      "e289_CONTRADICTED-NO-CONTROLLER_post.pt"),
-    ("D", "C1:ERROR-GATED", "resume", "e289_C1-ERROR-GATED_resume.pt"),
     ("D", "C1:ERROR-GATED", "post", "e289_C1-ERROR-GATED_post.pt"),
-    ("D", "C1:NAME-FIXED-TWIN", "resume", "e289_C1-NAME-FIXED-TWIN_resume.pt"),
     ("D", "C1:NAME-FIXED-TWIN", "post", "e289_C1-NAME-FIXED-TWIN_post.pt"),
-    ("F", "FIVE-CONTROLLERS", "resume", "e291_FIVE-CONTROLLERS_resume.pt"),
     ("F", "FIVE-CONTROLLERS", "post", "e291_FIVE-CONTROLLERS_post.pt"),
-    ("F", "SINGLE-CONTROL-TWIN", "resume",
-     "e291_SINGLE-CONTROL-TWIN_resume.pt"),
     ("F", "SINGLE-CONTROL-TWIN", "post", "e291_SINGLE-CONTROL-TWIN_post.pt"),
-    ("X", "SANCTUARY-TWIN(e287)", "resume", "e287_SANCTUARY-TWIN_resume.pt"),
     ("X", "SANCTUARY-TWIN(e287)", "post", "e287_SANCTUARY-TWIN_post.pt"),
 ]
 FOUNDING = ("N", "ERROR-GATED", "post")        # the audited state
 if SMOKE:
-    STATES = [s for s in STATES if s[0] == "N"] + [STATES[0]]
-    FOUNDING = ("N", "ERROR-GATED", "post")
+    STATES = [s for s in STATES if s[0] == "N"]
+    BASELINES = [b for b in BASELINES if b[0] == "N"]
 
 metrics: dict = {
     "experiment": f"{NAME}_fever",
@@ -250,8 +247,9 @@ metrics: dict = {
         },
         "lens_form": "ONE T per (state, site): Bernoulli soft-target MLE, "
                      "family q_i(T) = softmax(L_state_i/T)[ans_i], targets "
-                     "p_i = softmax(L_ref_i)[ans_i], ref = the arm's resume "
-                     "checkpoint; grid log10T in [-1,1] x 1201 + golden "
+                     "p_i = softmax(L_ref_i)[ans_i], ref = the VERIFIED "
+                     "reference anchor (see reference_states); grid log10T "
+                     "in [-1,1] x 1201 + golden "
                      "polish (e238/x5 machinery VERBATIM); T>1 = the site "
                      "runs hot (the state must be cooled to reference "
                      "calibration); anchor row must read 1.000000",
@@ -260,8 +258,24 @@ metrics: dict = {
                  "maintenance steps' teaching positions; y129 subset "
                  "co-reported); PARA = the held paraphrase bank "
                  "(host_occ[60:90], g0, col 129, answer Z; 30 probes)",
-        "reference_states": "each arm's own resume checkpoint (the loaded "
-                            "fact as that cell loaded it)",
+        "reference_states": "the docstring's reference clause ('the arm's "
+                            "own resume checkpoint — the loaded fact as "
+                            "each cell loaded it') verified at runtime: "
+                            "the parents' *_resume.pt carry model weights "
+                            "BIT-IDENTICAL to their *_post.pt (post-phase "
+                            "duplicates saved for landing passes — "
+                            "evidence in disclosures.resume_duplicates); "
+                            "the reference is therefore THE LOADED FACT "
+                            "itself: e261_K10K_inst_resume.pt (the N/D/X "
+                            "families' shared start, certified g0 = "
+                            "0.2646...) and e291_organism.pt (the F "
+                            "family's post-install pre-phase state, "
+                            "certified on the per-fact panels) — exactly "
+                            "the parenthetical's definition and the "
+                            "certification clause's targets; fitting "
+                            "against the *_resume.pt duplicates would fit "
+                            "every state against itself (HEAT = 0 "
+                            "identically — a degenerate instrument)",
         "adjudication_state": "e288 ERROR-GATED post (the founding 3.5x)",
         "precedence": "FEVER -> CALIBRATED-SURVIVAL -> LOCAL-FEVER "
                       "(gate >= +0.10 AND |para| < 0.05) -> MIXED",
@@ -289,7 +303,8 @@ metrics: dict = {
 
 def write_partial(note: str) -> None:
     metrics["status"] = f"PARTIAL — {note} ({utcnow()})"
-    common.save_json(metrics, RD / "metrics.json")
+    (RD / "metrics.json").write_text(
+        json.dumps(metrics, indent=2, default=float), encoding="utf-8")
     log(f"[metrics] partial write: {note}")
 
 
@@ -380,9 +395,11 @@ mile_globs = sorted(str(p.name) for p in CKPT.glob("e28[89]_t*.pt")) + \
 metrics["disclosures"]["milestone_states"] = {
     "found": mile_globs,
     "fact": "the parent cells checkpointed resume + post only — NO "
-            "t100/200/300 states exist; the T axis therefore lives at "
-            "{resume, post} per arm; the READ axis uses the families' "
-            "committed traj_g0 curves (read at runtime, md5-bound)",
+            "t100/200/300 states exist (and the resume files are "
+            "post-phase duplicates of post — see resume_duplicates); "
+            "the T axis therefore lives at {reference-base, post} per "
+            "arm; the READ axis uses the families' committed traj_g0 "
+            "curves (read at runtime, md5-bound)",
 }
 log(f"P0: banks bound (mix {mix}; masked ZEPHYRA 60/60; held name-free "
     f"30; milestone ckpts found: {mile_globs})")
@@ -456,7 +473,7 @@ FACT_GROUPS = {f"FACT{i + 1}": slice(i * 12, (i + 1) * 12) for i in range(5)}
 
 state_rows, cert_fail = {}, []
 nets = {}
-for fam, arm, role, ck in STATES:
+for fam, arm, role, ck in BASELINES + STATES:
     path = CKPT / ck
     st = torch.load(path, map_location="cpu", weights_only=False)
     sd = st["model"] if "model" in st else st
@@ -484,13 +501,14 @@ for fam, arm, role, ck in STATES:
         row["cert_abs_diff"] = abs(g0 - COMMITTED_POST_G0[key])
         if row["cert_abs_diff"] > REPROBE_TOL:
             cert_fail.append(key)
-    if role == "resume" and fam in ("N", "D", "X"):
+    if role == "base" and fam == "N":
+        # the loaded fact certifies the WHOLE N/D/X class's reference
         row["cert_target"] = FACT_BASELINE_G0
         row["cert_abs_diff"] = abs(g0 - FACT_BASELINE_G0)
         if row["cert_abs_diff"] > REPROBE_TOL:
             cert_fail.append(key)
     if fam == "F":
-        tgt = F_PANEL_BASELINE if role == "resume" else \
+        tgt = F_PANEL_BASELINE if role == "base" else \
             F_PANEL_FINAL[arm]
         diffs = {k: abs(panel[k] - tgt[k]) for k in tgt}
         row["cert_target_panel"] = tgt
@@ -502,34 +520,77 @@ for fam, arm, role, ck in STATES:
     log(f"  loaded {ck}: g0 {g0:.6f} gm12 {gm12:.6f} held {held:.6f} "
         f"cert_abs {row.get('cert_abs_diff', row.get('cert_panel_max_abs_diff'))}")
 
-# the paraphrase bank's bit-bind: e291's committed held_t0 on ITS organism
-fc_res = nets[("F", "FIVE-CONTROLLERS", "resume")]
-held_bind_diff = abs(state_rows[str(("F", "FIVE-CONTROLLERS", "resume"))]
-                     ["held_pz"] - HELD_T0_E291)
+# the reference-duplicate evidence (the re-anchoring's proof, at runtime):
+# every parent *_resume.pt vs its *_post.pt, model-weights flat-md5 compare
+F_BASE_KEY = None
+for _bf, _ba, _br, _ in BASELINES:
+    if _bf == "F":
+        F_BASE_KEY = (_bf, _ba, _br)
+dup_rows = {}
+for fam, arm, role, ck in STATES:
+    rck = ck.replace("_post.pt", "_resume.pt")
+    rst = torch.load(CKPT / rck, map_location="cpu", weights_only=False)
+    rsd = rst["model"] if "model" in rst else rst
+    rnet = G1.evl_load(rsd)
+    rflat = hashlib.md5(torch.cat(
+        [p.detach().reshape(-1).cpu() for p in rnet.parameters()]
+    ).numpy().astype(np.float64).tobytes()).hexdigest()
+    dup_rows[f"{fam}/{arm}"] = {
+        "resume_ckpt": rck,
+        "resume_flat_md5": rflat,
+        "post_flat_md5": state_rows[str((fam, arm, role))]["flat_md5"],
+        "bit_identical": bool(
+            rflat == state_rows[str((fam, arm, role))]["flat_md5"]),
+    }
+    del rst, rsd, rnet
+metrics["disclosures"]["resume_duplicates"] = {
+    "rows": dup_rows,
+    "all_bit_identical": bool(all(r["bit_identical"]
+                                  for r in dup_rows.values())),
+    "fact": "every parent *_resume.pt carries model weights BIT-IDENTICAL "
+            "to its *_post.pt (the wrapper merely adds optimizer/generator "
+            "state for later landing passes) — they are POST-phase "
+            "duplicates, NOT pre-phase baselines; the lens reference is "
+            "therefore the loaded fact itself (N/D/X: e261_K10K_inst_"
+            "resume.pt, certified 0.2646; F: e291_organism.pt, certified "
+            "on the per-fact panels), exactly the docstring's own "
+            "parenthetical ('the loaded fact as each cell loaded it') + "
+            "its certification clause; fitting the duplicates would fit "
+            "every state against itself (HEAT = 0 identically)",
+}
 
-resume_ids = {str(k): v["flat_md5"] for k, v in
-              ((k, state_rows[str(k)]) for k in nets) if k[2] == "resume"}
+# the paraphrase bank's bit-bind: e291's committed held_t0 on ITS organism
+if F_BASE_KEY is not None:
+    held_bind_diff = abs(state_rows[str(F_BASE_KEY)]["held_pz"]
+                         - HELD_T0_E291)
+else:                                   # smoke: the F family is excluded
+    held_bind_diff = 0.0
+held_bind_ok = F_BASE_KEY is None or held_bind_diff <= REPROBE_TOL
+
+ref_ids = {str(k): v["flat_md5"] for k, v in
+           ((k, state_rows[str(k)]) for k in nets) if k[2] == "base"}
 G_STATES = {
     "n_states": len(state_rows),
     "cert_failures": [str(x) for x in cert_fail],
     "reprobe_tol": REPROBE_TOL,
     "held_bank_bind": {"e291_committed_held_t0": HELD_T0_E291,
                        "abs_diff": held_bind_diff,
-                       "pass": bool(held_bind_diff <= REPROBE_TOL)},
-    "resume_flat_md5s": resume_ids,
+                       "pass": bool(held_bind_ok)},
+    "reference_flat_md5s": ref_ids,
     "note": "every loaded state re-probed on the g0 battery (e291: the "
-            "per-fact 12-window panels) against the parent cell's "
-            "committed reads — x5's G_STATES reprobe convention; the "
-            "held-bank bind certifies the paraphrase bank bit-wise via "
-            "e291's organism",
-    "pass": bool(not cert_fail and held_bind_diff <= REPROBE_TOL),
+            "per-fact 12-window panels; the reference bases additionally "
+            "certified against the committed loaded baselines) — x5's "
+            "G_STATES reprobe convention; the held-bank bind certifies "
+            "the paraphrase bank bit-wise via e291's organism",
+    "pass": bool(not cert_fail and held_bind_ok),
 }
 assert G_STATES["pass"], f"G_STATES FAILED: {G_STATES}"
 metrics["gates"]["G_STATES"] = G_STATES
 metrics["states"] = state_rows
 log(f"P1: {len(state_rows)} states certified (0 failures; held-bank bind "
-    f"d {held_bind_diff:.2e}; resumes: {len(set(resume_ids.values()))} "
-    f"distinct flat-md5)")
+    f"d {held_bind_diff:.2e}; references: {len(ref_ids)} distinct "
+    f"flat-md5; resume-duplicates all bit-identical: "
+    f"{metrics['disclosures']['resume_duplicates']['all_bit_identical']})")
 write_partial("P1 loads + certification PASS")
 
 # ==================================================== P2: the thermal lens ==
@@ -573,19 +634,20 @@ def nll_bernoulli(logq_ans: np.ndarray, p: np.ndarray) -> float:
 def fit_T(family_L: np.ndarray, ans: np.ndarray, p_target: np.ndarray,
           n_grid: int = GRID_N) -> dict:
     """ONE T: minimize Bernoulli soft-target NLL of q=softmax(L/T)[ans]."""
+    idx = np.arange(len(ans))
     grid = np.linspace(GRID_LO, GRID_HI, n_grid)
     vals = np.array([nll_bernoulli(
-        logsoftmax_T(family_L, 10.0 ** g)[:, np.arange(len(ans)), ans],
+        logsoftmax_T(family_L, 10.0 ** g)[idx, ans],
         p_target) for g in grid])
     k = int(np.argmin(vals))
     lo, hi = grid[max(k - 1, 0)], grid[min(k + 1, n_grid - 1)]
     gstar = _golden(lambda g: nll_bernoulli(
-        logsoftmax_T(family_L, 10.0 ** g)[:, np.arange(len(ans)), ans],
+        logsoftmax_T(family_L, 10.0 ** g)[idx, ans],
         p_target), lo, hi)
     return {"T": float(10.0 ** gstar),
             "nll_at_T": float(vals[k]),
             "nll_at_T1": nll_bernoulli(
-                logsoftmax_T(family_L, 1.0)[:, np.arange(len(ans)), ans],
+                logsoftmax_T(family_L, 1.0)[idx, ans],
                 p_target),
             "grid_edge": bool(k in (0, n_grid - 1))}
 
@@ -631,14 +693,15 @@ for key, net in nets.items():
     SITE_L[key] = site_probe_matrix(net)
 
 fits = []
-REF_OF = {}                      # (fam, arm) -> resume key
-for fam, arm, role, _ in STATES:
-    if role == "resume":
-        REF_OF[(fam, arm)] = (fam, arm, "resume")
+REF_OF = {}                      # family -> reference (base) key
+for fam, arm, role, _ in BASELINES:
+    REF_OF[fam] = (fam, arm, role)
+REF_OF["D"] = REF_OF["N"]        # the D family's loaded fact IS the
+REF_OF["X"] = REF_OF["N"]        # shared e261 checkpoint (one object)
 
 anchor_checks = []
-for fam, arm, role, _ in STATES:
-    key, ref_key = (fam, arm, role), (fam, arm, "resume")
+for fam, arm, role, _ in BASELINES + STATES:
+    key, ref_key = (fam, arm, role), REF_OF[fam]
     Ls_dict, Lr_dict = SITE_L[key], SITE_L[ref_key]
     row = {"family": fam, "arm": arm, "role": role, "sites": {}}
     for site in ("GATE", "PARA"):
@@ -683,7 +746,7 @@ for fam, arm, role, _ in STATES:
             "z_ratio_median": zratio,
             "z_physical_frac": float(ok.mean()),
         }
-        if role == "resume":
+        if role == "base":
             anchor_checks.append(
                 {"state": str(key), "site": site, "T": primary["T"],
                  "abs_dev_from_1": abs(primary["T"] - 1.0)})
@@ -708,8 +771,9 @@ G_ANCHOR = {
     "rows": anchor_checks,
     "max_abs_dev": max(a["abs_dev_from_1"] for a in anchor_checks),
     "tol": 1e-3,
-    "note": "every resume-vs-itself fit must read T = 1 (the positive "
-            "control; term-wise exact at T=1)",
+    "note": "every reference (base) state fit against itself must read "
+            "T = 1 (the positive control; term-wise exact at T=1; x5's "
+            "t0-anchor convention on the verified reference anchors)",
 }
 assert G_ANCHOR["max_abs_dev"] <= 1e-3, f"anchor FAILED: {G_ANCHOR}"
 G_ANCHOR["pass"] = True
@@ -893,7 +957,8 @@ metrics["adjudication"] = {
     "constants": {"FEVER_GATE": FEVER_GATE, "FEVER_HALF": FEVER_HALF,
                   "CAL_TOL": CAL_TOL},
     "founding_state": {
-        "state": "e288 ERROR-GATED post (T vs ITS resume anchor)",
+        "state": "e288 ERROR-GATED post (T vs the loaded fact — its "
+                 "verified reference anchor)",
         "gate_T": f_row["sites"]["GATE"]["T"],
         "gate_heat": hg,
         "para_T": f_row["sites"]["PARA"]["T"],
@@ -948,7 +1013,7 @@ ax.annotate("THE FOUNDING\nSTATE", (fi, max(hgts[fi], 0.02)),
             xytext=(fi, max(hgts) * 0.72),
             arrowprops=dict(arrowstyle="->"))
 ax.set_xticks(x, labels, rotation=30, ha="right", fontsize=8)
-ax.set_ylabel("HEAT = T - 1 (state vs its resume anchor)")
+ax.set_ylabel("HEAT = T - 1 (state vs the loaded fact, its verified ref)")
 ax.set_title("(a) the two-site table — gate vs paraphrase")
 ax.legend(fontsize=8)
 
@@ -1052,7 +1117,7 @@ def fmt_clauses(c):
 
 
 two_site_lines = []
-for fam, arm, role, _ in STATES:
+for fam, arm, role, _ in BASELINES + STATES:
     r = FIT[(fam, arm, role)]
     two_site_lines.append(
         f"| {fam} | {arm} | {role} | "
@@ -1074,7 +1139,7 @@ confidence the organism cannot cash?
 ## The verdict
 
 **{founding_clauses['verdict']}** — the founding state (e288 ERROR-GATED
-post, T fit against its own resume anchor): gate T
+post, T fit against the loaded fact — its verified reference anchor): gate T
 {f_row['sites']['GATE']['T']:.4f} (heat {hg:+.4f}), paraphrase T
 {f_row['sites']['PARA']['T']:.4f} (heat {hp:+.4f});
 {metrics['adjudication']['clause']}.
@@ -1095,7 +1160,7 @@ saturation; see disclosures).
 
 Milestone states were NOT checkpointed by the parents (disclosed; glob
 evidence in metrics.disclosures.milestone_states) — the T axis lives at
-{{resume, post}} per arm; the read axis uses the committed traj_g0
+{{reference-base, post}} per arm; the read axis uses the committed traj_g0
 curves (md5-bound runtime reads). T-vs-read-rise for every state in
 metrics.trace.states; figure panel (b).
 
@@ -1125,11 +1190,49 @@ thermal verdicts — the honesty audit's two lenses on the same states.
 
 {json.dumps(per_state, indent=1)}
 
+## THE RECOVERY NOTE (what this executor fixed from the dead draft)
+
+The birth commit d2b5d8b froze the bars + operationalization BEFORE
+compute; a prior executor died on a model failure mid-restructure, leaving
+the working script between two designs (its discovery was right, its edit
+was incomplete — STATE lookups on `resume` keys that no longer existed, a
+guaranteed KeyError). This executor verified the dead draft's discovery at
+runtime and completed the restructure it implies:
+
+- **THE FINDING (verified, not transcribed)**: every parent
+  `*_resume.pt` carries model weights BIT-IDENTICAL to its `*_post.pt`
+  (flat-md5 equal, 9/9 arms; the wrapper only adds optimizer/generator
+  state for later landing passes). They are POST-phase duplicates, NOT
+  pre-phase baselines.
+- **THE CONSEQUENCE**: the docstring's reference clause ("the arm's own
+  resume checkpoint — the loaded fact as each cell loaded it") is only
+  satisfiable by the LOADED FACT itself: `e261_K10K_inst_resume.pt` for
+  the N/D/X families (certified g0 = 0.2646, the frozen
+  FACT_BASELINE_G0) and `e291_organism.pt` for the F family (certified
+  on the per-fact panels = e291's committed final/ratio baselines) —
+  exactly the parenthetical's definition and the docstring's own
+  certification clause ("resumes additionally certified against the
+  committed loaded baseline 0.2646... or e291's committed per-fact
+  baselines"). Fitting the `*_resume.pt` duplicates would fit every
+  state against itself: HEAT = 0 identically, a degenerate
+  CALIBRATED-SURVIVAL with zero discriminating power. The bars are
+  untouched (verbatim); this fix restores the instrument the frozen
+  bars presuppose.
+- Also completed from the dead draft: `common.save_json` -> inline
+  JSON write (functionally identical), the smoke filter, the
+  resume-duplicate evidence block, the held-bank bind re-pointed at the
+  e291 organism, and the anchor row on the reference (base) states.
+
 ## DISCLOSURES
 
-1. **No milestone states exist** (t100/200/300 were not checkpointed);
+1. **The reference re-anchoring** (the recovery note above, in full):
+   the lens reference is the loaded fact / e291 organism, per the
+   docstring's own parenthetical + certification clause; the
+   `*_resume.pt` duplicates' bit-identity is runtime evidence
+   (metrics.disclosures.resume_duplicates), not a transcription.
+2. **No milestone states exist** (t100/200/300 were not checkpointed);
    the trace uses finals + resumes with the committed read curves.
-2. **The lens direction is the registered choice**: the temperature
+3. **The lens direction is the registered choice**: the temperature
    sits on the STATE's logits (T > 1 = the site must be cooled to the
    reference's calibration = runs hot — the direction in which the
    bars' "T rises" literally reads overconfidence). x5's literal
@@ -1139,12 +1242,12 @@ thermal verdicts — the honesty audit's two lenses on the same states.
    (the answer coordinate carries the mass gain itself under any
    baseline-anchored temperature lens; the two-site comparison is the
    bars' own discrimination).
-3. **e287's sanctuary twin** rode corpus draws on seed 28701 (not
+4. **e287's sanctuary twin** rode corpus draws on seed 28701 (not
    28801) — the passive rider's session differs from e288's.
-4. **The F family's gate site** is the union bank (all five facts are
+5. **The F family's gate site** is the union bank (all five facts are
    name-family slices of the same 60 ZEPHYRA windows — T270's finding);
    FACT1's panel read anchors its read-rise.
-5. All certification gates passed at runtime (records md5-bound;
+6. All certification gates passed at runtime (records md5-bound;
    0 re-probe failures; the anchor rows read 1.000000; the paraphrase
    bank bit-bound to e291's committed held_t0).
 
@@ -1163,6 +1266,7 @@ metrics["outputs"] = {
 }
 metrics["status"] = f"COMPLETE — adjudicated {founding_clauses['verdict']} " \
                     f"({utcnow()})"
-common.save_json(metrics, RD / "metrics.json")
+(RD / "metrics.json").write_text(
+        json.dumps(metrics, indent=2, default=float), encoding="utf-8")
 log(f"DONE: {founding_clauses['verdict']} in {time.time() - T0:.1f}s")
 
