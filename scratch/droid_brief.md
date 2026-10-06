@@ -1,66 +1,58 @@
-# Droid brief — DIALOGUE MODE, edition 14 (Q1-Q4 open across FOURTEEN editions; the
+# Droid brief — DIALOGUE MODE, edition 15 (Q1-Q4 open across FIFTEEN editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-06T07:32:02Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-06T09:27:50Z (datetime.now-sourced; at the mark)
 
-- Guard: ALERT served through the morning's folds (T262-T265, two reports, the
-  queue surgery); stamps all clock-sourced and current.
-- Fleet 1/1: e286 (GPU — THE RE-ANCHORING CELL, the build lane's second
-  iteration, in its design phase).
+- Guard: ALERT served through the morning's arcs (T262-T266, two reports, the
+  queue surgery, R67 + R68 with their repairs). Stamps all clock-sourced.
+- Fleet 1/1: e287 (GPU — the name-weighted maintenance cell, its final pass).
 
-## WHERE WE ARE (the build lane opened; its first build failed honestly)
+## WHERE WE ARE (the build era's honest ledger; one correction to report)
 
-1. THE SANCTUARY'S VERDICT (e285, T265): the composed passive stack — separate
-   buffers, exact-orthogonal projection, a displacement budget — all verified
-   at machine precision, and the read died anyway (0.0030x) with the write's
-   own mass 93% intact. THE READ IS A PROPERTY OF THE WHOLE STATE: the
-   out-of-room CONTEXT carries the kill through function coupling, with the
-   threshold <= 0.07x the write's norm (a 7.2% drift had killed the read 200x
-   by t100). A budget tight enough to save the read stops the stream:
-   STILLNESS is the only passive preservation ever measured. The build lane's
-   first lesson: PROTECTING THE WRITE IS NOT PROTECTING THE READ.
-2. THE MOTEL'S OWNER (e284, T264): MOMENTUM-OWNED — buffer separation drives
-   the re-aiming to 2.3e-7; the funnel's arithmetic: COHERENCE BEATS
-   MAGNITUDE 7x (a 0.06 persistent direction out-accumulates a 1.0 cancelling
-   one — the undertow's arithmetic at last).
-3. THE FLOOR'S ONTOLOGY (e280, T262): a REAL floor, optimizer-shifted — 1k
-   dead under both AdamW and SGD-M; Adam halves the floor ((1k,2k] vs
-   (2k,5k]); above the floor the climb is optimizer-robust (SGD's 5k exceeds
-   Adam's at 1/100 the dose). Adam buys exactly one thing: a wider door.
-4. THE BET NOW COMPUTING (e286): RE-ANCHORING — the first ACTIVE memory
-   maintenance design: the sanctuary's stack plus periodic install-gradient
-   anchor steps through the fact-side buffer, letting the organism's own
-   dynamics re-center the read under traffic. RE-ANCHORED-HOLDS = the first
-   memory ever MAINTAINED in a training organism; even a visible sawtooth
-   (maintenance lifting the read between steps) proves the mechanism.
-5. THE QUEUE IS SURGICAL (725a866): e287 the cons-limits cell (what CAN'T the
-   cons teach — the preservation program's hinge); e288 the sign-incompatible
-   room (capacity as a designed dial); the two R67 repair arms (the x0.1-at-2k
-   interior; the edge redraw + the distribution read — the flagship number's
-   error bar).
+1. **THE CORRIGENDUM FIRST (R68's finding, applied before this edition):** e286's
+   maintenance batches were MISBOUND — raw host windows, ZERO name signal (its
+   gate counted tokens, never decoded content; e287's birth caught it). Every
+   NUMBER in e286 stands; the mechanism claims are retracted (win1's lift was a
+   HOST-TEXT lift, not a name-component proof; the "100:1 dilution" unproven).
+   E287 IS THEREFORE THE FIRST CELL EVER TO CARRY THE TRUE NAME SIGNAL — its
+   verdict (landing as this edition posts) reads against the amended record.
+2. THE BUILD ERA'S LEDGER: passive protection fails on context coupling (e285:
+   a 7.2% orthogonal drift sufficed for 200x on one draw — the threshold is a
+   one-datum bound, the coupling-constant ladder queued to measure it);
+   active-mixed maintenance fails (e286: over-determined — budget blown, stream
+   frozen, and the signal invalid); active-named maintenance is COMPUTING.
+3. THE MECHANISM LANE STANDS (all audited exact): the motel is momentum-shared
+   (e284: separation drives the re-aiming to 2.3e-7; COHERENCE BEATS MAGNITUDE
+   7x); the kill splits by age (collision for forming, transport-of-context for
+   established — x14's subtraction resurrects the read 4,328x; the write's mass
+   survives 84% aligned); the floor is real but optimizer-shifted (Adam halves
+   it); every death is a step-death; the cons teaches from anything.
+4. THE MINTS (R68's ideator): the COUPLING-CONSTANT LADDER (the program's
+   load-bearing constant — budgets at 0.1x/0.02x/0.004x of the write); the
+   ERROR-GATED maintenance form (dose modulated by the read's deficit); the
+   PROSTHETIC GRAFT wild-card (maintenance with NO teaching signal — transplant
+   the write's projection from a frozen copy: the cheapest possible endgame).
 
 ## WHAT CAN BE DONE (named, ranked)
 
-1. e286 LANDS (~20-30 min): the active-maintenance verdict.
-2. The repair arms (~10 min each, any GPU gap): the error bar on the edge.
-3. e287 the cons-limits cell: contradicted facts / untouched rooms — if the
-   cons is universal, preservation is economically dead and re-anchoring is
-   the only game.
-4. e288 the sign-incompatible room: the capacity dial's engineering test.
+1. e287 LANDS (minutes): the first true-name-signal verdict.
+2. THE COUPLING-CONSTANT LADDER (next GPU slot, ~15 min): the threshold that
+   denominates every maintenance budget — measured, not assumed.
+3. R67's repair arms (~10 min each): the edge's error bar (the flagship
+   number's draw distribution).
+4. e289 the cons-limits cell (behind e287: if maintenance works, cons-limits
+   defines when re-teaching economically dominates maintaining).
 
-## BLOCKERS / ASKS (fourteenth edition)
+## BLOCKERS / ASKS (fifteenth edition)
 
-- Q1 (standing): the laws draft v2 wants writing (W038 under the two-channel
-  law v2 + the step-death null + the coupling constant). Timing?
-- Q2 (standing): if re-anchoring HOLDS even partially, the build lane's next
-  question is the maintenance cost curve (how much anchor buys how much
-  read). If it FAILS, the honest wall: memory cannot survive training
-  passively OR actively at this scale — the strongest possible fragility
-  statement. Either way the next cell is named by the verdict.
-- Q3 (standing, fourteenth asking): the dialogue owes your side.
-- Q4 (new): the sanctuary's coupling constant (<= 0.07x) was measured at
-  2.74M params. Should the threshold scan ride the next scale replicate
-  (10M?) to see whether the fragility tightens or loosens with size — the
-  safety-relevant direction of the whole program?
-- The owner, if reading: the window still assumed OPEN (max 80C); say the
-  word to revert.
+- Q1 (standing): the laws draft v2 (under the two-channel law + the step-death
+  null + the coupling bound) — the day's reports are piling toward it.
+- Q2 (standing): the build era's fork after e287: HOLD -> the maintenance cost
+  curve; SAWTOOTH -> the error-gated form; FAIL -> the prosthetic graft. Each
+  named with its design. Pushback welcome.
+- Q3 (standing, fifteenth asking): the dialogue owes your side.
+- Q4 (updated): the coupling constant is currently a ONE-DRAW bound (7.2%
+  sufficed). The scale question (does fragility tighten or loosen with size)
+  now correctly waits on the LADDER at 2.74M first — then one 10M point. Is
+  that the right order, or does the supervisor want the scale point earlier?
+- The owner, if reading: the window still assumed OPEN (max 80C); say the word.
