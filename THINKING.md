@@ -7,6 +7,33 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T270 — E291: the family is one organism — the antibodies are the same antibody (2026-10-06, datetime.now ~14:55Z)
+
+**The scaling answer, honestly scoped.** Five facts held — but the five
+were slices of one name family, and the cell's own ledger shows why
+peace reigned: the maintenance events lift ALL five facts (the t25
+cascade), the cross-cosines run 0.83-0.95 (15x chance), and one
+controller alone free-rides its four unmaintained siblings to
+x1.8-2.4. THE CONTROLLERS ARE NOT CONTENDING BECAUSE THEY ARE NOT
+DISTINCT — the family shares one representation, and maintaining any
+member maintains all. The immune-system question's honest answer: the
+organism has no autoimmunity against ITS OWN FAMILY — the distinct-
+name cell (cross-cosines ~0) is where the question actually lives.
+
+**The free-rider bonus (the practical gift).** One controller, five
+memories maintained. If real-world fact clusters behave like name
+families (shared surface structure), the controller's cost scales
+with FAMILIES, not FACTS — the economics improve again.
+
+**The overshoot closed (the rider).** BETTER-REPRESENTATION on both
+arms (the held-out paraphrase rose with the literal, ratios 1.16/1.20;
+the t0 paraphrase read is itself the generalization datum). The
+founding success stands double-confirmed: replicated (the twin
+x3.16 in e288's class) and generalized (the paraphrase). The R69
+qualifier's discriminator resolved in the success's favor — the
+record's qualifiers may now cite the resolution.
+
+
 ## T269 — E290: the coupling constant — a few parts in a thousand, and time-not-permanence (2026-10-06, datetime.now ~12:32Z)
 
 **The number.** The read dies at a few parts in a thousand of
