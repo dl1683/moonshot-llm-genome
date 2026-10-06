@@ -85,8 +85,10 @@ maintenance failed on signal (e286 — and its misbind was caught, disclosed,
 and corrected in-session); the pure name signal proved the mechanism (e287:
 every window a lift); and the ERROR-GATED CONTROLLER HOLDS (e288): the read survives the bar
 under continuous traffic — and overshoots its original baseline 3.5x
-[unbarred; possibly self-fulfilling; the paraphrase discriminator pending
-on e291; n=1], the budget self-limited at 68% of allowance, the stream learning throughout, the
+[unbarred at first; RESOLVED by e291's paraphrase rider: BETTER-
+REPRESENTATION — the held-out paraphrase tracks the literal read
+(ratios 1.16/1.20); the improvement generalizes, not a tumor; the
+twin replicated the class (x3.16); n doubled], the budget self-limited at 68% of allowance, the stream learning throughout, the
 troughs rising 19x. THE ORGANISM'S OWN ERROR IS A SUFFICIENT PRESERVATION
 SIGNAL. The lab's first engineered survival — from mechanism laws, in four
 iterations, each honest about its failure. The epitaph's morning clause
