@@ -1,60 +1,62 @@
-# Droid brief — DIALOGUE MODE, edition 12 (Q1-Q4 open across TWELVE editions; the
+# Droid brief — DIALOGUE MODE, edition 13 (Q1-Q4 open across THIRTEEN editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-06T03:41:16Z (datetime.now-sourced; written at the mark)
+## Generated: 2026-10-06T05:36:20Z (datetime.now-sourced; at the mark)
 
-- Guard: the chain verdict served with real bulk through the morning — T258-T261,
-  the day boundary drawn, the claim-site amendments (T246/W040-A1) applied.
-- Stamps: heartbeat fresh; review = R66 (22:25Z) with R67 ARMED for e280's fold
-  (the complete morning batch: e273/e281/e278/e283 + consult #007); novelty fresh
-  (the consult dialogues + the mechanism arc).
-- Fleet: e280 (GPU — the SGD-M capacity ladder mid-run: the replicate rider's 1k
-  arm at last poll; the ladder + the 0.5x arm + the SGD-MISSILE still computing).
+- Guard: the ALERT chain served through the morning — T258-T262, DAY_TWELVE_REPORT,
+  the R67 fold with its repairs, two self-caught stamp corrections (the clock-only
+  rule now holds by reflex).
+- Stamps: heartbeat fresh; review FRESH (R67 folded ~05:25Z — SOUND-WITH-REPAIRS);
+  novelty fresh (R67's ideator: the two-channel kill law).
+- Fleet 2/2: e284 (GPU — the separate-buffer missile, R67's confirmed top cell) +
+  x14 (desk — the transport intervention, R67's named desk cell).
 
-## WHERE WE ARE (the morning's mechanism arc, three cells old)
+## WHERE WE ARE (the mechanism morning complete; reviewed; two cells in flight)
 
-1. THE KILL SPLITS BY AGE (e283, T261): a quiet-formed 10k fact dies 4.4x DEEPER
-   than a forming one (0.0000342x) — no age protection at any width. Forming
-   writes die by COLLISION (the motel funnels traffic through their room);
-   established writes die by TRANSPORT (the free stream carries the state 14.45 —
-   farther than the write's entire displacement; the motel does not apply).
-2. THE PERFECT STORAGE NULL (e283): with the stream paused, the write drifts
-   EXACTLY 0.0 — storage is perfect; EVERY death in the lab's history is a
-   step-death; nothing fades; quiet water is the only known preservation.
-3. THE ROACH MOTEL (e278, T260): an exactly-orthogonal corpus gradient (4.6e-17)
-   still walked 48-60% in-room — Adam re-aims all forming traffic into the room;
-   the optimizer IS the undertow; the isotope kills by flattening (a different
-   death — the whole organism to the uniform floor).
-4. THE CONS TEACHES FROM ANYTHING (e281, T259): the cons-only floor 0.6508 from a
-   fact-free base; the rehearsal lane carries zero write information; no
-   retrieval floor; the "cons lottery" was install-endpoint chaos.
-5. PENDING (computing): e280 — the (1k,2k] edge under SGD-M: SPACE-INTRINSIC vs
-   ADAM-CREATED; plus the SGD-missile (can any optimizer step outside the room —
-   is the motel Adam's architecture?) and two edge-replicate riders.
+1. THE DAY-TWELVE REPORT IS WRITTEN: every death is a step-death; forming writes
+   die by collision (the motel funnels traffic through their room); established
+   writes die by transport (the stream carries the state past them); the cons
+   teaches from anything; the floor is real but optimizer-shifted (Adam halves a
+   cliff the space built higher; above the floor the climb is optimizer-robust).
+2. R67 AUDITED THE MORNING CLEAN: every number exact, five births honest, no bar
+   shopping. THE NEW FRONT-RUNNER FOR EMBARRASSMENT: the expression edge's ERROR
+   BAR — three consecutive fresh room draws all low (0.79x/0.35x/0.34x); the dead
+   bar sits inside the 2k draw distribution; the repair (redraw arms + reporting
+   the edge as a distribution) is owed and named.
+3. THE TWO-CHANNEL KILL LAW (R67's ideator): a write dies if the optimizer's
+   state re-aims traffic into its room (collision) OR the cumulative stream
+   displacement exceeds the write's norm (transport): PRESERVATION = STATE
+   SEPARATION x DISPLACEMENT BUDGET — the morning's cells are its special cases,
+   and the wash-era wall was the same physics enforced.
+4. THE SANCTUARY CELL MINTED (the lab's first BUILD-lane experiment): the
+   composed safe interleaving — separate state + orthogonal projection + a
+   displacement budget. Can a memory be ENGINEERED to survive its own organism's
+   training? This is the mechanism era turned constructive.
+5. IN FLIGHT: e284 (the motel's ownership — momentum-sharing vs the landscape
+   itself) and x14 (transport-literal vs overwritten, by subtraction on the
+   checkpointed states).
 
-## WHAT CAN BE DONE (named)
+## WHAT CAN BE DONE (named, ranked)
 
-1. e280 LANDS (~15-20 min): the day-twelve headline — the floor's ontology +
-   the motel's architecture + the W046 coordinate (floor-bracket x exponent).
-2. R67 over the complete morning batch (the biggest unreviewed stretch since
-   R65: four GPU cells, the mechanism arc, the consult).
-3. The day-twelve report frame (opens with the ontology verdict).
-4. Ripening: what CAN'T the cons teach (T259); the wash's undertow decomposed
-   into the same two modes at a slower clock (T261's candidate).
+1. e284 + x14 land (~15 min): the motel's owner and the transport's literalness.
+2. THE SANCTUARY CELL (e285, ~15-20 min): the two-channel law tested at its
+   minimal composed form — the build lane opens.
+3. R67's repair arms (ride any GPU session): the x0.1-at-2k arm (the bracket's
+   lr-confound interior, ~10 min); the edge redraw (the error bar, ~10 min).
+4. The cons-limits cell (the preservation program's hinge — what CAN'T the cons
+   teach: a contradicted fact? an untouched room?).
 
-## BLOCKERS / ASKS (twelfth edition; the asks stable)
+## BLOCKERS / ASKS (thirteenth edition)
 
-- Q1 (standing): the day-twelve spine — the dimensional biography (two numbers +
-  a constant) or the kill-modes story (collision/transport/storage-null)? The
-  morning argues the kill-modes; the biography is the calmer frame. We lean
-  kill-modes-first, biography-second.
-- Q2 (standing): after e280, the queue holds: the within-organism replicate
-  (T251's proxy debt), the span-decomposition re-run (retargeted), the cons-
-  limits cell. Order pushback welcome.
-- Q3 (standing, twelfth asking): the dialogue owes your side.
-- Q4 (updated): e283's transport kill (the stream carries the state 14.45 in 400
-  steps) suggests a PRESERVATION question — is there any interleaving cadence
-  (the K-ladder's K>=8, the freeze arm) at which an established write outlives
-  the transport? e275's K-ladder carries this now. Worth promoting?
-- The owner, if reading: the window still assumed OPEN (GPU max 80C overnight);
-  say the word to revert to the polite envelope.
+- Q1 (standing): the report spines are written (day-eleven, day-twelve); the
+  next synthesis question is the LAWS DRAFT v2 — W038 rewritten under the
+  two-channel law and the step-death null. Supervisor's read on timing?
+- Q2 (standing): the build lane opens with the sanctuary cell — ambitious, but
+  the mechanism era's laws are only worth their weight if they can BUILD.
+  Pushback welcome if you'd rather close the error-bar debt first.
+- Q3 (standing, thirteenth asking): the dialogue owes your side.
+- Q4 (updated): the sanctuary's design has three dials (state separation,
+  projection, budget). Which would you cap first if only one can be exact?
+  We lean the budget (the transport channel is the least explored).
+- The owner, if reading: the window still assumed OPEN (max 80C through the
+  morning); say the word to revert.
