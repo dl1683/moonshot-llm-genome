@@ -9,6 +9,26 @@ interpretation entry, the next heartbeat thinks instead of runs.
 
 ## T266 — E286: the sawtooth and the dilution — active maintenance fails on direction, and the arc learns to name its successors (2026-10-06, datetime.now ~08:30Z)
 
+> **[R68 CORRIGENDUM 2026-10-06, URGENT, citing e287's birth 6a66fab: THE
+> MAINTENANCE BATCHES WERE MISBOUND.** e286's maintenance stream received
+> `anchor_full` — the RAW HOST windows (FLORIZEL/ELIZABETH) — not the
+> ZEPHYRA-spiked install windows; G_MAINTBIND checked token counts, never
+> decoded content. THE BATCH CARRIED ZERO NAME SIGNAL. Every NUMBER in this
+> card stands (the sawtooth windows, the in-room fractions, the budget, the
+> ratio — all real), but the MECHANISM claims are retracted as stated: the
+> win1 lift is NOT the existence proof of name-component response (it is a
+> HOST-TEXT mixed batch's lift — the read responds to something in a small
+> mixed teaching step that is NOT the name: an open question only e287 can
+> settle); the "100:1 dilution" reading dies (the measured 0.06 in-room
+> fraction was a host-text gradient's, not the true teacher's; the true
+> install stream's direction was never measured); the directional-obstacle
+> story is UNPROVEN, not disproven. The verdict word MAINTENANCE-FAILS
+> stands [by gates and by ratio; the signal was invalid per the misbind —
+> the failure is over-determined: wrong signal AND blown budget AND frozen
+> stream]. The honest residue: the sawtooth's drift-inversion is real for
+> HOST-TEXT teaching; the e286 form's successor remains e287 — now the
+> FIRST cell to carry the true name signal.]
+
 **The sawtooth is the cell's gift.** Sampled twice as registered: the
 first maintenance step LIFTED the read x2.203 (held at t26); a later
 one CRASHED it x0.377. The maintenance step is not a fixed-direction
@@ -44,6 +64,30 @@ read-ascent form is its successor if e287's dosage still falls
 short. The endgame of this arc is obvious in hindsight: REHEARSAL AS
 A DESIGN PATTERN — the cons stream has been teaching-from-anything
 all along (e281); maintenance is re-teaching under a budget.
+
+## T263 — X14: directional transport — the out-of-room context carries the kill, and the write survives its own funeral (2026-10-06; the ghost-number card formalized at R68's finding — the interpretation lived in fold f14bffd)
+
+The subtraction intervention: removing the orthogonal drift resurrects
+the read 4,328x (to 14.8% of baseline); removing the in-room drift does
+nothing; removing both recovers the fact exactly. The write-mass ledger:
+84.35% survives, cos 0.9931 with its own direction. OVERWRITE IS DEAD AS
+A READING; the kill is carried by the context. The coupling caveat fired
+as registered (the linear null undershoots — LN/softmax coupling or
+sub-erosion unresolved; necessary-not-sufficient governs). THE WRITE
+SURVIVES ITS OWN FUNERAL: mass intact, aligned, and unread.
+
+## T264 — E284: the motel is momentum-shared — coherence beats magnitude (2026-10-06; the ghost-number card formalized at R68's finding — the interpretation lived in fold 5a46b42)
+
+Buffer separation drives the realized in-room walk to 2.32e-07 (the twin:
+0.4503, replicating e280). The funnel's arithmetic: a shared buffer
+carries a small (~0.06) coherent in-room direction into every corpus step
+while the large (~1.0) orthogonal content cancels — COHERENCE BEATS
+MAGNITUDE 7x. The motel is a momentum-sharing architecture (engineerable:
+separate the buffers); Adam's normalizer was never the re-aimer. The
+survival secondary: separation softens the kill 2.16x and rescues nothing
+— the orthogonal stream's own displacement still kills (the channel later
+re-denominated by e285/x14 as context coupling). A 10%-in-room buffer
+compounds to a 45% walk: coherence compounding.
 
 ## T265 — E285: the sanctuary's honest failure — the read is a property of the whole state (2026-10-06, datetime.now ~07:08Z)
 
