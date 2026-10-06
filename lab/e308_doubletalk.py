@@ -159,6 +159,12 @@ import matplotlib                                    # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                      # noqa: E402
 
+# THE CPU LOCK, RE-ASSERTED (fix committed before recompute): g1b/G1 set
+# 8 threads at import (their shared-machine convention) and override the
+# module-top lock; this cell's dispatch cap is threads <= 4.
+torch.set_num_threads(4)
+assert torch.get_num_threads() <= 4
+
 # ------------------------------------------------------------------ helpers
 def utcnow() -> str:
     """The house timestamp rule: datetime.now(UTC) only, ISO Z."""
