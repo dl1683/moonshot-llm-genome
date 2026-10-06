@@ -1,0 +1,1068 @@
+{
+  "experiment": "e283_established_collision",
+  "phase": "THE ESTABLISHED-FACT COLLISION TEST \u2014 T244's never-run AFTER arm in its purest form: the committed QUIET-FORMED 10k write (post g0 0.2646, loaded bit-exact) under the family's standard corpus stream ALONE (400 corpus steps, the matching cadence, one fresh AdamW \u2014 no install) vs the same-session paused-stream storage-decay control \u2014 ESTABLISHED-SPARED vs ESTABLISHED-DIES vs MIXED, adjudicated on the WRITE read at matched corpus exposure",
+  "date": "2026-10-06T03:00:39Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "bars + question frozen VERBATIM from the dispatch letter (the e278 fold's dispatch; the queue's e283 row \u2014 T244's never-run AFTER arm); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "question_verbatim": "does an ALREADY-ESTABLISHED fact collide as hard as a forming one? Every concurrent arm so far FORMED under fire (the install ran while the corpus interleaved). T244's registered discriminator said 'corpus CONCURRENTLY vs AFTER'; the AFTER arm never ran. Tonight it runs.",
+    "arms_verbatim": {
+      "a_ESTABLISHED-CONCURRENT": "load the formed 10k fact, then run the 1:1 interleave (the family's standard corpus stream, shared AdamW \u2014 the rig verbatim) for the full 400 corpus steps with NO install steps needed (the write already stands); read post g0 at milestones s100/200/300/400 of corpus-only-plus-matching-cadence",
+      "b_ESTABLISHED-SERIAL-CONTROL": "load the same formed fact, run 400 corpus steps with the stream PAUSED (quiet drift only \u2014 the family's serial convention adapted; PICK and freeze: NO steps at all, the pure storage-decay control)"
+    },
+    "bars_verbatim": {
+      "ESTABLISHED-SPARED": "the established write SURVIVES (>= 0.5x through 400 corpus steps) while the forming write died at 0.0002x \u2014 the collision kills FORMATION, not the formed; the barrier is formation-time only; T244's AFTER arm lands as 'the corpus is an additive abrasive only for forming writes.'",
+      "ESTABLISHED-DIES": "the established write also dies (< 0.5x) \u2014 the collision is content-agnostic about age; retention and formation die together; the 237k retention barrier (e271) generalizes down to 10k for established facts.",
+      "MIXED": "partial decay (0.5x-0.9x) or non-monotone \u2014 the trajectories verbatim."
+    },
+    "expectation_cited": "under the roach-motel/two-body account, ESTABLISHED-DIES is the natural prediction (the corpus traffic funnels through the room regardless); under an additive-abrasive account, ESTABLISHED-SPARED (CITED from the dispatch, not re-registered)",
+    "operationalizations": "frozen BEFORE compute: THE CONCURRENT PHASE := 400 CORPUS steps (t=1..400, no install); THE MILESTONES := t=100/200/300/400 corpus steps; THE MATCHING CADENCE := lr(t) = 1e-3 x cosine_lr(t-1, 1000) (the corpus steps' paired-lr schedule VERBATIM); THE CORPUS STEP := e268's registered form (16 anchors + 32 random windows, full-window CE, the REGISTERED fresh corpus generator seed 28301, clip 1.0 -> opt.step FREE); THE OPTIMIZER := ONE fresh AdamW (0.9,0.95) wd 0.1 at phase start (the rig's optimizer; the wd channel rides the corpus steps exactly as in e268's concurrent arm \u2014 disclosed); THE SERIAL CONTROL := NO steps at all (the pure storage-decay control; the reads at the same milestone cadence; G_CONTROL gates the null); THE SURVIVAL RATIO := post g0(t) / 0.26464763283729553 (the committed baseline, PRIMARY; the session's loaded read co-reported); THE ADJUDICATION READ := the t=400 endpoint, trajectory + min-milestone co-reported; COMPOSITE := TEXTURE (hard-gate failure OR G_FACTLOAD behavioral miss) -> ESTABLISHED-DIES (ratio_400 < 0.5x) -> MIXED (0.5x <= ratio_400 < 0.9x [PARTIAL-DECAY] OR non-monotone [a later milestone > an earlier one + 0.01 absolute, OR an interior milestone < 0.5x while the endpoint >= 0.5x; NON-MONOTONE]) -> ESTABLISHED-SPARED (ratio_400 >= 0.9x, monotone \u2014 MIXED's partial-decay carve-out takes precedence over SPARED's floor, named at birth, no bar moved); NO CONS (T259/e281; the post-phase state checkpointed); HARD GATES := {G_NAMEFREE, G_SPLICE, G_BATTERY, G_ANCHOR, G_INSTMASK, G_PARENTS, G_BASE, G_ROOT, G_VMBIND, G_SPANBIND, G_PROJ, G_ROOMK10K, G_FACTLOAD, G_CORPUSGEN, G_CONTROL} (a failure HALTS).",
+    "registration": "bars + question frozen VERBATIM from the dispatch letter (the e278 fold's dispatch; the queue's e283 row \u2014 T244's never-run AFTER arm); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "cuda fp32 training (this cell owns the GPU lane; the control arm is CPU-read-only) + CPU fp64 dense projections (pocketfft workers 2), CPU probing threads 4",
+    "bursts": "<= 175s (inside the dispatch's 180s), per-step thermal polls at a 78C margin, cooldown 40s (the 30-60s window), the 84C never-past line (inside the dispatch's 85C), polls to runs/_envelope_log.jsonl tagged e283:ARM:phase",
+    "trainings": "1 corpus-only phase s400 (the established-concurrent arm; NO install \u2014 the fact is loaded; NO cons \u2014 T259/e281, the post state checkpointed); 1 paused-stream control (reads only, no steps)"
+  },
+  "arms_desc": {
+    "ESTABLISHED-SERIAL-CONTROL": "(b) the same-session twin: the SAME loaded formed fact, the corpus stream PAUSED \u2014 NO optimizer steps AT ALL (the pure storage-decay control, the dispatch's recommended freeze; the rejected alternative 'the install stream's zero gradient' disclosed in the docstring) \u2014 with the milestone reads at the SAME cadence t=100/200/300/400 of the matched virtual timeline; by construction every read must return the loaded fact's own read (G_CONTROL gates the null)",
+    "ESTABLISHED-CONCURRENT": "(a) the established fact under fire: the loaded formed 10k write + the family's standard corpus stream ALONE (the 1:1 interleave's corpus steps, the rig verbatim \u2014 48 windows = 16 anchors + 32 random, full-window CE, the matching cadence lr 1e-3 x cosine_lr(t-1,1000), clip 1.0 -> opt.step FREE) through ONE fresh AdamW (0.9,0.95) wd 0.1 for 400 CORPUS steps \u2014 NO install steps (the write already stands); T244's never-run AFTER arm"
+  },
+  "convention_freezes": {
+    "phase": "400 CORPUS steps (no install steps \u2014 the family's install+corpus accounting does not apply; the phase's counter counts corpus steps only)",
+    "milestones": "t = 100/200/300/400 corpus steps (the dispatch's frozen list)",
+    "cadence": "lr(t) = 1e-3 x cosine_lr(t-1, 1000) (the corpus steps' paired-lr schedule VERBATIM)",
+    "corpus_step": "e268's registered corpus step VERBATIM: 48 windows = 16 original-host anchors (the same 60-window bank) + 32 random corpus windows; full-window CE; the REGISTERED fresh corpus generator seed 28301; clip 1.0 -> opt.step FREE (unprojected \u2014 the natural stream)",
+    "optimizer": "ONE fresh AdamW (0.9, 0.95) wd 0.1 at phase start (the rig's optimizer, carried by the corpus stream alone; the wd channel disclosed)",
+    "control": "NO steps at all \u2014 the pure storage-decay control (the dispatch's recommended pick; the zero-gradient alternative rejected, disclosed); the reads at the same milestone cadence",
+    "survival_ratio": "post g0(t) / 0.26464763283729553 (the committed baseline, PRIMARY; the session's loaded read co-reported)",
+    "adjudication_read": "the t=400 endpoint (matched corpus exposure); trajectory + min milestone co-reported"
+  },
+  "deviations": [
+    "THE SMOKE PASS (pass 1, runs/e283_smoke/; the e260-family record): NO code bugs caught \u2014 the shakedown ran clean end-to-end (15/15 gates PASS, both arms, the adjudication and the figure exercised). The smoke's SUBSTANCE VERIFICATIONS: (1) THE NO-INSTALL ACCOUNTING IS THE CENTERPIECE and it held \u2014 the phase counter counts CORPUS steps, the milestones fire at corpus-step indices, no install machinery is invoked anywhere; (2) G_FACTLOAD's three-way bind is EXACT (the loaded artifact's read |d post g0| = 0.0 and |d gm12| = 0.0 vs the committed literals \u2014 bit-exact load confirmed); (3) G_CONTROL's null is EXACT (max |g0 drift| 0.0 over the repeated milestone reads); (4) the drift ledger + the re-aiming contrast compute. Disclosed smoke-scale reads (NOT adjudicated): at smoke k=512 the fact's in-own-room load reads 0.2167 \u2014 the S_512 index set is a SUBSET of S_10k (same D, same permutation seed, smaller mask), so the smoke room captures only part of the 10k-written displacement (e268's SERIAL post read 0.944 at k=10k \u2014 the full run's t=0 reference); and the drift's in-room fraction at smoke k sits at the volume overlap sqrt(512/N) = 0.0137 (the funnel is a k=10k-scale question; the full run's read is the datum). The smoke's trajectory preview (x0.75 after ONE corpus step, x0.0068 at t8) is a preview only \u2014 SMOKE stamped, nothing adjudicated.",
+    "THE CONVENTION FREEZE IS THE CELL'S CENTERPIECE (the dispatch's CAREFUL): the family's step accounting pairs install+corpus; here there is no install. FROZEN: the phase counts CORPUS steps only (400), the milestones are corpus-step milestones (100/200/300/400), the cadence is the corpus steps' own paired-lr schedule cosine_lr(t-1,1000), and the control is matched by CADENCE (the same milestone reads on a paused stream) with corpus exposure ZERO by construction \u2014 the arms' exposure delta is the intervention, as in e268.",
+    "THE CONTROL IS VACUOUS BY CONSTRUCTION AND THAT IS ITS JOB (registered at birth): with NO steps at all the state cannot move; the control's four milestone reads must return the loaded fact's read bit-identically (G_CONTROL, tol 5e-7 \u2014 same-session repeated CPU reads are exact to fp32 determinism). Its role is the null anchor: any decay the concurrent arm shows is attributable to the corpus traffic (optimizer + wd + gradients), never to time, storage or the read pipeline itself. The rejected alternative \u2014 the install stream's zero gradient (forward/backward with zeroed grads, opt.step on nothing) \u2014 would ADD optimizer-state noise (Adam's eps-floor drift on zero gradients) that is NOT storage decay; the dispatch's recommendation (NO steps) is taken.",
+    "THE OPTIMIZER IS FRESH AT PHASE START (the disclosed form): in the family's concurrent arms 'shared AdamW' meant one optimizer shared between the install and corpus streams from install step 1. Here the install is DONE \u2014 the phase's AdamW starts fresh (zero moments) and is carried by the corpus stream alone. The e278 roach-motel datum (Adam re-aims even orthogonal gradients into the room; the optimizer IS the undertow) makes the optimizer's presence the mechanism's carrier, so the rig's optimizer runs VERBATIM (AdamW 0.9/0.95, wd 0.1): its decoupled wd shrinks every weight by ~3.4% over the 400-step cosine \u2014 a uniform, mostly in-room-direction shrink of the fact's own displacement (the fact is ~94% in-room), disclosed as part of the intervention's body (the same channel acted on e268's forming arm), measured in the drift ledger never assumed.",
+    "NO CONS (the e278 precedent, T259/e281): the rehearsal lane carries zero write information \u2014 a cons run cannot inform a retention bar; the post-phase state is checkpointed (e283_ESTABLISHED-CONCURRENT_post.pt) so a later cons can be run on exactly this state if the question ever returns.",
+    "THE VEHICLE FACT IS LOADED, NEVER RE-FORMED (extend, don't repeat): the established fact is e261's committed serial cut completed by e264 (e261_K10K_inst_resume.pt), md5/size/step/traj/ledger-bound + flat-md5'd + behaviorally gated (G_FACTLOAD) \u2014 the same artifact e268's G_PARENTS bound and e268's serial re-run reproduced to |d post g0| 2.4e-7. No install runs in this cell.",
+    "e261's MACHINERY PORTED WHOLE BY IMPORT: the SRCT projector + LadderRooms (the room rebuild, certification, displacement loads), the thermal envelope (per-step polls, 78C margin, 175s bursts inside the dispatch's 180s, 40s cooldowns, the 84C line inside the dispatch's 85C), the progressive-metrics + resume-ckpt conventions \u2014 the module-global rebinding (log/NAME/LADDER/RUNG_NAMES/T0/thermal ledgers, disclosed in-code) retargets the machinery's I/O to this cell; the committed lab/e261_rank_ladder.py is NOT modified. The ONE new driver is chunked_corpus_phase (this file) \u2014 the corpus-only phase with the drift ledger.",
+    "THE V-MAP AND SPAN ARE LOADED, NOT RE-RUN (extend, don't repeat): e258's committed v-map + e246's committed LATE span feed the measured displacement loads; no new history is run.",
+    "n=1 per arm, one lineage, one session (the g-series standing caveat \u2014 the critic's lottery note carried verbatim); the arms' DIFFERENCE is the registered object, not any single point; nothing guaranteed.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "Smoke mode (E283_SMOKE=1): 8 corpus steps, milestones at every step 1..8, room k=512 at the same seed pair (G_ROOMK10K vacuous \u2014 no committed record at smoke k; disclosed), the REAL committed fact loaded and read (G_FACTLOAD live \u2014 the artifact binds are the smoke centerpiece alongside the no-install accounting), G_CORPUSGEN live, G_CONTROL live, the adjudication + figure exercised, all paths smoke_-prefixed, own smoke dir; NOTHING adjudicated or gated (SMOKE stamp on every read)."
+  ],
+  "builds_on": [
+    "T244 / e268 (THE registration whose AFTER arm never ran: DYNAMICAL-CARRIER at ~0.0002x \u2014 the forming 10k write died under the 1:1 interleave through the one shared AdamW; this cell runs the complementary arm \u2014 the SAME corpus stream against the ALREADY-FORMED write)",
+    "T258 / e273 (TRAJECTORY-TWO-BODY: the coupling is in the parameters \u2014 separate-AdamW died harder 0.008x)",
+    "T260 / e278 (UNDERTOW-REGARDLESS + THE ROACH MOTEL: the missile's exactly-orthogonal gradient still walked 48-60% in-room \u2014 Adam re-aims orthogonal gradients into the room; the optimizer IS the undertow; the registered expectation under this account: ESTABLISHED-DIES)",
+    "T248 / e271 (the 237k retention barrier: the widest forming write retained only 0.091x under concurrent \u2014 the DIES bar's cite)",
+    "T242 / e264 (the committed threshold rung: post g0 0.26464763 \u2014 the loaded fact's baseline) + T239 / e261 (the cut itself; the vehicle ckpt)",
+    "T259 / e281 (the cons teaches from anything \u2014 the NO-CONS registration's basis)",
+    "T239 / e261 (the machinery PORTED WHOLE BY IMPORT: the SRCT projector, LadderRooms, the thermal envelope)",
+    "T181 / g1c (the fresh-root lineage: e001 + Dmix s400 gen 24314 + e113 cons 10901)"
+  ],
+  "whats_new": [
+    "THE AFTER ARM ITSELF: the record's first collision test against an ALREADY-ESTABLISHED fact \u2014 every prior concurrent arm formed under fire; here the write stands (loaded bit-exact from the committed rung) and ONLY the corpus stream runs \u2014 formation and retention finally separated at the same rung, the same room, the same stream",
+    "THE STORAGE-DECAY CONTROL: the family's first pure paused-stream twin (no steps at all) \u2014 the null that makes any concurrent-arm decay attributable to the corpus traffic alone",
+    "THE DRIFT LEDGER ON AN ESTABLISHED WRITE: the state's drift from the loaded fact with its in-room share per milestone (the roach-motel continuation: does the ESTABLISHED write's own state drift in-room under the corpus?) + the remaining-from-base room occupancy + the corpus gradient-vs-displacement re-aiming contrast"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g+0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "expected": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "seed": 170,
+        "n_windows": 16,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "note": "built for protocol identity; NO wash/cons runs in this cell"
+      },
+      "pass": true
+    },
+    "G_INSTMASK": {
+      "name_positions": 420,
+      "expected": 420,
+      "note": "the install windows are NOT run in this cell (the fact is loaded); the mask gate carries the splice/mask convention's identity",
+      "pass": true
+    },
+    "G_PARENTS": {
+      "e264_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e264\\metrics.json",
+        "md5": "a42ff4786784b04cb9819a69b545e343",
+        "bound_md5": "a42ff4786784b04cb9819a69b545e343",
+        "verdict": "SHARP-THRESHOLD",
+        "K10K_post_g0": 0.26464763283729553,
+        "K10K_post_gm12": 0.10525520890951157,
+        "note": "THE loaded fact's committed record (the quiet-formed threshold rung: e261's cut, completed by e264)"
+      },
+      "e268_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e268\\metrics.json",
+        "md5": "c1149229b7f0191943a7b8eb0442b494",
+        "bound_md5": "c1149229b7f0191943a7b8eb0442b494",
+        "verdict": "DYNAMICAL-CARRIER",
+        "serial_post_g0": 0.26464739441871643,
+        "concurrent_post_g0": 4.004325455753133e-05,
+        "ratio": 0.00015130794937726159,
+        "note": "the FORMING-concurrent reference (~0.0002x \u2014 the SPARED bar's cite); this cell's corpus step + cadence are its registered forms"
+      },
+      "e271_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e271\\metrics.json",
+        "md5": "16c29a3167d8523a64f66f03c717f67b",
+        "bound_md5": "16c29a3167d8523a64f66f03c717f67b",
+        "verdict": "MIXED",
+        "concurrent_post_g0": 0.034998517483472824,
+        "ratio": 0.09105560790573215,
+        "note": "the 237k retention barrier (the DIES bar's cite)"
+      },
+      "e278_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e278\\metrics.json",
+        "md5": "db14cdff1fd5021a5b255c12127ea9df",
+        "bound_md5": "db14cdff1fd5021a5b255c12127ea9df",
+        "verdict": "UNDERTOW-REGARDLESS",
+        "missile_grad_in_room": 4.6e-17,
+        "missile_disp_in_room": [
+          0.48,
+          0.6
+        ],
+        "note": "THE ROACH-MOTEL RECORD (the registered expectation's source: ESTABLISHED-DIES under the undertow account)"
+      },
+      "the_fact": {
+        "path": "runs/checkpoints/e261_K10K_inst_resume.pt",
+        "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "bound_md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "size": 32958479,
+        "bound_size": 32958479,
+        "state": {
+          "step": 400,
+          "traj_steps": [
+            1,
+            100,
+            200,
+            300,
+            400
+          ],
+          "ledger_max": 400
+        },
+        "note": "the established fact itself (the committed serial 10k rung's final state)"
+      },
+      "e264_rooms": {
+        "path": "runs/checkpoints/e264_rooms.pt",
+        "md5": "2d524655575cce00a3bc1c8770f4b211",
+        "bound_md5": "2d524655575cce00a3bc1c8770f4b211",
+        "note": "THE ROOM FILE (the fact's own room; the D/S bit-bind itself is G_ROOMK10K)"
+      },
+      "e246_span": {
+        "path": "runs/checkpoints/e246_late_span.pt",
+        "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+        "bound_md5": "3464ff6081d8e402103dd9ca65bfb53a"
+      },
+      "e258_vmap": {
+        "path": "runs/checkpoints/e258_vmap.pt",
+        "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c"
+      },
+      "hardbound": {
+        "e264_verdict": "SHARP-THRESHOLD",
+        "fact_baseline_g0": 0.26464763283729553,
+        "fact_baseline_gm12": 0.10525520890951157,
+        "e264_K10K_root_g0": 0.7707884907722473,
+        "e264_K10K_kept_med": 0.060045162390265784,
+        "e268_verdict": "DYNAMICAL-CARRIER",
+        "e268_concurrent_post_g0": 4.004325455753133e-05,
+        "e268_ratio": 0.00015130794937726159,
+        "e271_verdict": "MIXED",
+        "e271_concurrent_post_g0": 0.034998517483472824,
+        "e271_ratio": 0.09105560790573215,
+        "e278_verdict": "UNDERTOW-REGARDLESS",
+        "fact_md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "fact_step": 400,
+        "fact_traj_steps": [
+          1,
+          100,
+          200,
+          300,
+          400
+        ],
+        "fact_ledger_max": 400
+      },
+      "pass": true
+    },
+    "G_BASE": {
+      "checkpoint": "runs/checkpoints/e001.pt",
+      "params": 2739072,
+      "fact_free_gm12": 1.437231640011305e-05,
+      "ce_r": 1.6161081790924072,
+      "fact_free": true,
+      "pass": true
+    },
+    "G_ROOT": {
+      "checkpoint": "runs/checkpoints/g1c_root.pt",
+      "n_params": 2739072,
+      "expected_params": 2739072,
+      "battery_read_measured": 0.9026340246200562,
+      "battery_read_committed": 0.9026340246200562,
+      "abs_diff": 0.0,
+      "tol": 0.005,
+      "flat_md5": "a7f02b367c5342535aecfc814d780631",
+      "pass": true
+    },
+    "G_VMBIND": {
+      "path": "runs/checkpoints/e258_vmap.pt",
+      "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c",
+      "meta_experiment": "e258",
+      "meta_k": 237123,
+      "size": 2739072,
+      "expected_size": 2739072,
+      "mean_v": 1.9735449453829365e-07,
+      "pass": true
+    },
+    "G_SPANBIND": {
+      "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+      "rank": 10,
+      "N": 2739072,
+      "meta_experiment": "e246",
+      "pass": true
+    },
+    "G_PROJ": {
+      "form": "the K10K room certified (fp64 CPU, 4 probes, seed 26115): the DCT roundtrip identity; IDEMPOTENCY and the kept^2 rank probe (||P x||^2/||x||^2 vs k/N, the 10-sigma bar 5*sqrt(2k)/N); the span-overlap (expect ~sqrt(k/N))",
+      "reads": {
+        "probes": 4,
+        "seed": 26115,
+        "dct_roundtrip_rel": 8.195877245616001e-16,
+        "per_rung": {
+          "K10K": {
+            "k": 10000,
+            "seeds": [
+              26113,
+              26114
+            ],
+            "idempotency_max": 5.669754673327867e-16,
+            "kept2_mean": 0.0036073728283031233,
+            "kept2_expect": 0.0036508715360530864,
+            "kept2_bar_10sig": 0.0002581556020384085,
+            "kept2_pass": true,
+            "idempotency_pass": true,
+            "span_overlap_mean": 0.06038652639299012,
+            "span_overlap_expect": 0.06042244232115321
+          }
+        },
+        "pass": true
+      },
+      "bars": {
+        "roundtrip": 1e-08,
+        "idempotency": 1e-08,
+        "kept2": "10-sigma (5*sqrt(2k)/N)"
+      },
+      "pass": true
+    },
+    "G_ROOMK10K": {
+      "form": "the room == the fact's own committed K10K room (seeds 26113/26114 at k=10,000): the +-1 diagonal and the index set bit-identical to e264_rooms.pt's stored K10K D/S (exact equality)",
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "e264_rooms_md5": "2d524655575cce00a3bc1c8770f4b211",
+      "pass": true
+    },
+    "G_FACTLOAD": {
+      "form": "the established fact, loaded BIT-EXACT and gated THREE ways: (1) the artifact (md5/size/step/traj/ledger \u2014 G_PARENTS), (2) the loaded state's flat-md5, (3) the behavioral read (post g0 within 2e-06 / gm12 within 1e-05 of e264's committed literals \u2014 the family's cross-session read-determinism law |d post g0| ~ 5e-7-1e-6 with headroom, disclosed)",
+      "flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+      "read_g0": {
+        "mine": 0.26464763283729553,
+        "committed": 0.26464763283729553,
+        "abs_diff": 0.0
+      },
+      "read_gm12": {
+        "mine": 0.10525520890951157,
+        "committed": 0.10525520890951157,
+        "abs_diff": 0.0
+      },
+      "read_gp12": 0.11036071181297302,
+      "read_ce_r": 1.5920883417129517,
+      "survival_ratio_denominator": "the COMMITTED literal (PRIMARY); the session read co-reported",
+      "displacement_from_base": {
+        "norm": 9.1788432658723,
+        "v_excess": 1.0092428433036382,
+        "cos_to_span": 0.005966837249160527,
+        "in_own_room": 0.9441588788935659,
+        "note": "the write's own standing displacement (e268's SERIAL post read in_own_room 0.944 \u2014 the continuation ledger's t=0 reference)"
+      },
+      "pass": true
+    },
+    "G_CORPUSGEN": {
+      "form": "the REGISTERED fresh corpus stream: seed 28301 (the family's per-cell rule \u2014 26801/26901/27001/27101/27301/27801/28301), its own generator; per corpus step the draws (aj_c(16), rj_c(32)) in that order; the first step's draws logged here from a scratch generator (the driver's cgen starts identically by construction)",
+      "seed": 28301,
+      "first_step_aj": [
+        3,
+        42,
+        53,
+        27,
+        48,
+        27,
+        30,
+        31,
+        45,
+        40,
+        11,
+        46,
+        26,
+        17,
+        12,
+        47
+      ],
+      "first_step_rj": [
+        120345,
+        93158,
+        577929,
+        310836,
+        628899,
+        69742,
+        786037,
+        961341,
+        835313,
+        3437,
+        479137,
+        450899,
+        471424,
+        286854,
+        123417,
+        406738,
+        958975,
+        61215,
+        546512,
+        106084,
+        284958,
+        168651,
+        129678,
+        933565,
+        874403,
+        349663,
+        922897,
+        207652,
+        994595,
+        868590,
+        690967,
+        803222
+      ],
+      "composition": "16 original-host anchors (the 60-window bank) + 32 random corpus windows (contiguous train_ids slices); full-window CE; clip 1.0 -> opt.step FREE",
+      "pass": true
+    },
+    "G_CONTROL": {
+      "form": "the storage-decay null: with NO steps the state cannot move; all four milestone reads must return the loaded fact's own read (the read pipeline's determinism gate \u2014 tol 5e-07, same-session repeated CPU reads are exact to fp32 determinism)",
+      "max_abs_g0_drift": 0.0,
+      "bar": 5e-07,
+      "pass": true
+    }
+  },
+  "phase_note": "P9 DONE (honesty + provenance + figures)",
+  "device_events": [],
+  "rooms": {
+    "vehicle": {
+      "k": 10000,
+      "name": "K10K",
+      "seeds": [
+        26113,
+        26114
+      ],
+      "k_fraction_of_N": 0.0036508715360530864,
+      "bit_bound_to": "runs/checkpoints/e264_rooms.pt (e264's committed K10K room \u2014 the fact's own room)"
+    },
+    "cert_probes_seed": 26115,
+    "certification": {
+      "probes": 4,
+      "seed": 26115,
+      "dct_roundtrip_rel": 8.195877245616001e-16,
+      "per_rung": {
+        "K10K": {
+          "k": 10000,
+          "seeds": [
+            26113,
+            26114
+          ],
+          "idempotency_max": 5.669754673327867e-16,
+          "kept2_mean": 0.0036073728283031233,
+          "kept2_expect": 0.0036508715360530864,
+          "kept2_bar_10sig": 0.0002581556020384085,
+          "kept2_pass": true,
+          "idempotency_pass": true,
+          "span_overlap_mean": 0.06038652639299012,
+          "span_overlap_expect": 0.06042244232115321
+        }
+      },
+      "pass": true
+    },
+    "vmap_source": "runs/checkpoints/e258_vmap.pt (e258's committed 2.74M v-map; LOADED, not re-run)",
+    "span_source": "runs/checkpoints/e246_late_span.pt (e246's committed LATE span; rank 10)",
+    "checkpoint": "runs/checkpoints/e283_rooms.pt"
+  },
+  "the_fact": {
+    "checkpoint": "runs/checkpoints/e261_K10K_inst_resume.pt",
+    "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+    "committed_post_g0": 0.26464763283729553,
+    "session_read_g0": 0.26464763283729553,
+    "session_read_gm12": 0.10525520890951157,
+    "session_read_ce_r": 1.5920883417129517,
+    "displacement_from_base": {
+      "norm": 9.1788432658723,
+      "v_excess": 1.0092428433036382,
+      "cos_to_span": 0.005966837249160527,
+      "in_own_room": 0.9441588788935659,
+      "note": "the write's own standing displacement (e268's SERIAL post read in_own_room 0.944 \u2014 the continuation ledger's t=0 reference)"
+    },
+    "baseline_used_for_ratios": "committed (PRIMARY)"
+  },
+  "arms": {
+    "ESTABLISHED-SERIAL-CONTROL": {
+      "desc": "(b) the same-session twin: the SAME loaded formed fact, the corpus stream PAUSED \u2014 NO optimizer steps AT ALL (the pure storage-decay control, the dispatch's recommended freeze; the rejected alternative 'the install stream's zero gradient' disclosed in the docstring) \u2014 with the milestone reads at the SAME cadence t=100/200/300/400 of the matched virtual timeline; by construction every read must return the loaded fact's own read (G_CONTROL gates the null)",
+      "phase": {
+        "traj": [
+          {
+            "step": 100,
+            "g0_pz": 0.26464763283729553,
+            "g0_argmax": 0.2,
+            "gm12_pz": 0.10525520890951157,
+            "ce_r": 1.5920883417129517,
+            "survival_ratio_vs_committed": 1.0,
+            "elapsed_s": 22.3
+          },
+          {
+            "step": 200,
+            "g0_pz": 0.26464763283729553,
+            "g0_argmax": 0.2,
+            "gm12_pz": 0.10525520890951157,
+            "ce_r": 1.5920883417129517,
+            "survival_ratio_vs_committed": 1.0,
+            "elapsed_s": 23.0
+          },
+          {
+            "step": 300,
+            "g0_pz": 0.26464763283729553,
+            "g0_argmax": 0.2,
+            "gm12_pz": 0.10525520890951157,
+            "ce_r": 1.5920883417129517,
+            "survival_ratio_vs_committed": 1.0,
+            "elapsed_s": 23.7
+          },
+          {
+            "step": 400,
+            "g0_pz": 0.26464763283729553,
+            "g0_argmax": 0.2,
+            "gm12_pz": 0.10525520890951157,
+            "ce_r": 1.5920883417129517,
+            "survival_ratio_vs_committed": 1.0,
+            "elapsed_s": 24.4
+          }
+        ],
+        "steps": 0,
+        "post_cells": {
+          "g0": 0.26464763283729553,
+          "gm12": 0.10525520890951157,
+          "ce_r": 1.5920883417129517
+        },
+        "survival_ratio_final": 1.0,
+        "max_abs_g0_drift": 0.0,
+        "note": "NO steps \u2014 the reads are the arm's whole body; the control is the null anchor, vacuous by construction and gated to be exactly that"
+      }
+    },
+    "ESTABLISHED-CONCURRENT": {
+      "desc": "(a) the established fact under fire: the loaded formed 10k write + the family's standard corpus stream ALONE (the 1:1 interleave's corpus steps, the rig verbatim \u2014 48 windows = 16 anchors + 32 random, full-window CE, the matching cadence lr 1e-3 x cosine_lr(t-1,1000), clip 1.0 -> opt.step FREE) through ONE fresh AdamW (0.9,0.95) wd 0.1 for 400 CORPUS steps \u2014 NO install steps (the write already stands); T244's never-run AFTER arm",
+      "phase": {
+        "traj": [
+          {
+            "step": 100,
+            "g0_pz": 0.00017668685177341104,
+            "g0_argmax": 0.0,
+            "gm12_pz": 0.00014383200323209167,
+            "ce_r": 1.7071117162704468,
+            "ce_corpus": 0.8824292421340942,
+            "survival_ratio_vs_committed": 0.000667630576850984,
+            "disp_norm": 6.0530095244151685,
+            "in_room_frac": 0.08756111026258787,
+            "remaining_in_room_frac": 0.7831997519759281,
+            "corpus_disp_interval_in_room_frac": 0.08756111026235132,
+            "corpus_disp_cum_in_room_frac": 0.08756111026235132,
+            "elapsed_s": 97.0
+          },
+          {
+            "step": 200,
+            "g0_pz": 9.96894232230261e-05,
+            "g0_argmax": 0.0,
+            "gm12_pz": 0.00023829856945667416,
+            "ce_r": 1.6824313402175903,
+            "ce_corpus": 0.8152947425842285,
+            "survival_ratio_vs_committed": 0.0003766873791926747,
+            "disp_norm": 10.393712472229053,
+            "in_room_frac": 0.10175154708748996,
+            "remaining_in_room_frac": 0.5973807996158094,
+            "corpus_disp_interval_in_room_frac": 0.08579994781094566,
+            "corpus_disp_cum_in_room_frac": 0.10175154708767062,
+            "elapsed_s": 120.8
+          },
+          {
+            "step": 300,
+            "g0_pz": 5.950020204181783e-05,
+            "g0_argmax": 0.0,
+            "gm12_pz": 4.52354179287795e-05,
+            "ce_r": 1.66305673122406,
+            "ce_corpus": 0.7814369797706604,
+            "survival_ratio_vs_committed": 0.0002248280152892898,
+            "disp_norm": 12.88054130297391,
+            "in_room_frac": 0.10910595660746727,
+            "remaining_in_room_frac": 0.5057202681340983,
+            "corpus_disp_interval_in_room_frac": 0.0751786365062007,
+            "corpus_disp_cum_in_room_frac": 0.10910595660737457,
+            "elapsed_s": 146.1
+          },
+          {
+            "step": 400,
+            "g0_pz": 9.04614535102155e-06,
+            "g0_argmax": 0.0,
+            "gm12_pz": 2.3886157578090206e-05,
+            "ce_r": 1.6652382612228394,
+            "ce_corpus": 0.7747166156768799,
+            "survival_ratio_vs_committed": 3.4181848724802654e-05,
+            "disp_norm": 14.453935847208887,
+            "in_room_frac": 0.11406343783150934,
+            "remaining_in_room_frac": 0.4545671609496503,
+            "corpus_disp_interval_in_room_frac": 0.06991579330449241,
+            "corpus_disp_cum_in_room_frac": 0.1140634378314966,
+            "elapsed_s": 170.8
+          }
+        ],
+        "corpus_ledger": {
+          "1": {
+            "ce": 0.9341120719909668,
+            "gn_clipped": 0.7478283643722534,
+            "g_in_room_frac": 0.06097340066406719
+          },
+          "10": {
+            "ce": 0.9571033120155334,
+            "gn_clipped": 0.8338019251823425,
+            "g_in_room_frac": 0.0598104829467469
+          },
+          "20": {
+            "ce": 0.921666145324707,
+            "gn_clipped": 0.8864825963973999,
+            "g_in_room_frac": 0.06068115633125029
+          },
+          "30": {
+            "ce": 0.9123855233192444,
+            "gn_clipped": 0.9999990463256836,
+            "g_in_room_frac": 0.060411676058513455
+          },
+          "40": {
+            "ce": 0.8815736174583435,
+            "gn_clipped": 0.9999990463256836,
+            "g_in_room_frac": 0.06099422792124028
+          },
+          "50": {
+            "ce": 0.8669025897979736,
+            "gn_clipped": 0.9999991059303284,
+            "g_in_room_frac": 0.06072263252614752
+          },
+          "60": {
+            "ce": 0.8558002710342407,
+            "gn_clipped": 0.9999991655349731,
+            "g_in_room_frac": 0.06041633991684956
+          },
+          "70": {
+            "ce": 0.9014878273010254,
+            "gn_clipped": 0.9999990463256836,
+            "g_in_room_frac": 0.06006328625637986
+          },
+          "80": {
+            "ce": 0.8774987459182739,
+            "gn_clipped": 0.9999991655349731,
+            "g_in_room_frac": 0.0602053723499686
+          },
+          "90": {
+            "ce": 0.8812775611877441,
+            "gn_clipped": 0.9999991655349731,
+            "g_in_room_frac": 0.06005937732262732
+          },
+          "100": {
+            "ce": 0.8824292421340942,
+            "gn_clipped": 0.9999992847442627,
+            "g_in_room_frac": 0.06068157355072906
+          },
+          "110": {
+            "ce": 0.8880619406700134,
+            "gn_clipped": 0.9999992251396179,
+            "g_in_room_frac": 0.060839710783773
+          },
+          "120": {
+            "ce": 0.8488940596580505,
+            "gn_clipped": 0.9999993443489075,
+            "g_in_room_frac": 0.06000543301247367
+          },
+          "130": {
+            "ce": 0.8947721719741821,
+            "gn_clipped": 0.9999992251396179,
+            "g_in_room_frac": 0.06016555836546594
+          },
+          "140": {
+            "ce": 0.8487507700920105,
+            "gn_clipped": 0.9999992847442627,
+            "g_in_room_frac": 0.0603956641010336
+          },
+          "150": {
+            "ce": 0.8501145839691162,
+            "gn_clipped": 0.9999991655349731,
+            "g_in_room_frac": 0.06073988471960112
+          },
+          "160": {
+            "ce": 0.8284207582473755,
+            "gn_clipped": 0.9944559931755066,
+            "g_in_room_frac": 0.06061187500495003
+          },
+          "170": {
+            "ce": 0.8421704769134521,
+            "gn_clipped": 0.9999991655349731,
+            "g_in_room_frac": 0.06070411537892919
+          },
+          "180": {
+            "ce": 0.8239904046058655,
+            "gn_clipped": 0.9999992251396179,
+            "g_in_room_frac": 0.060080188297528044
+          },
+          "190": {
+            "ce": 0.8126905560493469,
+            "gn_clipped": 0.9999990463256836,
+            "g_in_room_frac": 0.06039414467829813
+          },
+          "200": {
+            "ce": 0.8152947425842285,
+            "gn_clipped": 0.9999990463256836,
+            "g_in_room_frac": 0.06010748735167019
+          },
+          "210": {
+            "ce": 0.8403536081314087,
+            "gn_clipped": 0.9999990463256836,
+            "g_in_room_frac": 0.06049821892426965
+          },
+          "220": {
+            "ce": 0.8460915684700012,
+            "gn_clipped": 0.9999992251396179,
+            "g_in_room_frac": 0.06049814575240935
+          },
+          "230": {
+            "ce": 0.8069447875022888,
+            "gn_clipped": 0.9913782477378845,
+            "g_in_room_frac": 0.06016239881302174
+          },
+          "240": {
+            "ce": 0.8133219480514526,
+            "gn_clipped": 0.9561740756034851,
+            "g_in_room_frac": 0.059761006986597115
+          },
+          "250": {
+            "ce": 0.8295973539352417,
+            "gn_clipped": 0.9789572954177856,
+            "g_in_room_frac": 0.059965204635979215
+          },
+          "260": {
+            "ce": 0.8135808110237122,
+            "gn_clipped": 0.9999991655349731,
+            "g_in_room_frac": 0.06060017863458663
+          },
+          "270": {
+            "ce": 0.7899124026298523,
+            "gn_clipped": 0.9383448362350464,
+            "g_in_room_frac": 0.060501570473150926
+          },
+          "280": {
+            "ce": 0.7967429161071777,
+            "gn_clipped": 0.9060658812522888,
+            "g_in_room_frac": 0.060410515839136134
+          },
+          "290": {
+            "ce": 0.779802680015564,
+            "gn_clipped": 0.8866346478462219,
+            "g_in_room_frac": 0.06145034206428664
+          },
+          "300": {
+            "ce": 0.7814369797706604,
+            "gn_clipped": 0.8314214944839478,
+            "g_in_room_frac": 0.060734613979601275
+          },
+          "310": {
+            "ce": 0.7895563840866089,
+            "gn_clipped": 0.8247072696685791,
+            "g_in_room_frac": 0.060380415125738156
+          },
+          "320": {
+            "ce": 0.781841516494751,
+            "gn_clipped": 0.9594604969024658,
+            "g_in_room_frac": 0.060179366940841854
+          },
+          "330": {
+            "ce": 0.7913244962692261,
+            "gn_clipped": 0.8570648431777954,
+            "g_in_room_frac": 0.05990777535184645
+          },
+          "340": {
+            "ce": 0.8269056677818298,
+            "gn_clipped": 0.9760543704032898,
+            "g_in_room_frac": 0.060530363403568044
+          },
+          "350": {
+            "ce": 0.7781521677970886,
+            "gn_clipped": 0.8193570375442505,
+            "g_in_room_frac": 0.06065387645515597
+          },
+          "360": {
+            "ce": 0.7794574499130249,
+            "gn_clipped": 0.8674249649047852,
+            "g_in_room_frac": 0.06032218573948052
+          },
+          "370": {
+            "ce": 0.79799485206604,
+            "gn_clipped": 0.9285538196563721,
+            "g_in_room_frac": 0.060775822794016186
+          },
+          "380": {
+            "ce": 0.7899643778800964,
+            "gn_clipped": 0.8476739525794983,
+            "g_in_room_frac": 0.060282128576063486
+          },
+          "390": {
+            "ce": 0.7793179750442505,
+            "gn_clipped": 0.9222090840339661,
+            "g_in_room_frac": 0.06028767659766275
+          },
+          "400": {
+            "ce": 0.7747166156768799,
+            "gn_clipped": 0.9058464765548706,
+            "g_in_room_frac": 0.06069307650179013
+          }
+        },
+        "disp_ledger": [
+          {
+            "step": 100,
+            "drift_from_fact_norm": 6.0530095244151685,
+            "drift_from_fact_in_room_frac": 0.08756111026258787,
+            "drift_from_fact_v_excess": 0.5103188969269455,
+            "drift_from_fact_cos_to_span": 0.010676814804049476,
+            "remaining_from_base_norm": 10.567217545533659,
+            "remaining_from_base_in_room_frac": 0.7831997519759281,
+            "corpus_disp_interval_norm": 6.053009524412931,
+            "corpus_disp_interval_in_room_frac": 0.08756111026235132,
+            "corpus_disp_cum_norm": 6.053009524412931,
+            "corpus_disp_cum_in_room_frac": 0.08756111026235132
+          },
+          {
+            "step": 200,
+            "drift_from_fact_norm": 10.393712472229053,
+            "drift_from_fact_in_room_frac": 0.10175154708748996,
+            "drift_from_fact_v_excess": 0.486948386476679,
+            "drift_from_fact_cos_to_span": 0.006382592592330286,
+            "remaining_from_base_norm": 13.097113110721969,
+            "remaining_from_base_in_room_frac": 0.5973807996158094,
+            "corpus_disp_interval_norm": 7.625381772162508,
+            "corpus_disp_interval_in_room_frac": 0.08579994781094566,
+            "corpus_disp_cum_norm": 10.39371247221907,
+            "corpus_disp_cum_in_room_frac": 0.10175154708767062
+          },
+          {
+            "step": 300,
+            "drift_from_fact_norm": 12.88054130297391,
+            "drift_from_fact_in_room_frac": 0.10910595660746727,
+            "drift_from_fact_v_excess": 0.49253166674613763,
+            "drift_from_fact_cos_to_span": 0.006381782801948177,
+            "remaining_from_base_norm": 14.877417725808007,
+            "remaining_from_base_in_room_frac": 0.5057202681340983,
+            "corpus_disp_interval_norm": 6.99679243189153,
+            "corpus_disp_interval_in_room_frac": 0.0751786365062007,
+            "corpus_disp_cum_norm": 12.880541302960658,
+            "corpus_disp_cum_in_room_frac": 0.10910595660737457
+          },
+          {
+            "step": 400,
+            "drift_from_fact_norm": 14.453935847208887,
+            "drift_from_fact_in_room_frac": 0.11406343783150934,
+            "drift_from_fact_v_excess": 0.5014226787807702,
+            "drift_from_fact_cos_to_span": 0.011282125515895023,
+            "remaining_from_base_norm": 16.08044667112344,
+            "remaining_from_base_in_room_frac": 0.4545671609496503,
+            "corpus_disp_interval_norm": 6.329162952163221,
+            "corpus_disp_interval_in_room_frac": 0.06991579330449241,
+            "corpus_disp_cum_norm": 14.453935847202613,
+            "corpus_disp_cum_in_room_frac": 0.1140634378314966
+          }
+        ],
+        "corpus_ce_median": 0.8284207582473755,
+        "corpus_gn_clipped_median": 0.9944559931755066,
+        "corpus_g_in_room_frac_median": 0.060411676058513455,
+        "chunk_table": [
+          {
+            "chunk": 1,
+            "device": "cuda",
+            "t_start": 74.5,
+            "seconds": 97.7,
+            "steps_done": 400,
+            "capped": false,
+            "max_temp_c": 75.0
+          }
+        ],
+        "steps": 400,
+        "post_cells": {
+          "gm12": 2.3886157578090206e-05,
+          "g0": 9.04614535102155e-06,
+          "gp12": 1.656910353631247e-05,
+          "ce_r": 1.6652382612228394
+        },
+        "drift_from_fact_final": {
+          "norm": 14.453935847162086,
+          "v_excess": 0.5014226787567445,
+          "cos_to_span": 0.01128212551274062,
+          "in_own_room": 0.1140634378168603
+        },
+        "checkpoint": "runs/checkpoints/e283_ESTABLISHED-CONCURRENT_post.pt",
+        "resumed_final": false
+      }
+    }
+  },
+  "adjudication": {
+    "bars_verbatim": {
+      "ESTABLISHED-SPARED": "the established write SURVIVES (>= 0.5x through 400 corpus steps) while the forming write died at 0.0002x \u2014 the collision kills FORMATION, not the formed; the barrier is formation-time only; T244's AFTER arm lands as 'the corpus is an additive abrasive only for forming writes.'",
+      "ESTABLISHED-DIES": "the established write also dies (< 0.5x) \u2014 the collision is content-agnostic about age; retention and formation die together; the 237k retention barrier (e271) generalizes down to 10k for established facts.",
+      "MIXED": "partial decay (0.5x-0.9x) or non-monotone \u2014 the trajectories verbatim."
+    },
+    "composite_order": "TEXTURE -> ESTABLISHED-DIES -> MIXED (PARTIAL-DECAY / NON-MONOTONE) -> ESTABLISHED-SPARED (frozen; MIXED's partial-decay carve-out takes precedence over SPARED's floor \u2014 named at birth, no bar moved)",
+    "gates_pass": true,
+    "reads": {
+      "the_fact_loaded": {
+        "g0": 0.26464763283729553,
+        "committed": 0.26464763283729553,
+        "gm12": 0.10525520890951157,
+        "ce_r": 1.5920883417129517
+      },
+      "ESTABLISHED-SERIAL-CONTROL": {
+        "post_g0": 0.26464763283729553,
+        "survival_ratio": 1.0,
+        "max_abs_g0_drift": 0.0,
+        "note": "the storage-decay null (no steps)"
+      },
+      "ESTABLISHED-CONCURRENT": {
+        "post_g0": 9.04614535102155e-06,
+        "survival_ratio_committed_denom": 3.4181848724802654e-05,
+        "survival_ratio_session_denom": 3.4181848724802654e-05,
+        "post_gm12": 2.3886157578090206e-05,
+        "post_ce_r": 1.6652382612228394,
+        "traj_g0": {
+          "100": 0.00017668685177341104,
+          "200": 9.96894232230261e-05,
+          "300": 5.950020204181783e-05,
+          "400": 9.04614535102155e-06
+        },
+        "survival_ratio_milestones": {
+          "100": 0.000667630576850984,
+          "200": 0.0003766873791926747,
+          "300": 0.0002248280152892898,
+          "400": 3.4181848724802654e-05
+        },
+        "min_milestone_ratio": 3.4181848724802654e-05,
+        "corpus_ce_median": 0.8284207582473755,
+        "corpus_gn_clipped_median": 0.9944559931755066,
+        "corpus_g_in_room_frac_median": 0.060411676058513455,
+        "drift_ledger": [
+          {
+            "step": 100,
+            "drift_from_fact_norm": 6.0530095244151685,
+            "drift_from_fact_in_room_frac": 0.08756111026258787,
+            "drift_from_fact_v_excess": 0.5103188969269455,
+            "drift_from_fact_cos_to_span": 0.010676814804049476,
+            "remaining_from_base_norm": 10.567217545533659,
+            "remaining_from_base_in_room_frac": 0.7831997519759281,
+            "corpus_disp_interval_norm": 6.053009524412931,
+            "corpus_disp_interval_in_room_frac": 0.08756111026235132,
+            "corpus_disp_cum_norm": 6.053009524412931,
+            "corpus_disp_cum_in_room_frac": 0.08756111026235132
+          },
+          {
+            "step": 200,
+            "drift_from_fact_norm": 10.393712472229053,
+            "drift_from_fact_in_room_frac": 0.10175154708748996,
+            "drift_from_fact_v_excess": 0.486948386476679,
+            "drift_from_fact_cos_to_span": 0.006382592592330286,
+            "remaining_from_base_norm": 13.097113110721969,
+            "remaining_from_base_in_room_frac": 0.5973807996158094,
+            "corpus_disp_interval_norm": 7.625381772162508,
+            "corpus_disp_interval_in_room_frac": 0.08579994781094566,
+            "corpus_disp_cum_norm": 10.39371247221907,
+            "corpus_disp_cum_in_room_frac": 0.10175154708767062
+          },
+          {
+            "step": 300,
+            "drift_from_fact_norm": 12.88054130297391,
+            "drift_from_fact_in_room_frac": 0.10910595660746727,
+            "drift_from_fact_v_excess": 0.49253166674613763,
+            "drift_from_fact_cos_to_span": 0.006381782801948177,
+            "remaining_from_base_norm": 14.877417725808007,
+            "remaining_from_base_in_room_frac": 0.5057202681340983,
+            "corpus_disp_interval_norm": 6.99679243189153,
+            "corpus_disp_interval_in_room_frac": 0.0751786365062007,
+            "corpus_disp_cum_norm": 12.880541302960658,
+            "corpus_disp_cum_in_room_frac": 0.10910595660737457
+          },
+          {
+            "step": 400,
+            "drift_from_fact_norm": 14.453935847208887,
+            "drift_from_fact_in_room_frac": 0.11406343783150934,
+            "drift_from_fact_v_excess": 0.5014226787807702,
+            "drift_from_fact_cos_to_span": 0.011282125515895023,
+            "remaining_from_base_norm": 16.08044667112344,
+            "remaining_from_base_in_room_frac": 0.4545671609496503,
+            "corpus_disp_interval_norm": 6.329162952163221,
+            "corpus_disp_interval_in_room_frac": 0.06991579330449241,
+            "corpus_disp_cum_norm": 14.453935847202613,
+            "corpus_disp_cum_in_room_frac": 0.1140634378314966
+          }
+        ],
+        "drift_from_fact_final_in_room": 0.1140634378168603
+      },
+      "the_forming_reference_e268": {
+        "serial_post_g0": 0.26464739441871643,
+        "concurrent_post_g0": 4.004325455753133e-05,
+        "ratio": 0.00015130794937726159,
+        "note": "the SPARED bar's '0.0002x' cite (hard-bound in G_PARENTS)"
+      },
+      "the_237k_retention_barrier_e271": {
+        "concurrent_post_g0": 0.034998517483472824,
+        "ratio": 0.09105560790573215
+      },
+      "non_monotone_reads": {
+        "max_upward_swing": -4.018922118120827e-05,
+        "bar": 0.01,
+        "interior_below_bar": false,
+        "non_monotone": false
+      }
+    },
+    "scatter_disclosure": {
+      "read_determinism": "same-session repeated CPU reads are exact (G_CONTROL measured 0.0e+00); cross-session |d post g0| ~ 5e-7-1e-6 on a bit-identical arm (the family law; G_FACTLOAD's measured delta co-reported)",
+      "the_two_denominators": {
+        "committed": 0.26464763283729553,
+        "session_loaded": 0.26464763283729553,
+        "ratios_agree_to": 0.0
+      },
+      "n1_caveat": "n=1 per arm, one lineage, one session (the g-series standing lottery note carried verbatim)"
+    },
+    "verdict": "ESTABLISHED-DIES",
+    "clause": "the established write also dies (ratio_400 0.0000x < 50%x) \u2014 the collision is content-agnostic about age; retention and formation die together; the 237k retention barrier (e271) generalizes down to 10k for established facts (the trajectory verbatim: t100 x0.0007; t200 x0.0004; t300 x0.0002; t400 x0.0000)",
+    "smoke_stamp": null
+  },
+  "honesty": {
+    "intervention_not_logits": "the two arms share ONE loaded artifact (the committed quiet-formed 10k write, md5/flat-md5/behavior-gated), the same milestone cadence, the same reads \u2014 the ONLY delta is the corpus stream RUNNING (400 steps of the family's standard corpus step through the rig's fresh AdamW) vs PAUSED (no steps). Any decay in the concurrent arm is the corpus traffic's doing (gradients + clip + Adam + wd) or nothing is; the control nulls time, storage and the read pipeline itself.",
+    "the_wd_disclosure": "the rig's AdamW wd 0.1 rides the corpus steps at the paired lr \u2014 a ~3.4% uniform weight shrink over the 400-step cosine (sum lr ~ 0.344), itself mostly an in-room-direction shrink of the ~94%-in-room fact. This channel is part of the intervention's body (the same channel acted on e268's forming arm) \u2014 measured in the drift ledger, never assumed",
+    "n_and_scope": "n=1 per arm, one lineage, one session; the arms' DIFFERENCE is the registered object; the corpus stream is the intervention's own body, ledgered per step",
+    "loads_measured_not_nominal": "the drift ledger is measured per milestone in fp64: the state's drift from the loaded fact with its in-room share (the roach-motel continuation), the remaining-from-base room occupancy, the corpus stream's realized interval/cumulative displacement with in-room fractions, and the corpus gradient's own in-room fraction every 10 steps \u2014 never nominal",
+    "nothing_guaranteed": "the dispatch's own caveat carried: no outcome was promised; the bars cover all three branches and the trajectories are reported verbatim regardless"
+  },
+  "provenance": {
+    "git_head_at_start": "3f6b7b18632d63c8bdfcbb6197ca9cefb3576557",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e283_established_collision.py",
+    "machinery_imported_from": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e261_rank_ladder.py",
+    "checkpoints": {
+      "base": "runs/checkpoints/e001.pt",
+      "reference_root": {
+        "file": "runs/checkpoints/g1c_root.pt",
+        "flat_md5": "a7f02b367c5342535aecfc814d780631"
+      },
+      "the_fact": {
+        "file": "runs/checkpoints/e261_K10K_inst_resume.pt",
+        "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "loaded_flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+        "note": "read-only here \u2014 the established fact"
+      },
+      "span_ledger": "runs/checkpoints/e246_late_span.pt",
+      "vmap": "runs/checkpoints/e258_vmap.pt",
+      "e264_rooms": "runs/checkpoints/e264_rooms.pt",
+      "rooms": "runs/checkpoints/e283_rooms.pt",
+      "post_state_concurrent": "runs/checkpoints/e283_ESTABLISHED-CONCURRENT_post.pt"
+    },
+    "machinery": {
+      "corpus_phase": "THIS file's chunked_corpus_phase (the cell's one new driver): the family's standard corpus step VERBATIM (e268's registered form, fresh generator 28301) at the matching cadence through the rig's fresh AdamW \u2014 no install, no projection, the drift ledger at the milestones",
+      "control": "THIS file's serial_control_reads: the paused-stream storage-decay null (no steps; the reads are the arm)",
+      "cons": "NONE (the e278 precedent, T259/e281; the post state checkpointed)"
+    },
+    "eval": {
+      "device": "cpu fp32 probes / cuda fp32 training / cpu fp64 dense projections",
+      "threads": 4
+    },
+    "thermal_envelope": {
+      "burst_cap_s": 175.0,
+      "cooldown_s": 40.0,
+      "per_step_polls": "after EVERY corpus opt step \u2014 aggregated from runs/_envelope_log.jsonl (the persisted ledger; survives resume passes; tags e283:ARM:phase per the dispatch)",
+      "early_end_margin_c": 78.0,
+      "hard_line_c": 84.0,
+      "n_polls": 402,
+      "max_temp_seen_c": 75.0,
+      "violations_ge_84c": 0,
+      "note": "aggregated across ALL passes of this cell; the smoke's polls are tagged e283_smoke: and excluded"
+    },
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "numpy": "2.3.5",
+      "scipy": "1.16.2",
+      "matplotlib": "3.10.6"
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e283\\metrics.json",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e283\\e283_established_collision.png"
+  ]
+}
