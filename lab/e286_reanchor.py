@@ -580,6 +580,34 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE PASS (pass 1, runs/e286_smoke/; the e260-family record): "
+    "ONE code bug caught — the figure's in-room panel max()'d a None "
+    "(maint_disp_cum_in_room_frac is None at milestones before the first "
+    "maintenance fires); guarded with an explicit floor helper (no bar, "
+    "gate, arm, or read touched). THE SUBSTANCE VERIFICATIONS (the "
+    "centerpieces, all PASS): (1) THE MAINTENANCE INJECTION PATH — 4/4 "
+    "maintenance steps fired at M=2, each through opt_F ONLY (bidirectional "
+    "bitwise isolation 8 corpus + 4 maintenance checks, 0 violations; "
+    "opt_F stepped EXACTLY 4x, machine-counted), the install draws from "
+    "seed 28602's own generator, the corpus draws bit-identical across "
+    "arms (draw-integrity EXACT: t1 CE + clipped gn equal); (2) THE "
+    "BUDGET'S TOTAL ACCOUNTING — S_corpus + S_maint both accumulated, the "
+    "split disclosed per milestone, the corpus cap's reservation spans all "
+    "events (the cap bound from t3 the moment S_total crossed the smoke "
+    "budget, 'CAP' stamped, lr -> 0 — the corpus stream pays the "
+    "maintenance's bill exactly as designed), G_BUDGET's NON-HALTING "
+    "failure routing exercised (verdict -> MAINTENANCE-FAILS by the gates "
+    "clause, no HALT); (3) the orthogonality machine-exact (max 1.1e-17); "
+    "buf_C at the fp floor (max 1.25e-09). Disclosed smoke-scale preview "
+    "(NOT adjudicated, SMOKE stamped): at MAINT_LR = LR_SGD/100 each "
+    "maintenance step moved 0.165-0.207 with the install gradient's "
+    "in-room fraction only 0.013-0.014 (bufF in-room 1.3e-02) — the Dmix "
+    "gradient at the fact state points ~99% OUT-OF-ROOM (P-e286c's "
+    "token-mass reading) — and each maintenance step CRASHED the read "
+    "(x0.854 -> x0.0099 at the first, x0.0099 -> x0.0011 at the second): "
+    "at this dose the maintenance ADDS transport faster than the corpus "
+    "stream alone (the smoke twin fell only to x0.026). The full run is "
+    "the datum; the shape is registered under P-e286b/P-e286c.",
     "THE MAINTENANCE-LR DENOMINATION (the cell's one interpretive fork, "
     "disclosed at birth): the dispatch's '1/100 of the install's formation "
     "lr' is read in the APPLYING OPTIMIZER'S denomination (SGD-M — the "
@@ -3370,19 +3398,22 @@ def make_reanchor_plot(rd, metrics, verdict, clause, thermal_log,
     ax = axes[1, 0]
     dl_r = {int(d["step"]): d for d in rea["disp_ledger"]}
     dl_t = {int(d["step"]): d for d in twn["disp_ledger"]}
+
+    def _fl(v, floor=1e-12):
+        return max(v, floor) if v is not None else floor
     steps_s = sorted(dl_r)
     ax.semilogy(steps_s,
-                [max(dl_r[s]["corpus_disp_cum_in_room_frac"], 1e-12)
+                [_fl(dl_r[s]["corpus_disp_cum_in_room_frac"])
                  for s in steps_s], "o-", lw=1.6, ms=5,
                 color="tab:cyan", label="RE-ANCHORED corpus cum in-room")
     ax.semilogy(steps_s,
-                [max(dl_r[s]["maint_disp_cum_in_room_frac"], 1e-12)
+                [_fl(dl_r[s]["maint_disp_cum_in_room_frac"])
                  for s in steps_s], "^-", lw=1.6, ms=5,
                 color="tab:orange", label="RE-ANCHORED maint cum in-room "
-                "(the direction read)")
+                "(the direction read; floor = none yet)")
     steps_t = sorted(dl_t)
     ax.semilogy(steps_t,
-                [max(dl_t[s]["corpus_disp_cum_in_room_frac"], 1e-12)
+                [_fl(dl_t[s]["corpus_disp_cum_in_room_frac"])
                  for s in steps_t], "s--", lw=1.4, ms=4.5,
                 color="tab:blue", alpha=0.8, label="TWIN corpus cum "
                 "in-room")
