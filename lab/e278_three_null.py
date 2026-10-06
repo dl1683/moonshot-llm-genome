@@ -472,6 +472,22 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE CATCHES (pass 1, runs/e278_smoke/; the e260-family record "
+    "intact): (1) THE DISPLACEMENT PANEL'S KEY MISMATCH — the figure read "
+    "the traj rows' key name from the disp_ledger rows (a KeyError at the "
+    "figure stage; smoke-only, no bar/gate/arm touched); fixed. (2) THE "
+    "PER-STEP CPU FLATTENS' COST — the displacement ledger's original "
+    "per-corpus-step CPU fp64 flattens cost ~2s/step; the accumulators "
+    "moved to GPU fp32 (per-step) with the fp64 projection at the "
+    "milestones only (fp32 accumulation over 400 ~1e-3-magnitude steps "
+    "carries ~1e-6 relative error — three orders below the fractions "
+    "read; no measurement-semantics change). THE SMOKE'S SUBSTANCE "
+    "VERIFICATIONS: the missile's projection arithmetic EXACT (orth max "
+    "1.1e-17 vs the 1e-6 bar — the dispatch's smoke centerpiece "
+    "confirmed); the missile's REALIZED corpus displacement already "
+    "~5% in-room at smoke k (0.048-0.076 vs the room's sqrt(k/N) 0.0137) "
+    "— the optimizer-rotation datum the registration anticipated, now "
+    "the full run's to measure at k=10k.",
     "NO CONS, NO ROOT/LANDING READS IN THIS CELL (registered at birth): "
     "the dispatch's reads list carries NO landing read and every bar "
     "adjudicates the WRITE read (post g0 at s400); T259/e281's FLAT "
@@ -723,8 +739,13 @@ def chunked_install_threenull(tag, net0, proj: "E261.LadderRooms",
     step = state["step"]
     t_burst, n_burst = None, 0
     chunk_temps: list[float] = []
-    corp_cum = state["corp_cum"].numpy().astype(np.float64).copy()
-    corp_prev = state["corp_prev"].numpy().astype(np.float64).copy()
+    # the corpus-displacement ledger's accumulators (GPU fp32 per step —
+    # the smoke's performance catch: per-step CPU fp64 flattens cost ~2s/
+    # step; the projection stays CPU fp64 at the MILESTONES only; fp32
+    # accumulation over 400 ~1e-3 steps carries ~1e-6 relative error —
+    # three orders below the fractions being read)
+    corp_cum = state["corp_cum"].to(dev)
+    corp_prev = state["corp_prev"].to(dev)
     room = proj.rooms[mode]
     orth_max = 0.0
     orth_ratio_first = None
@@ -840,11 +861,13 @@ def chunked_install_threenull(tag, net0, proj: "E261.LadderRooms",
                         "norm_ratio": r,
                         "in_room_frac": orth_row["in_room_frac"],
                         "orth_rel_err": orth_row["orth_rel_err"]}
-            theta_b = flat_params_cpu(net).double().numpy()
+            theta_b = torch.cat([p.detach().reshape(-1)
+                                 for p in net.parameters()])
             opt.step()                          # FREE — except the missile's
                                                 # gradient was orthogonalized
-            theta_a = flat_params_cpu(net).double().numpy()
-            corp_cum += theta_a - theta_b
+            with torch.no_grad():
+                corp_cum += torch.cat([p.detach().reshape(-1)
+                                       for p in net.parameters()]) - theta_b
             if step % 10 == 0 or step == 1 or step == n_steps or SMOKE:
                 state["corpus_ledger"][step] = {"ce": float(loss_c.item()),
                                                 "gn_clipped": gn_c}
@@ -863,16 +886,17 @@ def chunked_install_threenull(tag, net0, proj: "E261.LadderRooms",
                 ld_mil = proj.displacement_loads(torch.from_numpy(d_mil),
                                                  mode)
                 dn = float(np.linalg.norm(d_mil))
-                v_int = corp_cum - corp_prev
-                vn = float(np.linalg.norm(v_int))
+                v_int_np = (corp_cum - corp_prev).double().cpu().numpy()
+                vn = float(np.linalg.norm(v_int_np))
                 if vn > 0:
-                    pv = room.project(v_int)
+                    pv = room.project(v_int_np)
                     in_room_frac_c = float(np.linalg.norm(pv) / vn)
                 else:
                     in_room_frac_c = None
-                corp_prev = corp_cum.copy()
-                cum_n = float(np.linalg.norm(corp_cum))
-                pcum = room.project(corp_cum)
+                corp_prev = corp_cum.clone()
+                cum_np = corp_cum.double().cpu().numpy()
+                cum_n = float(np.linalg.norm(cum_np))
+                pcum = room.project(cum_np)
                 in_room_frac_cum = (float(np.linalg.norm(pcum) / cum_n)
                                     if cum_n > 0 else None)
                 state["disp_ledger"].append({
@@ -933,8 +957,8 @@ def chunked_install_threenull(tag, net0, proj: "E261.LadderRooms",
                     "corpus_ledger": state["corpus_ledger"],
                     "orth_ledger": state["orth_ledger"],
                     "disp_ledger": state["disp_ledger"],
-                    "corp_cum": torch.from_numpy(corp_cum.copy()),
-                    "corp_prev": torch.from_numpy(corp_prev.copy()),
+                    "corp_cum": corp_cum.cpu(),
+                    "corp_prev": corp_prev.cpu(),
                     "orth_max": orth_max,
                     "n_chunks": n_chunks, "chunk_table": chunk_table},
                    resume_ck)
@@ -2160,9 +2184,10 @@ def make_threenull_plot(rd, arms_rec, ratio_sess, die, verdict, clause,
     # (1,0) THE CORPUS DISPLACEMENT GEOMETRY (the spatial datum)
     ax = axes[1, 0]
     for a in CONCURRENT_ARMS:
-        dl = arms_rec[a]["install"]["disp_ledger"]
+        dl = [d for d in arms_rec[a]["install"]["disp_ledger"]
+              if d.get("interval_in_room_frac") is not None]
         ax.plot([d["step"] for d in dl],
-                [d["corpus_disp_interval_in_room_frac"] for d in dl],
+                [d["interval_in_room_frac"] for d in dl],
                 "o-", lw=1.4, ms=4.5, color=cols[a],
                 label=f"{a} (interval in-room frac)")
     ax.axhline(math.sqrt(LADDER[0][0] / 2739072), color="gray", ls=":",
