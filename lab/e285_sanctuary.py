@@ -342,6 +342,7 @@ FACT_LEDGER_MAX = 400
 SGD_MOMENTUM = 0.9                # e273's stable rider convention VERBATIM
 SGD_WD = 0.0                      # e273's disclosed deviation (wd dropped)
 LR_SGD_MATCHED = 21.7385748014537     # e273's committed calibration (md5-bound)
+E273_LR_SGD = 21.7385748014537         # the calibration record's literal
 SGD_STABLE_FACTOR = 0.01              # e273's SGD001X rider factor
 LR_STABLE = SGD_STABLE_FACTOR * LR_SGD_MATCHED   # 0.21738574801453703
 
@@ -497,6 +498,29 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE PASS (pass 1, runs/e285_smoke/; the e260-family record): "
+    "ONE code bug caught — E273_LR_SGD (the lr-calibration literal) was "
+    "referenced in G_PARENTS before its definition; NameError at the "
+    "parents bind, fixed (the literal added to the config block; no bar, "
+    "gate, arm, or read touched). THE SUBSTANCE VERIFICATIONS (both "
+    "centerpieces, all PASS): (1) THE BUDGET CAP'S ARITHMETIC — the "
+    "equal-share reservation held S to EXACTLY 100.0% of the smoke budget "
+    "(0.0918/0.0918; the cap bound from t5, 'CAP' stamped; realized cum "
+    "0.0791 = 86.2% of budget — the orthogonal steps cancel below the "
+    "triangle bound exactly as designed; the guarantee S <= BUDGET held "
+    "to fp); (2) THE BUFFER SEPARATION — 8/8 bitwise isolation checks, 0 "
+    "violations, opt_F's state EMPTY throughout, buf_C in-room at the fp "
+    "floor (3.4e-10 -> 9.8e-10 vs the 1e-4 bar — e284's SEP arithmetic "
+    "replicating); (3) the orthogonality machine-exact (max 1.1e-17); (4) "
+    "G_FACTLOAD's three-way bind EXACT (|d post g0| = 0.0); (5) the "
+    "draw-integrity check EXACT (the t1 corpus CE + clipped gn "
+    "bit-identical across arms — the protection stack the ONLY delta). "
+    "Disclosed smoke-scale preview (NOT adjudicated, SMOKE stamped): the "
+    "sanctuary's read fell x0.970 -> x0.068 over 8 steps — at smoke k=512 "
+    "the room captures only 21.7% of the write (the fact's in-own-room "
+    "load at smoke k), so the projection protects only a fifth of the "
+    "write's own directions; the full run's k=10k room captures 94.4% — "
+    "the full run is the datum.",
     "THE OPT_F DISCLOSURE (the separation's honest minimal form): in this "
     "phase there is NO install stream — the fact stands, formed long ago "
     "under e261's own optimizer state. DIAL 1's separation therefore "
