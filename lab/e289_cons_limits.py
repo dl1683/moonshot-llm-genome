@@ -432,7 +432,15 @@ E281_VERDICT = "FLAT"
 E281_NOINST_FLOOR = 0.6508122086524963      # the cons-only zero point
 
 E283_METRICS = E43.REPO / "runs" / "e283" / "metrics.json"
-E283_MD5 = "db14cdff1fd5021a5b255c12127ea9df"
+E283_MD5 = "cf5be012f636ede7b953eb9a615c60a5"      # the CURRENT working-tree
+                                                  # bytes (CRLF-rewritten on
+                                                  # disk after e288's run;
+                                                  # content json-identical
+                                                  # to the committed blob —
+                                                  # machine-verified in
+                                                  # G_PARENTS)
+E283_MD5_LF = "afd41378c48234e690544c1ba8510a27"   # the committed LF blob
+                                                  # (git show HEAD:...)
 E283_VERDICT = "ESTABLISHED-DIES"           # the unprotected reference
 E283_POST = 9.04614535102155e-06            # the unprotected reference
 E283_RATIO = 3.4181848724802654e-05         # ~0.0000342x — the cite
@@ -674,6 +682,17 @@ deviations: list[str] = [
     "the t1 corpus CE (bar 1e-9) and the t24 window g0 (bar 1e-7) MUST "
     "agree across the arms; C1's EG/NFT t1 CE likewise. A violation = "
     "texture (HALT for autopsy).",
+    "THE e283 PARENT'S BYTE-FORM REBIND (found at the smoke, fixed "
+    "before the full run — the smoke's own catch, disclosed): runs/e283/"
+    "metrics.json was CRLF-rewritten on disk at some point after e288's "
+    "run (its working-tree bytes no longer hash to e288's birth-bind "
+    "db14cdff...; git shows the file untouched since its original commit "
+    "c903894 and the content is json-IDENTICAL to the committed blob — "
+    "machine-verified against git HEAD at THIS cell's bind, with the "
+    "LF-normalized md5 == the committed blob's afd41378...). The bind is "
+    "therefore TRIPLE: the current bytes' md5 + the LF-normalized md5 + "
+    "json-identity to HEAD. No other parent file moved (all other byte-"
+    "binds match their committed forms at this run).",
     "NO WINDOW pre/post ROWS ON ARM (a) (disclosed): there is no "
     "maintenance to bracket; (a) records the four plain flank rows "
     "(t24/t26/t199/t201) — the between-steps view of the passive "
@@ -2498,6 +2517,14 @@ def main():
     e281m = json.loads(E281_METRICS.read_text(encoding="utf-8"))
     e281_floor = e281m["adjudication"]["reads"]["floor_no_install"]
     e283m = json.loads(E283_METRICS.read_text(encoding="utf-8"))
+    e283_bytes = E283_METRICS.read_bytes()
+    e283_lf_md5 = hashlib.md5(e283_bytes.replace(b"\r\n", b"\n")).hexdigest()
+    import subprocess as _sp                                   # noqa: E402
+    e283_head = json.loads(_sp.run(
+        ["git", "show", "HEAD:runs/e283/metrics.json"], cwd=str(E43.REPO),
+        capture_output=True, text=True, encoding="utf-8").stdout)
+    e283_head_identical = bool(e283m == e283_head)
+    del e283_head
     e283_arm = e283m["arms"]["ESTABLISHED-CONCURRENT"]["phase"]
     e283_post = e283_arm["post_cells"]["g0"]
     e283_drift = e283_arm["disp_ledger"][-1]["drift_from_fact_norm"]
@@ -2562,13 +2589,26 @@ def main():
                                  "nothing, 0.6508 from the ZERO point)"},
         "e283_metrics": {"path": str(E283_METRICS),
                          "md5": md5of(E283_METRICS), "bound_md5": E283_MD5,
+                         "lf_normalized_md5": e283_lf_md5,
+                         "committed_blob_lf_md5": E283_MD5_LF,
+                         "json_identical_to_HEAD_blob": e283_head_identical,
                          "verdict": e283m["adjudication"]["verdict"],
                          "concurrent_post_g0": e283_post,
                          "ratio": E283_RATIO,
                          "drift_from_fact_norm": e283_drift,
                          "note": "the unprotected transport cite (arm (a)'s "
                                  "expected class under the weaker standard "
-                                 "traffic)"},
+                                 "traffic). BIND DISCLOSURE (found at this "
+                                 "cell's smoke, fixed before the full run): "
+                                 "the working-tree file was CRLF-rewritten "
+                                 "on disk AFTER e288's run (e288's byte-bind "
+                                 "db14cdff... matched its own runtime's "
+                                 "bytes); the content is json-IDENTICAL to "
+                                 "the committed blob (machine-verified vs "
+                                 "git HEAD here) and the LF-normalized md5 "
+                                 "== the committed blob's — the record "
+                                 "intact, only the byte form moved; bound "
+                                 "fresh to the CURRENT bytes"},
         "e284_metrics": {"path": str(E284_METRICS),
                          "md5": md5of(E284_METRICS), "bound_md5": E284_MD5,
                          "verdict": e284m["adjudication"]["verdict"],
@@ -2704,6 +2744,8 @@ def main():
             and md5of(E264_METRICS) == E264_MD5
             and md5of(E268_METRICS) == E268_MD5
             and md5of(E283_METRICS) == E283_MD5
+            and e283_lf_md5 == E283_MD5_LF
+            and e283_head_identical
             and md5of(E284_METRICS) == E284_MD5
             and md5of(X14_METRICS) == X14_MD5
             and md5of(E285_METRICS) == E285_MD5
