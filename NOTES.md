@@ -40,6 +40,17 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e306 (desk half) — THE MINIMUM BEARER'S TRUNCATION INVENTORY: READS-CLIFF — the injection floor bracket (10, 100] (r100 reads 0.0925 = 35% of the full read; r10 reads 0.0000539 = the base floor; rank 7 dead) — AND THE SCIENTIFIC PUNCHLINE: THE RANK-7 WRITE CARRIES 33.9% OF THE WRITE'S MASS YET READS AT THE BASE FLOOR — THE READ TRACKS THE IN-ROOM SHARE (89.1% -> 66.6% -> 9.0% -> 6.1%), NOT THE MASS: THE BEARER IS THE TAIL SPECTRUM THAT OVERLAPS THE ROOM, NOT THE TOP SINGULAR DIRECTIONS — MASS IS NOT MEMORY; the read is carried entirely by the 2D channel (the 1D-only diagnostic at the base floor); the passive-kill budgets computed per rung (e290's bracket x own norm — the thinner the write, the smaller its absolute safe-drift: r100's budget 0.0057-0.0259); the injectable checkpoints on disk (probe-verified from disk, bitexact roundtrips); the maintenance ladder licensed from r100 (2026-10-06, datetime.now) — DONE (desk half; the maintenance half queued)
+
+WHAT WE SAW: a second occupancy law. x6/x10 said the write fills its
+room; e306's desk says the READ fills its room — truncate away the
+tail spectrum that overlaps the room and the mass can remain (a
+third of it!) while the memory is gone. The room-overlap spectrum IS
+the memory; the top singular directions are ballast. This sharpens
+e294 (the anti-controller: erasing the room-overlap tail may be the
+surgical strike) and e299's wound reading (the free-stream corpses'
+in-room wounds are exactly where the bearer lives).
+
 ## e299 — THE EMBALMING CURVE, AGE-0 HALF (the fantastic frontier's first verdict): ALWAYS-RESUSCITABLE + MASS-TRACKS — EVERY CORPSE ABOVE THE MASS FLOOR RESURRECTS (8/8; the instrument port bit-exact, |d|=0.0 vs x14): THE ORTHOGONAL CORPSES RESTORE TO BASELINE EXACTLY (1.0000 — the sanctuary, the e290 rungs: their entire kill was REMOVABLE OUT-OF-ROOM CONTEXT; they were never dead, only displaced); THE FREE-ADAMW CORPSES RESTORE ONLY 14.8-15.3% (x14's coupling caveat replicates in a second draw — the free stream's kill has an IN-ROOM component surgery cannot reach: TWO KINDS OF DEATH, one surgical, one real); THE e288 TWIN'S SURGERY LANDS 4.8% ABOVE BASELINE (the maintenance overshoot SURVIVES DEATH); MASS-TRACKS (rho 0.883 — resurrection tracks the surviving write mass); THE TWO CLOCKS: the mass half-life ~1,629-1,636 steps vs T269's read clock 1,040 — THE READ DIES ~1.6x FASTER THAN THE MASS ERODES (the aging half's discriminating prediction); the resurrection factors: 4,328x/10,391x (free), 329.8x/102.9x/16.7x/3.1x (orthogonal, saturating with survival); all 8 states value-bound at |d|=0.0; n=1 per corpse; the mass-class collinearity at age 0 unbreakable — the GPU aging half de-confounds (2026-10-06, datetime.now) — DONE
 
 WHAT WE SAW: the lab's founding question — "why do memories die?" — inverts
