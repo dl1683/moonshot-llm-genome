@@ -49,7 +49,7 @@ coordinates: a 20% out-of-room displacement — invisible to the write's
 own mass ledger — destroys the function. The two-channel law refines
 to: collision (engineerable), transport-of-context (a coupling
 constant far tighter than the write's size), storage (perfect), re-
-teaching (free). The next build iteration is named on the card: the
+teaching (free). [COMPLETE-WRITE ENRICHMENT: the threshold datum — at t100 the state had moved only 0.661 = 7.2% of the write's norm and the read was ALREADY 200x down: the orthogonal kill threshold <= 0.07x; the stack softened the kill ~206x vs the twin (real, but two orders under the bar); the lr price: the cap cost the corpus 97% of its applied lr (0.006 vs 0.195) — a budget tight enough to hold the read leaves the stream effectively STOPPED: STILLNESS, the only preservation ever measured; preservation must be denominated in FUNCTION SPACE or bought with stillness.] The next build iteration is named on the card: the
 THRESHOLD SCAN (how small must the displacement be for the read to
 survive — the coupling constant's value) or RE-ANCHORING (periodically
 re-centering the context rather than freezing it).
