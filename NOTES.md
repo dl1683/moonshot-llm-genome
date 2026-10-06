@@ -40,6 +40,19 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e283 — the established-fact collision (T244's never-run AFTER arm, finally): ESTABLISHED-DIES (letter-exact) — AND DEEPER THAN THE FORMING DEATH: the quiet-formed 10k fact survives at 0.0000342x of baseline after 400 corpus steps (4.4x DEEPER than e268's forming death 0.000151x — under fire something was still writing; after establishment NOTHING defends the write; the 237k retention barrier generalizes down to 10k — NO AGE PROTECTION); the ESTABLISHED-SERIAL-CONTROL is EXACTLY FLAT (max |g0 drift| = 0.0 over the full phase — storage is PERFECT absent steps; time/storage/reads nulled: the kill is 100% the steps); AND THE MECHANISM SPLITS IN TWO: the roach motel does NOT generalize to the established regime — the realized corpus displacement walked only 0.070-0.114 in-room (a mild 1.2-1.5x re-aiming, NOT the forming phase's 0.48-0.60 funnel; the raw corpus gradient sits at chance in-room 0.0604 = sqrt(k/N)) — THE LETHAL CHANNEL FOR AN ESTABLISHED WRITE IS TOTAL FREE-STREAM TRANSPORT: the corpus stream alone moved the state 14.454 — FARTHER THAN THE WRITE'S ENTIRE 9.179 DISPLACEMENT — scrubbing the write's room occupancy below half (0.944 -> 0.455); the write is not collided with, it is CARRIED AWAY; TWO KILL MODES NAMED: the forming-phase COLLISION (the in-room funnel) and the established-phase TRANSPORT (the free-stream displacement); fresh AdamW wd 0.1's ~3.4% shrink disclosed (cannot explain a 29,000x collapse); 15/15 gates, the fact-load exact (|d| = 0.0), thermal max 75.0C (2026-10-06, datetime.now) — DONE
+
+WHAT WE SAW: T244's registered discriminator finally ran, four days and
+a mechanism revolution later, and its answer splits the kill by AGE:
+forming writes die by collision (the motel funnels traffic through
+their room); established writes die by transport (the stream simply
+carries the parameters farther than the write extends). The e271
+retention barrier was never a high-rank peculiarity — it is the
+default fate of ANY established fact under a free-running stream.
+And the perfect storage null (0.0 drift with no steps) closes the
+last non-step alternative: the write does not decay, leak, or fade —
+it is STEPPED away.
+
 ## e278 — the three-null collision cell (what the collision needs): UNDERTOW-REGARDLESS (letter-exact: all three concurrent arms die < 0.5x serial, the missile included) — SEMANTIC 0.0018x / ISOTOPE 0.0703x / MISSILE 0.0026x (serial twin 0.2097, bit-faithful at 3.6e-7) — BUT THE MECHANISM DATUM IS THE PRIZE: the missile's gradient was EXACTLY orthogonal (max ||P.room g_perp||/||g_perp|| = 4.6e-17 over all 400 steps, ~0.2% step-size cost) yet its REALIZED corpus displacement walked 48-60% IN-ROOM — indistinguishable from the unprojected semantic stream (46-57%) at every milestone — ADAM'S PER-COORDINATE NORMALIZATION RE-AIMS ORTHOGONAL GRADIENTS INTO THE ROOM (the sign-step law's complement: not only is the first step 80% in-room, EVERY step gets bent back in): THE ROOM IS A ROACH MOTEL UNDER ADAM — gradients check in, applied steps never leave; the undertow's channel is the optimizer's re-aiming, not a room-independent drag; SECONDARY: the isotope's death mode is TOTAL FLATTENING (CE_R 4.198 = chance; the write at the uniform floor 1/65; displacement 85% in-room) — not a spared-but-weakened write, a killed organism-wide entropy floor, so the isotope kills in a DIFFERENT KIND (0.0703x via flattening, not collision) and P-C-x's quantitative "as hard as" does not fire (direction confirmed); no cons phase per the registered e281 deviation (post states checkpointed); 15/15 gates, the missile's orthogonality gate machine-exact, thermal max 78.0C, 0 violations (2026-10-06, datetime.now) — DONE
 
 WHAT WE SAW: the collision needs NOTHING the corpus controls — not
