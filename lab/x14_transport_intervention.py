@@ -336,6 +336,15 @@ deviations: list[str] = [
     "quantify exactly what the committed reads could not separate "
     "(R67's finding-3 arithmetic, reconstructed from the committed "
     "numbers); the adjudication uses ONLY the frozen bars.",
+    "THE BRANCH-LABEL REPAIR (SELF-CAUGHT, disclosed): the first pass's "
+    "code narrowed the coupling-caveat branch to 'mass intact AND read < "
+    "DEAD_BAR', while the registered composite_order (and the dispatch's "
+    "letter: 'mass intact + no resurrection') say the branch is 'mass "
+    "ratio >= 0.50 AND read < 0.10' — no-resurrection means below the "
+    "resurrection bar. The code was repaired to match the registration "
+    "BEFORE the final compute; the VERDICT is unaffected (both labels sit "
+    "inside MIXED/INCONCLUSIVE); the strict sub-case (read < DEAD_BAR) is "
+    "co-reported as 'stays_dead'.",
     "n=1 lineage, one session, one draw of history (the g-series standing "
     "lottery note carried verbatim); nothing guaranteed.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator "
@@ -1043,11 +1052,16 @@ def main():
     hard = dict(metrics["gates"])
     gates_pass = bool(all(g.get("pass") for g in hard.values()))
     g0A = cells_A["g0"]
-    # the registered inconclusive branch, verbatim: "mass intact + no
-    # resurrection" — no-resurrection means BELOW the dead bar (a partial
-    # resurrection in [0.01, 0.10) is its own sub-branch, named below)
+    # the registered inconclusive branch, VERBATIM: "mass intact + NO
+    # RESURRECTION" — no-resurrection = below the 0.10 resurrection bar
+    # (SELF-CAUGHT REPAIR, disclosed in deviations: the first pass's code
+    # had narrowed this to < DEAD_BAR; the registered composite_order text
+    # and the dispatch's letter both say the branch is mass ratio >= 0.50
+    # AND read < 0.10 — the code now matches the registration; the VERDICT
+    # is unaffected (both labels sit inside MIXED/INCONCLUSIVE))
     coupling_caveat_fired = bool(mass_ratio >= EROSION_BAR
-                                 and g0A < DEAD_BAR)
+                                 and g0A < RESURRECT_BAR)
+    stays_dead = bool(g0A < DEAD_BAR)          # the strict sub-case
 
     if not gates_pass:
         failed = [k for k, g in hard.items() if not g.get("pass")]
@@ -1071,23 +1085,32 @@ def main():
     else:
         verdict = "MIXED/INCONCLUSIVE"
         if coupling_caveat_fired:
-            clause = (f"the read stays dead (arm A {g0A:.2e} < {DEAD_BAR}) "
-                      f"while the in-room mass is NOT eroded below half "
-                      f"(ratio {mass_ratio:.4f} >= {EROSION_BAR:.0%}) — "
-                      "THE COUPLING CAVEAT FIRED: mass intact + no "
-                      "resurrection is exactly the registered inconclusive "
-                      "branch (the subtraction's linear-superposition null "
-                      "can be masked by LN/softmax coupling; no-resurrection "
-                      "does NOT prove overwrite — the necessary-not-"
-                      "sufficient direction governs)")
+            sub = (f"the read STAYS DEAD ({g0A:.2e} < {DEAD_BAR}) — the "
+                   "strict form of the caveat"
+                   if stays_dead else
+                   f"a PARTIAL resurrection (arm A {g0A:.6f} in "
+                   f"[{DEAD_BAR}, {RESURRECT_BAR}): "
+                   f"{g0A / post_cells['g0']:.0f}x above the dead state, "
+                   f"{g0A / FACT_BASELINE_G0:.0%} of baseline — real "
+                   "signal against pure overwrite, short of the transport "
+                   "bar)")
+            clause = (f"mass intact + no resurrection TO THE BAR: the "
+                      f"in-room mass is NOT eroded below half (ratio "
+                      f"{mass_ratio:.4f} >= {EROSION_BAR:.0%}) while the "
+                      f"orthogonal-subtraction read sits below "
+                      f"{RESURRECT_BAR} — {sub}; THE COUPLING CAVEAT FIRED "
+                      "as registered (the subtraction's linear-"
+                      "superposition null can be masked by LN/softmax "
+                      "coupling; a sub-bar read does NOT prove overwrite — "
+                      "the necessary-not-sufficient direction governs); "
+                      f"the converse arm reads {cells_B['g0']:.2e} "
+                      "(dead — the out-of-room context ALONE, kept in arm "
+                      "B, suffices to hold the read down)")
         else:
-            clause = (f"arm A read {g0A:.6f} sits between the bars "
-                      f"({DEAD_BAR} <= read < {RESURRECT_BAR}) — a PARTIAL "
-                      "resurrection (evidence against pure overwrite "
-                      "either way, and short of the transport bar); the "
-                      f"ledger ratio {mass_ratio:.4f}; the converse arm "
-                      f"{cells_B['g0']:.2e} co-reported; the trajectories "
-                      "verbatim")
+            clause = (f"arm A read {g0A:.6f} with the mass ratio "
+                      f"{mass_ratio:.4f} eroded below "
+                      f"{EROSION_BAR:.0%} — read-dead-but-mass-eroded "
+                      "combination; the trajectories verbatim")
 
     metrics["adjudication"] = {
         "bars_verbatim": REGISTERED["bars_verbatim"],
@@ -1101,6 +1124,9 @@ def main():
             "identity_closure_abs_g0_diff": id_closure_read,
             "write_mass_ratio_t400_over_t0": mass_ratio,
             "coupling_caveat_fired": coupling_caveat_fired,
+            "stays_dead_subcase": stays_dead,
+            "resurrection_x_over_dead_state": g0A / post_cells["g0"],
+            "resurrection_frac_of_baseline": g0A / FACT_BASELINE_G0,
         },
         "verdict": verdict,
         "clause": clause,
@@ -1211,6 +1237,20 @@ def main():
     # ---- the report -----------------------------------------------------
     clause_wrapped = " ".join(clause.split())
     birth = HEAD0 or git_head()
+    if coupling_caveat_fired:
+        sub_txt = ("it stays dead (the strict form)" if stays_dead else
+                   f"it PARTIALLY resurrected ({g0A / post_cells['g0']:.0f}x "
+                   f"above the dead state, {g0A / FACT_BASELINE_G0:.0%} of "
+                   "baseline) — real signal against pure overwrite, short "
+                   "of the transport bar")
+        caveat_txt = (f"This run: the mass is intact (ratio {mass_ratio:.4f}) "
+                      f"and the read did not resurrect TO THE BAR "
+                      f"({g0A:.6f} < {RESURRECT_BAR}) — {sub_txt}; the "
+                      "registered inconclusive branch holds the result by "
+                      "construction, not by consolation.")
+    else:
+        caveat_txt = ("This run: the branch did not fire; see the verdict "
+                      "above.")
     rep = f"""# X14 — THE TRANSPORT INTERVENTION — REPORT
 
 **Verdict: {verdict}** (the frozen bars, letter-exact). {clause_wrapped}
@@ -1262,10 +1302,7 @@ softmax couple out-of-room parameters into the read path, so a
 transport-literal state can fail to resurrect. The test is
 NECESSARY-not-SUFFICIENT: resurrection => transport; no resurrection =>
 inconclusive between overwrite and coupling, NOT proof of overwrite.
-{'This run: the mass is intact and the read did not resurrect — the '
-'registered inconclusive branch holds the result by construction, not '
-'by consolation.' if coupling_caveat_fired else
-'This run: the branch did not fire; see the verdict above.'}
+{caveat_txt}
 
 ## The gates (all 12 PASS)
 

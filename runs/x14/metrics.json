@@ -1,0 +1,588 @@
+{
+  "experiment": "x14_transport_intervention",
+  "phase": "THE TRANSPORT INTERVENTION \u2014 R67's named desk cell: e283's correlational dichotomy (transport vs overwrite, both fitting every committed number) converted into an interventional one \u2014 the write-mass ledger on the checkpointed states + the subtraction intervention (theta_t400 minus the out-of-room drift component, the probe read) + the converse control \u2014 TRANSPORT-LITERAL vs OVERWRITTEN-LEANING vs MIXED/INCONCLUSIVE",
+  "date": "2026-10-06T05:41:11Z",
+  "status": "COMPLETE \u2014 adjudicated (t400-only intervention + the disclosed cited grid)",
+  "registration": "bars + arms + honesty block frozen VERBATIM from the R67 dispatch letter (R67's named desk cell); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "bars_verbatim": {
+      "TRANSPORT-LITERAL": "the orthogonal-subtraction read >= 0.10 (a substantial fraction of baseline) \u2014 the write survives its context's removal.",
+      "OVERWRITTEN-LEANING": "the read stays < 0.01 AND the write-mass ledger shows the in-room mass eroded below 50% of its t0 value.",
+      "MIXED/INCONCLUSIVE": "everything else \u2014 including the coupling caveat firing (mass intact + no resurrection)."
+    },
+    "arms": {
+      "a_write_mass_ledger": "per milestone state: ||P_room(theta_t - theta_base)|| (the write's surviving in-room mass) + ||(I-P)(theta_t - theta_base)|| (the out-of-room residual); t100-300 cited-derived from e283's committed fp64 ledger products (the states were not saved \u2014 disclosed)",
+      "b_subtraction": "arm A (primary): theta_t400 - (I-P)(theta_t400 - theta_t0), read g0; arm B (converse control): theta_t400 - P(theta_t400 - theta_t0), read g0; arm ID (identity): theta_t400 - (theta_t400 - theta_t0), must return the fact's own read",
+      "c_honesty": "the subtraction assumes component-wise additivity (a linear superposition null); any coupling (LN, softmax) can mask resurrection \u2014 a NECESSARY-not-SUFFICIENT test: resurrection => transport; no resurrection => inconclusive between overwrite and coupling, NOT proof of overwrite"
+    },
+    "prediction_cited": "TRANSPORT-LITERAL predicts the orthogonal-subtraction read resurrects toward 0.2646 (>= 0.10); OVERWRITTEN predicts it stays dead (< 0.01) (CITED from the dispatch, not re-registered)",
+    "composite_order": "TEXTURE (any hard-gate failure) -> TRANSPORT-LITERAL (arm-A g0 >= 0.10) -> OVERWRITTEN-LEANING (arm-A g0 < 0.01 AND in-room mass ratio < 0.50) -> MIXED/INCONCLUSIVE (everything else; the coupling-caveat-fired branch = mass ratio >= 0.50 AND arm-A g0 < 0.10, named at birth, no bar moved)",
+    "registration": "bars + arms + honesty block frozen VERBATIM from the R67 dispatch letter (R67's named desk cell); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "CPU-ONLY desk cell \u2014 torch threads 4, pocketfft workers 2, CPU fp64 dense projections; NO GPU ops, NO envelope-log writes, no training (reads + projections only)",
+    "trainings": "NONE \u2014 the states are loaded (t0 fact + t400 post); nothing moves",
+    "timestamps": "datetime.now(UTC) only"
+  },
+  "deviations": [
+    "THE MILESTONE-GRID DISCLOSURE (the dispatch's own instruction): e283 checkpointed ONLY the t400 post state (plus the fact's t0); the t100/200/300 milestone STATES were never saved (the resume ckpt holds the step-400 model + optimizer only \u2014 inspected at design time). The ledger therefore COMPUTES t0 + t400 and CITES t100-300 as derived products of e283's committed fp64 ledger reads (remaining_from_base_norm x remaining_from_base_in_room_frac); the t400-only intervention answers the primary (the dispatch: 'that alone answers the primary').",
+    "CPU-ONLY desk cell (dispatch): torch threads 4, pocketfft workers 2, no training runs, no corpus stream, no optimizer \u2014 reads + fp64 projections only; NO envelope-log writes; NO cuda tensor is ever created (the e261 import carries the family's cuda-availability assert \u2014 its module-level side effects are the runs/e261/run.log append-handle open and nothing else, the e278/e283 precedent).",
+    "THE POST STATE HAS NO COMMITTED FILE-MD5 (e283 recorded none): bound here BEHAVIORALLY (g0/gm12/CE_R vs the committed literals, the family's cross-session read-determinism law) AND GEOMETRICALLY (the fp64 drift/remaining norms + in-room fracs vs the committed disp_ledger) \u2014 a value-bind, stronger than a file-bind; the file md5 is recorded here for the future.",
+    "THE PROBES NEED NO STREAM: G_ANCHOR / G_INSTMASK / G_CORPUSGEN / G_CONTROL (e283's stream-side gates) do not apply \u2014 nothing trains, nothing installs, no stream runs in this cell; the splice/battery convention gates (G_SPLICE / G_BATTERY) carry the probe identity.",
+    "THE ALIGNMENT DIAGNOSTICS ARE CONTEXT, NOT BARS (no bar shopping): cos(surviving in-room mass, the write's own t0 in-room direction) and the erosion-degeneracy interval are co-reported because they quantify exactly what the committed reads could not separate (R67's finding-3 arithmetic, reconstructed from the committed numbers); the adjudication uses ONLY the frozen bars.",
+    "THE BRANCH-LABEL REPAIR (SELF-CAUGHT, disclosed): the first pass's code narrowed the coupling-caveat branch to 'mass intact AND read < DEAD_BAR', while the registered composite_order (and the dispatch's letter: 'mass intact + no resurrection') say the branch is 'mass ratio >= 0.50 AND read < 0.10' \u2014 no-resurrection means below the resurrection bar. The code was repaired to match the registration BEFORE the final compute; the VERDICT is unaffected (both labels sit inside MIXED/INCONCLUSIVE); the strict sub-case (read < DEAD_BAR) is co-reported as 'stays_dead'.",
+    "n=1 lineage, one session, one draw of history (the g-series standing lottery note carried verbatim); nothing guaranteed.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds)."
+  ],
+  "builds_on": [
+    "R67 / REVIEWS.md (the critic's finding 3: e283's transport-vs-overwrite NOT separated by the committed reads \u2014 the intact-write band 7.0-10.3 vs measured 7.31; this cell is its named repair, dispatched in the R67 fold)",
+    "T261 / e283 (THE established-fact collision: ESTABLISHED-DIES at 0.0000342x; drift 14.45 vs the write's 9.18; the t400 post state checkpointed \u2014 this cell's object)",
+    "T260 / e278 (the roach motel: the optimizer re-aims \u2014 the overwrite channel's mechanism cite)",
+    "T244 / e268 + T242 / e264 + T239 / e261 (the forming-concurrent reference, the committed threshold rung, the vehicle fact itself)",
+    "T239 / e261 (the machinery PORTED WHOLE BY IMPORT: the SRCT projector, LadderRooms, the certification)"
+  ],
+  "whats_new": [
+    "THE SUBTRACTION INTERVENTION ITSELF: the record's first INTERVENTION on a post-mortem state \u2014 remove a projection component of the drift and read the probe; correlational 'transport' becomes falsifiable",
+    "THE WRITE-MASS LEDGER: ||P(theta_t - base)|| + ||(I-P)(theta_t - base)|| per milestone \u2014 the decomposition e283's committed fractions imply but never stated as masses",
+    "THE CONVERSE ARM: subtracting the IN-ROOM component instead inverts the two hypotheses' predictions \u2014 the dichotomy's other half, co-interpreted"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g+0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "expected": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "pass": true
+    },
+    "G_PARENTS": {
+      "e264_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e264\\metrics.json",
+        "md5": "a42ff4786784b04cb9819a69b545e343",
+        "bound_md5": "a42ff4786784b04cb9819a69b545e343",
+        "K10K_post_g0": 0.26464763283729553,
+        "K10K_post_gm12": 0.10525520890951157,
+        "note": "THE loaded fact's committed record"
+      },
+      "e268_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e268\\metrics.json",
+        "md5": "c1149229b7f0191943a7b8eb0442b494",
+        "bound_md5": "c1149229b7f0191943a7b8eb0442b494"
+      },
+      "e278_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e278\\metrics.json",
+        "md5": "db14cdff1fd5021a5b255c12127ea9df",
+        "bound_md5": "db14cdff1fd5021a5b255c12127ea9df"
+      },
+      "e283_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e283\\metrics.json",
+        "md5": "cf5be012f636ede7b953eb9a615c60a5",
+        "note": "THE parent cell (no prior md5 bind \u2014 its final literals are hard-bound in-code and gated by G_POSTLOAD)"
+      },
+      "the_fact": {
+        "path": "runs/checkpoints/e261_K10K_inst_resume.pt",
+        "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "bound_md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "size": 32958479,
+        "bound_size": 32958479,
+        "state": {
+          "step": 400,
+          "traj_steps": [
+            1,
+            100,
+            200,
+            300,
+            400
+          ],
+          "ledger_max": 400
+        }
+      },
+      "the_post_state": {
+        "path": "runs/checkpoints/e283_ESTABLISHED-CONCURRENT_post.pt",
+        "md5": "a98b638cbd52658e63d706cd112b26fb",
+        "size": 10977999,
+        "note": "t400 \u2014 e283's established-concurrent post state; bound BEHAVIORALLY + GEOMETRICALLY in G_POSTLOAD (no committed file-md5 exists; the value-bind is the stronger one)"
+      },
+      "e264_rooms": {
+        "path": "runs/checkpoints/e264_rooms.pt",
+        "md5": "2d524655575cce00a3bc1c8770f4b211",
+        "bound_md5": "2d524655575cce00a3bc1c8770f4b211"
+      },
+      "e246_span": {
+        "path": "runs/checkpoints/e246_late_span.pt",
+        "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+        "bound_md5": "3464ff6081d8e402103dd9ca65bfb53a"
+      },
+      "e258_vmap": {
+        "path": "runs/checkpoints/e258_vmap.pt",
+        "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c"
+      },
+      "hardbound": {
+        "fact_baseline_g0": 0.26464763283729553,
+        "fact_baseline_gm12": 0.10525520890951157,
+        "e283_post_g0": 9.04614535102155e-06,
+        "e283_post_gm12": 2.3886157578090206e-05,
+        "e283_post_ce_r": 1.6652382612228394,
+        "e283_drift_norm_t400": 14.453935847202613,
+        "e283_drift_frac_t400": 0.1140634378314966,
+        "e283_remain_norm_t400": 16.08044667112344,
+        "e283_remain_frac_t400": 0.4545671609496503,
+        "e283_fact_in_room_t0": 0.9441588788935659,
+        "e283_fact_disp_norm_t0": 9.1788432658723
+      },
+      "pass": true
+    },
+    "G_BASE": {
+      "checkpoint": "runs/checkpoints/e001.pt",
+      "params": 2739072,
+      "fact_free_gm12": 1.437231640011305e-05,
+      "ce_r": 1.6161081790924072,
+      "fact_free": true,
+      "pass": true
+    },
+    "G_ROOT": {
+      "checkpoint": "runs/checkpoints/g1c_root.pt",
+      "n_params": 2739072,
+      "expected_params": 2739072,
+      "battery_read_measured": 0.9026340246200562,
+      "battery_read_committed": 0.9026340246200562,
+      "abs_diff": 0.0,
+      "tol": 0.005,
+      "flat_md5": "a7f02b367c5342535aecfc814d780631",
+      "pass": true
+    },
+    "G_VMBIND": {
+      "path": "runs/checkpoints/e258_vmap.pt",
+      "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c",
+      "meta_experiment": "e258",
+      "meta_k": 237123,
+      "size": 2739072,
+      "expected_size": 2739072,
+      "mean_v": 1.9735449453829365e-07,
+      "pass": true
+    },
+    "G_SPANBIND": {
+      "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+      "rank": 10,
+      "N": 2739072,
+      "meta_experiment": "e246",
+      "pass": true
+    },
+    "G_PROJ": {
+      "form": "the K10K room certified (fp64 CPU, 4 probes, seed 26115): the DCT roundtrip identity; IDEMPOTENCY and the kept^2 rank probe (||P x||^2/||x||^2 vs k/N, the 10-sigma bar 5*sqrt(2k)/N); the span-overlap (expect ~sqrt(k/N))",
+      "reads": {
+        "probes": 4,
+        "seed": 26115,
+        "dct_roundtrip_rel": 8.195877245616001e-16,
+        "per_rung": {
+          "K10K": {
+            "k": 10000,
+            "seeds": [
+              26113,
+              26114
+            ],
+            "idempotency_max": 5.669754673327867e-16,
+            "kept2_mean": 0.0036073728283031233,
+            "kept2_expect": 0.0036508715360530864,
+            "kept2_bar_10sig": 0.0002581556020384085,
+            "kept2_pass": true,
+            "idempotency_pass": true,
+            "span_overlap_mean": 0.06038652639299012,
+            "span_overlap_expect": 0.06042244232115321
+          }
+        },
+        "pass": true
+      },
+      "bars": {
+        "roundtrip": 1e-08,
+        "idempotency": 1e-08,
+        "kept2": "10-sigma (5*sqrt(2k)/N)"
+      },
+      "pass": true
+    },
+    "G_ROOMK10K": {
+      "form": "the room == the fact's own committed K10K room (seeds 26113/26114 at k=10,000): the +-1 diagonal and the index set bit-identical to e264_rooms.pt's stored K10K D/S (exact equality)",
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "e264_rooms_md5": "2d524655575cce00a3bc1c8770f4b211",
+      "pass": true
+    },
+    "G_FACTLOAD": {
+      "form": "the established fact (t0), loaded BIT-EXACT and gated THREE ways: (1) the artifact (md5/size/step/traj/ledger \u2014 G_PARENTS), (2) the loaded state's flat-md5 vs e283's recorded bind, (3) the behavioral read (post g0 within 2e-06 / gm12 within 1e-05 of e264's committed literals)",
+      "flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+      "bound_flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+      "read_g0": {
+        "mine": 0.26464763283729553,
+        "committed": 0.26464763283729553,
+        "abs_diff": 0.0
+      },
+      "read_gm12": {
+        "mine": 0.10525520890951157,
+        "committed": 0.10525520890951157,
+        "abs_diff": 0.0
+      },
+      "read_gp12": 0.11036071181297302,
+      "read_ce_r": 1.5920883417129517,
+      "displacement_from_base": {
+        "norm": 9.1788432658723,
+        "v_excess": 1.0092428432195164,
+        "cos_to_span": 0.00596683724847048,
+        "in_own_room": 0.9441588788985769
+      },
+      "pass": true
+    },
+    "G_POSTLOAD": {
+      "form": "the post state (t400) bound BEHAVIORALLY (g0/gm12/CE_R vs e283's committed literals \u2014 the cross-session read-determinism law) AND GEOMETRICALLY (the fp64 drift/remaining norms + in-room fracs vs the committed disp_ledger): a value-bind, stronger than a file-bind (no committed file-md5 exists; the md5 is recorded in G_PARENTS)",
+      "meta": {
+        "experiment": "e283",
+        "arm": "ESTABLISHED-CONCURRENT",
+        "corpus_gen_seed": 28301,
+        "fact": "runs/checkpoints/e261_K10K_inst_resume.pt (md5 0f6dc1cf46850ce655dfafc9c853d467)",
+        "rooms": "runs/checkpoints/e283_rooms.pt"
+      },
+      "read_g0": {
+        "mine": 9.04614535102155e-06,
+        "committed": 9.04614535102155e-06,
+        "abs_diff": 0.0
+      },
+      "read_gm12": {
+        "mine": 2.3886157578090206e-05,
+        "committed": 2.3886157578090206e-05,
+        "abs_diff": 0.0
+      },
+      "read_ce_r": {
+        "mine": 1.6652382612228394,
+        "committed": 1.6652382612228394,
+        "abs_diff": 0.0
+      },
+      "geom_drift_norm": {
+        "mine": 14.453935847208887,
+        "committed": 14.453935847202613,
+        "abs_diff": 6.274092356761685e-12
+      },
+      "geom_drift_in_room_frac": {
+        "mine": 0.11406343783150934,
+        "committed": 0.1140634378314966,
+        "abs_diff": 1.2739809207573671e-14
+      },
+      "geom_remaining_norm": {
+        "mine": 16.08044667112344,
+        "committed": 16.08044667112344,
+        "abs_diff": 0.0
+      },
+      "geom_remaining_in_room_frac": {
+        "mine": 0.4545671609496503,
+        "committed": 0.4545671609496503,
+        "abs_diff": 0.0
+      },
+      "tolerances": {
+        "g0": 2e-06,
+        "gm12": 5e-06,
+        "ce_r": 0.005,
+        "norm": 1e-06,
+        "frac": 1e-09,
+        "note": "fp64 on identical fp32 states; the measured cross-run DCT scatter is ~1e-14 (the traj/disp_ledger 1.3e-14 gap in e283's own committed record)"
+      },
+      "pass": true
+    }
+  },
+  "phase_note": "P9 DONE (ledger + intervention + adjudication + honesty + figure + report)",
+  "rooms": {
+    "vehicle": {
+      "k": 10000,
+      "name": "K10K",
+      "seeds": [
+        26113,
+        26114
+      ],
+      "k_fraction_of_N": 0.0036508715360530864,
+      "bit_bound_to": "runs/checkpoints/e264_rooms.pt (e264's committed K10K room \u2014 the fact's own room)"
+    },
+    "certification": {
+      "probes": 4,
+      "seed": 26115,
+      "dct_roundtrip_rel": 8.195877245616001e-16,
+      "per_rung": {
+        "K10K": {
+          "k": 10000,
+          "seeds": [
+            26113,
+            26114
+          ],
+          "idempotency_max": 5.669754673327867e-16,
+          "kept2_mean": 0.0036073728283031233,
+          "kept2_expect": 0.0036508715360530864,
+          "kept2_bar_10sig": 0.0002581556020384085,
+          "kept2_pass": true,
+          "idempotency_pass": true,
+          "span_overlap_mean": 0.06038652639299012,
+          "span_overlap_expect": 0.06042244232115321
+        }
+      },
+      "pass": true
+    }
+  },
+  "the_states": {
+    "t0_fact": {
+      "checkpoint": "runs/checkpoints/e261_K10K_inst_resume.pt",
+      "read": {
+        "g0": 0.26464763283729553,
+        "gm12": 0.10525520890951157,
+        "gp12": 0.11036071181297302,
+        "ce_r": 1.5920883417129517
+      },
+      "displacement_from_base": {
+        "norm": 9.1788432658723,
+        "v_excess": 1.0092428432195164,
+        "cos_to_span": 0.00596683724847048,
+        "in_own_room": 0.9441588788985769
+      }
+    },
+    "t400_post": {
+      "checkpoint": "runs/checkpoints/e283_ESTABLISHED-CONCURRENT_post.pt",
+      "read": {
+        "g0": 9.04614535102155e-06,
+        "gm12": 2.3886157578090206e-05,
+        "gp12": 1.656910353631247e-05,
+        "ce_r": 1.6652382612228394
+      },
+      "drift_from_fact": {
+        "norm": 14.453935847208887,
+        "in_room_norm": 1.6486656129287351,
+        "out_room_norm": 14.359601776232475,
+        "in_room_frac": 0.11406343783150934
+      },
+      "remaining_from_base": {
+        "norm": 16.08044667112344,
+        "in_room_norm": 7.3096429900948365,
+        "out_room_norm": 14.323054300679198
+      }
+    }
+  },
+  "write_mass_ledger": {
+    "form": "the write's surviving in-room mass ||P(theta_t - base)|| + the out-of-room residual ||(I-P)(theta_t - base)||, fp64, per milestone (t0/t400 COMPUTED from the states on disk; t100-300 cited-derived from e283's committed ledger \u2014 disclosed)",
+    "t0": {
+      "in_room_mass": 8.666286367491834,
+      "out_room_mass": 3.024341960836486,
+      "total": 9.1788432658723,
+      "in_room_frac": 0.9441588788985867,
+      "source": "COMPUTED (the fact ckpt)"
+    },
+    "t400": {
+      "in_room_mass": 7.3096429900948365,
+      "out_room_mass": 14.323054300679198,
+      "total": 16.08044667112344,
+      "in_room_frac": 0.4545671609496503,
+      "source": "COMPUTED (the post ckpt)"
+    },
+    "grid": [
+      {
+        "step": 100,
+        "source": "CITED-DERIVED (norm x frac from e283's committed fp64 ledger; state not saved)",
+        "remaining_norm": 10.567217545533659,
+        "in_room_mass_cited": 8.276242160737636,
+        "out_room_mass_cited": 6.570380685429362,
+        "in_room_frac": 0.7831997519759281
+      },
+      {
+        "step": 200,
+        "source": "CITED-DERIVED (norm x frac from e283's committed fp64 ledger; state not saved)",
+        "remaining_norm": 13.097113110721969,
+        "in_room_mass_cited": 7.82396390274179,
+        "out_room_mass_cited": 10.503330932786929,
+        "in_room_frac": 0.5973807996158094
+      },
+      {
+        "step": 300,
+        "source": "CITED-DERIVED (norm x frac from e283's committed fp64 ledger; state not saved)",
+        "remaining_norm": 14.877417725808007,
+        "in_room_mass_cited": 7.5238116814386125,
+        "out_room_mass_cited": 12.83471137074902,
+        "in_room_frac": 0.5057202681340983
+      },
+      {
+        "step": 400,
+        "source": "COMPUTED (state on disk)",
+        "remaining_norm": 16.08044667112344,
+        "in_room_mass_cited": 7.3096429900948365,
+        "out_room_mass_cited": 14.32305430067911,
+        "in_room_frac": 0.4545671609496503
+      }
+    ],
+    "crosscheck_t400_cited_vs_computed": {
+      "in_room_mass_abs_diff": 0.0,
+      "remaining_norm_abs_diff": 0.0,
+      "note": "the cited products and this session's direct fp64 projections agree (same states, same projector)"
+    },
+    "mass_ratio_t400_over_t0": 0.8434573564882518,
+    "erosion_bar_half": 0.5,
+    "diagnostics_context_not_bars": {
+      "R67_finding3_reconstruction": {
+        "intact_band_lo": 7.017620754563099,
+        "intact_band_hi": 10.314951980420568,
+        "measured_m400": 7.3096429900948365,
+        "note": "the intact-write band [m0 - |P delta|, m0 + |P delta|] = the critic's 7.0-10.3 (reconstructed from the committed numbers); 7.31 sits inside it, near the opposed edge"
+      },
+      "erosion_degeneracy": {
+        "surviving_fraction_lo": 0.653218361027283,
+        "surviving_fraction_hi": 1.0336963519492206,
+        "note": "under additivity the same m400 is consistent with ANY surviving in-room fraction in this interval \u2014 the committed reads cannot separate the two hypotheses (R67's finding 3); the intervention exists to cut exactly this"
+      },
+      "cos_surviving_mass_vs_write_in_room": 0.9930729893654585,
+      "note": "the surviving in-room mass's direction vs the write's own t0 in-room direction (1.0 = still the write's mass, not replacement mass); context, not a bar"
+    }
+  },
+  "intervention": {
+    "form": "fp64: delta = theta400 - theta0; P_delta = P_room(delta); delta_O = delta - P_delta; ARM A (primary) = theta400 - delta_O == theta0 + P_delta (the corpus's OUT-OF-ROOM transport removed); ARM B (control) = theta400 - P_delta == theta0 + delta_O (the in-room channel removed, the transport kept); ARM ID = theta400 - delta == theta0 (the construction's closure); arms materialized fp32",
+    "drift_decomposition": {
+      "drift_norm": 14.453935847208887,
+      "in_room_norm": 1.6486656129287351,
+      "out_room_norm": 14.359601776232475,
+      "in_room_frac": 0.11406343783150934,
+      "construction_checks": {
+        "max_abs(theta400 - delta - theta0)_fp64": 0.0,
+        "armA_minus_theta0_norm": 1.6486656129287351,
+        "armB_minus_theta0_norm": 14.359601776232475,
+        "expected": "armA-theta0 == |P_delta| (in-room), armB-theta0 == |delta_O| (out-of-room)"
+      }
+    },
+    "arm_A_orthogonal_subtraction": {
+      "desc": "THE primary: subtract the out-of-room displacement component from the final state, then read g0 \u2014 TRANSPORT-LITERAL predicts resurrection toward 0.2646 (>= 0.1); OVERWRITTEN predicts it stays dead (< 0.01)",
+      "read": {
+        "g0": 0.03915366902947426,
+        "gm12": 0.01570613868534565,
+        "gp12": 0.01660182885825634,
+        "ce_r": 1.584105134010315
+      },
+      "fp32_quantization_residual": 1.8571295652415647e-06
+    },
+    "arm_B_in_room_subtraction": {
+      "desc": "the converse CONTROL: subtract the IN-ROOM component instead \u2014 under transport-literal it stays dead (the killer out-of-room context KEPT); under overwrite it is this arm that removes the erosive channel; co-interpreted, NOT adjudicated (no frozen bar)",
+      "read": {
+        "g0": 5.864363629370928e-05,
+        "gm12": 0.0001513237220933661,
+        "gp12": 0.00010346835188101977,
+        "ce_r": 1.6716903448104858
+      },
+      "fp32_quantization_residual": 1.9465765252391627e-06
+    },
+    "arm_ID_identity": {
+      "desc": "the closure: subtracting BOTH components must return the fact's own read (the construction's null)",
+      "read": {
+        "g0": 0.26464763283729553,
+        "gm12": 0.10525520890951157,
+        "gp12": 0.11036071181297302,
+        "ce_r": 1.5920883417129517
+      },
+      "fp32_quantization_residual": 0.0,
+      "abs_g0_diff_vs_fact_read": 0.0
+    }
+  },
+  "adjudication": {
+    "bars_verbatim": {
+      "TRANSPORT-LITERAL": "the orthogonal-subtraction read >= 0.10 (a substantial fraction of baseline) \u2014 the write survives its context's removal.",
+      "OVERWRITTEN-LEANING": "the read stays < 0.01 AND the write-mass ledger shows the in-room mass eroded below 50% of its t0 value.",
+      "MIXED/INCONCLUSIVE": "everything else \u2014 including the coupling caveat firing (mass intact + no resurrection)."
+    },
+    "composite_order": "TEXTURE (any hard-gate failure) -> TRANSPORT-LITERAL (arm-A g0 >= 0.10) -> OVERWRITTEN-LEANING (arm-A g0 < 0.01 AND in-room mass ratio < 0.50) -> MIXED/INCONCLUSIVE (everything else; the coupling-caveat-fired branch = mass ratio >= 0.50 AND arm-A g0 < 0.10, named at birth, no bar moved)",
+    "gates_pass": true,
+    "reads": {
+      "the_fact_t0": {
+        "g0": 0.26464763283729553,
+        "gm12": 0.10525520890951157,
+        "gp12": 0.11036071181297302,
+        "ce_r": 1.5920883417129517
+      },
+      "the_post_t400": {
+        "g0": 9.04614535102155e-06,
+        "gm12": 2.3886157578090206e-05,
+        "gp12": 1.656910353631247e-05,
+        "ce_r": 1.6652382612228394
+      },
+      "arm_A_orthogonal_subtraction_g0": 0.03915366902947426,
+      "arm_B_in_room_subtraction_g0": 5.864363629370928e-05,
+      "identity_closure_abs_g0_diff": 0.0,
+      "write_mass_ratio_t400_over_t0": 0.8434573564882518,
+      "coupling_caveat_fired": true,
+      "stays_dead_subcase": false,
+      "resurrection_x_over_dead_state": 4328.215777016314,
+      "resurrection_frac_of_baseline": 0.14794641693827582
+    },
+    "verdict": "MIXED/INCONCLUSIVE",
+    "clause": "mass intact + no resurrection TO THE BAR: the in-room mass is NOT eroded below half (ratio 0.8435 >= 50%) while the orthogonal-subtraction read sits below 0.1 \u2014 a PARTIAL resurrection (arm A 0.039154 in [0.01, 0.1): 4328x above the dead state, 15% of baseline \u2014 real signal against pure overwrite, short of the transport bar); THE COUPLING CAVEAT FIRED as registered (the subtraction's linear-superposition null can be masked by LN/softmax coupling; a sub-bar read does NOT prove overwrite \u2014 the necessary-not-sufficient direction governs); the converse arm reads 5.86e-05 (dead \u2014 the out-of-room context ALONE, kept in arm B, suffices to hold the read down)"
+  },
+  "honesty": {
+    "intervention_not_logits": "the arms share ONE loaded post state and ONE loaded fact; the ONLY delta between arm A and the dead post state is the removal of the out-of-room drift component (fp64 subtraction, fp32 materialization with the quantization residual measured); between arm A and the alive fact it is the presence of the in-room drift component \u2014 the probe read is behavioral, not a logit read",
+    "the_additivity_null": "the subtraction assumes component-wise additivity (a linear superposition null); any coupling (LN, softmax) can mask resurrection \u2014 a NECESSARY-not-SUFFICIENT test: resurrection => transport; no resurrection => inconclusive between overwrite and coupling, NOT proof of overwrite",
+    "necessary_not_sufficient": "resurrection => transport (arm A's read >= 0.10 would have been sufficient for TRANSPORT-LITERAL); no resurrection does NOT prove overwrite \u2014 LN and softmax couple the out-of-room parameters into the read path, so a transport-literal state can fail to resurrect under subtraction; the MIXED/INCONCLUSIVE branch exists to hold exactly this",
+    "the_converse_arm": "arm B inverts the predictions (transport-literal: stays dead; overwrite: recovers) \u2014 co-interpreted as the dichotomy's other half, never adjudicated (no frozen bar on it)",
+    "loads_measured_not_nominal": "every mass is a direct fp64 projection of the loaded states (the cited t100-300 products excepted \u2014 e283's own committed reads, cross-checked at t400)",
+    "n_and_scope": "n=1 lineage, one session, one draw of history; nothing guaranteed"
+  },
+  "provenance": {
+    "git_head_at_start": "8620c0babc19ae05af3436064ec7ce8b5a35aeff",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\x14_transport_intervention.py",
+    "machinery_imported_from": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e261_rank_ladder.py",
+    "checkpoints": {
+      "base": "runs/checkpoints/e001.pt",
+      "reference_root": "runs/checkpoints/g1c_root.pt",
+      "the_fact_t0": "runs/checkpoints/e261_K10K_inst_resume.pt (md5 0f6dc1cf46850ce655dfafc9c853d467, flat ebebb4472725d582dd74928493f1bfb3)",
+      "the_post_t400": "runs/checkpoints/e283_ESTABLISHED-CONCURRENT_post.pt (md5 a98b638cbd52658e63d706cd112b26fb)",
+      "span_ledger": "runs/checkpoints/e246_late_span.pt",
+      "vmap": "runs/checkpoints/e258_vmap.pt",
+      "e264_rooms": "runs/checkpoints/e264_rooms.pt"
+    },
+    "eval": {
+      "device": "cpu fp32 probes / cpu fp64 dense projections",
+      "torch_threads": 4,
+      "pocketfft_workers": 2,
+      "cuda_tensors_created": 0
+    },
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "numpy": "2.3.5",
+      "scipy": "1.16.2",
+      "matplotlib": "3.10.6"
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x14\\metrics.json",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x14\\x14_transport.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x14\\REPORT.md"
+  ]
+}
