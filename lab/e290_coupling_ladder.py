@@ -311,15 +311,18 @@ LR_STABLE = SGD_STABLE_FACTOR * LR_SGD_MATCHED   # 0.21738574801453703
 BUDGET_SLACK = 1e-5               # fp32 accumulation slack on S + cum (abs)
 
 # the committed records, HARD-BOUND (read at runtime from their paths and
-# asserted against these literals; Rule 12)
+# asserted against these literals; Rule 12). The JSON records are bound on
+# their GIT-CANONICAL md5s (newline-normalized bytes == the committed blob
+# — verified at birth; see deviations: the OneDrive CRLF re-serialization
+# catch); the .pt artifacts are bound RAW.
 E264_METRICS = E43.REPO / "runs" / "e264" / "metrics.json"
-E264_MD5 = "a42ff4786784b04cb9819a69b545e343"
+E264_MD5 = "1149f97c633072c3b865b6a93bfa1e44"
 E264_VERDICT = "SHARP-THRESHOLD"
 FACT_BASELINE_G0 = 0.26464763283729553      # e264's committed K10K post g0
 FACT_BASELINE_GM12 = 0.10525520890951157    # e264's committed K10K post gm12
 
 E268_METRICS = E43.REPO / "runs" / "e268" / "metrics.json"
-E268_MD5 = "c1149229b7f0191943a7b8eb0442b494"
+E268_MD5 = "1384d6ff1ba3b3362ae333d8504aacda"
 E268_VERDICT = "DYNAMICAL-CARRIER"
 E268_CONCURRENT_POST = 4.004325455753133e-05  # the FORMING write under fire
 E268_RATIO = 0.00015130794937726159          # ~0.0002x — the forming death
@@ -329,7 +332,7 @@ E278_MD5 = "db14cdff1fd5021a5b255c12127ea9df"
 E278_VERDICT = "UNDERTOW-REGARDLESS"         # the roach-motel record
 
 E283_METRICS = E43.REPO / "runs" / "e283" / "metrics.json"
-E283_MD5 = "cf5be012f636ede7b953eb9a615c60a5"
+E283_MD5 = "afd41378c48234e690544c1ba8510a27"
 E283_VERDICT = "ESTABLISHED-DIES"
 E283_POST = 9.04614535102155e-06             # the unprotected reference
 E283_RATIO = 3.4181848724802654e-05          # 0.0000342x — the cite
@@ -337,13 +340,13 @@ E283_DRIFT = 14.453935847208887              # the transport read (||d||)
 E283_WRITE_NORM = 9.1788432658723            # the write's own norm (||fact-base||)
 
 E284_METRICS = E43.REPO / "runs" / "e284" / "metrics.json"
-E284_MD5 = "18ad7e334c4bb9b52e494f1739842ac6"
+E284_MD5 = "f3c227e6f50bcfcdd9df00af50e0808a"
 E284_VERDICT = "MOMENTUM-OWNED"
 E284_SEP_PRIMARY = 2.319773558897833e-07     # the separate-buffer in-room share
 E284_SHA_PRIMARY = 0.45027988873803715       # the shared twin's funnel
 
 E285_METRICS = E43.REPO / "runs" / "e285" / "metrics.json"
-E285_MD5 = "3f71c7b209fe9b6e9645d7504ddbb49c"
+E285_MD5 = "4a1dfe5a52d0b3def1b5f95db3d6a7ab"
 E285_VERDICT = "AIM-ONLY-KILLS"              # THE sanctuary record
 E285_POST = 0.0008025270071811974            # the 0.5x-budget arm's t400 read
 E285_RATIO_400 = 0.00303243599263398         # 330x down — the anchor
@@ -356,21 +359,28 @@ E285_TWIN_RATIO = 1.472106033067378e-05      # its same-session twin
 E285_BUF_CITE = 0.5                          # the anchor's budget fraction
 
 E288_METRICS = E43.REPO / "runs" / "e288" / "metrics.json"
-E288_MD5 = "31bf8df55b51c8a19c48a155388050be"
+E288_MD5 = "594129c80fd5df2c015e92c3ea3f95d9"
 E288_VERDICT = "ERROR-GATED-HOLDS"           # active maintenance works
 E288_POST = 0.9207638502120972
 E288_RATIO = 3.4792068243367953
 E288_S_TOTAL = 3.999805698171258             # 87.2% of its budget
 
 X14_METRICS = E43.REPO / "runs" / "x14" / "metrics.json"
-X14_MD5 = "4970e27ae8c315df8762e5c3499a2be5"
+X14_MD5 = "29deab62eb62de54a86844c7e5efb016"
 X14_VERDICT = "MIXED/INCONCLUSIVE"
 X14_ARM_A = 0.03915366902947426              # the orthogonal-subtraction read
 X14_ARM_B = 5.864363629370928e-05            # the in-room-subtraction read
 X14_RESURRECTION_X = 4328.215777016314       # arm A / the dead state
 
 E273_LRCAL = E43.REPO / "runs" / "e273" / "lr_calibration.json"
-E273_LRCAL_MD5 = "de0b1c3e152c99d7877391c4592e7e24"
+# REBOUND (pre-compute, disclosed in deviations): the raw-byte md5 this
+# family bound at e285 (de0b1c3e152c99d7877391c4592e7e24) no longer
+# matches — the worktree copy under OneDrive was re-serialized (CRLF
+# flip, one byte; content verified byte-identical to git HEAD after
+# newline normalization; the lr_sgd literal is asserted independently by
+# G_LR_BIND). The bind below hashes NEWLINE-NORMALIZED bytes (the git
+# canonical form — immune to OneDrive's CRLF/LF flips).
+E273_LRCAL_MD5 = "f223467ed2e05b5fae45e32dba2c25e1"
 ROOMS264_MD5 = "2d524655575cce00a3bc1c8770f4b211"    # e268's G_PARENTS bind
 
 # the frozen bars' numbers ------------------------------------------------
@@ -474,6 +484,19 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE ONEDRIVE RE-SERIALIZATION CATCH (the smoke's first catch, fixed "
+    "pre-compute; no bar, gate, arm, or read touched): G_PARENTS' first "
+    "pass FAILED at the e273 lr-calibration md5 — the worktree copy "
+    "(under OneDrive) had been re-serialized between this cell's birth "
+    "probe and the smoke (a CRLF flip, one byte; the family's e285-era "
+    "raw literal no longer matched). The repair: every JSON parent record "
+    "is now bound on its GIT-CANONICAL md5 (newline-normalized bytes — "
+    "verified byte-identical to the committed blob for all 8 JSON "
+    "parents at birth), with the raw worktree md5 co-reported in each "
+    "gate row; the .pt artifacts stay RAW-bound (OneDrive does not "
+    "re-serialize binaries). The protected content is unchanged — the "
+    "lr_sgd literal is asserted independently by G_LR_BIND's runtime "
+    "re-derivation.",
     "THE T268 NOTE (disclosed at birth): the dispatch named THINKING.md "
     "T265/T267/T268 as the read-first cards; T268 (e288's fold) is NOT YET "
     "IN THINKING.md at this cell's birth — e288's record was read instead "
@@ -565,6 +588,15 @@ def save_ckpt(name: str, sd: dict, meta: dict) -> str:
 
 def md5of(p: Path) -> str:
     return hashlib.md5(p.read_bytes()).hexdigest()
+
+
+def md5of_norm(p: Path) -> str:
+    """md5 of the NEWLINE-NORMALIZED bytes (CRLF -> LF) — the git canonical
+    form. The repo lives under OneDrive, which re-serializes text files'
+    line endings at sync time; the JSON parent records are therefore bound
+    on the normalized hash (raw md5 co-reported in the gate rows). BINARY
+    artifacts (.pt) are always bound RAW (md5of)."""
+    return hashlib.md5(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def git_head() -> str:
@@ -1329,19 +1361,25 @@ def main():
     del vehicle
     G_PARENTS = {
         "e264_metrics": {"path": str(E264_METRICS),
-                         "md5": md5of(E264_METRICS), "bound_md5": E264_MD5,
+                         "md5": md5of_norm(E264_METRICS),
+                         "raw_worktree_md5": md5of(E264_METRICS),
+                         "bound_md5": E264_MD5,
                          "verdict": e264m["adjudication"]["verdict"],
                          "K10K_post_g0": e264_post,
                          "note": "THE loaded fact's committed record (the "
                                  "quiet-formed threshold rung)"},
         "e268_metrics": {"path": str(E268_METRICS),
-                         "md5": md5of(E268_METRICS), "bound_md5": E268_MD5,
+                         "md5": md5of_norm(E268_METRICS),
+                         "raw_worktree_md5": md5of(E268_METRICS),
+                         "bound_md5": E268_MD5,
                          "verdict": e268m["adjudication"]["verdict"],
                          "concurrent_post_g0": e268_post_c,
                          "ratio": E268_RATIO,
                          "note": "the FORMING-concurrent death (~0.0002x)"},
         "e283_metrics": {"path": str(E283_METRICS),
-                         "md5": md5of(E283_METRICS), "bound_md5": E283_MD5,
+                         "md5": md5of_norm(E283_METRICS),
+                         "raw_worktree_md5": md5of(E283_METRICS),
+                         "bound_md5": E283_MD5,
                          "verdict": e283m["adjudication"]["verdict"],
                          "concurrent_post_g0": e283_post,
                          "ratio": E283_RATIO,
@@ -1351,13 +1389,17 @@ def main():
                          "note": "the unprotected reference class (the "
                                  "death floor the ladder descends from)"},
         "e284_metrics": {"path": str(E284_METRICS),
-                         "md5": md5of(E284_METRICS), "bound_md5": E284_MD5,
+                         "md5": md5of_norm(E284_METRICS),
+                         "raw_worktree_md5": md5of(E284_METRICS),
+                         "bound_md5": E284_MD5,
                          "verdict": e284m["adjudication"]["verdict"],
                          "sep_primary": e284_sep, "sha_primary": e284_sha,
                          "note": "the separation record (the machinery's "
                                  "provenance)"},
         "e285_metrics": {"path": str(E285_METRICS),
-                         "md5": md5of(E285_METRICS), "bound_md5": E285_MD5,
+                         "md5": md5of_norm(E285_METRICS),
+                         "raw_worktree_md5": md5of(E285_METRICS),
+                         "bound_md5": E285_MD5,
                          "verdict": e285m["adjudication"]["verdict"],
                          "sanctuary_post_g0": e285_post,
                          "sanctuary_ratio_400": e285_r400,
@@ -1377,7 +1419,9 @@ def main():
                                  "-> 200x down bounds the threshold at "
                                  "<= 0.07x, one draw)"},
         "e288_metrics": {"path": str(E288_METRICS),
-                         "md5": md5of(E288_METRICS), "bound_md5": E288_MD5,
+                         "md5": md5of_norm(E288_METRICS),
+                         "raw_worktree_md5": md5of(E288_METRICS),
+                         "bound_md5": E288_MD5,
                          "verdict": e288m["adjudication"]["verdict"],
                          "error_gated_post_g0": e288_post,
                          "error_gated_ratio": e288_post / FACT_BASELINE_G0,
@@ -1389,7 +1433,9 @@ def main():
                                  "prices when the controller is "
                                  "NECESSARY)"},
         "x14_metrics": {"path": str(X14_METRICS),
-                        "md5": md5of(X14_METRICS), "bound_md5": X14_MD5,
+                        "md5": md5of_norm(X14_METRICS),
+                        "raw_worktree_md5": md5of(X14_METRICS),
+                        "bound_md5": X14_MD5,
                         "verdict": x14m["adjudication"]["verdict"],
                         "arm_A_orthogonal_subtraction_g0":
                             x14_reads["arm_A_orthogonal_subtraction_g0"],
@@ -1400,7 +1446,8 @@ def main():
                         "note": "the directional-transport record (the "
                                 "coupling constant's other side)"},
         "e273_lr_calibration": {"path": str(E273_LRCAL),
-                                "md5": md5of(E273_LRCAL),
+                                "md5": md5of_norm(E273_LRCAL),
+                                "raw_worktree_md5": md5of(E273_LRCAL),
                                 "bound_md5": E273_LRCAL_MD5,
                                 "lr_sgd": E273_LR_SGD,
                                 "note": "LR_STABLE's provenance record"},
@@ -1467,14 +1514,14 @@ def main():
             and abs(e288_post - E288_POST) < 1e-12
             and abs(e288_S - E288_S_TOTAL) < 1e-9
             and x14m["adjudication"]["verdict"] == X14_VERDICT
-            and md5of(E264_METRICS) == E264_MD5
-            and md5of(E268_METRICS) == E268_MD5
-            and md5of(E283_METRICS) == E283_MD5
-            and md5of(E284_METRICS) == E284_MD5
-            and md5of(E285_METRICS) == E285_MD5
-            and md5of(E288_METRICS) == E288_MD5
-            and md5of(X14_METRICS) == X14_MD5
-            and md5of(E273_LRCAL) == E273_LRCAL_MD5
+            and md5of_norm(E264_METRICS) == E264_MD5
+            and md5of_norm(E268_METRICS) == E268_MD5
+            and md5of_norm(E283_METRICS) == E283_MD5
+            and md5of_norm(E284_METRICS) == E284_MD5
+            and md5of_norm(E285_METRICS) == E285_MD5
+            and md5of_norm(E288_METRICS) == E288_MD5
+            and md5of_norm(X14_METRICS) == X14_MD5
+            and md5of_norm(E273_LRCAL) == E273_LRCAL_MD5
             and md5of(CKPT_DIR / FACT_CK) == FACT_MD5
             and (CKPT_DIR / FACT_CK).stat().st_size == FACT_SIZE
             and vehicle_state["step"] == FACT_STEP
