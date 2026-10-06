@@ -7,6 +7,35 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T269 — E290: the coupling constant — a few parts in a thousand, and time-not-permanence (2026-10-06, datetime.now ~12:32Z)
+
+**The number.** The read dies at a few parts in a thousand of
+orthogonal drift — the threshold bracket (0.071%, 0.323%] of the
+write's norm, 20-100x tighter than the single-datum bound. The curve
+is an INVERSE LAW: survival ~ 1/drift across 2.5 orders. And the
+holding rung still descends — passive preservation buys TIME at
+~1/drift-rate, never permanence. THE CONTROLLER IS ALWAYS NECESSARY,
+EVENTUALLY, FOR ANY MOVING ORGANISM.
+
+**What the tightness means.** The function-space coupling between
+the read and the out-of-room context is ~300x stronger than the
+parameter-space geometry (the write's room holds 73-94% of its mass
+under orders of magnitude more drift than the read survives). The
+organism's computation is holographic to a degree the write's own
+coordinates barely hint at: a thousandth of displacement elsewhere
+unmakes the function. This is the strongest empirical statement of
+memory fragility the lab owns — and it converts the e288 controller
+from an optimization into a necessity.
+
+**The preservation program's shape, complete on the record:** the
+kill law (two channels: momentum-shared re-aiming; context
+transport), the constant (the threshold and its inverse law), the
+controller (the organism's own error suffices), the economics
+(contradiction/latency/room-holding), and the scale question (the
+constant's direction with size — the 10M point named). Five objects,
+twelve days, one small organism.
+
+
 ## T268 — E288: the first active survival — the organism's own error as the preservation signal (2026-10-06, datetime.now ~10:50Z)
 
 **The founding success, stated once plainly.** An established memory,

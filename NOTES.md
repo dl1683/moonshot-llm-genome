@@ -47,7 +47,17 @@ third of a percent of its write's norm in orthogonal drift — the
 organism's function-space coupling is ~100x tighter than the
 parameter-space intuition suggested. Storage is perfect (stillness),
 but stillness is the only passive regime; any real training stream
-crosses the threshold immediately. THE PRESERVATION PROGRAM'S SHAPE
+crosses the threshold immediately. [COMPLETE-WRITE ENRICHMENT: the
+graded curve is an INVERSE LAW — survival ~ 1/realized-drift
+(log-log slope ~-1 over 2.5 orders, flattening near baseline); the
+HOLDING rung still descends (x0.94 -> 0.77) — PASSIVE BUYS TIME
+~1/drift-rate, NEVER PERMANENCE: even below the threshold the read
+erodes; the constant prices when the controller becomes necessary
+and the honest answer is ALWAYS, EVENTUALLY; the bracket's upper
+edge lands just under R68's critic's 0.5% guess; the executor's
+OneDrive catch (CRLF re-serialization of a parent record — all 8
+JSON parents re-bound on git-canonical md5s) banked as a standing
+integrity pattern.] THE PRESERVATION PROGRAM'S SHAPE
 IS NOW COMPLETE: the kill law (two channels), the constant (the
 threshold), the controller (the working answer), the economics (when
 it beats re-teaching), and the scale question (the direction of the
