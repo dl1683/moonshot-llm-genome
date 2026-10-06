@@ -1,0 +1,1213 @@
+{
+  "experiment": "e299_embalming",
+  "phase": "THE EMBALMING CURVE, AGE-0 HALF \u2014 how long does a dead memory stay resuscitable by x14's subtraction surgery? Age 0 first: the corpse inventory, x14's Arm A surgery per corpse, the resurrection-vs-kill-depth curve, and T269's half-life clock as the null model \u2014 ALWAYS-RESUSCITABLE / MASS-TRACKS / DECOUPLED",
+  "date": "2026-10-06T18:00:18Z",
+  "status": "COMPLETE \u2014 adjudicated (the age-0 half; the aging continuations ride the GPU half)",
+  "registration": "bars VERBATIM from the b4947c2 dispatch letter; operationalizations + predictions frozen in the docstring of this script, committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "question_verbatim": "how long does a dead memory stay resuscitable by x14's subtraction surgery? Age 0 first: the freshest corpses on disk.",
+    "bars_verbatim": {
+      "ALWAYS-RESUSCITABLE": "at age 0, every corpse above the write-mass floor resurrects >= 10x \u2014 the surgery works wherever mass survives; the aging continuations will set the boundary.",
+      "MASS-TRACKS": "the resurrection factor correlates with the surviving in-room mass across corpses, rho >= 0.8 \u2014 the corpse keeps until the mass erodes; the resuscitation limit = the fill law's erosion.",
+      "DECOUPLED": "resurrection does not track mass \u2014 the context's geometry matters beyond mass; x14's coupling caveat at full strength.",
+      "MIXED/INSTRUMENT-MISSING": "disclose what states exist; the age-0 answer alone is the deliverable."
+    },
+    "operationalizations": "frozen at birth in this script's docstring: the corpse set (7 named + the alive boundary), the room (x14's K10K freeze), the write-mass floor (= x14's EROSION_BAR 50%), the surgery (x14's Arm A verbatim in fp64, fp32 materialization), the resurrection factor (x14's multiplier) + the recovered fraction (Arm A / the committed baseline), ALWAYS-RESUSCITABLE's saturation clause (the 10x token is unattainable where survival > 0.10; full restoration fraction >= 0.90 replaces it \u2014 registered BEFORE compute), MASS-TRACKS' primary statistic (Spearman rho between the recovered fraction and the surviving in-room mass ratio \u2014 the resuscitation-LIMIT reading; the factor-scale rho co-reported), the tie-coarsened robustness co-report, and the two-axis composite (headline + mechanism).",
+    "predictions_pre_compute": {
+      "P-PORT": "this session's Arm A on e283's post must reproduce x14's 0.03915366902947426 (tol 2e-6) and the corpse read 9.04614535102155e-06 \u2014 the instrument check (G_PORTX14).",
+      "P-ORTH": "orthogonal-class drifts are machine-orthogonal (committed in-room fracs 1.2e-6..1.7e-5) -> Arm A ~= theta0 -> fraction ~1.0; factors cap at 1/survival (~330x, ~103x, ~16.7x, ~3.1x).",
+      "P-FREE": "free-class drifts carry ~1.64 in-room -> Arm A = theta0 + 1.64 in-room -> x14's 0.0392 landing (fraction 0.148) replicates on e283; the e285 twin lands in the same class.",
+      "P-E288": "0.59% in-room drift (the maintenance walk, |P delta| ~0.0105) -> fraction >= 0.9, factor ~5-6x (saturated).",
+      "P-MASS": "the mass axis is QUASI-BINARY at age 0 (free ~0.844 vs orthogonal ~1.000): the primary rho is expected >= 0.8 driven by the CLASS SPLIT; the factor-scale rho is expected NEGATIVE (denominator saturation); the mass-vs-class collinearity is unbreakable at age 0 \u2014 the aging continuations de-confound.",
+      "P-NULL": "T269's read clock (half-life ~1,040 steps) vs the measured MASS clock T_mass = 400*ln2/ln(m0/m_c) per free corpse: the two-clock comparison registered for the GPU half."
+    },
+    "registration": "bars VERBATIM from the b4947c2 dispatch letter; operationalizations + predictions frozen in the docstring of this script, committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "CPU-ONLY desk cell \u2014 torch threads 4, pocketfft workers 2, CPU fp64 dense projections; NO GPU ops, NO envelope-log writes, no training (reads + projections only)",
+    "trainings": "NONE \u2014 the states are loaded (the fact + the 7 corpses + the alive boundary); nothing moves",
+    "timestamps": "datetime.now(UTC) only"
+  },
+  "deviations": [
+    "THE AGE-0 DISCLOSURE (the dispatch's own framing): every corpse here sits at age 0 (zero post-death steps); the t100-300 milestone states of the named runs were never saved (only the t400 finals \u2014 inspected at design time), so the AGE axis is degenerate at 0 and the KILL DEPTH axis (the drift norm) is this half's deliverable. The aging continuations ride a later GPU gap (the dispatch: 'the aging continuations ride a later GPU gap').",
+    "THE INVENTORY'S OUT-OF-SCOPE STATES (disclosed, not adjudicated): e286/e287/e289's post states (different arms \u2014 re-anchoring, name-maintenance, contradiction streams), e280/e284's missile posts (different vehicles/rooms at other k), and the e283 corpus resume (an optimizer artifact, not a model state) are inventoried but excluded from the surgery: the dispatch named e285 + e290 + e288 (+ x14's e283 anchor + e285's own twin, its same-session control).",
+    "THE e290 RUNGS' DRIFT IN-ROOM FRACS ARE NOT ~1e-6 AT THE SMALLEST BUDGETS (design-time read of the committed ledgers): fp32 accumulation of near-cancelling orthogonal steps leaves 4.2e-6 (0.1X), 1.8e-5 (0.02X), 1.7e-4 (0.004X), 2.4e-3 (0.0008X) in-room fractions \u2014 the ABSOLUTE in-room drift stays <= 5e-6 for the three corpse rungs, so P-ORTH's ~theta0 prediction is unchanged; disclosed because the frac alone reads misleadingly at tiny drift norms.",
+    "THE e288 TWIN IS A THIRD CLASS (orthogonal corpus + IN-ROOM name maintenance): its committed drift is 0.59% in-room (the maintenance walk 0.061 in-room frac of 0.172 maint displacement) \u2014 it is neither the free class (0.113 in-room) nor machine-orthogonal; carried as its own class in every table and figure.",
+    "CPU-ONLY desk cell (dispatch): torch threads 4, pocketfft workers 2, no training runs, no corpus stream, no optimizer \u2014 reads + fp64 projections only; NO envelope-log writes; NO cuda tensor is ever created (the e261 import carries the family cuda-availability assert \u2014 its module-level side effects are the runs/e261/run.log append-handle open and nothing else, the x14/e283 precedent).",
+    "THE CORPSE FILE-MD5s HAVE NO PRIOR COMMITS except e283's post (x14 recorded it): the other six are bound by md5s recorded HERE at design time (the inventory commit) + VALUE-BOUND at runtime (the behavioral g0 read vs each run's committed t400 literal + the geometric drift norm vs its committed ledger \u2014 the x14 value-bind precedent, the stronger bind).",
+    "THE PROBES NEED NO STREAM: no install, no corpus, no optimizer runs in this cell; the splice/battery convention gates (G_SPLICE / G_BATTERY) carry the probe identity (x14's disclosed form).",
+    "THE ADDITIVITY NULL CARRIES VERBATIM (x14's honesty block): the subtraction assumes component-wise additivity; LN/softmax coupling can mask resurrection \u2014 NECESSARY-not-SUFFICIENT: resurrection => the out-of-room context carried the kill; a sub-bar read never proves overwrite. Every 'resuscitated' verdict here is a lower bound on the corpse's resuscitability.",
+    "n=1 per corpse, one lineage, one session, one draw of history per kill (the g-series standing lottery note carried verbatim); the DEPTH LADDER's monotone pattern across bit-identical draw streams (e290's own disclosure) is the depth axis's strength; nothing guaranteed.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds)."
+  ],
+  "builds_on": [
+    "T263 / x14 (THE SUBTRACTION INTERVENTION: Arm A resurrected e283's corpse 4,328x to 14.8% of baseline; the surgery, the room freeze, the probe convention \u2014 ported VERBATIM; this cell's instrument)",
+    "T269 / e290 (the coupling constant: the orthogonal-drift ladder at budgets 0.1x/0.02x/0.004x/0.0008x \u2014 the corpse depth ladder; the geometric clock half-life ~1,040 steps \u2014 the null model)",
+    "T265 / e285 (the sanctuary's honest failure: the orthogonal stream preserves the write's mass 93.0% in-room while the read dies 0.0030x \u2014 the mass/read dissociation this cell measures head-on)",
+    "T268 / e288 (the error-gated controller's twin: the name-maintenance in-room walk \u2014 the third corpse class)",
+    "T261 / e283 (the established-fact collision: the free-class kill at drift 14.45; the t400 post state \u2014 the anchor corpse)",
+    "T239 / e261 (the machinery PORTED WHOLE BY IMPORT: the SRCT projector, LadderRooms, the certification)"
+  ],
+  "whats_new": [
+    "THE RESURRECTION CURVE ITSELF: x14 measured ONE corpse at ONE depth; this cell sweeps SEVEN corpses across three kill classes and 2.6 orders of kill depth (0.030 -> 14.45) at age 0 \u2014 the record's first multi-corpse resuscitability map",
+    "THE MASS-vs-RESURRECTION QUESTION ASKED INTERVENTIONALLY: does the surgery's yield track the surviving in-room mass (MASS-TRACKS) or the kill's geometry/class (DECOUPLED)? \u2014 the question x14's single-corpse coupling caveat could not ask",
+    "THE TWO-CLOCK COMPARISON: T269's read clock (half-life ~1,040 steps) vs the measured MASS clock implied by the free-class corpses' erosion \u2014 the discriminating prediction registered for the aging (GPU) half of e299"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g+0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "expected": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "pass": true
+    },
+    "G_PARENTS": {
+      "e264_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e264\\metrics.json",
+        "md5": "a42ff4786784b04cb9819a69b545e343",
+        "bound_md5": "a42ff4786784b04cb9819a69b545e343",
+        "K10K_post_g0": 0.26464763283729553,
+        "note": "THE loaded fact's committed record"
+      },
+      "e283_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e283\\metrics.json",
+        "md5": "cf5be012f636ede7b953eb9a615c60a5",
+        "bound_md5": "cf5be012f636ede7b953eb9a615c60a5"
+      },
+      "e285_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e285\\metrics.json",
+        "md5": "3f71c7b209fe9b6e9645d7504ddbb49c",
+        "bound_md5": "3f71c7b209fe9b6e9645d7504ddbb49c"
+      },
+      "e288_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e288\\metrics.json",
+        "md5": "31bf8df55b51c8a19c48a155388050be",
+        "bound_md5": "31bf8df55b51c8a19c48a155388050be"
+      },
+      "e290_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e290\\metrics.json",
+        "md5": "4ca36a46b04d0045faa833f4f9a49d1f",
+        "bound_md5": "4ca36a46b04d0045faa833f4f9a49d1f"
+      },
+      "x14_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x14\\metrics.json",
+        "md5": "4970e27ae8c315df8762e5c3499a2be5",
+        "bound_md5": "4970e27ae8c315df8762e5c3499a2be5",
+        "note": "THE SURGERY'S RECORD (the instrument's committed literals: Arm A 0.03915366902947426, factor 4328.2x)"
+      },
+      "e268_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e268\\metrics.json",
+        "md5": "c1149229b7f0191943a7b8eb0442b494",
+        "bound_md5": "c1149229b7f0191943a7b8eb0442b494"
+      },
+      "e278_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e278\\metrics.json",
+        "md5": "db14cdff1fd5021a5b255c12127ea9df",
+        "bound_md5": "db14cdff1fd5021a5b255c12127ea9df"
+      },
+      "the_fact": {
+        "path": "runs/checkpoints/e261_K10K_inst_resume.pt",
+        "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "bound_md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "size": 32958479,
+        "bound_size": 32958479,
+        "state": {
+          "step": 400,
+          "traj_steps": [
+            1,
+            100,
+            200,
+            300,
+            400
+          ],
+          "ledger_max": 400
+        }
+      },
+      "the_corpses": {
+        "e283-CONCURRENT": {
+          "path": "runs/checkpoints/e283_ESTABLISHED-CONCURRENT_post.pt",
+          "md5": "a98b638cbd52658e63d706cd112b26fb",
+          "size": 10977999
+        },
+        "e285-TWIN": {
+          "path": "runs/checkpoints/e285_UNPROTECTED-TWIN_post.pt",
+          "md5": "0f2844b9160705c5628eb696fac61c03",
+          "size": 10977573
+        },
+        "e285-SANCTUARY": {
+          "path": "runs/checkpoints/e285_SANCTUARY_post.pt",
+          "md5": "54efad8e339c663edc8297c9698b0b10",
+          "size": 10977012
+        },
+        "e290-0.1X": {
+          "path": "runs/checkpoints/e290_BUDGET-0.1X_post.pt",
+          "md5": "799f057b9b80f2404a4aa960dbe29030",
+          "size": 10977218
+        },
+        "e290-0.02X": {
+          "path": "runs/checkpoints/e290_BUDGET-0.02X_post.pt",
+          "md5": "7e34a9395fdd23cf861edbb754285ca6",
+          "size": 10977353
+        },
+        "e290-0.004X": {
+          "path": "runs/checkpoints/e290_BUDGET-0.004X_post.pt",
+          "md5": "dff12cae812461052fb3911237314641",
+          "size": 10977424
+        },
+        "e288-NAME-FIXED-TWIN": {
+          "path": "runs/checkpoints/e288_NAME-FIXED-TWIN_post.pt",
+          "md5": "6f975204e2e1b30dad0a3ceaaf539a79",
+          "size": 10977758
+        }
+      },
+      "the_boundary": {
+        "path": "runs/checkpoints/e290_BUDGET-0.0008X_post.pt",
+        "md5": "47183720d587ff5bd3c198bc0bc14631",
+        "size": 10977495,
+        "note": "the ALIVE boundary state (e290-0.0008X holds 0.767x \u2014 co-reported, never a corpse)"
+      },
+      "e264_rooms": {
+        "path": "runs/checkpoints/e264_rooms.pt",
+        "md5": "2d524655575cce00a3bc1c8770f4b211",
+        "bound_md5": "2d524655575cce00a3bc1c8770f4b211"
+      },
+      "e246_span": {
+        "path": "runs/checkpoints/e246_late_span.pt",
+        "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+        "bound_md5": "3464ff6081d8e402103dd9ca65bfb53a"
+      },
+      "e258_vmap": {
+        "path": "runs/checkpoints/e258_vmap.pt",
+        "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c"
+      },
+      "hardbound": {
+        "fact_baseline_g0": 0.26464763283729553,
+        "fact_baseline_gm12": 0.10525520890951157,
+        "x14_arm_A_g0": 0.03915366902947426,
+        "x14_corpse_g0": 9.04614535102155e-06,
+        "x14_factor": 4328.215777016314
+      },
+      "pass": true
+    },
+    "G_BASE": {
+      "checkpoint": "runs/checkpoints/e001.pt",
+      "params": 2739072,
+      "fact_free_gm12": 1.437231640011305e-05,
+      "ce_r": 1.6161081790924072,
+      "fact_free": true,
+      "pass": true
+    },
+    "G_ROOT": {
+      "checkpoint": "runs/checkpoints/g1c_root.pt",
+      "n_params": 2739072,
+      "expected_params": 2739072,
+      "battery_read_measured": 0.9026340246200562,
+      "battery_read_committed": 0.9026340246200562,
+      "abs_diff": 0.0,
+      "tol": 0.005,
+      "flat_md5": "a7f02b367c5342535aecfc814d780631",
+      "pass": true
+    },
+    "G_VMBIND": {
+      "path": "runs/checkpoints/e258_vmap.pt",
+      "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c",
+      "meta_experiment": "e258",
+      "meta_k": 237123,
+      "size": 2739072,
+      "expected_size": 2739072,
+      "mean_v": 1.9735449453829365e-07,
+      "pass": true
+    },
+    "G_SPANBIND": {
+      "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+      "rank": 10,
+      "N": 2739072,
+      "meta_experiment": "e246",
+      "pass": true
+    },
+    "G_PROJ": {
+      "form": "the K10K room certified (fp64 CPU, 4 probes, seed 26115): the DCT roundtrip identity; IDEMPOTENCY and the kept^2 rank probe (||P x||^2/||x||^2 vs k/N, the 10-sigma bar 5*sqrt(2k)/N); the span-overlap (expect ~sqrt(k/N))",
+      "reads": {
+        "probes": 4,
+        "seed": 26115,
+        "dct_roundtrip_rel": 8.195877245616001e-16,
+        "per_rung": {
+          "K10K": {
+            "k": 10000,
+            "seeds": [
+              26113,
+              26114
+            ],
+            "idempotency_max": 5.669754673327867e-16,
+            "kept2_mean": 0.0036073728283031233,
+            "kept2_expect": 0.0036508715360530864,
+            "kept2_bar_10sig": 0.0002581556020384085,
+            "kept2_pass": true,
+            "idempotency_pass": true,
+            "span_overlap_mean": 0.06038652639299012,
+            "span_overlap_expect": 0.06042244232115321
+          }
+        },
+        "pass": true
+      },
+      "bars": {
+        "roundtrip": 1e-08,
+        "idempotency": 1e-08,
+        "kept2": "10-sigma (5*sqrt(2k)/N)"
+      },
+      "pass": true
+    },
+    "G_ROOMK10K": {
+      "form": "the room == the fact's own committed K10K room (seeds 26113/26114 at k=10,000): the +-1 diagonal and the index set bit-identical to e264_rooms.pt's stored K10K D/S (exact equality) \u2014 x14's freeze",
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "e264_rooms_md5": "2d524655575cce00a3bc1c8770f4b211",
+      "pass": true
+    },
+    "G_FACTLOAD": {
+      "form": "the established fact (t0), loaded BIT-EXACT and gated THREE ways (x14's G_FACTLOAD): (1) the artifact (md5/size/step/traj/ledger \u2014 G_PARENTS), (2) the loaded state's flat-md5 vs the family's recorded bind, (3) the behavioral read (post g0 within 2e-6 / gm12 within 1e-5 of e264's committed literals)",
+      "flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+      "bound_flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+      "read_g0": {
+        "mine": 0.26464763283729553,
+        "committed": 0.26464763283729553,
+        "abs_diff": 0.0
+      },
+      "read_gm12": {
+        "mine": 0.10525520890951157,
+        "committed": 0.10525520890951157,
+        "abs_diff": 0.0
+      },
+      "read_gp12": 0.11036071181297302,
+      "read_ce_r": 1.5920883417129517,
+      "write_disposition": {
+        "norm": 9.1788432658723,
+        "in_room_mass": 8.666286367491834,
+        "out_room_mass": 3.024341960836486,
+        "in_room_frac": 0.9441588788985867,
+        "note": "the write's own standing t0 ledger \u2014 m0 is the write-mass floor's denominator"
+      },
+      "pass": true
+    },
+    "G_CORPSELOAD": {
+      "form": "every corpse + the boundary bound BEHAVIORALLY (this session's g0 read vs each run's committed t400 literal, the cross-session read-determinism law) AND GEOMETRICALLY (the fp64 drift norm vs each run's committed ledger) \u2014 the x14 value-bind precedent; the file md5s are hard-bound to this cell's design-time inventory (G_PARENTS)",
+      "per_state": {
+        "e283-CONCURRENT": {
+          "read_g0": {
+            "mine": 9.04614535102155e-06,
+            "committed": 9.04614535102155e-06,
+            "abs_diff": 0.0
+          },
+          "drift_norm": {
+            "mine": 14.453935847208887,
+            "committed": 14.453935847202613,
+            "abs_diff": 6.274092356761685e-12
+          },
+          "meta": {
+            "experiment": "e283",
+            "arm": "ESTABLISHED-CONCURRENT",
+            "corpus_gen_seed": 28301,
+            "fact": "runs/checkpoints/e261_K10K_inst_resume.pt (md5 0f6dc1cf46850ce655dfafc9c853d467)",
+            "rooms": "runs/checkpoints/e283_rooms.pt"
+          },
+          "pass": true
+        },
+        "e285-TWIN": {
+          "read_g0": {
+            "mine": 3.895893769367831e-06,
+            "committed": 3.895893769367831e-06,
+            "abs_diff": 0.0
+          },
+          "drift_norm": {
+            "mine": 14.432213219853237,
+            "committed": 14.432213219853237,
+            "abs_diff": 0.0
+          },
+          "meta": {
+            "experiment": "e285",
+            "arm": "UNPROTECTED-TWIN",
+            "corpus_gen_seed": 28501,
+            "fact": "runs/checkpoints/e261_K10K_inst_resume.pt (md5 0f6dc1cf46850ce655dfafc9c853d467)",
+            "rooms": "runs/checkpoints/e285_rooms.pt"
+          },
+          "pass": true
+        },
+        "e285-SANCTUARY": {
+          "read_g0": {
+            "mine": 0.0008025270071811974,
+            "committed": 0.0008025270071811974,
+            "abs_diff": 0.0
+          },
+          "drift_norm": {
+            "mine": 1.844509195284748,
+            "committed": 1.844509195284748,
+            "abs_diff": 0.0
+          },
+          "meta": {
+            "experiment": "e285",
+            "arm": "SANCTUARY",
+            "corpus_gen_seed": 28501,
+            "budget_norm": 4.58942163293615,
+            "S": 4.589421633863822,
+            "fact": "runs/checkpoints/e261_K10K_inst_resume.pt (md5 0f6dc1cf46850ce655dfafc9c853d467)",
+            "rooms": "runs/checkpoints/e285_rooms.pt"
+          },
+          "pass": true
+        },
+        "e290-0.1X": {
+          "read_g0": {
+            "mine": 0.002571124816313386,
+            "committed": 0.002571124816313386,
+            "abs_diff": 0.0
+          },
+          "drift_norm": {
+            "mine": 0.5350150074127173,
+            "committed": 0.5350150074127173,
+            "abs_diff": 0.0
+          },
+          "meta": {
+            "experiment": "e290",
+            "arm": "BUDGET-0.1X",
+            "budget_frac": 0.1,
+            "budget_norm": 0.9178843265872301,
+            "S": 0.917884326656349,
+            "fact": "runs/checkpoints/e261_K10K_inst_resume.pt (md5 0f6dc1cf46850ce655dfafc9c853d467)",
+            "rooms": "runs/checkpoints/e290_rooms.pt"
+          },
+          "pass": true
+        },
+        "e290-0.02X": {
+          "read_g0": {
+            "mine": 0.015849657356739044,
+            "committed": 0.015849657356739044,
+            "abs_diff": 0.0
+          },
+          "drift_norm": {
+            "mine": 0.12767011963107458,
+            "committed": 0.12767011963107458,
+            "abs_diff": 0.0
+          },
+          "meta": {
+            "experiment": "e290",
+            "arm": "BUDGET-0.02X",
+            "budget_frac": 0.02,
+            "budget_norm": 0.18357686531744602,
+            "S": 0.1835768697783351,
+            "fact": "runs/checkpoints/e261_K10K_inst_resume.pt (md5 0f6dc1cf46850ce655dfafc9c853d467)",
+            "rooms": "runs/checkpoints/e290_rooms.pt"
+          },
+          "pass": true
+        },
+        "e290-0.004X": {
+          "read_g0": {
+            "mine": 0.0845259428024292,
+            "committed": 0.0845259428024292,
+            "abs_diff": 0.0
+          },
+          "drift_norm": {
+            "mine": 0.0296763134218502,
+            "committed": 0.0296763134218502,
+            "abs_diff": 0.0
+          },
+          "meta": {
+            "experiment": "e290",
+            "arm": "BUDGET-0.004X",
+            "budget_frac": 0.004,
+            "budget_norm": 0.0367153730634892,
+            "S": 0.03671539213246433,
+            "fact": "runs/checkpoints/e261_K10K_inst_resume.pt (md5 0f6dc1cf46850ce655dfafc9c853d467)",
+            "rooms": "runs/checkpoints/e290_rooms.pt"
+          },
+          "pass": true
+        },
+        "e288-NAME-FIXED-TWIN": {
+          "read_g0": {
+            "mine": 0.04296277463436127,
+            "committed": 0.04296277463436127,
+            "abs_diff": 0.0
+          },
+          "drift_norm": {
+            "mine": 1.7945658733962344,
+            "committed": 1.7945658733962344,
+            "abs_diff": 0.0
+          },
+          "meta": {
+            "experiment": "e288",
+            "arm": "NAME-FIXED-TWIN",
+            "corpus_gen_seed": 28801,
+            "inst_gen_seed": 28802,
+            "maint_lr_base": 0.21738574801453703,
+            "maint_every": 25,
+            "budget_norm": 4.58942163293615,
+            "S_corpus": 4.412235867697746,
+            "S_maint": 0.1771857663989067,
+            "fact": "runs/checkpoints/e261_K10K_inst_resume.pt (md5 0f6dc1cf46850ce655dfafc9c853d467)",
+            "rooms": "runs/checkpoints/e288_rooms.pt"
+          },
+          "pass": true
+        },
+        "e290-0.0008X": {
+          "read_g0": {
+            "mine": 0.20309039950370789,
+            "committed": 0.20309039950370789,
+            "abs_diff": 0.0
+          },
+          "drift_norm": {
+            "mine": 0.006516891344157901,
+            "committed": 0.006516891344157901,
+            "abs_diff": 0.0
+          },
+          "meta": {
+            "experiment": "e290",
+            "arm": "BUDGET-0.0008X",
+            "budget_frac": 0.0008,
+            "budget_norm": 0.007343074612697841,
+            "S": 0.0073431188120594015,
+            "fact": "runs/checkpoints/e261_K10K_inst_resume.pt (md5 0f6dc1cf46850ce655dfafc9c853d467)",
+            "rooms": "runs/checkpoints/e290_rooms.pt"
+          },
+          "pass": true
+        }
+      },
+      "pass": true
+    },
+    "G_PORTX14": {
+      "form": "THE INSTRUMENT CHECK: this session's Arm A on x14's own corpse (e283's post state) must reproduce x14's committed literals \u2014 the same state, the same room, the same probe, the same fp64 arithmetic; the port is verbatim or this HALTS",
+      "arm_A_g0": {
+        "mine": 0.03915366902947426,
+        "x14_committed": 0.03915366902947426,
+        "abs_diff": 0.0
+      },
+      "corpse_g0": {
+        "mine": 9.04614535102155e-06,
+        "x14_committed": 9.04614535102155e-06,
+        "abs_diff": 0.0
+      },
+      "tol": 2e-06,
+      "pass": true
+    }
+  },
+  "phase_note": "P6 DONE (surgery + curve + null model + adjudication + honesty + figure + report)",
+  "rooms": {
+    "vehicle": {
+      "k": 10000,
+      "name": "K10K",
+      "seeds": [
+        26113,
+        26114
+      ],
+      "k_fraction_of_N": 0.0036508715360530864,
+      "bit_bound_to": "runs/checkpoints/e264_rooms.pt (e264's committed K10K room \u2014 the fact's own room; x14's freeze)"
+    },
+    "certification": {
+      "probes": 4,
+      "seed": 26115,
+      "dct_roundtrip_rel": 8.195877245616001e-16,
+      "per_rung": {
+        "K10K": {
+          "k": 10000,
+          "seeds": [
+            26113,
+            26114
+          ],
+          "idempotency_max": 5.669754673327867e-16,
+          "kept2_mean": 0.0036073728283031233,
+          "kept2_expect": 0.0036508715360530864,
+          "kept2_bar_10sig": 0.0002581556020384085,
+          "kept2_pass": true,
+          "idempotency_pass": true,
+          "span_overlap_mean": 0.06038652639299012,
+          "span_overlap_expect": 0.06042244232115321
+        }
+      },
+      "pass": true
+    }
+  },
+  "corpse_inventory": {
+    "form": "the checkpointed corpse states of the fact-lineage (the loaded K10K fact's descendants), their kill depths and their ages \u2014 the dispatch's (a)",
+    "the_corpses": [
+      {
+        "key": "e283-CONCURRENT",
+        "checkpoint": "runs/checkpoints/e283_ESTABLISHED-CONCURRENT_post.pt",
+        "class": "free-adamw",
+        "committed_g0": 9.04614535102155e-06,
+        "committed_drift": 14.453935847202613
+      },
+      {
+        "key": "e285-TWIN",
+        "checkpoint": "runs/checkpoints/e285_UNPROTECTED-TWIN_post.pt",
+        "class": "free-adamw",
+        "committed_g0": 3.895893769367831e-06,
+        "committed_drift": 14.432213219853237
+      },
+      {
+        "key": "e285-SANCTUARY",
+        "checkpoint": "runs/checkpoints/e285_SANCTUARY_post.pt",
+        "class": "orthogonal-sgdm",
+        "committed_g0": 0.0008025270071811974,
+        "committed_drift": 1.844509195284748
+      },
+      {
+        "key": "e290-0.1X",
+        "checkpoint": "runs/checkpoints/e290_BUDGET-0.1X_post.pt",
+        "class": "orthogonal-sgdm",
+        "committed_g0": 0.002571124816313386,
+        "committed_drift": 0.5350150074127173
+      },
+      {
+        "key": "e290-0.02X",
+        "checkpoint": "runs/checkpoints/e290_BUDGET-0.02X_post.pt",
+        "class": "orthogonal-sgdm",
+        "committed_g0": 0.015849657356739044,
+        "committed_drift": 0.12767011963107458
+      },
+      {
+        "key": "e290-0.004X",
+        "checkpoint": "runs/checkpoints/e290_BUDGET-0.004X_post.pt",
+        "class": "orthogonal-sgdm",
+        "committed_g0": 0.0845259428024292,
+        "committed_drift": 0.0296763134218502
+      },
+      {
+        "key": "e288-NAME-FIXED-TWIN",
+        "checkpoint": "runs/checkpoints/e288_NAME-FIXED-TWIN_post.pt",
+        "class": "orthogonal+in-room-maint",
+        "committed_g0": 0.04296277463436127,
+        "committed_drift": 1.7945658733962344
+      }
+    ],
+    "the_alive_boundary": {
+      "key": "e290-0.0008X",
+      "checkpoint": "runs/checkpoints/e290_BUDGET-0.0008X_post.pt",
+      "class": "orthogonal-sgdm",
+      "committed_g0": 0.20309039950370789,
+      "committed_drift": 0.006516891344157901,
+      "note": "ALIVE (holds 0.767399x >= the family's 0.5x bar) \u2014 the surgery is co-reported on it, never adjudicated as a corpse"
+    },
+    "out_of_scope": [
+      {
+        "key": "e286_RE-ANCHORED / e286_SANCTUARY-TWIN / e287_NAME-MAINTAINED / e287_SANCTUARY-TWIN / e289_* (6 states)",
+        "reason": "different arms (re-anchoring, name-maintenance, contradiction streams) \u2014 outside the dispatch's named set; inventoried, not operated on"
+      },
+      {
+        "key": "e280_*_post / e284_SEP/SHA_post",
+        "reason": "different vehicles/rooms (other k, other conventions) \u2014 not this fact's lineage at K10K"
+      },
+      {
+        "key": "e283_CONCURRENT_corpus_resume.pt + the e285/e290 resume artifacts",
+        "reason": "optimizer-state artifacts (model + optimizer), not standalone model states; the t400 model states are the _post.pt files used here"
+      },
+      {
+        "key": "the t100/200/300 milestone states of every named run",
+        "reason": "NEVER SAVED (only the t400 finals) \u2014 the age axis is degenerate at 0 in this half; disclosed"
+      }
+    ]
+  },
+  "surgery": {
+    "records": [
+      {
+        "key": "e283-CONCURRENT",
+        "is_corpse": true,
+        "class": "free-adamw",
+        "checkpoint": "runs/checkpoints/e283_ESTABLISHED-CONCURRENT_post.pt",
+        "committed_record": "runs/e283/metrics.json",
+        "age_steps_post_death": 0,
+        "kill_depth": {
+          "drift_norm": 14.453935847208887,
+          "drift_frac_of_write": 1.5747012372408424,
+          "drift_in_room_norm": 1.6486656129287351,
+          "drift_in_room_frac": 0.11406343783150934,
+          "drift_out_room_norm": 14.359601776232475
+        },
+        "corpse_read": {
+          "g0": 9.04614535102155e-06,
+          "gm12": 2.3886157578090206e-05,
+          "gp12": 1.656910353631247e-05,
+          "ce_r": 1.6652382612228394
+        },
+        "survival_ratio": 3.4181848724802654e-05,
+        "write_mass": {
+          "in_room_mass": 7.3096429900948365,
+          "out_room_mass": 14.323054300679198,
+          "total": 16.08044667112344,
+          "mass_ratio_vs_t0": 0.8434573564882518,
+          "cos_surviving_vs_write_in_room": 0.9930729893654585,
+          "floor_pass": true
+        },
+        "arm_A_orthogonal_subtraction": {
+          "desc": "x14's Arm A verbatim: theta_corpse - (I-P)(theta_corpse - theta0) == theta0 + P(delta); read g0",
+          "read": {
+            "g0": 0.03915366902947426,
+            "gm12": 0.01570613868534565,
+            "gp12": 0.01660182885825634,
+            "ce_r": 1.584105134010315
+          },
+          "fp32_quantization_residual": 1.8571295652415647e-06,
+          "construction_id_closure_fp64": 0.0
+        },
+        "resurrection": {
+          "factor_over_dead": 4328.215777016314,
+          "max_attainable_factor": 29255.293008022447,
+          "multiplier_saturated": false,
+          "recovered_fraction_of_baseline": 0.14794641693827582,
+          "resurrected": true,
+          "basis": "factor 4328.2x >= 10x"
+        }
+      },
+      {
+        "key": "e285-TWIN",
+        "is_corpse": true,
+        "class": "free-adamw",
+        "checkpoint": "runs/checkpoints/e285_UNPROTECTED-TWIN_post.pt",
+        "committed_record": "runs/e285/metrics.json",
+        "age_steps_post_death": 0,
+        "kill_depth": {
+          "drift_norm": 14.432213219853237,
+          "drift_frac_of_write": 1.5723346397593911,
+          "drift_in_room_norm": 1.6364715889563168,
+          "drift_in_room_frac": 0.1133902031536753,
+          "drift_out_room_norm": 14.33913313843789
+        },
+        "corpse_read": {
+          "g0": 3.895893769367831e-06,
+          "gm12": 1.107470779970754e-05,
+          "gp12": 2.5031213226611726e-05,
+          "ce_r": 1.635364055633545
+        },
+        "survival_ratio": 1.472106033067378e-05,
+        "write_mass": {
+          "in_room_mass": 7.314916565877985,
+          "out_room_mass": 14.302941782553296,
+          "total": 16.064935356261554,
+          "mass_ratio_vs_t0": 0.8440658727037936,
+          "cos_surviving_vs_write_in_room": 0.9932813027642661,
+          "floor_pass": true
+        },
+        "arm_A_orthogonal_subtraction": {
+          "desc": "x14's Arm A verbatim: theta_corpse - (I-P)(theta_corpse - theta0) == theta0 + P(delta); read g0",
+          "read": {
+            "g0": 0.04048166051506996,
+            "gm12": 0.016596319153904915,
+            "gp12": 0.016874225810170174,
+            "ce_r": 1.583257794380188
+          },
+          "fp32_quantization_residual": 1.8765582331057724e-06,
+          "construction_id_closure_fp64": 0.0
+        },
+        "resurrection": {
+          "factor_over_dead": 10390.853270529175,
+          "max_attainable_factor": 67929.88939229693,
+          "multiplier_saturated": false,
+          "recovered_fraction_of_baseline": 0.15296437788263895,
+          "resurrected": true,
+          "basis": "factor 10390.9x >= 10x"
+        }
+      },
+      {
+        "key": "e285-SANCTUARY",
+        "is_corpse": true,
+        "class": "orthogonal-sgdm",
+        "checkpoint": "runs/checkpoints/e285_SANCTUARY_post.pt",
+        "committed_record": "runs/e285/metrics.json",
+        "age_steps_post_death": 0,
+        "kill_depth": {
+          "drift_norm": 1.844509195284748,
+          "drift_frac_of_write": 0.20095224875914225,
+          "drift_in_room_norm": 2.2614175941861344e-06,
+          "drift_in_room_frac": 1.2260267392361931e-06,
+          "drift_out_room_norm": 1.8445091952833728
+        },
+        "corpse_read": {
+          "g0": 0.0008025270071811974,
+          "gm12": 0.00046114681754261255,
+          "gp12": 0.00048369067371822894,
+          "ce_r": 1.6603666543960571
+        },
+        "survival_ratio": 0.00303243599263398,
+        "write_mass": {
+          "in_room_mass": 8.666286348633985,
+          "out_room_mass": 3.4240350089938847,
+          "total": 9.318183021347762,
+          "mass_ratio_vs_t0": 0.999999997823999,
+          "cos_surviving_vs_write_in_room": 0.9999999999999658,
+          "floor_pass": true
+        },
+        "arm_A_orthogonal_subtraction": {
+          "desc": "x14's Arm A verbatim: theta_corpse - (I-P)(theta_corpse - theta0) == theta0 + P(delta); read g0",
+          "read": {
+            "g0": 0.26464754343032837,
+            "gm12": 0.10525520890951157,
+            "gp12": 0.11036074906587601,
+            "ce_r": 1.5920884609222412
+          },
+          "fp32_quantization_residual": 1.1554218900992538e-06,
+          "construction_id_closure_fp64": 0.0
+        },
+        "resurrection": {
+          "factor_over_dead": 329.76777237675606,
+          "max_attainable_factor": 329.76788378355775,
+          "multiplier_saturated": false,
+          "recovered_fraction_of_baseline": 0.9999996621660047,
+          "resurrected": true,
+          "basis": "factor 329.8x >= 10x"
+        }
+      },
+      {
+        "key": "e290-0.1X",
+        "is_corpse": true,
+        "class": "orthogonal-sgdm",
+        "checkpoint": "runs/checkpoints/e290_BUDGET-0.1X_post.pt",
+        "committed_record": "runs/e290/metrics.json",
+        "age_steps_post_death": 0,
+        "kill_depth": {
+          "drift_norm": 0.5350150074127173,
+          "drift_frac_of_write": 0.05828784650915082,
+          "drift_in_room_norm": 2.249926655701206e-06,
+          "drift_in_room_frac": 4.2053524191436075e-06,
+          "drift_out_room_norm": 0.5350150074079874
+        },
+        "corpse_read": {
+          "g0": 0.002571124816313386,
+          "gm12": 0.0012771986657753587,
+          "gp12": 0.001269028289243579,
+          "ce_r": 1.6048564910888672
+        },
+        "survival_ratio": 0.009715276077659478,
+        "write_mass": {
+          "in_room_mass": 8.666286357536304,
+          "out_room_mass": 3.0389986816298187,
+          "total": 9.18368293321181,
+          "mass_ratio_vs_t0": 0.9999999988512346,
+          "cos_surviving_vs_write_in_room": 0.9999999999999661,
+          "floor_pass": true
+        },
+        "arm_A_orthogonal_subtraction": {
+          "desc": "x14's Arm A verbatim: theta_corpse - (I-P)(theta_corpse - theta0) == theta0 + P(delta); read g0",
+          "read": {
+            "g0": 0.26464754343032837,
+            "gm12": 0.1052551344037056,
+            "gp12": 0.1103607714176178,
+            "ce_r": 1.5920884609222412
+          },
+          "fp32_quantization_residual": 1.1530176352228573e-06,
+          "construction_id_closure_fp64": 0.0
+        },
+        "resurrection": {
+          "factor_over_dead": 102.93064799934292,
+          "max_attainable_factor": 102.93068277282673,
+          "multiplier_saturated": false,
+          "recovered_fraction_of_baseline": 0.9999996621660047,
+          "resurrected": true,
+          "basis": "factor 102.9x >= 10x"
+        }
+      },
+      {
+        "key": "e290-0.02X",
+        "is_corpse": true,
+        "class": "orthogonal-sgdm",
+        "checkpoint": "runs/checkpoints/e290_BUDGET-0.02X_post.pt",
+        "committed_record": "runs/e290/metrics.json",
+        "age_steps_post_death": 0,
+        "kill_depth": {
+          "drift_norm": 0.12767011963107458,
+          "drift_frac_of_write": 0.013909173076934721,
+          "drift_in_room_norm": 2.2428199410798622e-06,
+          "drift_in_room_frac": 1.7567305079378697e-05,
+          "drift_out_room_norm": 0.12767011961137448
+        },
+        "corpse_read": {
+          "g0": 0.015849657356739044,
+          "gm12": 0.00615368178114295,
+          "gp12": 0.006302209105342627,
+          "ce_r": 1.5903419256210327
+        },
+        "survival_ratio": 0.059889662291003225,
+        "write_mass": {
+          "in_room_mass": 8.66628633938579,
+          "out_room_mass": 3.0202126886982636,
+          "total": 9.177483511355224,
+          "mass_ratio_vs_t0": 0.9999999967568527,
+          "cos_surviving_vs_write_in_room": 0.9999999999999665,
+          "floor_pass": true
+        },
+        "arm_A_orthogonal_subtraction": {
+          "desc": "x14's Arm A verbatim: theta_corpse - (I-P)(theta_corpse - theta0) == theta0 + P(delta); read g0",
+          "read": {
+            "g0": 0.26464781165122986,
+            "gm12": 0.10525520890951157,
+            "gp12": 0.11036086082458496,
+            "ce_r": 1.5920884609222412
+          },
+          "fp32_quantization_residual": 1.1516304660538153e-06,
+          "construction_id_closure_fp64": 0.0
+        },
+        "resurrection": {
+          "factor_over_dead": 16.69738377900677,
+          "max_attainable_factor": 16.697372497126647,
+          "multiplier_saturated": false,
+          "recovered_fraction_of_baseline": 1.0000006756679907,
+          "resurrected": true,
+          "basis": "factor 16.7x >= 10x"
+        }
+      },
+      {
+        "key": "e290-0.004X",
+        "is_corpse": true,
+        "class": "orthogonal-sgdm",
+        "checkpoint": "runs/checkpoints/e290_BUDGET-0.004X_post.pt",
+        "committed_record": "runs/e290/metrics.json",
+        "age_steps_post_death": 0,
+        "kill_depth": {
+          "drift_norm": 0.0296763134218502,
+          "drift_frac_of_write": 0.0032331212727195364,
+          "drift_in_room_norm": 4.948697760612772e-06,
+          "drift_in_room_frac": 0.00016675581263301807,
+          "drift_out_room_norm": 0.029676313009238148
+        },
+        "corpse_read": {
+          "g0": 0.0845259428024292,
+          "gm12": 0.02944858931005001,
+          "gp12": 0.030482212081551552,
+          "ce_r": 1.5897821187973022
+        },
+        "survival_ratio": 0.31939051143675057,
+        "write_mass": {
+          "in_room_mass": 8.666286323180067,
+          "out_room_mass": 3.023238049819422,
+          "total": 9.178479554981427,
+          "mass_ratio_vs_t0": 0.9999999948868795,
+          "cos_surviving_vs_write_in_room": 0.9999999999998367,
+          "floor_pass": true
+        },
+        "arm_A_orthogonal_subtraction": {
+          "desc": "x14's Arm A verbatim: theta_corpse - (I-P)(theta_corpse - theta0) == theta0 + P(delta); read g0",
+          "read": {
+            "g0": 0.26464730501174927,
+            "gm12": 0.10525504499673843,
+            "gp12": 0.11036062240600586,
+            "ce_r": 1.5920884609222412
+          },
+          "fp32_quantization_residual": 1.4322918663789102e-06,
+          "construction_id_closure_fp64": 0.0
+        },
+        "resurrection": {
+          "factor_over_dead": 3.13095951653962,
+          "max_attainable_factor": 3.130963394941154,
+          "multiplier_saturated": true,
+          "recovered_fraction_of_baseline": 0.9999987612753504,
+          "resurrected": true,
+          "basis": "MULTIPLIER SATURATED (max attainable 3.13x < 10x at survival 0.319); full restoration fraction 1.0000 >= 90%"
+        }
+      },
+      {
+        "key": "e288-NAME-FIXED-TWIN",
+        "is_corpse": true,
+        "class": "orthogonal+in-room-maint",
+        "checkpoint": "runs/checkpoints/e288_NAME-FIXED-TWIN_post.pt",
+        "committed_record": "runs/e288/metrics.json",
+        "age_steps_post_death": 0,
+        "kill_depth": {
+          "drift_norm": 1.7945658733962344,
+          "drift_frac_of_write": 0.19551111413663408,
+          "drift_in_room_norm": 0.010527360854903309,
+          "drift_in_room_frac": 0.005866243758987888,
+          "drift_out_room_norm": 1.7945349950981333
+        },
+        "corpse_read": {
+          "g0": 0.04296277463436127,
+          "gm12": 0.017960064113140106,
+          "gp12": 0.016431115567684174,
+          "ce_r": 1.656157374382019
+        },
+        "survival_ratio": 0.16233953870569715,
+        "write_mass": {
+          "in_room_mass": 8.668591082786913,
+          "out_room_mass": 3.4008959244125436,
+          "total": 9.311850753166999,
+          "mass_ratio_vs_t0": 1.0002659403575358,
+          "cos_surviving_vs_write_in_room": 0.9999992977415876,
+          "floor_pass": true
+        },
+        "arm_A_orthogonal_subtraction": {
+          "desc": "x14's Arm A verbatim: theta_corpse - (I-P)(theta_corpse - theta0) == theta0 + P(delta); read g0",
+          "read": {
+            "g0": 0.2773193418979645,
+            "gm12": 0.11215361207723618,
+            "gp12": 0.11748187243938446,
+            "ce_r": 1.592185139656067
+          },
+          "fp32_quantization_residual": 1.8542829479562964e-06,
+          "construction_id_closure_fp64": 0.0
+        },
+        "resurrection": {
+          "factor_over_dead": 6.454875046086218,
+          "max_attainable_factor": 6.159928800912048,
+          "multiplier_saturated": true,
+          "recovered_fraction_of_baseline": 1.0478814373845522,
+          "resurrected": true,
+          "basis": "MULTIPLIER SATURATED (max attainable 6.16x < 10x at survival 0.162); full restoration fraction 1.0479 >= 90%"
+        }
+      }
+    ],
+    "boundary": {
+      "key": "e290-0.0008X",
+      "is_corpse": false,
+      "class": "orthogonal-sgdm",
+      "checkpoint": "runs/checkpoints/e290_BUDGET-0.0008X_post.pt",
+      "committed_record": "runs/e290/metrics.json",
+      "age_steps_post_death": 0,
+      "kill_depth": {
+        "drift_norm": 0.006516891344157901,
+        "drift_frac_of_write": 0.0007099904808690049,
+        "drift_in_room_norm": 1.5665638362543646e-05,
+        "drift_in_room_frac": 0.002403851397121602,
+        "drift_out_room_norm": 0.006516872515197369
+      },
+      "corpse_read": {
+        "g0": 0.20309039950370789,
+        "gm12": 0.07553942501544952,
+        "gp12": 0.07910086214542389,
+        "ce_r": 1.5911929607391357
+      },
+      "survival_ratio": 0.7673992671930195,
+      "write_mass": {
+        "in_room_mass": 8.66628476482525,
+        "out_room_mass": 3.0241995134723543,
+        "total": 9.178794818620082,
+        "mass_ratio_vs_t0": 0.9999998150688176,
+        "cos_surviving_vs_write_in_room": 0.999999999998383,
+        "floor_pass": true
+      },
+      "arm_A_orthogonal_subtraction": {
+        "desc": "x14's Arm A verbatim: theta_corpse - (I-P)(theta_corpse - theta0) == theta0 + P(delta); read g0",
+        "read": {
+          "g0": 0.2646447420120239,
+          "gm12": 0.10525384545326233,
+          "gp12": 0.11035933345556259,
+          "ce_r": 1.5920883417129517
+        },
+        "fp32_quantization_residual": 1.7113229587009724e-06,
+        "construction_id_closure_fp64": 0.0
+      },
+      "resurrection": {
+        "factor_over_dead": 1.3030883914687077,
+        "max_attainable_factor": 1.303102625648554,
+        "multiplier_saturated": true,
+        "recovered_fraction_of_baseline": 0.9999890767008168,
+        "resurrected": true,
+        "basis": "MULTIPLIER SATURATED (max attainable 1.30x < 10x at survival 0.767); full restoration fraction 1.0000 >= 90%"
+      }
+    }
+  },
+  "curve": {
+    "form": "the resurrection curve at age 0: the factor + the recovered fraction vs kill depth (the drift norm; the e290 ladder gives the depth axis for free \u2014 its rungs were killed at different depths), and the mass-tracking statistic; the age axis is degenerate at 0 (disclosed \u2014 the aging continuations ride the GPU half)",
+    "depth_range": [
+      0.0296763134218502,
+      14.453935847208887
+    ],
+    "depth_span_orders": 2.6875761736323867,
+    "correlations": {
+      "primary_spearman_fraction_vs_mass": {
+        "rho": 0.8829187134416479,
+        "p": 0.008450342381896611,
+        "bar": 0.8,
+        "n": 7
+      },
+      "co_reported_spearman_factor_vs_mass": {
+        "rho": -0.5,
+        "p": 0.25316999510032273,
+        "note": "the multiplier scale \u2014 expected NEGATIVE under P-MASS (denominator saturation); never the primary (see the operationalization)"
+      },
+      "tie_coarsened_spearman_fraction_vs_mass": {
+        "rho": 0.8846517369293828,
+        "note": "mass + fraction rounded to 3 decimals before ranking (the unrounded within-class ordering is 5th-decimal noise)"
+      },
+      "pearson_fraction_vs_mass": 0.9991829908886833,
+      "pearson_factor_vs_mass": -0.8953630643136914,
+      "n_distinct_mass_values_3dp": 3,
+      "quasi_binary_disclosure": "the mass axis at age 0 is quasi-binary (3 distinct values at 3dp: the free class ~0.844 vs the orthogonal classes ~1.000) \u2014 the primary rho is a BETWEEN-CLASS discrimination; the collinearity (mass vs kill class) is unbreakable at age 0; the aging continuations de-confound"
+    },
+    "inverse_law_context": {
+      "cite": "T269: survival ~ 1/drift over the orthogonal ladder (refit slope -1.005, R2 0.974)",
+      "orthogonal_loglog_slope_this_session": -1.1444230508577335,
+      "note": "the orthogonal corpses alone: log-log survival-vs-depth slope -1.144 (T269's refit -1.005 on the committed rungs incl. the holding boundary); the free-class corpses sit ~3 orders BELOW the 1/drift line \u2014 the kill classes are different animals"
+    }
+  },
+  "null_model": {
+    "form": "T269's geometric clock as the null model (the dispatch's (d)): T269/R69 fitted survival ~ 2^(-t/1040) on the HOLDING rung's read; the dispatch phrases the null as the WRITE'S IN-ROOM MASS decaying with that half-life. At age 0 both clocks predict ZERO additional decay \u2014 every corpse measured at its t400 snapshot potential; the desk's job is the initial condition + whether resurrection tracks the mass at all (MASS-TRACKS) or something else (DECOUPLED)",
+    "read_clock_half_life_steps": 1040.0,
+    "read_clock_source": "T269 (R69's fit on e290's holding rung)",
+    "mass_clock_free_class": [
+      {
+        "key": "e283-CONCURRENT",
+        "m0": 8.666286367491834,
+        "m_c": 7.3096429900948365,
+        "mass_ratio": 0.8434573564882518,
+        "implied_mass_half_life_steps": 1628.5785285965687,
+        "read_clock_half_life_steps": 1040.0,
+        "read_faster_than_mass_by": 1.565940892881316
+      },
+      {
+        "key": "e285-TWIN",
+        "m0": 8.666286367491834,
+        "m_c": 7.314916565877985,
+        "mass_ratio": 0.8440658727037936,
+        "implied_mass_half_life_steps": 1635.5068500618681,
+        "read_clock_half_life_steps": 1040.0,
+        "read_faster_than_mass_by": 1.572602740444104
+      }
+    ],
+    "two_clock_comparison": "the free-class corpses' implied MASS half-life is 1629-1636 steps vs the read's 1,040 \u2014 THE READ DIES ~1.57x FASTER THAN THE MASS ERODES under the free stream; the orthogonal classes' mass clock is INFINITE (mass preserved by construction while the read dies \u2014 e285's T265 dissociation)",
+    "aging_half_prediction": "the discriminating prediction handed to the GPU half: under MASS-TRACKS the resurrection fraction's aging half-life ~= the MASS clock (~1,600 steps on the free class); under the read-clock coupling it is ~1,040; at age 0 both predict zero additional decay (measured: the t400 snapshot potential, this cell)"
+  },
+  "adjudication": {
+    "bars_verbatim": {
+      "ALWAYS-RESUSCITABLE": "at age 0, every corpse above the write-mass floor resurrects >= 10x \u2014 the surgery works wherever mass survives; the aging continuations will set the boundary.",
+      "MASS-TRACKS": "the resurrection factor correlates with the surviving in-room mass across corpses, rho >= 0.8 \u2014 the corpse keeps until the mass erodes; the resuscitation limit = the fill law's erosion.",
+      "DECOUPLED": "resurrection does not track mass \u2014 the context's geometry matters beyond mass; x14's coupling caveat at full strength.",
+      "MIXED/INSTRUMENT-MISSING": "disclose what states exist; the age-0 answer alone is the deliverable."
+    },
+    "gates_pass": true,
+    "reads": {
+      "n_corpses": 7,
+      "floor_passing": [
+        "e283-CONCURRENT",
+        "e285-TWIN",
+        "e285-SANCTUARY",
+        "e290-0.1X",
+        "e290-0.02X",
+        "e290-0.004X",
+        "e288-NAME-FIXED-TWIN"
+      ],
+      "floor_bar": 0.5,
+      "all_floor_passers_resurrect": true,
+      "failed_resurrections": [],
+      "saturated_full_restoration": [
+        "e290-0.004X",
+        "e288-NAME-FIXED-TWIN"
+      ],
+      "factors": {
+        "e283-CONCURRENT": 4328.215777016314,
+        "e285-TWIN": 10390.853270529175,
+        "e285-SANCTUARY": 329.76777237675606,
+        "e290-0.1X": 102.93064799934292,
+        "e290-0.02X": 16.69738377900677,
+        "e290-0.004X": 3.13095951653962,
+        "e288-NAME-FIXED-TWIN": 6.454875046086218
+      },
+      "fractions": {
+        "e283-CONCURRENT": 0.14794641693827582,
+        "e285-TWIN": 0.15296437788263895,
+        "e285-SANCTUARY": 0.9999996621660047,
+        "e290-0.1X": 0.9999996621660047,
+        "e290-0.02X": 1.0000006756679907,
+        "e290-0.004X": 0.9999987612753504,
+        "e288-NAME-FIXED-TWIN": 1.0478814373845522
+      },
+      "mass_ratios": {
+        "e283-CONCURRENT": 0.8434573564882518,
+        "e285-TWIN": 0.8440658727037936,
+        "e285-SANCTUARY": 0.999999997823999,
+        "e290-0.1X": 0.9999999988512346,
+        "e290-0.02X": 0.9999999967568527,
+        "e290-0.004X": 0.9999999948868795,
+        "e288-NAME-FIXED-TWIN": 1.0002659403575358
+      },
+      "survivals": {
+        "e283-CONCURRENT": 3.4181848724802654e-05,
+        "e285-TWIN": 1.472106033067378e-05,
+        "e285-SANCTUARY": 0.00303243599263398,
+        "e290-0.1X": 0.009715276077659478,
+        "e290-0.02X": 0.059889662291003225,
+        "e290-0.004X": 0.31939051143675057,
+        "e288-NAME-FIXED-TWIN": 0.16233953870569715
+      },
+      "depths": {
+        "e283-CONCURRENT": 14.453935847208887,
+        "e285-TWIN": 14.432213219853237,
+        "e285-SANCTUARY": 1.844509195284748,
+        "e290-0.1X": 0.5350150074127173,
+        "e290-0.02X": 0.12767011963107458,
+        "e290-0.004X": 0.0296763134218502,
+        "e288-NAME-FIXED-TWIN": 1.7945658733962344
+      },
+      "spearman_fraction_vs_mass": 0.8829187134416479,
+      "spearman_factor_vs_mass": -0.5,
+      "tie_coarsened_rho": 0.8846517369293828
+    },
+    "verdict": "ALWAYS-RESUSCITABLE + MASS-TRACKS",
+    "headline": "ALWAYS-RESUSCITABLE",
+    "mechanism": "MASS-TRACKS",
+    "clause": "every corpse above the write-mass floor (50% of t0 in-room mass 8.6663) \u2014 all 7 of 7 \u2014 resurrects: the factors run 3.1x-10391x over their dead reads and the recovered fractions 0.148-1.0479 of baseline; the surgery works wherever mass survives AT AGE 0 \u2014 the boundary is the aging continuations' to set (the GPU half); DISCLOSED: 2 corpse(s) (e290-0.004X, e288-NAME-FIXED-TWIN) had their multiplier SATURATED below the 10x token (survival too shallow for 10x even under perfect surgery) \u2014 counted by the registered full-restoration clause (fraction >= 90%), both readings in the table; the recovered fraction tracks the surviving in-room mass (Spearman rho +0.883 >= 0.8) \u2014 BUT the discrimination is BETWEEN-CLASS at age 0 (the mass axis is quasi-binary: 3 values at 3dp; the collinearity disclosure stands; the aging continuations de-confound)"
+  },
+  "honesty": {
+    "intervention_not_logits": "every resurrection is a BEHAVIORAL probe read on a constructed state: the ONLY delta between a corpse and its Arm A is the removal of the out-of-room drift component (fp64 subtraction, fp32 materialization with the quantization residual measured per corpse); the ID closure returns the fact exactly (fp64)",
+    "the_additivity_null": "the subtraction assumes component-wise additivity; LN/softmax coupling can mask resurrection \u2014 NECESSARY-not-SUFFICIENT (x14's honesty block carried verbatim): every 'resuscitated' verdict here is a LOWER BOUND on the corpse's resuscitability; a sub-bar read never proves unresuscitability",
+    "the_multiplier_saturation": "the factor-over-dead diverges as corpses die deeper with identical restorability \u2014 it cannot measure a resuscitation LIMIT; the recovered fraction is the limit-reading (the operationalization's reason, frozen at birth); both reported per corpse, no bar moved",
+    "the_collinearity_debt": "at age 0 the surviving mass and the kill class are collinear (the orthogonal streams preserve the room BY CONSTRUCTION): MASS-TRACKS, if it fires, is a between-class discrimination on this set \u2014 the debt is registered for the aging continuations (the GPU half), where within-class mass erosion de-confounds",
+    "loads_measured_not_nominal": "every mass, depth, and read is a direct fp64 projection / behavioral read of the loaded states this session; every corpse value-bound against its run's committed literals (G_CORPSELOAD) and the surgery instrument itself reproduced x14's committed Arm A (G_PORTX14, |d| 0.0e+00)",
+    "n_and_scope": "n=1 per corpse, one lineage, one session, one draw of history per kill; the age axis is degenerate at 0 (this is the AGE-0 HALF by dispatch); nothing guaranteed"
+  },
+  "provenance": {
+    "git_head_at_start": "86c53f9f3f721ac94d056987a3360b72f109b61e",
+    "birth_commit": "db5a4e0ec75e078b9a45a53089ad09a05ee7cfca",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e299_embalming.py",
+    "machinery_imported_from": [
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e261_rank_ladder.py",
+      "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\x14_transport_intervention.py (the surgery's arithmetic, ported verbatim; the FILE is not imported \u2014 its committed literals are hard-bound in G_PORTX14)"
+    ],
+    "eval": {
+      "device": "cpu fp32 probes / cpu fp64 dense projections",
+      "torch_threads": 4,
+      "pocketfft_workers": 2,
+      "cuda_tensors_created": 0
+    },
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "numpy": "2.3.5",
+      "scipy": "1.16.2",
+      "matplotlib": "3.10.6"
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e299\\metrics.json",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e299\\e299_embalming.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e299\\REPORT.md"
+  ]
+}
