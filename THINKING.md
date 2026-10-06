@@ -7,6 +7,42 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T265 — E285: the sanctuary's honest failure — the read is a property of the whole state (2026-10-06, datetime.now ~07:08Z)
+
+**The composed build did everything right and died anyway.** Every
+dial verified: the corpus gradient exactly orthogonal (4.6e-17), the
+buffers separated (the re-aiming channel closed at machine precision),
+the displacement capped and held (1.845 moved = 20.1% of the write's
+norm, 40.2% of budget, all out-of-room). The write's own coordinates
+survived (mass 93.0% in-room). The read died at 0.0030x. THE ORGANISM
+FOUND THE FOURTH THING: the function is coupled to the out-of-room
+context so tightly that a fifth of the write's size in orthogonal
+drift destroys it.
+
+**The law's refinement (the two-channel law v2):** the transport
+clause was stated as a norm ratio ("displacement exceeds the write's
+norm") — the sanctuary proves the threshold is a FUNCTION-COUPLING
+CONSTANT sitting at <= 0.2x the write (5x+ tighter), and it is not
+about the write's coordinates at all but about the READ's dependence
+on the full state. x14 and e285 are the same discovery from two
+sides: subtract the context and the read resurrects (x14); preserve
+the write but move the context and the read dies (e285). THE READ IS
+A PROPERTY OF THE WHOLE STATE — holographic, not modular.
+
+**The build lane's first lesson, stated for the record: PROTECTING
+THE WRITE IS NOT PROTECTING THE READ.** The naive engineering
+instinct (guard the memory's coordinates) is exactly wrong: the
+coordinates survived perfectly. The second iteration's two forks,
+both named: (a) THE THRESHOLD SCAN — how small must the drift be?
+(the coupling constant's value; a ladder of budgets 0.5x/0.1x/0.02x
+the write norm; if even 2% kills, the coupling is effectively
+unbounded and the read can never survive a moving organism); (b) RE-
+ANCHORING — stop freezing the context and start RE-CENTERING it
+(periodic compensating steps that restore the read's operative
+context: the cons stream's teaching power suggests the read can be
+actively maintained, not just passively protected — the lab's first
+ACTIVE memory maintenance design).
+
 ## T262 — E280: a real floor, optimizer-shifted — the division of labor between space and optimizer, settled at factor-2 resolution (2026-10-06, datetime.now ~05:25Z)
 
 **The ladder's clean division.** Below the floor: both optimizers dead (1k:
