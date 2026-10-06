@@ -40,6 +40,18 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e304 — THE FEVER CELL (the honesty audit of the founding success): MIXED — NOT A TUMOR, BUT A TEMPERATURE: the overshoot's heat is NOT gate-local (the FEVER clause decisively violated: para/gate = 1.94 — the heat generalizes HOTTER to the held-out surfaces: the paraphrase read rose 2.9x on the held bank, consistent with e291's BETTER-REPRESENTATION) but CALIBRATION drifts broadly: preservation bought real, generalized knowledge at ~1.8-2.6x BEYOND reference calibration at BOTH sites — THE HONEST PRICE ON LAW 4: MAINTAINED MEMORIES RUN HOT (content honest, calibration overconfident — the safety-relevant cost); THE SIGNATURES: the controller's is GAIN-heat (at the taught tokens); death's is LOSS-heat (the dead twins hottest where their mass collapsed — heat is two-sided under the anchoring); DENIAL ADDS HEAT (+0.085 gate/+0.330 para); FIVE CONTROLLERS RUN GENTLER THAN ONE (the mildest state of all — the shared-representation dosing: family maintenance is the calmest form); the gate heat replicates across sessions to 0.014 (the thermal replication of T271's read replication); the KL-shape co-read milder (gate 1.30/para 1.69; z-ratios 85.5% physical); the answer-coordinate lens saturates under mass gains (the frozen caveat honored); THE RECOVERY CATCH: the 9 *_resume.pt files are model-weight duplicates of the *_post states (post-phase landing-pass duplicates, NOT baselines — fitting them would have produced heat == 0, a degenerate verdict; the redo verified bit-identical and re-anchored on the certified loaded fact); the dead executor's draft completed with bars untouched (2026-10-06, datetime.now) — DONE
+
+WHAT WE SAW: the founding success passes its honesty audit on the
+content axis (the knowledge is real and generalizes) and pays its
+price on the calibration axis (the organism over-trusts its
+maintained memory ~2x). A preservation program that cares about
+safety now has its next dial named: CALIBRATION-AWARE MAINTENANCE
+(the controller gates on the read's error; a v3 could gate on the
+read's overconfidence too — dose down when T rises). The five-
+controllers-gentlest finding is the era's second free gift: shared
+representations amortize not just the cost but the heat.
+
 ## e306 (desk half) — THE MINIMUM BEARER'S TRUNCATION INVENTORY: READS-CLIFF — the injection floor bracket (10, 100] (r100 reads 0.0925 = 35% of the full read; r10 reads 0.0000539 = the base floor; rank 7 dead) — AND THE SCIENTIFIC PUNCHLINE: THE RANK-7 WRITE CARRIES 33.9% OF THE WRITE'S MASS YET READS AT THE BASE FLOOR — THE READ TRACKS THE IN-ROOM SHARE (89.1% -> 66.6% -> 9.0% -> 6.1%), NOT THE MASS: THE BEARER IS THE TAIL SPECTRUM THAT OVERLAPS THE ROOM, NOT THE TOP SINGULAR DIRECTIONS — MASS IS NOT MEMORY; the read is carried entirely by the 2D channel (the 1D-only diagnostic at the base floor); the passive-kill budgets computed per rung (e290's bracket x own norm — the thinner the write, the smaller its absolute safe-drift: r100's budget 0.0057-0.0259); the injectable checkpoints on disk (probe-verified from disk, bitexact roundtrips); the maintenance ladder licensed from r100 (2026-10-06, datetime.now) — DONE (desk half; the maintenance half queued)
 
 WHAT WE SAW: a second occupancy law. x6/x10 said the write fills its
