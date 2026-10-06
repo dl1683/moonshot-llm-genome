@@ -1,0 +1,2424 @@
+{
+  "experiment": "e285_sanctuary",
+  "phase": "THE SANCTUARY CELL \u2014 the lab's FIRST BUILD-LANE EXPERIMENT: can a memory be ENGINEERED to survive its own organism's continued training? R67's two-channel kill law (collision via shared optimizer state OR transport via free-stream displacement beyond the write's norm) tested at its composed minimal form \u2014 STATE SEPARATION (SGD-M, separate buffers) x DISPLACEMENT BUDGET (orthogonal projection + per-step lr cap at 0.5x the write's norm) \u2014 vs the same-session unprotected twin (e283's form): SANCTUARY-HOLDS vs AIM-ONLY-KILLS vs DRIFT-ONLY-KILLS vs MIXED/NONE, adjudicated on the WRITE read at t400 with both channels' gate verdicts",
+  "date": "2026-10-06T07:05:45Z",
+  "status": "COMPLETE \u2014 adjudicated (this write replaces all PARTIAL progressive writes)",
+  "registration": "bars + question + arms + dials frozen VERBATIM from the dispatch letter (the e284 fold's dispatch; the build lane's founding cell); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "law_verbatim": "a write dies if (i) the optimizer's shared state re-aims concurrent traffic into its room (collision \u2014 e284 proved buffer separation kills the re-aiming: the separate-buffer missile's in-room share 0.0000) OR (ii) the cumulative free-stream displacement exceeds the write's own norm (transport \u2014 e283/x14: the stream carried the state 14.45 past the 9.18 write). PRESERVATION = STATE SEPARATION x DISPLACEMENT BUDGET. The sanctuary composes both protections at their minimal form.",
+    "arms_verbatim": {
+      "SANCTUARY": "(a) SANCTUARY (the composed build): the corpus steps under SGD-M (the stable x0.01-class lr, momentum 0.9) with SEPARATE momentum buffers (the install/fact side never shares with the corpus side), the corpus gradients PROJECTED ORTHOGONAL to the room (the missile construction, orthogonality gate instantiated), AND the displacement budget: a per-step lr cap such that the projected cumulative corpus displacement cannot exceed 0.5 x the write's norm 9.18 over the 400 steps (compute the cap from the projected step norms; disclose the realized budget)",
+      "UNPROTECTED-TWIN": "(b) UNPROTECTED-TWIN (the same-session control): the e283 form verbatim (this session's reference) \u2014 ONE fresh AdamW (0.9,0.95) wd 0.1 at lr 1e-3 x cosine_lr(t-1,1000), clip 1.0 -> opt.step FREE (no projection, no separation, no cap)"
+    },
+    "bars_verbatim": {
+      "SANCTUARY-HOLDS": ">= 0.5x survival at t400 with both channels verifiably cut (the orthogonality gate pass + the budget held) \u2014 THE FIRST ENGINEERED SURVIVAL; the build lane's founding result; the two-channel law CONFIRMED as sufficient.",
+      "AIM-ONLY-KILLS": "< 0.5x with the budget held but (check the ledger) \u2014 separation+projection insufficient alone; the transport channel claims the kill despite the budget (disclose the leakage arithmetic).",
+      "DRIFT-ONLY-KILLS": "< 0.5x with the orthogonality holding but the budget blown (the cap mis-set; the transport channel wins) \u2014 the law stands, the engineering failed; re-cap and one re-run allowed (disclosed).",
+      "MIXED/NONE": "everything else \u2014 the trajectories verbatim, every ledger, no inflation."
+    },
+    "reads_verbatim": "post g0 at t100/200/300/400; the displacement ledger (in-room share + cumulative norm per milestone); the budget's realized usage; the corpus CE; the orthogonality ledger (machine-exact).",
+    "operationalizations": "frozen BEFORE compute: THE PHASE := 400 CORPUS steps, no install (e283's convention freeze); milestones t=100/200/300/400; THE VEHICLE := the committed quiet-formed 10k fact loaded BIT-EXACT (three-way G_FACTLOAD); the room := the fact's OWN K10K room (seeds 26113/26114, bit-gated vs e264_rooms.pt); THE CORPUS STEP := e268's registered form VERBATIM on THIS cell's ONE fresh registered stream seed 28501 (BOTH arms draw the identical sequence \u2014 the protection stack is the arms' ONLY delta); DIAL 1 (STATE SEPARATION) := SGD-M momentum 0.9 wd 0 with TWO SGD instances over the same params \u2014 opt_C (corpus side, the only one stepped) + opt_F (fact side, NEVER stepped in-phase; the isolation probe verifies per step it stays EMPTY) + the composition bar ||P_room buf_C||/||buf_C|| < 1e-4 per milestone (e284's fp-floor bar; the buf_I side VACUOUS \u2014 no install stream, disclosed); DIAL 2 (ORTHOGONAL PROJECTION) := g_perp = g - P_room(g) VERBATIM (e278/e280/e284), verified EVERY step, G_ORTH < 1e-6 INSTANTIATED; DIAL 3 (DISPLACEMENT BUDGET) := BUDGET = 0.5 x ||fact - base|| (fp64 at runtime, ~4.59); the per-step lr cap with EQUAL-SHARE RESERVATION cap_t = ((BUDGET - S_{t-1})/(n_steps - t + 1))/||b_t||, b_t = 0.9*buf_{t-1} + g_perp (PyTorch's exact update: theta -= lr_t * b_t); lr_t = min(LR_STABLE x cosine_lr(t-1,1000), cap_t); TRIANGLE-GUARANTEED S_400 <= BUDGET and ||cum displacement|| <= S_400 <= BUDGET; the realized budget DISCLOSED; THE TWIN := e283's form VERBATIM (one fresh AdamW 0.9/0.95 wd 0.1 at 1e-3 x cosine, clip 1.0 -> opt.step FREE); THE SURVIVAL RATIO := post g0(t) / 0.26464763283729553 (committed, PRIMARY); THE ADJUDICATION READ := the t=400 endpoint with both gate verdicts at the same endpoint; COMPOSITE := TEXTURE (any hard-gate failure) -> SANCTUARY-HOLDS (ratio_400 >= 0.5 AND G_ORTH AND G_BUDGET) -> AIM-ONLY-KILLS (ratio_400 < 0.5 AND G_BUDGET held; the leakage arithmetic disclosed) -> DRIFT-ONLY-KILLS (ratio_400 < 0.5 AND G_BUDGET blown AND G_ORTH held; one disclosed re-cap re-run allowed) -> MIXED/NONE (everything else); HARD GATES := {G_NAMEFREE, G_SPLICE, G_BATTERY, G_ANCHOR, G_INSTMASK, G_PARENTS, G_BASE, G_ROOT, G_VMBIND, G_SPANBIND, G_PROJ, G_ROOMK10K, G_FACTLOAD, G_CORPUSGEN, G_LR_BIND, G_ORTH, G_BUFSEP, G_BUDGET} (a failure HALTS); NO CONS (T259/e281; both post states checkpointed); NO SERIAL ARM (e283's committed same-form record hard-bound as the reference).",
+    "registration": "bars + question + arms + dials frozen VERBATIM from the dispatch letter (the e284 fold's dispatch; the build lane's founding cell); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
+    "predictions": {
+      "P-e285a_law_sufficiency": "with both channels cut the write SURVIVES \u2014 the orthogonalized, buffer-separated, budget-capped stream cannot re-aim into the room (in-room share at the fp floor, e284's SEP arithmetic) and cannot transport the state past half the write's own norm; SANCTUARY-HOLDS.",
+      "P-e285b_x14_counter_reading": "the transport kill is DIRECTIONAL (x14: the out-of-room context carries the kill \u2014 the orthogonal-subtraction arm resurrected the read to 0.0392 = 4328x the dead state while the in-room subtraction left it dead) \u2014 an ORTHOGONAL stream is exactly an out-of-room context mover, so even a budget-respecting orthogonal displacement may shift the read through function-space coupling (LN/softmax): AIM-ONLY-KILLS with the leakage arithmetic from the drift ledger. The read decides; the bars cover both."
+    }
+  },
+  "smoke": false,
+  "no_cons": {
+    "cons_run": false,
+    "why": "T259/e281: the landing read is a cons property; the frozen bars read the WRITE and the DISPLACEMENT only; e278/e280/e283/e284's committed NO-CONS form; both arms' states are checkpointed"
+  },
+  "envelope": {
+    "device": "cuda fp32 training (this cell owns the GPU lane; the arms run SEQUENTIALLY with cooldowns between \u2014 never concurrent) + CPU fp64 dense projections (pocketfft workers 2), CPU probing threads 4",
+    "bursts": "<= 175s (dispatch 180), per-step thermal polls at a 78C margin, cooldown 40s (dispatch 30-60), the 84C never-past line (dispatch 85) recorded to runs/_envelope_log.jsonl tagged e285:<ARM>:<phase>",
+    "trainings": "2 corpus-only phases x 400 opt steps (SANCTUARY: SGD-M separate buffers + orthogonal projection + budget-capped lr; UNPROTECTED-TWIN: e283's fresh AdamW FREE); NO install (the fact is loaded bit-exact); NO cons"
+  },
+  "arms_desc": {
+    "SANCTUARY": "(a) SANCTUARY (the composed build): the corpus steps under SGD-M (the stable x0.01-class lr, momentum 0.9) with SEPARATE momentum buffers (the install/fact side never shares with the corpus side), the corpus gradients PROJECTED ORTHOGONAL to the room (the missile construction, orthogonality gate instantiated), AND the displacement budget: a per-step lr cap such that the projected cumulative corpus displacement cannot exceed 0.5 x the write's norm 9.18 over the 400 steps (compute the cap from the projected step norms; disclose the realized budget)",
+    "UNPROTECTED-TWIN": "(b) UNPROTECTED-TWIN (the same-session control): the e283 form verbatim (this session's reference) \u2014 ONE fresh AdamW (0.9,0.95) wd 0.1 at lr 1e-3 x cosine_lr(t-1,1000), clip 1.0 -> opt.step FREE (no projection, no separation, no cap)"
+  },
+  "convention_freezes": {
+    "phase": "400 CORPUS steps (no install steps \u2014 e283's convention freeze carried verbatim)",
+    "milestones": "t = 100/200/300/400 corpus steps",
+    "corpus_step": "e268's registered corpus step VERBATIM: 48 windows = 16 original-host anchors (the same 60-window bank) + 32 random corpus windows; full-window CE; THIS cell's ONE fresh registered generator seed 28501; BOTH arms draw the IDENTICAL sequence (the protection stack is the arms' ONLY delta)",
+    "survival_ratio": "post g0(t) / 0.26464763283729553 (the committed loaded baseline, PRIMARY; the session's loaded read co-reported)",
+    "adjudication_read": "the t=400 endpoint with both channels' gate verdicts at the same endpoint; trajectories + the twin co-reported"
+  },
+  "the_three_dials": {
+    "dial_1_state_separation": "SGD-M (momentum 0.9, wd 0) with TWO SGD instances over the same params: opt_C (corpus side, the ONLY one stepped) + opt_F (fact side, NEVER stepped in-phase \u2014 the isolation probe verifies per step it stays EMPTY); composition bar ||P_room buf_C||/||buf_C|| < 1e-4 per milestone (e284's fp-floor bar; the buf_I side vacuous \u2014 disclosed)",
+    "dial_2_orthogonal_projection": "g_perp = g - P_room(g) VERBATIM (e278/e280/e284), CPU fp64 / write fp32, verified EVERY corpus step; G_ORTH < 1e-6 INSTANTIATED",
+    "dial_3_displacement_budget": "BUDGET = 0.5 x ||fact - base|| (fp64 at runtime, ~4.59); per-step lr cap with equal-share reservation: cap_t = ((BUDGET - S_{t-1})/(n-t+1))/||b_t||, b_t = 0.9*buf_{t-1} + g_perp; lr_t = min(LR_STABLE x cosine_lr(t-1,1000), cap_t); TRIANGLE-GUARANTEED S_400 <= BUDGET and ||cum|| <= S_400 <= BUDGET; the realized budget disclosed"
+  },
+  "deviations": [
+    "THE SMOKE PASS (pass 1, runs/e285_smoke/; the e260-family record): ONE code bug caught \u2014 E273_LR_SGD (the lr-calibration literal) was referenced in G_PARENTS before its definition; NameError at the parents bind, fixed (the literal added to the config block; no bar, gate, arm, or read touched). THE SUBSTANCE VERIFICATIONS (both centerpieces, all PASS): (1) THE BUDGET CAP'S ARITHMETIC \u2014 the equal-share reservation held S to EXACTLY 100.0% of the smoke budget (0.0918/0.0918; the cap bound from t5, 'CAP' stamped; realized cum 0.0791 = 86.2% of budget \u2014 the orthogonal steps cancel below the triangle bound exactly as designed; the guarantee S <= BUDGET held to fp); (2) THE BUFFER SEPARATION \u2014 8/8 bitwise isolation checks, 0 violations, opt_F's state EMPTY throughout, buf_C in-room at the fp floor (3.4e-10 -> 9.8e-10 vs the 1e-4 bar \u2014 e284's SEP arithmetic replicating); (3) the orthogonality machine-exact (max 1.1e-17); (4) G_FACTLOAD's three-way bind EXACT (|d post g0| = 0.0); (5) the draw-integrity check EXACT (the t1 corpus CE + clipped gn bit-identical across arms \u2014 the protection stack the ONLY delta). Disclosed smoke-scale preview (NOT adjudicated, SMOKE stamped): the sanctuary's read fell x0.970 -> x0.068 over 8 steps \u2014 at smoke k=512 the room captures only 21.7% of the write (the fact's in-own-room load at smoke k), so the projection protects only a fifth of the write's own directions; the full run's k=10k room captures 94.4% \u2014 the full run is the datum.",
+    "THE OPT_F DISCLOSURE (the separation's honest minimal form): in this phase there is NO install stream \u2014 the fact stands, formed long ago under e261's own optimizer state. DIAL 1's separation therefore instantiates as: the corpus stream's momentum buffer is PRIVATE (its own SGD instance, the only optimizer stepped), with a second SGD instance opt_F (the fact side) present-but-NEVER-stepped \u2014 the isolation probe machine-verifies per corpus step that opt_F's state stays EMPTY (never created, never touched; any mismatch HALTS). The load-bearing composition check is buf_C's in-room fraction at the fp floor (< 1e-4; e284's SEP arm measured 1.5e-9-5.9e-9). e284's buf_I > 0.99 composition bar is VACUOUS here (no install stream \u2014 no object); disclosed, not gated.",
+    "THE BUDGET'S PRICE (disclosed at birth, measured in the CE ledger): the equal-share reservation holds the per-step displacement at ~BUDGET/400 ~ 0.0115 \u2014 under the nominal LR_STABLE schedule the post-warmup steps want ~0.4-0.7 \u2014 so the cap binds from the first post-warmup steps and the sanctuary's corpus stream runs at a ~x0.02-of-stable effective lr. The corpus CE will improve far less than the twin's (e283's free stream: 0.93 -> 0.77); the sanctuary buys preservation at the price of corpus learning \u2014 the cell's own economics read, never a bar.",
+    "THE TWIN IS THIS SESSION'S OWN DRAW STREAM (seed 28501, shared bit-identically with the sanctuary arm \u2014 e284's tightened precedent): e283's committed twin ran seed 28301, so this twin replicates the FORM not the bits; its expected landing is the e283 class (post ~1e-5, ratio ~3e-5x), cross-checked against the hard-bound committed record. The class replication is the reference; bit-replication was never the family's rule.",
+    "THE SANCTUARY'S SGD-M vs THE TWIN'S ADAMW (the composed delta, disclosed): the arms differ in the WHOLE protection stack (optimizer class + buffers + projection + cap), not one dial at a time \u2014 the build lane's question is whether the COMPOSED form preserves, not which dial contributes what (the dial decomposition is e280/e283/e284's already-committed record). The one-dial contrasts stand: e283 (AdamW free vs nothing), e284 (SEP vs SHA), x14 (in-room vs out-of-room subtraction).",
+    "NO CONS (T259/e281; e278/e280/e283/e284's committed form): the frozen bars read the WRITE and the DISPLACEMENT only; both arms' post-phase states are checkpointed (e285_SANCTUARY_post.pt / e285_UNPROTECTED-TWIN_post.pt) for any later landing pass.",
+    "e261's MACHINERY PORTED WHOLE BY IMPORT: the SRCT projector + LadderRooms (the room rebuild, certification, displacement loads), the thermal envelope (per-step polls, 78C margin, 175s bursts inside the dispatch's 180s, 40s cooldowns, the 84C line inside the dispatch's 85C), the progressive-metrics + resume-ckpt conventions \u2014 the module-global rebinding (log/NAME/LADDER/RUNG_NAMES/T0/thermal ledgers, disclosed in-code) retargets the machinery's I/O to this cell; the committed lab/e261_rank_ladder.py is NOT modified. The TWO drivers are THIS file's: chunked_sanctuary_phase (the composed build) and chunked_twin_phase (e283's chunked_corpus_phase ported verbatim in body \u2014 tags and checkpoint names adapted).",
+    "THE V-MAP AND SPAN ARE LOADED, NOT RE-RUN (extend, don't repeat): e258's committed v-map + e246's committed LATE span feed the measured displacement loads; no new history is run.",
+    "n=1 per arm, one lineage, one session (the g-series standing caveat \u2014 the critic's lottery note carried verbatim); the arms' DIFFERENCE is the registered object, not any single point; nothing guaranteed.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "Smoke mode (E285_SMOKE=1): 8 corpus steps per arm, milestones at every step 1..8, room k=512 at the same seed pair (G_ROOMK10K vacuous \u2014 no committed record at smoke k; disclosed), the REAL committed fact loaded and read (G_FACTLOAD live), G_CORPUSGEN live, G_ORTH live (every step), G_BUFSEP live (isolation + composition), G_BUDGET live \u2014 the smoke budget is SCALED to the full run's PER-STEP SHARE (BUDGET x 8/400), so the cap's binding path runs at exactly the full-run share scale (disclosed); the adjudication form + figure exercised; all paths smoke_-prefixed, own smoke dir; NOTHING adjudicated or gated for the record (SMOKE stamp on every read)."
+  ],
+  "builds_on": [
+    "R67 / the ideator's two-channel kill law (PRESERVATION = STATE SEPARATION x DISPLACEMENT BUDGET \u2014 the morning's four cells its special cases; THIS cell the law's first composed test)",
+    "T264 / e284 (MOMENTUM-OWNED: the separate-buffer missile's corpus walk 0.0000 in-room vs the shared twin's 0.4503 \u2014 buffer separation kills the re-aiming; DIAL 1 + DIAL 2's machinery ports from here)",
+    "T261 / e283 (the established-write rig VERBATIM: the loaded fact, the 400-corpus-step phase, the conventions; the unprotected reference post 9.04614535102155e-06, ratio 0.0000342x, drift 14.45 vs the write's 9.18 \u2014 the transport cite)",
+    "T263 / x14 (the transport intervention: DIRECTIONAL TRANSPORT with the coupling caveat \u2014 the out-of-room context carries 4,328x of the kill; the write's mass 84.35% intact + write-aligned; P-e285b's source)",
+    "T260 / e278 (THE ROACH MOTEL: the missile construction \u2014 the orthogonal projection, the orthogonality ledger \u2014 ORIGINATES here)",
+    "T258 / e273 (TRAJECTORY-TWO-BODY + the lr calibration: LR_STABLE's provenance, md5-bound)",
+    "T242 / e264 + T239 / e261 (the committed threshold rung: the loaded fact's baseline; the ladder machinery PORTED WHOLE BY IMPORT)",
+    "T259 / e281 (the NO-CONS form)"
+  ],
+  "whats_new": [
+    "THE BUILD LANE OPENS (the record's first): every prior cell measured a kill; this cell ENGINEERS a preservation and tests whether it holds \u2014 the two-channel law's sufficiency question",
+    "THE COMPOSED PROTECTION (the record's first): state separation + orthogonal projection + a displacement budget in one interleaved organism \u2014 each dial already proven alone (e284 SEP; e278 missile; the budget new), never composed",
+    "THE DISPLACEMENT BUDGET (the record's first transport-side intervention IN TRAINING): a per-step lr cap with equal-share reservation, triangle-guaranteed to hold the cumulative corpus displacement under 0.5x the write's own norm \u2014 the engineering dial the transport channel predicts is necessary",
+    "G_BUDGET + G_BUFSEP + G_ORTH INSTANTIATED (the build lane's verification stack: the budget ledger machine-checked, the buffer isolation machine-checked every step, the orthogonality machine-checked every step)"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g+0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "expected": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "seed": 170,
+        "n_windows": 16,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ],
+        "note": "built for protocol identity; NO wash/cons runs in this cell"
+      },
+      "pass": true
+    },
+    "G_INSTMASK": {
+      "name_positions": 420,
+      "expected": 420,
+      "note": "the install windows are NOT run in this cell (the fact is loaded); the mask gate carries the splice/mask convention's identity",
+      "pass": true
+    },
+    "G_PARENTS": {
+      "e264_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e264\\metrics.json",
+        "md5": "a42ff4786784b04cb9819a69b545e343",
+        "bound_md5": "a42ff4786784b04cb9819a69b545e343",
+        "verdict": "SHARP-THRESHOLD",
+        "K10K_post_g0": 0.26464763283729553,
+        "note": "THE loaded fact's committed record (the quiet-formed threshold rung)"
+      },
+      "e268_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e268\\metrics.json",
+        "md5": "c1149229b7f0191943a7b8eb0442b494",
+        "bound_md5": "c1149229b7f0191943a7b8eb0442b494",
+        "verdict": "DYNAMICAL-CARRIER",
+        "concurrent_post_g0": 4.004325455753133e-05,
+        "ratio": 0.00015130794937726159,
+        "note": "the FORMING-concurrent death (~0.0002x)"
+      },
+      "e283_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e283\\metrics.json",
+        "md5": "cf5be012f636ede7b953eb9a615c60a5",
+        "bound_md5": "cf5be012f636ede7b953eb9a615c60a5",
+        "verdict": "ESTABLISHED-DIES",
+        "concurrent_post_g0": 9.04614535102155e-06,
+        "ratio": 3.4181848724802654e-05,
+        "drift_from_fact_norm": 14.453935847208887,
+        "serial_control_post_g0": 0.26464763283729553,
+        "note": "THE UNPROTECTED REFERENCE (the twin's form; post 9.05e-06, drift 14.45 vs the write's 9.18 \u2014 the transport cite; its storage-decay control read the fact bit-identically \u2014 the null)"
+      },
+      "e284_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e284\\metrics.json",
+        "md5": "18ad7e334c4bb9b52e494f1739842ac6",
+        "bound_md5": "18ad7e334c4bb9b52e494f1739842ac6",
+        "verdict": "MOMENTUM-OWNED",
+        "sep_primary": 2.319773558897833e-07,
+        "sha_primary": 0.45027988873803715,
+        "note": "THE SEPARATION RECORD (the separate-buffer missile's in-room share 0.0000 \u2014 DIAL 1+2's machinery + provenance)"
+      },
+      "x14_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x14\\metrics.json",
+        "md5": "4970e27ae8c315df8762e5c3499a2be5",
+        "bound_md5": "4970e27ae8c315df8762e5c3499a2be5",
+        "verdict": "MIXED/INCONCLUSIVE",
+        "arm_A_orthogonal_subtraction_g0": 0.03915366902947426,
+        "arm_B_in_room_subtraction_g0": 5.864363629370928e-05,
+        "resurrection_x_over_dead_state": 4328.215777016314,
+        "note": "THE DIRECTIONAL-TRANSPORT RECORD (the out-of-room context carries the kill; P-e285b's source; the coupling caveat disclosed in its own record)"
+      },
+      "e273_lr_calibration": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e273\\lr_calibration.json",
+        "md5": "de0b1c3e152c99d7867391c4592e7e24",
+        "bound_md5": "de0b1c3e152c99d7867391c4592e7e24",
+        "lr_sgd": 21.7385748014537,
+        "note": "LR_STABLE's provenance record"
+      },
+      "the_fact": {
+        "path": "runs/checkpoints/e261_K10K_inst_resume.pt",
+        "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "bound_md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "size": 32958479,
+        "bound_size": 32958479,
+        "state": {
+          "step": 400,
+          "traj_steps": [
+            1,
+            100,
+            200,
+            300,
+            400
+          ],
+          "ledger_max": 400
+        },
+        "note": "the established fact itself (the committed serial 10k rung's final state)"
+      },
+      "e264_rooms": {
+        "path": "runs/checkpoints/e264_rooms.pt",
+        "md5": "2d524655575cce00a3bc1c8770f4b211",
+        "bound_md5": "2d524655575cce00a3bc1c8770f4b211",
+        "note": "THE ROOM FILE (the fact's own room; the D/S bit-bind itself is G_ROOMK10K)"
+      },
+      "e246_span": {
+        "path": "runs/checkpoints/e246_late_span.pt",
+        "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+        "bound_md5": "3464ff6081d8e402103dd9ca65bfb53a"
+      },
+      "e258_vmap": {
+        "path": "runs/checkpoints/e258_vmap.pt",
+        "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c"
+      },
+      "hardbound": {
+        "e283_verdict": "ESTABLISHED-DIES",
+        "e283_post": 9.04614535102155e-06,
+        "e283_ratio": 3.4181848724802654e-05,
+        "e283_drift": 14.453935847208887,
+        "e283_write_norm": 9.1788432658723,
+        "e284_verdict": "MOMENTUM-OWNED",
+        "e284_sep_primary": 2.319773558897833e-07,
+        "e284_sha_primary": 0.45027988873803715,
+        "x14_verdict": "MIXED/INCONCLUSIVE",
+        "x14_arm_A": 0.03915366902947426,
+        "x14_arm_B": 5.864363629370928e-05,
+        "x14_resurrection_x": 4328.215777016314,
+        "fact_md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "fact_step": 400,
+        "fact_traj_steps": [
+          1,
+          100,
+          200,
+          300,
+          400
+        ],
+        "fact_ledger_max": 400
+      },
+      "pass": true
+    },
+    "G_BASE": {
+      "checkpoint": "runs/checkpoints/e001.pt",
+      "params": 2739072,
+      "fact_free_gm12": 1.437231640011305e-05,
+      "ce_r": 1.6161081790924072,
+      "fact_free": true,
+      "pass": true
+    },
+    "G_ROOT": {
+      "checkpoint": "runs/checkpoints/g1c_root.pt",
+      "n_params": 2739072,
+      "expected_params": 2739072,
+      "battery_read_measured": 0.9026340246200562,
+      "battery_read_committed": 0.9026340246200562,
+      "abs_diff": 0.0,
+      "tol": 0.005,
+      "flat_md5": "a7f02b367c5342535aecfc814d780631",
+      "pass": true
+    },
+    "G_VMBIND": {
+      "path": "runs/checkpoints/e258_vmap.pt",
+      "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c",
+      "meta_experiment": "e258",
+      "meta_k": 237123,
+      "size": 2739072,
+      "expected_size": 2739072,
+      "mean_v": 1.9735449453829365e-07,
+      "pass": true
+    },
+    "G_SPANBIND": {
+      "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+      "rank": 10,
+      "N": 2739072,
+      "meta_experiment": "e246",
+      "pass": true
+    },
+    "G_PROJ": {
+      "form": "the K10K room certified (fp64 CPU, 4 probes, seed 26115): the DCT roundtrip identity; IDEMPOTENCY and the kept^2 rank probe (||P x||^2/||x||^2 vs k/N, the 10-sigma bar 5*sqrt(2k)/N); the span-overlap (expect ~sqrt(k/N))",
+      "reads": {
+        "probes": 4,
+        "seed": 26115,
+        "dct_roundtrip_rel": 8.195877245616001e-16,
+        "per_rung": {
+          "K10K": {
+            "k": 10000,
+            "seeds": [
+              26113,
+              26114
+            ],
+            "idempotency_max": 5.669754673327867e-16,
+            "kept2_mean": 0.0036073728283031233,
+            "kept2_expect": 0.0036508715360530864,
+            "kept2_bar_10sig": 0.0002581556020384085,
+            "kept2_pass": true,
+            "idempotency_pass": true,
+            "span_overlap_mean": 0.06038652639299012,
+            "span_overlap_expect": 0.06042244232115321
+          }
+        },
+        "pass": true
+      },
+      "bars": {
+        "roundtrip": 1e-08,
+        "idempotency": 1e-08,
+        "kept2": "10-sigma (5*sqrt(2k)/N)"
+      },
+      "pass": true
+    },
+    "G_ROOMK10K": {
+      "form": "the room == the fact's own committed K10K room (seeds 26113/26114 at k=10,000): the +-1 diagonal and the index set bit-identical to e264_rooms.pt's stored K10K D/S (exact equality)",
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "e264_rooms_md5": "2d524655575cce00a3bc1c8770f4b211",
+      "pass": true
+    },
+    "G_LR_BIND": {
+      "form": "the SANCTUARY's nominal lr := e273's STABLE RIDER POINT (e280/e284's committed class) \u2014 LR_STABLE = x0.01 x LR_SGD_matched, re-derived at runtime from the md5-bound runs/e273/lr_calibration.json and asserted == the frozen literal; momentum 0.9, wd 0.0 EXACTLY (e273's stable rider); the nominal schedule LR_STABLE x cosine_lr(t-1,1000); the DIAL-3 budget cap may reduce the APPLIED lr below the schedule (disclosed per step in the lr_ledger) \u2014 the cap is part of the intervention's body",
+      "lr_sgd_record": 21.7385748014537,
+      "stable_factor": 0.01,
+      "lr_stable": 0.21738574801453703,
+      "lr_stable_runtime": 0.21738574801453703,
+      "momentum": 0.9,
+      "wd": 0.0,
+      "twin_lr": "e283's form VERBATIM: AdamW at E43.LR (1e-3) x cosine_lr(t-1,1000), betas (0.9,0.95), wd 0.1",
+      "pass": true
+    },
+    "G_FACTLOAD": {
+      "form": "the established fact, loaded BIT-EXACT and gated THREE ways: (1) the artifact (md5/size/step/traj/ledger \u2014 G_PARENTS), (2) the loaded state's flat-md5, (3) the behavioral read (post g0 within 2e-06 / gm12 within 1e-05 of e264's committed literals \u2014 the family's cross-session read-determinism law)",
+      "flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+      "read_g0": {
+        "mine": 0.26464763283729553,
+        "committed": 0.26464763283729553,
+        "abs_diff": 0.0
+      },
+      "read_gm12": {
+        "mine": 0.10525520890951157,
+        "committed": 0.10525520890951157,
+        "abs_diff": 0.0
+      },
+      "read_gp12": 0.11036071181297302,
+      "read_ce_r": 1.5920883417129517,
+      "write_norm": 9.1788432658723,
+      "survival_ratio_denominator": "the COMMITTED literal (PRIMARY); the session read co-reported",
+      "displacement_from_base": {
+        "norm": 9.1788432658723,
+        "v_excess": 1.0092428433036382,
+        "cos_to_span": 0.005966837249160527,
+        "in_own_room": 0.9441588788935659,
+        "note": "the write's own standing displacement (the transport channel's reference quantity; DIAL 3's budget = 0.5 x this)"
+      },
+      "pass": true
+    },
+    "G_CORPUSGEN": {
+      "form": "the REGISTERED fresh corpus stream: seed 28501 (the family's per-cell rule \u2014 26801/26901/27001/27101/27301/27801/28301/28401/28501), its own generator; per corpus step the draws (aj_c(16), rj_c(32)) in that order; the first step's draws logged here from a scratch generator (the drivers' cgens start identically by construction); BOTH arms draw the IDENTICAL sequence",
+      "seed": 28501,
+      "first_step_aj": [
+        48,
+        1,
+        57,
+        43,
+        15,
+        17,
+        18,
+        37,
+        59,
+        30,
+        45,
+        55,
+        37,
+        10,
+        15,
+        12
+      ],
+      "first_step_rj": [
+        134869,
+        565406,
+        495582,
+        167737,
+        788108,
+        129602,
+        546038,
+        336702,
+        613079,
+        326655,
+        205736,
+        478297,
+        370585,
+        683881,
+        386562,
+        181941,
+        909844,
+        450906,
+        848177,
+        780484,
+        228849,
+        402575,
+        207085,
+        728674,
+        542572,
+        990132,
+        372859,
+        159139,
+        582178,
+        747321,
+        521499,
+        384256
+      ],
+      "composition": "16 original-host anchors (the 60-window bank) + 32 random corpus windows (contiguous train_ids slices); full-window CE; clip 1.0 -> the arm's own step (SANCTUARY: g_perp + capped lr + opt_C; TWIN: opt.step FREE)",
+      "pass": true
+    },
+    "G_ORTH": {
+      "form": "the stepped corpus gradient is ENTIRELY ORTHOGONAL to the room on the SANCTUARY arm: max over ALL corpus steps of ||P_room g_perp|| / ||g_perp|| < 1e-6 (checked EVERY corpus step via e278/e280/e284's orthogonalize_grads; the SRCT projector is exact, so any drift above fp64 roundoff is an implementation bug). INSTANTIATED (e280's omission corrected at e284, carried)",
+      "orth_max_rel_err": 4.555131955207115e-17,
+      "bar": 1e-06,
+      "n_steps_checked": 400,
+      "note": "the TWIN's gradients are deliberately UNPROJECTED (e283's form) \u2014 no orthogonality applies to the reference",
+      "pass": true
+    },
+    "G_BUFSEP": {
+      "form": "the buffer separation's machine verification (the minimal in-phase form): (i) ISOLATION \u2014 the fact side's optimizer (opt_F) snapshotted bitwise before EVERY corpus opt_C.step() and compared after; it must stay EMPTY (never created, never touched \u2014 there is no install stream in this phase; any mismatch HALTS); (ii) COMPOSITION \u2014 per milestone, ||P_room buf_C||/||buf_C|| < 1e-4 (the fp-floor bar; e284's SEP arm measured 1.5e-9-5.9e-9). e284's buf_I > 0.99 composition side is VACUOUS here (no install stream \u2014 no object; disclosed at birth)",
+      "isolation_checks": 400,
+      "isolation_violations": 0,
+      "optF_state_entries_max": 0,
+      "optF_ever_stepped": false,
+      "bufC_inroom_frac_max": 5.235687455876603e-09,
+      "bufC_inroom_frac_last": 5.235687455876603e-09,
+      "bufC_bar": 0.0001,
+      "e284_sep_cite": 2.319773558897833e-07,
+      "pass": true
+    },
+    "G_BUDGET": {
+      "form": "the displacement budget's machine verification: the equal-share per-step lr cap holds the running sum of realized projected step norms S under BUDGET (triangle-guaranteed), and the realized cumulative corpus displacement ||theta_400 - theta_fact|| <= S <= BUDGET; slack 1e-05 absolute (fp32 accumulation, 1000x the expected error, disclosed)",
+      "budget_norm": 4.58942163293615,
+      "budget_frac_of_write_norm": 0.5,
+      "write_norm": 9.1788432658723,
+      "S_final": 4.589421633863822,
+      "S_usage_frac": 1.0000000002021325,
+      "cum_disp_final_norm": 1.8445091952850854,
+      "cum_usage_frac": 0.40190449751835794,
+      "drift_from_fact_final_norm": 1.8445091953053947,
+      "n_capped": 397,
+      "n_steps": 400,
+      "capped_frac": 0.9925,
+      "lr_price": {
+        "lr_applied_median": 0.006003576011071605,
+        "lr_applied_min": 0.0021738574801453705,
+        "lr_sched_median": 0.19457709321363112
+      },
+      "slack": 1e-05,
+      "twin_contrast": {
+        "drift": 14.432213220202932,
+        "cite_e283_drift": 14.453935847208887,
+        "note": "the unprotected streams' realized cumulative displacement (this session's twin + e283's committed arm) \u2014 what the budget exists to prevent"
+      },
+      "pass": true
+    }
+  },
+  "phase_note": "P8 DONE (honesty + provenance + figures)",
+  "device_events": [],
+  "rooms": {
+    "vehicle": {
+      "k": 10000,
+      "name": "K10K",
+      "seeds": [
+        26113,
+        26114
+      ],
+      "k_fraction_of_N": 0.0036508715360530864,
+      "bit_bound_to": "runs/checkpoints/e264_rooms.pt (e264's committed K10K room \u2014 the fact's own room)"
+    },
+    "cert_probes_seed": 26115,
+    "certification": {
+      "probes": 4,
+      "seed": 26115,
+      "dct_roundtrip_rel": 8.195877245616001e-16,
+      "per_rung": {
+        "K10K": {
+          "k": 10000,
+          "seeds": [
+            26113,
+            26114
+          ],
+          "idempotency_max": 5.669754673327867e-16,
+          "kept2_mean": 0.0036073728283031233,
+          "kept2_expect": 0.0036508715360530864,
+          "kept2_bar_10sig": 0.0002581556020384085,
+          "kept2_pass": true,
+          "idempotency_pass": true,
+          "span_overlap_mean": 0.06038652639299012,
+          "span_overlap_expect": 0.06042244232115321
+        }
+      },
+      "pass": true
+    },
+    "vmap_source": "runs/checkpoints/e258_vmap.pt (e258's committed 2.74M v-map; LOADED, not re-run)",
+    "span_source": "runs/checkpoints/e246_late_span.pt (e246's committed LATE span; rank 10)",
+    "checkpoint": "runs/checkpoints/e285_rooms.pt"
+  },
+  "the_fact": {
+    "checkpoint": "runs/checkpoints/e261_K10K_inst_resume.pt",
+    "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+    "committed_post_g0": 0.26464763283729553,
+    "session_read_g0": 0.26464763283729553,
+    "session_read_gm12": 0.10525520890951157,
+    "session_read_ce_r": 1.5920883417129517,
+    "write_norm": 9.1788432658723,
+    "displacement_from_base": {
+      "norm": 9.1788432658723,
+      "v_excess": 1.0092428433036382,
+      "cos_to_span": 0.005966837249160527,
+      "in_own_room": 0.9441588788935659,
+      "note": "the write's own standing displacement (the transport channel's reference quantity; DIAL 3's budget = 0.5 x this)"
+    },
+    "baseline_used_for_ratios": "committed (PRIMARY)"
+  },
+  "budget": {
+    "form": "BUDGET := 0.5 x ||fact - base|| (the write's own norm, fp64 from the loaded fact)",
+    "write_norm": 9.1788432658723,
+    "budget_norm": 4.58942163293615,
+    "reservation": "EQUAL-SHARE: cap_t = ((BUDGET - S_{t-1}) / (n_steps - t + 1)) / ||b_t||; lr_t = min(LR_STABLE x cosine, cap_t); S += realized ||step||; triangle-guaranteed S_400 <= BUDGET and ||cum|| <= S_400 <= BUDGET",
+    "slack": 1e-05,
+    "smoke_scaling": null
+  },
+  "arms": {
+    "SANCTUARY": {
+      "desc": "(a) SANCTUARY (the composed build): the corpus steps under SGD-M (the stable x0.01-class lr, momentum 0.9) with SEPARATE momentum buffers (the install/fact side never shares with the corpus side), the corpus gradients PROJECTED ORTHOGONAL to the room (the missile construction, orthogonality gate instantiated), AND the displacement budget: a per-step lr cap such that the projected cumulative corpus displacement cannot exceed 0.5 x the write's norm 9.18 over the 400 steps (compute the cap from the projected step norms; disclose the realized budget)",
+      "phase": {
+        "traj": [
+          {
+            "step": 100,
+            "g0_pz": 0.0013435599394142628,
+            "g0_argmax": 0.0,
+            "gm12_pz": 0.0007672220817767084,
+            "ce_r": 1.613944411277771,
+            "ce_corpus": 0.8612847328186035,
+            "survival_ratio_vs_committed": 0.005076788048356657,
+            "disp_norm": 0.6609871202355514,
+            "in_room_frac": 1.7031239212345808e-06,
+            "remaining_in_room_frac": 0.9430400717508226,
+            "corpus_disp_interval_in_room_frac": 1.7031239931526374e-06,
+            "corpus_disp_cum_in_room_frac": 1.7031239931526374e-06,
+            "budget_S_usage_frac": 0.24700913060790564,
+            "budget_cum_usage_frac": 0.14402405642839552,
+            "lr_applied": 0.005908652343793296,
+            "lr_sched": 0.21738574801453703,
+            "capped": true,
+            "elapsed_s": 266.0
+          },
+          {
+            "step": 200,
+            "g0_pz": 0.0008345962851308286,
+            "g0_argmax": 0.0,
+            "gm12_pz": 0.0005285473889671266,
+            "ce_r": 1.6322391033172607,
+            "ce_corpus": 0.8573159575462341,
+            "survival_ratio_vs_committed": 0.00315361326373146,
+            "disp_norm": 1.1378554092341078,
+            "in_room_frac": 1.3989919774103581e-06,
+            "remaining_in_room_frac": 0.9394978808077652,
+            "corpus_disp_interval_in_room_frac": 1.9426993418624274e-06,
+            "corpus_disp_cum_in_room_frac": 1.3989919346593235e-06,
+            "budget_S_usage_frac": 0.498006083689537,
+            "budget_cum_usage_frac": 0.24793002261295857,
+            "lr_applied": 0.005881636584620494,
+            "lr_sched": 0.21095990888307206,
+            "capped": true,
+            "elapsed_s": 508.5
+          },
+          {
+            "step": 300,
+            "g0_pz": 0.0007079456117935479,
+            "g0_argmax": 0.0,
+            "gm12_pz": 0.0004577279032673687,
+            "ce_r": 1.6413782835006714,
+            "ce_corpus": 0.8474956154823303,
+            "survival_ratio_vs_committed": 0.0026750498547961337,
+            "disp_norm": 1.5197490255080748,
+            "in_room_frac": 1.2911138270966116e-06,
+            "remaining_in_room_frac": 0.9349929947434756,
+            "corpus_disp_interval_in_room_frac": 2.195191499091974e-06,
+            "corpus_disp_cum_in_room_frac": 1.2911137984946925e-06,
+            "budget_S_usage_frac": 0.7490030463087888,
+            "budget_cum_usage_frac": 0.3311417313680457,
+            "lr_applied": 0.006015159905224143,
+            "lr_sched": 0.19219981823907967,
+            "capped": true,
+            "elapsed_s": 759.0
+          },
+          {
+            "step": 400,
+            "g0_pz": 0.0008025270071811974,
+            "g0_argmax": 0.0,
+            "gm12_pz": 0.00046114681754261255,
+            "ce_r": 1.6603666543960571,
+            "ce_corpus": 0.8015798926353455,
+            "survival_ratio_vs_committed": 0.00303243599263398,
+            "disp_norm": 1.844509195284748,
+            "in_room_frac": 1.2260267392361931e-06,
+            "remaining_in_room_frac": 0.9300403661078244,
+            "corpus_disp_interval_in_room_frac": 2.410312616521004e-06,
+            "corpus_disp_cum_in_room_frac": 1.2260267419243653e-06,
+            "budget_S_usage_frac": 1.0000000002021325,
+            "budget_cum_usage_frac": 0.40190449751835794,
+            "lr_applied": 0.00606635063135328,
+            "lr_sched": 0.1633675576894916,
+            "capped": true,
+            "elapsed_s": 1023.8
+          }
+        ],
+        "corpus_ledger": {
+          "1": {
+            "ce": 0.9759877324104309,
+            "gn_clipped": 0.8157400488853455,
+            "g_in_room_frac": 0.06060793725492166
+          },
+          "10": {
+            "ce": 0.973779559135437,
+            "gn_clipped": 0.7793442010879517,
+            "g_in_room_frac": 0.060501255066322666
+          },
+          "20": {
+            "ce": 0.9593083262443542,
+            "gn_clipped": 0.743672788143158,
+            "g_in_room_frac": 0.05960664299621433
+          },
+          "30": {
+            "ce": 0.9251599311828613,
+            "gn_clipped": 0.74228835105896,
+            "g_in_room_frac": 0.060197883757195224
+          },
+          "40": {
+            "ce": 0.9337894320487976,
+            "gn_clipped": 0.7597220540046692,
+            "g_in_room_frac": 0.059102158369900355
+          },
+          "50": {
+            "ce": 0.9393296241760254,
+            "gn_clipped": 0.7761291861534119,
+            "g_in_room_frac": 0.06009899780729075
+          },
+          "60": {
+            "ce": 0.9275311231613159,
+            "gn_clipped": 0.780738115310669,
+            "g_in_room_frac": 0.06097632967838146
+          },
+          "70": {
+            "ce": 0.9373505115509033,
+            "gn_clipped": 0.7859945297241211,
+            "g_in_room_frac": 0.06041394365465229
+          },
+          "80": {
+            "ce": 0.909801721572876,
+            "gn_clipped": 0.7652190327644348,
+            "g_in_room_frac": 0.06104124600269503
+          },
+          "90": {
+            "ce": 0.9153199195861816,
+            "gn_clipped": 0.7751482725143433,
+            "g_in_room_frac": 0.06141050544329533
+          },
+          "100": {
+            "ce": 0.8612847328186035,
+            "gn_clipped": 0.8496944308280945,
+            "g_in_room_frac": 0.06013044326065691
+          },
+          "110": {
+            "ce": 0.890028715133667,
+            "gn_clipped": 0.8433411717414856,
+            "g_in_room_frac": 0.06133325028634087
+          },
+          "120": {
+            "ce": 0.8940945267677307,
+            "gn_clipped": 0.8192648887634277,
+            "g_in_room_frac": 0.060032435801151834
+          },
+          "130": {
+            "ce": 0.8931035995483398,
+            "gn_clipped": 0.8245829343795776,
+            "g_in_room_frac": 0.05944997400322412
+          },
+          "140": {
+            "ce": 0.9030652642250061,
+            "gn_clipped": 0.8642590641975403,
+            "g_in_room_frac": 0.06033006265635088
+          },
+          "150": {
+            "ce": 0.9050887823104858,
+            "gn_clipped": 0.825411319732666,
+            "g_in_room_frac": 0.060558069727567734
+          },
+          "160": {
+            "ce": 0.8434310555458069,
+            "gn_clipped": 0.7998919486999512,
+            "g_in_room_frac": 0.061048002102932084
+          },
+          "170": {
+            "ce": 0.9068715572357178,
+            "gn_clipped": 0.8489375114440918,
+            "g_in_room_frac": 0.05989473893226903
+          },
+          "180": {
+            "ce": 0.8415629863739014,
+            "gn_clipped": 0.760341227054596,
+            "g_in_room_frac": 0.06039881936972649
+          },
+          "190": {
+            "ce": 0.8737483620643616,
+            "gn_clipped": 0.9025382995605469,
+            "g_in_room_frac": 0.06048129800225224
+          },
+          "200": {
+            "ce": 0.8573159575462341,
+            "gn_clipped": 0.8283039927482605,
+            "g_in_room_frac": 0.05973329707609512
+          },
+          "210": {
+            "ce": 0.8319800496101379,
+            "gn_clipped": 0.8725934028625488,
+            "g_in_room_frac": 0.06058730751092051
+          },
+          "220": {
+            "ce": 0.8800508379936218,
+            "gn_clipped": 0.8402056097984314,
+            "g_in_room_frac": 0.06056251139033153
+          },
+          "230": {
+            "ce": 0.8642582297325134,
+            "gn_clipped": 0.8934162259101868,
+            "g_in_room_frac": 0.06041605903944709
+          },
+          "240": {
+            "ce": 0.8547461032867432,
+            "gn_clipped": 0.898672878742218,
+            "g_in_room_frac": 0.06036557470514451
+          },
+          "250": {
+            "ce": 0.8584223389625549,
+            "gn_clipped": 0.8640084862709045,
+            "g_in_room_frac": 0.06029171771438607
+          },
+          "260": {
+            "ce": 0.8369031548500061,
+            "gn_clipped": 0.8349852561950684,
+            "g_in_room_frac": 0.06089785298325576
+          },
+          "270": {
+            "ce": 0.846855878829956,
+            "gn_clipped": 0.8728373646736145,
+            "g_in_room_frac": 0.06024464375740233
+          },
+          "280": {
+            "ce": 0.844429612159729,
+            "gn_clipped": 0.8354116082191467,
+            "g_in_room_frac": 0.06083278166020853
+          },
+          "290": {
+            "ce": 0.8211122155189514,
+            "gn_clipped": 0.8628397583961487,
+            "g_in_room_frac": 0.060553241836709217
+          },
+          "300": {
+            "ce": 0.8474956154823303,
+            "gn_clipped": 0.8893066048622131,
+            "g_in_room_frac": 0.060097201405772016
+          },
+          "310": {
+            "ce": 0.8292779326438904,
+            "gn_clipped": 0.8556164503097534,
+            "g_in_room_frac": 0.06023785338100365
+          },
+          "320": {
+            "ce": 0.8291974663734436,
+            "gn_clipped": 0.9132412672042847,
+            "g_in_room_frac": 0.06035186981116146
+          },
+          "330": {
+            "ce": 0.8259623050689697,
+            "gn_clipped": 0.8988827466964722,
+            "g_in_room_frac": 0.06076901544598664
+          },
+          "340": {
+            "ce": 0.8288748264312744,
+            "gn_clipped": 0.831437349319458,
+            "g_in_room_frac": 0.06061084950755027
+          },
+          "350": {
+            "ce": 0.816128134727478,
+            "gn_clipped": 0.8731828331947327,
+            "g_in_room_frac": 0.06082377127650856
+          },
+          "360": {
+            "ce": 0.8157064914703369,
+            "gn_clipped": 0.9026013016700745,
+            "g_in_room_frac": 0.06059068496742902
+          },
+          "370": {
+            "ce": 0.807041347026825,
+            "gn_clipped": 0.8814074397087097,
+            "g_in_room_frac": 0.060965230318560264
+          },
+          "380": {
+            "ce": 0.8196763396263123,
+            "gn_clipped": 0.8519151210784912,
+            "g_in_room_frac": 0.06061241857611465
+          },
+          "390": {
+            "ce": 0.807435154914856,
+            "gn_clipped": 0.9678493738174438,
+            "g_in_room_frac": 0.06091516936870663
+          },
+          "400": {
+            "ce": 0.8015798926353455,
+            "gn_clipped": 0.917319118976593,
+            "g_in_room_frac": 0.060125304278565626
+          }
+        },
+        "orth_ledger": {
+          "1": {
+            "gn_clipped": 0.8157400488853455,
+            "gperp_norm": 0.8142404467421289,
+            "norm_ratio": 0.9981616492040233,
+            "in_room_frac": 0.06060793725498571,
+            "orth_rel_err": 4.4133840373628086e-17
+          },
+          "10": {
+            "gn_clipped": 0.7793442010879517,
+            "gperp_norm": 0.7779165535092415,
+            "norm_ratio": 0.9981681211776864,
+            "in_room_frac": 0.06050125506638435,
+            "orth_rel_err": 4.434253450268014e-17
+          },
+          "20": {
+            "gn_clipped": 0.743672788143158,
+            "gperp_norm": 0.7423504993352958,
+            "norm_ratio": 0.9982219433125653,
+            "in_room_frac": 0.059606642996277916,
+            "orth_rel_err": 4.377663103616446e-17
+          },
+          "30": {
+            "gn_clipped": 0.74228835105896,
+            "gperp_norm": 0.7409421807879395,
+            "norm_ratio": 0.9981864629372348,
+            "in_room_frac": 0.060197883757257736,
+            "orth_rel_err": 4.465400722020392e-17
+          },
+          "40": {
+            "gn_clipped": 0.7597220540046692,
+            "gperp_norm": 0.7583940006849287,
+            "norm_ratio": 0.9982519395803908,
+            "in_room_frac": 0.0591021583699591,
+            "orth_rel_err": 4.447093471074419e-17
+          },
+          "50": {
+            "gn_clipped": 0.7761291861534119,
+            "gperp_norm": 0.7747262758630458,
+            "norm_ratio": 0.9981924215613702,
+            "in_room_frac": 0.06009899780734894,
+            "orth_rel_err": 4.413604863633501e-17
+          },
+          "60": {
+            "gn_clipped": 0.780738115310669,
+            "gperp_norm": 0.7792853029490833,
+            "norm_ratio": 0.9981392123441228,
+            "in_room_frac": 0.06097632967844294,
+            "orth_rel_err": 4.4442736211652425e-17
+          },
+          "70": {
+            "gn_clipped": 0.7859945297241211,
+            "gperp_norm": 0.7845587846325011,
+            "norm_ratio": 0.9981734094895962,
+            "in_room_frac": 0.060413943654713954,
+            "orth_rel_err": 4.475474383729886e-17
+          },
+          "80": {
+            "gn_clipped": 0.7652190327644348,
+            "gperp_norm": 0.7637920973073261,
+            "norm_ratio": 0.9981352444866534,
+            "in_room_frac": 0.061041246002753013,
+            "orth_rel_err": 4.477960301996815e-17
+          },
+          "90": {
+            "gn_clipped": 0.7751482725143433,
+            "gperp_norm": 0.7736852342696563,
+            "norm_ratio": 0.9981125937594373,
+            "in_room_frac": 0.06141050544335567,
+            "orth_rel_err": 4.462484608070328e-17
+          },
+          "100": {
+            "gn_clipped": 0.8496944308280945,
+            "gperp_norm": 0.848156942898785,
+            "norm_ratio": 0.9981905278018167,
+            "in_room_frac": 0.060130443260719375,
+            "orth_rel_err": 4.495862781549971e-17
+          },
+          "110": {
+            "gn_clipped": 0.8433411717414856,
+            "gperp_norm": 0.8417534303049294,
+            "norm_ratio": 0.9981173440078607,
+            "in_room_frac": 0.061333250286398654,
+            "orth_rel_err": 4.507212912161966e-17
+          },
+          "120": {
+            "gn_clipped": 0.8192648887634277,
+            "gperp_norm": 0.8177872608536649,
+            "norm_ratio": 0.9981964268879013,
+            "in_room_frac": 0.06003243580121199,
+            "orth_rel_err": 4.4398212785485094e-17
+          },
+          "130": {
+            "gn_clipped": 0.8245829343795776,
+            "gperp_norm": 0.8231244614275766,
+            "norm_ratio": 0.9982312861211116,
+            "in_room_frac": 0.05944997400328721,
+            "orth_rel_err": 4.430555608456746e-17
+          },
+          "140": {
+            "gn_clipped": 0.8642590641975403,
+            "gperp_norm": 0.8626848215462397,
+            "norm_ratio": 0.9981784828074959,
+            "in_room_frac": 0.06033006265640481,
+            "orth_rel_err": 4.5018893663245014e-17
+          },
+          "150": {
+            "gn_clipped": 0.825411319732666,
+            "gperp_norm": 0.8238963757496713,
+            "norm_ratio": 0.9981646758881343,
+            "in_room_frac": 0.06055806972762455,
+            "orth_rel_err": 4.431955270595979e-17
+          },
+          "160": {
+            "gn_clipped": 0.7998919486999512,
+            "gperp_norm": 0.7984000045184044,
+            "norm_ratio": 0.9981348312924627,
+            "in_room_frac": 0.06104800210299305,
+            "orth_rel_err": 4.5085748109763704e-17
+          },
+          "170": {
+            "gn_clipped": 0.8489375114440918,
+            "gperp_norm": 0.84741338341368,
+            "norm_ratio": 0.9982046985705029,
+            "in_room_frac": 0.059894738932325935,
+            "orth_rel_err": 4.40076312839034e-17
+          },
+          "180": {
+            "gn_clipped": 0.760341227054596,
+            "gperp_norm": 0.7589531056457117,
+            "norm_ratio": 0.998174324764335,
+            "in_room_frac": 0.06039881936978544,
+            "orth_rel_err": 4.4595476764506386e-17
+          },
+          "190": {
+            "gn_clipped": 0.9025382995605469,
+            "gperp_norm": 0.9008860460850127,
+            "norm_ratio": 0.9981693306207898,
+            "in_room_frac": 0.06048129800231101,
+            "orth_rel_err": 4.4352805995536746e-17
+          },
+          "200": {
+            "gn_clipped": 0.8283039927482605,
+            "gperp_norm": 0.8268249758876051,
+            "norm_ratio": 0.9982143723772022,
+            "in_room_frac": 0.0597332970761561,
+            "orth_rel_err": 4.3481959671249766e-17
+          },
+          "210": {
+            "gn_clipped": 0.8725934028625488,
+            "gperp_norm": 0.8709903514006015,
+            "norm_ratio": 0.9981629016190542,
+            "in_room_frac": 0.06058730751098207,
+            "orth_rel_err": 4.4377994272246784e-17
+          },
+          "220": {
+            "gn_clipped": 0.8402056097984314,
+            "gperp_norm": 0.8386633641741722,
+            "norm_ratio": 0.9981644064051215,
+            "in_room_frac": 0.0605625113903924,
+            "orth_rel_err": 4.42742721164866e-17
+          },
+          "230": {
+            "gn_clipped": 0.8934162259101868,
+            "gperp_norm": 0.891784160911759,
+            "norm_ratio": 0.9981732814547454,
+            "in_room_frac": 0.06041605903951091,
+            "orth_rel_err": 4.425685549308692e-17
+          },
+          "240": {
+            "gn_clipped": 0.898672878742218,
+            "gperp_norm": 0.8970339856253298,
+            "norm_ratio": 0.998176335819734,
+            "in_room_frac": 0.060365574705205254,
+            "orth_rel_err": 4.4624337560730334e-17
+          },
+          "250": {
+            "gn_clipped": 0.8640084862709045,
+            "gperp_norm": 0.8624366539126787,
+            "norm_ratio": 0.9981807996425504,
+            "in_room_frac": 0.06029171771444766,
+            "orth_rel_err": 4.424111677118019e-17
+          },
+          "260": {
+            "gn_clipped": 0.8349852561950684,
+            "gperp_norm": 0.8334355649124185,
+            "norm_ratio": 0.9981440033893018,
+            "in_room_frac": 0.060897852983316555,
+            "orth_rel_err": 4.50807187385357e-17
+          },
+          "270": {
+            "gn_clipped": 0.8728373646736145,
+            "gperp_norm": 0.8712520113414973,
+            "norm_ratio": 0.9981836418708411,
+            "in_room_frac": 0.060244643757470025,
+            "orth_rel_err": 4.403266453092902e-17
+          },
+          "280": {
+            "gn_clipped": 0.8354116082191467,
+            "gperp_norm": 0.8338643879121619,
+            "norm_ratio": 0.9981479713326445,
+            "in_room_frac": 0.06083278166027139,
+            "orth_rel_err": 4.4517219495391756e-17
+          },
+          "290": {
+            "gn_clipped": 0.8628397583961487,
+            "gperp_norm": 0.8612563874214957,
+            "norm_ratio": 0.998164968781743,
+            "in_room_frac": 0.06055324183676669,
+            "orth_rel_err": 4.425394856351708e-17
+          },
+          "300": {
+            "gn_clipped": 0.8893066048622131,
+            "gperp_norm": 0.8876992074401389,
+            "norm_ratio": 0.9981925297171818,
+            "in_room_frac": 0.06009720140583294,
+            "orth_rel_err": 4.4098812331772265e-17
+          },
+          "310": {
+            "gn_clipped": 0.8556164503097534,
+            "gperp_norm": 0.8540626843896587,
+            "norm_ratio": 0.9981840516758625,
+            "in_room_frac": 0.06023785338106704,
+            "orth_rel_err": 4.4122195897484897e-17
+          },
+          "320": {
+            "gn_clipped": 0.9132412672042847,
+            "gperp_norm": 0.9115766080972915,
+            "norm_ratio": 0.9981771645405887,
+            "in_room_frac": 0.06035186981122078,
+            "orth_rel_err": 4.410607472307008e-17
+          },
+          "330": {
+            "gn_clipped": 0.8988827466964722,
+            "gperp_norm": 0.8972214919485352,
+            "norm_ratio": 0.9981518555619272,
+            "in_room_frac": 0.06076901544604456,
+            "orth_rel_err": 4.390021207927615e-17
+          },
+          "340": {
+            "gn_clipped": 0.831437349319458,
+            "gperp_norm": 0.8299087837583309,
+            "norm_ratio": 0.998161472369058,
+            "in_room_frac": 0.06061084950761116,
+            "orth_rel_err": 4.521952307209582e-17
+          },
+          "350": {
+            "gn_clipped": 0.8731828331947327,
+            "gperp_norm": 0.87156620477528,
+            "norm_ratio": 0.998148520435559,
+            "in_room_frac": 0.06082377127656891,
+            "orth_rel_err": 4.473700450488071e-17
+          },
+          "360": {
+            "gn_clipped": 0.9026013016700745,
+            "gperp_norm": 0.9009430019766288,
+            "norm_ratio": 0.998162696605704,
+            "in_room_frac": 0.0605906849674879,
+            "orth_rel_err": 4.453770208604369e-17
+          },
+          "370": {
+            "gn_clipped": 0.8814074397087097,
+            "gperp_norm": 0.8797679151600596,
+            "norm_ratio": 0.9981398903421291,
+            "in_room_frac": 0.06096523031862066,
+            "orth_rel_err": 4.406273945025226e-17
+          },
+          "380": {
+            "gn_clipped": 0.8519151210784912,
+            "gperp_norm": 0.8503488073233022,
+            "norm_ratio": 0.998161377090071,
+            "in_room_frac": 0.06061241857617179,
+            "orth_rel_err": 4.4653555568780345e-17
+          },
+          "390": {
+            "gn_clipped": 0.9678493738174438,
+            "gperp_norm": 0.9660520460577787,
+            "norm_ratio": 0.9981429467469951,
+            "in_room_frac": 0.06091516936876486,
+            "orth_rel_err": 4.442164173390678e-17
+          },
+          "400": {
+            "gn_clipped": 0.917319118976593,
+            "gperp_norm": 0.9156595269258888,
+            "norm_ratio": 0.9981908373579688,
+            "in_room_frac": 0.060125304278624954,
+            "orth_rel_err": 4.3770102103688454e-17
+          }
+        },
+        "disp_ledger": [
+          {
+            "step": 100,
+            "drift_from_fact_norm": 0.6609871202355514,
+            "drift_from_fact_in_room_frac": 1.7031239212345808e-06,
+            "remaining_from_base_norm": 9.189732891630696,
+            "remaining_from_base_in_room_frac": 0.9430400717508226,
+            "corpus_disp_interval_norm": 0.6609871202356953,
+            "corpus_disp_interval_in_room_frac": 1.7031239931526374e-06,
+            "corpus_disp_cum_norm": 0.6609871202356953,
+            "corpus_disp_cum_in_room_frac": 1.7031239931526374e-06
+          },
+          {
+            "step": 200,
+            "drift_from_fact_norm": 1.1378554092341078,
+            "drift_from_fact_in_room_frac": 1.3989919774103581e-06,
+            "remaining_from_base_norm": 9.224380952958722,
+            "remaining_from_base_in_room_frac": 0.9394978808077652,
+            "corpus_disp_interval_norm": 0.5826853267084097,
+            "corpus_disp_interval_in_room_frac": 1.9426993418624274e-06,
+            "corpus_disp_cum_norm": 1.137855409234261,
+            "corpus_disp_cum_in_room_frac": 1.3989919346593235e-06
+          },
+          {
+            "step": 300,
+            "drift_from_fact_norm": 1.5197490255080748,
+            "drift_from_fact_in_room_frac": 1.2911138270966116e-06,
+            "remaining_from_base_norm": 9.268824911600067,
+            "remaining_from_base_in_room_frac": 0.9349929947434756,
+            "corpus_disp_interval_norm": 0.5170224539450506,
+            "corpus_disp_interval_in_room_frac": 2.195191499091974e-06,
+            "corpus_disp_cum_norm": 1.5197490255084403,
+            "corpus_disp_cum_in_room_frac": 1.2911137984946925e-06
+          },
+          {
+            "step": 400,
+            "drift_from_fact_norm": 1.844509195284748,
+            "drift_from_fact_in_room_frac": 1.2260267392361931e-06,
+            "remaining_from_base_norm": 9.318183021347762,
+            "remaining_from_base_in_room_frac": 0.9300403661078244,
+            "corpus_disp_interval_norm": 0.4733383498231031,
+            "corpus_disp_interval_in_room_frac": 2.410312616521004e-06,
+            "corpus_disp_cum_norm": 1.8445091952850854,
+            "corpus_disp_cum_in_room_frac": 1.2260267419243653e-06
+          }
+        ],
+        "buf_ledger": [
+          {
+            "step": 100,
+            "bufC_inroom_frac": 4.91167069202647e-09,
+            "bufC_norm": 1.949566039106413,
+            "optF_state_entries": 0,
+            "optF_ever_stepped": false
+          },
+          {
+            "step": 200,
+            "bufC_inroom_frac": 5.01334008125859e-09,
+            "bufC_norm": 1.9585211283692567,
+            "optF_state_entries": 0,
+            "optF_ever_stepped": false
+          },
+          {
+            "step": 300,
+            "bufC_inroom_frac": 5.1451410600897094e-09,
+            "bufC_norm": 1.91504604458145,
+            "optF_state_entries": 0,
+            "optF_ever_stepped": false
+          },
+          {
+            "step": 400,
+            "bufC_inroom_frac": 5.235687455876603e-09,
+            "bufC_norm": 1.8988862679133152,
+            "optF_state_entries": 0,
+            "optF_ever_stepped": false
+          }
+        ],
+        "budget_ledger": [
+          {
+            "step": 100,
+            "S": 1.133629047544673,
+            "S_usage_frac": 0.24700913060790564,
+            "cum_norm": 0.6609871202356953,
+            "cum_usage_frac": 0.14402405642839552,
+            "n_capped_so_far": 97,
+            "lr_sched": 0.21738574801453703,
+            "cap": 0.005908652343793296,
+            "lr_applied": 0.005908652343793296,
+            "capped": true
+          },
+          {
+            "step": 200,
+            "S": 2.285559893818572,
+            "S_usage_frac": 0.498006083689537,
+            "cum_norm": 1.137855409234261,
+            "cum_usage_frac": 0.24793002261295857,
+            "n_capped_so_far": 197,
+            "lr_sched": 0.21095990888307206,
+            "cap": 0.005881636584620494,
+            "lr_applied": 0.005881636584620494,
+            "capped": true
+          },
+          {
+            "step": 300,
+            "S": 3.4374907838646322,
+            "S_usage_frac": 0.7490030463087888,
+            "cum_norm": 1.5197490255084403,
+            "cum_usage_frac": 0.3311417313680457,
+            "n_capped_so_far": 297,
+            "lr_sched": 0.19219981823907967,
+            "cap": 0.006015159905224143,
+            "lr_applied": 0.006015159905224143,
+            "capped": true
+          },
+          {
+            "step": 400,
+            "S": 4.589421633863822,
+            "S_usage_frac": 1.0000000002021325,
+            "cum_norm": 1.8445091952850854,
+            "cum_usage_frac": 0.40190449751835794,
+            "n_capped_so_far": 397,
+            "lr_sched": 0.1633675576894916,
+            "cap": 0.00606635063135328,
+            "lr_applied": 0.00606635063135328,
+            "capped": true
+          }
+        ],
+        "lr_ledger": {
+          "1": {
+            "lr_sched": 0.0021738574801453705,
+            "cap": 0.014091113290471614,
+            "lr_applied": 0.0021738574801453705,
+            "capped": false,
+            "b_norm": 0.8142404255665713,
+            "share": 0.011473554082340376,
+            "realized_step_norm": 0.0017700435128062963
+          },
+          "10": {
+            "lr_sched": 0.021738574801453706,
+            "cap": 0.006138136678066801,
+            "lr_applied": 0.006138136678066801,
+            "capped": true,
+            "b_norm": 1.8766784149375864,
+            "share": 0.011519308611664666,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "20": {
+            "lr_sched": 0.04347714960290741,
+            "cap": 0.005649727564535489,
+            "lr_applied": 0.005649727564535489,
+            "capped": true,
+            "b_norm": 2.038913999097395,
+            "share": 0.01151930862241784,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "30": {
+            "lr_sched": 0.0652157244043611,
+            "cap": 0.005693506143088448,
+            "lr_applied": 0.005693506143088448,
+            "capped": true,
+            "b_norm": 2.0232363567752527,
+            "share": 0.011519308626219792,
+            "realized_step_norm": 0.011519307270646095
+          },
+          "40": {
+            "lr_sched": 0.08695429920581482,
+            "cap": 0.005720983291076559,
+            "lr_applied": 0.005720983291076559,
+            "capped": true,
+            "b_norm": 2.013519014907675,
+            "share": 0.011519308640551743,
+            "realized_step_norm": 0.011519307270646095
+          },
+          "50": {
+            "lr_sched": 0.10869287400726851,
+            "cap": 0.005956164255841503,
+            "lr_applied": 0.005956164255841503,
+            "capped": true,
+            "b_norm": 1.934014600172033,
+            "share": 0.01151930863182026,
+            "realized_step_norm": 0.011519312858581543
+          },
+          "60": {
+            "lr_sched": 0.1304314488087222,
+            "cap": 0.005868705083970497,
+            "lr_applied": 0.005868705083970497,
+            "capped": true,
+            "b_norm": 1.9628365124887277,
+            "share": 0.011519308619845518,
+            "realized_step_norm": 0.011519305408000946
+          },
+          "70": {
+            "lr_sched": 0.1521700236101759,
+            "cap": 0.005795362839657526,
+            "lr_applied": 0.005795362839657526,
+            "capped": true,
+            "b_norm": 1.9876768621289522,
+            "share": 0.011519308624029206,
+            "realized_step_norm": 0.01151930820196867
+          },
+          "80": {
+            "lr_sched": 0.17390859841162964,
+            "cap": 0.005981986863561764,
+            "lr_applied": 0.005981986863561764,
+            "capped": true,
+            "b_norm": 1.9256659854339422,
+            "share": 0.01151930862847356,
+            "realized_step_norm": 0.011519307270646095
+          },
+          "90": {
+            "lr_sched": 0.19564717321308334,
+            "cap": 0.006109122563312628,
+            "lr_applied": 0.006109122563312628,
+            "capped": true,
+            "b_norm": 1.885591347823687,
+            "share": 0.011519308648176756,
+            "realized_step_norm": 0.011519314721226692
+          },
+          "100": {
+            "lr_sched": 0.21738574801453703,
+            "cap": 0.005908652343793296,
+            "lr_applied": 0.005908652343793296,
+            "capped": true,
+            "b_norm": 1.9495661546352918,
+            "share": 0.011519308628965901,
+            "realized_step_norm": 0.011519311927258968
+          },
+          "110": {
+            "lr_sched": 0.2173321146425393,
+            "cap": 0.006044380951868452,
+            "lr_applied": 0.006044380951868452,
+            "capped": true,
+            "b_norm": 1.9057879904271033,
+            "share": 0.01151930862763724,
+            "realized_step_norm": 0.011519311927258968
+          },
+          "120": {
+            "lr_sched": 0.21714678328460382,
+            "cap": 0.006077469816973018,
+            "lr_applied": 0.006077469816973018,
+            "capped": true,
+            "b_norm": 1.895411902177309,
+            "share": 0.01151930862621401,
+            "realized_step_norm": 0.011519307270646095
+          },
+          "130": {
+            "lr_sched": 0.216829317544258,
+            "cap": 0.00606738001423581,
+            "lr_applied": 0.00606738001423581,
+            "capped": true,
+            "b_norm": 1.8985638988472264,
+            "share": 0.01151930865561528,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "140": {
+            "lr_sched": 0.2163801042046045,
+            "cap": 0.006144309492659192,
+            "lr_applied": 0.006144309492659192,
+            "capped": true,
+            "b_norm": 1.8747930412514935,
+            "share": 0.011519308680132947,
+            "realized_step_norm": 0.011519305408000946
+          },
+          "150": {
+            "lr_sched": 0.21579969056290177,
+            "cap": 0.006029820781155475,
+            "lr_applied": 0.006029820781155475,
+            "capped": true,
+            "b_norm": 1.910389891769274,
+            "share": 0.011519308669499729,
+            "realized_step_norm": 0.011519310995936394
+          },
+          "160": {
+            "lr_sched": 0.21508878376376628,
+            "cap": 0.006034413936546017,
+            "lr_applied": 0.006034413936546017,
+            "capped": true,
+            "b_norm": 1.9089357810551477,
+            "share": 0.011519308681170539,
+            "realized_step_norm": 0.011519310995936394
+          },
+          "170": {
+            "lr_sched": 0.21424824993762603,
+            "cap": 0.0062472622814992275,
+            "lr_applied": 0.0062472622814992275,
+            "capped": true,
+            "b_norm": 1.8438970862733788,
+            "share": 0.011519308718042007,
+            "realized_step_norm": 0.011519310064613819
+          },
+          "180": {
+            "lr_sched": 0.21327911314547385,
+            "cap": 0.006149247608775416,
+            "lr_applied": 0.006149247608775416,
+            "capped": true,
+            "b_norm": 1.8732874997167008,
+            "share": 0.011519308678181801,
+            "realized_step_norm": 0.01151930820196867
+          },
+          "190": {
+            "lr_sched": 0.21218255413120687,
+            "cap": 0.005888432219072295,
+            "lr_applied": 0.005888432219072295,
+            "capped": true,
+            "b_norm": 1.9562607274355495,
+            "share": 0.011519308696337294,
+            "realized_step_norm": 0.011519305408000946
+          },
+          "200": {
+            "lr_sched": 0.21095990888307206,
+            "cap": 0.005881636584620494,
+            "lr_applied": 0.005881636584620494,
+            "capped": true,
+            "b_norm": 1.9585209885096615,
+            "share": 0.01151930869776552,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "210": {
+            "lr_sched": 0.20961266700597017,
+            "cap": 0.005948346680242804,
+            "lr_applied": 0.005948346680242804,
+            "capped": true,
+            "b_norm": 1.9365563709653886,
+            "share": 0.011519308660335022,
+            "realized_step_norm": 0.01151930820196867
+          },
+          "220": {
+            "lr_sched": 0.20814246990660176,
+            "cap": 0.006127962589691466,
+            "lr_applied": 0.006127962589691466,
+            "capped": true,
+            "b_norm": 1.879794222242931,
+            "share": 0.011519308670222845,
+            "realized_step_norm": 0.01151930820196867
+          },
+          "230": {
+            "lr_sched": 0.20655110879366592,
+            "cap": 0.005837641942445127,
+            "lr_applied": 0.005837641942445127,
+            "capped": true,
+            "b_norm": 1.9732811268567718,
+            "share": 0.011519308670374475,
+            "realized_step_norm": 0.011519310995936394
+          },
+          "240": {
+            "lr_sched": 0.20484052249554835,
+            "cap": 0.005920895505548023,
+            "lr_applied": 0.005920895505548023,
+            "capped": true,
+            "b_norm": 1.9455348734165137,
+            "share": 0.011519308687898779,
+            "realized_step_norm": 0.01151930820196867
+          },
+          "250": {
+            "lr_sched": 0.2030127950981577,
+            "cap": 0.00619838966338482,
+            "lr_applied": 0.00619838966338482,
+            "capped": true,
+            "b_norm": 1.8584357060971735,
+            "share": 0.011519308670737988,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "260": {
+            "lr_sched": 0.20107015340578785,
+            "cap": 0.006111072696531819,
+            "lr_applied": 0.006111072696531819,
+            "capped": true,
+            "b_norm": 1.884989639172804,
+            "share": 0.011519308717194287,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "270": {
+            "lr_sched": 0.19901496422809997,
+            "cap": 0.00589359979113045,
+            "lr_applied": 0.00589359979113045,
+            "capped": true,
+            "b_norm": 1.954545442952162,
+            "share": 0.011519308614337835,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "280": {
+            "lr_sched": 0.19684973149652943,
+            "cap": 0.005956120758770469,
+            "lr_applied": 0.005956120758770469,
+            "capped": true,
+            "b_norm": 1.9340287152814466,
+            "share": 0.011519308579146004,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "290": {
+            "lr_sched": 0.19457709321363112,
+            "cap": 0.006299871169184828,
+            "lr_applied": 0.006299871169184828,
+            "capped": true,
+            "b_norm": 1.8284990628964801,
+            "share": 0.01151930852922301,
+            "realized_step_norm": 0.011519307270646095
+          },
+          "300": {
+            "lr_sched": 0.19219981823907967,
+            "cap": 0.006015159905224143,
+            "lr_applied": 0.006015159905224143,
+            "capped": true,
+            "b_norm": 1.9150460966254357,
+            "share": 0.011519308497077321,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "310": {
+            "lr_sched": 0.18972080291624038,
+            "cap": 0.006134912189549638,
+            "lr_applied": 0.006134912189549638,
+            "capped": true,
+            "b_norm": 1.8776647705230178,
+            "share": 0.011519308488569587,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "320": {
+            "lr_sched": 0.18714306754342117,
+            "cap": 0.006032954881189167,
+            "lr_applied": 0.006032954881189167,
+            "capped": true,
+            "b_norm": 1.9093974035668753,
+            "share": 0.011519308385978701,
+            "realized_step_norm": 0.011519305408000946
+          },
+          "330": {
+            "lr_sched": 0.1844697526941041,
+            "cap": 0.005718086409502232,
+            "lr_applied": 0.005718086409502232,
+            "capped": true,
+            "b_norm": 2.014539086041026,
+            "share": 0.011519308569302238,
+            "realized_step_norm": 0.011519311927258968
+          },
+          "340": {
+            "lr_sched": 0.18170411539064046,
+            "cap": 0.006003576011071605,
+            "lr_applied": 0.006003576011071605,
+            "capped": true,
+            "b_norm": 1.9187411677750583,
+            "share": 0.011519308446309858,
+            "realized_step_norm": 0.011519307270646095
+          },
+          "350": {
+            "lr_sched": 0.17884952513607075,
+            "cap": 0.006060448177237949,
+            "lr_applied": 0.006060448177237949,
+            "capped": true,
+            "b_norm": 1.9007354141271773,
+            "share": 0.011519308475958669,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "360": {
+            "lr_sched": 0.17590945980890424,
+            "cap": 0.005869851192699629,
+            "lr_applied": 0.005869851192699629,
+            "capped": true,
+            "b_norm": 1.9624532487488155,
+            "share": 0.011519308542785498,
+            "realized_step_norm": 0.011519307270646095
+          },
+          "370": {
+            "lr_sched": 0.17288750142585976,
+            "cap": 0.005748701634992305,
+            "lr_applied": 0.005748701634992305,
+            "capped": true,
+            "b_norm": 2.003810471296302,
+            "share": 0.011519308532555754,
+            "realized_step_norm": 0.011519309133291245
+          },
+          "380": {
+            "lr_sched": 0.16978733177773003,
+            "cap": 0.006143479924070345,
+            "lr_applied": 0.006143479924070345,
+            "capped": true,
+            "b_norm": 1.8750461572687824,
+            "share": 0.011519308423886012,
+            "realized_step_norm": 0.011519305408000946
+          },
+          "390": {
+            "lr_sched": 0.1666127279436868,
+            "cap": 0.005944195379223732,
+            "lr_applied": 0.005944195379223732,
+            "capped": true,
+            "b_norm": 1.937908929308931,
+            "share": 0.011519309302954557,
+            "realized_step_norm": 0.011519310064613819
+          },
+          "400": {
+            "lr_sched": 0.1633675576894916,
+            "cap": 0.00606635063135328,
+            "lr_applied": 0.00606635063135328,
+            "capped": true,
+            "b_norm": 1.8988862939654043,
+            "share": 0.01151931006826512,
+            "realized_step_norm": 0.011519310995936394
+          }
+        },
+        "corpus_ce_median": 0.8584223389625549,
+        "corpus_gn_clipped_median": 0.8433411717414856,
+        "corpus_g_in_room_frac_median": 0.06048129800225224,
+        "orth_max_rel_err": 4.555131955207115e-17,
+        "bufsep": {
+          "isolation_checks": 400,
+          "isolation_violations": 0,
+          "optF_ever_stepped": false
+        },
+        "budget": {
+          "budget_norm": 4.58942163293615,
+          "S_final": 4.589421633863822,
+          "S_usage_frac": 1.0000000002021325,
+          "cum_final_norm": 1.8445091952850854,
+          "n_capped": 397,
+          "n_steps": 400,
+          "capped_frac": 0.9925,
+          "lr_applied_min": 0.0021738574801453705,
+          "lr_applied_median": 0.006003576011071605,
+          "lr_sched_median": 0.19457709321363112,
+          "cap_min": 0.005649727564535489
+        },
+        "chunk_table": [
+          {
+            "chunk": 1,
+            "device": "cuda",
+            "t_start": 30.4,
+            "seconds": 175.7,
+            "steps_done": 95,
+            "capped": true,
+            "max_temp_c": 69.0
+          },
+          {
+            "chunk": 2,
+            "device": "cuda",
+            "t_start": 250.4,
+            "seconds": 175.4,
+            "steps_done": 183,
+            "capped": true,
+            "max_temp_c": 69.0
+          },
+          {
+            "chunk": 3,
+            "device": "cuda",
+            "t_start": 471.1,
+            "seconds": 175.7,
+            "steps_done": 275,
+            "capped": true,
+            "max_temp_c": 69.0
+          },
+          {
+            "chunk": 4,
+            "device": "cuda",
+            "t_start": 692.1,
+            "seconds": 175.8,
+            "steps_done": 349,
+            "capped": true,
+            "max_temp_c": 69.0
+          },
+          {
+            "chunk": 5,
+            "device": "cuda",
+            "t_start": 913.2,
+            "seconds": 110.6,
+            "steps_done": 400,
+            "capped": false,
+            "max_temp_c": 68.0
+          }
+        ],
+        "steps": 400,
+        "post_cells": {
+          "gm12": 0.00046114681754261255,
+          "g0": 0.0008025270071811974,
+          "gp12": 0.00048369067371822894,
+          "ce_r": 1.6603666543960571
+        },
+        "drift_from_fact_final": {
+          "norm": 1.8445091953053947,
+          "v_excess": 2.521056252060051,
+          "cos_to_span": 0.014435641726762387,
+          "in_own_room": 1.2260226612746108e-06
+        },
+        "checkpoint": "runs/checkpoints/e285_SANCTUARY_post.pt",
+        "resumed_final": false
+      }
+    },
+    "UNPROTECTED-TWIN": {
+      "desc": "(b) UNPROTECTED-TWIN (the same-session control): the e283 form verbatim (this session's reference) \u2014 ONE fresh AdamW (0.9,0.95) wd 0.1 at lr 1e-3 x cosine_lr(t-1,1000), clip 1.0 -> opt.step FREE (no projection, no separation, no cap)",
+      "phase": {
+        "traj": [
+          {
+            "step": 100,
+            "g0_pz": 3.419488712097518e-05,
+            "g0_argmax": 0.0,
+            "gm12_pz": 3.246429332648404e-05,
+            "ce_r": 1.711192011833191,
+            "ce_corpus": 0.84660804271698,
+            "survival_ratio_vs_committed": 0.00012920911762697717,
+            "disp_norm": 6.019017123827023,
+            "in_room_frac": 0.08726734959667998,
+            "remaining_in_room_frac": 0.784782457108201,
+            "corpus_disp_interval_in_room_frac": 0.08726734959634593,
+            "corpus_disp_cum_in_room_frac": 0.08726734959634593,
+            "elapsed_s": 1095.2
+          },
+          {
+            "step": 200,
+            "g0_pz": 0.0001228018809342757,
+            "g0_argmax": 0.0,
+            "gm12_pz": 0.00016576243797317147,
+            "ce_r": 1.6599373817443848,
+            "ce_corpus": 0.816636860370636,
+            "survival_ratio_vs_committed": 0.0004640203262644479,
+            "disp_norm": 10.389241519810628,
+            "in_room_frac": 0.10222432613489177,
+            "remaining_in_room_frac": 0.597311479160722,
+            "corpus_disp_interval_in_room_frac": 0.08629861999285116,
+            "corpus_disp_cum_in_room_frac": 0.10222432613436591,
+            "elapsed_s": 1119.7
+          },
+          {
+            "step": 300,
+            "g0_pz": 2.9658619951078435e-06,
+            "g0_argmax": 0.0,
+            "gm12_pz": 7.501199434045702e-06,
+            "ce_r": 1.6746211051940918,
+            "ce_corpus": 0.8117286562919617,
+            "survival_ratio_vs_committed": 1.1206833642571235e-05,
+            "disp_norm": 12.863005842258344,
+            "in_room_frac": 0.10906408288070965,
+            "remaining_in_room_frac": 0.5063673661870319,
+            "corpus_disp_interval_in_room_frac": 0.07411431020940361,
+            "corpus_disp_cum_in_room_frac": 0.10906408288028935,
+            "elapsed_s": 1188.3
+          },
+          {
+            "step": 400,
+            "g0_pz": 3.895893769367831e-06,
+            "g0_argmax": 0.0,
+            "gm12_pz": 1.107470779970754e-05,
+            "ce_r": 1.635364055633545,
+            "ce_corpus": 0.7613493800163269,
+            "survival_ratio_vs_committed": 1.472106033067378e-05,
+            "disp_norm": 14.432213219853237,
+            "in_room_frac": 0.1133902031536753,
+            "remaining_in_room_frac": 0.45533432931162615,
+            "corpus_disp_interval_in_room_frac": 0.06946241426292028,
+            "corpus_disp_cum_in_room_frac": 0.1133902031529377,
+            "elapsed_s": 1259.0
+          }
+        ],
+        "corpus_ledger": {
+          "1": {
+            "ce": 0.9759877324104309,
+            "gn_clipped": 0.8157400488853455,
+            "g_in_room_frac": 0.060607937240907975
+          },
+          "10": {
+            "ce": 0.9680691361427307,
+            "gn_clipped": 0.843392014503479,
+            "g_in_room_frac": 0.061464875358847496
+          },
+          "20": {
+            "ce": 0.9317631125450134,
+            "gn_clipped": 0.7993929386138916,
+            "g_in_room_frac": 0.060965324399658
+          },
+          "30": {
+            "ce": 0.892314076423645,
+            "gn_clipped": 0.9999991059303284,
+            "g_in_room_frac": 0.06075589361954956
+          },
+          "40": {
+            "ce": 0.8851533532142639,
+            "gn_clipped": 0.9999991059303284,
+            "g_in_room_frac": 0.060328251271820524
+          },
+          "50": {
+            "ce": 0.890468418598175,
+            "gn_clipped": 0.9999992251396179,
+            "g_in_room_frac": 0.06010828464470914
+          },
+          "60": {
+            "ce": 0.8832481503486633,
+            "gn_clipped": 0.9999992847442627,
+            "g_in_room_frac": 0.06066489765203272
+          },
+          "70": {
+            "ce": 0.8862794637680054,
+            "gn_clipped": 0.9999992847442627,
+            "g_in_room_frac": 0.06072910529329293
+          },
+          "80": {
+            "ce": 0.8589745759963989,
+            "gn_clipped": 0.9999991655349731,
+            "g_in_room_frac": 0.06038733152662914
+          },
+          "90": {
+            "ce": 0.8875955939292908,
+            "gn_clipped": 0.9999992847442627,
+            "g_in_room_frac": 0.06052395280619164
+          },
+          "100": {
+            "ce": 0.84660804271698,
+            "gn_clipped": 0.9999992847442627,
+            "g_in_room_frac": 0.060411204221418005
+          },
+          "110": {
+            "ce": 0.8580923080444336,
+            "gn_clipped": 0.9999992251396179,
+            "g_in_room_frac": 0.060378242321129115
+          },
+          "120": {
+            "ce": 0.8811559677124023,
+            "gn_clipped": 0.9999993443489075,
+            "g_in_room_frac": 0.06019839627815349
+          },
+          "130": {
+            "ce": 0.8752438426017761,
+            "gn_clipped": 0.9999992251396179,
+            "g_in_room_frac": 0.060074480285246014
+          },
+          "140": {
+            "ce": 0.8614656925201416,
+            "gn_clipped": 0.9999991059303284,
+            "g_in_room_frac": 0.059701469014022256
+          },
+          "150": {
+            "ce": 0.8709691762924194,
+            "gn_clipped": 0.9999990463256836,
+            "g_in_room_frac": 0.060423757667491404
+          },
+          "160": {
+            "ce": 0.8226491212844849,
+            "gn_clipped": 0.9999991655349731,
+            "g_in_room_frac": 0.0600477802661848
+          },
+          "170": {
+            "ce": 0.8899797797203064,
+            "gn_clipped": 0.9999992847442627,
+            "g_in_room_frac": 0.05985895674687657
+          },
+          "180": {
+            "ce": 0.8005059361457825,
+            "gn_clipped": 0.9552931785583496,
+            "g_in_room_frac": 0.0600501182473608
+          },
+          "190": {
+            "ce": 0.8408688306808472,
+            "gn_clipped": 0.9999992251396179,
+            "g_in_room_frac": 0.060283213488925576
+          },
+          "200": {
+            "ce": 0.816636860370636,
+            "gn_clipped": 0.9645788073539734,
+            "g_in_room_frac": 0.06036864167336848
+          },
+          "210": {
+            "ce": 0.7830169200897217,
+            "gn_clipped": 0.9356340169906616,
+            "g_in_room_frac": 0.060213470749903374
+          },
+          "220": {
+            "ce": 0.8392996191978455,
+            "gn_clipped": 0.9999991059303284,
+            "g_in_room_frac": 0.0611855783680227
+          },
+          "230": {
+            "ce": 0.7941753268241882,
+            "gn_clipped": 0.9999990463256836,
+            "g_in_room_frac": 0.05996675582684117
+          },
+          "240": {
+            "ce": 0.8269855380058289,
+            "gn_clipped": 0.9999990463256836,
+            "g_in_room_frac": 0.06016751224037683
+          },
+          "250": {
+            "ce": 0.8304712772369385,
+            "gn_clipped": 0.9539884328842163,
+            "g_in_room_frac": 0.05986320654913835
+          },
+          "260": {
+            "ce": 0.8223925232887268,
+            "gn_clipped": 0.9652859568595886,
+            "g_in_room_frac": 0.06025680453877369
+          },
+          "270": {
+            "ce": 0.8006606101989746,
+            "gn_clipped": 0.813636839389801,
+            "g_in_room_frac": 0.06014852920826983
+          },
+          "280": {
+            "ce": 0.8179210424423218,
+            "gn_clipped": 0.965122640132904,
+            "g_in_room_frac": 0.06045390232584122
+          },
+          "290": {
+            "ce": 0.7870293855667114,
+            "gn_clipped": 0.9605854153633118,
+            "g_in_room_frac": 0.05988577522669972
+          },
+          "300": {
+            "ce": 0.8117286562919617,
+            "gn_clipped": 0.9686623811721802,
+            "g_in_room_frac": 0.06032508366731099
+          },
+          "310": {
+            "ce": 0.7988000512123108,
+            "gn_clipped": 0.8707799911499023,
+            "g_in_room_frac": 0.06058433980917267
+          },
+          "320": {
+            "ce": 0.8026399612426758,
+            "gn_clipped": 0.9342849254608154,
+            "g_in_room_frac": 0.06012137258995953
+          },
+          "330": {
+            "ce": 0.8055963516235352,
+            "gn_clipped": 0.9999991655349731,
+            "g_in_room_frac": 0.060849902012574925
+          },
+          "340": {
+            "ce": 0.798739492893219,
+            "gn_clipped": 0.9999990463256836,
+            "g_in_room_frac": 0.06002584635608625
+          },
+          "350": {
+            "ce": 0.7662061452865601,
+            "gn_clipped": 0.839777410030365,
+            "g_in_room_frac": 0.060169075178896025
+          },
+          "360": {
+            "ce": 0.8078787326812744,
+            "gn_clipped": 0.8694020509719849,
+            "g_in_room_frac": 0.05967835296042625
+          },
+          "370": {
+            "ce": 0.7631551623344421,
+            "gn_clipped": 0.8410665988922119,
+            "g_in_room_frac": 0.060907820395207105
+          },
+          "380": {
+            "ce": 0.7831310033798218,
+            "gn_clipped": 0.8846852779388428,
+            "g_in_room_frac": 0.060451813873472926
+          },
+          "390": {
+            "ce": 0.7570493221282959,
+            "gn_clipped": 0.8366430401802063,
+            "g_in_room_frac": 0.06049248414986259
+          },
+          "400": {
+            "ce": 0.7613493800163269,
+            "gn_clipped": 0.7918357253074646,
+            "g_in_room_frac": 0.06045909233875813
+          }
+        },
+        "disp_ledger": [
+          {
+            "step": 100,
+            "drift_from_fact_norm": 6.019017123827023,
+            "drift_from_fact_in_room_frac": 0.08726734959667998,
+            "remaining_from_base_norm": 10.549415110747235,
+            "remaining_from_base_in_room_frac": 0.784782457108201,
+            "corpus_disp_interval_norm": 6.019017123829629,
+            "corpus_disp_interval_in_room_frac": 0.08726734959634593,
+            "corpus_disp_cum_norm": 6.019017123829629,
+            "corpus_disp_cum_in_room_frac": 0.08726734959634593
+          },
+          {
+            "step": 200,
+            "drift_from_fact_norm": 10.389241519810628,
+            "drift_from_fact_in_room_frac": 0.10222432613489177,
+            "remaining_from_base_norm": 13.09041835293401,
+            "remaining_from_base_in_room_frac": 0.597311479160722,
+            "corpus_disp_interval_norm": 7.637875106426779,
+            "corpus_disp_interval_in_room_frac": 0.08629861999285116,
+            "corpus_disp_cum_norm": 10.38924151980724,
+            "corpus_disp_cum_in_room_frac": 0.10222432613436591
+          },
+          {
+            "step": 300,
+            "drift_from_fact_norm": 12.863005842258344,
+            "drift_from_fact_in_room_frac": 0.10906408288070965,
+            "remaining_from_base_norm": 14.86371635396357,
+            "remaining_from_base_in_room_frac": 0.5063673661870319,
+            "corpus_disp_interval_norm": 7.016312867696676,
+            "corpus_disp_interval_in_room_frac": 0.07411431020940361,
+            "corpus_disp_cum_norm": 12.863005842254937,
+            "corpus_disp_cum_in_room_frac": 0.10906408288028935
+          },
+          {
+            "step": 400,
+            "drift_from_fact_norm": 14.432213219853237,
+            "drift_from_fact_in_room_frac": 0.1133902031536753,
+            "remaining_from_base_norm": 16.064935356261554,
+            "remaining_from_base_in_room_frac": 0.45533432931162615,
+            "corpus_disp_interval_norm": 6.27577729226019,
+            "corpus_disp_interval_in_room_frac": 0.06946241426292028,
+            "corpus_disp_cum_norm": 14.432213219849961,
+            "corpus_disp_cum_in_room_frac": 0.1133902031529377
+          }
+        ],
+        "corpus_ce_median": 0.8269855380058289,
+        "corpus_gn_clipped_median": 0.9999990463256836,
+        "corpus_g_in_room_frac_median": 0.060328251271820524,
+        "chunk_table": [
+          {
+            "chunk": 1,
+            "device": "cuda",
+            "t_start": 1071.3,
+            "seconds": 55.1,
+            "steps_done": 232,
+            "capped": true,
+            "max_temp_c": 78.0
+          },
+          {
+            "chunk": 2,
+            "device": "cuda",
+            "t_start": 1171.7,
+            "seconds": 25.7,
+            "steps_done": 347,
+            "capped": true,
+            "max_temp_c": 78.0
+          },
+          {
+            "chunk": 3,
+            "device": "cuda",
+            "t_start": 1242.7,
+            "seconds": 16.3,
+            "steps_done": 400,
+            "capped": false,
+            "max_temp_c": 73.0
+          }
+        ],
+        "steps": 400,
+        "post_cells": {
+          "gm12": 1.107470779970754e-05,
+          "g0": 3.895893769367831e-06,
+          "gp12": 2.5031213226611726e-05,
+          "ce_r": 1.635364055633545
+        },
+        "drift_from_fact_final": {
+          "norm": 14.432213220202932,
+          "v_excess": 0.5024904000262399,
+          "cos_to_span": 0.012843570482965482,
+          "in_own_room": 0.11339020314643755
+        },
+        "checkpoint": "runs/checkpoints/e285_UNPROTECTED-TWIN_post.pt",
+        "resumed_final": false
+      }
+    }
+  },
+  "adjudication": {
+    "bars_verbatim": {
+      "SANCTUARY-HOLDS": ">= 0.5x survival at t400 with both channels verifiably cut (the orthogonality gate pass + the budget held) \u2014 THE FIRST ENGINEERED SURVIVAL; the build lane's founding result; the two-channel law CONFIRMED as sufficient.",
+      "AIM-ONLY-KILLS": "< 0.5x with the budget held but (check the ledger) \u2014 separation+projection insufficient alone; the transport channel claims the kill despite the budget (disclose the leakage arithmetic).",
+      "DRIFT-ONLY-KILLS": "< 0.5x with the orthogonality holding but the budget blown (the cap mis-set; the transport channel wins) \u2014 the law stands, the engineering failed; re-cap and one re-run allowed (disclosed).",
+      "MIXED/NONE": "everything else \u2014 the trajectories verbatim, every ledger, no inflation."
+    },
+    "composite_order": "TEXTURE (any hard-gate failure) -> SANCTUARY-HOLDS (ratio_400 >= 0.5 AND G_ORTH AND G_BUDGET) -> AIM-ONLY-KILLS (ratio_400 < 0.5 AND G_BUDGET held; leakage arithmetic disclosed) -> DRIFT-ONLY-KILLS (ratio_400 < 0.5 AND G_BUDGET blown AND G_ORTH held; one disclosed re-cap re-run allowed) -> MIXED/NONE (everything else) \u2014 frozen at birth",
+    "gates_pass": true,
+    "reads": {
+      "SANCTUARY": {
+        "post_g0": 0.0008025270071811974,
+        "survival_ratio_committed_denom": 0.00303243599263398,
+        "survival_ratio_session_denom": 0.00303243599263398,
+        "post_gm12": 0.00046114681754261255,
+        "post_ce_r": 1.6603666543960571,
+        "traj_g0": {
+          "100": 0.0013435599394142628,
+          "200": 0.0008345962851308286,
+          "300": 0.0007079456117935479,
+          "400": 0.0008025270071811974
+        },
+        "survival_ratio_milestones": {
+          "100": 0.005076788048356657,
+          "200": 0.00315361326373146,
+          "300": 0.0026750498547961337,
+          "400": 0.00303243599263398
+        },
+        "min_milestone_ratio": 0.0026750498547961337,
+        "corpus_ce_median": 0.8584223389625549,
+        "corpus_g_in_room_frac_median": 0.06048129800225224,
+        "drift_ledger": [
+          {
+            "step": 100,
+            "drift_from_fact_norm": 0.6609871202355514,
+            "drift_from_fact_in_room_frac": 1.7031239212345808e-06,
+            "remaining_from_base_norm": 9.189732891630696,
+            "remaining_from_base_in_room_frac": 0.9430400717508226,
+            "corpus_disp_interval_norm": 0.6609871202356953,
+            "corpus_disp_interval_in_room_frac": 1.7031239931526374e-06,
+            "corpus_disp_cum_norm": 0.6609871202356953,
+            "corpus_disp_cum_in_room_frac": 1.7031239931526374e-06
+          },
+          {
+            "step": 200,
+            "drift_from_fact_norm": 1.1378554092341078,
+            "drift_from_fact_in_room_frac": 1.3989919774103581e-06,
+            "remaining_from_base_norm": 9.224380952958722,
+            "remaining_from_base_in_room_frac": 0.9394978808077652,
+            "corpus_disp_interval_norm": 0.5826853267084097,
+            "corpus_disp_interval_in_room_frac": 1.9426993418624274e-06,
+            "corpus_disp_cum_norm": 1.137855409234261,
+            "corpus_disp_cum_in_room_frac": 1.3989919346593235e-06
+          },
+          {
+            "step": 300,
+            "drift_from_fact_norm": 1.5197490255080748,
+            "drift_from_fact_in_room_frac": 1.2911138270966116e-06,
+            "remaining_from_base_norm": 9.268824911600067,
+            "remaining_from_base_in_room_frac": 0.9349929947434756,
+            "corpus_disp_interval_norm": 0.5170224539450506,
+            "corpus_disp_interval_in_room_frac": 2.195191499091974e-06,
+            "corpus_disp_cum_norm": 1.5197490255084403,
+            "corpus_disp_cum_in_room_frac": 1.2911137984946925e-06
+          },
+          {
+            "step": 400,
+            "drift_from_fact_norm": 1.844509195284748,
+            "drift_from_fact_in_room_frac": 1.2260267392361931e-06,
+            "remaining_from_base_norm": 9.318183021347762,
+            "remaining_from_base_in_room_frac": 0.9300403661078244,
+            "corpus_disp_interval_norm": 0.4733383498231031,
+            "corpus_disp_interval_in_room_frac": 2.410312616521004e-06,
+            "corpus_disp_cum_norm": 1.8445091952850854,
+            "corpus_disp_cum_in_room_frac": 1.2260267419243653e-06
+          }
+        ],
+        "budget_ledger": [
+          {
+            "step": 100,
+            "S": 1.133629047544673,
+            "S_usage_frac": 0.24700913060790564,
+            "cum_norm": 0.6609871202356953,
+            "cum_usage_frac": 0.14402405642839552,
+            "n_capped_so_far": 97,
+            "lr_sched": 0.21738574801453703,
+            "cap": 0.005908652343793296,
+            "lr_applied": 0.005908652343793296,
+            "capped": true
+          },
+          {
+            "step": 200,
+            "S": 2.285559893818572,
+            "S_usage_frac": 0.498006083689537,
+            "cum_norm": 1.137855409234261,
+            "cum_usage_frac": 0.24793002261295857,
+            "n_capped_so_far": 197,
+            "lr_sched": 0.21095990888307206,
+            "cap": 0.005881636584620494,
+            "lr_applied": 0.005881636584620494,
+            "capped": true
+          },
+          {
+            "step": 300,
+            "S": 3.4374907838646322,
+            "S_usage_frac": 0.7490030463087888,
+            "cum_norm": 1.5197490255084403,
+            "cum_usage_frac": 0.3311417313680457,
+            "n_capped_so_far": 297,
+            "lr_sched": 0.19219981823907967,
+            "cap": 0.006015159905224143,
+            "lr_applied": 0.006015159905224143,
+            "capped": true
+          },
+          {
+            "step": 400,
+            "S": 4.589421633863822,
+            "S_usage_frac": 1.0000000002021325,
+            "cum_norm": 1.8445091952850854,
+            "cum_usage_frac": 0.40190449751835794,
+            "n_capped_so_far": 397,
+            "lr_sched": 0.1633675576894916,
+            "cap": 0.00606635063135328,
+            "lr_applied": 0.00606635063135328,
+            "capped": true
+          }
+        ],
+        "buf_ledger": [
+          {
+            "step": 100,
+            "bufC_inroom_frac": 4.91167069202647e-09,
+            "bufC_norm": 1.949566039106413,
+            "optF_state_entries": 0,
+            "optF_ever_stepped": false
+          },
+          {
+            "step": 200,
+            "bufC_inroom_frac": 5.01334008125859e-09,
+            "bufC_norm": 1.9585211283692567,
+            "optF_state_entries": 0,
+            "optF_ever_stepped": false
+          },
+          {
+            "step": 300,
+            "bufC_inroom_frac": 5.1451410600897094e-09,
+            "bufC_norm": 1.91504604458145,
+            "optF_state_entries": 0,
+            "optF_ever_stepped": false
+          },
+          {
+            "step": 400,
+            "bufC_inroom_frac": 5.235687455876603e-09,
+            "bufC_norm": 1.8988862679133152,
+            "optF_state_entries": 0,
+            "optF_ever_stepped": false
+          }
+        ],
+        "orth_ledger_max": 4.555131955207115e-17,
+        "drift_from_fact_final_in_room": 1.2260226612746108e-06
+      },
+      "UNPROTECTED-TWIN": {
+        "post_g0": 3.895893769367831e-06,
+        "survival_ratio": 1.472106033067378e-05,
+        "post_gm12": 1.107470779970754e-05,
+        "post_ce_r": 1.635364055633545,
+        "traj_g0": {
+          "100": 3.419488712097518e-05,
+          "200": 0.0001228018809342757,
+          "300": 2.9658619951078435e-06,
+          "400": 3.895893769367831e-06
+        },
+        "corpus_ce_median": 0.8269855380058289,
+        "drift_ledger": [
+          {
+            "step": 100,
+            "drift_from_fact_norm": 6.019017123827023,
+            "drift_from_fact_in_room_frac": 0.08726734959667998,
+            "remaining_from_base_norm": 10.549415110747235,
+            "remaining_from_base_in_room_frac": 0.784782457108201,
+            "corpus_disp_interval_norm": 6.019017123829629,
+            "corpus_disp_interval_in_room_frac": 0.08726734959634593,
+            "corpus_disp_cum_norm": 6.019017123829629,
+            "corpus_disp_cum_in_room_frac": 0.08726734959634593
+          },
+          {
+            "step": 200,
+            "drift_from_fact_norm": 10.389241519810628,
+            "drift_from_fact_in_room_frac": 0.10222432613489177,
+            "remaining_from_base_norm": 13.09041835293401,
+            "remaining_from_base_in_room_frac": 0.597311479160722,
+            "corpus_disp_interval_norm": 7.637875106426779,
+            "corpus_disp_interval_in_room_frac": 0.08629861999285116,
+            "corpus_disp_cum_norm": 10.38924151980724,
+            "corpus_disp_cum_in_room_frac": 0.10222432613436591
+          },
+          {
+            "step": 300,
+            "drift_from_fact_norm": 12.863005842258344,
+            "drift_from_fact_in_room_frac": 0.10906408288070965,
+            "remaining_from_base_norm": 14.86371635396357,
+            "remaining_from_base_in_room_frac": 0.5063673661870319,
+            "corpus_disp_interval_norm": 7.016312867696676,
+            "corpus_disp_interval_in_room_frac": 0.07411431020940361,
+            "corpus_disp_cum_norm": 12.863005842254937,
+            "corpus_disp_cum_in_room_frac": 0.10906408288028935
+          },
+          {
+            "step": 400,
+            "drift_from_fact_norm": 14.432213219853237,
+            "drift_from_fact_in_room_frac": 0.1133902031536753,
+            "remaining_from_base_norm": 16.064935356261554,
+            "remaining_from_base_in_room_frac": 0.45533432931162615,
+            "corpus_disp_interval_norm": 6.27577729226019,
+            "corpus_disp_interval_in_room_frac": 0.06946241426292028,
+            "corpus_disp_cum_norm": 14.432213219849961,
+            "corpus_disp_cum_in_room_frac": 0.1133902031529377
+          }
+        ],
+        "drift_from_fact_final_norm": 14.432213220202932,
+        "drift_from_fact_final_in_room": 0.11339020314643755
+      },
+      "the_unprotected_reference_e283": {
+        "post_g0": 9.04614535102155e-06,
+        "ratio": 3.4181848724802654e-05,
+        "drift": 14.453935847208887,
+        "write_norm": 9.1788432658723,
+        "note": "the committed same-form record (hard-bound in G_PARENTS); this session's twin replicates the FORM on its own draw stream"
+      },
+      "the_two_channels": {
+        "collision_side": {
+          "orth_max": 4.555131955207115e-17,
+          "bar": 1e-06,
+          "bufC_inroom_max": 5.235687455876603e-09,
+          "bar_bufC": 0.0001,
+          "verdict": "CUT (the stream never aims in-room; the corpus buffer at the fp floor)"
+        },
+        "transport_side": {
+          "budget_norm": 4.58942163293615,
+          "S_final": 4.589421633863822,
+          "cum_final": 1.8445091952850854,
+          "drift_final": 1.8445091953053947,
+          "write_norm": 9.1788432658723,
+          "verdict": "HELD"
+        }
+      }
+    },
+    "scatter_disclosure": {
+      "read_determinism": "G_FACTLOAD's measured delta co-reported (cross-session |d post g0| ~ 5e-7-1e-6 on a bit-identical artifact \u2014 the family law)",
+      "the_two_denominators": {
+        "committed": 0.26464763283729553,
+        "session_loaded": 0.26464763283729553,
+        "ratios_agree_to": 0.0
+      },
+      "n1_caveat": "n=1 per arm, one lineage, one session (the g-series standing lottery note carried verbatim)"
+    },
+    "draw_integrity_first_batch": {
+      "pass": true,
+      "corpus_ce": {
+        "SANCTUARY": 0.9759877324104309,
+        "UNPROTECTED-TWIN": 0.9759877324104309
+      },
+      "corpus_gn": {
+        "SANCTUARY": 0.8157400488853455,
+        "UNPROTECTED-TWIN": 0.8157400488853455
+      }
+    },
+    "verdict": "AIM-ONLY-KILLS",
+    "clause": "< 50%x survival at t400 (ratio 0.0030x) with the budget HELD (S 4.589 <= 4.589; realized cum 1.845 = 40.2% of budget) AND the orthogonality + separation holding (orth 4.6e-17; bufC in-room 5.2e-09) \u2014 separation+projection+cap insufficient alone; the transport channel claims the kill DESPITE the budget. THE LEAKAGE ARITHMETIC: the state moved 1.845 (20.1% of the write's 9.18) with the realized displacement's in-room share at the fp floor (1.23e-06 \u2014 the movement is OUT-OF-ROOM by construction), yet the write's read fell to 0.0030x while its own mass occupancy reads 0.9300 in-room \u2014 the kill rides FUNCTION-SPACE COUPLING (x14's directional-transport reading: the out-of-room context carried 4328x of the kill there; the orthogonal stream moves exactly that context). The two-channel law's transport clause UNDER-BUDGETED: the kill threshold sits BELOW 0.5x the write's norm \u2014 the budget dial is real but its 0.5 setting was not conservative enough at this organism's coupling",
+    "smoke_stamp": null
+  },
+  "honesty": {
+    "intervention_not_logits": "the two arms share ONE loaded artifact (the committed quiet-formed 10k write, md5/flat-md5/behavior-gated), the same milestone cadence, the same reads, and BIT-IDENTICAL corpus draws (one generator, seed 28501, one draw order) \u2014 the ONLY delta is the protection stack (SGD-M separate buffers + orthogonal projection + the budget cap) vs e283's free AdamW. The rooms' eigenstructures are identical across arms BY CONSTRUCTION (one bit-gated room).",
+    "the_budget_disclosure": "the budget's equal-share reservation holds the per-step displacement at ~BUDGET/400 \u2014 under the nominal schedule the post-warmup steps want far more \u2014 so the cap binds and the sanctuary's corpus CE improves far less than the twin's: the cell's economics read (preservation bought at corpus learning's price), measured in the CE ledgers, never assumed",
+    "the_separation_disclosure": "in this phase there is no install stream; DIAL 1's separation is the corpus buffer's PRIVACY (one stepped SGD) + opt_F's machine-checked emptiness + buf_C's fp-floor composition \u2014 e284's buf_I composition side is vacuous here (disclosed at birth). The isolation is machine-checked every step (bitwise snapshots)",
+    "n_and_scope": "n=1 per arm, one lineage, one session (the g-series standing lottery caveat carried verbatim); the arms' DIFFERENCE is the registered object; nothing guaranteed",
+    "loads_measured_not_nominal": "every read is measured: the per-step realized displacement and its norm (the budget's S), the per-milestone interval + cumulative projections (fp64), the buffer-composition ledger, the orthogonality ledger (every step), the corpus CE + clipped-grad ledgers \u2014 never nominal",
+    "nothing_guaranteed": "the dispatch's own caveat carried: no outcome was promised; the bars cover all branches and the trajectories are reported verbatim regardless"
+  },
+  "provenance": {
+    "git_head_at_start": "d66e16e52723e28c6aa95739317f53a47ae5d0b2",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e285_sanctuary.py",
+    "machinery_imported_from": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e261_rank_ladder.py",
+    "checkpoints": {
+      "base": "runs/checkpoints/e001.pt",
+      "reference_root": {
+        "file": "runs/checkpoints/g1c_root.pt",
+        "flat_md5": "a7f02b367c5342535aecfc814d780631"
+      },
+      "the_fact": {
+        "file": "runs/checkpoints/e261_K10K_inst_resume.pt",
+        "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+        "loaded_flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+        "note": "read-only here \u2014 the established fact"
+      },
+      "span_ledger": "runs/checkpoints/e246_late_span.pt",
+      "vmap": "runs/checkpoints/e258_vmap.pt",
+      "e264_rooms": "runs/checkpoints/e264_rooms.pt",
+      "rooms": "runs/checkpoints/e285_rooms.pt",
+      "post_states": {
+        "SANCTUARY": "runs/checkpoints/e285_SANCTUARY_post.pt",
+        "UNPROTECTED-TWIN": "runs/checkpoints/e285_UNPROTECTED-TWIN_post.pt"
+      }
+    },
+    "machinery": {
+      "sanctuary_phase": "THIS file's chunked_sanctuary_phase (the cell's composed build): e268's corpus step + e284's orthogonalize_grads + the two-SGD buffer topology + the equal-share budget cap",
+      "twin_phase": "THIS file's chunked_twin_phase: e283's chunked_corpus_phase VERBATIM in body (the unprotected reference)",
+      "cons": "NONE (registered deviation \u2014 the bars read the WRITE and the DISPLACEMENT only; T259/e281)"
+    },
+    "eval": {
+      "device": "cpu fp32 probes / cuda fp32 training / cpu fp64 dense projections",
+      "threads": 4
+    },
+    "thermal_envelope": {
+      "burst_cap_s": 175.0,
+      "cooldown_s": 40.0,
+      "per_step_polls": "after EVERY corpus opt step (both arms) \u2014 aggregated from runs/_envelope_log.jsonl (the persisted ledger; survives resume passes; tags e285:<ARM>:phase per the dispatch)",
+      "early_end_margin_c": 78.0,
+      "hard_line_c": 84.0,
+      "dispatch_envelope": "bursts <= 180s, cooldowns 30-60s, never past 85C \u2014 this cell runs 175/40/84 (all inside)",
+      "n_polls": 816,
+      "max_temp_seen_c": 78.0,
+      "violations_ge_84c": 0,
+      "note": "aggregated across ALL passes of this cell; the smoke's polls are tagged e285_smoke: and excluded"
+    },
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "numpy": "2.3.5",
+      "scipy": "1.16.2",
+      "matplotlib": "3.10.6"
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e285\\metrics.json",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e285\\e285_sanctuary.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e285\\REPORT.md"
+  ]
+}
