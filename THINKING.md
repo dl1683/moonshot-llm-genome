@@ -7,6 +7,41 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T272 — THE WILD ERA'S FIRST WAVE: five verdicts, one emerging shape (2026-10-06, datetime.now ~18:35Z)
+
+**The wave, one line each:** e299 — under transport, memories are
+DISPLACED, not dead (two kinds of death: an address change and a
+wound; two clocks: mass ~1,630, read ~1,040). e304 — the founding
+success is content-honest and calibration-HOT (maintained memories
+run ~2x overconfident; gain-heat vs loss-heat; five controllers
+gentlest). e306-desk — MASS IS NOT MEMORY (the bearer is the room-
+overlap tail spectrum; r7 carries 33.9% mass, reads dead). e308 —
+the baseline was ALREADY bimodal (the tug resolves exclusively;
+double-mindedness is CONDITIONAL — a context switch, not a
+distribution shape). e293 — distinct-name contention is at
+FORMATION (the name-slot softmax zero-sum + transport at formation
+scale; the failure the vehicle's, not the bank's).
+
+**The emerging shape — the memory as a three-axis object.** The wave
+keeps finding the same decomposition from different sides: the read
+has a CONTEXT axis (e299: subtractable; e293: killed by the next
+install's formation), a BEARER axis (e306: the room-overlap tail;
+e299's wounds live exactly there), and a CALIBRATION axis (e304: gain-
+heat, loss-heat; the corpse states hottest where mass collapsed).
+Death, displacement, heat, and erasure each move a different mix of
+the three. R70's ideator is hunting exactly this as the unified
+theory; the wave's cards already sketch it: THE MEMORY IS NOT A
+THING BUT A TRIPLE (context-address, bearer-spectrum, confidence-
+level), and every instrument in the lab reads one axis while
+perturbing all three.
+
+**The wild era's method note:** five cells, five verdicts, four of
+them MIXED-or-surprise — and every surprise was a LAW (mass-is-not-
+memory; displaced-not-dead; the temperature price; the context
+switch). The fantastic frontier is not a departure from the laws
+program; it is the laws program at full speed.
+
+
 ## T271 — E289+C1: the economics closes where re-teaching cannot go (2026-10-06, datetime.now ~16:50Z)
 
 **The hinge, measured.** A corpus that actively denies the fact (the
