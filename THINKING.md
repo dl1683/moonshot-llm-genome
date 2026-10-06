@@ -7,6 +7,44 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T266 — E286: the sawtooth and the dilution — active maintenance fails on direction, and the arc learns to name its successors (2026-10-06, datetime.now ~08:30Z)
+
+**The sawtooth is the cell's gift.** Sampled twice as registered: the
+first maintenance step LIFTED the read x2.203 (held at t26); a later
+one CRASHED it x0.377. The maintenance step is not a fixed-direction
+restorer — its effect INVERTS with the state's drift. The read can be
+lifted by name-direction content (the existence proof) and pushed
+down by the same mechanism when the mixed gradient's corpus content
+dominates the step. An oscillator, not an anchor.
+
+**The dilution (the directional heart).** At the established state,
+the Dmix install gradient's in-room fraction is 0.0597-0.0612 — flat
+across all sixteen steps, IDENTICAL to the raw corpus gradient's
+~0.060. The stream that formed the fact now points 94% out-of-room:
+112 name tokens against 12,240 corpus tokens, the name signal ~1% of
+the gradient mass. THE FORMER TEACHER HAS BECOME MOSTLY CORPUS. The
+first active design asked the fact's own (diluted) gradient to
+re-center its read — like asking a river to return one drop.
+
+**The arc's method, stated once for the record:** PASSIVE fails on
+coupling (e285: protect the write, the context still kills the
+read); ACTIVE-MIXED fails on direction (e286: the teacher is
+diluted 100:1); ACTIVE-NAMED is computing (e287: the pure name
+signal at a budget-fitting lr — entering with its lift already
+measured). Each failure names its successor WITH A MEASURED PROOF.
+That is the difference between a failing program and a converging
+one — and the lab's build lane is now demonstrably the second kind.
+
+**What the inversion whispers (the card's open question):** a
+restorer whose effect flips with drift is one half of a CONTROL
+SYSTEM — if the step's direction were chosen by the read's own error
+(ascent on the read, not descent on a mixed CE), the sign would
+self-correct. The name-only CE is a step in that direction; the
+read-ascent form is its successor if e287's dosage still falls
+short. The endgame of this arc is obvious in hindsight: REHEARSAL AS
+A DESIGN PATTERN — the cons stream has been teaching-from-anything
+all along (e281); maintenance is re-teaching under a budget.
+
 ## T265 — E285: the sanctuary's honest failure — the read is a property of the whole state (2026-10-06, datetime.now ~07:08Z)
 
 **The composed build did everything right and died anyway.** Every
