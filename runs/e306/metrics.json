@@ -1,0 +1,466 @@
+{
+ "experiment": "e306_minbearer_desk",
+ "phase": "THE MINIMUM BEARER'S DESIGN + THE TRUNCATION INVENTORY (the desk half of e306): SVD-truncate the committed 10k write to a per-matrix rank ladder {1000,100,10,7}; measure each rung's mass/room/budget; inject theta_base+truncated_delta per rung; probe the t0 read per rung \u2014 the read-floor of the truncated writes, before any maintenance",
+ "date": "2026-10-06T18:12:53+00:00",
+ "status": "COMPLETE \u2014 adjudicated",
+ "cpu_only": true,
+ "threads": {
+  "torch": 4,
+  "pocketfft": 4
+ },
+ "gates": {
+  "G_ENDPOINTS": {
+   "md5_binds": {
+    "e001": {
+     "path": "runs\\checkpoints\\e001.pt",
+     "md5": "d114536d1c0983ab3be67f67ff0667c8",
+     "claimed": "d114536d1c0983ab3be67f67ff0667c8",
+     "source": "x6's committed root bind (== e267's base bind)",
+     "match": true
+    },
+    "e261_K10K_inst_resume": {
+     "path": "runs\\checkpoints\\e261_K10K_inst_resume.pt",
+     "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+     "claimed": "0f6dc1cf46850ce655dfafc9c853d467",
+     "source": "x6's bind (== e264 G_K10KRESUME, the s400 final)",
+     "match": true
+    }
+   },
+   "pass": true
+  },
+  "G_FLATBASIS": {
+   "params_count": 65,
+   "buffers_count": 0,
+   "key_order_matches_parameters": true,
+   "n_params": 2739072,
+   "pass": true
+  },
+  "G_BATTERY": {
+   "corpus_zeph_count": 0,
+   "install_mix": {
+    "FLORIZEL": 19,
+    "ELIZABETH": 41
+   },
+   "shapes": {
+    "g0": [
+     60,
+     130
+    ],
+    "gm12": [
+     60,
+     118
+    ]
+   },
+   "expected": {
+    "zeph": 0,
+    "mix": {
+     "FLORIZEL": 19,
+     "ELIZABETH": 41
+    },
+    "shapes": {
+     "g0": [
+      60,
+      130
+     ],
+     "gm12": [
+      60,
+      118
+     ]
+    }
+   },
+   "pass": true
+  },
+  "G_ROOM": {
+   "file": "runs/checkpoints/e264_rooms.pt",
+   "rung": "K10K",
+   "k": 10000,
+   "seeds": [
+    26113,
+    26114
+   ],
+   "D_bit_equal": true,
+   "S_bit_equal": true,
+   "pass": true
+  },
+  "G_FULLREAD": {
+   "form": "this desk's probe of theta_base + dW (the full write) vs e264's committed K10K post g0 0.26464763283729553 (the e290 read denominator)",
+   "mine_g0_mean_pz": 0.26464763283729553,
+   "committed": 0.26464763283729553,
+   "abs_diff": 0.0,
+   "bar": 0.005,
+   "pass": true
+  }
+ },
+ "phase_note": "P6 COMPLETE (report + figure)",
+ "date_updated": "2026-10-06T18:13:10+00:00",
+ "object": {
+  "root": "runs/checkpoints/e001.pt (md5-bound)",
+  "post": "runs/checkpoints/e261_K10K_inst_resume.pt s400 (md5-bound)",
+  "dW_l2": 9.1788432658723,
+  "dW_linf": 0.054690003395080566,
+  "N": 2739072,
+  "note": "||dW|| bit-matches e290's committed write norm 9.1788432658723 \u2014 the coupling constant was measured on THIS write; the budget arithmetic is same-object"
+ },
+ "svd_census": {
+  "n_2d": 27,
+  "n_1d": 38,
+  "max_2d_rank": 192,
+  "e_1d_share_of_total": 0.030812865301678063,
+  "e_2d_share_of_total": 0.969187134698322,
+  "per_matrix_rank": {
+   "wte.weight": 65,
+   "wpe.weight": 192,
+   "h.0.attn.c_attn.weight": 192,
+   "h.0.attn.c_proj.weight": 192,
+   "h.0.mlp.0.weight": 192,
+   "h.0.mlp.2.weight": 192,
+   "h.1.attn.c_attn.weight": 192,
+   "h.1.attn.c_proj.weight": 192,
+   "h.1.mlp.0.weight": 192,
+   "h.1.mlp.2.weight": 192,
+   "h.2.attn.c_attn.weight": 192,
+   "h.2.attn.c_proj.weight": 192,
+   "h.2.mlp.0.weight": 192,
+   "h.2.mlp.2.weight": 192,
+   "h.3.attn.c_attn.weight": 192,
+   "h.3.attn.c_proj.weight": 192,
+   "h.3.mlp.0.weight": 192,
+   "h.3.mlp.2.weight": 192,
+   "h.4.attn.c_attn.weight": 192,
+   "h.4.attn.c_proj.weight": 192,
+   "h.4.mlp.0.weight": 192,
+   "h.4.mlp.2.weight": 192,
+   "h.5.attn.c_attn.weight": 192,
+   "h.5.attn.c_proj.weight": 192,
+   "h.5.mlp.0.weight": 192,
+   "h.5.mlp.2.weight": 192,
+   "lm_head.weight": 65
+  }
+ },
+ "anchors": {
+  "base_e001_t0": {
+   "g0": {
+    "mean_pz": 1.3383959412749391e-05,
+    "median_pz": 1.1252003787376452e-05,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0
+   },
+   "gm12": {
+    "mean_pz": 1.437231640011305e-05,
+    "median_pz": 1.2116333891754039e-05,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0
+   }
+  },
+  "full_write_t0": {
+   "g0": {
+    "mean_pz": 0.26464763283729553,
+    "median_pz": 0.2770351767539978,
+    "frac_pz_ge_0.5": 0.13333334028720856,
+    "frac_argmax_z": 0.2
+   },
+   "gm12": {
+    "mean_pz": 0.10525510460138321,
+    "median_pz": 0.10825469344854355,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0
+   }
+  },
+  "committed_context": {
+   "e261_K1K_post_g0": 0.00043458465370349586,
+   "e246_ALIGNED_rank10_post_g0": 2.8589747671503574e-05,
+   "note": "committed dead/near-dead WRITE reads (different objects: writes FORMED in small rooms \u2014 not truncations of this write); context only, never bars"
+  }
+ },
+ "ladder": {
+  "r1000": {
+   "rank": 1000,
+   "dW_r_l2": 9.1788432658723,
+   "mass_frac_of_full": 1.0,
+   "energy_frac_of_full": 1.0,
+   "residual_l2": 0.0,
+   "n_dims_2d_bearer": 4930,
+   "passthrough_matrices": [
+    "wte.weight",
+    "wpe.weight",
+    "h.0.attn.c_attn.weight",
+    "h.0.attn.c_proj.weight",
+    "h.0.mlp.0.weight",
+    "h.0.mlp.2.weight",
+    "h.1.attn.c_attn.weight",
+    "h.1.attn.c_proj.weight",
+    "h.1.mlp.0.weight",
+    "h.1.mlp.2.weight",
+    "h.2.attn.c_attn.weight",
+    "h.2.attn.c_proj.weight",
+    "h.2.mlp.0.weight",
+    "h.2.mlp.2.weight",
+    "h.3.attn.c_attn.weight",
+    "h.3.attn.c_proj.weight",
+    "h.3.mlp.0.weight",
+    "h.3.mlp.2.weight",
+    "h.4.attn.c_attn.weight",
+    "h.4.attn.c_proj.weight",
+    "h.4.mlp.0.weight",
+    "h.4.mlp.2.weight",
+    "h.5.attn.c_attn.weight",
+    "h.5.attn.c_proj.weight",
+    "h.5.mlp.0.weight",
+    "h.5.mlp.2.weight",
+    "lm_head.weight"
+   ],
+   "n_truncated_matrices": 0,
+   "kept_energy_2d_min": 1.0,
+   "kept_energy_2d_median": 1.0,
+   "room": {
+    "inside_share_of_own": 0.8914359886030363,
+    "inside_energy_vs_full": 0.8914359886030363
+   },
+   "budget": {
+    "form": "e290 realized-drift bracket fractions x ||dW_r||",
+    "frac_of_write": [
+     0.0007099904808640174,
+     0.0032331212727527057
+    ],
+    "abs_l2_lo": 0.006516891344112123,
+    "abs_l2_hi": 0.029676313422154654,
+    "as_frac_of_FULL_write_norm_lo": 0.0007099904808640174,
+    "as_frac_of_FULL_write_norm_hi": 0.0032331212727527057
+   },
+   "checkpoint": {
+    "path": "runs\\e306\\e306_trunc_r1000.pt",
+    "roundtrip_bitexact": true
+   },
+   "t0_read": {
+    "g0": {
+     "mean_pz": 0.26464763283729553,
+     "median_pz": 0.2770351767539978,
+     "frac_pz_ge_0.5": 0.13333334028720856,
+     "frac_argmax_z": 0.2
+    },
+    "gm12": {
+     "mean_pz": 0.10525510460138321,
+     "median_pz": 0.10825469344854355,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    }
+   }
+  },
+  "r100": {
+   "rank": 100,
+   "dW_r_l2": 8.021238988232765,
+   "mass_frac_of_full": 0.8738834247291699,
+   "energy_frac_of_full": 0.7636722400163829,
+   "residual_l2": 4.462161896783397,
+   "n_dims_2d_bearer": 2630,
+   "passthrough_matrices": [
+    "wte.weight",
+    "lm_head.weight"
+   ],
+   "n_truncated_matrices": 25,
+   "kept_energy_2d_min": 0.7263201516288627,
+   "kept_energy_2d_median": 0.7599188587411796,
+   "room": {
+    "inside_share_of_own": 0.6662308330092905,
+    "inside_energy_vs_full": 0.5087819926121857
+   },
+   "budget": {
+    "form": "e290 realized-drift bracket fractions x ||dW_r||",
+    "frac_of_write": [
+     0.0007099904808640174,
+     0.0032331212727527057
+    ],
+    "abs_l2_lo": 0.0056950033263805854,
+    "abs_l2_hi": 0.025933638406688744,
+    "as_frac_of_FULL_write_norm_lo": 0.0006204489129425577,
+    "as_frac_of_FULL_write_norm_hi": 0.0028253710903978673
+   },
+   "checkpoint": {
+    "path": "runs\\e306\\e306_trunc_r100.pt",
+    "roundtrip_bitexact": true
+   },
+   "t0_read": {
+    "g0": {
+     "mean_pz": 0.09254436194896698,
+     "median_pz": 0.08933213353157043,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    },
+    "gm12": {
+     "mean_pz": 0.033402688801288605,
+     "median_pz": 0.03271545097231865,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    }
+   }
+  },
+  "r10": {
+   "rank": 10,
+   "dW_r_l2": 3.5246254358797446,
+   "mass_frac_of_full": 0.3839945114854062,
+   "energy_frac_of_full": 0.14745178485091576,
+   "residual_l2": 8.475150691061518,
+   "n_dims_2d_bearer": 270,
+   "passthrough_matrices": [],
+   "n_truncated_matrices": 27,
+   "kept_energy_2d_min": 0.10641293189339536,
+   "kept_energy_2d_median": 0.11975099341213491,
+   "room": {
+    "inside_share_of_own": 0.09006937760142557,
+    "inside_energy_vs_full": 0.013280890487741294
+   },
+   "budget": {
+    "form": "e290 realized-drift bracket fractions x ||dW_r||",
+    "frac_of_write": [
+     0.0007099904808640174,
+     0.0032331212727527057
+    ],
+    "abs_l2_lo": 0.0025024505080858067,
+    "abs_l2_hi": 0.01139554147522808,
+    "as_frac_of_FULL_write_norm_lo": 0.000272632447858667,
+    "as_frac_of_FULL_write_norm_hi": 0.00124150082370375
+   },
+   "checkpoint": {
+    "path": "runs\\e306\\e306_trunc_r10.pt",
+    "roundtrip_bitexact": true
+   },
+   "t0_read": {
+    "g0": {
+     "mean_pz": 5.3935862524667755e-05,
+     "median_pz": 4.238022302160971e-05,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    },
+    "gm12": {
+     "mean_pz": 5.614616020466201e-05,
+     "median_pz": 4.608309973264113e-05,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    }
+   }
+  },
+  "r7": {
+   "rank": 7,
+   "dW_r_l2": 3.1093637571289894,
+   "mass_frac_of_full": 0.33875333384216955,
+   "energy_frac_of_full": 0.11475382118918438,
+   "residual_l2": 8.636146173224704,
+   "n_dims_2d_bearer": 189,
+   "passthrough_matrices": [],
+   "n_truncated_matrices": 27,
+   "kept_energy_2d_min": 0.0757706223334948,
+   "kept_energy_2d_median": 0.08581187082620748,
+   "room": {
+    "inside_share_of_own": 0.061361142736930274,
+    "inside_energy_vs_full": 0.0070414256015977165
+   },
+   "budget": {
+    "form": "e290 realized-drift bracket fractions x ||dW_r||",
+    "frac_of_write": [
+     0.0007099904808640174,
+     0.0032331212727527057
+    ],
+    "abs_l2_lo": 0.002207618669105159,
+    "abs_l2_hi": 0.010052950107900013,
+    "as_frac_of_FULL_write_norm_lo": 0.000240511642388891,
+    "as_frac_of_FULL_write_norm_hi": 0.0010952306098610176
+   },
+   "checkpoint": {
+    "path": "runs\\e306\\e306_trunc_r7.pt",
+    "roundtrip_bitexact": true
+   },
+   "t0_read": {
+    "g0": {
+     "mean_pz": 4.340019222581759e-05,
+     "median_pz": 3.580105840228498e-05,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    },
+    "gm12": {
+     "mean_pz": 4.6216191549319774e-05,
+     "median_pz": 3.6359553632792085e-05,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    }
+   }
+  }
+ },
+ "diagnostic_1d_only": {
+  "form": "2D deltas zeroed, 1D verbatim \u2014 co-report only, NEVER a bar",
+  "l2": 1.6112168565719565,
+  "mass_frac_of_full": 0.1755359373618018,
+  "energy_frac_of_full": 0.030812865305486405,
+  "room_inside_share_of_own": 0.004038947433785287,
+  "t0_read": {
+   "g0": {
+    "mean_pz": 1.8880056813941337e-05,
+    "median_pz": 1.57065260282252e-05,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0
+   },
+   "gm12": {
+    "mean_pz": 1.982584763027262e-05,
+    "median_pz": 1.734946454234887e-05,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0
+   }
+  }
+ },
+ "verdict": {
+  "word": "READS-CLIFF",
+  "clause": "the t0 read collapses below rank 10 (< 0.05); the injection floor bracket is (10, 100] \u2014 the maintenance ladder starts above it",
+  "per_rank_t0_g0": {
+   "1000": 0.26464763283729553,
+   "100": 0.09254436194896698,
+   "10": 5.3935862524667755e-05,
+   "7": 4.340019222581759e-05
+  },
+  "floor": 0.05,
+  "bars_verbatim": {
+   "READS-THIN": "rank >= 7 truncations all read >= 0.05 at t0 \u2014 the write is readable at e111's floor; the maintenance half is fully licensed",
+   "READS-CLIFF": "below some rank the t0 read collapses (< 0.05) \u2014 the injection floor found at desk; the maintenance ladder starts above it",
+   "MIXED": "report the per-rank t0 reads verbatim"
+  },
+  "operationalizations": {
+   "object": "dW = flat(e261_K10K_inst_resume.pt['model'] s400) - flat(e001.pt) \u2014 x6's registered convention (== THE e290 fact write: ||dW|| 9.1788432658723)",
+   "truncation": "per-2D-matrix SVD fp64 (x6's conventions); matrix keeps top-min(r, rank_j) components; bit-exact passthrough when rank_j <= r; 1D deltas carried VERBATIM at every rung (SVD undefined there; x6 discloses, never drops); rungs {1000,100,10,7} verbatim; rung 1000 == the full write bit-exactly (max 2D rank 192) \u2014 the built-in sanity rung",
+   "diagnostic_1d_only": "2D zeroed, 1D verbatim \u2014 co-report only, never a bar",
+   "read": "e261's g0 battery bit-exactly (corpus 1337; find_occ + SPLICE_RNG 24301 shuffle; first-60 install rows; 130-char pre-name contexts), mean p(Z) at the last position, CPU TinyGPT(Cfg()) (the 2.74M organism), bs 30; floor 0.05 = e261's G0_ZERO_FLOOR; gm12 co-reported, never a bar",
+   "budget": "e290's committed threshold_bracket_realized_drift fractions [0.0007099904808640174, 0.0032331212727527057] x ||dW_r|| \u2014 the passive-kill budget each truncation implies (T269: the drift tolerance scales with the write's norm); co-reported as a fraction of the full write's norm",
+   "room": "in-room energy share vs the committed K10K room (e264_rooms.pt, seeds 26113/26114; SRCT projector ported BY VALUE from x6; fp64 CPU DCT; bit-verified vs fresh)",
+   "injection": "runs/e306/e306_trunc_r{1000,100,10,7}.pt = {'model': theta_base+truncated_delta fp32, 'delta': per-key fp32 delta, provenance}; verified by probe-from-disk per rank",
+   "adjudication": "READS-THIN iff all rungs pass (t0 g0 >= 0.05); READS-CLIFF iff the failing rungs form a lower suffix of the rank-descending ladder AND >= 1 rung passes (floor = bracket (highest failing, lowest passing]); MIXED otherwise; G_FULLREAD failure => TEXTURE",
+   "anchors_co_report": "full-write t0 g0 (e264's committed 0.26464763283729553 \u2014 this desk re-probes it as G_FULLREAD); base e001 t0 g0; e261's K1K post g0 0.000435 + e246's rank-10 ALIGNED 2.86e-5 as committed dead-write context"
+  },
+  "clause_trace": {
+   "all_rungs_ge_floor": false,
+   "failing_rungs": [
+    10,
+    7
+   ],
+   "failing_set_is_lower_suffix": true
+  }
+ },
+ "outputs": {
+  "figure": "runs/e306/e306_truncation.png",
+  "metrics": "runs/e306/metrics.json",
+  "report": "runs/e306/REPORT.md",
+  "checkpoints": [
+   "runs/e306/e306_trunc_r1000.pt",
+   "runs/e306/e306_trunc_r100.pt",
+   "runs/e306/e306_trunc_r10.pt",
+   "runs/e306/e306_trunc_r7.pt"
+  ]
+ },
+ "builds_on": [
+  "x6 (THE registered object + the per-matrix SVD conventions + the SRCT projector ported by value + the md5 binds)",
+  "e261/e264 (the committed 10k write + its s400 resume; the g0 battery conventions; the committed post g0 0.26464763283729553)",
+  "T269/e290 (the coupling constant: threshold bracket realized-drift fractions of the write's norm \u2014 measured on THIS write)",
+  "e111 (the k*=7 reading floor the rank-7 rung honors)"
+ ],
+ "whats_new": [
+  "THE TRUNCATION INVENTORY: the committed 10k write's per-matrix rank ladder {1000,100,10,7} with each rung's mass/room/budget measured",
+  "THE READ-FLOOR: the first per-rank t0 probe of truncated writes \u2014 the minimum injectable write that still reads, found at desk BEFORE any maintenance compute",
+  "INJECTABLE CHECKPOINTS: theta_base + truncated_delta per rank, probe-verified from disk \u2014 the maintenance half's ready starting states"
+ ]
+}
