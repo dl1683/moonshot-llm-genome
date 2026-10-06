@@ -40,6 +40,27 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e281 — the rehearsal dose-response (the retrieval story's lynchpin): FLAT — P-281b CONFIRMED, P-281a REFUTED — every arm INCLUDING the no-install ZERO POINT lands in the family's band: NO-INSTALL 0.6508 / RANK-10 0.6931 / K1KM 0.6881 / 10K-DEAD 0.7118 / 100K-DEAD 0.8104 — no step (Spearman 0.80 vs width, noise-level), the cons reaches 0.65 from a FACT-FREE base in 25 steps: THE REHEARSAL LANE CARRIES ZERO WRITE INFORMATION; "delivery is free" collapses to "THE CONS TEACHES FROM ANYTHING"; T246's rehearsal-lane reading and W042's bridge lose their object; there is NO retrieval floor — not a second capacity number, not at any width; ALL THREE seeded states were CHECKPOINTED (no regeneration; the budgeted 5 GPU min unspent; |d post g0| = 0.0 bit-exact on all three, x10's convention); THE INSTRUMENT DATUM (re-prices the family's letter/content adjudication): the cons lane is ~1e-4 DETERMINISTIC from bit-identical states — the loaded arms reproduce their committed landings to <= 0.0002 — the ~0.0419 "cons lottery" belongs to the INSTALL re-run path (sub-probe state differences amplified through the cons: sensitive dependence, not draw luck; the prior anchor-contamination caveats priced the wrong channel); the floor's band-edge straddle named per the registered operationalization (0.6508 vs the hard 0.65 — the registered band binds; the THRESHOLDED world was 0.20 away); 13/13 gates, thermal max 79.0C, 0 violations (2026-10-06, datetime.now) — DONE
+
+WHAT WE SAW: the evening's second quotable object falls to its control, on
+schedule. The rehearsal lane — five-for-five, the lab's most-replicated
+phenomenon — was never about the write: it is a property of the CONS
+stream's teaching power, uniform across every seed state including nothing.
+The ideator's "two numbers wearing one" resolves to ONE number (the
+formation edge); the retrieval side has no capacity structure at all.
+And the determinism datum quietly rewrites the family's instrument
+book: from a bit-identical state the cons landing reproduces to 1e-4 —
+so the serial anchors' 0.03-0.05 root differences in e269-e272 came
+from sub-probe install-state differences amplified by the cons phase
+(chaos), not from cons draws; the letter/content split's "lottery"
+language was mispriced.
+
+WHAT'S NEXT: the scorecard closes (P-281b confirmed — final: 4
+confirmed / 3 refuted / 2 split / 1 half / 1 foreclosed / 1 moot);
+e278 (the three-null + the guided missile) dispatches now per the
+registered order; T246/W042 amendments at their claim sites ride this
+fold.
+
 ## e273 — the three-barrel mechanism cell (the horse race adjudicated): MIXED (named branches) with DECISIVE parts — STATE-POISONING REFUTED ON BOTH CLAUSES (P-273a fails): the SEPARATE-AdamW write dies HARDER than shared (post g0 0.001599 = 0.0076x serial vs shared 0.005288 = 0.0252x) with its flash landing ON the driver's PEAK (the antiphase INVERTED: +0.968 in-phase, n4); TRAJECTORY-TWO-BODY'S FIRST CLAUSE FIRES — the write dies without shared state; THE COUPLING IS IN THE PARAMETERS, NOT THE MOMENTS — two full-strength Adams with clean own-stream m/v fight to MUTUAL DEGRADATION (|d| 206 L2 at 94% in-room; corpus CE median 1.62, worse than the base's 1.61); "TURBULENCE" KEEPS ITS NAME and agy's shared-v relaxation is REFUTED as the mechanism (P-C2's three-move fingerprint went the OPPOSITE way); THE ANTIPHASE IS INSTRUMENTALLY DEAD as a mechanism foundation: the SHARED barrel reproduces e268's -0.52 provenance live (n4 = -0.524) but the n5 Pearson FLIPS (+0.209) on the s1-floor straddle — the sign was an artifact of the shared baseline point, exactly the critic's downgrade, now demonstrated inside one session; NO peak aligned with the driver's dip in ANY barrel; the SGD-M barrel DIVERGED at the registered matched lr (the calibration factor x21,738.6 — the SRCT SIGN-STEP LAW discovered in smoke: Adam's first step is 80% in-room, ||P.sign(Pg)|| ~ 0.80||sign||, driving the huge factor; SGD-M's free corpus steps diverge scale-monotonically, x0.5 CE 1402) — P-273b is FORECLOSED AT MATCHED SCALE by SGD-M's own stability boundary (the x0.01 rider stable but 100x under-matched, rising 0.0025 at s400, never forming); serial twin 0.209721 (G_SERIAL_ANCHOR PASS, post |d| ~ 0); thermal max 80.0C over 7,382 polls, 0 violations (2026-10-06, datetime.now) — DONE
 
 WHAT WE SAW: the night's horse race ends with the metaphor standing and
