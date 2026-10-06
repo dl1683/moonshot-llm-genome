@@ -7,6 +7,58 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T258 — E273: the two-body verdict — what the parameters' own collision means for every standing object (2026-10-06, datetime.now ~00:50Z; the THINKING gate card for the fold at 5f0f24c)
+
+**The result's shape.** The separate-AdamW arm died HARDER (0.008x vs
+0.025x) with its flash ON the driver's peak; two clean-state Adams
+degraded each other's streams (the corpus itself got worse). The
+coupling is in the PARAMETERS. What follows for each standing object:
+
+- **The ratio ladder (0.00015x → 0.091x, survival ~k^0.88):** its
+  carrier is the trajectory's collision cross-section — the room's
+  overlap with the corpus's stepping directions. The power law is a
+  GEOMETRIC overlap scaling, not a dynamical-state effect. This
+  survives everything and gains dignity: the creep law is the shape
+  of a collision cross-section growing (or the target shrinking)
+  with width.
+- **The flash (formation-then-decay):** under the two-body reading
+  the flash is the write forming IN THE COLLISION ZONE before the
+  cumulative displacement scrubs it — retention-not-formation at the
+  top rung stands (e271), now with its mechanism family named: not
+  poison, COLLISION.
+- **The rehearsal lane (5-for-5, e281 running):** untouched by the
+  verdict — the cons stream's teaching is a different question from
+  the concurrent corpus's killing. The zero point (in flight) still
+  decides it.
+- **The antiphase:** dead as evidence, and its death is INSTRUCTIVE —
+  the n4/n5 flip means the two curves' co-movement was dominated by
+  their shared floor point, a lesson for every 5-point Pearson this
+  lab has ever quoted (the x8 UNDERPOWERED verdict was the right
+  call at the right time; the licensing rule worked).
+- **"Turbulence" as a word:** it survives, but sharpened — not
+  weather, not plumbing: TRAFFIC. Two steppers, one parameter space,
+  no right-of-way. The word "collision" is more honest than either.
+
+**The sign-step law (the night's free gift):** Adam's first step is
+80% in-room because the room's columns align with sign(g) better than
+random — the SRCT construction inherits the gradient's own sign
+structure. This couples formation geometry (the room) to optimizer
+mechanics (the preconditioner) at the FIRST STEP, and it is why SGD-M
+cannot carry the matched dose: without the normalizer, that 80%
+alignment becomes a x21,739 lr demand that diverges. Adam is not
+just a searcher here — it is the SHOCK ABSORBER that makes
+concurrency survivable at all (the corpus CE 1.62-worse under two
+Adams vs 0.81-0.88-better under one: the shared state was never the
+weapon; it was the damper).
+
+**What the verdict reopens:** e280's question sharpens to its final
+form (is the FLOOR Adam's geometry? — now with the license to run
+undermatched); the three-null cell asks whether the collision needs
+SEMANTICS (the isotope), mere ENERGY (max-entropy), or mere
+PRESENCE (the missile); and e283 asks whether an established fact
+collides as hard as a forming one. Three cells, one mechanism, every
+branch pre-named.
+
 ## W047 — the wash charges rent: no feedback anywhere, and the whole wash-side story compresses (2026-10-05, datetime.now = 22:57Z)
 
 x12's quiet co-reports deserve their own card: the damage-strength
