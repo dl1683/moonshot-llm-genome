@@ -440,7 +440,7 @@ E287_REA_RATIO = 0.09173075565244133
 E272_METRICS = E43.REPO / "runs" / "e272" / "metrics.json"
 E272_MD5 = "eb9f624708bcb6576c4115161dfd7042"
 E272_VERDICT = "RANK-WRITES-THE-CURVE"
-E272_K10KR_POST = 0.209721        # the fresh-room 10k replicate's read
+E272_K10KR_POST = 0.2097209095954895   # the fresh-room 10k replicate's read
 E272_K10KR_SEEDS = [27215, 27216]
 
 E264_METRICS = E43.REPO / "runs" / "e264" / "metrics.json"
