@@ -7,6 +7,52 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T259 — E281: the cons teaches from anything — the rehearsal lane was never about the write (2026-10-06, datetime.now ~01:22Z)
+
+**The zero point at 0.6508 is the whole story.** The cons stream
+takes a FACT-FREE base to 0.65 in 25 steps; every seeded arm — a
+rank-10 sliver, a dead below-edge write, a dead 10k write, a dead
+100k write — lands in the same band; the curve has no step, no
+scaling, no structure. THE REHEARSAL LANE IS A PROPERTY OF THE CONS.
+Five-for-five replication was real, and it was replication of the
+CONS's teaching power, uniform over seed states including nothing.
+T246's "the landing read = the cons's rehearsal, not the write's
+survival" was righter than it knew — the emphasis now flips
+entirely: not "the cons rehearses the write" but "THE CONS TEACHES
+FROM ANYTHING," and the write's residue contributes nothing
+measurable to the landing.
+
+**What falls:** W042's gap-antiphase bridge (already moot; now
+double-moot); the ideator's second capacity number (no retrieval
+floor — the formation edge is the ONLY width-threshold in the
+organism); "delivery is free" as a fact about writes (it is a fact
+about the cons). **What stands, cleaner:** the dimensional biography
+(W044) drops to two numbers plus a constant — ~7 to read, ~1-2k of
+room to form, 73.5% to store, and NOTHING special to re-teach (the
+cons's 0.65-0.81 from anything). And the evening's pattern completes:
+BOTH of its most quotable objects (the antiphase mechanism, the
+rehearsal lane) fell to controls run within hours — W045 predicted
+this fork's stakes exactly.
+
+**The determinism datum (the quiet re-pricing):** from bit-identical
+states the cons landing reproduces to <= 0.0002 — so the family's
+"cons lottery" (0.0419) lives in the INSTALL re-run path: sub-probe
+parameter differences, invisible to the write read, amplified
+through the cons phase into 0.03-0.05 root differences. Not a
+lottery — CHAOS, sensitive dependence on the install's exact
+endpoint. The letter/content adjudications (e269-e272's MIXED
+letters) were correctly cautious for the wrong reason: the
+contamination was real but its channel was mislabeled. The honest
+amendment: the "lottery" language retires; "install-endpoint chaos"
+takes its place in the honesty blocks.
+
+**For the report:** the cons is the strongest teacher in the
+organism — stronger than the quiet write itself (0.65-0.81 from
+NOTHING vs the quiet 10k write's own 0.26-0.69 landing range) — and
+it teaches regardless of what is standing. The lab's next natural
+question, ripening: WHAT CAN'T the cons teach? (A fact the corpus
+contradicts? A fact in a room the cons's gradients never touch?)
+
 ## T258 — E273: the two-body verdict — what the parameters' own collision means for every standing object (2026-10-06, datetime.now ~00:50Z; the THINKING gate card for the fold at 5f0f24c)
 
 **The result's shape.** The separate-AdamW arm died HARDER (0.008x vs
