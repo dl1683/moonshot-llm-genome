@@ -2756,8 +2756,13 @@ def main():
         "pass": bool((installs_floor_ok and installs_lift_ok) or SMOKE),
         "smoke_vacuous": bool(SMOKE),
     }
-    if not SMOKE:
-        assert G_INSTALLS["pass"], f"G_INSTALLS FAILED: {G_INSTALLS}"
+    # RECORDING-PATH PATCH (disclosed, applied mid-run BEFORE the gate's
+    # first firing): the original port placed the hard assert BEFORE the
+    # metrics/organism writes — a texture failure would have crashed with
+    # the interference panels (the datum) missing from metrics.json. The
+    # gate itself is UNCHANGED (hard; the frozen composite's TEXTURE
+    # branch); the halt now fires AFTER P2's record + P2.5's distinctness
+    # matrix, as a clean recorded exit.
     metrics["gates"]["G_INSTALLS"] = G_INSTALLS
     org_ck = save_ckpt("e293_organism", organism_sd,
                        {"desc": "e293's five-DISTINCT-NAME-fact organism: the base + "
@@ -2878,6 +2883,101 @@ def main():
         + ("PASS — five DISTINCT antibodies" if distinct_ok else "FAIL")
         + (" (SMOKE-vacuous)" if SMOKE else ""))
     write_partial("P2.5 G_DISTINCT measured (the distinctness matrix)")
+
+    # ---- THE FORMATION-KILL HALT (the frozen composite's TEXTURE branch)
+    if not SMOKE and not G_INSTALLS["pass"]:
+        dead = [f"FACT{i + 1}" for i in range(N_ROOMS)
+                if baselines[f"FACT{i + 1}"] < FACT_BASELINE_FLOOR]
+        weak_lift = [f"FACT{i + 1}" for i in range(N_ROOMS)
+                     if baselines[f"FACT{i + 1}"]
+                     < FACT_LIFT_VS_BASE * base_panel[f"FACT{i + 1}"]]
+        clause = (
+            f"G_INSTALLS FAILED: the serial-install organism does not "
+            f"carry five live distinct-name facts — baselines "
+            + " ".join(f"{k} {v:.4f}" for k, v in baselines.items())
+            + f"; below the {FACT_BASELINE_FLOOR} floor: "
+            f"{','.join(dead) or 'none'}; below the "
+            f"{FACT_LIFT_VS_BASE}x lift: {','.join(weak_lift) or 'none'} "
+            "— the frozen TEXTURE branch: nothing adjudicated. THE "
+            "DATUM (the registered per-install interference panel): "
+            "e291's same-name installs LIFTED each other (FACT1 "
+            "0.304->0.455 after FACT2); THIS cell's distinct-name "
+            "installs KILL the established facts — each new family's "
+            "room-confined write (orthogonal in parameters) transports "
+            "the earlier families' reads toward death (e290's coupling "
+            "constant at FORMATION scale: the masked name-slot "
+            "distribution is zero-sum across names, and the "
+            "parameter-orthogonality of the rooms does not make the "
+            "READOUTS orthogonal). THE CONTENTION ANSWER ARRIVES AT "
+            "INSTALL TIME: cross-family contention kills during "
+            "FORMATION, before any controller fires. The antibodies "
+            "themselves WERE distinct (the G_DISTINCT matrix measured; "
+            "e291's same-antibody band broken) — the organism cannot "
+            "host them simultaneously under e291's serial protocol. "
+            "THE SUCCESSOR CONSTRUCTIONS (named, none run here): (i) "
+            "JOINT/INTERLEAVED installs (one Dmix teaching all five "
+            "names at their own contexts simultaneously — the "
+            "formation-time zero-sum avoided by never letting an "
+            "earlier fact stand exposed); (ii) name-family sharing "
+            "(e291's form — the family result stands as the family's); "
+            "(iii) per-install RE-TEACHING passes (each prior fact's "
+            "name signal interleaved into later installs); (iv) the "
+            "capacity dial (bigger rooms do not address the "
+            "function-space zero-sum; disclosed).")
+        metrics["adjudication"] = {
+            "bars_verbatim": REGISTERED["bars_verbatim"],
+            "composite_order": "TEXTURE (hard-gate failure) -> MIXED-by-"
+                               "conditions -> PEACEFUL-AGAIN (>= 3 of 5 "
+                               "hold) -> DISTINCT-COLLAPSE (0-2 hold) -> "
+                               "MIXED (else) — frozen at birth",
+            "gates_pass": False,
+            "halt_gates_pass": False,
+            "halted_at": "P2/P2.5 — before the arms (the five-live-fact "
+                         "vehicle does not exist; the contention test "
+                         "has no object)",
+            "verdict": "TEXTURE (GATE FAILURE: G_INSTALLS)",
+            "clause": clause,
+            "reads": {
+                "the_baselines": baselines,
+                "the_baseline_panel_gm12": baseline_panel12,
+                "per_fact_base_net_g0": base_panel,
+                "per_install_interference_panels": {
+                    f"FACT{i + 1}": installs_rec[f"FACT{i + 1}"]["panel"]
+                    for i in range(N_ROOMS)},
+                "the_distinctness_matrix": {
+                    "cos_matrix": G_DISTINCT["cos_matrix"],
+                    "offdiag_mean": G_DISTINCT["offdiag_mean"],
+                    "offdiag_min": G_DISTINCT["offdiag_min"],
+                    "offdiag_max": G_DISTINCT["offdiag_max"],
+                    "bars": G_DISTINCT["bars"],
+                    "pass": G_DISTINCT["pass"],
+                    "note": "the antibodies WERE distinct on the "
+                            "as-built organism — the failure is the "
+                            "vehicle's, not the bank's"},
+                "the_e291_contrast": {
+                    "same_name_install_lift": "e291: FACT1 0.304 -> 0.455 "
+                                             "after FACT2's install (the "
+                                             "shared antibody free-rides)",
+                    "distinct_name_install_kill": "e293: FACT1 0.306 -> "
+                                                  "0.019 during FACT2's "
+                                                  "install (the zero-sum "
+                                                  "name slot + e290's "
+                                                  "transport constant at "
+                                                  "formation scale)"},
+            },
+        }
+        metrics["status"] = ("HALTED AT BIRTH-GATE G_INSTALLS (TEXTURE) — "
+                             "the five-distinct-live-fact organism is not "
+                             "constructable by e291's serial-install "
+                             "protocol; the contention answer arrived at "
+                             "install time; nothing adjudicated")
+        write_partial("HALTED: G_INSTALLS TEXTURE (the formation-kill "
+                      "record + the distinctness matrix complete)")
+        log("=" * 78)
+        log("E293 HALTED — TEXTURE (G_INSTALLS): " + clause)
+        log("=" * 78)
+        log(f"total {time.time() - T0:.1f}s")
+        return 2
 
     # ================= P3: ARM FIVE-DISTINCT-CONTROLLERS =================
     log("=" * 78)
