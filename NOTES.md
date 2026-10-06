@@ -40,6 +40,19 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e286 — THE RE-ANCHORING CELL (the build lane's second iteration; the lab's first ACTIVE memory maintenance): MAINTENANCE-FAILS (both FAILS branches: the ratio x0.0180x < 0.05 AND the gates — the budget blown 130.2%, the maintenance momentum alone 89.5%, the corpus lr frozen, the stream dead) — BUT THE MECHANISM'S SIGNATURE IS MACHINE-MEASURED AND THE SUCCESSOR NAMED: THE SAWTOOTH IS REAL AND INVERTS WITH DRIFT (win1 t25: the maintenance step LIFTED the read x2.203 — THE EXISTENCE PROOF the read responds to the name component; win2 t200: CRASHED x0.377 — the maintenance step is not a fixed-direction restorer, its effect flips as the state drifts); THE MECHANISTIC HEART (P-e286c decided): the Dmix install gradient's in-room fraction at the established state is FLAT 0.0597-0.0612 across all 16 maintenance steps — IDENTICAL to the raw corpus gradient's ~0.060: THE STREAM THAT FORMED THE FACT NOW POINTS 94% OUT-OF-ROOM (112 name tokens vs 12,240 corpus tokens; the name signal rides ~1% of the gradient mass) — THE FIRST FORM'S OBSTACLE IS DIRECTIONAL, NOT DOSAGE; the curve: opened 6.6x above the twin at t100, fell below by t200-300, bounced at t400 on the frozen stream; the corpus CE degraded 0.95->1.24 (the twin improved 0.93->0.78); 18/19 gates (the budget's failure BY OUTCOME, non-halting, routing per the dispatch clause); the MAINT_LR denomination fork disclosed at birth (the AdamW-literal 1e-5 rejected as a guaranteed-null); THE NAMED SUCCESSOR: a NAME-WEIGHTED maintenance CE at a budget-fitting lr — win1's lift is its existence proof (2026-10-06, datetime.now) — DONE
+
+WHAT WE SAW: the build lane's second honest failure, and the arc's
+shape is the lab's method in miniature: each failure names its own
+successor with a measured proof. Passive protection failed on the
+context coupling (e285); active maintenance via the install gradient
+failed on DIRECTION (the name signal is 1% of the mixed gradient's
+mass at the established state); the third form (name-weighted
+maintenance) enters with its lift already demonstrated inside this
+cell's own window. The read CAN be lifted by name-direction content
+— x2.2 in one step — the question is only whether a budget-fitting
+lr and a clean name signal can sustain it.
+
 ## e285 — THE SANCTUARY CELL (the build lane's founding experiment: can a memory be engineered to survive its own organism's training?): AIM-ONLY-KILLS (letter-exact) — THE SANCTUARY DID NOT HOLD, and the failure is the finding: all three protections verified at machine precision (the orthogonality 4.6e-17; the buffer separation clean, bufC in-room 5.2e-09; THE BUDGET HELD — the state moved 1.845 = 20.1% of the write's 9.18, entirely out-of-room, 40.2% of the cap) — YET THE READ DIED at 0.0030x while the write's own mass sits 93.0% in-room: THE KILL RIDES FUNCTION-SPACE COUPLING — the out-of-room CONTEXT itself is lethal (x14's directional-transport reading confirmed interventionaly from the build side: the orthogonal stream moved exactly the context whose subtraction resurrected 4,328x there); THE TWO-CHANNEL LAW'S TRANSPORT CLAUSE UNDER-BUDGETED 5x+: the kill threshold sits at or below ~0.2x the write's norm — not the 0.5x budgeted; the law's shape stands (the channels are real) but the transport threshold is a FUNCTION-COUPLING constant, not a norm ratio; the build lane's first lesson: PROTECTING THE WRITE IS NOT PROTECTING THE READ — the stage moves, the actor stands, and the play dies anyway (2026-10-06, datetime.now) — DONE
 
 WHAT WE SAW: the composed build failed honestly and precisely — every
