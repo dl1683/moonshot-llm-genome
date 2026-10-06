@@ -780,6 +780,12 @@ def chunked_ladder_phase(tag: str, budget_norm: float, net0,
             f"{state['step']}/{n_steps}")
     if int(state.get("step", 0)) >= n_steps:
         log(f"  [{tag}] resume ckpt already COMPLETE at t{state['step']}")
+        _lrs = [v["lr_applied"] for v in state.get("lr_ledger", {}).values()]
+        _caps = [v["cap"] for v in state.get("lr_ledger", {}).values()]
+        _scheds = [v["lr_sched"] for v in state.get("lr_ledger", {}).values()]
+        _real = [v["realized_step_norm"]
+                 for v in state.get("lr_ledger", {}).values()]
+        _shares = [v["share"] for v in state.get("lr_ledger", {}).values()]
         return {"sd": state["model"], "traj": state.get("traj", []),
                 "corpus_ledger": state.get("corpus_ledger", {}),
                 "orth_ledger": state.get("orth_ledger", {}),
@@ -790,6 +796,17 @@ def chunked_ladder_phase(tag: str, budget_norm: float, net0,
                 "bufsep": state.get("bufsep", {}),
                 "S": state.get("S"), "n_capped": state.get("n_capped"),
                 "orth_max": state.get("orth_max"),
+                "lr_applied_min": min(_lrs) if _lrs else None,
+                "lr_applied_median": float(sorted(_lrs)[len(_lrs) // 2])
+                if _lrs else None,
+                "lr_sched_median": float(sorted(_scheds)[len(_scheds) // 2])
+                if _scheds else None,
+                "cap_min": min(_caps) if _caps else None,
+                "realized_step_min": min(_real) if _real else None,
+                "share_min": min(_shares) if _shares else None,
+                "realized_over_share_last": (_real[-1] / _shares[-1]
+                                             if _real and _shares
+                                             and _shares[-1] > 0 else None),
                 "steps_ran": n_steps, "n_chunks": state.get("n_chunks", 0),
                 "chunk_table": state.get("chunk_table", []),
                 "resumed_final": True}
