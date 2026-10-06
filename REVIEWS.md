@@ -91,6 +91,52 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R69 — the build extension audited: the founding success sound at its bar, the overshoot qualified, and the geometric half-life found (2026-10-06, folded ~13:07Z)
+
+Trigger: the 4h clock over e287/e288/e290 + consult #008 + the R68
+corrigendum's aftermath. All numbers EXACT (the auditor refit the
+inverse-law line itself: slope -1.005, R2 0.974); all births precede
+computes; no bar shopping.
+
+**CRITIC:** the founding success SURVIVES AT ITS BAR (>=0.5x, budget,
+stream — untouched by any tumor verdict) while the x3.48 overshoot is
+WOUNDED-as-presented (unbarred; the consult calls it self-fulfilling;
+the ce_r co-read degraded +3% — surfaced; the paraphrase discriminator
+rides e291); the inverse law demoted to summary; TIME-NOT-PERMANENCE
+UNDERSTATED — the holding rung decays on a CONSTANT GEOMETRIC CLOCK
+(half-life ~1,040 steps); the n=1 healed cheaply (the flat form's two
+draws both far under; the controller 21-38x above — the lottery can't
+span it; C1 replicate seated); the target-anchor dial's structural
+inconsistency with the family's HOLDS bar flagged (v2 freezes its own
+bars). Biggest risk: DAY_TWELVE's closing sentence — one clause fixed.
+
+**IDEATOR:** the composed law — PRESERVATION REQUIRES NO EXTERNAL
+SCAFFOLD: only a read the organism already computes plus any traffic
+that touches the function (the room-frame retired on both sides of
+the ledger); C1 the founding replicate; C2 THE TRANSPLANTED CONTROLLER
+(the general-substrate question in one cell: portable /
+calibration-bound / lineage-locked); THE SLEEP CYCLE wild-card (the
+storage-null + the controller composed: is consolidation computable
+as budget-scheduling?). NEXT: e289 (cons-limits) with the C1 rider.
+
+---
+
+## R68 — the build batch's urgent corrigendum: the e286 misbind caught, the ghost cards formalized, and the review's own directive executed (2026-10-06, folded ~08:57Z)
+
+Trigger: the build batch (e284/e285/e286 + x14). The auditor: every
+number exact, all births honest. THE FINDING: e286's maintenance
+batches were MISBOUND (raw host windows — zero name signal; the gate
+counted tokens, never decoded content; e287's birth caught it) — every
+number stands, the name-mechanism claims RETRACTED; the corrigendum
+applied BEFORE e287's verdict per the review's own directive. The
+ghost cards T263/T264 formalized; the threshold restated as a
+one-datum bound; the e287/e289 ID collision fixed; the ideator's
+mints: the coupling-constant ladder, the error-gated form, THE
+PROSTHETIC GRAFT wild-card. SOUND-WITH-REPAIRS, all applied
+same-session (3519441).
+
+---
+
 ## R67 — the mechanism morning audited: every number exact, five births honest, the edge's error bar named the new front-runner, and the two-channel kill law drafted (2026-10-06, folded ~05:35Z)
 
 Trigger: the review clock over the complete morning batch (e273, e281,
