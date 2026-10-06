@@ -1388,6 +1388,11 @@ def chunked_sanctuary_twin_phase(tag: str, net0, proj: "E261.LadderRooms",
             f"{state['step']}/{n_steps}")
     if int(state.get("step", 0)) >= n_steps:
         log(f"  [{tag}] resume ckpt already COMPLETE at t{state['step']}")
+        lrs_c = [v["lr_applied"] for v in state.get("lr_ledger",
+                                                    {}).values()]
+        scheds_c = [v["lr_sched"] for v in state.get("lr_ledger",
+                                                     {}).values()]
+        caps_c = [v["cap"] for v in state.get("lr_ledger", {}).values()]
         return {"sd": state["model"], "traj": state.get("traj", []),
                 "corpus_ledger": state.get("corpus_ledger", {}),
                 "orth_ledger": state.get("orth_ledger", {}),
@@ -1398,6 +1403,13 @@ def chunked_sanctuary_twin_phase(tag: str, net0, proj: "E261.LadderRooms",
                 "bufsep": state.get("bufsep", {}),
                 "S": state.get("S"), "n_capped": state.get("n_capped"),
                 "orth_max": state.get("orth_max"),
+                "lr_applied_min": min(lrs_c) if lrs_c else None,
+                "lr_applied_median": (float(sorted(lrs_c)[len(lrs_c) // 2])
+                                      if lrs_c else None),
+                "lr_sched_median": (float(sorted(scheds_c)[len(scheds_c)
+                                                           // 2])
+                                    if scheds_c else None),
+                "cap_min": min(caps_c) if caps_c else None,
                 "steps_ran": n_steps, "n_chunks": state.get("n_chunks", 0),
                 "chunk_table": state.get("chunk_table", []),
                 "resumed_final": True}
