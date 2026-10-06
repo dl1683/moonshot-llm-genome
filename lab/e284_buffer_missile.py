@@ -455,6 +455,23 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE CATCH (pass 1, runs/e284_smoke/; the e260-family record "
+    "intact): the figure's primary-panel label formatted the primary "
+    "median unconditionally — a None (smoke has no t100+ milestones) "
+    "crashed at the figure stage (smoke-only; no bar/gate/arm/read "
+    "touched); fixed with an n/a guard. THE SMOKE'S SUBSTANCE "
+    "VERIFICATIONS (the centerpiece, all PASS): the buffer separation's "
+    "isolation EXACT (16 bitwise snapshot checks, 0 violations — the "
+    "install buffer never received corpus content and vice versa); the "
+    "corpus buffer's composition at the fp FLOOR (buf_C in-room "
+    "3.4e-10 -> 9.9e-10 over 8 steps, vs the 1e-4 bar — the linearity "
+    "account confirmed); the install buffer 100.00% in-room (buf_I "
+    "1.0000, vs the > 0.99 bar); the SHARED twin's single buffer "
+    "already carrying rising in-room content (0.012 -> 0.023) while the "
+    "separate arm's displacement read ~0.0000 in-room — the "
+    "discination mechanically real from step 1; the first-batch CE "
+    "identity across arms EXACT (bit-identical streams); the "
+    "orthogonality 1e-17-class on both arms.",
     "THE SEPARATE-BUFFER ARITHMETIC IS LINEAR, AND THE MEASUREMENT IS "
     "STILL THE READ (disclosed at birth, not a bar): SGD momentum is "
     "linear in its stream's gradients — buf_C is a mu-discounted sum of "
@@ -1984,6 +2001,9 @@ def make_buffer_plot(rd, arms_rec, prim_sep, prim_sha, verdict, clause,
     fig, axes = plt.subplots(2, 3, figsize=(19.5, 10.6))
     cols = {"SEP": "tab:purple", "SHA": "tab:red"}
 
+    def _f4(x):
+        return f"{x:.4f}" if isinstance(x, (int, float)) else "n/a"
+
     # (0,0) THE PRIMARY PANEL — the two arms' in-room walks + the bands
     ax = axes[0, 0]
     for a in ARMS:
@@ -1993,7 +2013,7 @@ def make_buffer_plot(rd, arms_rec, prim_sep, prim_sha, verdict, clause,
                 [d["interval_in_room_frac"] for d in dl],
                 "o-", lw=1.8, ms=5, color=cols[a],
                 label=f"{a} (median "
-                f"{arms_rec[a]['install']['primary_median_t100_400']:.4f})")
+                f"{_f4(arms_rec[a]['install']['primary_median_t100_400'])})")
     ax.axhspan(E278_MISSILE_INT_BAND[0], E278_MISSILE_INT_BAND[1],
                color="darkorange", alpha=0.14,
                label=f"e278 AdamW missile band "
