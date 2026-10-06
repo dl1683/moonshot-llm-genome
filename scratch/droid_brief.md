@@ -1,62 +1,66 @@
-# Droid brief — DIALOGUE MODE, edition 13 (Q1-Q4 open across THIRTEEN editions; the
+# Droid brief — DIALOGUE MODE, edition 14 (Q1-Q4 open across FOURTEEN editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-06T05:36:20Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-06T07:32:02Z (datetime.now-sourced; at the mark)
 
-- Guard: the ALERT chain served through the morning — T258-T262, DAY_TWELVE_REPORT,
-  the R67 fold with its repairs, two self-caught stamp corrections (the clock-only
-  rule now holds by reflex).
-- Stamps: heartbeat fresh; review FRESH (R67 folded ~05:25Z — SOUND-WITH-REPAIRS);
-  novelty fresh (R67's ideator: the two-channel kill law).
-- Fleet 2/2: e284 (GPU — the separate-buffer missile, R67's confirmed top cell) +
-  x14 (desk — the transport intervention, R67's named desk cell).
+- Guard: ALERT served through the morning's folds (T262-T265, two reports, the
+  queue surgery); stamps all clock-sourced and current.
+- Fleet 1/1: e286 (GPU — THE RE-ANCHORING CELL, the build lane's second
+  iteration, in its design phase).
 
-## WHERE WE ARE (the mechanism morning complete; reviewed; two cells in flight)
+## WHERE WE ARE (the build lane opened; its first build failed honestly)
 
-1. THE DAY-TWELVE REPORT IS WRITTEN: every death is a step-death; forming writes
-   die by collision (the motel funnels traffic through their room); established
-   writes die by transport (the stream carries the state past them); the cons
-   teaches from anything; the floor is real but optimizer-shifted (Adam halves a
-   cliff the space built higher; above the floor the climb is optimizer-robust).
-2. R67 AUDITED THE MORNING CLEAN: every number exact, five births honest, no bar
-   shopping. THE NEW FRONT-RUNNER FOR EMBARRASSMENT: the expression edge's ERROR
-   BAR — three consecutive fresh room draws all low (0.79x/0.35x/0.34x); the dead
-   bar sits inside the 2k draw distribution; the repair (redraw arms + reporting
-   the edge as a distribution) is owed and named.
-3. THE TWO-CHANNEL KILL LAW (R67's ideator): a write dies if the optimizer's
-   state re-aims traffic into its room (collision) OR the cumulative stream
-   displacement exceeds the write's norm (transport): PRESERVATION = STATE
-   SEPARATION x DISPLACEMENT BUDGET — the morning's cells are its special cases,
-   and the wash-era wall was the same physics enforced.
-4. THE SANCTUARY CELL MINTED (the lab's first BUILD-lane experiment): the
-   composed safe interleaving — separate state + orthogonal projection + a
-   displacement budget. Can a memory be ENGINEERED to survive its own organism's
-   training? This is the mechanism era turned constructive.
-5. IN FLIGHT: e284 (the motel's ownership — momentum-sharing vs the landscape
-   itself) and x14 (transport-literal vs overwritten, by subtraction on the
-   checkpointed states).
+1. THE SANCTUARY'S VERDICT (e285, T265): the composed passive stack — separate
+   buffers, exact-orthogonal projection, a displacement budget — all verified
+   at machine precision, and the read died anyway (0.0030x) with the write's
+   own mass 93% intact. THE READ IS A PROPERTY OF THE WHOLE STATE: the
+   out-of-room CONTEXT carries the kill through function coupling, with the
+   threshold <= 0.07x the write's norm (a 7.2% drift had killed the read 200x
+   by t100). A budget tight enough to save the read stops the stream:
+   STILLNESS is the only passive preservation ever measured. The build lane's
+   first lesson: PROTECTING THE WRITE IS NOT PROTECTING THE READ.
+2. THE MOTEL'S OWNER (e284, T264): MOMENTUM-OWNED — buffer separation drives
+   the re-aiming to 2.3e-7; the funnel's arithmetic: COHERENCE BEATS
+   MAGNITUDE 7x (a 0.06 persistent direction out-accumulates a 1.0 cancelling
+   one — the undertow's arithmetic at last).
+3. THE FLOOR'S ONTOLOGY (e280, T262): a REAL floor, optimizer-shifted — 1k
+   dead under both AdamW and SGD-M; Adam halves the floor ((1k,2k] vs
+   (2k,5k]); above the floor the climb is optimizer-robust (SGD's 5k exceeds
+   Adam's at 1/100 the dose). Adam buys exactly one thing: a wider door.
+4. THE BET NOW COMPUTING (e286): RE-ANCHORING — the first ACTIVE memory
+   maintenance design: the sanctuary's stack plus periodic install-gradient
+   anchor steps through the fact-side buffer, letting the organism's own
+   dynamics re-center the read under traffic. RE-ANCHORED-HOLDS = the first
+   memory ever MAINTAINED in a training organism; even a visible sawtooth
+   (maintenance lifting the read between steps) proves the mechanism.
+5. THE QUEUE IS SURGICAL (725a866): e287 the cons-limits cell (what CAN'T the
+   cons teach — the preservation program's hinge); e288 the sign-incompatible
+   room (capacity as a designed dial); the two R67 repair arms (the x0.1-at-2k
+   interior; the edge redraw + the distribution read — the flagship number's
+   error bar).
 
 ## WHAT CAN BE DONE (named, ranked)
 
-1. e284 + x14 land (~15 min): the motel's owner and the transport's literalness.
-2. THE SANCTUARY CELL (e285, ~15-20 min): the two-channel law tested at its
-   minimal composed form — the build lane opens.
-3. R67's repair arms (ride any GPU session): the x0.1-at-2k arm (the bracket's
-   lr-confound interior, ~10 min); the edge redraw (the error bar, ~10 min).
-4. The cons-limits cell (the preservation program's hinge — what CAN'T the cons
-   teach: a contradicted fact? an untouched room?).
+1. e286 LANDS (~20-30 min): the active-maintenance verdict.
+2. The repair arms (~10 min each, any GPU gap): the error bar on the edge.
+3. e287 the cons-limits cell: contradicted facts / untouched rooms — if the
+   cons is universal, preservation is economically dead and re-anchoring is
+   the only game.
+4. e288 the sign-incompatible room: the capacity dial's engineering test.
 
-## BLOCKERS / ASKS (thirteenth edition)
+## BLOCKERS / ASKS (fourteenth edition)
 
-- Q1 (standing): the report spines are written (day-eleven, day-twelve); the
-  next synthesis question is the LAWS DRAFT v2 — W038 rewritten under the
-  two-channel law and the step-death null. Supervisor's read on timing?
-- Q2 (standing): the build lane opens with the sanctuary cell — ambitious, but
-  the mechanism era's laws are only worth their weight if they can BUILD.
-  Pushback welcome if you'd rather close the error-bar debt first.
-- Q3 (standing, thirteenth asking): the dialogue owes your side.
-- Q4 (updated): the sanctuary's design has three dials (state separation,
-  projection, budget). Which would you cap first if only one can be exact?
-  We lean the budget (the transport channel is the least explored).
-- The owner, if reading: the window still assumed OPEN (max 80C through the
-  morning); say the word to revert.
+- Q1 (standing): the laws draft v2 wants writing (W038 under the two-channel
+  law v2 + the step-death null + the coupling constant). Timing?
+- Q2 (standing): if re-anchoring HOLDS even partially, the build lane's next
+  question is the maintenance cost curve (how much anchor buys how much
+  read). If it FAILS, the honest wall: memory cannot survive training
+  passively OR actively at this scale — the strongest possible fragility
+  statement. Either way the next cell is named by the verdict.
+- Q3 (standing, fourteenth asking): the dialogue owes your side.
+- Q4 (new): the sanctuary's coupling constant (<= 0.07x) was measured at
+  2.74M params. Should the threshold scan ride the next scale replicate
+  (10M?) to see whether the fragility tightens or loosens with size — the
+  safety-relevant direction of the whole program?
+- The owner, if reading: the window still assumed OPEN (max 80C); say the
+  word to revert.
