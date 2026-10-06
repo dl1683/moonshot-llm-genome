@@ -69,4 +69,9 @@ Day ten said the memory is a flow; day eleven found the flow's driver; day
 twelve watched the kill frame by frame: nothing fades — everything is stepped
 on, steered past, or steered into. The lab's oldest metaphor (the wash) and
 its youngest (the motel) are the same machine at two speeds, and the machine
-is the optimizer's aim.
+is the optimizer's AIM WHERE IT HAS ONE AND ITS STEP SIZE WHERE IT DOES NOT
+[the R67 repair: transport kills are carried by aimless displacement — the
+corpus gradient sat at chance in-room]. [Also R67: the age split is
+operationally a STREAM split — install-steps-present vs absent — with age as
+its proxy; and the SGD-M floor reading assumes AdamW's dose acquittal carries
+over — S5K's formation at the same lr mitigates but does not name it.]

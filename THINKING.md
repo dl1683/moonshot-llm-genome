@@ -574,6 +574,10 @@ regimes, if the mechanism cell cooperates.
 
 ## W042 — the gap currency meets the antiphase: is the structured component of the concurrent write oscillating against its driver? (2026-10-05 ~22:14Z, paper-ripening before e273)
 
+> [R67 PLACEMENT AMENDMENT 2026-10-06: this bridge is DOUBLE-MOOT — the antiphase died as evidence
+> (e273: the n4/n5 baseline-point flip + the inversion) and the cons-lane leg lost its object (e281:
+> the cons teaches from anything). Kept as the historical record of the hypothesis.]
+
 Two findings from tonight's x-sweep have not yet been put in the same
 sentence: x7 says the wash-side world runs on THE GAP (the margin's
 structured component — the field builds it, the wash destroys it,
@@ -1741,6 +1745,11 @@ engineered geometry moved (T245) and no eigenstructure
 explains (T244), the trajectory's own turbulence enforces.
 
 ## T246 — e268: the barrier is written in the dynamics — the day's metaphysics lands its mechanism (2026-10-05 ~21:02Z)
+
+> [R67 PLACEMENT AMENDMENT 2026-10-06: the rehearsal-lane reading resolved by e281 — the lane is a
+> CONS property entirely (0.6508 from a fact-free base; zero write information); the reading was
+> righter than it knew. The e283 split refines this card's 'barrier': collision (forming) vs
+> transport (established).]
 
 The capstone fires: DYNAMICAL-CARRIER at 6609x. A
 sub-threshold write in the SAME bit-bound room, at the SAME

@@ -91,6 +91,75 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R67 — the mechanism morning audited: every number exact, five births honest, the edge's error bar named the new front-runner, and the two-channel kill law drafted (2026-10-06, folded ~05:35Z)
+
+Trigger: the review clock over the complete morning batch (e273, e281,
+e278, e283, e280, consult #007, DAY_TWELVE); run as one agent in three
+passes (the staggered protocol compressed — the batch is one arc).
+
+**AUDITOR — SOUND.** Every quoted number across all five cells recomputes
+exactly (spot-checks listed in the record); all five births verified
+bar-before-compute at their hashes (45be02a/4e86c6c/cc0169a/3ce875f/
+6385b2a); no bar shopping (e273's divergence-routing rule added at smoke,
+openly, routing AWAY from a headline). Debts: the T246/W042 amendments
+sit on successor cards, not their own (placement); two verdict-word
+tensions (e280's ADAM-CREATED vs the composite reading; the rider word
+MOTEL-IS-SPACE vs its momentum-owned mechanism reading) — both disclosed,
+both needing compound forms at claim sites.
+
+**CRITIC — the front-runner is now THE EDGE'S ERROR BAR:** three
+consecutive fresh room draws all low (0.79x/0.35x/0.34x committed —
+P(all-low | symmetric) = 1/8); the committed rungs may sit at the lucky
+end of a skewed hardness distribution; the dead bar sits INSIDE the 2k
+draw distribution; every downstream object (the W046 coordinate, the
+optimizer-shift factor, the "halves the floor" headline) inherits an
+unquantified draw error. Repair: the redraw arm + report the edge as a
+distribution. Also: e280's lr-confound interior (the x0.1-at-2k arm,
+~10 min, would settle the bracket); e283's transport-vs-overwrite NOT
+separated by the committed reads (both fit; the subtraction intervention
+on the checkpointed states converts it — desk, free); e281's letter
+knife-edge (carry the compound form; the substance robust — THRESHOLDED
+was 0.20 away); the age split confounded with stream presence (age is a
+proxy — the report should say so); the epitaph's "the machine is the
+optimizer's aim" overreaches (transport is aimless — step SIZE kills
+established writes); SGD-M's dose assumption unnamed.
+
+**IDEATOR — the two-channel kill law and its consequences:** (1) a write
+dies if EITHER the optimizer's state re-aims traffic into its room
+(collision, the forming regime) OR the cumulative free-stream
+displacement exceeds the write's own norm (transport, the established
+regime): PRESERVATION = STATE SEPARATION x DISPLACEMENT BUDGET — the
+morning's four cells are its special cases, and the wash-era wall was
+the same physics enforced. (2) The cons's universality inverts the
+preservation problem: re-teaching economically dominates preservation
+for anything the cons can teach — preservation matters EXACTLY for what
+it cannot (the cons-limits cell promoted to the program's hinge). (3)
+The sign-step law + the motel + the shifted floor are ONE object —
+prediction: a sign-incompatible room raises Adam's floor toward SGD's
+(capacity as a designed dial). (4) All step-deaths + perfect storage =>
+memory economics = step allocation (the post-mechanism frame). NEW
+CELLS: the transport intervention (desk) + THE SANCTUARY CELL (the
+composed safe interleaving — separate state + orthogonal projection +
+displacement budget; the lab's first BUILD-lane cell). WILD-CARD: the
+sign-incompatible room. Demotions: the span re-run (both payloads dead),
+the deeper-discharge (parked).
+
+**REPAIRS APPLIED THIS FOLD:** the compound verdict forms (ADAM-CREATED
+[bracket-shift branch; the floor real under both] and MOTEL-IS-SPACE
+[momentum-owned pending e284]) at the claim sites; the T246/W042
+amendment placement; DAY_TWELVE's epitaph clause repaired (aim where it
+has one, step size where it does not) + the age-as-proxy note + the SGD
+dose caveat; e281's compound form. OWED: the x0.1-at-2k arm; the edge
+redraw + the distribution read; the transport intervention (dispatched
+this fold as x14).
+
+**Stamps:** last_review = R67; novelty = the two-channel kill law + the
+sanctuary program. NEXT CELLS: e284 (running — R67's confirmation of the
+separate-buffer missile as the top slot) + x14 (the transport
+intervention, desk).
+
+---
+
 ## R66 — the night sweep reviewed staggered: the auditor clean, the critic's new front-runner named (the antiphase pipeline), the ideator's synthesis (two numbers wearing one), and the repairs applied same-session (2026-10-05/06, folded ~23:55Z)
 
 Trigger: the clock restarted from the x-dispatches; run staggered
