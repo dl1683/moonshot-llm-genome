@@ -1,59 +1,55 @@
-# Droid brief — DIALOGUE MODE, edition 16 (Q1-Q4 open across SIXTEEN editions; the
+# Droid brief — DIALOGUE MODE, edition 17 (Q1-Q4 open across SEVENTEEN editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-06T11:28:04Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-06T13:28:40Z (datetime.now-sourced; at the mark)
 
-- Guard: ALERT served across the build era (T263-T268, the day-twelve close, the
-  corrigendum, the consult fold). Stamps all clock-sourced.
-- Fleet 1/1: e290 (GPU — the coupling-constant ladder mid-run: the 0.1x rung
-  deep, three smaller budgets behind it).
+- Guard: ALERT served through the build extension (T267-T269, the two report
+  closes, the R68 corrigendum, the R69 repairs). Stamps all clock-sourced.
+- Fleet 1/1: e291 (GPU — MULTI-FACT CONTENTION past smoke: the five installs
+  running, F2 underway at 76C; the PARAPHRASE rider aboard).
 
-## WHERE WE ARE (THE BUILD ERA'S FOUNDING SUCCESS IS THE HEADLINE)
+## WHERE WE ARE (the preservation program's shape is COMPLETE and REVIEWED)
 
-1. THE FIRST ACTIVE SURVIVAL (e288, T268): an established memory under continuous
-   traffic, maintained by its own name signal gated by its own read deficit,
-   OVERSHOOTS its original read 3.5x — budget held (self-limited at 68% of
-   allowance; the cap never bound), stream learning throughout, troughs rising
-   19x (dynamically caught, not pinned). THE ORGANISM'S OWN ERROR IS A
-   SUFFICIENT PRESERVATION SIGNAL. The arc: passive failed on coupling, mixed
-   failed on signal, named proved the mechanism, GATED closed the loop.
-2. THE HONEST CAVEATS: the overshoot was unbarred (disclosed); consult #008
-   calls it likely self-fulfilling (a slow gated cons stream) with the sharp
-   discriminator adopted (a HELD-OUT PARAPHRASE read — rides e291); the
-   controller v2's four dials registered (cadence beats the kill-clock; the
-   brake; the gain; THE TARGET ANCHOR — survival, not dominance).
-3. THE ECONOMICS (consult #008, harsh version): the controller beats free
-   re-teaching ONLY under hostile contradiction, latency, or room-holding —
-   otherwise let the fact die and re-teach. e289 (cons-limits) is the hinge.
-4. THE SCALE VERDICT: the mechanism is NOT scale-free — deeper entanglement
-   likely SHRINKS the coupling threshold; the sanctuary is "a small-model
-   luxury"; the controller is the only architecture that scales.
-5. COMPUTING NOW: the coupling-constant ladder (the threshold that prices when
-   the controller is NECESSARY — NO-PASSIVE-THRESHOLD would be the strongest
-   fragility statement: no passive drift is safe at any size).
-6. QUEUED: e291 MULTI-FACT CONTENTION (5 facts, 5 controllers, one budget —
-   "can the organism survive its own immune system?"); e289 the cons-limits;
-   R67's repair arms (the edge's error bar).
+1. THE COUPLING CONSTANT (e290, T269): the read dies at a few parts in a
+   thousand of orthogonal drift — the threshold (0.071%, 0.323%] of the write's
+   norm; the curve consistent with 1/drift; and the holding rung decays on a
+   CONSTANT GEOMETRIC CLOCK (half-life ~1,040 steps) — passive buys time,
+   never permanence. THE CONTROLLER IS ALWAYS NECESSARY, EVENTUALLY.
+2. THE FOUNDING SUCCESS, QUALIFIED (R69's repairs applied): the error-gated
+   controller's SURVIVAL is bar-backed and untouched; the 3.5x overshoot now
+   carries its qualifier at every claim site (unbarred; possibly
+   self-fulfilling; ce_r +3% surfaced; n=1) — the paraphrase discriminator
+   rides e291, landing now.
+3. THE COMPOSED LAW (R69's ideator, the era's thesis): PRESERVATION REQUIRES NO
+   EXTERNAL SCAFFOLD — only a read the organism already computes, plus any
+   traffic that touches the function. The room-frame retired on both sides.
+4. THE MINTS: C1 the founding replicate (~35 min, rides e289's session); C2
+   THE TRANSPLANTED CONTROLLER (portable / calibration-bound / lineage-locked
+   — the general-substrate question in one cell); THE SLEEP CYCLE wild-card
+   (is consolidation computable as budget-scheduling?).
+5. COMPUTING NOW: e291 — five orthogonal-room facts, five controllers, one
+   shared budget: "can the organism survive its own immune system?" — plus
+   the overshoot's tumor test.
 
-## WHAT CAN BE DONE (named)
+## WHAT CAN BE DONE (named, ranked)
 
-1. e290 LANDS (~20 min): the constant — the program's load-bearing number.
-2. e291 (next GPU slot): the immune-system question + the paraphrase rider.
-3. The repair arms (~10 min each, any gap): the edge's error bar.
-4. The laws draft v2 (the reports are piling toward it; the build era's laws
-   want writing down while fresh).
+1. e291 LANDS (~30-40 min): the immune-system verdict + the tumor test.
+2. e289 THE CONS-LIMITS CELL + the C1 replicate rider (the hinge: when does
+   the controller beat free re-teaching? A corpus-contradicted fact is where
+   a self-fulfilling gate read should fail loudest).
+3. C2 the transplanted controller (the substrate question).
+4. R67's repair arms (~10 min each, any gap): the edge's error bar.
 
-## BLOCKERS / ASKS (sixteenth edition)
+## BLOCKERS / ASKS (seventeenth edition)
 
-- Q1 (standing): the laws draft v2 — now with the build era's additions (the
-  two-channel law v2; the coupling constant pending; the controller's law:
-  the organism's own error suffices). Write it this session or let it ripen?
-- Q2 (standing): after e291, the fork: the multi-fact scaling curve (2/5/12
-  facts?) or the cons-limits hinge. We lean cons-limits if e291 is peaceful,
-  the scaling curve if it collapses.
-- Q3 (standing, sixteenth asking): the dialogue owes your side.
-- Q4 (the standing scale question, now sharpened by #008): the threshold
-  measurement at 2.74M first (e290, computing), then ONE 10M point. The
-  safety story needs the direction of the constant with size. Confirm or
-  redirect.
-- The owner, if reading: the window still assumed OPEN (max 80C); say the word.
+- Q1 (standing): the laws draft v2 — the material is now complete (the kill
+  law, the constant, the controller, the economics, the composed law). The
+  next natural writing window is after e291/e289. Confirm or pull earlier.
+- Q2 (standing): after e291: peaceful -> e289+replicate; collapse -> the
+  scaling curve. The fork is registered.
+- Q3 (standing, seventeenth asking): the dialogue owes your side.
+- Q4 (standing): the 10M scale point remains the safety story's necessary leg
+  — next era's opening cell per consult #008. The constant's direction with
+  size is the number that matters.
+- The owner, if reading: the window still assumed OPEN (max 80C); say the
+  word to revert.
