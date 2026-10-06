@@ -12521,7 +12521,19 @@
     },
     "draw_integrity": {
       "corpus_t1_pass": true,
-      "fact1_first_event_name_ce_pass": false
+      "fact1_first_event_name_ce_pass": false,
+      "autopsy": {
+        "finding": "fact1_first_event_name_ce_pass missed its 1e-9 form by ONE fp32 ulp (name_ce diff 5.96e-08; gate reads 4.47e-08); the t1 corpus CE is bit-identical (diff 0.0) \u2014 the DRAWS are certified identical",
+        "cause": "the external kill at ~t250 of arm (a) split the two arms' first events across PROCESS boundaries; cross-process fp32 kernel nondeterminism (the family's cross-session read-determinism law ~5e-7-1e-6 anticipated this; the 1e-9 form is passable only within one process \u2014 the smoke, both arms in one process, passed it exactly)",
+        "status": "non-halting texture read (frozen at birth); disclosed in the REPORT; the resume replay itself was verified bit-identical (instant #10's S_maint ALL matched the pre-kill log)",
+        "values": {
+          "five_name_ce": 0.5293521881103516,
+          "twin_name_ce": 0.5293521285057068,
+          "five_gate_read": 0.05418292060494423,
+          "twin_gate_read": 0.05418296530842781,
+          "t1_corpus_ce_diff": 0.0
+        }
+      }
     },
     "verdict": "PEACEFUL-COEXISTENCE",
     "clause": "5 of 5 facts hold >= 50%x (FACT1 x2.3338 FACT2 x1.7756 FACT3 x1.5215 FACT4 x1.9490 FACT5 x1.4169; held: FACT1,FACT2,FACT3,FACT4,FACT5; died: none) AND the twin comparable to e288 (x3.1621 vs e288's x3.4792) \u2014 the controllers share the organism without lethal contention; the architecture scales. THE CONTENTION LEDGER: the shared pool's split S_corp 2.7537 + S_maint(ALL) 0.3765 = 3.1302/4.5894 (68.2%); per-controller S_maint 0.3280/0.0233/0.0163/0.0021/0.0068; the funnel: static offdiag cos 0.8946, applied offdiag median 0.7937; the passive four on the twin FACT2 x2.1508 FACT3 x2.2107 FACT4 x2.4312 FACT5 x1.7990; the rider: BETTER-REPRESENTATION (ratio 1.156 five / 1.198 twin)",
@@ -12587,5 +12599,9 @@
     "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e291\\metrics.json",
     "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e291\\e291_multifact.png",
     "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e291\\REPORT.md"
-  ]
+  ],
+  "external_kill_resume": {
+    "when": "arm (a) at ~t250, first process; relaunched from the t234 resume ckpt",
+    "verdict": "BIT-IDENTICAL resume (instant #10 S_maint ALL 0.2101 matched the pre-kill log; all five installs complete-resumed; the e290 failure mode recurring, the same cure)"
+  }
 }
