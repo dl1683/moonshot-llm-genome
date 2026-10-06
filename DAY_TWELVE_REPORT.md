@@ -75,3 +75,19 @@ corpus gradient sat at chance in-room]. [Also R67: the age split is
 operationally a STREAM split — install-steps-present vs absent — with age as
 its proxy; and the SGD-M floor reading assumes AdamW's dose acquittal carries
 over — S5K's formation at the same lr mitigates but does not name it.]
+
+## THE CLOSING ADDITION (written ~10:50Z — the build era's founding success)
+
+The report's mechanism morning closed with "the machine is the optimizer's
+aim." The afternoon opened the BUILD lane and closed it the same day:
+passive protection failed on context coupling (e285); active mixed-gradient
+maintenance failed on signal (e286 — and its misbind was caught, disclosed,
+and corrected in-session); the pure name signal proved the mechanism (e287:
+every window a lift); and the ERROR-GATED CONTROLLER HOLDS (e288): the read
+overshoots its original baseline 3.5x under continuous traffic, the budget
+self-limited at 68% of allowance, the stream learning throughout, the
+troughs rising 19x. THE ORGANISM'S OWN ERROR IS A SUFFICIENT PRESERVATION
+SIGNAL. The lab's first engineered survival — from mechanism laws, in four
+iterations, each honest about its failure. The epitaph's morning clause
+("everything is stepped on, steered past, or steered into") gains its
+afternoon clause: OR RE-TAUGHT, ON DEMAND, BY ITS OWN ERROR.

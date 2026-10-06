@@ -7,6 +7,45 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T268 — E288: the first active survival — the organism's own error as the preservation signal (2026-10-06, datetime.now ~10:50Z)
+
+**The founding success, stated once plainly.** An established memory,
+under continuous corpus traffic, maintained by its own name signal
+gated by its own read deficit, survives — and overshoots its original
+read 3.5x while the organism's corpus loss keeps IMPROVING. The
+controller never touched its budget cap (it self-limited at 68% of
+its allowance); the troughs between maintenance steps rose 19x
+monotone (the read is dynamically caught, not pinned); and the whole
+system drifted LESS than the flat-dose twin (the feedback loop is
+also the gentlest traveler). THE ORGANISM'S OWN ERROR, SAMPLED
+PERIODICALLY, IS A SUFFICIENT PRESERVATION SIGNAL.
+
+**Why the controller beat the flat dose 21x.** e287's flat form spent
+its share at a cap-bound trickle (lr median 0.002); the controller
+spent ~9x more precisely when the read was sick (the deficit tapered
+0.965 -> 0.658 as the read recovered) and nothing when it was
+healthy. The dose-response e287 named as "short" was not a tuning
+gap — it was the missing FEEDBACK: the right dose is a function of
+the read's state, and the state is measurable for free.
+
+**The arc's method, closed.** Passive failed on coupling (the
+context is lethal at <=0.07x); mixed failed on signal (host text is
+not the name); named proved the mechanism (every window a lift);
+gated closed the loop. Each failure named its successor with a
+measured proof, and the fourth form holds. THE LAB BUILT A MEMORY
+THAT SURVIVES ITS OWN ORGANISM'S TRAINING — from mechanism laws, in
+four iterations, each honest about its failure.
+
+**The overshoot (the unbarred gift).** The read exceeds its original
+baseline 3.5x — no bar contemplated it. The successor question is
+whether the overshoot is the maintenance discovering a BETTER read
+(the cons stream's landing band was 0.65-0.81 — is the controller
+converging there?) or an artifact of the gate read driving the dose
+(a self-fulfilling measurement). The discriminating read is cheap:
+read the fact on the CONS battery (the family's landing instruments)
+at t400. Named for the next cell that touches these states.
+
+
 ## T267 — E287: the name signal is a real maintenance mechanism — and the room-frame is not the operative frame (2026-10-06, datetime.now ~09:40Z)
 
 **The mechanism, proven.** The first true-name-signal run: every sampled
