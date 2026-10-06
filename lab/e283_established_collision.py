@@ -426,6 +426,27 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE PASS (pass 1, runs/e283_smoke/; the e260-family record): "
+    "NO code bugs caught — the shakedown ran clean end-to-end (15/15 "
+    "gates PASS, both arms, the adjudication and the figure exercised). "
+    "The smoke's SUBSTANCE VERIFICATIONS: (1) THE NO-INSTALL ACCOUNTING "
+    "IS THE CENTERPIECE and it held — the phase counter counts CORPUS "
+    "steps, the milestones fire at corpus-step indices, no install "
+    "machinery is invoked anywhere; (2) G_FACTLOAD's three-way bind is "
+    "EXACT (the loaded artifact's read |d post g0| = 0.0 and |d gm12| = "
+    "0.0 vs the committed literals — bit-exact load confirmed); (3) "
+    "G_CONTROL's null is EXACT (max |g0 drift| 0.0 over the repeated "
+    "milestone reads); (4) the drift ledger + the re-aiming contrast "
+    "compute. Disclosed smoke-scale reads (NOT adjudicated): at smoke "
+    "k=512 the fact's in-own-room load reads 0.2167 — the S_512 index "
+    "set is a SUBSET of S_10k (same D, same permutation seed, smaller "
+    "mask), so the smoke room captures only part of the 10k-written "
+    "displacement (e268's SERIAL post read 0.944 at k=10k — the full "
+    "run's t=0 reference); and the drift's in-room fraction at smoke k "
+    "sits at the volume overlap sqrt(512/N) = 0.0137 (the funnel is a "
+    "k=10k-scale question; the full run's read is the datum). The "
+    "smoke's trajectory preview (x0.75 after ONE corpus step, x0.0068 "
+    "at t8) is a preview only — SMOKE stamped, nothing adjudicated.",
     "THE CONVENTION FREEZE IS THE CELL'S CENTERPIECE (the dispatch's "
     "CAREFUL): the family's step accounting pairs install+corpus; here "
     "there is no install. FROZEN: the phase counts CORPUS steps only "
