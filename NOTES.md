@@ -40,6 +40,18 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e291 — MULTI-FACT CONTENTION (the immune-system test; consult #008's top dissection): PEACEFUL-COEXISTENCE — 5 OF 5 FACTS HOLD (FACT1 x2.3338 / FACT2 x1.7756 / FACT3 x1.5215 / FACT4 x1.9490 / FACT5 x1.4169 — every one above the 0.5x bar, several above baseline) AND THE TWIN REPLICATES THE FOUNDING CLASS (x3.1621 vs e288's x3.4792) — THE CONTROLLERS SHARE THE ORGANISM WITHOUT LETHAL CONTENTION; THE ARCHITECTURE SCALES; THE PARAPHRASE RIDER: BETTER-REPRESENTATION (ratio 1.156 five-arm / 1.198 twin — the held-out paraphrase TRACKS the literal read: THE OVERSHOOT IS NOT A TUMOR; the controller's improvement GENERALIZES — R69's pending discriminator resolves in the founding success's favor); THE CONTENTION LEDGER: the budget held at 68.2%; the maintenance split UNEVEN across controllers (0.328/0.023/0.016/0.002/0.007 — the gating allocates by deficit, FACT1's controller consuming most); THE FUNNEL MEASURED: static offdiag cos 0.895 / applied offdiag median 0.794 — the maintenance steps DO overlap through shared coordinates (the motel's law) but NOT lethally (the error-gating's self-limiting is the peace-keeper: no controller escalates when its read is healthy); the passive four on the twin (x2.15/x2.21/x2.43/x1.80 — the twin's four unmaintained facts also survive passively at this drift level, the contention arm's controllers still lifting theirs) (2026-10-06, datetime.now) — DONE
+
+WHAT WE SAW: the preservation program's scaling answer. Five memories,
+five controllers, one budget, one organism under traffic — and every
+fact holds, the strongest at 2.3x baseline. The immune system does not
+win: the error-gating that made one controller gentle makes five
+peaceful (each spends only when its own read is sick). AND the
+overshoot question closes: the paraphrase tracks — the controller
+finds a BETTER representation, not a tumor on the gate tokens. The
+founding success stands double-confirmed: replicated (the twin) and
+generalized (the paraphrase).
+
 ## e290 — THE COUPLING-CONSTANT LADDER (the program's load-bearing constant measured): TIGHT-CONSTANT — the threshold LOCATED and it is shockingly tight: the full curve 0.1x -> 0.0097x (dies) / 0.02x -> 0.0599x (dies) / 0.004x -> 0.3194x (dies, just under the bar) / 0.0008x -> 0.7674x (HOLDS) — THE THRESHOLD BUDGET IN (0.0008x, 0.004x] OF THE WRITE'S NORM, in realized-drift terms (0.071%, 0.323%] — e285's single-datum bound (7.2%) was loose by 20-100x; THE CURVE IS GRADED not a step (adjacent survival factors 6.2x / 5.3x / 2.4x — the kill is a smooth erosion in drift, not a cliff); THE PROGRAM'S CONSEQUENCE: a learning organism's natural drift dwarfs 0.3% of any given write's norm by orders of magnitude — THE CONTROLLER IS ALWAYS NECESSARY for a moving organism (the e288 architecture is not an optimization; it is the only game); e285's 0.5x anchor co-reported (x0.00303, different session's draw stream) (2026-10-06, datetime.now) — DONE
 
 WHAT WE SAW: the safety story's number. The read tolerates less than a
