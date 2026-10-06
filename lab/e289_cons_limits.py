@@ -4220,10 +4220,20 @@ def main():
     }
 
     # ================= P10: figures + report =============================
-    make_conslimits_plot(RD, metrics, verdict, clause, thermal_log,
-                         budget_norm, budget_c, budget_m, budget_twin)
-    write_report(RD, metrics, verdict, clause, c1_rider)
-    metrics["status"] = ("COMPLETE — adjudicated (this write replaces all "
+    make_conslimits_plot(RD, metrics,
+                         (f"SMOKE — {verdict}" if SMOKE else verdict),
+                         (f"SMOKE — nothing adjudicated. {clause}" if SMOKE
+                          else clause),
+                         thermal_log, budget_norm, budget_c, budget_m,
+                         budget_twin)
+    write_report(RD, metrics,
+                 (f"SMOKE — {verdict}" if SMOKE else verdict),
+                 (f"SMOKE — nothing adjudicated. {clause}" if SMOKE
+                  else clause), c1_rider)
+    metrics["status"] = ("SMOKE — nothing adjudicated (the machinery "
+                         "shakedown; the full run lives in runs/e289)"
+                         if SMOKE else
+                         "COMPLETE — adjudicated (this write replaces all "
                          "PARTIAL progressive writes)")
     metrics["outputs"] = [str(RD / "metrics.json"),
                           str(RD / "e289_cons_limits.png"),
