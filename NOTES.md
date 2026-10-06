@@ -40,6 +40,21 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e278 — the three-null collision cell (what the collision needs): UNDERTOW-REGARDLESS (letter-exact: all three concurrent arms die < 0.5x serial, the missile included) — SEMANTIC 0.0018x / ISOTOPE 0.0703x / MISSILE 0.0026x (serial twin 0.2097, bit-faithful at 3.6e-7) — BUT THE MECHANISM DATUM IS THE PRIZE: the missile's gradient was EXACTLY orthogonal (max ||P.room g_perp||/||g_perp|| = 4.6e-17 over all 400 steps, ~0.2% step-size cost) yet its REALIZED corpus displacement walked 48-60% IN-ROOM — indistinguishable from the unprojected semantic stream (46-57%) at every milestone — ADAM'S PER-COORDINATE NORMALIZATION RE-AIMS ORTHOGONAL GRADIENTS INTO THE ROOM (the sign-step law's complement: not only is the first step 80% in-room, EVERY step gets bent back in): THE ROOM IS A ROACH MOTEL UNDER ADAM — gradients check in, applied steps never leave; the undertow's channel is the optimizer's re-aiming, not a room-independent drag; SECONDARY: the isotope's death mode is TOTAL FLATTENING (CE_R 4.198 = chance; the write at the uniform floor 1/65; displacement 85% in-room) — not a spared-but-weakened write, a killed organism-wide entropy floor, so the isotope kills in a DIFFERENT KIND (0.0703x via flattening, not collision) and P-C-x's quantitative "as hard as" does not fire (direction confirmed); no cons phase per the registered e281 deviation (post states checkpointed); 15/15 gates, the missile's orthogonality gate machine-exact, thermal max 78.0C, 0 violations (2026-10-06, datetime.now) — DONE
+
+WHAT WE SAW: the collision needs NOTHING the corpus controls — not
+semantics, not overlap, not even proximity. Whatever the corpus
+gradient says, Adam applies a step largely inside the room: the
+normalizer's coordinate-wise rescaling rotates the applied
+displacement toward the room's high-leverage directions. This
+completes the mechanism picture opened by e273: the two-body
+collision happens because Adam funnels ALL traffic through the same
+narrow channel — the room's coordinates — regardless of where the
+gradients point. THE OPTIMIZER IS THE UNDERTOW. The natural next
+question (registered on the card): can ANY optimizer step outside
+the room? SGD-M at the stable lr has no per-coordinate normalizer to
+re-aim — the SGD-missile is the discriminating arm.
+
 ## e281 — the rehearsal dose-response (the retrieval story's lynchpin): FLAT — P-281b CONFIRMED, P-281a REFUTED — every arm INCLUDING the no-install ZERO POINT lands in the family's band: NO-INSTALL 0.6508 / RANK-10 0.6931 / K1KM 0.6881 / 10K-DEAD 0.7118 / 100K-DEAD 0.8104 — no step (Spearman 0.80 vs width, noise-level), the cons reaches 0.65 from a FACT-FREE base in 25 steps: THE REHEARSAL LANE CARRIES ZERO WRITE INFORMATION; "delivery is free" collapses to "THE CONS TEACHES FROM ANYTHING"; T246's rehearsal-lane reading and W042's bridge lose their object; there is NO retrieval floor — not a second capacity number, not at any width; ALL THREE seeded states were CHECKPOINTED (no regeneration; the budgeted 5 GPU min unspent; |d post g0| = 0.0 bit-exact on all three, x10's convention); THE INSTRUMENT DATUM (re-prices the family's letter/content adjudication): the cons lane is ~1e-4 DETERMINISTIC from bit-identical states — the loaded arms reproduce their committed landings to <= 0.0002 — the ~0.0419 "cons lottery" belongs to the INSTALL re-run path (sub-probe state differences amplified through the cons: sensitive dependence, not draw luck; the prior anchor-contamination caveats priced the wrong channel); the floor's band-edge straddle named per the registered operationalization (0.6508 vs the hard 0.65 — the registered band binds; the THRESHOLDED world was 0.20 away); 13/13 gates, thermal max 79.0C, 0 violations (2026-10-06, datetime.now) — DONE
 
 WHAT WE SAW: the evening's second quotable object falls to its control, on
