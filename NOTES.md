@@ -40,6 +40,29 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e273 — the three-barrel mechanism cell (the horse race adjudicated): MIXED (named branches) with DECISIVE parts — STATE-POISONING REFUTED ON BOTH CLAUSES (P-273a fails): the SEPARATE-AdamW write dies HARDER than shared (post g0 0.001599 = 0.0076x serial vs shared 0.005288 = 0.0252x) with its flash landing ON the driver's PEAK (the antiphase INVERTED: +0.968 in-phase, n4); TRAJECTORY-TWO-BODY'S FIRST CLAUSE FIRES — the write dies without shared state; THE COUPLING IS IN THE PARAMETERS, NOT THE MOMENTS — two full-strength Adams with clean own-stream m/v fight to MUTUAL DEGRADATION (|d| 206 L2 at 94% in-room; corpus CE median 1.62, worse than the base's 1.61); "TURBULENCE" KEEPS ITS NAME and agy's shared-v relaxation is REFUTED as the mechanism (P-C2's three-move fingerprint went the OPPOSITE way); THE ANTIPHASE IS INSTRUMENTALLY DEAD as a mechanism foundation: the SHARED barrel reproduces e268's -0.52 provenance live (n4 = -0.524) but the n5 Pearson FLIPS (+0.209) on the s1-floor straddle — the sign was an artifact of the shared baseline point, exactly the critic's downgrade, now demonstrated inside one session; NO peak aligned with the driver's dip in ANY barrel; the SGD-M barrel DIVERGED at the registered matched lr (the calibration factor x21,738.6 — the SRCT SIGN-STEP LAW discovered in smoke: Adam's first step is 80% in-room, ||P.sign(Pg)|| ~ 0.80||sign||, driving the huge factor; SGD-M's free corpus steps diverge scale-monotonically, x0.5 CE 1402) — P-273b is FORECLOSED AT MATCHED SCALE by SGD-M's own stability boundary (the x0.01 rider stable but 100x under-matched, rising 0.0025 at s400, never forming); serial twin 0.209721 (G_SERIAL_ANCHOR PASS, post |d| ~ 0); thermal max 80.0C over 7,382 polls, 0 violations (2026-10-06, datetime.now) — DONE
+
+WHAT WE SAW: the night's horse race ends with the metaphor standing and
+the favorite fallen. The concurrent kill is a TWO-BODY PROBLEM IN THE
+PARAMETERS — no shared denominator to unshare, no moment to clean; two
+optimizers each with their own state degrade each other's streams
+WORSE than one shared state degrades both. The antiphase — the
+evening's most quotable free find — is dead as evidence: its sign
+depends on one baseline point (n4 -0.52 vs n5 +0.21 in the SAME arm),
+and under the separating intervention it INVERTS. The honest chain
+tonight: T252 downgraded it, the critic named the pipeline the top
+embarrassment risk, the licensing rule gated it — and the instrument
+agreed. The SGD-M question (Adam-specificity of the formation block)
+is unanswerable at matched scale: SGD-M cannot carry the matched dose
+without diverging — itself a finding (Adam's normalizer is what MAKES
+the corpus step survivable at that scale).
+
+WHAT'S NEXT: e281 (the cons-only floor) on the freed GPU now; consult
+#007 (the pushback round's own mechanism fell — the dialogue
+continues); the instrumented re-run's antiphase-null payload is
+MOOT (the question died in e273 — the payload slots go to the span
+decomposition + gap reads).
+
 ## x13 — flat tax vs wealth tax (the x9-x12 tension on trial): MIXED — the tension dissolves into UNDERIDENTIFICATION: on x9's exact data LINEAR and EXPONENTIAL are likelihood-degenerate (all 8 fits inconclusive, |dAICc| <= 0.34; 0/1600 bootstrap resamples reach the +-2 bar; max mean-curve gap 0.013-0.096 in p) — x9's "EXP wins 7/8" was won only against STR/POW/one-T: EXP CANNOT BEAT LINEAR ANYWHERE, and T254's rate-ladder reading is AT MINIMUM UNCONFIRMED IN ITS EXPONENTIAL BASIS (the "5-7x" is a depth-of-discharge ordering, not a proven proportional drain); the consistency check leans FLAT 4/4 (x12's measured rho closer to LIN-implied than EXP-implied in every battery — though below both: both 2-param families impose anchor-driven positive coupling the data lacks); the DESIGN NUMBER: a true family member must discharge D* ~ 0.84-0.92 of its gap by step 80 before the committed grids separate (observed ~0.47; near (n=3) can NEVER separate at any depth; ctrl (n=12) can never catch a true EXP) — the rent question stays open until a deeper-discharge design (~90% of gap, mid-curve states) runs (2026-10-05, datetime.now) — DONE
 
 CLAIM-SITE AMENDMENTS RIDING THIS FOLD: T254's headline "THE T-LADDER IS A

@@ -89,10 +89,19 @@ score, landing as this report is committed); e273/e280/x10 designed and frozen i
 the queue; x9 (the rate-fits mispricing resolver) on the desk lane; the droid
 dialogue at edition 8, still owed the supervisor's side.
 
-## The epitaph line, provisional
+## The epitaph line, CLOSED at 00:30Z (e273 landed)
 
 Day ten said the memory is a flow; day eleven asked what drives the flow — and
-the answer, tonight, looks less like weather and more like plumbing: one shared
-denominator, relaxing when the driver tires, inflating when the corpus feeds it.
-If the separate-optimizer arm kills the antiphase tomorrow, the lab will have
-traded a metaphor for a mechanism.
+the answer, at night's end, is: THE TRAJECTORY ITSELF. The separate-optimizer
+arm did not save the write (it died HARDER, 0.008x vs 0.025x) and did not kill
+the antiphase (it INVERTED it, +0.968); two full-strength optimizers with clean
+own-stream moments fight to mutual degradation — the coupling lives in the
+parameters, not the state. "TURBULENCE" KEEPS ITS NAME; the shared-denominator
+mechanism (the night's favorite, the dialogue's convergence) is REFUTED on both
+its clauses. And the antiphase — the free find that built the mechanism story —
+is dead as evidence: its sign flips on one baseline point (n4 -0.52 vs n5 +0.21
+in the same arm), exactly as the R66 critic's downgrade warned. The lab's
+discipline tonight: the favorite was registered, gated, tested, and refuted
+inside four hours — a metaphor kept its name, a beautiful artifact died
+identified, and no headline survived on un-run controls. THAT is the night's
+real result.
