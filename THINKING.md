@@ -72,10 +72,11 @@ coupling is in the PARAMETERS. What follows for each standing object:
   cumulative displacement scrubs it — retention-not-formation at the
   top rung stands (e271), now with its mechanism family named: not
   poison, COLLISION.
-- **The rehearsal lane (5-for-5, e281 running):** untouched by the
-  verdict — the cons stream's teaching is a different question from
-  the concurrent corpus's killing. The zero point (in flight) still
-  decides it.
+- **The rehearsal lane (5-for-5):** [E281 AMENDMENT 2026-10-06: the
+  zero point LANDED — FLAT; the lane is a CONS property entirely
+  (0.6508 from a fact-free base; zero write information) — see T259.
+  T246's "the landing read = the cons's rehearsal, not the write's
+  survival" was righter than it knew.]
 - **The antiphase:** dead as evidence, and its death is INSTRUCTIVE —
   the n4/n5 flip means the two curves' co-movement was dominated by
   their shared floor point, a lesson for every 5-point Pearson this
@@ -824,6 +825,10 @@ write at 0.8103 ABOVE its own serial 0.6884 (T248), the counterfeit's
 Georgia slid into Augusta in every arm (T245), the nearrel autopsy's
 standing runner-up won forever (T236). Joint reading: the trajectory
 DELIVERS mass to whatever stands, and only FORMATION costs dimensions.
+[E281 RESOLUTION 2026-10-06: "to whatever stands" over-read it — the
+cons delivers to ANYTHING, standing or not (the zero point 0.6508;
+T259); delivery is a CONS property; the C2/e276 delivery-read cell is
+ABSORBED into e281's FLAT verdict.]
 Pushback: the landing read carries the family's known instrument quirk
 (the serial cons-anchor lottery fires on LANDING reads, never WRITE
 reads — the e268-e270 letter/content split). So the C2 cell (rank-10
