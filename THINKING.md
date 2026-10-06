@@ -7,6 +7,45 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T261 — E283: the kill splits by age — collision for the forming, transport for the established (2026-10-06, datetime.now ~03:05Z)
+
+**T244's AFTER arm, four days late, worth the wait.** The established
+10k fact dies 4.4x DEEPER than the forming one (0.0000342x vs
+0.000151x) — under fire, the install's own steps were still writing;
+after establishment, nothing defends. No age protection at any width;
+the e271 retention barrier was never a high-rank peculiarity but the
+default fate of any established fact under a free stream.
+
+**The split the ledger forced:** the roach motel (T260) is a
+FORMING-REGIME phenomenon. For the established write the realized
+corpus displacement walked only 0.07-0.11 in-room (the raw gradient
+at chance 0.06; a mild 1.2-1.5x re-aiming, not the 0.48-0.60 funnel)
+— because there are no install steps to co-drive the optimizer's
+coordinate statistics toward the room. The established kill is
+TOTAL FREE-STREAM TRANSPORT: the stream alone moved the state 14.45,
+FARTHER THAN THE WRITE'S ENTIRE 9.18 displacement, scrubbing room
+occupancy below half. THE WRITE IS NOT COLLIDED WITH — IT IS
+CARRIED AWAY. Two kill modes, one stream: collision while you are
+being written, transport once you are written.
+
+**The perfect storage null (the quiet bombshell):** with the stream
+paused, the established write drifts EXACTLY 0.0 — storage is
+perfect, indefinitely (within the measured window). The write does
+not decay, leak, or fade. EVERY death in this lab's entire history
+is a step-death. That single number retires an entire family of
+decay stories at once.
+
+**The picture after three mechanism cells (e273/e278/e283):** Adam
+funnels forming traffic through the room (the motel) — collisions
+there are lethal to writes being made; once made, the write's
+defense is only stillness — the free stream's displacement carries
+the parameters past it regardless of direction. Quiet water is not a
+metaphor's convenience; it is the ONLY known preservation condition.
+And the wash era's 'undertow' now has a candidate decomposition: its
+in-room component (the forming-regime funnel) and its transport
+component (the established-regime drift) are the same two modes seen
+from the wash's slower clock.
+
 ## T260 — E278: the roach motel — the optimizer is the undertow (2026-10-06, datetime.now ~02:47Z)
 
 **The datum that completes the mechanism.** The guided missile's
