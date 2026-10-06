@@ -1,57 +1,57 @@
-# Droid brief — DIALOGUE MODE, edition 18 (Q1-Q4 open across EIGHTEEN editions; the
+# Droid brief — DIALOGUE MODE, edition 19 (Q1-Q4 open across NINETEEN editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-06T15:29:10Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-06T17:30:10Z (datetime.now-sourced; at the mark)
 
-- Guard: ALERT served through the scaling arc (T270, the e293 seating, the
-  DAY_TWELVE resolution). Stamps all clock-sourced.
-- Fleet 1/1: e289 + the C1 replicate rider (GPU — past smoke, the arms
-  computing: the contradiction hinge underway).
+- Guard: ALERT served through the program's completion (T270/T271, THE LAWS
+  V2, the e293 seating). Stamps all clock-sourced.
+- Fleet 1/1: e293 (GPU — THE DISTINCT-NAME CONTENTION past smoke, the arms
+  computing: five DIFFERENT name families; the real scaling test).
 
-## WHERE WE ARE (the architecture scaled; the family caveat named; the economics' last condition testing)
+## WHERE WE ARE (THE LAWS V2 IS WRITTEN — the program's completion document)
 
-1. THE IMMUNE-SYSTEM ANSWER (e291, T270): PEACEFUL-COEXISTENCE, honestly
-   scoped — all five facts held, but the five were ONE NAME FAMILY: the
-   antibodies are the same antibody (cross-cosines 0.83-0.95, 15x chance;
-   every maintenance event lifts all five; ONE controller free-rides its
-   four siblings to x1.8-2.4). The controller's cost may scale with
-   FAMILIES, not facts. THE DISTINCT-NAME CELL (e293) is the real contention
-   test — seated.
-2. THE OVERSHOOT CLOSED (e291's paraphrase rider): BETTER-REPRESENTATION —
-   the held-out paraphrase tracks the literal read; the improvement
-   generalizes. The founding success DOUBLE-CONFIRMED (the twin replicated
-   the class; the DAY_TWELVE qualifier resolved at its claim site).
-3. THE FULL PROGRAM, current shape: the kill law (momentum-shared re-aiming
-   + context transport); the coupling constant (a few parts in a thousand;
-   passive buys time — half-life ~1,040 steps — never permanence); the
-   controller (the organism's own error suffices; gentlest traveler;
-   family-scaling); the economics (contradiction/latency/room-holding —
-   the first NOW TESTING); the composed law: PRESERVATION REQUIRES NO
-   EXTERNAL SCAFFOLD.
-4. TESTING NOW (e289): the CONTRADICTION HINGE — a corpus built to actively
-   deny the fact, with and without the controller: does preservation win
-   the tug-of-war that free re-teaching cannot? Plus the C1 founding
-   replicate (zero new bars — the multiplier's error bar).
+1. THE LAWS V2 (THE_LAWS_V2.md, committed 4573d18): five laws with citations
+   and honest error bars — (1) EVERY DEATH IS A STEP-DEATH (storage perfect);
+   (2) THE TWO KILL CHANNELS (collision: momentum-shared re-aiming,
+   engineerable by buffer separation, coherence beats magnitude 7x; transport:
+   the parts-in-a-thousand coupling constant, the ~1,040-step geometric
+   clock — passive buys time, never permanence); (3) THE FLOOR (the space
+   sets it, the optimizer its height; dose doesn't buy formation; the 73.5%
+   fill; ~7 dims to read; nothing to re-teach); (4) THE CONTROLLER (the
+   organism's own read error suffices — the gentlest traveler, the
+   peace-keeper, the lottery-suppressor, the contradiction-winner; NO
+   EXTERNAL SCAFFOLD); (5) THE ECONOMICS (re-teach when friendly; preserve
+   when contradicted, latency-bound, or room-held).
+2. THE ECONOMICS CLOSED TODAY (e289, T271): under active denial
+   (decode-verified), the passive read dies below the dead bar while the
+   controller holds ABOVE its founding win — the tug costs nothing. The
+   founding success TRIPLE-CONFIRMED (C1 replicated at 1.005x — a 0.5%
+   two-draw error bar on a 21-40x effect: the closed loop SUPPRESSES the
+   lottery).
+3. THE SCALING QUESTION (e291/e293): the family is one organism (the
+   antibodies are the same antibody; one controller free-rides its siblings);
+   the DISTINCT-NAME test — five different families, cross-cosines ~0 — is
+   COMPUTING NOW: Law 4's family clause resolves tonight.
+4. THE OPEN ITEMS: C2 the transplanted controller (the substrate question);
+   the 10M scale point (the constant's direction — the safety story's leg);
+   the sleep cycle (consolidation as budget-scheduling?); R67's repair arms.
 
-## WHAT CAN BE DONE (named, ranked)
+## WHAT CAN BE DONE (named)
 
-1. e289 + C1 LAND (~25-35 min): the economics' answer + the replicate.
-2. e293 THE DISTINCT-NAME CONTENTION (the real scaling test).
-3. C2 THE TRANSPLANTED CONTROLLER (portable / calibration-bound /
-   lineage-locked — the substrate question).
-4. The laws draft v2 (all material in hand; the natural writing window
-   opens after e289).
+1. e293 LANDS (~30-40 min): the scaling verdict.
+2. C2 THE TRANSPLANTED CONTROLLER (the substrate question in one cell).
+3. R67's repair arms (~10 min each, any gap): the edge's error bar.
+4. R70 (the review window opens with e293's fold — the afternoon batch:
+   e291/e289+C1/e293 + THE LAWS V2 itself).
 
-## BLOCKERS / ASKS (eighteenth edition)
+## BLOCKERS / ASKS (nineteenth edition)
 
-- Q1 (standing, sharpened): the laws draft v2's window — after e289 lands
-  (an hour), the record will hold every law the program needs written
-  down. Confirm the writing session.
-- Q2 (standing): e289's fork: CONTROLLER-WINS -> the economics complete,
-   e293 next; CONTRADICTION-KILLS-ALL -> preservation's true boundary
-   named, the report's honest close.
-- Q3 (standing, eighteenth asking): the dialogue owes your side.
-- Q4 (standing): the 10M scale point — the safety story's necessary leg;
-   the constant's direction with size. Next era's opening cell.
+- Q1 (ANSWERED BY EXECUTION): the laws draft v2 is WRITTEN — the
+  supervisor's review of THE_LAWS_V2.md is the ask now.
+- Q2 (standing): after e293: peaceful -> C2 + the repair arms; collapse ->
+  the multiplexing architectures. The fork is registered.
+- Q3 (standing, nineteenth asking): the dialogue owes your side.
+- Q4 (standing): the 10M scale point — the next era's opening cell; the
+  constant's direction with size.
 - The owner, if reading: the window still assumed OPEN (max 80C); say the
   word to revert.
