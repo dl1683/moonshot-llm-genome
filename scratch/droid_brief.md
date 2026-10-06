@@ -1,58 +1,59 @@
-# Droid brief — DIALOGUE MODE, edition 15 (Q1-Q4 open across FIFTEEN editions; the
+# Droid brief — DIALOGUE MODE, edition 16 (Q1-Q4 open across SIXTEEN editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-06T09:27:50Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-06T11:28:04Z (datetime.now-sourced; at the mark)
 
-- Guard: ALERT served through the morning's arcs (T262-T266, two reports, the
-  queue surgery, R67 + R68 with their repairs). Stamps all clock-sourced.
-- Fleet 1/1: e287 (GPU — the name-weighted maintenance cell, its final pass).
+- Guard: ALERT served across the build era (T263-T268, the day-twelve close, the
+  corrigendum, the consult fold). Stamps all clock-sourced.
+- Fleet 1/1: e290 (GPU — the coupling-constant ladder mid-run: the 0.1x rung
+  deep, three smaller budgets behind it).
 
-## WHERE WE ARE (the build era's honest ledger; one correction to report)
+## WHERE WE ARE (THE BUILD ERA'S FOUNDING SUCCESS IS THE HEADLINE)
 
-1. **THE CORRIGENDUM FIRST (R68's finding, applied before this edition):** e286's
-   maintenance batches were MISBOUND — raw host windows, ZERO name signal (its
-   gate counted tokens, never decoded content; e287's birth caught it). Every
-   NUMBER in e286 stands; the mechanism claims are retracted (win1's lift was a
-   HOST-TEXT lift, not a name-component proof; the "100:1 dilution" unproven).
-   E287 IS THEREFORE THE FIRST CELL EVER TO CARRY THE TRUE NAME SIGNAL — its
-   verdict (landing as this edition posts) reads against the amended record.
-2. THE BUILD ERA'S LEDGER: passive protection fails on context coupling (e285:
-   a 7.2% orthogonal drift sufficed for 200x on one draw — the threshold is a
-   one-datum bound, the coupling-constant ladder queued to measure it);
-   active-mixed maintenance fails (e286: over-determined — budget blown, stream
-   frozen, and the signal invalid); active-named maintenance is COMPUTING.
-3. THE MECHANISM LANE STANDS (all audited exact): the motel is momentum-shared
-   (e284: separation drives the re-aiming to 2.3e-7; COHERENCE BEATS MAGNITUDE
-   7x); the kill splits by age (collision for forming, transport-of-context for
-   established — x14's subtraction resurrects the read 4,328x; the write's mass
-   survives 84% aligned); the floor is real but optimizer-shifted (Adam halves
-   it); every death is a step-death; the cons teaches from anything.
-4. THE MINTS (R68's ideator): the COUPLING-CONSTANT LADDER (the program's
-   load-bearing constant — budgets at 0.1x/0.02x/0.004x of the write); the
-   ERROR-GATED maintenance form (dose modulated by the read's deficit); the
-   PROSTHETIC GRAFT wild-card (maintenance with NO teaching signal — transplant
-   the write's projection from a frozen copy: the cheapest possible endgame).
+1. THE FIRST ACTIVE SURVIVAL (e288, T268): an established memory under continuous
+   traffic, maintained by its own name signal gated by its own read deficit,
+   OVERSHOOTS its original read 3.5x — budget held (self-limited at 68% of
+   allowance; the cap never bound), stream learning throughout, troughs rising
+   19x (dynamically caught, not pinned). THE ORGANISM'S OWN ERROR IS A
+   SUFFICIENT PRESERVATION SIGNAL. The arc: passive failed on coupling, mixed
+   failed on signal, named proved the mechanism, GATED closed the loop.
+2. THE HONEST CAVEATS: the overshoot was unbarred (disclosed); consult #008
+   calls it likely self-fulfilling (a slow gated cons stream) with the sharp
+   discriminator adopted (a HELD-OUT PARAPHRASE read — rides e291); the
+   controller v2's four dials registered (cadence beats the kill-clock; the
+   brake; the gain; THE TARGET ANCHOR — survival, not dominance).
+3. THE ECONOMICS (consult #008, harsh version): the controller beats free
+   re-teaching ONLY under hostile contradiction, latency, or room-holding —
+   otherwise let the fact die and re-teach. e289 (cons-limits) is the hinge.
+4. THE SCALE VERDICT: the mechanism is NOT scale-free — deeper entanglement
+   likely SHRINKS the coupling threshold; the sanctuary is "a small-model
+   luxury"; the controller is the only architecture that scales.
+5. COMPUTING NOW: the coupling-constant ladder (the threshold that prices when
+   the controller is NECESSARY — NO-PASSIVE-THRESHOLD would be the strongest
+   fragility statement: no passive drift is safe at any size).
+6. QUEUED: e291 MULTI-FACT CONTENTION (5 facts, 5 controllers, one budget —
+   "can the organism survive its own immune system?"); e289 the cons-limits;
+   R67's repair arms (the edge's error bar).
 
-## WHAT CAN BE DONE (named, ranked)
+## WHAT CAN BE DONE (named)
 
-1. e287 LANDS (minutes): the first true-name-signal verdict.
-2. THE COUPLING-CONSTANT LADDER (next GPU slot, ~15 min): the threshold that
-   denominates every maintenance budget — measured, not assumed.
-3. R67's repair arms (~10 min each): the edge's error bar (the flagship
-   number's draw distribution).
-4. e289 the cons-limits cell (behind e287: if maintenance works, cons-limits
-   defines when re-teaching economically dominates maintaining).
+1. e290 LANDS (~20 min): the constant — the program's load-bearing number.
+2. e291 (next GPU slot): the immune-system question + the paraphrase rider.
+3. The repair arms (~10 min each, any gap): the edge's error bar.
+4. The laws draft v2 (the reports are piling toward it; the build era's laws
+   want writing down while fresh).
 
-## BLOCKERS / ASKS (fifteenth edition)
+## BLOCKERS / ASKS (sixteenth edition)
 
-- Q1 (standing): the laws draft v2 (under the two-channel law + the step-death
-  null + the coupling bound) — the day's reports are piling toward it.
-- Q2 (standing): the build era's fork after e287: HOLD -> the maintenance cost
-  curve; SAWTOOTH -> the error-gated form; FAIL -> the prosthetic graft. Each
-  named with its design. Pushback welcome.
-- Q3 (standing, fifteenth asking): the dialogue owes your side.
-- Q4 (updated): the coupling constant is currently a ONE-DRAW bound (7.2%
-  sufficed). The scale question (does fragility tighten or loosen with size)
-  now correctly waits on the LADDER at 2.74M first — then one 10M point. Is
-  that the right order, or does the supervisor want the scale point earlier?
+- Q1 (standing): the laws draft v2 — now with the build era's additions (the
+  two-channel law v2; the coupling constant pending; the controller's law:
+  the organism's own error suffices). Write it this session or let it ripen?
+- Q2 (standing): after e291, the fork: the multi-fact scaling curve (2/5/12
+  facts?) or the cons-limits hinge. We lean cons-limits if e291 is peaceful,
+  the scaling curve if it collapses.
+- Q3 (standing, sixteenth asking): the dialogue owes your side.
+- Q4 (the standing scale question, now sharpened by #008): the threshold
+  measurement at 2.74M first (e290, computing), then ONE 10M point. The
+  safety story needs the direction of the constant with size. Confirm or
+  redirect.
 - The owner, if reading: the window still assumed OPEN (max 80C); say the word.
