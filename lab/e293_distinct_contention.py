@@ -48,14 +48,19 @@ FROZEN BARS (the five facts' survival at t400) — VERBATIM:
 ==== THE FROZEN CONVENTIONS (picked + frozen HERE at birth) ============
 
 * THE FIVE NAMES (the name-family construction — the cell's ONE delta
-  from e291): NAME_BANK = ZEPHYRA / TAVIREN / GOLMARA / BUVONDI /
-  MIRQUEN — five 7-letter names, every one count-0 in the corpus
+  from e291): NAME_BANK = ZEPHYRA / TAVIREN / QELVARO / BUVONDI /
+  NYSTORA — five 7-letter names, every one count-0 in the corpus
   (gated per name), every letter in the 65-char vocab, and — the
   selection probe, run at the BASE state before birth (design-time,
   disclosed): the five name-CE gradients' pairwise cross-cosines
-  offdiag mean +0.0245, range [-0.043, +0.094] — the chance class
+  offdiag mean +0.0288, range [-0.048, +0.102] — the chance class
   for unrelated directions — FAR BELOW e291's 0.834-0.952 same-name
-  band. FAMILY A := ZEPHYRA in e291's FACT1 slot VERBATIM (the same
+  band; AND (the smoke catch, disclosed) every name's FIRST-CHAR
+  base prior at its own group's name slot <= 0.004 on BOTH battery
+  geometries (g0 + gm12) — the first bank draft (GOLMARA/MIRQUEN)
+  failed G-BASE at smoke (the base's own text priors: p(M)=0.156,
+  p(G)=0.023 at the name slot), the bank re-selected, the catch
+  disclosed in deviations. FAMILY A := ZEPHYRA in e291's FACT1 slot VERBATIM (the same
   name, the same 12-window host group, room 1) so the twin is the
   exact isolation reference, directly comparable to e291's twin
   (x3.162); families B-E := the four fresh names on groups 2-5.
@@ -315,9 +320,11 @@ FACT1 = FACTS[0]
 # ---- THE FIVE DISTINCT NAMES (the cell's ONE delta from e291) ---------
 # FAMILY A := ZEPHYRA in e291's FACT1 slot VERBATIM; families B-E fresh.
 # Selection probe (base state, design-time, disclosed in the docstring):
-# offdiag cos mean +0.0245, range [-0.043, +0.094] — the chance class,
-# far below e291's 0.834-0.952 same-name band.
-NAME_BANK = ("ZEPHYRA", "TAVIREN", "GOLMARA", "BUVONDI", "MIRQUEN")
+# offdiag cos mean +0.0288, range [-0.048, +0.102] — the chance class,
+# far below e291's 0.834-0.952 same-name band; every first-char base
+# prior at its group's name slot <= 0.004 (g0 + gm12) — the smoke catch
+# (the GOLMARA/MIRQUEN draft failed G-BASE: p(M)=0.156 / p(G)=0.023).
+NAME_BANK = ("ZEPHYRA", "TAVIREN", "QELVARO", "BUVONDI", "NYSTORA")
 assert all(len(nm) == len(G1.NAME) == 7 for nm in NAME_BANK)
 DISTINCT_MEAN_BAR = 0.40          # G_DISTINCT: offdiag mean <= this
 DISTINCT_MAX_BAR = 0.60           # G_DISTINCT: offdiag max <= this
@@ -540,17 +547,32 @@ deviations: list[str] = [
     "disclose' clause invoked) — so the bank is CONSTRUCTED: ZEPHYRA "
     "(family A, e291's FACT1 slot VERBATIM — the twin's direct "
     "comparability to e291's twin x3.162 preserved) + four fresh "
-    "7-letter made-up names TAVIREN/GOLMARA/BUVONDI/MIRQUEN, every one "
+    "7-letter made-up names TAVIREN/QELVARO/BUVONDI/NYSTORA, every one "
     "count-0 in the corpus (gated per name in G_NAMEFREE), every letter "
     "in the 65-char vocab, all the same 7-character length so the "
     "masked-name geometry (7 x 16 = 112 tokens) and every mask/decode "
     "instrument is BIT-IDENTICAL to e291's. THE SELECTION PROBE "
     "(design-time, at the BASE state, before birth, disclosed): the "
     "five name-CE gradients' pairwise cross-cosines offdiag mean "
-    "+0.0245, range [-0.043, +0.094] — the chance class, far below "
+    "+0.0288, range [-0.048, +0.102] — the chance class, far below "
     "e291's 0.834-0.952 same-name band; the REAL gate (G_DISTINCT) "
     "re-measures on the organism at birth and the t25 static probe "
     "re-measures mid-traffic (both disclosed in metrics).",
+    "THE SMOKE CATCH (disclosed, fixed pre-real-compute): the FIRST "
+    "bank draft (GOLMARA/MIRQUEN in slots 3/5) failed G-BASE at smoke "
+    "— the BASE net's own next-char text priors at the name slot are "
+    "letter-dependent (measured: p(M)=0.156 on group 5's battery, "
+    "p(G)=0.023 on group 3's; the common letters E/M/C/P carry "
+    "0.03-0.74 there), so names starting with common letters are NOT "
+    "fact-free in the family's 0.05-bar sense and would also strain "
+    "the 5x-lift bar. The bank was RE-SELECTED with the base-prior "
+    "criterion added to the selection probe: every name's first char "
+    "carries <= 0.004 prior on BOTH battery geometries (g0 + gm12), "
+    "keeping e291's G-BASE and G_INSTALLS gate forms VERBATIM (no "
+    "bars amended); the re-selection probe: offdiag cos mean +0.0288 "
+    "/ max +0.102, first chars Z/T/Q/B/N, priors [1e-5, 0.0014, "
+    "0.0039, 0.0020, 0.0030] g0 / [2e-5, 0.0013, 0.0026, 0.0021, "
+    "0.0024] gm12.",
     "THE SHARED-FRAME FIVE-ROOM CONSTRUCTION (e291's disclosed "
     "construction, carried VERBATIM): ONE fresh +-1 diagonal D (seed "
     "29311) + ONE fresh permutation (seed 29312) split into five "
@@ -1840,8 +1862,8 @@ def main():
         "experiment": "e293_distinct_contention",
         "phase": "THE DISTINCT-NAME CONTENTION CELL (e291's named "
                  "successor — the REAL contention test): FIVE facts from "
-                 "DIFFERENT name families (ZEPHYRA/TAVIREN/GOLMARA/"
-                 "BUVONDI/MIRQUEN — cross-cosines at the chance class, "
+                 f"DIFFERENT name families ({'/'.join(NAME_BANK)} — "
+                 "cross-cosines at the chance class, "
                  "e291's five were one family whose antibodies were the "
                  "same antibody), each in its own orthogonal 10k room "
                  "(the shared-frame construction), vs FIVE error-gated "
@@ -2832,7 +2854,7 @@ def main():
         "bars": {"mean": DISTINCT_MEAN_BAR, "max": DISTINCT_MAX_BAR},
         "e291_same_name_band": [0.8340404218536037, 0.952364902815954],
         "selection_probe_base_state": {
-            "offdiag_mean": 0.0245, "range": [-0.043, 0.094],
+            "offdiag_mean": 0.0288, "range": [-0.048, 0.102],
             "note": "design-time probe before birth (disclosed in the "
                     "docstring); this gate re-measures on the organism"},
         "pass": bool(distinct_ok or SMOKE),
