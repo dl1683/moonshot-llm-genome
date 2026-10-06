@@ -1,5 +1,10 @@
 # DAY ELEVEN — the mechanisms close in (2026-10-05/06, evening session ~19:26Z onward;
 # report frame written ~22:02Z true time while e272 computes its final arm)
+#
+# [BOUNDARY NOTE, 2026-10-06 ~03:17Z: this report's session runs through e273's fold
+# (~00:30Z). The post-midnight work — e281 (the cons teaches from anything), e278
+# (the roach motel), e283 (the kill splits by age) — is DAY TWELVE's opening arc and
+# belongs to its report with the e280 ontology verdict at its head.]
 
 The day began with an audit and ended with a horse race. Between them: the arc's
 closing datum, a colleague dialogue that converged, and the fastest verdict sweep
