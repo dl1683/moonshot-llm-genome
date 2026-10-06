@@ -737,7 +737,7 @@ log("FIGURE written")
 # ------------------------------------------------ REPORT.md
 rows_norm = []
 rows_read = []
-for r in sorted(RUNS, reverse=True):
+for r in sorted(RUNGS, reverse=True):
     L = ladder[f"r{r}"]
     rows_norm.append(
         f"| {r} | {L['dW_r_l2']:.4f} | "
