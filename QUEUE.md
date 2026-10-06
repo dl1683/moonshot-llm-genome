@@ -391,6 +391,18 @@ lines when a load-bearing claim is single-seed.
 | e116 | re-barred census | DONE (T069: 3/6 — graduation denied; row-0 duality exposed; final form: structure 6/6, concentration family-dependent) |
 | e117 | maturity point | DONE (T070: BETWEEN — constant is a per-net idiosyncrasy, 31/42/54/77 non-monotone in steps and CE; the FORM is the law; maturity question closed negative) |
 
+## THE FANTASTIC FRONTIER (owner push 2026-10-06 ~17:45Z: "push dissections with fantasticisms" — the wild cells go FIRST)
+
+| id | experiment | status | the fantastic |
+|---|---|---|---|
+| e294 | THE ANTI-CONTROLLER (targeted forgetting — machine unlearning grounded in the kill law) | READY (TOP — first GPU slot) | INVERT THE ERROR GATE: dose on the read's EXCESS, descending — surgically erase ONE fact while the organism stays healthy and the OTHER facts hold (the five-fact rig gives the selectivity test for free). The lab spent twelve days learning how memories die and how to save them; the inverse — killing one on purpose, cleanly — is the AI-safety mirror (machine unlearning) and the program's most socially relevant cell. Branches: SURGICAL-ERASE (the target dies <1%, the others >=0.5x, the organism's CE improving) / COLLATERAL (the erase bleeds) / IMMUNE (the read refuses to die — the controller's law run backwards fails: the organism defends itself). |
+| e295 | THE DREAM CYCLE (offline replay consolidation) | READY | the controller runs ONLY during rest windows (the corpus paused, the repair on, same total budget) vs always-on: CONSOLIDATION-WINS (repair is more effective per dose with the transport clock stopped — biology's sleep, computed as pure scheduling) vs ALWAYS-ON-WINS. The storage-null + the controller, composed into the sleep metaphor's test. |
+| e296 | THE PROSTHETIC GRAFT (maintenance with NO teaching signal) | READY | transplant the write's in-room projection from a frozen external copy (theta <- theta + alpha*(P_room w_fact - P_room theta), under budget): does the read need a SIGNAL or only its geometry refreshed? If the graft holds, memory maintenance reduces to consolidation-from-checkpoint — the anesthesia metaphor, the cheapest endgame. |
+| C2 | THE TRANSPLANTED CONTROLLER | READY | the same fact + the identical controller on a SECOND fresh organism: PORTABLE / CALIBRATION-BOUND / LINEAGE-LOCKED — is the preservation substrate general or a property of one lineage? |
+| e292 | THE SIGN-INCOMPATIBLE ROOM | READY | build the room orthogonal to the gradient-sign family: the sign-step law predicts Adam's first step falls to ~sqrt(k/N) in-room and the FLOOR MOVES UP toward SGD's — ADAM'S GENTLE FLOOR IS PURCHASED BY SIGN COMPATIBILITY: capacity as a DESIGNED DIAL (geometry x optimizer). If the floor doesn't move, the whole motel/floor story has a missing term. |
+| e297 | THE GHOST QUESTION (what does a dead fact leave behind?) | NAMED | after the anti-controller erases a fact: is the organism's landscape changed (re-learning speed for the SAME fact vs a novel one — scar tissue?), and is the erased room empty or occupied? The physics of forgetting's residue — the question the whole lab was implicitly built on, asked directly. |
+| e298 | THE MEMORY MIRROR (two organisms, one fact) | NAMED | install the same fact in two fresh organisms, run ONE controller in each, compare the read trajectories: is the maintenance path organism-specific or does the fact's structure determine it? The transplant question's twin — from the other side. |
+
 ## R65 RE-SYNC (2026-10-05 ~21:00Z) — day-ten rows (the queue had none of e261–e271) + the repair/next cells
 
 Day-ten, all DONE (see NOTES + T240–T248):
