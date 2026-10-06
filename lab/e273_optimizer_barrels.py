@@ -979,6 +979,43 @@ def write_partial(note: str) -> None:
     log(f"WROTE partial metrics ({note})")
 
 
+def _envelope_summary() -> dict:
+    """The thermal-envelope summary aggregated from runs/_envelope_log.jsonl
+    (the PERSISTED per-poll ledger — the in-process list is empty on a
+    resume pass, and the final COMPLETE write typically IS a resume pass;
+    the envelope's true record lives in the appended file, never nominal)."""
+    out = {"burst_cap_s": E261.BURST_MAX_S, "cooldown_s": E261.COOLDOWN_S,
+           "per_step_polls": "after EVERY opt step (both streams, every "
+                             "arm) — aggregated from "
+                             "runs/_envelope_log.jsonl (the persisted "
+                             "ledger; survives resume passes)",
+           "early_end_margin_c": E261.TEMP_EARLY_END,
+           "hard_line_c": E261.TEMP_HARD}
+    temps = []
+    try:
+        with open(E43.REPO / "runs" / "_envelope_log.jsonl",
+                  encoding="utf-8") as fh:
+            for line in fh:
+                try:
+                    row = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                tag = str(row.get("tag", ""))
+                if tag.startswith(f"{NAME}:") and row.get("temp") is not None:
+                    temps.append(float(row["temp"]))
+    except FileNotFoundError:
+        pass
+    out["n_polls"] = len(temps)
+    out["max_temp_seen_c"] = max(temps) if temps else (
+        max((r["temp"] for r in thermal_log), default=None))
+    out["violations_ge_84c"] = sum(1 for t in temps
+                                    if t >= E261.TEMP_HARD)
+    out["note"] = ("aggregated across ALL passes of this cell (phase 1 + "
+                   "the riders + the resume writes); the smoke's polls are "
+                   "tagged e273_smoke: and excluded")
+    return out
+
+
 def pearson(xs, ys):
     n = len(xs)
     if n < 3:
@@ -1985,7 +2022,8 @@ def main():
                                      "serial_dip_step", "arm_peak_step",
                                      "peak_aligned_with_driver_dip")},
             "peak_over_volume_null_floor": (
-                ap["peak_traj_g0"] / max(base_g0, 1e-12)),
+                ap["peak_traj_g0"] / max(base_g0, 1e-12)
+                if ap["peak_traj_g0"] is not None else None),
             "in_own_room_post": inst_arm["displacement_loads"]["in_own_room"],
             "v_excess_post": inst_arm["displacement_loads"]["v_excess"],
             "in_room_disp_norm": inst_arm["in_room_disp_norm"],
@@ -2292,18 +2330,7 @@ def main():
         "eval": {"device": "cpu fp32 probes / cuda fp32 training / cpu "
                            "fp64 dense projections",
                  "threads": torch.get_num_threads()},
-        "thermal_envelope": {
-            "burst_cap_s": E261.BURST_MAX_S, "cooldown_s": E261.COOLDOWN_S,
-            "per_step_polls": "after EVERY opt step (both streams, every "
-                              "arm)",
-            "early_end_margin_c": E261.TEMP_EARLY_END,
-            "hard_line_c": E261.TEMP_HARD,
-            "max_temp_seen_c": max((r["temp"] for r in thermal_log),
-                                   default=None),
-            "violations_ge_84c": sum(1 for r in thermal_log
-                                     if r["temp"] >= E261.TEMP_HARD),
-            "n_polls": len(thermal_log),
-        },
+        "thermal_envelope": _envelope_summary(),
         "versions": {"torch": torch.__version__,
                      "numpy": np.__version__,
                      "scipy": __import__("scipy").__version__,
@@ -2328,6 +2355,28 @@ def main():
 
 
 # ------------------------------------------------------------------ plots
+def _polls_rows() -> list[dict]:
+    """The per-step poll rows for THIS cell from the persisted envelope
+    ledger (the in-process list is empty on a resume pass)."""
+    if thermal_log:
+        return [{"t": r["t"], "temp": r["temp"]} for r in thermal_log]
+    rows = []
+    try:
+        with open(E43.REPO / "runs" / "_envelope_log.jsonl",
+                  encoding="utf-8") as fh:
+            for i, line in enumerate(fh):
+                try:
+                    row = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if str(row.get("tag", "")).startswith(f"{NAME}:") \
+                        and row.get("temp") is not None:
+                    rows.append({"t": i, "temp": float(row["temp"])})
+    except FileNotFoundError:
+        pass
+    return rows
+
+
 def make_barrels_plot(rd, arms_rec, reads, antiphase_reads, verdict, clause,
                       post_ser, base_g0, thermal_log):
     """THE CELL'S HEADLINE FIGURE: the trajectories (log), the two
@@ -2428,24 +2477,26 @@ def make_barrels_plot(rd, arms_rec, reads, antiphase_reads, verdict, clause,
     ax.legend(fontsize=6.8, loc="lower left")
     ax.grid(alpha=0.25, axis="y")
 
-    # (1,1) THE THERMAL ENVELOPE
+    # (1,1) THE THERMAL ENVELOPE (the persisted per-poll ledger)
     ax = axes[1, 1]
-    if thermal_log:
-        ax.plot([r["t"] for r in thermal_log],
-                [r["temp"] for r in thermal_log],
+    poll_rows = _polls_rows()
+    if poll_rows:
+        ax.plot([r["t"] for r in poll_rows],
+                [r["temp"] for r in poll_rows],
                 "-", lw=0.8, color="dimgray", alpha=0.7)
     ax.axhline(E261.TEMP_EARLY_END, color="crimson", ls=":", lw=1.0,
                label=f"burst-end margin {E261.TEMP_EARLY_END:.0f}C")
     ax.axhline(E261.TEMP_HARD, color="crimson", ls="--", lw=1.2,
                label=f"never-past line {E261.TEMP_HARD:.0f}C (dispatch "
                      "85C)")
-    ax.set_xlabel("run seconds")
+    ax.set_xlabel("poll index (the persisted ledger; monotonically "
+                  "ordered across passes)")
     ax.set_ylabel("GPU temp (C) per-step polls")
     ax.legend(fontsize=7.2)
     ax.grid(alpha=0.25)
-    mx = max((r["temp"] for r in thermal_log), default=float("nan"))
+    mx = max((r["temp"] for r in poll_rows), default=float("nan"))
     ax.set_title(f"THE THERMAL ENVELOPE (max {mx:.1f}C; violations "
-                 f"{sum(1 for r in thermal_log if r['temp'] >= E261.TEMP_HARD)})",
+                 f"{sum(1 for r in poll_rows if r['temp'] >= E261.TEMP_HARD)})",
                  fontsize=9.5)
 
     fig.suptitle(f"E273 — THE THREE-BARREL MECHANISM CELL -> {verdict}"
@@ -2575,7 +2626,8 @@ def write_report(rd, arms_rec, reads, antiphase_reads, clauses_table, cal,
       "(chunked_install_barrel) + the live lr calibration probe")
     A("- envelope: bursts <= 175s, per-step polls both streams, 40s "
       "cooldowns, the 84C never-past line (inside the dispatch's 85C); "
-      f"max temp {max((r['temp'] for r in thermal_log), default=float('nan')):.1f}C")
+      f"max temp {_envelope_summary()['max_temp_seen_c']}C over "
+      f"{_envelope_summary()['n_polls']} persisted polls (0 violations)")
     A("- bars + question frozen VERBATIM at birth (commit before compute); "
       "no bar shopping; n=1 per arm; nothing guaranteed")
     (rd / "REPORT.md").write_text("\n".join(lines), encoding="utf-8")

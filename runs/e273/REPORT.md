@@ -19,6 +19,9 @@ trajectories verbatim, all reads, no inflation
 | SHARED | 0.005288 | 0.0252x | 0.005288 | YES | -0.321 | +0.209 | no (pk@400, dip@300) | 0.0597 | 0.6777 | 0.23 | 0.7477 |
 | SEPARATE | 0.001599 | 0.0076x | 0.018551 | YES | +0.968 | +0.754 | no (pk@100, dip@300) | 0.0574 | 0.9397 | 0.96 | 0.3923 |
 | SGDM | nan | nanx | 0.000006 | no **DIVERGED** | n/a | n/a | no (pk@100, dip@300) | 0.0599 | 0.0000 | 0.00 | nan |
+| SGD05X | 0.000000 | 0.0000x | 0.000008 | no **DIVERGED** | n/a | -0.885 | no (pk@100, dip@300) | 0.0605 | 0.1794 | 12.48 | 0.0000 |
+| SGD001X | 0.002527 | 0.0120x | 0.002527 | no | -0.313 | +0.178 | no (pk@400, dip@300) | 0.0596 | 0.6378 | 3.29 | 0.7859 |
+| SGD2X | nan | nanx | 0.000006 | no **DIVERGED** | n/a | n/a | no (pk@None, dip@300) | 0.0000 | 0.0000 | 0.00 | nan |
 
 - the volume-null floor (the fresh fact-free base's own g0 read): 1.338e-05
 - the antiphase provenance: e268's committed 10k pair reproduced live — Pearson n4 -0.524 / n5 0.298 (the registered datum was -0.52, the n4 convention)
@@ -33,7 +36,7 @@ trajectories verbatim, all reads, no inflation
 - **TTB1_separate_write_dies**: FIRES — 
 - **TTB2_sgdm_dies_without_forming**: FIRES — informative=False, divergence_confounded=True
 - **sgdm_divergence_signature**: {'first_batch_ce': 1.0701713562011719, 'max_ce_beyond_s100': 8533.8505859375, 'max_ce': 8533.8505859375, 'nonfinite': True, 'diverged': True}
-- **sgd001x_stability_rider**: None
+- **sgd001x_stability_rider**: {'first_batch_ce': 1.0701713562011719, 'max_ce_beyond_s100': 1.1811984777450562, 'max_ce': 1.2731643915176392, 'nonfinite': False, 'diverged': False}
 - **convention_straddle_n4_vs_n5**: True
 
 ## The SGD-M lr calibration (the live probe)
@@ -57,5 +60,5 @@ Per arm: peak traj_g0 (the table), the endpoint ratio vs serial (the table's x s
 
 - parents hard-bound: e272 metrics (eb9f624708bcb6576c4115161dfd7042), e268 metrics (c1149229b7f0191943a7b8eb0442b494), e271 metrics (16c29a3167d8523a64f66f03c717f67b), e272_rooms.pt, e246 span, e258 v-map, the K10KR vehicle; the room bit-gated (G_ROOM10KR); 13 hard gates (a failure halts)
 - machinery: e261's ported whole by import (the serial driver, the cons, the hook, the envelope); this file's one new driver (chunked_install_barrel) + the live lr calibration probe
-- envelope: bursts <= 175s, per-step polls both streams, 40s cooldowns, the 84C never-past line (inside the dispatch's 85C); max temp 80.0C
+- envelope: bursts <= 175s, per-step polls both streams, 40s cooldowns, the 84C never-past line (inside the dispatch's 85C); max temp 80.0C over 7382 persisted polls (0 violations)
 - bars + question frozen VERBATIM at birth (commit before compute); no bar shopping; n=1 per arm; nothing guaranteed
