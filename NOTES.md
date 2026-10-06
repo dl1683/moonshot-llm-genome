@@ -40,6 +40,19 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e290 — THE COUPLING-CONSTANT LADDER (the program's load-bearing constant measured): TIGHT-CONSTANT — the threshold LOCATED and it is shockingly tight: the full curve 0.1x -> 0.0097x (dies) / 0.02x -> 0.0599x (dies) / 0.004x -> 0.3194x (dies, just under the bar) / 0.0008x -> 0.7674x (HOLDS) — THE THRESHOLD BUDGET IN (0.0008x, 0.004x] OF THE WRITE'S NORM, in realized-drift terms (0.071%, 0.323%] — e285's single-datum bound (7.2%) was loose by 20-100x; THE CURVE IS GRADED not a step (adjacent survival factors 6.2x / 5.3x / 2.4x — the kill is a smooth erosion in drift, not a cliff); THE PROGRAM'S CONSEQUENCE: a learning organism's natural drift dwarfs 0.3% of any given write's norm by orders of magnitude — THE CONTROLLER IS ALWAYS NECESSARY for a moving organism (the e288 architecture is not an optimization; it is the only game); e285's 0.5x anchor co-reported (x0.00303, different session's draw stream) (2026-10-06, datetime.now) — DONE
+
+WHAT WE SAW: the safety story's number. The read tolerates less than a
+third of a percent of its write's norm in orthogonal drift — the
+organism's function-space coupling is ~100x tighter than the
+parameter-space intuition suggested. Storage is perfect (stillness),
+but stillness is the only passive regime; any real training stream
+crosses the threshold immediately. THE PRESERVATION PROGRAM'S SHAPE
+IS NOW COMPLETE: the kill law (two channels), the constant (the
+threshold), the controller (the working answer), the economics (when
+it beats re-teaching), and the scale question (the direction of the
+constant with size — the 10M point named).
+
 ## e288 — THE ERROR-GATED MAINTENANCE CELL (the build lane's fourth form): ERROR-GATED-HOLDS — THE FIRST ACTIVE SURVIVAL, BY CONTROLLER; THE BUILD ERA'S FOUNDING SUCCESS: the read reaches x3.4792 of the loaded baseline at t400 — NOT MERELY HELD BUT OVERSHOOTING THE ORIGINAL 3.5x (disclosed: no bar contemplated the overshoot) — 21.4x the live name-fixed twin (e287's exact form, faithfully reproducing its x0.162 endpoint), 37.9x e287's committed record; THE BUDGET HELD AT 87.2% (the cap NEVER bound — the controller self-limited below its full-deficit calibration; the realized split 68.9/31.1 vs e287's 96.1/3.9); THE STREAM LIVE (corpus CE 0.937 -> 0.8805 improving); 20/20 gates; THE CONTROLLER TRACE: the deficit tapered 0.965 -> 0.658 as the read recovered; the applied lr ~9x e287's flat dose (median 0.0189); the windows lift x7.49/x22.0 (vs e287's x2.82/x3.92); THE SAWTOOTH PERSISTS BUT THE TROUGHS RISE MONOTONICALLY 19x (0.0047 -> 0.0905): THE READ IS DYNAMICALLY CAUGHT, NOT PINNED; the name gradient's in-room fraction 0.0603 at every dose (T267's at-chance law confirmed); less TOTAL drift than the twin (1.144 vs 1.795 — the controller is also the gentler traveler); successor dials named: the cadence, the overshoot's meaning, the calibration constant (2026-10-06, datetime.now) — DONE
 
 WHAT WE SAW: the build era's arc closes at its fourth form: PASSIVE failed on coupling; MIXED failed on signal; NAMED proved the mechanism; GATED HOLDS — the first memory ever actively maintained, by feedback, in a training organism that keeps learning the whole time. THE ORGANISM'S OWN READ ERROR, MEASURED PERIODICALLY, DRIVES THE DOSE (the sicker the read, the stronger the anchor; healthy reads cost nothing — the controller spent only 68% of its allowed budget). Maintenance is re-teaching under a budget, gated by the read's own deficit — rehearsal as a design pattern, closed-loop.
