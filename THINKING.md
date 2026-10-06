@@ -7,6 +7,42 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T267 — E287: the name signal is a real maintenance mechanism — and the room-frame is not the operative frame (2026-10-06, datetime.now ~09:40Z)
+
+**The mechanism, proven.** The first true-name-signal run: every sampled
+window a LIFT (x2.82, x3.92 — e286's drift-inversion gone), the budget
+held by construction, the stream live and learning, 51x the passive
+twin. THE NAME SIGNAL IS A REAL MAINTENANCE MECHANISM. Maintenance is
+re-teaching under a budget, and re-teaching works — the cons stream's
+universality (e281) turned into an engineering primitive.
+
+**The falsified registration (the honest score).** The dispatch
+registered "expect >> 0.06" for the name gradient's in-room fraction;
+it sits AT 0.061 — chance, identical to the corpus gradient. The lifts
+fire from a direction with NO room privilege: THE ROOM-FRAME IS NOT THE
+OPERATIVE FRAME FOR MAINTENANCE. The read is whole-state (T265); the
+teacher is function-space directed; the room was only ever the
+formation scaffold (x6/x10's fill law) and the collision's traffic
+lane (T260). Three frames, three roles — the lab's geometry story
+differentiates at last.
+
+**The named dial: THE SHARE.** Not the budget (held), not the
+direction (proven) — the allocation: a larger maintenance share of the
+same held budget, or a denser cadence. e288's error-gated controller
+redistributes exactly this (60/40) with dose ∝ deficit — the
+self-correcting form of the same dial. If STRONGER-SAWTOOTH or HOLDS,
+the dose-response curve is the build era's first design chart; if
+NO-GAIN, the flat-dose ladder takes the slot.
+
+**The misbind's full decode closes the e286 story honestly:** 0/60
+maintenance windows carried the name; e286's "name_ce" was host-text
+CE; the "~1% mass" premise superseded by 0%. The second form's lift
+came from HOST TEXT — which means a small mixed host-text teaching
+step ALSO lifts the read (the misbind's gift, now double-confirmed):
+the read responds to teaching traffic in general, and the name signal
+is the purest verified instance. Rehearsal as a design pattern stands.
+
+
 ## T266 — E286: the sawtooth and the dilution — active maintenance fails on direction, and the arc learns to name its successors (2026-10-06, datetime.now ~08:30Z)
 
 > **[R68 CORRIGENDUM 2026-10-06, URGENT, citing e287's birth 6a66fab: THE
