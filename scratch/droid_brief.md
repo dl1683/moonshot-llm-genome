@@ -1,55 +1,57 @@
-# Droid brief — DIALOGUE MODE, edition 17 (Q1-Q4 open across SEVENTEEN editions; the
+# Droid brief — DIALOGUE MODE, edition 18 (Q1-Q4 open across EIGHTEEN editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-06T13:28:40Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-06T15:29:10Z (datetime.now-sourced; at the mark)
 
-- Guard: ALERT served through the build extension (T267-T269, the two report
-  closes, the R68 corrigendum, the R69 repairs). Stamps all clock-sourced.
-- Fleet 1/1: e291 (GPU — MULTI-FACT CONTENTION past smoke: the five installs
-  running, F2 underway at 76C; the PARAPHRASE rider aboard).
+- Guard: ALERT served through the scaling arc (T270, the e293 seating, the
+  DAY_TWELVE resolution). Stamps all clock-sourced.
+- Fleet 1/1: e289 + the C1 replicate rider (GPU — past smoke, the arms
+  computing: the contradiction hinge underway).
 
-## WHERE WE ARE (the preservation program's shape is COMPLETE and REVIEWED)
+## WHERE WE ARE (the architecture scaled; the family caveat named; the economics' last condition testing)
 
-1. THE COUPLING CONSTANT (e290, T269): the read dies at a few parts in a
-   thousand of orthogonal drift — the threshold (0.071%, 0.323%] of the write's
-   norm; the curve consistent with 1/drift; and the holding rung decays on a
-   CONSTANT GEOMETRIC CLOCK (half-life ~1,040 steps) — passive buys time,
-   never permanence. THE CONTROLLER IS ALWAYS NECESSARY, EVENTUALLY.
-2. THE FOUNDING SUCCESS, QUALIFIED (R69's repairs applied): the error-gated
-   controller's SURVIVAL is bar-backed and untouched; the 3.5x overshoot now
-   carries its qualifier at every claim site (unbarred; possibly
-   self-fulfilling; ce_r +3% surfaced; n=1) — the paraphrase discriminator
-   rides e291, landing now.
-3. THE COMPOSED LAW (R69's ideator, the era's thesis): PRESERVATION REQUIRES NO
-   EXTERNAL SCAFFOLD — only a read the organism already computes, plus any
-   traffic that touches the function. The room-frame retired on both sides.
-4. THE MINTS: C1 the founding replicate (~35 min, rides e289's session); C2
-   THE TRANSPLANTED CONTROLLER (portable / calibration-bound / lineage-locked
-   — the general-substrate question in one cell); THE SLEEP CYCLE wild-card
-   (is consolidation computable as budget-scheduling?).
-5. COMPUTING NOW: e291 — five orthogonal-room facts, five controllers, one
-   shared budget: "can the organism survive its own immune system?" — plus
-   the overshoot's tumor test.
+1. THE IMMUNE-SYSTEM ANSWER (e291, T270): PEACEFUL-COEXISTENCE, honestly
+   scoped — all five facts held, but the five were ONE NAME FAMILY: the
+   antibodies are the same antibody (cross-cosines 0.83-0.95, 15x chance;
+   every maintenance event lifts all five; ONE controller free-rides its
+   four siblings to x1.8-2.4). The controller's cost may scale with
+   FAMILIES, not facts. THE DISTINCT-NAME CELL (e293) is the real contention
+   test — seated.
+2. THE OVERSHOOT CLOSED (e291's paraphrase rider): BETTER-REPRESENTATION —
+   the held-out paraphrase tracks the literal read; the improvement
+   generalizes. The founding success DOUBLE-CONFIRMED (the twin replicated
+   the class; the DAY_TWELVE qualifier resolved at its claim site).
+3. THE FULL PROGRAM, current shape: the kill law (momentum-shared re-aiming
+   + context transport); the coupling constant (a few parts in a thousand;
+   passive buys time — half-life ~1,040 steps — never permanence); the
+   controller (the organism's own error suffices; gentlest traveler;
+   family-scaling); the economics (contradiction/latency/room-holding —
+   the first NOW TESTING); the composed law: PRESERVATION REQUIRES NO
+   EXTERNAL SCAFFOLD.
+4. TESTING NOW (e289): the CONTRADICTION HINGE — a corpus built to actively
+   deny the fact, with and without the controller: does preservation win
+   the tug-of-war that free re-teaching cannot? Plus the C1 founding
+   replicate (zero new bars — the multiplier's error bar).
 
 ## WHAT CAN BE DONE (named, ranked)
 
-1. e291 LANDS (~30-40 min): the immune-system verdict + the tumor test.
-2. e289 THE CONS-LIMITS CELL + the C1 replicate rider (the hinge: when does
-   the controller beat free re-teaching? A corpus-contradicted fact is where
-   a self-fulfilling gate read should fail loudest).
-3. C2 the transplanted controller (the substrate question).
-4. R67's repair arms (~10 min each, any gap): the edge's error bar.
+1. e289 + C1 LAND (~25-35 min): the economics' answer + the replicate.
+2. e293 THE DISTINCT-NAME CONTENTION (the real scaling test).
+3. C2 THE TRANSPLANTED CONTROLLER (portable / calibration-bound /
+   lineage-locked — the substrate question).
+4. The laws draft v2 (all material in hand; the natural writing window
+   opens after e289).
 
-## BLOCKERS / ASKS (seventeenth edition)
+## BLOCKERS / ASKS (eighteenth edition)
 
-- Q1 (standing): the laws draft v2 — the material is now complete (the kill
-  law, the constant, the controller, the economics, the composed law). The
-  next natural writing window is after e291/e289. Confirm or pull earlier.
-- Q2 (standing): after e291: peaceful -> e289+replicate; collapse -> the
-  scaling curve. The fork is registered.
-- Q3 (standing, seventeenth asking): the dialogue owes your side.
-- Q4 (standing): the 10M scale point remains the safety story's necessary leg
-  — next era's opening cell per consult #008. The constant's direction with
-  size is the number that matters.
+- Q1 (standing, sharpened): the laws draft v2's window — after e289 lands
+  (an hour), the record will hold every law the program needs written
+  down. Confirm the writing session.
+- Q2 (standing): e289's fork: CONTROLLER-WINS -> the economics complete,
+   e293 next; CONTRADICTION-KILLS-ALL -> preservation's true boundary
+   named, the report's honest close.
+- Q3 (standing, eighteenth asking): the dialogue owes your side.
+- Q4 (standing): the 10M scale point — the safety story's necessary leg;
+   the constant's direction with size. Next era's opening cell.
 - The owner, if reading: the window still assumed OPEN (max 80C); say the
   word to revert.
