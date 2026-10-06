@@ -475,9 +475,20 @@ deviations: list[str] = [
     "three). The ~5 GPU min the letter budgeted for regenerations is "
     "therefore NOT spent.",
     "THE SMOKE RECORD (the e260-family discipline): the machinery smoke "
-    "ran FIRST (E281_SMOKE=1, runs/e281_smoke/) — pass 1's findings "
-    "recorded in the smoke metrics verbatim; NOTHING adjudicated in "
-    "smoke (SMOKE stamp on every read).",
+    "ran FIRST (E281_SMOKE=1, runs/e281_smoke/, pass 1 + the fixed pass "
+    "2) and caught ZERO functional bugs — all 13 hard gates PASS "
+    "(G_R10DEAD SMOKE-vacuous at 8 steps, disclosed), G_SEEDSTATE "
+    "bit-exact (|d| 0.0 on all three loaded arms), all five cons runs + "
+    "the fresh R10 install + the adjudication + both figures + the "
+    "report exercise cleanly, thermal max 59.0C over 48 polls. ONE "
+    "smoke-record gap found and fixed before the full run: the smoke's "
+    "own verdict/status/report lines lacked the SMOKE stamp (e271's "
+    "convention — a smoke verdict must never be readable as an "
+    "adjudication); the stamp was added and pass 2 re-run clean. The "
+    "smoke's MIDED-looking numbers (floor 0.6055, seeded landings "
+    "0.27-0.59) are the expected 8-step-cons artifact — the s300 "
+    "protocol has not run. No bar, gate or arm form changed; the "
+    "adjudication machinery is exactly the birth-committed form.",
     "THE CONS RUNS FRESH FROM LOADED STATES, ONE SESSION (the design's "
     "own strength, stated): every prior landing read (e268's 0.7119, "
     "e270's 0.8103, e272's 0.6879) was measured in ITS OWN session; this "
@@ -1447,6 +1458,10 @@ def main():
         clause = ("; ".join(why) + " — the five points verbatim, no "
                   f"inflation: {five_txt}")
 
+    if SMOKE:
+        verdict = f"SMOKE (machinery exercised; NOTHING adjudicated): " \
+                  f"{verdict}"
+
     log("=" * 78)
     log(f"E281 VERDICT: {verdict}")
     for a in order:
@@ -1623,7 +1638,10 @@ def main():
     make_dose_plot(RD, arms_rec, L, order, in_band, floor, verdict, clause,
                    step, thermal_log)
     make_instrument_plot(RD, arms_rec, thermal_log)
-    metrics["status"] = ("COMPLETE — adjudicated (this write replaces all "
+    metrics["status"] = ("SMOKE-COMPLETE — the machinery exercised, "
+                         "NOTHING adjudicated (the smoke record)"
+                         if SMOKE else
+                         "COMPLETE — adjudicated (this write replaces all "
                          "PARTIAL progressive writes)")
     metrics["outputs"] = [str(RD / "metrics.json"),
                           str(RD / "e281_rehearsal_dose.png"),
@@ -1884,6 +1902,11 @@ def write_report(rd, verdict, clause, L, order, in_band, floor, step,
     a("# E281 — THE REHEARSAL DOSE-RESPONSE (the retrieval story's "
       "lynchpin)")
     a("")
+    if SMOKE:
+        a("**SMOKE RECORD — the machinery exercised, NOTHING adjudicated "
+          "(every read carries the SMOKE stamp; the 8-step cons is not "
+          "the registered s300 protocol)**")
+        a("")
     a(f"**VERDICT: {verdict}** "
       + ("(all hard gates PASS)" if gates_pass
          else "(TEXTURE — a hard gate failed)"))
