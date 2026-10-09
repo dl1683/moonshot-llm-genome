@@ -1007,7 +1007,9 @@ def anti_phase(tag: str, anti_on: bool, net0_sd: dict,
                 "t_erase": state.get("t_erase"),
                 "work_at_erase": state.get("work_at_erase"),
                 "spent_at_erase": state.get("spent_at_erase"),
-                "anti_cum_norm_final": None,
+                "anti_cum_norm_final": float(np.linalg.norm(
+                    state.get("anti_cum").double().numpy()))
+                if state.get("anti_cum") is not None else None,
                 "lr_applied_min": min(lrs_c) if lrs_c else None,
                 "lr_applied_median": (float(sorted(lrs_c)[len(lrs_c) // 2])
                                       if lrs_c else None),
@@ -2359,7 +2361,7 @@ def main():
     price_lo = E290_DRIFT_BRACKET[0] * f3_write_norm
     price_hi = E290_DRIFT_BRACKET[1] * f3_write_norm
     log(f"P2 G_F3WRITE: ||F3WRITE|| {f3_write_norm:.6f} (in-own-room "
-        f"{f3_write_in_own_room_norm:.4f} = "
+        f"{f3_write_in_own_room:.4f} = "
         f"{f3_write_in_own_room / f3_write_norm:.1%}) — THE PASSIVE PRICE "
         f"BRACKET [{price_lo:.6f}, {price_hi:.6f}] (e290 x F3's write); "
         f"organism-scaling alternative "
@@ -3044,6 +3046,9 @@ def main():
                    f"{w_['absorbed_vs_twin']:+.6f} | "
                    f"{'HOLD' if sib_abs[f_] else 'FALL'} | "
                    f"{'HOLD' if sib_twn[f_] else 'FALL'} |\n")
+    def _fm(v, spec=".4f"):
+        return format(v, spec) if v is not None else "n/a"
+
     rep.append("\n## The standing conditions\n\n"
                f"- G_BUDGET: {'PASS' if G_BUDGET['pass'] else 'BLOWN'} — "
                f"arm (a) S_corpus {ant['S_corpus']:.4f} + S_anti "
@@ -3057,10 +3062,10 @@ def main():
                "(machine-counted), the dose law asserted at every event, "
                "zero isolation violations\n"
                f"- The stream: arm (a) live={stream_a['live']} (CE "
-               f"{stream_a['early_median']:.4f} -> "
-               f"{stream_a['late_median']:.4f}); twin live="
-               f"{stream_t['live']} ({stream_t['early_median']:.4f} -> "
-               f"{stream_t['late_median']:.4f})\n"
+               f"{_fm(stream_a['early_median'])} -> "
+               f"{_fm(stream_a['late_median'])}); twin live="
+               f"{stream_t['live']} ({_fm(stream_t['early_median'])} -> "
+               f"{_fm(stream_t['late_median'])})\n"
                f"- The ascent gate (at birth): one full-dose stroke "
                f"lowered FACT3 {G_ASCENT['target_pre']:.6f} -> "
                f"{G_ASCENT['target_post']:.6f} "
