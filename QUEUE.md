@@ -6,7 +6,7 @@ Statuses: `READY` (next up), `RUNNING`, `DONE (see NOTES.md)`, `PARKED`
 (idea only, no live-hypothesis discrimination), `GATED` (waiting on a
 prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
-## R71 SECTION (2026-10-09, folded ~18:30Z) — the scope-and-repair wave
+## R71 SECTION (2026-10-09, folded ~18:12Z) — the scope-and-repair wave
 
 The unlearning chapter is closed and reviewed (R71): every number exact, the
 vocabulary pulled back to evidence, and the queue rebuilt around the three
@@ -15,8 +15,8 @@ cards the ideator minted.
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
-| x15 | THE DOSE-MATCHED COMPLEMENT (R71 critic's cheapest cell; the bearer-necessity dose confound) | DISPATCHED ~18:30Z Oct-9 | CPU desk: scale e310's on-disk complement x3.033 to the full write's norm, inject, probe t0; ALIVE = necessity falls as dose artifact / DEAD-AT-FULL-DOSE = the law survives dose-matched |
-| e321 | THE FAT SPERM CELL (T278's discriminating observation; e311's successor) | DISPATCHED ~18:30Z Oct-9 | GPU: r1000 in-room seed at 43.7% energy, natural norm, zero bearer mass beyond; trigger+seed arms on the committed e311 vectors; P-e321a registered: FAT-SEED-READS (p>=0.05 at >=half the host contexts) vs CONTENT-LOCKED; if it reads, the erase-host discriminator rerides |
+| x15 | THE DOSE-MATCHED COMPLEMENT (R71 critic's cheapest cell; the bearer-necessity dose confound) | DISPATCHED ~18:15Z Oct-9 | CPU desk: scale e310's on-disk complement x3.033 to the full write's norm, inject, probe t0; ALIVE = necessity falls as dose artifact / DEAD-AT-FULL-DOSE = the law survives dose-matched |
+| e321 | THE FAT SPERM CELL (T278's discriminating observation; e311's successor) | DISPATCHED ~18:15Z Oct-9 | GPU: r1000 in-room seed at 43.7% energy, natural norm, zero bearer mass beyond; trigger+seed arms on the committed e311 vectors; P-e321a registered: FAT-SEED-READS (p>=0.05 at >=half the host contexts) vs CONTENT-LOCKED; if it reads, the erase-host discriminator rerides |
 | e318 | THE LONE SCALPEL (the membrane law's null-family control) | READY | e314's alpha ladder verbatim on e288's single-fact states: LONE-SURVIVES = the retreat is generic / LONE-DIES = the bearer becomes place-necessary when there is nowhere else to live; motivated by P-e311c's failure + the critic's n=1 attack |
 | e320 | THE SHAM'S SCOPE (the displacement diet, lone-fact arm) | READY | rides e318's session; e314's sham norm ladder on the same single-fact states; P-e311c says the boost is family-scoped — bar: LONE-BOOSTS = stiction (generic) / LONE-INDIFFERENT-OR-HURT = membrane-tension (social) |
 | e323 | THE CASCADE GUARD (fresh-draw two-rung boundary re-ladder + the family redraw) | READY | e290's bracket is the most-load-bearing number: fresh room seeds + fresh install, only the 0.0008x and 0.004x rungs; RIDER: fresh-seed e291-family redraw + e294's anti on FACT3 (the membrane law's cheapest replication); BOTH-EDGES-HOLD = organism property / EITHER-MOVES = room-lottery draw, Laws 2b/4/5 + the Landauer ledger inherit ~21%-class uncertainty |

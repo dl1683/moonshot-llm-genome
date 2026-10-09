@@ -2239,7 +2239,7 @@ phylogeny; e026 selection-on-depth (evolution thread).
 
 ## Review 0.5 — bootstrap results check (2026-09-24T10:12Z)
 
-## R71 — the unlearning chapter reviewed: every number exact, the R70 repair ledger caught overstating, and the vocabulary pulled back to its evidence (2026-10-09, folded ~18:30Z)
+## R71 — the unlearning chapter reviewed: every number exact, the R70 repair ledger caught overstating, and the vocabulary pulled back to its evidence (2026-10-09, folded ~18:12Z)
 
 Trigger: review 7.7h stale (R70 10:26Z); the beat guard fired TREADMILL-ALERT on stale QUEUE DISPATCHED fossils (bookkeeping debt — archived this fold; the walker's data was Oct-4 era while the true newest dispatch was e311); the guard's prescribed remedy IS this review, and the beat's bulk preceded all dispatch. Three parallel subagents (auditor / ideator / critic) over the unlearning chapter (e294-e314, T272-T277, THE_LAWS_V2, consults #008/#009). e311 landed mid-review and is harvested separately (T278).
 
