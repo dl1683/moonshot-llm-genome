@@ -7,6 +7,48 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T292 — X25: the scalpel passed and the noun survived — but the causality door opened (2026-10-09, datetime.now ~22:55Z)
+
+The autopsy returned the cleanest possible refutation of the mass
+reading: strip the write's room-overlap mass (the scalpel at 1.0 and
+1.5) and TAVIREN's lift not only stands, it DOUBLES (11.84x ->
+23.62x/24.32x) while never-written names stay flat in every state. The
+fragility is not the write's mass. THE NOUN SURVIVES ITS CRITIC.
+
+But the executor's honest-reading catch is the real event: x24
+measured the lift on the PRE-WRITE base organism, so the entire
+authorship chain (write -> lift) is a correlation between where writes
+SUCCEEDED and which slots are liftable. The surviving hypotheses:
+- CAUSALITY: writing mutates the slot (the lab's original noun);
+- SELECTION: writes land only on pre-disposable slots — the fragility
+  PREDATES the writing, and the name bank's count-0 gate was silently
+  selecting for slot disposition.
+THE CAUSAL PROBE (cheap, and x26 is already designed for it): THE
+FORGED AUTHOR — ascend a robust never-written name's initial-char row
+(384 params, no context write) and re-run the panel. FORGE-LIFTS =
+authorship is local row-gradient history (causality, minimal form);
+FORGE-INERT = writing needs its contexts — then e330 (write a fresh
+name at the contexts, pre/post panel) splits full-causality from
+selection. Either way the noun resolves to its final form.
+
+TWO MORE RESULTS WORTH SAVORING:
+- THE DAMPING: removing the write's mass DOUBLED the slot's lift —
+  the formed write was DAMPING its own name's fragility (the formed
+  read's anchored mass stabilizes the slot the way a keel steadies a
+  hull; scalpel the keel and the slot swings). Formation buys
+  stability, not just content.
+- THE TWO-FACTOR ASYMMETRY: the anchor's 54.6x is pure name-push
+  (gaussian recovers 1%); a marginal name's slot carries a small
+  generic-energy coupling (~15%). The noise floor has TWO currencies,
+  and entrenched vs marginal names differ in kind, not just degree.
+
+THE LEDGER: the ninth mechanism-seat miss — the scoped correction
+extends: the thinking lane's mass-bet (born of x19's bearer-coupling,
+the strongest same-evening prior) also fell. The instruments are now
+9-0 against the lab's mechanism guesses and 3-for-3 on the
+advance-registered counters. The lesson sharpens: REGISTER THE
+COUNTER, NOT THE GUESS.
+
 ## T291 — E324: the bimodal wheel — formation has two modes, the fork lands at step one, and the canon is the rare one (2026-10-09, datetime.now ~22:05Z)
 
 The census answers the monoculture question with the sharpest possible

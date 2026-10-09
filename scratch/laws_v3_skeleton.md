@@ -25,7 +25,9 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
 - The (1k,2k] edge under Adam (e272), dose acquitted at matched rank, the 73.5% fill (x6/x10).
 - [R73 FLAG: the necessity clause's final form (authorship-relative bars) is an
   instrument-calibration rule, not a formation law — candidate demotion to a METHODS
-  note at v3 drafting; its mechanism noun hangs on x25 (plasticity vs mass)]
+  note at v3 drafting; x25 DONE: the MASS reading fell (the lift survives and doubles under the scalpel);
+  the noun holds as NOT-THE-MASS, with causality pending (writing-causes vs
+  slot-pre-disposition) on x26/e330; re-nouning at the drafting]
 - NEW CLAUSES (the bearer law, promoted from notes):
   - SUFFICIENCY: the room-overlap tail carries the read (e306 — truncation kills, r7 = 33.9% mass).
   - NECESSITY, DOSE-MATCHED: the out-of-room complement at 100% of the write's energy reads
