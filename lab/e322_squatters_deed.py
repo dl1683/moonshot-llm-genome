@@ -1410,8 +1410,10 @@ def main() -> None:
     if not SMOKE:
         rooms264 = torch.load(CKPT_DIR / ROOMS264_CK, map_location="cpu",
                               weights_only=False)
-        D264 = rooms264["model"]["K10K"]["D_int8"].numpy().astype(np.float64)
-        S264 = rooms264["model"]["K10K"]["S"].numpy()
+        def _to_np(x):
+            return x.numpy() if hasattr(x, "numpy") else np.asarray(x)
+        D264 = _to_np(rooms264["model"]["K10K"]["D_int8"]).astype(np.float64)
+        S264 = _to_np(rooms264["model"]["K10K"]["S"])
         G_ROOMHOST = {
             "form": "the host's own committed K10K room (seeds "
                     "26113/26114): D + S bit-identical to e264_rooms.pt",
