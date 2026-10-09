@@ -365,8 +365,9 @@ def shared_frame_rooms(n: int, k: int, n_rooms: int,
 rck = torch.load(CKPT / "e288_rooms.pt", map_location="cpu",
                  weights_only=False)["model"]["K10K"]
 room = SRCT(N, int(rck["k"]), ROOM_SEEDS[0], ROOM_SEEDS[1])
-D_stored = rck["D_int8"].numpy().astype(np.float64)
-S_stored = rck["S"].numpy()
+_as_np = lambda t: t.numpy() if hasattr(t, "numpy") else np.asarray(t)
+D_stored = _as_np(rck["D_int8"]).astype(np.float64)
+S_stored = _as_np(rck["S"])
 GR = {"seeds": ROOM_SEEDS, "k": int(rck["k"]),
       "D_bit_equal": bool(np.array_equal(D_stored, room.D)),
       "S_bit_equal": bool(np.array_equal(S_stored, room.S)),
@@ -374,15 +375,16 @@ GR = {"seeds": ROOM_SEEDS, "k": int(rck["k"]),
 if not (GR["D_bit_equal"] and GR["S_bit_equal"]):
     raise SystemExit(f"ROOM GATE FAILURE (K10K): {GR}")
 
-r291 = torch.load(CKPT / "e291_rooms.pt", map_location="cpu",
-                  weights_only=False)
+_r291 = torch.load(CKPT / "e291_rooms.pt", map_location="cpu",
+                   weights_only=False)
+r291 = _r291["model"] if "model" in _r291 else _r291
 D291, SETS291, MASKS291, UNION291 = shared_frame_rooms(
     N, K10K, 5, E291_SEEDS[0], E291_SEEDS[1])
 GR291 = {"seeds": E291_SEEDS, "n_rooms": 5,
          "D_bit_equal": bool(np.array_equal(
-             r291["D"].numpy().astype(np.float64), D291)),
+             _as_np(r291["D"]).astype(np.float64), D291)),
          "sets_bit_equal": bool(all(
-             np.array_equal(np.asarray(s), SETS291[i])
+             np.array_equal(_as_np(s), SETS291[i])
              for i, s in enumerate(r291["sets"])))}
 if not (GR291["D_bit_equal"] and GR291["sets_bit_equal"]):
     raise SystemExit(f"ROOM GATE FAILURE (e291): {GR291}")
@@ -541,6 +543,10 @@ def svd_read(dw: np.ndarray) -> dict:
     cum = np.cumsum(glob)
     tot_e = sum(per_energy.values())
     top_m = sorted(per_energy.items(), key=lambda kv: -kv[1])[:3]
+    if e2d <= 0.0 or tot_e <= 0.0:      # the zero-vector guard (NC passive)
+        return {"T3": None, "T10": None, "T50": None, "top10_shares": [],
+                "cross90": None, "cross99": None, "e_2d": e2d,
+                "top3_matrices_by_energy": [], "_glob": glob}
     return {"T3": float(glob[:3].sum() / e2d),
             "T10": float(glob[:10].sum() / e2d),
             "T50": float(glob[:50].sum() / e2d),
@@ -618,6 +624,9 @@ PRIMARY = "e288_ERROR-GATED[controller,neutral]"
 for name in ARMS:
     if isinstance(MAINT[name], list):
         continue  # e291 handled in the fleet section
+    if "NO-CONTROLLER" in name:
+        continue  # the passive arm's footprint is EXACTLY zero (the
+        # instrument control, G_INSTRUMENT) — no geometry to read
     GEO[name] = geometry(MAINT[name], name)
 write_partial("P3a pure-footprint geometry done (7 arms)")
 
@@ -709,7 +718,7 @@ write_partial("P4 repeat instruments done (R1 identity + R2 rho + R3)")
 CROSS = {}
 one_fact = [n for n in ARMS if "e291" not in n
             and "NO-CONTROLLER" not in n]
-one_fact.append("e291_SINGLE-CONTROL-TWIN[controller,fact1]:FACT1")
+one_fact.append("e291_SINGLE-CONTROL-TWIN[controller,fact1]")
 mats = {}
 for n in one_fact:
     mats[n] = (MAINT[n][0] if isinstance(MAINT[n], list) else MAINT[n])
@@ -831,6 +840,73 @@ METRICS["verdict"] = {
         "causal_delta_T3": GEO["e289_causal[WC-NC,denial]"]["svd"]["T3"]},
 }
 write_partial(f"P7 ADJUDICATED: {verdict}")
+
+# ======================================================================
+# P9 — THE DECOMPOSITION (derived interpretation reads; adjudicated bars
+# UNTOUCHED — this section only explains the two surprises: (i) the
+# accumulated footprint rides at the VOLUME null (0.0037), not the
+# 0.06 per-step class null; (ii) R1 repeat 0.80 coexists with T3 0.21.
+# The per-event ledgers carry bufF_inroom_frac f_p(t) — the step's own
+# in-room fraction — so the R1 identity splits EXACTLY by subspace:
+#   mean_in_cos  = (f_in*||cum||^2 - sum_t f_p(t) r_t^2) /
+#                  (sum_t f_p(t)^0.5 r_t * sum_{t'!=t} f_p(t')^0.5 r_t')
+#   (denominator = the f_p-weighted pairwise norm product, exact for
+#    norm-weighted means when f_p varies slowly — the per-event range
+#    0.0597-0.0611 makes the variation negligible; disclosed)
+#   mean_out_cos = same with (1 - f_*) throughout.
+# ======================================================================
+DEC: dict = {}
+for name, r in REP.items():
+    led = CK[name]["maint_ledger"]
+    rr = np.array([e["realized_step_norm"] for e in led])
+    fp = np.array([e["bufF_inroom_frac"] for e in led])
+    cum2 = float(r["cum_norm"] ** 2)
+    f_in = GEO[name]["in_room_frac"]
+    s1, s2 = float(rr.sum()), float((rr * rr).sum())
+    den_full = s1 * s1 - s2
+    # in-room channel
+    q = np.sqrt(fp) * rr
+    den_in = float(q.sum() ** 2 - (q * q).sum())
+    num_in = f_in * cum2 - float((fp * rr * rr).sum())
+    # out-of-room channel
+    a = np.sqrt(1 - fp) * rr
+    den_out = float(a.sum() ** 2 - (a * a).sum())
+    num_out = (1 - f_in) * cum2 - float(((1 - fp) * rr * rr).sum())
+    DEC[name] = {
+        "f_in_accumulated": f_in,
+        "f_p_median_per_step": float(np.median(fp)),
+        "predicted_f_in_if_inroom_orthogonal":
+            float((fp * rr * rr).sum() / cum2),
+        "mean_inroom_cross_event_cos": num_in / den_in,
+        "mean_outofroom_cross_event_cos": num_out / den_out,
+        "full_R1": r["wmean_cross_event_cos_R1"],
+        "note": "the R1 identity split by subspace; denominators use the "
+                "f_p-weighted pairwise products (f_p varies 0.0597-0.0611, "
+                "negligible); derived interpretation, never a bar; the "
+                "cos_out values slightly above 1.0 (<= 1.03, flat arms) "
+                "are the approximation's + fp32-ledger-norm slack — read "
+                "as '~1.0, perfectly aligned'"}
+METRICS["decomposition"] = DEC
+METRICS["reading"] = {
+    "local_vs_global": "consecutive-step cosine ~0.98 (consec_cos_mean) "
+        "but norm-weighted mean over ALL pairs 0.80 and T1 0.087: the "
+        "steps are LOCALLY repeating (the buffer's momentum memory) and "
+        "GLOBALLY rotating — a slowly-rotating repertoire spanning "
+        "~cross90 dims over the 16 events",
+    "the_answer_to_the_dispatch": "neither one antibody (T3 0.21 < 0.50) "
+        "nor chance carving (repeat fires 0.80 >> 0.5; 90x more "
+        "concentrated than the null): a SESSION-INVARIANT, MID-RANK "
+        "(~70-dim at 90%), slowly-rotating repertoire living ENTIRELY "
+        "outside the room (in-room channel decorrelates to the volume "
+        "null; out-of-room channel repeats at 0.85-1.0); the "
+        "state-dependent part is the DOSE, not the direction",
+    "tracking_status": "NAVIGATION's direction-tracking clause is "
+        "instrument-missing (per-event deficit-gradient directions not "
+        "saved); the rho_t series declining 0.83->0.60 within the phase "
+        "is the nearest available texture (the alignment itself "
+        "state-tracks), but no bar reads it",
+}
+write_partial("P9 the in/out-of-room decomposition done")
 
 # ======================================================================
 # FIGURE
@@ -1013,11 +1089,82 @@ e288-EG {rp['wmean_cross_event_cos_R1']:.4f}; e288-NFT
 cosines in metrics.json; R3 (footprint vs the FINAL momentum buffer)
 per arm in metrics.json.
 
+## The two surprises (the decomposition, P9)
+
+1. **THE ACCUMULATED FOOTPRINT RIDES THE VOLUME NULL.** In-room
+   {cl['in_room_frac']:.5f} vs the k/N volume null
+   {VOLUME_NULL:.5f} (gaussian anchor
+   {METRICS['nulls']['gaussian_in_room']:.5f}) — NOT the 0.060 per-step
+   class law (T267/T268). Accumulation does not bend the footprint
+   IN-room; it bends it OUT to the pure-volume rate. The split identity
+   explains it exactly: the IN-room channel's own cross-event cosine =
+   {DEC[PRIMARY]['mean_inroom_cross_event_cos']:+.4f} (mutually
+   orthogonal — the per-step 6% in-room is event-specific and
+   accumulates as an in-room random walk; predicted f_in under
+   orthogonality {DEC[PRIMARY]['predicted_f_in_if_inroom_orthogonal']:.5f}
+   vs measured {DEC[PRIMARY]['f_in_accumulated']:.5f}) while the
+   OUT-of-room channel repeats at
+   {DEC[PRIMARY]['mean_outofroom_cross_event_cos']:+.4f}.
+   **THE REPEAT LIVES ENTIRELY OUTSIDE THE ROOM** — T267's
+   "room-frame is not the operative frame," now measured at the
+   accumulated level.
+2. **MID-RANK, NOT ONE-DIMENSIONAL.** T3 = {cl['T3']:.4f} (< 0.50) with
+   cross90 = {cl['cross90']} (>> 1000-fold spread would be needed for
+   the null class): the carving concentrates ~90% of its energy in
+   ~{cl['cross90']} dimensions — a ~70-dim REPERTOIRE, not one
+   antibody, not a chance spread.
+
+## The session-invariance reads (the vital-signal evidence class)
+
+Flat-vs-flat carving cosines ACROSS SESSIONS (different streams):
+{CROSS['e287_NAME-MAINTAINED~e288_NAME-FIXED-TWIN']:.4f} /
+{CROSS['e287_NAME-MAINTAINED~e289_C1-NAME-FIXED-TWIN']:.4f} /
+{CROSS['e288_NAME-FIXED-TWIN~e289_C1-NAME-FIXED-TWIN']:.4f}.
+Controller-vs-controller ACROSS SESSIONS AND TRAFFIC:
+e288-EG~e289-C1-EG {CROSS['e288_ERROR-GATED~e289_C1-ERROR-GATED']:.4f}
+(neutral vs neutral), e288-EG~e289-WC
+{CROSS['e288_ERROR-GATED~e289_CONTRADICTED-WITH-CONTROLLER']:.4f}
+(neutral vs DENIAL — contradiction does not rotate the carving),
+e289-WC~e289-C1-EG
+{CROSS['e289_CONTRADICTED-WITH-CONTROLLER~e289_C1-ERROR-GATED']:.4f}.
+Controller-vs-flat ~0.65-0.72 (dose changes the carving's composition);
+the e291 multi-fact organism shifts it further (0.49-0.67). The e291
+fleet's five accumulated per-fact carvings align at
+{min(FLEET['cross_fact_cos'].values()):.3f}-{max(FLEET['cross_fact_cos'].values()):.3f}
+(e291's instant-level "same antibody" finding, confirmed at the
+accumulated level), and each rides its own room at
+{min(v['in_own_room'] for v in FLEET['per_fact'].values()):.5f} ==
+the per-room volume null 0.00365, with the union read at
+{FLEET['fleet_sum']['in_room_frac']:.5f} == the union volume null
+0.018254.
+
 ## (d) The cross-cell comparison (neutral vs denial)
 
 See metrics.json `verdict.cross_cell_d` — the footprint cosines
 ({METRICS['verdict']['cross_cell_d']['cos_neutral_vs_denial_footprint']:.4f}
 neutral-vs-denial), the causal delta's geometry, and the class table.
+The class table is UNIFORM: every arm (controller AND flat, neutral
+AND denial) repeats (R1 0.79-0.96, rho 0.67-0.92), none is low-rank at
+the 50%/top-3 bar (T3 0.12-0.23, cross90 68-115), none is spread
+(null-class cross90 would be ~10^5-10^6). The controller's carving is
+SYSTEMATICALLY higher-rank than the flat dose's (T3 0.21 vs 0.12;
+cross90 73 vs 113-115; rho 0.72 vs 0.91) — the error-gated dose's
+state-dependence widens the repertoire the flat dose holds narrow.
+
+## The predictions' scorecard (registered at birth)
+
+- P-e307a (repeat at both levels): CONFIRMED (R1 0.80/0.83/0.79 and
+  rho 0.72/0.74/0.67 on the three controller arms).
+- P-e307b (in-room ~0.060): **REFUTED** — the accumulated footprint
+  rides the VOLUME null 0.0037; the per-step class law does not
+  survive accumulation (the honest surprise; the decomposition above).
+- P-e307c (T3 >= 0.5, ONE-ANTIBODY branch): **REFUTED** — T3 0.21,
+  mid-rank; the verdict landed MIXED per the registered tree.
+- P-e307d (cross-session cos > 0.5): CONFIRMED (0.92-0.99 within the
+  controller class; 0.99 within the flat class).
+- P-e307e (denial does not rotate the carving): CONFIRMED
+  (neutral-vs-denial cos 0.93; e289's finding stands at the geometry
+  level: contradiction changes the DOSE, not the DIRECTION).
 
 ## Disclosures (the honesty ledger)
 
@@ -1035,6 +1182,28 @@ neutral-vs-denial), the causal delta's geometry, and the class table.
 - n=1 per arm; the cross-session cosines ride one draw each (the
   family's standing lottery caveat).
 - NO NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).
+
+## The honest reading (the verdict word is bar-bound; this paragraph
+interprets)
+
+The dispatch's either/or — one antibody vs genuine navigation —
+resolves as NEITHER, and the split is the finding: the steps are
+LOCALLY repeating (consecutive-step cos
+{rp['consec_cos_mean']:.3f}) and GLOBALLY rotating (mean pairwise
+{rp['wmean_cross_event_cos_R1']:.3f}, top-1 share
+{gp['svd']['top10_shares'][0]:.3f}, ~{cl['cross90']}-dim span):
+a SLOWLY-ROTATING REPERTOIRE with a strong local memory. The rotation
+lives ENTIRELY OUTSIDE the room (the in-room channel decorrelates to
+the volume null; the out-of-room channel repeats at
+{DEC[PRIMARY]['mean_outofroom_cross_event_cos']:.2f}). The carving is
+session-invariant (0.92-0.99 across streams, sessions, and traffic)
+and concentrates in the upper MLP matrices
+({', '.join(t['param'] for t in gp['svd']['top3_matrices_by_energy'])}).
+Preservation is neither a single vital direction nor feedback in the
+full geometric sense (that clause is instrument-missing): it is a
+~70-dimensional out-of-room vital repertoire whose DOSE — never its
+direction — is the state-dependent part. The controller's intelligence
+is the gating; the carving beneath it is a stable, shared object.
 """
 (OUT / "REPORT.md").write_text(report, encoding="utf-8")
 

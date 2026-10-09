@@ -6,6 +6,33 @@ Statuses: `READY` (next up), `RUNNING`, `DONE (see NOTES.md)`, `PARKED`
 (idea only, no live-hypothesis discrimination), `GATED` (waiting on a
 prerequisite). Rewritten at Review 1 (2026-09-24T11:20Z) to fix drift.
 
+## R71 SECTION (2026-10-09, folded ~18:30Z) — the scope-and-repair wave
+
+The unlearning chapter is closed and reviewed (R71): every number exact, the
+vocabulary pulled back to evidence, and the queue rebuilt around the three
+confounds the review named (dose, family-scope, room-draw) plus the wild
+cards the ideator minted.
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x15 | THE DOSE-MATCHED COMPLEMENT (R71 critic's cheapest cell; the bearer-necessity dose confound) | DISPATCHED ~18:30Z Oct-9 | CPU desk: scale e310's on-disk complement x3.033 to the full write's norm, inject, probe t0; ALIVE = necessity falls as dose artifact / DEAD-AT-FULL-DOSE = the law survives dose-matched |
+| e321 | THE FAT SPERM CELL (T278's discriminating observation; e311's successor) | DISPATCHED ~18:30Z Oct-9 | GPU: r1000 in-room seed at 43.7% energy, natural norm, zero bearer mass beyond; trigger+seed arms on the committed e311 vectors; P-e321a registered: FAT-SEED-READS (p>=0.05 at >=half the host contexts) vs CONTENT-LOCKED; if it reads, the erase-host discriminator rerides |
+| e318 | THE LONE SCALPEL (the membrane law's null-family control) | READY | e314's alpha ladder verbatim on e288's single-fact states: LONE-SURVIVES = the retreat is generic / LONE-DIES = the bearer becomes place-necessary when there is nowhere else to live; motivated by P-e311c's failure + the critic's n=1 attack |
+| e320 | THE SHAM'S SCOPE (the displacement diet, lone-fact arm) | READY | rides e318's session; e314's sham norm ladder on the same single-fact states; P-e311c says the boost is family-scoped — bar: LONE-BOOSTS = stiction (generic) / LONE-INDIFFERENT-OR-HURT = membrane-tension (social) |
+| e323 | THE CASCADE GUARD (fresh-draw two-rung boundary re-ladder + the family redraw) | READY | e290's bracket is the most-load-bearing number: fresh room seeds + fresh install, only the 0.0008x and 0.004x rungs; RIDER: fresh-seed e291-family redraw + e294's anti on FACT3 (the membrane law's cheapest replication); BOTH-EDGES-HOLD = organism property / EITHER-MOVES = room-lottery draw, Laws 2b/4/5 + the Landauer ledger inherit ~21%-class uncertainty |
+| e315 | THE WOUND WARD (controller-as-defibrillator; ideator card 1) | READY | e299's two corpse classes + the e288 controller verbatim: BOTH-REVIVE = maintenance is bearer-blind re-teaching / ONLY-DISPLACED-REVIVES = the two-death-classes law extends to medicine; RIDER (R71 critic): the no-gradient in-room graft with NONZERO gap on the free-AdamW corpses — T277's discriminator |
+| e316 | THE RESURRECTION CHANNEL (ideator card 2) | PARKED behind e315 | does FACT3's e313-B return travel in the room's tail basis or the common brush? ablated restore passes on the e313 checkpoints |
+| e317 | THE DUEL (ideator card 3) | PARKED | anti vs live controller on a SINGLE fact: is the 24x defended price defense-intrinsic or sibling-membrane premium; the e312 composition at n=1 — never run |
+| e319 | THE FACT WITH TWO ADDRESSES (ideator card 5) | PARKED | the same fact installed in two disjoint rooms: engineered redundancy vs winner-take-one-address; the constructive mirror of bearer-unsharing |
+| W049 | the gain-knob question (from T278) | PARKED (wonder card owed) | the 1-dim out-of-room trigger moved confidence +32% without content — can a knob RETUNE a hot memory's calibration without re-teaching (calm-v3's physical dial)? |
+| tenant | THE TENANT CELL (R70's wild-card) | DEMOTED at R71 | subsumed by e311: the pure-hijack arm WAS tenancy on foreign anatomy, and it floored |
+
+Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
+e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
+C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),
+the 10M scale point, bearer-unsharing protocols.
+
+
 | id | experiment | status | one-liner |
 |---|---|---|---|
 | e021 | task-swap retrieval | DONE | all 4 predictions: 100% copy, far-value ln26, retrieval head L4-H1 95.1% ID-mass, new L4 decision mode (88.3%) — claim 4 narrowed |
@@ -222,11 +249,11 @@ P1 COORDINATE (top pick) | P2 IMMUNOLOGY | P3 CACHE WEATHER | P4 THE ERASER (wil
 | e243 | THE MODE SELECTOR (T219's registration) | DONE ~16:50Z Oct-4 (T221: MIXED — the standing structure does NOT select the mode; the local field always populated; Egypt->Cairo the counterexample) |
 | e245 | THE DEATH-DEPTH READ (T221's discrimination) | DONE ~17:05Z Oct-4 (T222: MIXED — depth DENIED (the mass-dial wrong); the honest re-name: the modes ARE the death orders; the walker visited both in sequence) |
 | e247 | THE W3 CENSUS (the order-map replication + the walker read) | DONE ~17:25Z Oct-4 (T224: the literal BREAKS on a never-claimed clause; the committed map holds pooled 15/15; the modes ABSORBING (early by +50); the walkers DENIED; Egypt arrested mid-walk) |
-| e246 | THE ENGINEERED SEAT (the build lane's first cell; the ambition directive) | DISPATCHED ~17:16Z Oct-4 (GPU; smoke caught 2 real bugs pre-compute; the ORTHO/ALIGNED/FREE install arms running; bars: SEAT-IS-ENGINEERABLE / GEOMETRY-IRRELEVANT / CANNOT-LAND / ANY) |
+| e246 | THE ENGINEERED SEAT (the build lane's first cell; the ambition directive) | ARCHIVED (folded long ago; stale DISPATCHED label was poisoning the guard walker — cleared at R71) ~17:16Z Oct-4 (GPU; smoke caught 2 real bugs pre-compute; the ORTHO/ALIGNED/FREE install arms running; bars: SEAT-IS-ENGINEERABLE / GEOMETRY-IRRELEVANT / CANNOT-LAND / ANY) |
 | e252 | THE ZOMBIE RESUSCITATION (agy #002's pick; the thermal reversal) | DONE ~19:45Z Oct-4 (T228: PARTIAL — W028 INTERVENTIONAL (cooling restores height, never shape); the zombie splits (the revivable belief, the scarred choice); the temperature ANSWER-LOCAL; amplitude/order decouple; revival tracks headroom rho -1.000) |
-| e254 | FQ12 THE V-SPAN OVERLAP (the anti-substrate's mechanism candidate) | DISPATCHED ~19:30Z Oct-4 (desk on e240's committed reconstruction; V-ENRICHED (>=3x random) = the optimizer's denominator owns the span / V-FLAT = exonerated) |
-| e255 | FQ13 THE THERMAL-LEDGER IDENTITY (the budget's origin) | DISPATCHED ~19:50Z Oct-4 (desk; the regression + the numerator/denominator decomposition + the cross-world falsifier; IDENTITY-CONFIRMED collapses law 4 to 'the wall cools; LN does the rest') |
-| e248 | THE ORGANISM REPLICATE (the owner-lane; the R64 auditor's dispatch order) | DISPATCHED ~17:38Z Oct-4 (phase 1 desk complete: the quantified registration, the zero-contamination corpus, the smoked census; the GPU training arc sequenced after e246; 5 primary bars + 3 co-bars frozen) |
+| e254 | FQ12 THE V-SPAN OVERLAP (the anti-substrate's mechanism candidate) | ARCHIVED (folded long ago; cleared at R71) ~19:30Z Oct-4 (desk on e240's committed reconstruction; V-ENRICHED (>=3x random) = the optimizer's denominator owns the span / V-FLAT = exonerated) |
+| e255 | FQ13 THE THERMAL-LEDGER IDENTITY (the budget's origin) | ARCHIVED (folded long ago; cleared at R71) ~19:50Z Oct-4 (desk; the regression + the numerator/denominator decomposition + the cross-world falsifier; IDENTITY-CONFIRMED collapses law 4 to 'the wall cools; LN does the rest') |
+| e248 | THE ORGANISM REPLICATE (the owner-lane; the R64 auditor's dispatch order) | ARCHIVED (folded long ago; cleared at R71) ~17:38Z Oct-4 (phase 1 desk complete: the quantified registration, the zero-contamination corpus, the smoked census; the GPU training arc sequenced after e246; 5 primary bars + 3 co-bars frozen) |
 | e249-design | THE WITHIN-P-FIRST MECHANISM (T224's ask) | RIPENED (scratch/e249_design.md — RU-z vs margin-floor vs arrival; desk-only; bars frozen; lane-filler) |
 | e256 | FQ14 THE RESIDENCY CENSUS | DONE ~20:25Z Oct-4 (T230: RESIDENCY-PREDICTS — THERMAL-ONLY; the field's first interaction constant rho -0.148; the layers decouple on 2 of 3 floors) |
 | e254 | FQ12 THE V-SPAN OVERLAP | DONE ~22:10Z Oct-4 (T231: V-ENRICHED by 7 orders + the drought read — the denominator's span-load a STANDING STRUCTURE; the composition resolved in form) |
@@ -442,7 +469,7 @@ The repair/next cells (R65's bill, priority order):
 | e281 | THE REHEARSAL DOSE-RESPONSE | DONE (T259: FLAT — P-281b confirmed; the cons-only floor 0.6508; every arm in-band, no step; THE REHEARSAL LANE CARRIES ZERO WRITE INFORMATION (the cons teaches from anything; no retrieval floor at any width); the cons ~1e-4 deterministic from bit-identical states — the 'cons lottery' was install-side chaos; all three seed states checkpointed, bit-exact) |
 | e280 | THE SGD-M CAPACITY LADDER | DONE (T262: ADAM-CREATED by the frozen bar — the edge moved >=2x ((2k,5k] vs (1k,2k]); THE RICHER READING: the floor is REAL under both optimizers, Adam halves it, the climb above is optimizer-robust (SGD's 5k exceeds Adam's at 1/100 dose); riders: the 2k straddle priced, 0.5x dead, MOTEL-IS-SPACE (momentum re-aims too — P-x283b refuted; the separate-buffer missile named); the 100.0000%-in-room datum) |
 | — | x10 THE DEAD RUNG'S FILL | DONE (T257: FILLS-ANYWAY — P-x10a CONFIRMED; the fill 0.733-0.735 across ALL FIVE rungs (4 orders of width); the whole normalized in-room spectrum collapses; INVARIANT to dose/room-redraw/expression-fate — THE FILL LAW IN FULL; capacity = a threshold on usable DoF; the Anderson wild-card died its registered adjudication) |
-| — | x11+x12 THE CONSOLIDATION LEDGER + THE RUNAWAY DISCRIMINATOR (desk bundle) | DISPATCHED | x11: the consolidation ratio per committed rung (P-x11a: RATIO-CLIFF >= 3x at (1k,2k]) — the edge as a formation-vs-retention rate threshold; x12: the fact's beta=1.31 — bi-exponential refit + the derivative test (P-x12a: H-DRAIN-RUNAWAY, the predatory kill) |
+| — | x11+x12 THE CONSOLIDATION LEDGER + THE RUNAWAY DISCRIMINATOR (desk bundle) | ARCHIVED (folded long ago; cleared at R71) | x11: the consolidation ratio per committed rung (P-x11a: RATIO-CLIFF >= 3x at (1k,2k]) — the edge as a formation-vs-retention rate threshold; x12: the fact's beta=1.31 — bi-exponential refit + the derivative test (P-x12a: H-DRAIN-RUNAWAY, the predatory kill) |
 | — | x6 THE SVD BET (consult #005, desk) | DONE (T250: GENUINELY-SPREAD — the bet denied both clauses (top-50 = 3.10%, natural m99 gaussian-identical); the room read's gift: THE WRITE IS DENSE-IN-A-RANDOM-SUBSPACE — 89% in-room, 244x null, and THE FILL LAW ~73% of the granted room at 99% energy at BOTH rungs; P-W41b refuted) |
 | — | A2 span-decomposition (re-scoped) | READY (one GPU re-run) | instrument check REFUTED the zero-GPU claim (no per-milestone vectors saved in e268-e271): one instrumented concurrent arm at k=10k with vector journaling s100-s400 (~10-15 min), then desk: span-aligned vs orthogonal displacement (the noise-bath vs the scalpel) |
 | e274 | THE CONS-ONLY FLOOR | READY | fresh root + cons stream, NO install (seed 10901) + 2 extra cons seeds on the 100k dead-write arm — prices the rehearsal lane's floor; the same-session control that discriminates "dead-write residue facilitates" from "the cons teaches from anything" |

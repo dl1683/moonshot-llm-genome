@@ -7,6 +7,48 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T278 — E311: a gain knob, not a router — and a null that names its own confound (2026-10-09, datetime.now ~18:15Z)
+
+W048 asked whether a memory can ride another fact's read path. The cell's
+answer: the question was never loaded — the sperm cell was mostly empty
+(11.3% of the write's norm, 1.28% of its energy). But the null is a FORK,
+not a verdict, and the cell bought two genuinely new objects:
+
+**THE GAIN KNOB.** One out-of-room dimension — the host's own
+read-gradient direction at 0.70x the transport-kill budget — boosted the
+host's read +32% while the new name stayed floored. The read path is
+addressable IN INTENSITY, not CONTENT. This is T272's CONFIDENCE axis
+getting a surgical probe: a direction that moves confidence without
+touching content, bidirectional with the anti-controller (the same
+direction dialed down kills). The calm-controller program (margin-hinge
+v3) wants exactly this: a physical dial for the overshoot. NEW QUESTION
+(W049-grade): can the knob RETUNE a hot memory's calibration without
+re-teaching it?
+
+**THE NULL'S TWO LIVE HYPOTHESES.** H1 CONTENT-LOCK: routing is built at
+formation, never borrowed — no room-overlap spectrum, no read (the
+trigger's in-room fraction was 4.5e-17). H2 SEED-THINNESS: the same dose
+artifact R71's critic found at e310's necessity arm — everything inside a
+~9x energy gap dies (e306's r10 at 14.7% energy read equally dead); r10
+is far below the (1k,2k] formation edge, the lab's most replicated
+threshold. DISCRIMINATING OBSERVATION (cheap; all vectors committed in
+runs/e311/e311_hijack_vectors.pt): THE FAT SPERM CELL — an r1000 seed
+(43.7% of the write's energy, natural norm, exactly in-room, still zero
+bearer mass outside the room). REGISTERED PREDICTION (pre-compute, to be
+scored on landing): FAT-SEED-READS — p(TAVIREN) >= 0.05 at >= half the
+host contexts. The capacity law is the reason: formation's edge is
+~1-2k dims and this seed sits at its upper edge carrying nearly half the
+energy. If it instead floors (CONTENT-LOCKED), formation is not about
+room dimension count but about the full spectrum's coherence — new law
+material either way.
+
+**P-e311c's failure is a positive datum.** The e314 sham-boost does not
+exist on a single-fact organism (seed-only x0.931, slightly down): the
+boost needs the shared fabric. The membrane's generosity and its
+indivisibility are the same fact seen from two sides — and the lone-fact
+controls (e318 the lone scalpel, e320 the sham's scope) now have an
+independent motivating measurement, not just the critic's n=1 objection.
+
 ## T277 — E296: the signal is load-bearing — and the graft's no-op locates the entire maintenance story outside the room (2026-10-09, datetime.now ~17:30Z)
 
 The preservation program's final fork resolves: SIGNAL-NEEDED. But the
@@ -29,6 +71,12 @@ success's last replication debt.
 
 
 ## T276 — E314: the unlearning program's final map — specific suppression, immovable read (2026-10-09, datetime.now ~16:05Z)
+
+> [R71 SCOPE NOTE 2026-10-09]: the map below is n=1 per road, one
+> same-name family, one 2.74M organism, one architecture (all four cells
+> load runs/checkpoints/e291_organism.pt bit-exact). "Law" reads as
+> "well-instrumented case study" until the fresh-draw replicate (e323) and
+> the lone-fact controls (e318/e320) land.
 
 Three cells, three closed roads, one law: **within a shared
 representation, a fact's read always has somewhere else to live.**
@@ -114,6 +162,12 @@ BIRTH, NOT BOUGHT AT DEATH.
 
 
 ## T273 — E294+E305: the kill law inverted, and the price is right (2026-10-09, datetime.now ~12:07Z)
+
+> [R71 BRACKET NOTE 2026-10-09]: the "method-independent price" rests on
+> two methods, n=1 each, inside a 4.6x-wide bracket ([0.0053, 0.0242]) whose
+> normalization (write-norm vs organism-norm) moves it 2.6x without audible
+> effect — "priced at the constant" is a bracket-membership claim, not a
+> constant, until the fresh-draw re-ladder (e323) and a third method land.
 
 **The unlearning mirror's first answer.** The anti-controller works as an
 instrument: FACT3 erased at the first event (25 steps; the gate
