@@ -26,8 +26,9 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
 - [R73 FLAG: the necessity clause's final form (authorship-relative bars) is an
   instrument-calibration rule, not a formation law — candidate demotion to a METHODS
   note at v3 drafting; x25 DONE: the MASS reading fell (the lift survives and doubles under the scalpel);
-  the noun holds as NOT-THE-MASS, with causality pending (writing-causes vs
-  slot-pre-disposition) on x26/e330; re-nouning at the drafting]
+  the noun holds as NOT-THE-MASS, x26 DONE: the ROW is not the seat (forge inert, P-x26a hit);
+  causality narrows to e330 — contextual-writing-causes vs SELECTION
+  (slots born different; the authorship table as innate-receptivity map)]
 - NEW CLAUSES (the bearer law, promoted from notes):
   - SUFFICIENCY: the room-overlap tail carries the read (e306 — truncation kills, r7 = 33.9% mass).
   - NECESSITY, DOSE-MATCHED: the out-of-room complement at 100% of the write's energy reads

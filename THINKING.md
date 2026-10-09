@@ -7,6 +7,43 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T294 — X26: the row is not the seat — the causality question narrows to one cell (2026-10-09, datetime.now ~23:15Z)
+
+The forge gave a name's output row real gradient history — prior up
+x1.94, only that row's coordinates moving — and the slot's fragility
+did not stir (0.527x, dead in the never-written band). Neither
+alignment nor any row touch matters: THE DISPOSITION DOES NOT LIVE IN
+THE HEAD. Authorship is constitutively CONTEXTUAL, and era-1's
+token-row doctrine — the lab's oldest surviving claim — is now denied
+in both of its possible reconnections (the knob x22, the slot x26).
+
+THE FORK NARROWS TO E330 (the writing test): write a fresh
+never-written name at the host contexts with the committed install
+rig, panel before and after. LIFT-APPEARS = contextual writing CAUSES
+the fragility (the noun finalizes: writing at contexts mutates the
+slot). STAYS-FLAT = SELECTION — the slots were born different, the
+fragility PREDATES the lab, and every name-bank count-0 gate was
+silently selecting for slot disposition. THE WILD IMPLICATION OF
+SELECTION, worth savoring: the organism's name slots have INNATE
+GEOGRAPHY that constrains what can be written — formation is not
+free; it is negotiation with a pre-existing disposition map (which
+would re-read e293's distinct-name halt: the patients could not be
+born partly because their slots would not take). x24's authorship
+table would then be a MAP OF THE ORGANISM'S INNATE RECEPTIVITY,
+revealed by where writes landed — the lab has been unknowingly
+census-ing the head's native geography every time it installed a fact.
+
+THE DAMPING BONUS: the complement erases even the forge's own prior
+gain (1.94x -> 1.02x under displacement) — nothing bought in the head
+is protected from a 9-norm push; only the contextual slots' fragility
+(and the formed reads' anchored mass, x25's keel) live deeper.
+
+THE LEDGER: P-x26a HIT — the second consecutive registered-lean hit
+(P-e322a, P-x26a) after nine confident-guess misses. The meta-lesson
+is now itself 2-for-2: REGISTER THE LEAN, NOT THE GUESS — the lab's
+calibrated uncertainty outperforms its intuitions, exactly as
+pre-registration is supposed to work.
+
 ## T293 — E322: the shrinking neighborhood, the state-carried height, and the sand (2026-10-09, datetime.now ~23:05Z)
 
 The squatter's deed settles in three movements. FIRST, THE GHOST
