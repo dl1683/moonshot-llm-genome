@@ -1,0 +1,362 @@
+{
+ "experiment": "e310_complementary",
+ "phase": "THE COMPLEMENTARY BEARER CONTROL (R70's minted cell #1): the full write MINUS its room-overlap components (the orthogonal complement; high mass, LOW room-share) injected and probed at t0 \u2014 the circularity-killer for e306's bearer claim; + a 50/50 energy-matched MIX arm as the dose-response midpoint",
+ "date": "2026-10-09T10:43:02+00:00",
+ "status": "COMPLETE \u2014 adjudicated",
+ "cpu_only": true,
+ "threads": {
+  "torch": 4,
+  "pocketfft": 4
+ },
+ "gates": {
+  "G_ENDPOINTS": {
+   "md5_binds": {
+    "e001": {
+     "path": "runs\\checkpoints\\e001.pt",
+     "md5": "d114536d1c0983ab3be67f67ff0667c8",
+     "claimed": "d114536d1c0983ab3be67f67ff0667c8",
+     "source": "x6's committed root bind (== e267's base bind)",
+     "match": true
+    },
+    "e261_K10K_inst_resume": {
+     "path": "runs\\checkpoints\\e261_K10K_inst_resume.pt",
+     "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+     "claimed": "0f6dc1cf46850ce655dfafc9c853d467",
+     "source": "x6's bind (== e264 G_K10KRESUME, the s400 final)",
+     "match": true
+    }
+   },
+   "pass": true
+  },
+  "G_FLATBASIS": {
+   "params_count": 65,
+   "buffers_count": 0,
+   "key_order_matches_parameters": true,
+   "n_params": 2739072,
+   "offsets_sum_equals_N": true,
+   "pass": true
+  },
+  "G_BATTERY": {
+   "corpus_zeph_count": 0,
+   "install_mix": {
+    "FLORIZEL": 19,
+    "ELIZABETH": 41
+   },
+   "shapes": {
+    "g0": [
+     60,
+     130
+    ],
+    "gm12": [
+     60,
+     118
+    ]
+   },
+   "expected": {
+    "zeph": 0,
+    "mix": {
+     "FLORIZEL": 19,
+     "ELIZABETH": 41
+    },
+    "shapes": {
+     "g0": [
+      60,
+      130
+     ],
+     "gm12": [
+      60,
+      118
+     ]
+    }
+   },
+   "pass": true
+  },
+  "G_ROOM": {
+   "file": "runs/checkpoints/e264_rooms.pt",
+   "rung": "K10K",
+   "k": 10000,
+   "seeds": [
+    26113,
+    26114
+   ],
+   "D_bit_equal": true,
+   "S_bit_equal": true,
+   "pass": true
+  },
+  "G_ORTH": {
+   "form": "P orthogonal projector (ortho DCT + D^2=1): ||PdW||^2 + ||comp||^2 == ||dW||^2 and <PdW, comp> == 0, on THIS dW",
+   "energy_sum_rel_resid": 2.1590080465057678e-14,
+   "cross_dot_rel": 2.932208403614868e-16,
+   "bar": 1e-09,
+   "pass": true
+  },
+  "G_FULLREAD": {
+   "form": "this desk's probe of theta_base + dW (the full write) vs e264's committed K10K post g0 0.26464763283729553",
+   "mine_g0_mean_pz": 0.26464763283729553,
+   "committed": 0.26464763283729553,
+   "abs_diff": 0.0,
+   "bar": 0.005,
+   "pass": true
+  }
+ },
+ "phase_note": "P6 COMPLETE (report + figure)",
+ "date_updated": "2026-10-09T10:43:18+00:00",
+ "object": {
+  "root": "runs/checkpoints/e001.pt (md5-bound)",
+  "post": "runs/checkpoints/e261_K10K_inst_resume.pt s400 (md5-bound)",
+  "dW_l2": 9.1788432658723,
+  "N": 2739072,
+  "note": "||dW|| bit-matches e290's committed write norm \u2014 same object as e306's ladder and the coupling constant"
+ },
+ "complement": {
+  "form": "delta_complement = (I - P_room) dW, flat fp64 basis, per-key reshaped; orthogonal to the room component BY CONSTRUCTION (G_ORTH)",
+  "l2": 3.024341960836486,
+  "mass_frac_of_full": 0.3294905330915977,
+  "energy_frac_of_full": 0.10856401139698525,
+  "room_overlap_part": {
+   "l2": 8.666286367491834,
+   "energy_frac_of_full": 0.8914359886030363
+  },
+  "in_room_share_of_own_fp64": 0.0,
+  "in_room_share_of_injected_fp32": 2.3525427031247745e-18,
+  "full_write_in_room_share_remeasured_fp32": 0.8914359885935759,
+  "x6_committed_full_in_room_share": 0.8914359886030179,
+  "dispatch_expectation": "~11% energy at 89% in-room original"
+ },
+ "anchors": {
+  "base_e001_t0": {
+   "g0": {
+    "mean_pz": 1.3383959412749391e-05,
+    "median_pz": 1.1252003787376452e-05,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0
+   },
+   "gm12": {
+    "mean_pz": 1.437231640011305e-05,
+    "median_pz": 1.2116333891754039e-05,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0
+   }
+  },
+  "full_write_t0": {
+   "g0": {
+    "mean_pz": 0.26464763283729553,
+    "median_pz": 0.2770351767539978,
+    "frac_pz_ge_0.5": 0.13333334028720856,
+    "frac_argmax_z": 0.2
+   },
+   "gm12": {
+    "mean_pz": 0.10525510460138321,
+    "median_pz": 0.10825469344854355,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0
+   }
+  }
+ },
+ "mix_construction": {
+  "registered_mix": {
+   "form": "a_in*P(dW) + a_out*comp with a_in = sqrt(0.5/f_in), a_out = sqrt(0.5/f_out); each half EXACTLY 50% of the full write's energy; total == the full write's energy",
+   "a_in": 0.7489277461558446,
+   "a_out": 2.1460609946871316,
+   "disclosure": "the room spectrum is scaled 0.7489x (DOWN); the complement spectrum is AMPLIFIED 2.1461x to reach its 50%"
+  },
+  "compdose_mix_diagnostic": {
+   "form": "b_in*P(dW) + b_out*comp with b_in = sqrt(0.5*f_out/f_in), b_out = sqrt(0.5); 50/50 spectrum split at the COMPLEMENT's total energy \u2014 co-report only, NEVER a bar",
+   "b_in": 0.24676460232797798,
+   "b_out": 0.7071067811865476
+  }
+ },
+ "complement_census": {
+  "form": "per-2D-matrix fp64 SVD of the complement \u2014 co-report for the rank reading (READ-ALIVE branch interpretation), never a bar",
+  "e_1d_share_of_complement": 0.25788226390035934,
+  "e_2d_share_of_complement": 0.7421177360996404,
+  "per_matrix_T3_median": 0.08802733223543599,
+  "per_matrix_T10_median": 0.20245649203110685,
+  "top3_matrices_by_energy": [
+   {
+    "param": "h.5.mlp.0.weight",
+    "energy_share_of_2d": 0.07391841401529671
+   },
+   {
+    "param": "h.4.mlp.0.weight",
+    "energy_share_of_2d": 0.07168941922168678
+   },
+   {
+    "param": "h.3.mlp.0.weight",
+    "energy_share_of_2d": 0.06547658229379794
+   }
+  ],
+  "e307_null_context": "e307's null-gaussian per-matrix T3 ~0.002, the controller footprints ~0.19-0.23, flat twins ~0.12 (different objects; context only)"
+ },
+ "forward_ladder_e306": {
+  "r1000": {
+   "t0_g0": 0.26464763283729553,
+   "energy_frac_of_full": 1.0,
+   "mass_frac_of_full": 1.0,
+   "in_room_share_of_own": 0.8914359886030363,
+   "source": "runs/e306/metrics.json (committed; read live)"
+  },
+  "r100": {
+   "t0_g0": 0.09254436194896698,
+   "energy_frac_of_full": 0.7636722400163829,
+   "mass_frac_of_full": 0.8738834247291699,
+   "in_room_share_of_own": 0.6662308330092905,
+   "source": "runs/e306/metrics.json (committed; read live)"
+  },
+  "r10": {
+   "t0_g0": 5.3935862524667755e-05,
+   "energy_frac_of_full": 0.14745178485091576,
+   "mass_frac_of_full": 0.3839945114854062,
+   "in_room_share_of_own": 0.09006937760142557,
+   "source": "runs/e306/metrics.json (committed; read live)"
+  },
+  "r7": {
+   "t0_g0": 4.340019222581759e-05,
+   "energy_frac_of_full": 0.11475382118918438,
+   "mass_frac_of_full": 0.33875333384216955,
+   "in_room_share_of_own": 0.061361142736930274,
+   "source": "runs/e306/metrics.json (committed; read live)"
+  }
+ },
+ "verdict": {
+  "word": "READ-DEAD-MASS-HIGH",
+  "clause": "the complementary write reads 3.65557e-05 < 0.05 while carrying 10.86% >= 10% of the full write's energy \u2014 room-overlap is NECESSARY for the read; the bearer is the tail that overlaps the room; e306's bearer claim SURVIVES R70's circularity control",
+  "complement_t0_g0": 3.655568798421882e-05,
+  "complement_energy_frac_of_full": 0.10856401144375007,
+  "mass_high_bar": 0.1,
+  "floor": 0.05,
+  "mix_t0_g0": 0.06310301274061203,
+  "mix_is_mid": true,
+  "mid_note": {
+   "mix_g0": 0.06310301274061203,
+   "mid_definition": "MID := mix g0 >= 0.05 AND <= 0.5 x the full write's committed t0 read (<= 0.1323) \u2014 alive but at or below half",
+   "is_mid": true,
+   "reading": "the partial-overlap threshold reading (the curve verbatim)"
+  },
+  "bars_verbatim": {
+   "READ-DEAD-MASS-HIGH": "the complementary write reads < 0.05 (the floor) while carrying >= 10% of the full write's energy \u2014 room-overlap is NECESSARY for the read; the bearer is the tail that overlaps the room (the bearer claim SURVIVES its control)",
+   "READ-ALIVE": "the complement reads >= 0.05 \u2014 the read survives without room-overlap; the circularity was real (formation-stream or rank, not room); Law 3's ~7-dims clause revives for reconciliation (the bearer story FALSIFIED)",
+   "MIXED": "the complement dead but the mix mid \u2014 the curve verbatim; a partial-overlap threshold reading"
+  },
+  "operationalizations": {
+   "object": "dW = flat(e261_K10K_inst_resume.pt['model'] s400) - flat(e001.pt) \u2014 x6's registered convention (== THE e290 fact write: ||dW|| 9.1788432658723)",
+   "room": "the committed K10K room (e264_rooms.pt, seeds 26113/26114; SRCT projector ported BY VALUE from x6; fp64 CPU DCT; D/S bit-verified vs fresh construction)",
+   "complement": "delta_complement = (I - P_room) applied to the FULL write delta in the flat fp64 basis, per-key reshaped; P is an exactly orthogonal projector so comp \u22a5 room component BY CONSTRUCTION (G_ORTH asserts the identity on dW)",
+   "injection": "theta_base + delta fp32 (e306's checkpoint conventions: {'model', 'delta', provenance}); VERIFIED from disk (bit-equal roundtrip + model == base+delta re-derived + probe-from-disk)",
+   "mix_registered": "50/50 energy-matched: total energy == the FULL write's, exactly 50% from P(dW) and 50% from the complement (a_in = sqrt(0.5/f_in) ~ 0.749 scales the room spectrum DOWN; a_out = sqrt(0.5/f_out) ~ 2.146 AMPLIFIES the complement ~2.15x)",
+   "mix_compdose": "the same 50/50 spectrum split with total energy == the complement's (dose-matched to the complement arm) \u2014 co-report only, NEVER a bar (the dose-control on the mix reading)",
+   "mid_definition": "MID := mix g0 >= 0.05 AND <= 0.5 x the full write's committed t0 read (<= 0.1323) \u2014 alive but at or below half",
+   "read": "e261's g0 battery bit-exactly (corpus 1337; find_occ + SPLICE_RNG 24301 shuffle; first-60 install rows; 130-char pre-name contexts), mean p(Z) at the last position, CPU TinyGPT(Cfg()) (the 2.74M organism), bs 30; floor 0.05 = e261's G0_ZERO_FLOOR; gm12 co-reported, never a bar",
+   "ladder_anchor": "e306's committed ladder read LIVE from runs/e306/metrics.json (full / r100 / r10 / r7) \u2014 the bearer curve from BOTH directions; r10 (14.7% energy, 9.0% in-room, DEAD) is the mass confound comparator",
+   "census": "per-2D-matrix fp64 SVD of the complement (T3/T10 medians + top matrices) \u2014 co-report for the rank reading, never a bar",
+   "adjudication": "READ-ALIVE iff complement g0 >= 0.05; else READ-DEAD-MASS-HIGH iff complement g0 < 0.05 AND complement energy >= 10% of the full write's; else MIXED (mass-low dead, disclosed, no necessity claim); in every dead-complement outcome the mix reading is co-reported verbatim (mid => partial-overlap threshold); G_FULLREAD failure => TEXTURE"
+  }
+ },
+ "arms": {
+  "complement": {
+   "delta_kind": "(I - P_room) dW (the complementary write)",
+   "delta_l2": 3.024341961487866,
+   "energy_frac_of_full": 0.10856401144375007,
+   "in_room_share_of_injected_fp32": 2.3525427031247745e-18,
+   "checkpoint": {
+    "path": "runs\\e310\\e310_complement.pt",
+    "roundtrip_bitexact": true,
+    "model_eq_base_plus_delta": true,
+    "delta_bitexact": true
+   },
+   "t0_read": {
+    "g0": {
+     "mean_pz": 3.655568798421882e-05,
+     "median_pz": 2.9525093850679696e-05,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    },
+    "gm12": {
+     "mean_pz": 3.748268136405386e-05,
+     "median_pz": 2.8532396754599176e-05,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    }
+   },
+   "mass_frac_of_full": 0.3294905330915977
+  },
+  "mix5050_full": {
+   "delta_kind": "50/50 energy-matched mix: total energy == full write's, half P(dW) + half complement (THE registered mix arm)",
+   "delta_l2": 9.178843266099303,
+   "energy_frac_of_full": 1.0000000000494622,
+   "in_room_share_of_injected_fp32": 0.49999999994334265,
+   "checkpoint": {
+    "path": "runs\\e310\\e310_mix5050_full.pt",
+    "roundtrip_bitexact": true,
+    "model_eq_base_plus_delta": true,
+    "delta_bitexact": true
+   },
+   "t0_read": {
+    "g0": {
+     "mean_pz": 0.06310301274061203,
+     "median_pz": 0.05643634870648384,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    },
+    "gm12": {
+     "mean_pz": 0.03263542428612709,
+     "median_pz": 0.02638145722448826,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    }
+   },
+   "a_in": 0.7489277461558446,
+   "a_out": 2.1460609946871316
+  },
+  "mix5050_compdose": {
+   "delta_kind": "50/50 spectrum mix at the COMPLEMENT's total energy (dose-control diagnostic; co-report only, never a bar)",
+   "delta_l2": 3.024341960967677,
+   "energy_frac_of_full": 0.10856401140640391,
+   "in_room_share_of_injected_fp32": 0.4999999999323462,
+   "checkpoint": {
+    "path": "runs\\e310\\e310_mix5050_compdose.pt",
+    "roundtrip_bitexact": true,
+    "model_eq_base_plus_delta": true,
+    "delta_bitexact": true
+   },
+   "t0_read": {
+    "g0": {
+     "mean_pz": 0.00012323708506301045,
+     "median_pz": 0.00010225590085610747,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    },
+    "gm12": {
+     "mean_pz": 0.00011318431643303484,
+     "median_pz": 0.00010252660285914317,
+     "frac_pz_ge_0.5": 0.0,
+     "frac_argmax_z": 0.0
+    }
+   },
+   "b_in": 0.24676460232797798,
+   "b_out": 0.7071067811865476
+  }
+ },
+ "outputs": {
+  "figure": "runs/e310/e310_complementary.png",
+  "metrics": "runs/e310/metrics.json",
+  "report": "runs/e310/REPORT.md",
+  "checkpoints": [
+   "runs/e310/e310_complement.pt",
+   "runs/e310/e310_mix5050_full.pt",
+   "runs/e310/e310_mix5050_compdose.pt"
+  ]
+ },
+ "builds_on": [
+  "e306 desk (the truncation machinery, the checkpoint conventions, the g0 probe instrument, the committed forward ladder \u2014 read live from runs/e306/metrics.json)",
+  "x6 (THE registered object + the SRCT projector ported by value + the md5 binds + the 89.14% in-room census)",
+  "e261/e264 (the committed 10k write + its s400 resume; the g0 battery conventions; the committed post g0 0.26464763283729553)",
+  "R70 (critic iii: the bearer-circularity; critic vi: Law 3's ~7-dims clause unreconciled \u2014 the cell that mints this control)",
+  "e307 (the per-matrix spectrum census conventions reused for the complement's rank texture)"
+ ],
+ "whats_new": [
+  "THE COMPLEMENTARY TRUNCATION: the first injection of the full write MINUS its room-overlap components \u2014 the control e306's bearer claim was missing (high mass, ~0% room-share)",
+  "THE BEARER CURVE FROM BOTH DIRECTIONS: forward (rank truncations, e306) + backward (room-projection complement, this cell) + the 50/50 energy-matched midpoint",
+  "THE DOSE CONTROL ON THE MIX: a comp-dose 50/50 mix co-report (same spectrum split at the complement's energy) separating spectrum from dose in the mix reading"
+ ]
+}
