@@ -1,0 +1,1571 @@
+{
+  "experiment": "x24_prior_census",
+  "phase": "THE PRIOR-FRAGILITY CENSUS (T285): one fixed full-dose generic displacement (the K10K write's complement, x15's construction, carrier-bound) x an 11-name panel across the prior spectrum x two reading sites (host g0 + neutral) \u2014 is lift a generic function of prior, or name-specific structure?",
+  "date": "2026-10-09T20:07:33+00:00",
+  "status": "COMPLETE \u2014 adjudicated",
+  "registration": "bars + P-x24a VERBATIM from the dispatch letter; operationalizations frozen HERE at birth BEFORE compute; this script committed at birth; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "question_verbatim": "is a name's lift under a fixed full-dose generic displacement a generic function of its prior (or anchoring), or name-specific structure?",
+    "bars_verbatim": {
+      "ONE-GENERIC-CURVE": "the lift ratios of all count-0/low-prior names (synthetic + rare corpus) fall within ~3x of each other AND the formed anchor's lift is <= 0.2x theirs AND the mid/high-prior corpus names' lifts fall between \u2014 prior-fragility is generic; NECESSITY RESTORES with the rider 'reads are scored prior-relative (a complement floors below ~10x prior; a full write clears it)'; tonight's write-dependence scare re-closes as an instrument lesson.",
+      "NAME-SPECIFIC-STRUCTURE": "some marginal names lift >> others (>10x spread among same-prior names) \u2014 fragility is structure, not prior; the census continues with name-geometry probes; necessity stays weakened."
+    },
+    "P_x24a_verbatim": "Register P-x24a BEFORE compute. Lab guess: ONE-GENERIC-CURVE.",
+    "executor_position": "Pre-compute, registered: the strict conjunction is strained by committed data BEFORE this census runs \u2014 lift(ZEPHYRA) at host = 0.0007308/1.3384e-05 = 54.6x vs lift(TAVIREN) = 0.0272878/0.0023043 = 11.8x, and clause B needs the anchor <= 0.2x the cohort median. Executor sub-prediction P-x24a-exec (scored): ONE-GENERIC-CURVE does NOT fire (clause B fails at the host site); NAME-SPECIFIC-STRUCTURE does not fire either (no same-prior pair splits >10x); the verdict is GAP with the monotone rider (Spearman rho of log-prior vs log-lift < 0 on the pooled panel at BOTH sites) \u2014 prior-fragility generic in trend, name-slot-confounded absolute bars for the fold to re-register.",
+    "clauses_fixed": {
+      "read_currency": "a name's read := p(name[0]) at the final context position, mean over the site's 60 contexts (x15/x23/e311's committed currency)",
+      "lift": "lift(i,S) := p_comp(i,S) / max(p_base(i,S), 1e-12); the same ratio currency in EVERY clause incl. the anchor clause; absolute gains, logit deltas and formed-fraction co-reported only",
+      "cohorts": "cohort-A := TAVIREN, QELVARO, BUVONDI, NYSTORA, VIRETAN, MAMILLIUS (synthetic + rare corpus; the anchor excluded \u2014 its own clause); cohort-C := KING, LEONTES, ELIZABETH, FLORIZEL; frozen by construction",
+      "clause_A": "max/min lift over cohort-A <= 3.0, per site",
+      "clause_B": "lift(anchor) <= 0.2 * median(cohort-A lifts), per site",
+      "clause_C": "every cohort-C lift inside [min(anchor, cohort-A lifts), max(anchor, cohort-A lifts)], per site",
+      "one_generic_curve": "A AND B AND C at BOTH sites",
+      "name_specific": "a same-site pair of distinct panel names with base priors within 3x both ways AND lift max/min > 10x",
+      "precedence": "ONE-GENERIC-CURVE first; then NAME-SPECIFIC-STRUCTURE; neither => GAP (verbatim report; no wording change without a new registered cell)"
+    },
+    "registration": "bars + P-x24a VERBATIM from the dispatch letter; operationalizations frozen HERE at birth BEFORE compute; this script committed at birth; adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "cpu_only": true,
+  "threads": {
+    "torch": 4,
+    "pocketfft": 4
+  },
+  "envelope": {
+    "device": "CPU ONLY (CUDA_VISIBLE_DEVICES=''; another agent owns the GPU lane; no envelope-log writes)",
+    "timestamps": "datetime.now(UTC) only"
+  },
+  "deviations": [
+    "CPU-ONLY cell (dispatch: another agent owns the GPU lane) \u2014 CUDA_VISIBLE_DEVICES='' before torch import, torch threads 4, pocketfft workers 4, no GPU code path, no envelope-log writes, no other runs/ touched.",
+    "THE READ CURRENCY: a name's read is its INITIAL char's probability at the final context position (the committed KK/KT currency); multi-char name bodies are not read (disclosed; the series' name-slot convention).",
+    "CLAUSE CURRENCIES: lift = ratio p_comp/p_base for every clause (the dispatch's own defined measure); the committed values already strain clause B at the host site (54.6x vs 11.8x) \u2014 registered pre-compute, disclosed in REGISTERED.executor_position.",
+    "The anchor ZEPHYRA is the displacement's parent write's own target name \u2014 a disclosed confound (its lift may carry its own write's out-of-room remainder); the fresh bank names are the write-independent cohort.",
+    "Cohort membership frozen by CONSTRUCTION; measured priors co-reported per site (KING/LEONTES may measure low-prior at the host site \u2014 the site-dependence is a finding, not a reclassification).",
+    "Bank-discipline band (e293, <= 0.004 at the name slot) co-reported; halt only above e311's 0.05 G_BASE bar; no spare bank members exist (5-name bank, ZEPHYRA/TAVIREN spent), so a straddle in (0.004, 0.05] is disclosed, not swapped.",
+    "NEUTRAL site rule frozen: 60 windows, 130 chars, ending at an uppercase ASCII letter, host-free in window + 30-char lookahead, train split, random.Random(24001) shuffle, first 60.",
+    "The scrambled control VIRETAN is a fixed permutation of TAVIREN's letters (initial V) \u2014 zero corpus presence gated at runtime.",
+    "gm12 NOT read (the dispatch froze the site axis at host-g0 + neutral); fullK/fullT read on the whole panel as rider evidence for the 10x-prior restoration rider (never a bar).",
+    "No fresh random draws in the adjudicated design (deterministic from md5-bound parents + frozen seeds 24000/24001/24005); n=1 per cell (one lineage, one session \u2014 the g-series standing lottery note).",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat folds).",
+    "Smoke (X24_SMOKE=1): full gate path + all reads live, own smoke dir; NOTHING adjudicated."
+  ],
+  "builds_on": [
+    "x23 (THE CROSS-BATTERY: the KT cell 0.0272878 \u2014 the committed TAVIREN-under-K10K-complement reference this census reproduces; the battery/read harness this script ports)",
+    "x15 (THE K10K dose-matched complement: the construction, the carrier runs/x15/x15_comp_xFULL.pt, the committed KK diagonal 0.0007308, the G_FULLREAD/G_COMPREF conventions)",
+    "T285 (the THINKING card that named prior-fragility and this census as its discriminating observation)",
+    "e311 (the TAVIREN name's certified conventions + the fullT control reference 0.285851)",
+    "e293 (the committed NAME_BANK \u2014 ZEPHYRA/TAVIREN/QELVARO/BUVONDI/NYSTORA \u2014 and the count-0/prior-gate bank discipline)",
+    "x17 (the fullwrite control carrier for fullT)",
+    "e261/e264/e290/e310 (the K10K write, the room, the write norm, the complement construction the parents ported)"
+  ],
+  "whats_new": [
+    "THE FIRST LIFT-vs-PRIOR SCATTER: one fixed displacement read on an 11-name panel spanning ~5 decades of prior (anchor, committed reference, 3 fresh bank names, a scrambled control, 5 corpus names with stated counts) \u2014 the prior-fragility mechanism candidate's direct test",
+    "the SECOND READING SITE (a neutral host-free corpus bank) \u2014 the census is instrument-geometry-doubled (Rule 12): the same names re-ranked by a site that owes nothing to either write",
+    "the fresh-bank cohort (QELVARO/BUVONDI/NYSTORA) \u2014 count-0 names with NO relation to the displacement's parent write, the clean prior-fragility test T285 lacked",
+    "the full-write lifts on the whole panel (the x10-prior restoration rider's first direct evidence, co-reported)"
+  ],
+  "gates": {
+    "G_PANEL": {
+      "form": "e311's gate convention ported: every synthetic/scrambled name \u2014 7 letters, every char in the 65-char vocab, count-0 train split, != G1.NAME; corpus names \u2014 exact frozen counts; initials all distinct; the bank parsed from e293's md5-bound source",
+      "e293_bank_on_disk": [
+        "ZEPHYRA",
+        "TAVIREN",
+        "QELVARO",
+        "BUVONDI",
+        "NYSTORA"
+      ],
+      "e293_bank_matches_frozen": true,
+      "fresh_bank_members_in_e293_bank": {
+        "QELVARO": true,
+        "BUVONDI": true,
+        "NYSTORA": true
+      },
+      "counts": {
+        "ZEPHYRA": 0,
+        "TAVIREN": 0,
+        "QELVARO": 0,
+        "BUVONDI": 0,
+        "NYSTORA": 0,
+        "VIRETAN": 0,
+        "MAMILLIUS": 13,
+        "LEONTES": 125,
+        "KING": 556,
+        "ELIZABETH": 105,
+        "FLORIZEL": 45
+      },
+      "counts_match_frozen": true,
+      "chars_in_vocab": {
+        "ZEPHYRA": true,
+        "TAVIREN": true,
+        "QELVARO": true,
+        "BUVONDI": true,
+        "NYSTORA": true,
+        "VIRETAN": true,
+        "MAMILLIUS": true,
+        "LEONTES": true,
+        "KING": true,
+        "ELIZABETH": true,
+        "FLORIZEL": true
+      },
+      "seven_letters": {
+        "TAVIREN": true,
+        "QELVARO": true,
+        "BUVONDI": true,
+        "NYSTORA": true,
+        "VIRETAN": true
+      },
+      "not_g1_name": {
+        "TAVIREN": true,
+        "QELVARO": true,
+        "BUVONDI": true,
+        "NYSTORA": true,
+        "VIRETAN": true
+      },
+      "initials": [
+        "Z",
+        "T",
+        "Q",
+        "B",
+        "N",
+        "V",
+        "M",
+        "L",
+        "K",
+        "E",
+        "F"
+      ],
+      "initials_distinct": true,
+      "scrambled_is_permutation": true,
+      "scrambled_not_a_bank_name": true,
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "synthetic_counts": {
+        "TAVIREN": 0,
+        "QELVARO": 0,
+        "BUVONDI": 0,
+        "NYSTORA": 0,
+        "VIRETAN": 0
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "form": "THE HOST-G0 SITE: e261's splice bank verbatim (the exact bank on which KK/KT were committed)",
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "shape": [
+        60,
+        130
+      ],
+      "expected": {
+        "mix": {
+          "FLORIZEL": 19,
+          "ELIZABETH": 41
+        },
+        "shape": [
+          60,
+          130
+        ]
+      },
+      "pass": true
+    },
+    "G_NEUTRAL": {
+      "form": "THE NEUTRAL SITE: 60 train-split windows, 130 chars, ending at an uppercase ASCII letter, host-free in window + 30-char lookahead; random.Random(24001) shuffle, first 60",
+      "n_candidates": 74852,
+      "shape": [
+        60,
+        130
+      ],
+      "next_char_upper": "60/60",
+      "host_free": "60/60",
+      "pass": true
+    },
+    "G_ENDPOINTS": {
+      "form": "every parent artifact md5-bound (the displacement's own carrier + the fullT control carrier + the e293 bank source included) + every committed reference READ FROM THE ARTIFACT and cross-checked against the frozen literals",
+      "md5_binds": {
+        "e001": {
+          "path": "runs\\checkpoints\\e001.pt",
+          "md5": "d114536d1c0983ab3be67f67ff0667c8",
+          "bound": "d114536d1c0983ab3be67f67ff0667c8",
+          "match": true
+        },
+        "e261_K10K_inst_resume": {
+          "path": "runs\\checkpoints\\e261_K10K_inst_resume.pt",
+          "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+          "bound": "0f6dc1cf46850ce655dfafc9c853d467",
+          "match": true
+        },
+        "e264_rooms": {
+          "path": "runs\\checkpoints\\e264_rooms.pt",
+          "md5": "2d524655575cce00a3bc1c8770f4b211",
+          "bound": "2d524655575cce00a3bc1c8770f4b211",
+          "match": true
+        },
+        "x15_metrics": {
+          "path": "runs\\x15\\metrics.json",
+          "md5": "c90dd9371a5a7e248fdbd92c06bb243a",
+          "bound": "c90dd9371a5a7e248fdbd92c06bb243a",
+          "match": true
+        },
+        "x15_comp_xFULL_carrier": {
+          "path": "runs\\x15\\x15_comp_xFULL.pt",
+          "md5": "b0a1785c6f759fdd1d8deeae7fee4a9b",
+          "bound": "b0a1785c6f759fdd1d8deeae7fee4a9b",
+          "match": true
+        },
+        "x23_metrics": {
+          "path": "runs\\x23\\metrics.json",
+          "md5": "cb8a36f5e53615827aecfa1680155e44",
+          "bound": "cb8a36f5e53615827aecfa1680155e44",
+          "match": true
+        },
+        "x17_metrics": {
+          "path": "runs\\x17\\metrics.json",
+          "md5": "98a6138279852ca0705718d77a9c28f7",
+          "bound": "98a6138279852ca0705718d77a9c28f7",
+          "match": true
+        },
+        "x17_fullwrite_carrier": {
+          "path": "runs\\x17\\x17_x15R_fullwrite_control.pt",
+          "md5": "c0a2a9574ebf0b71094ae5e254cc965f",
+          "bound": "c0a2a9574ebf0b71094ae5e254cc965f",
+          "match": true
+        },
+        "e311_metrics": {
+          "path": "runs\\e311\\metrics.json",
+          "md5": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+          "bound": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+          "match": true
+        },
+        "e293_bank_source": {
+          "path": "lab\\e293_distinct_contention.py",
+          "md5": "1f3e16968359171d3db1a52824c48cf4",
+          "bound": "1f3e16968359171d3db1a52824c48cf4",
+          "match": true
+        }
+      },
+      "literal_crosscheck": {
+        "x15_diag_kk": {
+          "artifact": 0.0007308000349439681,
+          "frozen": 0.0007308000349439681,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x15_s_full": {
+          "artifact": 3.0349885643664365,
+          "frozen": 3.0349885643664365,
+          "tol": 1e-15,
+          "match": true
+        },
+        "x15_comp_l2": {
+          "artifact": 3.024341960836486,
+          "frozen": 3.024341960836486,
+          "tol": 1e-12,
+          "match": true
+        },
+        "x15_fullread": {
+          "artifact": 0.26464763283729553,
+          "frozen": 0.26464763283729553,
+          "tol": 1e-15,
+          "match": true
+        },
+        "x15_base_g0_z": {
+          "artifact": 1.3383959412749391e-05,
+          "frozen": 1.3383959412749391e-05,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x15_verdict": {
+          "artifact": "DEAD-AT-FULL-DOSE",
+          "frozen": "DEAD-AT-FULL-DOSE",
+          "tol": null,
+          "match": true
+        },
+        "x23_matrix_kk": {
+          "artifact": 0.0007308000349439681,
+          "frozen": 0.0007308000349439681,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x23_matrix_kt": {
+          "artifact": 0.027287840843200684,
+          "frozen": 0.027287840843200684,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x23_base_on_t": {
+          "artifact": 0.0023042955435812473,
+          "frozen": 0.0023042955435812473,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x23_verdict": {
+          "artifact": "EFFECT-FOLLOWS-WRITE",
+          "frozen": "EFFECT-FOLLOWS-WRITE",
+          "tol": null,
+          "match": true
+        },
+        "e311_fresh_g0_t": {
+          "artifact": 0.285851389169693,
+          "frozen": 0.285851389169693,
+          "tol": 1e-15,
+          "match": true
+        },
+        "x17_tavfull_mine": {
+          "artifact": 0.2858513593673706,
+          "frozen": 0.285851389169693,
+          "tol": 0.005,
+          "match": true
+        }
+      },
+      "pass": true
+    },
+    "G_FLATBASIS": {
+      "params_count": 65,
+      "key_order_matches_parameters": true,
+      "n_params": 2739072,
+      "pass": true
+    },
+    "G_BASEPRIOR": {
+      "form": "the base organism's own priors (e311's G_BASE convention, banded <= 0.05 on every synthetic name at host-g0) + the two committed priors cross-checked in [0.5x, 2x]",
+      "anchor_prior_host": {
+        "mine": 1.3383960322244093e-05,
+        "committed": 1.3383959412749391e-05,
+        "ratio": 1.000000067954084,
+        "band": [
+          0.5,
+          2.0
+        ]
+      },
+      "taviren_prior_host": {
+        "mine": 0.002304295776411891,
+        "committed": 0.0023042955435812473,
+        "ratio": 1.0000001010420059,
+        "band": [
+          0.5,
+          2.0
+        ]
+      },
+      "max_synthetic_prior_host": 0.009090041741728783,
+      "bar": 0.05,
+      "pass": true
+    },
+    "G_PANELPRIOR": {
+      "form": "e293's bank-discipline band: fresh synthetics + scrambled + TAVIREN base prior at host-g0 <= 0.004 (co-report; a straddle in (0.004, 0.05] is a disclosed deviation \u2014 no spare bank members)",
+      "priors_host_g0": {
+        "TAVIREN": 0.002304295776411891,
+        "QELVARO": 0.0025905624497681856,
+        "BUVONDI": 0.009090041741728783,
+        "NYSTORA": 0.0028261500410735607,
+        "VIRETAN": 0.005193506833165884
+      },
+      "band": 0.004,
+      "within_band": {
+        "TAVIREN": true,
+        "QELVARO": true,
+        "BUVONDI": false,
+        "NYSTORA": true,
+        "VIRETAN": false
+      },
+      "straddles": [
+        "BUVONDI",
+        "VIRETAN"
+      ],
+      "pass": true
+    },
+    "G_ROOM": {
+      "form": "the committed K10K room (SRCT k=10,000, seeds 26113/26114): D/S bit-identical to e264_rooms.pt; light in-cell certification (x17/x23's convention)",
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "idempotency_max": 5.617455006010633e-16,
+      "kept2_mean": 0.003662704899036341,
+      "kept2_expect": 0.0036508715360530864,
+      "pass": true
+    },
+    "G_ORTH": {
+      "energy_sum_rel_resid": 2.1590080465057678e-14,
+      "cross_dot_rel": 2.932208403614868e-16,
+      "bar": 1e-09,
+      "pass": true
+    },
+    "G_DOSEMATCH": {
+      "form": "||s_full_k * comp_k|| == ||dW_k|| to 1e-12 (fp64, derived never trusted)",
+      "s_full": 3.0349885643664365,
+      "committed": 3.0349885643664365,
+      "s_full_abs_diff": 0.0,
+      "scaled_fp64_l2": 9.178843265872299,
+      "write_l2": 9.1788432658723,
+      "abs_diff": 1.7763568394002505e-15,
+      "bar": 1e-12,
+      "pass": true
+    },
+    "G_INROOM": {
+      "form": "x15's exact G_INROOM_SCALED form (in-room ENERGY share <= 1e-12; fp64 intended AND fp32 injected)",
+      "scaled_fp64": 1.4675131901161413e-30,
+      "fp32_injected": 2.263464110779516e-18,
+      "co_norm_fracs": {
+        "fp64": 1.2114095880899e-15,
+        "fp32": 1.5044813427821282e-09
+      },
+      "bar": 1e-12,
+      "pass": true
+    },
+    "G_REGEN": {
+      "form": "the regenerated full-dose complement (fp32) vs the committed carrier's on-disk delta \u2014 bit-equal on EVERY key; + natural fp64 comp L2 vs committed (1e-9); + carrier model == base + delta re-derived",
+      "carrier": "runs\\x15\\x15_comp_xFULL.pt",
+      "keys_bit_equal": 65,
+      "keys_total": 65,
+      "all_keys_bit_equal": true,
+      "my_comp64_l2": 3.024341960836486,
+      "committed_l2": 3.024341960836486,
+      "l2_abs_diff": 0.0,
+      "l2_bar": 1e-09,
+      "carrier_model_eq_base_plus_delta": true,
+      "pass": true
+    },
+    "G_ONESTATE": {
+      "form": "the displacement is ONE applied state (the committed carrier's own model dict, loaded once) probed at both sites on all 11 names \u2014 no per-name reconstruction; identical by construction, provenance recorded",
+      "pass": true
+    },
+    "G_FULLREAD": {
+      "form": "the two committed full-write controls on their own names (x15's own G_FULLREAD bar |d| <= 5e-3) \u2014 the instrument certified before any clause counts",
+      "fullK_on_ZEPHYRA_host": {
+        "mine": 0.26464763283729553,
+        "committed": 0.26464763283729553,
+        "abs_diff": 0.0,
+        "bar": 0.005,
+        "pass": true
+      },
+      "fullT_on_TAVIREN_host": {
+        "mine": 0.2858513593673706,
+        "committed": 0.285851389169693,
+        "abs_diff": 2.9802322387695312e-08,
+        "bar": 0.005,
+        "pass": true
+      },
+      "pass": true
+    },
+    "G_DIAG": {
+      "form": "the displacement's two committed references reproduce in-session (x15's G_COMPREF band [0.5x, 2x])",
+      "KK_ZEPHYRA": {
+        "mine": 0.0007308000349439681,
+        "committed": 0.0007308000349439681,
+        "ratio": 1.0,
+        "band": [
+          0.5,
+          2.0
+        ],
+        "pass": true
+      },
+      "KT_TAVIREN": {
+        "mine": 0.027287840843200684,
+        "committed": 0.027287840843200684,
+        "ratio": 1.0,
+        "band": [
+          0.5,
+          2.0
+        ],
+        "pass": true
+      },
+      "pass": true
+    }
+  },
+  "birth_commit": "3791a6eec87babb5ee199c5e8bd7f6dd1e0b79a6",
+  "phase_note": "P9 COMPLETE (report + figure)",
+  "date_updated": "2026-10-09T20:07:49+00:00",
+  "panel_reads": {
+    "ZEPHYRA": {
+      "class": "anchor_formed_host",
+      "cohort": "anchor",
+      "cid": 38,
+      "base_host_g0": {
+        "mean_pz": 1.3383960322244093e-05,
+        "median_pz": 1.1252003787376452e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.51407241821289
+      },
+      "base_neutral": {
+        "mean_pz": 2.0202314772177488e-05,
+        "median_pz": 4.508031452132855e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -12.638269424438477
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.0007308000349439681,
+        "median_pz": 0.0007312815287150443,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.162775993347168
+      },
+      "comp_neutral": {
+        "mean_pz": 0.0005763626541011035,
+        "median_pz": 4.801780960406177e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.622818946838379
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.0001883161603473127,
+        "median_pz": 0.00014847902639303356,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.155195236206055
+      },
+      "fullT_neutral": {
+        "mean_pz": 8.296421583509073e-05,
+        "median_pz": 1.2456337572075427e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.40463638305664
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.26464763283729553,
+        "median_pz": 0.2770351767539978,
+        "frac_pz_ge_0.5": 0.13333334028720856,
+        "frac_pz_ge_0.05": 0.75,
+        "frac_argmax_z": 0.20000000298023224,
+        "mean_log_pz": -2.010327100753784
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.00651639373973012,
+        "median_pz": 2.1867746909265406e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -10.390789985656738
+      },
+      "lift_host_g0": 54.60267494437959,
+      "gain_host_g0": 0.000717416074621724,
+      "dlogit_host_g0": 4.000800556355683,
+      "lift_fullK_host_g0": 19773.49203564599,
+      "lift_fullT_host_g0": 14.07028680698731,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 28.529535382493243,
+      "gain_neutral": 0.0005561603393289261,
+      "dlogit_neutral": 3.351496206162551,
+      "lift_fullK_neutral": 322.5567868442709,
+      "lift_fullT_neutral": 4.106668803584259,
+      "prior_floored_neutral": false
+    },
+    "TAVIREN": {
+      "class": "synthetic_count0",
+      "cohort": "A",
+      "cid": 32,
+      "base_host_g0": {
+        "mean_pz": 0.002304295776411891,
+        "median_pz": 0.00018961711612064391,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.759671211242676
+      },
+      "base_neutral": {
+        "mean_pz": 0.07263301312923431,
+        "median_pz": 0.0003598844923544675,
+        "frac_pz_ge_0.5": 0.05000000074505806,
+        "frac_pz_ge_0.05": 0.25,
+        "frac_argmax_z": 0.11666666716337204,
+        "mean_log_pz": -7.16339635848999
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.027287840843200684,
+        "median_pz": 0.008170575834810734,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.20000000298023224,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -4.370507717132568
+      },
+      "comp_neutral": {
+        "mean_pz": 0.11278942227363586,
+        "median_pz": 0.015379678457975388,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.44999998807907104,
+        "frac_argmax_z": 0.23333333432674408,
+        "mean_log_pz": -4.795128345489502
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.2858513593673706,
+        "median_pz": 0.3379993140697479,
+        "frac_pz_ge_0.5": 0.1666666716337204,
+        "frac_pz_ge_0.05": 0.8833333253860474,
+        "frac_argmax_z": 0.21666666865348816,
+        "mean_log_pz": -1.6265448331832886
+      },
+      "fullT_neutral": {
+        "mean_pz": 0.08505915850400925,
+        "median_pz": 0.0036696274764835835,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.3166666626930237,
+        "frac_argmax_z": 0.10000000149011612,
+        "mean_log_pz": -5.948212146759033
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.0037653441540896893,
+        "median_pz": 0.001209530048072338,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.476949214935303
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.0736626386642456,
+        "median_pz": 0.0009803413413465023,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.25,
+        "frac_argmax_z": 0.10000000149011612,
+        "mean_log_pz": -6.5077385902404785
+      },
+      "lift_host_g0": 11.84216068203347,
+      "gain_host_g0": 0.024983545066788793,
+      "dlogit_host_g0": 2.4970262168584245,
+      "lift_fullK_host_g0": 1.6340541837701295,
+      "lift_fullT_host_g0": 124.05150514682666,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 1.5528671800101717,
+      "gain_neutral": 0.04015640914440155,
+      "dlogit_neutral": 0.4843700309801595,
+      "lift_fullK_neutral": 1.0141757238293185,
+      "lift_fullT_neutral": 1.1710812320654433,
+      "prior_floored_neutral": false
+    },
+    "QELVARO": {
+      "class": "synthetic_count0_fresh_bank",
+      "cohort": "A",
+      "cid": 29,
+      "base_host_g0": {
+        "mean_pz": 0.0025905624497681856,
+        "median_pz": 8.175063157978002e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -10.241929054260254
+      },
+      "base_neutral": {
+        "mean_pz": 0.005314809735864401,
+        "median_pz": 1.1724551768566016e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -11.007867813110352
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.0012933694524690509,
+        "median_pz": 0.0010320525616407394,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.819424152374268
+      },
+      "comp_neutral": {
+        "mean_pz": 0.0005220571183599532,
+        "median_pz": 0.0003760536783374846,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.631484985351562
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.0020817709155380726,
+        "median_pz": 1.3669290638063103e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.727663040161133
+      },
+      "fullT_neutral": {
+        "mean_pz": 0.011355009861290455,
+        "median_pz": 2.5489307518000714e-05,
+        "frac_pz_ge_0.5": 0.01666666753590107,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -10.296630859375
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.007904446683824062,
+        "median_pz": 0.0003401125723030418,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.06666667014360428,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.2739081382751465
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.010347265750169754,
+        "median_pz": 4.267016993253492e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -9.967489242553711
+      },
+      "lift_host_g0": 0.4992620241927721,
+      "gain_host_g0": -0.0012971929972991347,
+      "dlogit_host_g0": -0.6959239396503563,
+      "lift_fullK_host_g0": 3.051247301346233,
+      "lift_fullT_host_g0": 0.8035980432451486,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 0.09822686875074857,
+      "gain_neutral": -0.004792752617504448,
+      "dlogit_neutral": -2.3252822786563874,
+      "lift_fullK_neutral": 1.9468741619001484,
+      "lift_fullT_neutral": 2.136484733341762,
+      "prior_floored_neutral": false
+    },
+    "BUVONDI": {
+      "class": "synthetic_count0_fresh_bank",
+      "cohort": "A",
+      "cid": 14,
+      "base_host_g0": {
+        "mean_pz": 0.009090041741728783,
+        "median_pz": 0.00025232427287846804,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.09151554107666
+      },
+      "base_neutral": {
+        "mean_pz": 0.056629832834005356,
+        "median_pz": 0.0004662217397708446,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.2666666805744171,
+        "frac_argmax_z": 0.03333333507180214,
+        "mean_log_pz": -7.36383581161499
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.028677739202976227,
+        "median_pz": 0.02562093362212181,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.06666667014360428,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -3.8122897148132324
+      },
+      "comp_neutral": {
+        "mean_pz": 0.047287456691265106,
+        "median_pz": 0.008922205306589603,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.23333333432674408,
+        "frac_argmax_z": 0.03333333507180214,
+        "mean_log_pz": -5.911097049713135
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.011615190654993057,
+        "median_pz": 0.0006437819101847708,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.05000000074505806,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.446005344390869
+      },
+      "fullT_neutral": {
+        "mean_pz": 0.054944101721048355,
+        "median_pz": 0.00041910778963938355,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.21666666865348816,
+        "frac_argmax_z": 0.03333333507180214,
+        "mean_log_pz": -7.094558238983154
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.00607610447332263,
+        "median_pz": 0.0013859363971278071,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.1252923011779785
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.05236164107918739,
+        "median_pz": 0.0004909303970634937,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.20000000298023224,
+        "frac_argmax_z": 0.03333333507180214,
+        "mean_log_pz": -7.025995254516602
+      },
+      "lift_host_g0": 3.154852311769712,
+      "gain_host_g0": 0.019587697461247444,
+      "dlogit_host_g0": 1.1689070560676256,
+      "lift_fullK_host_g0": 0.6684352664113345,
+      "lift_fullT_host_g0": 1.2777928842364183,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 0.8350273049520589,
+      "gain_neutral": -0.00934237614274025,
+      "dlogit_neutral": -0.1901453311415482,
+      "lift_fullK_neutral": 0.9246299778540936,
+      "lift_fullT_neutral": 0.9702324547222618,
+      "prior_floored_neutral": false
+    },
+    "NYSTORA": {
+      "class": "synthetic_count0_fresh_bank",
+      "cohort": "A",
+      "cid": 26,
+      "base_host_g0": {
+        "mean_pz": 0.0028261500410735607,
+        "median_pz": 0.00012471803347580135,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.296530723571777
+      },
+      "base_neutral": {
+        "mean_pz": 0.013338341377675533,
+        "median_pz": 0.00038541023968718946,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.06666667014360428,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -8.175474166870117
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.005357164423912764,
+        "median_pz": 0.0019267667084932327,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -5.951254367828369
+      },
+      "comp_neutral": {
+        "mean_pz": 0.023069405928254128,
+        "median_pz": 0.002254751743748784,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0833333358168602,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -6.449333667755127
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.0027794702909886837,
+        "median_pz": 0.0007504833629354835,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.797550678253174
+      },
+      "fullT_neutral": {
+        "mean_pz": 0.008483285084366798,
+        "median_pz": 0.0005385183612816036,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.05000000074505806,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.809539794921875
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.003202585969120264,
+        "median_pz": 0.0013784751063212752,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.388309001922607
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.0077357543632388115,
+        "median_pz": 0.0007296721450984478,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -7.943204879760742
+      },
+      "lift_host_g0": 1.895569713587377,
+      "gain_host_g0": 0.002531014382839203,
+      "dlogit_host_g0": 0.6420608481081018,
+      "lift_fullK_host_g0": 1.1331974320456488,
+      "lift_fullT_host_g0": 0.9834829186679894,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 1.7295558177020074,
+      "gain_neutral": 0.009731064550578594,
+      "dlogit_neutral": 0.5577761960114915,
+      "lift_fullK_neutral": 0.5799637409330513,
+      "lift_fullT_neutral": 0.6360074947973161,
+      "prior_floored_neutral": false
+    },
+    "VIRETAN": {
+      "class": "scrambled_control",
+      "cohort": "A",
+      "cid": 34,
+      "base_host_g0": {
+        "mean_pz": 0.005193506833165884,
+        "median_pz": 4.6760080294916406e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.5304536819458
+      },
+      "base_neutral": {
+        "mean_pz": 0.0037306477315723896,
+        "median_pz": 4.64463337266352e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.714361190795898
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.00228944537229836,
+        "median_pz": 0.001850984524935484,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.249093532562256
+      },
+      "comp_neutral": {
+        "mean_pz": 0.0015177776804193854,
+        "median_pz": 0.000880845298524946,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.03796100616455
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.007508831098675728,
+        "median_pz": 0.00015551139949820936,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.536706447601318
+      },
+      "fullT_neutral": {
+        "mean_pz": 0.004101049620658159,
+        "median_pz": 0.0004677152319345623,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.621246337890625
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.014115378260612488,
+        "median_pz": 0.0029194627422839403,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.10000000149011612,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -5.4768571853637695
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.006152516230940819,
+        "median_pz": 0.0001954969047801569,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.936753273010254
+      },
+      "lift_host_g0": 0.4408284124472304,
+      "gain_host_g0": -0.002904061460867524,
+      "dlogit_host_g0": -0.8220145364777576,
+      "lift_fullK_host_g0": 2.7178896098626995,
+      "lift_fullT_host_g0": 1.4458113447977226,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 0.40684025660596856,
+      "gain_neutral": -0.002212870051153004,
+      "dlogit_neutral": -0.9015533537775031,
+      "lift_fullK_neutral": 1.649181770466348,
+      "lift_fullT_neutral": 1.0992862140134718,
+      "prior_floored_neutral": false
+    },
+    "MAMILLIUS": {
+      "class": "corpus_rare_seen",
+      "cohort": "A",
+      "cid": 25,
+      "base_host_g0": {
+        "mean_pz": 0.11408497393131256,
+        "median_pz": 0.07591447979211807,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.6666666865348816,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -2.6063716411590576
+      },
+      "base_neutral": {
+        "mean_pz": 0.03944913670420647,
+        "median_pz": 0.0010021060006693006,
+        "frac_pz_ge_0.5": 0.01666666753590107,
+        "frac_pz_ge_0.05": 0.13333334028720856,
+        "frac_argmax_z": 0.05000000074505806,
+        "mean_log_pz": -7.132626533508301
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.18700414896011353,
+        "median_pz": 0.12378469854593277,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.699999988079071,
+        "frac_argmax_z": 0.13333334028720856,
+        "mean_log_pz": -2.220714807510376
+      },
+      "comp_neutral": {
+        "mean_pz": 0.029605139046907425,
+        "median_pz": 0.007624875754117966,
+        "frac_pz_ge_0.5": 0.01666666753590107,
+        "frac_pz_ge_0.05": 0.05000000074505806,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -6.2090630531311035
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.06518443673849106,
+        "median_pz": 0.05569612234830856,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.5833333134651184,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -2.8948943614959717
+      },
+      "fullT_neutral": {
+        "mean_pz": 0.03338528424501419,
+        "median_pz": 0.0005967962788417935,
+        "frac_pz_ge_0.5": 0.01666666753590107,
+        "frac_pz_ge_0.05": 0.11666666716337204,
+        "frac_argmax_z": 0.03333333507180214,
+        "mean_log_pz": -6.86664342880249
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.06396226584911346,
+        "median_pz": 0.04301316663622856,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.4833333194255829,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -3.0948715209960938
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.0362832210958004,
+        "median_pz": 0.0007900670170783997,
+        "frac_pz_ge_0.5": 0.01666666753590107,
+        "frac_pz_ge_0.05": 0.15000000596046448,
+        "frac_argmax_z": 0.03333333507180214,
+        "mean_log_pz": -6.800595760345459
+      },
+      "lift_host_g0": 1.6391654616383013,
+      "gain_host_g0": 0.07291917502880096,
+      "dlogit_host_g0": 0.580082279836927,
+      "lift_fullK_host_g0": 0.5606546037133987,
+      "lift_fullT_host_g0": 0.5713674158153099,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 0.7504635467409513,
+      "gain_neutral": -0.009843997657299042,
+      "dlogit_neutral": -0.2972603270399268,
+      "lift_fullK_neutral": 0.919746897577394,
+      "lift_fullT_neutral": 0.8462868147239915,
+      "prior_floored_neutral": false
+    },
+    "LEONTES": {
+      "class": "corpus_mid_proper",
+      "cohort": "C",
+      "cid": 24,
+      "base_host_g0": {
+        "mean_pz": 0.030695928260684013,
+        "median_pz": 0.00011561827705008909,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.25,
+        "frac_argmax_z": 0.10000000149011612,
+        "mean_log_pz": -7.343691825866699
+      },
+      "base_neutral": {
+        "mean_pz": 0.07350528240203857,
+        "median_pz": 0.0018434090306982398,
+        "frac_pz_ge_0.5": 0.06666667014360428,
+        "frac_pz_ge_0.05": 0.10000000149011612,
+        "frac_argmax_z": 0.06666667014360428,
+        "mean_log_pz": -7.537475109100342
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.01615152508020401,
+        "median_pz": 0.012754414230585098,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -4.399193286895752
+      },
+      "comp_neutral": {
+        "mean_pz": 0.036738865077495575,
+        "median_pz": 0.004703424405306578,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.06666667014360428,
+        "frac_argmax_z": 0.03333333507180214,
+        "mean_log_pz": -5.983876705169678
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.030219459906220436,
+        "median_pz": 0.00032761896727606654,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.2666666805744171,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -6.453101634979248
+      },
+      "fullT_neutral": {
+        "mean_pz": 0.07054119557142258,
+        "median_pz": 0.0028742088470607996,
+        "frac_pz_ge_0.5": 0.06666667014360428,
+        "frac_pz_ge_0.05": 0.10000000149011612,
+        "frac_argmax_z": 0.06666667014360428,
+        "mean_log_pz": -6.9250078201293945
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.019352786242961884,
+        "median_pz": 0.00024473166558891535,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.13333334028720856,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.934352397918701
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.07032950222492218,
+        "median_pz": 0.0011858090292662382,
+        "frac_pz_ge_0.5": 0.06666667014360428,
+        "frac_pz_ge_0.05": 0.0833333358168602,
+        "frac_argmax_z": 0.06666667014360428,
+        "mean_log_pz": -7.1095194816589355
+      },
+      "lift_host_g0": 0.5261780957734131,
+      "gain_host_g0": -0.014544403180480003,
+      "dlogit_host_g0": -0.6570090725324049,
+      "lift_fullK_host_g0": 0.630467535583517,
+      "lift_fullT_host_g0": 0.9844777994521883,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 0.4998125832175113,
+      "gain_neutral": -0.036766417324543,
+      "dlogit_neutral": -0.7324382833252345,
+      "lift_fullK_neutral": 0.9567952115366838,
+      "lift_fullT_neutral": 0.9596751861396319,
+      "prior_floored_neutral": false
+    },
+    "KING": {
+      "class": "corpus_common_token",
+      "cohort": "C",
+      "cid": 23,
+      "base_host_g0": {
+        "mean_pz": 0.006559339351952076,
+        "median_pz": 1.6221802070504054e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.500261306762695
+      },
+      "base_neutral": {
+        "mean_pz": 0.005375583190470934,
+        "median_pz": 7.22181357559748e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.666096687316895
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.008405542001128197,
+        "median_pz": 0.005137503147125244,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -5.1607232093811035
+      },
+      "comp_neutral": {
+        "mean_pz": 0.004822662565857172,
+        "median_pz": 0.0018402559217065573,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.862522602081299
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.003967915195971727,
+        "median_pz": 4.040811109007336e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.842022895812988
+      },
+      "fullT_neutral": {
+        "mean_pz": 0.004362962674349546,
+        "median_pz": 8.44447931740433e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.323298454284668
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.0053779627196490765,
+        "median_pz": 0.00021140663011465222,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.578416347503662
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.0060605392791330814,
+        "median_pz": 0.0001416584273101762,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.05000000074505806,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.012866973876953
+      },
+      "lift_host_g0": 1.2814616762626692,
+      "gain_host_g0": 0.0018462026491761208,
+      "dlogit_host_g0": 0.2498614824301404,
+      "lift_fullK_host_g0": 0.8198939605173166,
+      "lift_fullT_host_g0": 0.6049260425580613,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 0.8971422067109108,
+      "gain_neutral": -0.0005529206246137619,
+      "dlogit_neutral": -0.10909664807855801,
+      "lift_fullK_neutral": 1.1274198657880208,
+      "lift_fullT_neutral": 0.8116259240641245,
+      "prior_floored_neutral": false
+    },
+    "ELIZABETH": {
+      "class": "corpus_host_high",
+      "cohort": "C",
+      "cid": 17,
+      "base_host_g0": {
+        "mean_pz": 0.5885670781135559,
+        "median_pz": 0.7814026474952698,
+        "frac_pz_ge_0.5": 0.6833333373069763,
+        "frac_pz_ge_0.05": 0.699999988079071,
+        "frac_argmax_z": 0.6833333373069763,
+        "mean_log_pz": -1.5418962240219116
+      },
+      "base_neutral": {
+        "mean_pz": 0.13208647072315216,
+        "median_pz": 0.0015483865281566978,
+        "frac_pz_ge_0.5": 0.13333334028720856,
+        "frac_pz_ge_0.05": 0.1666666716337204,
+        "frac_argmax_z": 0.13333334028720856,
+        "mean_log_pz": -6.362950325012207
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.3465762436389923,
+        "median_pz": 0.3726482391357422,
+        "frac_pz_ge_0.5": 0.25,
+        "frac_pz_ge_0.05": 0.6833333373069763,
+        "frac_argmax_z": 0.550000011920929,
+        "mean_log_pz": -2.209517240524292
+      },
+      "comp_neutral": {
+        "mean_pz": 0.04093606397509575,
+        "median_pz": 0.007495270576328039,
+        "frac_pz_ge_0.5": 0.01666666753590107,
+        "frac_pz_ge_0.05": 0.0833333358168602,
+        "frac_argmax_z": 0.05000000074505806,
+        "mean_log_pz": -5.52439546585083
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.34946852922439575,
+        "median_pz": 0.41018304228782654,
+        "frac_pz_ge_0.5": 0.3166666626930237,
+        "frac_pz_ge_0.05": 0.6833333373069763,
+        "frac_argmax_z": 0.46666666865348816,
+        "mean_log_pz": -2.0189058780670166
+      },
+      "fullT_neutral": {
+        "mean_pz": 0.12155976891517639,
+        "median_pz": 0.004657197277992964,
+        "frac_pz_ge_0.5": 0.11666666716337204,
+        "frac_pz_ge_0.05": 0.15000000596046448,
+        "frac_argmax_z": 0.13333334028720856,
+        "mean_log_pz": -5.795518398284912
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.3476868271827698,
+        "median_pz": 0.41826507449150085,
+        "frac_pz_ge_0.5": 0.3499999940395355,
+        "frac_pz_ge_0.05": 0.6833333373069763,
+        "frac_argmax_z": 0.4833333194255829,
+        "mean_log_pz": -2.2347097396850586
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.12404406815767288,
+        "median_pz": 0.0038528661243617535,
+        "frac_pz_ge_0.5": 0.13333334028720856,
+        "frac_pz_ge_0.05": 0.13333334028720856,
+        "frac_argmax_z": 0.13333334028720856,
+        "mean_log_pz": -6.062348365783691
+      },
+      "lift_host_g0": 0.5888474848947042,
+      "gain_host_g0": -0.2419908344745636,
+      "dlogit_host_g0": -0.9921679264440357,
+      "lift_fullK_host_g0": 0.5907344126300051,
+      "lift_fullT_host_g0": 0.5937615986685728,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 0.30991867487243313,
+      "gain_neutral": -0.09115040674805641,
+      "dlogit_neutral": -1.271311008126402,
+      "lift_fullK_neutral": 0.939112594034435,
+      "lift_fullT_neutral": 0.9203044660793511,
+      "prior_floored_neutral": false
+    },
+    "FLORIZEL": {
+      "class": "corpus_host_high",
+      "cohort": "C",
+      "cid": 18,
+      "base_host_g0": {
+        "mean_pz": 0.02306978963315487,
+        "median_pz": 7.191958138719201e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.23333333432674408,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -7.897971153259277
+      },
+      "base_neutral": {
+        "mean_pz": 0.016764242202043533,
+        "median_pz": 0.0002610145602375269,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.10000000149011612,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.310604095458984
+      },
+      "comp_host_g0": {
+        "mean_pz": 0.008639736101031303,
+        "median_pz": 0.00653829937800765,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -4.978011131286621
+      },
+      "comp_neutral": {
+        "mean_pz": 0.012334110215306282,
+        "median_pz": 0.004124598111957312,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.4593634605407715
+      },
+      "fullT_host_g0": {
+        "mean_pz": 0.07105566561222076,
+        "median_pz": 0.001895943540148437,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.3166666626930237,
+        "frac_argmax_z": 0.25,
+        "mean_log_pz": -5.129552841186523
+      },
+      "fullT_neutral": {
+        "mean_pz": 0.02995680458843708,
+        "median_pz": 0.0002561815199442208,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.11666666716337204,
+        "frac_argmax_z": 0.05000000074505806,
+        "mean_log_pz": -7.591903209686279
+      },
+      "fullK_host_g0": {
+        "mean_pz": 0.10440610349178314,
+        "median_pz": 0.0007243299041874707,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.3166666626930237,
+        "frac_argmax_z": 0.28333333134651184,
+        "mean_log_pz": -5.565311908721924
+      },
+      "fullK_neutral": {
+        "mean_pz": 0.029638243839144707,
+        "median_pz": 0.00028291973285377026,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.13333334028720856,
+        "frac_argmax_z": 0.05000000074505806,
+        "mean_log_pz": -7.7551774978637695
+      },
+      "lift_host_g0": 0.37450432961966246,
+      "gain_host_g0": -0.014430053532123566,
+      "dlogit_host_g0": -0.9968147021030425,
+      "lift_fullK_host_g0": 4.525663439155742,
+      "lift_fullT_host_g0": 3.080030929718698,
+      "prior_floored_host_g0": false,
+      "lift_neutral": 0.7357392041140264,
+      "gain_neutral": -0.004430131986737251,
+      "dlogit_neutral": -0.31137511122147643,
+      "lift_fullK_neutral": 1.7679441445633524,
+      "lift_fullT_neutral": 1.786946539389976,
+      "prior_floored_neutral": false
+    }
+  },
+  "riders": {
+    "spearman_logprior_loglift_host_g0": -0.41818181818181815,
+    "spearman_logprior_loglift_neutral": -0.20909090909090908,
+    "anchor_formed_fraction": {
+      "host_g0": 0.002761407790083131,
+      "neutral": 0.08844810137654051
+    },
+    "x10prior_rider_census": {
+      "host_g0": {
+        "ZEPHYRA": false,
+        "TAVIREN": false,
+        "QELVARO": false,
+        "BUVONDI": false,
+        "NYSTORA": false,
+        "VIRETAN": false,
+        "MAMILLIUS": false,
+        "LEONTES": false,
+        "KING": false,
+        "ELIZABETH": false,
+        "FLORIZEL": false
+      },
+      "neutral": {
+        "ZEPHYRA": false,
+        "TAVIREN": false,
+        "QELVARO": false,
+        "BUVONDI": false,
+        "NYSTORA": false,
+        "VIRETAN": false,
+        "MAMILLIUS": false,
+        "LEONTES": false,
+        "KING": false,
+        "ELIZABETH": false,
+        "FLORIZEL": false
+      }
+    }
+  },
+  "verdict": {
+    "word": "NAME-SPECIFIC-STRUCTURE",
+    "clause": "some marginal names lift >> others \u2014 TAVIREN vs VIRETAN at host_g0 (priors 0.0023/0.00519, lifts 11.8x/0.4x, 26.9x spread among same-prior names) \u2014 fragility is structure, not prior; the census continues with name-geometry probes; necessity stays weakened",
+    "clause_eval": {
+      "host_g0": {
+        "anchor_lift": 54.60267494437959,
+        "cohort_a_lifts": {
+          "TAVIREN": 11.84216068203347,
+          "QELVARO": 0.4992620241927721,
+          "BUVONDI": 3.154852311769712,
+          "NYSTORA": 1.895569713587377,
+          "VIRETAN": 0.4408284124472304,
+          "MAMILLIUS": 1.6391654616383013
+        },
+        "cohort_a_spread": 26.863424288585392,
+        "cohort_a_median": 1.7673675876128392,
+        "clause_A_spread_le_3": false,
+        "clause_B_anchor_le_0p2x_median": false,
+        "interval": [
+          0.4408284124472304,
+          54.60267494437959
+        ],
+        "clause_C_corpus_inside": {
+          "LEONTES": true,
+          "KING": true,
+          "ELIZABETH": true,
+          "FLORIZEL": false
+        },
+        "clause_C_pass": false,
+        "priors": {
+          "ZEPHYRA": 1.3383960322244093e-05,
+          "TAVIREN": 0.002304295776411891,
+          "QELVARO": 0.0025905624497681856,
+          "BUVONDI": 0.009090041741728783,
+          "NYSTORA": 0.0028261500410735607,
+          "VIRETAN": 0.005193506833165884,
+          "MAMILLIUS": 0.11408497393131256,
+          "LEONTES": 0.030695928260684013,
+          "KING": 0.006559339351952076,
+          "ELIZABETH": 0.5885670781135559,
+          "FLORIZEL": 0.02306978963315487
+        }
+      },
+      "neutral": {
+        "anchor_lift": 28.529535382493243,
+        "cohort_a_lifts": {
+          "TAVIREN": 1.5528671800101717,
+          "QELVARO": 0.09822686875074857,
+          "BUVONDI": 0.8350273049520589,
+          "NYSTORA": 1.7295558177020074,
+          "VIRETAN": 0.40684025660596856,
+          "MAMILLIUS": 0.7504635467409513
+        },
+        "cohort_a_spread": 17.607766995920112,
+        "cohort_a_median": 0.7927454258465051,
+        "clause_A_spread_le_3": false,
+        "clause_B_anchor_le_0p2x_median": false,
+        "interval": [
+          0.09822686875074857,
+          28.529535382493243
+        ],
+        "clause_C_corpus_inside": {
+          "LEONTES": true,
+          "KING": true,
+          "ELIZABETH": true,
+          "FLORIZEL": true
+        },
+        "clause_C_pass": true,
+        "priors": {
+          "ZEPHYRA": 2.0202314772177488e-05,
+          "TAVIREN": 0.07263301312923431,
+          "QELVARO": 0.005314809735864401,
+          "BUVONDI": 0.056629832834005356,
+          "NYSTORA": 0.013338341377675533,
+          "VIRETAN": 0.0037306477315723896,
+          "MAMILLIUS": 0.03944913670420647,
+          "LEONTES": 0.07350528240203857,
+          "KING": 0.005375583190470934,
+          "ELIZABETH": 0.13208647072315216,
+          "FLORIZEL": 0.016764242202043533
+        }
+      }
+    },
+    "one_generic_per_site": {
+      "host_g0": false,
+      "neutral": false
+    },
+    "structure_pairs": [
+      {
+        "site": "host_g0",
+        "pair": [
+          "TAVIREN",
+          "QELVARO"
+        ],
+        "priors": [
+          0.002304295776411891,
+          0.0025905624497681856
+        ],
+        "lifts": [
+          11.84216068203347,
+          0.4992620241927721
+        ],
+        "lift_ratio": 23.71932994739661
+      },
+      {
+        "site": "host_g0",
+        "pair": [
+          "TAVIREN",
+          "VIRETAN"
+        ],
+        "priors": [
+          0.002304295776411891,
+          0.005193506833165884
+        ],
+        "lifts": [
+          11.84216068203347,
+          0.4408284124472304
+        ],
+        "lift_ratio": 26.863424288585392
+      },
+      {
+        "site": "neutral",
+        "pair": [
+          "QELVARO",
+          "NYSTORA"
+        ],
+        "priors": [
+          0.005314809735864401,
+          0.013338341377675533
+        ],
+        "lifts": [
+          0.09822686875074857,
+          1.7295558177020074
+        ],
+        "lift_ratio": 17.607766995920112
+      }
+    ],
+    "bars_verbatim": {
+      "ONE-GENERIC-CURVE": "the lift ratios of all count-0/low-prior names (synthetic + rare corpus) fall within ~3x of each other AND the formed anchor's lift is <= 0.2x theirs AND the mid/high-prior corpus names' lifts fall between \u2014 prior-fragility is generic; NECESSITY RESTORES with the rider 'reads are scored prior-relative (a complement floors below ~10x prior; a full write clears it)'; tonight's write-dependence scare re-closes as an instrument lesson.",
+      "NAME-SPECIFIC-STRUCTURE": "some marginal names lift >> others (>10x spread among same-prior names) \u2014 fragility is structure, not prior; the census continues with name-geometry probes; necessity stays weakened."
+    },
+    "clauses_fixed": {
+      "read_currency": "a name's read := p(name[0]) at the final context position, mean over the site's 60 contexts (x15/x23/e311's committed currency)",
+      "lift": "lift(i,S) := p_comp(i,S) / max(p_base(i,S), 1e-12); the same ratio currency in EVERY clause incl. the anchor clause; absolute gains, logit deltas and formed-fraction co-reported only",
+      "cohorts": "cohort-A := TAVIREN, QELVARO, BUVONDI, NYSTORA, VIRETAN, MAMILLIUS (synthetic + rare corpus; the anchor excluded \u2014 its own clause); cohort-C := KING, LEONTES, ELIZABETH, FLORIZEL; frozen by construction",
+      "clause_A": "max/min lift over cohort-A <= 3.0, per site",
+      "clause_B": "lift(anchor) <= 0.2 * median(cohort-A lifts), per site",
+      "clause_C": "every cohort-C lift inside [min(anchor, cohort-A lifts), max(anchor, cohort-A lifts)], per site",
+      "one_generic_curve": "A AND B AND C at BOTH sites",
+      "name_specific": "a same-site pair of distinct panel names with base priors within 3x both ways AND lift max/min > 10x",
+      "precedence": "ONE-GENERIC-CURVE first; then NAME-SPECIFIC-STRUCTURE; neither => GAP (verbatim report; no wording change without a new registered cell)"
+    },
+    "prediction": {
+      "P_x24a_statement": "Register P-x24a BEFORE compute. Lab guess: ONE-GENERIC-CURVE.",
+      "P_x24a_outcome": "MISS \u2014 the verdict is NAME-SPECIFIC-STRUCTURE",
+      "P_x24a_exec_statement": "Pre-compute, registered: the strict conjunction is strained by committed data BEFORE this census runs \u2014 lift(ZEPHYRA) at host = 0.0007308/1.3384e-05 = 54.6x vs lift(TAVIREN) = 0.0272878/0.0023043 = 11.8x, and clause B needs the anchor <= 0.2x the cohort median. Executor sub-prediction P-x24a-exec (scored): ONE-GENERIC-CURVE does NOT fire (clause B fails at the host site); NAME-SPECIFIC-STRUCTURE does not fire either (no same-prior pair splits >10x); the verdict is GAP with the monotone rider (Spearman rho of log-prior vs log-lift < 0 on the pooled panel at BOTH sites) \u2014 prior-fragility generic in trend, name-slot-confounded absolute bars for the fold to re-register.",
+      "P_x24a_exec_outcome": "MISS \u2014 the executor predicted GAP; the verdict is NAME-SPECIFIC-STRUCTURE"
+    }
+  },
+  "outputs": {
+    "figure": "runs/x24/x24_prior_census.png",
+    "metrics": "runs/x24/metrics.json",
+    "report": "runs/x24/REPORT.md"
+  }
+}
