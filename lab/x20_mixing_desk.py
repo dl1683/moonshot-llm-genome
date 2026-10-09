@@ -95,8 +95,14 @@ FROZEN BARS (verbatim; adjudicate against exactly this):
   instrument), scan fact i's OWN battery windows 0..11 (e311 scanned
   its host's 0..59 — the fact's own battery is the port; disclosed)
   for the FIRST window whose LAST-position argmax IS zid (fallback:
-  the first with zid in its top-3; none -> HALT); backward the zid
-  logit at that window's last position; g_raw := the flat fp64
+  the first with zid in its top-3 — e311's own designed fallback,
+  carrying a WEAK stamp disclosed per fact; none -> HALT. THE SMOKE'S
+  CATCH, fixed + disclosed at the smoke commit: FACT4's battery has
+  ZERO argmax-Z windows (all 12 in top-3; the fallback fires at its
+  window 0, p(Z) 0.418) — e311's gate expression was stricter than
+  e311's own fallback design, which anticipated exactly this; the
+  fallback is accepted with the bind_class recorded); backward the
+  zid logit at that window's last position; g_raw := the flat fp64
   gradient; u := (g_raw - P_union(g_raw)) / ||.|| — PROJECTED OUT OF
   THE FIVE-ROOM UNION (zero bearer for the whole family); trigger_i
   := c_i * u with c_i := 0.0005 x ||dW_i|| (e311's TRIGGER_FRAC
@@ -480,6 +486,16 @@ deviations: list[str] = [
     "Smoke mode (X20_SMOKE=1): the off-target battery n=40; everything else "
     "LIVE at full size (the 5x5 core is cheap); own smoke dir (gitignored); "
     "NOTHING adjudicated (SMOKE stamp on every read).",
+    "THE ARGMAX-BIND FALLBACK (the smoke's catch, fixed + disclosed): "
+    "FACT4's 12-window battery has ZERO windows whose last-position argmax "
+    "is 'Z' (all 12 carry 'Z' in the top-3; window 0 at p(Z) 0.418) — the "
+    "birth gate as first written reproduced e311's STRICT pass expression "
+    "(argmax bind) and failed; e311's own DESIGN carries the top-3 "
+    "fallback for exactly this contingency, so the gate now accepts the "
+    "fallback with a per-fact bind_class record (ARGMAX vs TOP3-FALLBACK "
+    "weak) and the four hard clauses unchanged (zero bearer per-room + "
+    "union, natural norm). One fact in five rides the weak bind — "
+    "disclosed in metrics, the report, and the trigger registry.",
 ]
 
 metrics: dict = {
@@ -897,7 +913,7 @@ def main() -> None:
         "e291_metrics": {"path": str(E291_METRICS),
                          "md5": md5of(E291_METRICS),
                          "bound_md5": E291_METRICS_MD5,
-                         "verdict": e291m["adjudication"]["word"]},
+                         "verdict": e291m["adjudication"]["verdict"]},
         "e291_organism_ckpt": {"path": str(CKPT_DIR / ORG_CK),
                                "md5": md5of(CKPT_DIR / ORG_CK),
                                "bound_md5": ORG_MD5,
@@ -961,7 +977,7 @@ def main() -> None:
                      and (CKPT_DIR / HOST261_CK).stat().st_size
                      == HOST261_SIZE
                      and md5of(CKPT_DIR / BASE_CK) == BASE_MD5
-                     and e291m["adjudication"]["word"] == E291_VERDICT
+                     and e291m["adjudication"]["verdict"] == E291_VERDICT
                      and e311m["adjudication"]["word"] == E311_VERDICT
                      and org_meta_lit["baseline_g0"] == E291_BASELINES_G0
                      and org_meta_lit["write_norm"] == E291_WRITE_NORM
@@ -1173,11 +1189,15 @@ def main() -> None:
             "fact": fi,
             "form": "e311's birth procedure ported: the gradient of the "
                     "read token's OWN logit at the first own-battery "
-                    "window whose last-position argmax IS 'Z' (fallback "
-                    "top-3), projected OUT of the five-room union, scaled "
+                    "window whose last-position argmax IS 'Z' (fallback: "
+                    "e311's own designed top-3 fallback, WEAK-stamped; "
+                    "the smoke's catch — FACT4 has zero argmax-Z windows),"
+                    " projected OUT of the five-room union, scaled "
                     "c_i = 0.0005 x ||dW_i|| (the fact's committed "
                     "in-room write norm)",
             "chosen_window": int(tw),
+            "bind_class": ("ARGMAX" if chosen_w is not None
+                           else "TOP3-FALLBACK (weak)"),
             "argmax_is_z": bool(top_tok == zid),
             "window_pz": window_pz,
             "raw_grad_norm": g_norm,
@@ -1193,7 +1213,7 @@ def main() -> None:
             "in_union_frac": t_union,
             "bytes_md5": tmd5,
             "zero_bearer_bar": ZERO_BEARER_BAR,
-            "pass": bool(top_tok == zid
+            "pass": bool((top_tok == zid or chosen_w is None)
                          and max(t_room_fracs) <= ZERO_BEARER_BAR
                          and t_union <= ZERO_BEARER_BAR
                          and abs(t_norm - c_i) <= 1e-12),
@@ -1201,16 +1221,23 @@ def main() -> None:
         assert rec["pass"], f"G_TRIGGERS FAILED at {fi}: {rec}"
         trig_meta.append(rec)
         triggers.append(trigger)
-        log(f"  {fi}: window {tw} (argmax==Z {top_tok == zid}, p(Z) "
+        bind = ("ARGMAX" if chosen_w is not None
+                else "TOP3-FALLBACK weak")
+        log(f"  {fi}: window {tw} [{bind}] (argmax==Z "
+            f"{top_tok == zid}, p(Z) "
             f"{window_pz:.4f}); |g_raw| {g_norm:.3f}, in-union "
             f"{g_in_union:.4f} (chance {rec['raw_grad_union_chance']:.4f});"
             f" c {c_i:.7f} = {c_i / kill_lo_i:.3f}x kill-lo; trigger "
             f"in-union {t_union:.1e}, max in-room "
             f"{max(t_room_fracs):.1e}: PASS")
     metrics["gates"]["G_TRIGGERS"] = {
-        "form": "all five births passed: the argmax bind + the zero-bearer "
-                "(per-room AND union) + the natural norm (== c_i at 1e-12)",
+        "form": "all five births passed: the argmax bind (or e311's own "
+                "designed top-3 fallback, WEAK-stamped per fact — the "
+                "smoke's catch, disclosed) + the zero-bearer (per-room "
+                "AND union) + the natural norm (== c_i at 1e-12)",
         "facts": trig_meta,
+        "weak_binds": [r["fact"] for r in trig_meta
+                       if r["bind_class"] != "ARGMAX"],
         "pass": bool(all(r["pass"] for r in trig_meta))}
     assert metrics["gates"]["G_TRIGGERS"]["pass"]
     save_json_partial("P3 the five triggers born (zero bearer verified)")
@@ -1657,7 +1684,8 @@ def main() -> None:
     rep.append("\n## Trigger registry (norms disclosed)\n")
     for r in trig_meta:
         rep.append(f"- {r['fact']}: window {r['chosen_window']} "
-                   f"(p(Z) {r['window_pz']:.4f}); c = {r['scale_c']:.7f} "
+                   f"[{r['bind_class']}] (p(Z) {r['window_pz']:.4f}); "
+                   f"c = {r['scale_c']:.7f} "
                    f"(0.0005 x ||dW|| = {r['fact_write_norm']:.4f}; "
                    f"{r['scale_vs_kill_bracket_lo']:.3f}x its kill-lo); "
                    f"in-union {r['in_union_frac']:.1e}; bytes md5 "
