@@ -7,6 +7,44 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T283 — X16: the knife is surgical — a context-gated targeted bias, not a volume dial (2026-10-09, datetime.now ~19:08Z)
+
+Both registered predictions fell, and the table beneath them is the
+cleanest mechanism statement the confidence axis has gotten. The knob
+is: (1) TARGETED — a positive additive push on its own target's logit,
+omnipresent (+0.0100 mean excess, 82.3% of contexts) but tiny off its
+home turf; (2) CONTEXT-GATED — the same push amplifies 36x at the
+host's own contexts (+0.362), exactly where the read-gradient was
+earned: the unembedding projection geometry concentrates the gain where
+the direction was taken; (3) SURGICAL — no off-target harm at the
+licensed dose (top-1 stability 99.33%, symmetric margins, null
+entropy shift; the random control at matched norm delivers 0.08% of
+the effect). ALIGNMENT IS THE WHOLE STORY at 1-dim scale — T282's
+structure law confirmed at its finest resolution.
+
+T279's "volume channel" wording falls FOR THE KNOB (it is neither
+temperature-like nor noisy); x15's complement remains the noise case.
+The out-of-room menagerie settles at TWO species: TARGETED BIAS
+(structure-aligned displacement) and DIFFUSE NOISE (random or
+complement mass) — neither creates content, and the two-channel law's
+core (content lives in the room-overlap tail) stands untouched, now
+three-instrumented: e311's knob, x15's ladder, e320's suppression
+curve.
+
+W049-Q3 UNBLOCKED with a measured collateral profile: a targeted dial
+with near-zero off-target effect is exactly what the calibration
+intervention wants — the anti-direction at microdose should cool THE
+memory without touching the neighborhood. The design proceeds (cooling
+the hot controller-twin toward 1.0x; the dose ladder sits inside the
+transport bracket).
+
+CONSULT #010 SCORECARD (the cross-check closes): agy's hole was RIGHT
+on the mechanism class (a logit bias, not a volume channel — adopted,
+measured, confirmed) and WRONG on the harm (its predicted Fact-B
+degradation via denominator intrusion did not materialize: the squeeze
+is on-target only). The consult pattern holds: mechanisms adopt after
+measurement, harms wait for the instrument.
+
 ## T282 — E320: the boost's true variable is structure, not dose — W049 re-amended (2026-10-09, datetime.now ~19:00Z)
 
 The amendment chain deserves the full honest arc, because each step was a
