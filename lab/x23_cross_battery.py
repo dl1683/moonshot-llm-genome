@@ -1074,8 +1074,8 @@ def main() -> None:
         f"cross-check {G_DIAG['TK_crosscheck']['ratio']:.6f}")
 
     if SMOKE:
-        METRICS["status"] = "SMOKED — full gate path + all cells "
-                            "exercised; NOTHING adjudicated"
+        METRICS["status"] = ("SMOKED — full gate path + all cells "
+                             "exercised; NOTHING adjudicated")
         write_partial("SMOKE COMPLETE — nothing adjudicated")
         log("SMOKE COMPLETE (nothing adjudicated)")
         raise SystemExit(0)
