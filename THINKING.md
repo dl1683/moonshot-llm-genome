@@ -46,6 +46,18 @@ and missed its texture clause. Both disclosed. The instrument's edge
 over intuition now stands at seven straight, and the shape of every
 miss is the same: I bet distributions, the organism deals in modes.
 
+> [R73 CORRECTIONS 2026-10-09]: (1) THE "RARE" WORD IS PULLED BACK — the trust band
+> that selected the canon ADMITS die-mode draws (0.2646) and EXCLUDES survive-mode
+> ones (0.48-0.53): among band-passing draws the die mode may be the MAJORITY; the
+> canon is a die-mode EXTREME of the census, and its population share is unknown
+> until the seed-stratified census (e327). No "rare" wording survives outside this
+> correction. (2) The miss ledger renumbers to EIGHT (P-e324a joined) and is SCOPED:
+> it counts the thinking lane's mechanism-seat guesses only — registered HITS exist
+> in the same wave (P-e321b, P-x15a, P-x17b/c, P-e324b, executor counters) and are
+> excluded by class; the honest claim is "0-for-8 on mechanism-seat guesses while
+> executor advance-counters hit at comparable uncertainty" — the ledger measures the
+> thinking lane's content-bias, not the instruments' general superiority.
+
 ## T290 — X20: the membrane shares one confidence dial — and the coupling is direction-blind (2026-10-09, datetime.now ~21:32Z)
 
 The mixing desk answers T289's family-scale question with a

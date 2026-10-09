@@ -23,6 +23,9 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
 
 ## LAW 3 — THE FLOOR (formation) — v3's biggest rewrite
 - The (1k,2k] edge under Adam (e272), dose acquitted at matched rank, the 73.5% fill (x6/x10).
+- [R73 FLAG: the necessity clause's final form (authorship-relative bars) is an
+  instrument-calibration rule, not a formation law — candidate demotion to a METHODS
+  note at v3 drafting; its mechanism noun hangs on x25 (plasticity vs mass)]
 - NEW CLAUSES (the bearer law, promoted from notes):
   - SUFFICIENCY: the room-overlap tail carries the read (e306 — truncation kills, r7 = 33.9% mass).
   - NECESSITY, DOSE-MATCHED: the out-of-room complement at 100% of the write's energy reads
@@ -63,7 +66,7 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
 - RIDERS: n=1-per-road, one family, one organism, one architecture (R71 scope notes);
   GATES: e318 DONE — the rider carried verbatim: LONE-SURVIVES 2/2 through alpha 1.0;
   at 1.5 the draws straddle ([0.0245, 0.0930], undetermined n=2); the CROSSOVER SHAPE
-  replicates 2/2 and is the law-grade object. Remaining gate: e323's family-redraw replicate. + e320 (lone boost?) + e323's
+  replicates 2/2 and is the law-grade object. [R73: the family redraw ALSO textured — see Law 2b's bimodal rider; the replicate now rides e327's census] + e320 (lone boost?) + e323's
   family-redraw replicate. This law cannot be drafted before those three land.
 
 ## LAW 7 — THE TWO CHANNELS (new; tonight)
