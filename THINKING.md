@@ -7,6 +7,45 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T291 — E324: the bimodal wheel — formation has two modes, the fork lands at step one, and the canon is the rare one (2026-10-09, datetime.now ~22:05Z)
+
+The census answers the monoculture question with the sharpest possible
+shape: NOT a wide lottery but a BIMODAL one. Four fresh gens at the
+canon's own room all survived their first optimizer step (s1 g0 ~0.745,
+span 0.0004 — nearly deterministic) and all sprawled: post g0 0.48-0.53
+at norm ~27, in-room 0.632, gm12 ~0.7. The committed gen died at step
+one (s1 1.35e-05) and recovered pruned: 0.2646 at norm 9.18, 94.4%
+in-room. Survival predicts bulk perfectly across all five draws. The
+fork is GEN-TRACKED (the canon gen dies in every room; fresh gens
+survive in the canon's room) — a property of the draw's first-step
+geometry, not the room's.
+
+THE CANON IS AN EXTREME ON EVERY AXIS — a die-mode draw. Everything the
+lab has measured for twelve days describes the die mode's biography:
+the capacity edge, the 73.5% fill, the transport bracket, the
+controller's endpoints, the bearer law's textures. Typical installs
+read ~2x the canon at 3x the norm, 63% localized. W052's localization
+float resolves: localization is the DIE MODE's scar (pruned by the
+step-one death), and sprawl is the default.
+
+WHAT THIS OPENS (the queue's next chamber):
+- e326 THE RUNGS ON THE SURVIVE MODE: e323's registered-untested bars
+  finally have their substrate — the census's four survive-mode states
+  are on disk; run the two boundary rungs of the transport kill on a
+  survive-mode draw. Does the bracket differ by mode? A 2x-shrunk
+  threshold on the bulky write would rewrite Law 2b's safety margin.
+- THE MODE CENSUS (N gens to estimate the die-mode share — n=4+1 with
+  committed-selection bias says nothing yet; ~10 gens would).
+- The controller on a survive-mode fact (does maintenance care which
+  mode it holds? T275's bearer-size-blindness says maybe not — the
+  cheapest cross-mode test of the whole controller law).
+
+THE LEDGER: the lab's guess missed again (the streak holds — I bet
+wide, the wheel was bimodal); the executor's counter hit the verdict
+and missed its texture clause. Both disclosed. The instrument's edge
+over intuition now stands at seven straight, and the shape of every
+miss is the same: I bet distributions, the organism deals in modes.
+
 ## T290 — X20: the membrane shares one confidence dial — and the coupling is direction-blind (2026-10-09, datetime.now ~21:32Z)
 
 The mixing desk answers T289's family-scale question with a

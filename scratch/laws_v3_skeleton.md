@@ -15,7 +15,10 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
 - RIDER (R71): the bracket is a bracket — two rungs, n=1, one organism; 'constant' language
   banned. [T288 addendum]: the n=1 deepens — the committed write is ONE INSTALL DRAW of a
   lottery that dominates the room lottery (+81% vs -21%); the bracket is one-formation-
-  style. GATE: e324 (the install-draw census) before any retention re-ladder.
+  style. GATE: e324 DONE (T291) — the wheel is BIMODAL (within-mode 12.2%; mode gap
+  2-3x; the fork gen-tracked at step one); THE CANON IS A DIE-MODE EXTREME — every
+  committed formation number describes the die mode's biography. The bracket is a
+  one-MODE measurement; e326 (the rungs on a survive-mode state) is the new gate.
   banned until e323's fresh-draw re-ladder replicates both edges. e323 is this law's gate.
 
 ## LAW 3 — THE FLOOR (formation) — v3's biggest rewrite
