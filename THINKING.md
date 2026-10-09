@@ -7,6 +7,50 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W052 — the localization float: formation picks a point on the spectrum, and the read does not follow it (2026-10-09, datetime.now ~19:57Z; from e323's TEXTURE autopsy, pre-fold)
+
+The cascade guard's out-of-band fresh draw carries a datum nobody
+ordered and everybody needs. Across two natural install draws of the
+SAME protocol, room, and fact:
+
+  committed draw: norm 9.18, in-own-room 94.4%, gm12 0.105, reads 0.265
+  fresh draw:     norm 27.06, in-own-room 63.3%, gm12 0.685, reads 0.479
+
+The fresher write is THREE TIMES the mass, far LESS localized in its
+granted room, far more spread to mid-lengths (gm12 6.5x) — and reads
+~1.8x HIGHER. The lab's whole bearer-law framing quietly assumed
+room-localization is the read's currency; across natural draws the
+localization fraction FLOATS (94% -> 63%) and the read does not follow
+it down — if anything it moves the other way.
+
+THE SCOPE SPLIT THIS FORCES (and it is healthy): the bearer law's
+claims are WITHIN-WRITE — subtract THIS write's room-overlap tail and
+its read dies (e306/e314/x15: necessity holds dose-matched, the null
+write-dependent only through name-slot fragility). ACROSS-WRITES, the
+localization fraction is a free formation parameter with no visible
+read cost. Analogy: the law says you cannot remove a memory's bones
+and keep it standing; it does NOT say memories evolve toward
+skeletons. Formation evidently tolerates jellyfish.
+
+QUESTIONS THIS OPENS (curiosity, no bars):
+- Is the first-step shock the CAUSE? The committed draw's first AdamW
+  step KILLS the read (g0 0.0000 at s1) then recovers — formation as a
+  near-death experience that prunes to the localized form; the fresh
+  draw SURVIVES step one and keeps its bulk. Does forced first-step
+  survival (a warmup lr schedule, or momentum off for step 1)
+  reproducibly yield bulkier writes? That would make localization a
+  WOUND-HEALING artifact, not a preference.
+- Does the bulky write RETAIN differently? The transport bracket was
+  measured on the committed (localized) write. If the bulky draw has a
+  different kill threshold, the bracket's n=1 problem doubles: not one
+  room draw but one FORMATION STYLE. (The interrupted cascade guard
+  wanted exactly this number; the follow-up design inherits it.)
+- The deepest: is 94%-localization itself an artifact of one install
+  draw's genetics — and has the lab been dissecting a seven-day-old
+  monoculture? Every committed rig loads e001/the committed write
+  chain. The organism-replicate question (e248, parked since Oct-4)
+  just became load-bearing for every law's across-draw scope.
+
 ## T285 — X23: the name slot's fragility — neither the write nor the battery, the NAME (2026-10-09, datetime.now ~19:55Z)
 
 The cross-battery was built to decide between two hypotheses and killed
