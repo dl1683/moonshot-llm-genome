@@ -3420,7 +3420,7 @@ def main():
     ce_t_rows = {k: v["ce"] for k, v in twn["corpus_ledger"].items()}
     shared = sorted(set(ce_a_rows) & set(ce_t_rows))
     pre_boundary = [k for k in shared
-                    if int(k) <= (MILESTONES[0] if SMOKE else M)]
+                    if int(k) <= (MILESTONES[0] if SMOKE else MAINT_EVERY)]
     metrics["adjudication"]["draw_integrity"] = {
         "n_shared_corpus_rows": len(shared),
         "n_rows_before_first_boundary": len(pre_boundary),
