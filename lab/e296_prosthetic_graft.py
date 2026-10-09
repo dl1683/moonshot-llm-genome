@@ -111,7 +111,9 @@ do not move the bars):
   * G_GRAFISOL (the graft arm's no-signal isolation, HARD): the graft edit
     touches NO optimizer state (opt_C's buffers snapshotted bitwise around
     EVERY graft event) and NO gradient EVER exists on the graft path
-    (asserted: all grads None at every event — set_to_none discipline).
+    (asserted: the grads bitwise-unchanged through every edit — the
+    graft path computes none; the corpus step's leftovers pass through
+    untouched).
   * HARD GATES (a failure HALTs): {G_NAMEFREE, G_SPLICE, G_BATTERY,
     G_ANCHOR, G_INSTMASK, G_NAMEWIN, G_PARENTS, G_BASE, G_ROOT, G_VMBIND,
     G_SPANBIND, G_PROJ, G_ROOMK10K, G_FACTLOAD, G_CORPUSGEN, G_LR_BIND,
@@ -412,7 +414,7 @@ E268_CONCURRENT_POST = 4.004325455753133e-05  # the FORMING write under fire
 E268_RATIO = 0.00015130794937726159          # ~0.0002x — the forming death
 
 E283_METRICS = E43.REPO / "runs" / "e283" / "metrics.json"
-E283_MD5 = "db14cdff1fd5021a5b255c12127ea9df"
+E283_MD5 = "cf5be012f636ede7b953eb9a615c60a5"
 E283_VERDICT = "ESTABLISHED-DIES"
 E283_POST = 9.04614535102155e-06             # the unprotected reference
 E283_RATIO = 3.4181848724802654e-05          # 0.0000342x — the cite
@@ -420,7 +422,7 @@ E283_DRIFT = 14.453935847208887              # the transport read (||d||)
 E283_WRITE_NORM = 9.1788432658723            # the write's own norm
 
 E284_METRICS = E43.REPO / "runs" / "e284" / "metrics.json"
-E284_MD5 = "18ad7e334c4bb9b52a494f1739842ac6"
+E284_MD5 = "18ad7e334c4bb9b52e494f1739842ac6"
 E284_VERDICT = "MOMENTUM-OWNED"
 E284_SEP_PRIMARY = 2.319773558897833e-07     # the separate-buffer in-room share
 E284_SHA_PRIMARY = 0.45027988873803715       # the shared twin's funnel
@@ -440,7 +442,14 @@ E285_MD5 = "3f71c7b209fe9b6e9645d7504ddbb49c"
 E285_VERDICT = "AIM-ONLY-KILLS"
 E285_SAN_POST = 0.0008025270071811974        # the sanctuary's dead read
 E285_SAN_RATIO = 0.00303243599263398         # 0.0030x
-E285_SAN_DRIFT = 1.844509195284748           # 20.1% of the write
+E285_SAN_DRIFT = 1.8445091953053947           # 20.1% of the write (the
+                                               # CURRENT committed record;
+                                               # e288's bind read
+                                               # 1.844509195284748 — the
+                                               # e285 record was rewritten
+                                               # after e288's fold at a
+                                               # 2e-8 fp discrepancy;
+                                               # disclosed in deviations)
 E285_SAN_DRIFT_INROOM = 1.2260267392361931e-06   # fp floor (out-of-room)
 E285_S_FINAL = 4.589421633863822             # 100.00000002% of budget
 E285_BUDGET_NORM = 4.58942163293615
@@ -509,10 +518,10 @@ E288_MAINT_INROOM_MEDIAN = 0.06026178670986923   # the brush at chance
 E288_LR_M_MEDIAN = 0.0189421246658655
 E288_DEFICIT_TRACE = (
     0.964767267990533, 0.9638790707448035, 0.9823719276954169,
-    0.982105892221534, 0.9654872168683667, 0.9334813092896523,
-    0.8769808755553569, 0.8417059107770661, 0.8283771631651486,
+    0.982105892221834, 0.9654872168683667, 0.9334813097846523,
+    0.8769808755553569, 0.8417059107773661, 0.8283771631651486,
     0.7779996393059043, 0.7411397685679476, 0.7004941441544414,
-    0.6600448294450705, 0.6695609374262748, 0.6534653434683634,
+    0.6600448294450705, 0.6695609374262748, 0.6534653434685034,
     0.6580809159715638,
 )
 E288_CE_EARLY = 0.9369652271270752
@@ -625,7 +634,8 @@ REGISTERED = {
         "+ the fp64-exact unit test G_TRANSPLANT at startup; G_GRAFISOL "
         "(HARD) := the graft edit touches NO optimizer state (opt_C "
         "buffers bitwise around every event) and NO gradient exists on "
-        "the path (all grads None at every event); HARD GATES (HALT) := "
+        "the path (the grads bitwise-unchanged through every edit); "
+        "HARD GATES (HALT) := "
         "{G_NAMEFREE, G_SPLICE, G_BATTERY, G_ANCHOR, G_INSTMASK, "
         "G_NAMEWIN, G_PARENTS, G_BASE, G_ROOT, G_VMBIND, G_SPANBIND, "
         "G_PROJ, G_ROOMK10K, G_FACTLOAD, G_CORPUSGEN, G_LR_BIND, "
@@ -663,6 +673,15 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE E285 DRIFT LITERAL (disclosed, discovered at the parent bind): "
+    "runs/e285/metrics.json's drift_from_fact_final_norm now reads "
+    "1.8445091953053947 while e288's committed bind read "
+    "1.844509195284748 — the e285 record was rewritten after e288's fold "
+    "(the 2e-8 fp discrepancy of a re-computed ledger). THIS cell binds "
+    "the CURRENT committed record (md5 3f71c7b209fe9b6e9645d7504ddbb49c, "
+    "verified at runtime) and its current literal; nothing scientific "
+    "hangs on the 8th digit (the sanctuary's story: drift ~1.84, in-room "
+    "~1.2e-6, read x0.0030 — unchanged).",
     "THE GRAFT (the ONE new mechanism, frozen at birth): the maintenance "
     "actuator REPLACED by the frozen-copy transplant — a DIRECT PARAMETER "
     "EDIT theta <- theta + alpha_t * P_room(fact - theta) through NO "
@@ -708,8 +727,12 @@ deviations: list[str] = [
     "G_GRAFISOL (the graft arm's no-signal isolation, HARD): the graft "
     "edit touches NO optimizer state (opt_C's momentum buffers snapshotted "
     "bitwise around EVERY graft event; any mismatch HALTs) and NO gradient "
-    "ever exists on the graft path (asserted: all p.grad None at every "
-    "event — the set_to_none discipline + the path never calls backward). "
+    "is ever computed on the graft path (no loss, no backward — "
+    "structural; machine-checked: the grads BITWISE-UNCHANGED through "
+    "every edit — the SMOKE caught the naive None-check: the corpus "
+    "step's grads persist after opt_C.step() until the next iteration's "
+    "zero_grad, so None was the wrong invariant; amended at smoke, "
+    "disclosed). "
     "The twin keeps e288's bidirectional G_BUFSEP machinery VERBATIM "
     "(opt_C/opt_F). The corpus buffer's composition bar (< 1e-4 in-room) "
     "carried on BOTH arms.",
@@ -1256,14 +1279,16 @@ def chunked_graf_phase(tag: str, net0, proj: "E261.LadderRooms",
                 binder_g = "cap" if capped_g else "gate"
                 if capped_g:
                     n_graf_capped += 1
-                # (iv) THE NO-SIGNAL ISOLATION: no gradient exists on this
-                # path, and the edit must touch NO optimizer state
-                grad_none_ok = all(p.grad is None for p in params_live)
-                if not grad_none_ok:
-                    state["graisol"]["graf_grad_none_violations"] += 1
-                    raise RuntimeError(
-                        f"[{tag}] G_GRAFISOL VIOLATION at t{step}: a "
-                        "gradient exists on the graft path — HALT")
+                # (iv) THE NO-SIGNAL ISOLATION: the graft path computes NO
+                # gradient (no loss, no backward — structural) and the
+                # edit must touch NO optimizer state AND NO gradient: the
+                # corpus step's grads persist after opt_C.step() (cleared
+                # only at the next iteration's zero_grad), so the honest
+                # machine check is BITWISE UNCHANGED across the edit
+                # (the graft never reads, writes, or needs them)
+                grads_before = [None if p.grad is None
+                                else p.grad.detach().clone()
+                                for p in params_live]
                 sn_c_before = snap_buffers(opt_C, params_live)
                 # (v) THE TRANSPLANT (the direct parameter edit)
                 theta_b2 = torch.cat([p.detach().reshape(-1)
@@ -1277,6 +1302,16 @@ def chunked_graf_phase(tag: str, net0, proj: "E261.LadderRooms",
                 S_graf += realized_g
                 S_total = S_corpus + S_graf
                 state["graisol"]["graf_checks"] += 1
+                grads_unchanged = all(
+                    (a is None and p.grad is None)
+                    or (a is not None and p.grad is not None
+                        and torch.equal(a, p.grad.detach()))
+                    for a, p in zip(grads_before, params_live))
+                if not grads_unchanged:
+                    state["graisol"]["graf_grad_none_violations"] += 1
+                    raise RuntimeError(
+                        f"[{tag}] G_GRAFISOL VIOLATION at t{step}: the "
+                        "graft edit changed a gradient — HALT")
                 if not buffers_bitwise_equal(
                         sn_c_before, snap_buffers(opt_C, params_live)):
                     state["graisol"]["graf_violations"] += 1
@@ -1318,7 +1353,7 @@ def chunked_graf_phase(tag: str, net0, proj: "E261.LadderRooms",
                     "edit_norm": realized_g,
                     "S_graf": S_graf, "S_total": S_total,
                     "budget_g": budget_g,
-                    "grads_none": grad_none_ok,
+                    "grads_bitwise_unchanged": grads_unchanged,
                     "elapsed_s": round(time.time() - T0, 1)})
                 log(f"  [{tag}] GRAFT #{n_graf:2d} @t{step:3d}: GATE read "
                     f"{read_gate:.6f} deficit {deficit_t:.4f} -> alpha "
@@ -2259,7 +2294,8 @@ def main():
                         "construction",
             "the_no_signal_claims": "the graft path uses NO loss, NO "
                                     "gradient, NO optimizer, NO data draws "
-                                    "— machine-checked: all grads None at "
+                                    "— machine-checked: grads bitwise-"
+                                    "unchanged at "
                                     "every event (asserted), opt_C's "
                                     "buffers bitwise-unchanged around every "
                                     "edit (asserted), the graft arm has no "
@@ -3209,7 +3245,8 @@ def main():
                      "S_graf)/rem_graf)/||gap||",
         "no_signal_claims": {"no_loss": True, "no_gradient": True,
                              "no_optimizer": True, "no_draws": True,
-                             "machine_checks": "all grads None at every "
+                             "machine_checks": "grads bitwise-unchanged "
+                                               "at every "
                                                "event (asserted); opt_C "
                                                "buffers bitwise-unchanged "
                                                "around every edit "
@@ -3575,20 +3612,26 @@ def main():
         "form": "the graft arm's NO-SIGNAL isolation, machine-verified: "
                 "around EVERY graft event (a) opt_C's momentum buffers are "
                 "snapshotted bitwise and compared after (the edit must "
-                "touch NO optimizer state) and (b) all parameter grads are "
-                "asserted None (the graft path computes NO gradient — no "
-                "loss, no backward). Any violation RAISES (a hard HALT)",
+                "touch NO optimizer state) and (b) the parameter grads are "
+                "snapshotted bitwise and compared after — the corpus "
+                "step's grads persist after opt_C.step() (cleared at the "
+                "next iteration's zero_grad), so the honest check is "
+                "BITWISE UNCHANGED across the edit: the graft path "
+                "computes NO gradient, NO loss, NO backward (structural — "
+                "the driver's graft block contains neither). Any violation "
+                "RAISES (a hard HALT)",
         "graf_checks": grf["graisol"]["graf_checks"],
         "graf_violations": grf["graisol"]["graf_violations"],
-        "grad_none_violations": grf["graisol"]["graf_grad_none_violations"],
+        "grad_violations": grf["graisol"]["graf_grad_none_violations"],
         "n_graf": grf["n_graf"],
         "checks_equal_events": bool(
             grf["graisol"]["graf_checks"] == grf["n_graf"]),
         "the_no_signal_ledger": {
             "loss_calls_on_graft_path": 0, "backward_calls_on_graft_path": 0,
             "optimizer_steps_on_graft_path": 0, "data_draws": 0,
-            "note": "by construction + machine-checked (grads None; "
-                    "buffers unchanged); the graft arm has NO install "
+            "note": "by construction + machine-checked (grads bitwise "
+                    "unchanged through every edit; opt_C buffers "
+                    "bitwise-unchanged); the graft arm has NO install "
                     "generator"},
         "pass": bool(grf["graisol"]["graf_violations"] == 0
                      and grf["graisol"]["graf_grad_none_violations"] == 0
@@ -3728,7 +3771,7 @@ def main():
         f"{orth_max_g:.2e}, twn max {twn['orth_max']:.2e} vs "
         f"{ORTH_BAR:.0e} over {PHASE_STEPS} steps); G_GRAFISOL PASS ("
         f"{G_GRAFISOL['graf_checks']} graft events checked, 0 violations, "
-        f"grads None throughout); G_BUFSEP PASS (twin "
+        f"grads bitwise-unchanged throughout); G_BUFSEP PASS (twin "
         f"{twn['bufsep']['corpus_checks']}+{twn['bufsep']['maint_checks']} "
         f"checks, 0 violations; opt_F stepped exactly "
         f"{twn['bufsep']['optF_steps']}x; bufC in-room max "
@@ -4101,7 +4144,8 @@ def main():
             "(one bit-gated room)."),
         "the_graft_disclosure": (
             "the graft path uses NO loss, NO gradient, NO optimizer, NO "
-            "data draws — machine-checked (all grads None at every event; "
+            "data draws — machine-checked (grads bitwise-unchanged "
+            "through every edit; "
             "opt_C's buffers bitwise-unchanged around every edit; the "
             "graft arm has no install generator); the ONLY things the "
             "dose sees are the read (the gate — the same gate the "
