@@ -7,6 +7,61 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W049 — the gain knob: one dimension, both directions, and the confidence axis gets its first probe (2026-10-09, datetime.now ~18:16Z)
+
+e311's first gift deserves its own card. A single out-of-room dimension —
+the HOST'S OWN READ-GRADIENT DIRECTION (the way the name-CE gradient pushes
+at the host's contexts), injected at 0.0005x||dW||, which is 0.70x the
+transport-kill bracket — BOOSTED the host's read +32% while the new name
+stayed floored. The mirror already exists: e294's anti pushes the same
+axis the other way and kills. One dimension, both directions: A GAIN KNOB
+ON AN EXISTING READ.
+
+**Why this is the confidence axis's first surgical intervention.** The
+pruned theory (T272/T275) reads memory as ADDRESS + CONFIDENCE, with the
+evidence for the split observational (gain-heat/loss-heat in training).
+The knob moved CONFIDENCE (the read's magnitude) without touching ADDRESS
+(identity, argmax, contexts all held; only magnitude moved). And it acted
+OUT-OF-ROOM (in-room fraction 4.5e-17) — T277's division confirmed from a
+third side: confidence, like death and maintenance, lives in the
+context/whole-state, not in the room.
+
+**The alignment variable — a distinction the cards must carry.** The
+e314 sham (a RANDOM in-room displacement, matched norm) boosted only the
+FAMILY, and P-e311c showed it does nothing to a lone fact. The knob (a
+READ-ALIGNED out-of-room displacement) boosted a LONE fact +32%. So the
+boost's variable is not family membership — it is ALIGNMENT: displacement
+along the read's own direction is gain at any family size; random
+displacement buys nothing unless the shared fabric spreads it. The
+membrane's generosity and the knob's gain are different phenomena that
+only looked alike.
+
+**Questions (curiosity; bars come later, if ever):**
+- Q1 — the dose curve: the knob sat at 0.70x the death bracket and
+  BOOSTED. Do confidence gain and transport death live on the SAME
+  displacement axis with opposite signs — a curve that rises from zero,
+  peaks, and dies inside the bracket? If so, the boost is the near side
+  of the kill, and e290's constant gains a positive branch.
+- Q2 — generality: does the knob's boost carry to held-out paraphrases,
+  or is it string-bound (the consult-#008 overshoot worry)? e291's
+  paraphrase battery is the committed instrument.
+- Q3 — THE CALIBRATION DIAL: can the knob cool a HOT memory? The
+  controller twin (e296's held state, 3.53x, runs hot by e304's lens)
+  plus the anti-direction at a microdose ladder (0.1/0.3/0.7/1.0x the
+  trigger dose): does the read walk down toward 1.0x while the
+  paraphrase reads hold? This is calm-v3's cheap precursor — before
+  building the margin-hinge brake, test whether a static microdial does
+  the job. All assets committed; eval-plus-microdoses; one session.
+- Q4 — the mechanism: WHY does a 1-dim out-of-room direction move a
+  read at all? Candidate: it tilts the shared decision logits (the
+  name-slot denominator — the softmax coupling the theory already
+  names) rather than touching any bearer. If true, the knob is a
+  LOGIT DIAL, and the +32% is confidence literally as currency, the
+  same zero-sum slot e293's installs fought over.
+
+No dispatch yet — Q3's design wants the e321 landing first (if the fat
+seed reads, the knob's substrate question changes shape). Let it ripen.
+
 ## T278 — E311: a gain knob, not a router — and a null that names its own confound (2026-10-09, datetime.now ~18:15Z)
 
 W048 asked whether a memory can ride another fact's read path. The cell's
