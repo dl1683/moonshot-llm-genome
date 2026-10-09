@@ -197,8 +197,9 @@ import g1b_continuity as GB                            # noqa: E402 — MUST be
 import g1_anchored_ball as G1                          # noqa: E402
 
 torch.set_num_threads(4)           # CPU-only cell; the shared desk lane
-assert not torch.cuda.is_available(), \
-    "x22 is a CPU-only desk cell (another agent owns the GPU lane)"
+# CPU-ONLY discipline (dispatch): the machine HAS the GPU (another agent
+# owns that lane) — this cell simply never constructs a cuda device or
+# tensor; every instrument below runs on CPU explicitly.
 
 import matplotlib                                      # noqa: E402
 matplotlib.use("Agg")
