@@ -40,6 +40,23 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e313 — THE BEARER SESSION (both verdicts): (A) THIN-HELD-UNCHANGED — the theory's falsifier FIRES: the thin-bearer r100 memory HELD at the founding class with the brush UNCHANGED (all four footprint clauses) — THE BEARER AXIS ADDS NO MAINTENANCE PREDICTION; THE THREE-AXIS TRIPLE COLLAPSES TOWARD ADDRESS + CONFIDENCE (a memory's maintenance cares about WHERE it is read and HOW confident, not how much bearer it has — the bearer axis governs FORMATION (e306/e310's law) but not RETENTION); (B) SEQ-LEAKY — THE SHARED BEARER REMEMBERS EVEN POST-MORTEM: FACT3 RETURNS during the restore pass (first return at round 3; 4/4 siblings restored) — INDIVISIBILITY EXTENDS PAST DEATH: the erase-then-restore sequencing does NOT deliver selective unlearning on a shared bearer; the restore controllers' maintenance resurrects the erased fact just as the simultaneous composition did — the membrane's memory outlives the corpse; THE UNLEARNING PROGRAM'S REMAINING ROAD: the TAIL SCALPEL or bearer-unsharing at formation (both now sharpened to necessity) (2026-10-09, datetime.now) — DONE
+
+WHAT WE SAW: two verdicts, two laws tightened. (1) The three-axis
+theory's bearer axis is FORMATION-ONLY: it decides whether a memory can
+be BORN (the room-overlap tail, necessary and sufficient-direction) but
+adds nothing to whether it can be KEPT — the controller maintains a
+thin bearer as well as a full one, with the same stroke. MAINTENANCE IS
+GEOMETRY-INSENSITIVE; FORMATION IS GEOMETRY-BOUND. (2) The family's
+memory is deeper than its members' lives: erase one, restore the
+others, and the erased one comes back through the restore (round 3) —
+the shared bearer retains the target's trace in the siblings'
+maintenance gradients themselves. THE MEMBRANE REMEMBERS WHAT ITS
+MEMBERS FORGET. For machine unlearning the message is now precise:
+within a shared representation, forgetting must be SURGICAL AT THE
+GEOMETRY (the tail scalpel) or PREVENTED AT BIRTH (unsharing) —
+neither sequencing nor protection nor dose can buy it.
+
 ## e312 — THE PROTECTED-REPLAY ERASE (the composition: erase FACT3 while maintaining the four siblings): MIXED — with the era's most beautiful surprise: FACT3 REFUSES TO DIE UNDER PROTECTION (0.1834 at t400 = x0.685 baseline, x165 the twin) — THE PROTECTORS RESURRECT THE TARGET: the census counts 16 KILLS / 16 RESURRECTIONS — every anti erase event is followed by the sibling controllers' maintenance healing FACT3 THROUGH THE SHARED REPRESENTATION (the free-rider effect INVERTED: the family's sharing means maintenance on the siblings reaches the target too — the controller is not selective about which family member it revives); AND THE LANDAUER RIDER FLIPPED: ERASURE-COSTS-MORE (work 0.4894 vs the passive bracket [0.0053, 0.0242] — 24x the passive price; the twin's work 0.0225 confirms e294's committed 0.0200): IMMUNITY, PRICED — defending a shared representation costs an order of magnitude more than undefended erasure; the protection bill: S_maint 0.9326 bought 1.9519 sibling-read vs the twin (the protection WORKED for the siblings); THE COMPLETE VERDICT ON FAMILY INDIVISIBILITY: unprotected, the siblings die with the target (e294); protected, the target resurrects with the siblings (e312) — THE FAMILY IS ONE MEMBRANE IN BOTH STRATEGIES; within-family selective unlearning is not merely hard, it is SELF-DEFEATING in both directions; the only roads: bearer-unsharing at formation, or the tail scalpel (e306/e310's target list) (2026-10-09, datetime.now) — DONE
 
 WHAT WE SAW: the composition's failure mode is a discovery — the shared
