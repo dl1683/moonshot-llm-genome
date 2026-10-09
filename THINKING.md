@@ -7,6 +7,42 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T282 — E320: the boost's true variable is structure, not dose — W049 re-amended (2026-10-09, datetime.now ~19:00Z)
+
+The amendment chain deserves the full honest arc, because each step was a
+real measurement: P-e311c said the boost was family-only (a lone fact's
+random small displacement did nothing, x0.931). e321's r1000 seed boosted
+a lone fact x1.650 and we read DOSE (W049's amendment). e320's control
+kills that reading: a RANDOM direction at the same norm (5.5730) does not
+boost — it SUPPRESSES (x0.597), and suppression is monotone across the
+whole dose ladder (x0.942 -> x0.500). The r1000 seed was not "big", it
+was STRUCTURED — the top-DCT coordinates of a real formed install, i.e.
+coherent content-channel displacement. THE BOOST'S TRUE VARIABLE IS
+STRUCTURE-ALIGNMENT: displacement that carries spendable structure
+boosts (the read-gradient trigger out-of-room +32%; a real write's
+spectrum in-room +65-89%); random displacement never boosts a lone fact
+at any dose; random displacement in a FAMILY boosts all five (e314) —
+the shared fabric amortizes what a lone read cannot.
+
+THE REFINED BOOST LAW (candidate): a read gains from displacement
+exactly to the extent the displacement carries structure the read can
+spend (aligned content) or the fabric can spread (family); random mass
+is at best neutral (family) and at worst toxic (lone — monotone
+suppression: random in-room mass corrupts the content channel directly).
+
+FOR W049: the knob's status reverts to its sharper pre-amendment form —
+ALIGNMENT is the story (x16's off-target probe, now running, decides
+bias-vs-volume within it). FOR THE LAWS v3: Law 7's volume channel
+splits confirmed as STRUCTURE-CARRYING vs RANDOM; e320's ladder is the
+toxicity curve of random mass on a lone read. FOR e322: the 3-room
+ladder's teaching arms are maximally structure-aligned by construction —
+the womb-rent question survives untouched.
+
+AND THE SESSION'S COMPOSITE: the membrane law now has both null-family
+controls — the bolt-hole is generic (e318: the address retreats), the
+BOOST is not (e320: content redundancy is the family's). Law 6 drafts
+in its final form.
+
 ## T281 — E318: the bolt-hole is generic, the backup content is the family's (2026-10-09, datetime.now ~18:57Z)
 
 The membrane law's closing clause survives its null-family control — with

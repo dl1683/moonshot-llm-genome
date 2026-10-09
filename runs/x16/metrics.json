@@ -1,0 +1,207 @@
+{
+  "experiment": "x16_offtarget_probe",
+  "phase": "THE OFF-TARGET SPECIFICITY PROBE \u2014 does e311's 1-dim out-of-room gain knob act as a volume control (content-independent confidence) or a target-specific logit bias? PRIMARY: the committed e311 trigger on a 300-context general corpus battery (+ the bit-exact +32% host anchor); CONTROL: a matched-norm random out-of-room direction (the alignment question)",
+  "date": "2026-10-09T18:57:26Z",
+  "status": "PARTIAL: startup",
+  "registration": "question + arms + bars + P-x16a VERBATIM from the dispatch letter (consult #010's adopted hole; the executor's counter P-x16b registered per the dispatch's invitation); every convention picked + frozen HERE at birth BEFORE compute; this script committed at birth; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "question_verbatim": "does the knob act like a volume control (content-independent confidence) or a logit bias (target-specific, zero-sum on other tokens)? SECONDARY: does ALIGNMENT matter at 1-dim scale (the read-gradient direction vs a random 1-dim out-of-room direction at matched norm)?",
+    "the_hole_verbatim": "the knob was only ever tested on the HOST'S OWN prompt \u2014 it may be a TARGET-SPECIFIC LOGIT BIAS (an additive bias on the host's logit that intrudes on every other decision via the softmax denominator), not a content-independent volume channel. No off-target measurement exists.",
+    "bars_verbatim": {
+      "TARGET-SPECIFIC-BIAS": "at >=25% of general contexts the top-1 flips or the winner margin falls >10%, AND the margin-change distribution is significantly skewed (not symmetric) \u2014 the knob is an out-of-room LOGIT BIAS; T279's 'volume channel' re-names to 'bias + noise' (both out-of-room, neither content).",
+      "CONTENT-INDEPENDENT-VOLUME": "top-1 identity essentially stable (>=95% unchanged), margins and entropies shift symmetrically upward in confidence \u2014 the knob is a true volume dial; W049's calibration-dial design (Q3) proceeds as planned.",
+      "ALIGNMENT-MATTERS": "the random-direction control shows a materially smaller/weirder effect than the trigger (e.g., no host boost at matched norm) \u2014 the +32% needed the read-aligned direction; note this sharpens or kills W049's alignment story."
+    },
+    "operationalizations": "frozen BEFORE compute: THE HOST := e311's committed host (e261_K10K_inst_resume.pt s400; three-way G_FACTLOAD; flat md5 ebebb4472725d582dd74928493f1bfb3); THE TRIGGER := runs/e311/e311_hijack_vectors.pt : model.trigger (bytes md5 7dfa7d65c8e80cbfe3b778502dc0a3ad), applied fp64-then-fp32 (e314's convention); THE ANCHOR := the applied state's flat md5 == e311's arm-A f84fd2647fa5c2943d3d1b6f24b05e04 AND the 60-g0 battery read == 0.3494305908679962 (|d| <= 2e-6); THE ROOM := the committed K10K SRCT room (26113/26114) D/S bit-bound vs e264_rooms.pt; THE CONTROL := one N(0,1)^N draw (gen 31602) projected OUT of the room, scaled to the same c, in-room <= 1e-9; THE BATTERY := 300 name-free val windows (block 256, val_windows machinery, seed 31603), last-position read, fp64 arithmetic; 'winner margin' := top1-top2 logit gap in-state; 'falls >10%' := dm < -0.10 x margin_base; 'significantly skewed' := neg share > 0.5 AND exact two-sided binomial sign test p < 0.01; 'symmetrically upward in confidence' := stability >= 0.95 AND mean dm > 0 AND mean dH < 0 AND flip-or-squeeze < 0.25; 'materially smaller' := control host boost <= 0.25 x trigger boost AND control mean|dm| <= 0.5 x trigger mean|dm|; ADJUDICATION ORDER: TRIGGER arm primary (BIAS -> VOLUME -> MIXED), CONTROL secondary only (ALIGNMENT-MATTERS vs ALIGNMENT-DEAD)",
+    "registration": "question + arms + bars + P-x16a VERBATIM from the dispatch letter (consult #010's adopted hole; the executor's counter P-x16b registered per the dispatch's invitation); every convention picked + frozen HERE at birth BEFORE compute; this script committed at birth; adjudicate against exactly this; no bar shopping.",
+    "predictions": {
+      "P-x16a_lab": "TARGET-SPECIFIC-BIAS with ALIGNMENT-MATTERS (the trigger is the host's own read-gradient \u2014 it should act on the host's logit specifically; a random 1-dim direction at 0.70x the transport bracket should do roughly nothing).",
+      "P-x16b_executor_counter": "BIAS-SHAPED-BUT-UNDER-BAR: the trigger raises Z's logit preferentially (dbiasZ > 0; the dmargin distribution one-sided toward squeeze, sign-test p < 0.01) BUT the >=25% flip-or->10%-squeeze bar likely MISSES at this dose (margins wide, Z rare in general text): primary MIXED with the mechanism in the skew + the Z-bias excess; ALIGNMENT-MATTERS stands."
+    }
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "CPU ONLY (torch threads 4, pocketfft workers 4; another agent owns the GPU lane)",
+    "timestamps": "datetime.now(UTC) only"
+  },
+  "deviations": [
+    "CPU-ONLY desk cell (dispatch: another agent owns the GPU lane) \u2014 torch threads 4, DCT workers 4, no CUDA calls; the GPU envelope code is never imported beyond the pure SRCT projector class.",
+    "THE GENERAL BATTERY := the rig's val_windows machinery (e065/e119's instrument) at n=300 with THIS cell's fresh seed 31603 \u2014 the dispatch's 'a few hundred normal corpus contexts' frozen deterministically; the read is the battery's own LAST-position convention.",
+    "The room is rebuilt via SRCT directly (not the full LadderRooms): x16 needs only the projector (the out-of-room definition); the v-map/span ledger columns are not used; D/S bit-bound vs e264_rooms.pt + a light in-cell idempotency/kept^2 certification (2 probes, seed 31605) replace the full ladder certification.",
+    "The random control vector is NOT committed as a .pt (the repo's *.gitignore policy): it is deterministically regenerable from the registered seed 31602 + the bit-bound room; its bytes md5 is recorded in metrics.json.",
+    "n=1 per arm, one host organism, one session (the g-series standing caveat); the arms' DIFFERENCE (trigger vs random at matched dose) is the registered object.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    "Smoke mode (X16_SMOKE=1): battery n=40, the REAL room + host + trigger + anchor gates all LIVE (the room rebuild is cheap here), own smoke dir; NOTHING adjudicated (SMOKE stamp on every read)."
+  ],
+  "builds_on": [
+    "e311 (the parasitic hijacker: the committed trigger vector + the +32% host anchor + the applied-state convention)",
+    "T279 (the two-channel split: out-of-room displacement named the VOLUME channel \u2014 the naming this probe tests)",
+    "agy consult #010 (the adopted hole: the knob only ever measured on the host's own prompt)",
+    "e264/e288 (the established-fact rig: the host artifact, the K10K room, the three-way G_FACTLOAD)",
+    "e261 (the SRCT room machinery \u2014 the projector ported by import)",
+    "e065/e119 (val_windows \u2014 the general-corpus battery instrument)",
+    "e314 (the applied-state fp64-then-fp32 convention)"
+  ],
+  "whats_new": [
+    "THE FIRST OFF-TARGET MEASUREMENT of the 1-dim gain knob: per-context top-1 stability, margin-change and entropy-change distributions, and the winner-probability effect across 300 general corpus contexts (no off-target datum existed)",
+    "THE ALIGNMENT CONTROL: a matched-norm random out-of-room 1-dim direction on the same battery \u2014 read-gradient alignment vs chance at identical dose",
+    "THE Z-BIAS EXCESS read: \u0394logit(Z) minus the mean logit shift per context \u2014 the token-specific component the bias story predicts and the volume story forbids"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERYGEO": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g+0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "pass": true
+    },
+    "G_PARENTS": {
+      "e311_metrics": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e311\\metrics.json",
+        "md5": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+        "bound_md5": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+        "verdict": "NOTHING-READS",
+        "note": "THE KNOB's committed record (the trigger construction, the +32% anchor, the arm-A state md5)"
+      },
+      "e311_vectors": {
+        "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e311\\e311_hijack_vectors.pt",
+        "md5": "29c28977f10eca1a841b0128abb0821c",
+        "bound_md5": "29c28977f10eca1a841b0128abb0821c",
+        "meta_experiment": "e311",
+        "note": "the committed fp64 trigger + seed"
+      },
+      "e311_literals_crosscheck": {
+        "armA_host_g0": {
+          "mine": 0.3494305908679962,
+          "theirs": 0.3494305908679962
+        },
+        "armA_flat_md5": {
+          "mine": "f84fd2647fa5c2943d3d1b6f24b05e04",
+          "theirs": "f84fd2647fa5c2943d3d1b6f24b05e04"
+        },
+        "trigger_bytes_md5": {
+          "mine": "7dfa7d65c8e80cbfe3b778502dc0a3ad"
+        },
+        "trigger_inroom": {
+          "mine": 4.534738452741713e-17,
+          "theirs": 4.534738452741713e-17
+        },
+        "trigger_scale": {
+          "mine": 0.00458942163293615,
+          "theirs": 0.00458942163293615
+        },
+        "host_baseline_g0": {
+          "mine": 0.26464763283729553,
+          "theirs": 0.26464763283729553
+        }
+      },
+      "pass": true
+    },
+    "G_ROOM": {
+      "form": "the host's own committed K10K room (SRCT k=10,000, seeds 26113/26114): the +-1 diagonal and the index set bit-identical to e264_rooms.pt; light in-cell certification (2 probes, idempotency + kept^2 ~ k/N)",
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "e264_rooms_md5": "2d524655575cce00a3bc1c8770f4b211",
+      "bound_md5": "2d524655575cce00a3bc1c8770f4b211",
+      "idempotency_max": 5.611290651291587e-16,
+      "kept2_mean": 0.003620521977376132,
+      "kept2_expect": 0.0036508715360530864,
+      "pass": true
+    },
+    "G_FACTLOAD": {
+      "form": "e311's HOST organism loaded BIT-EXACT and gated THREE ways: (1) the artifact (md5/size), (2) the loaded state's flat-md5 (vs e311's committed record), (3) the behavioral read (g0/gm12 vs the committed literals, bars 2e-6/1e-5)",
+      "artifact_md5": "0f6dc1cf46850ce655dfafc9c853d467",
+      "bound_md5": "0f6dc1cf46850ce655dfafc9c853d467",
+      "artifact_size": 32958479,
+      "bound_size": 32958479,
+      "flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+      "bound_flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+      "read_g0": {
+        "mine": 0.26464763283729553,
+        "committed": 0.26464763283729553,
+        "abs_diff": 0.0
+      },
+      "read_gm12": {
+        "mine": 0.10525520890951157,
+        "committed": 0.10525520890951157,
+        "abs_diff": 0.0
+      },
+      "trigger_window_co_bind": {
+        "window": 0,
+        "argmax_is_z": true,
+        "window_pz": 0.4655166268348694,
+        "e311_window_pz": 0.4655166268348694
+      },
+      "pass": true
+    },
+    "G_TRIGBIND": {
+      "form": "the committed e311 trigger (the host's own read-gradient direction at g0 window 0, projected OUT of the room, scaled to c = 0.0005 x ||dW_host||): loaded from the committed artifact and re-verified against THIS cell's rebuilt room projector",
+      "bytes_md5": "7dfa7d65c8e80cbfe3b778502dc0a3ad",
+      "bound_md5": "7dfa7d65c8e80cbfe3b778502dc0a3ad",
+      "norm": 0.00458942163293615,
+      "bound_norm": 0.00458942163293615,
+      "in_room_frac": 4.534738452741713e-17,
+      "e311_committed_in_room_frac": 4.534738452741713e-17,
+      "zero_bearer_bar": 1e-09,
+      "pass": true
+    },
+    "G_CTRL": {
+      "form": "the random control: ONE fresh N(0,1)^N draw (generator seed 31602), projected OUT of the room, normalized, scaled to the SAME c \u2014 matched dose, matched zero-bearer class, ZERO alignment to the read gradient",
+      "raw_draw_in_room_frac": 0.06029127953211449,
+      "raw_draw_in_room_frac_expect": 0.06042244232115321,
+      "in_room_frac": 4.4742384118879115e-17,
+      "zero_bearer_bar": 1e-09,
+      "norm": 0.0045894216329361495,
+      "bound_norm": 0.00458942163293615,
+      "bytes_md5": "fa9d1d70518d72b1a8b678bbc6c283e4",
+      "cos_to_trigger": 9.963948206127696e-05,
+      "cos_chance_scale": 0.0006042244232115321,
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "form": "THE CALIBRATION ANCHOR: the trigger applied in e311's exact convention MUST reproduce e311's committed arm-A state (flat md5) AND its committed +32% host read (bit-exact; the 2e-6 family tolerance as the gate, the exact diff disclosed)",
+      "trig_flat_md5": "f84fd2647fa5c2943d3d1b6f24b05e04",
+      "bound_armA_flat_md5": "f84fd2647fa5c2943d3d1b6f24b05e04",
+      "trig_host_g0": {
+        "mine": 0.3494305908679962,
+        "committed": 0.3494305908679962,
+        "abs_diff": 0.0
+      },
+      "trig_host_g0_frac_argmax": {
+        "mine": 0.43333333333333335,
+        "committed": 0.43333333333333335
+      },
+      "ctrl_flat_md5": "ecf2a2104c484dff5b75bdcf82361dbe",
+      "ctrl_host_g0": 0.2647189497947693,
+      "base_flat_md5": "ebebb4472725d582dd74928493f1bfb3",
+      "boost_trig": 0.08478295803070068,
+      "boost_ctrl": 7.131695747375488e-05,
+      "committed_boost": 0.08478295803070068,
+      "pass": true
+    }
+  },
+  "birth_commit": "9565ccd72139e8e7d64b1819f76466c916e3eed1",
+  "date_updated": "2026-10-09T18:57:37Z",
+  "phase_note": "P5 the arms built + the anchor reproduced"
+}
