@@ -7,6 +7,29 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T276 — E314: the unlearning program's final map — specific suppression, immovable read (2026-10-09, datetime.now ~16:05Z)
+
+Three cells, three closed roads, one law: **within a shared
+representation, a fact's read always has somewhere else to live.**
+The gradient war kills everyone (e294); the simultaneous defense
+resurrects the target (e312); the sequenced restore resurrects it
+again (e313); and the geometric scalpel — the sharpest instrument the
+laws license — suppresses SPECIFICALLY (unique to FACT3's own tail;
+the sham HELPS) but cannot finish: the read retreats onto the shared
+antibody and the sibling-room leakage (0.022-0.043 per room). THE
+MEMBRANE IS NOT A STORE BUT A REDUNDANT FABRIC: every member's read
+is woven from every other member's threads. The honest engineering
+conclusion, priced across the era: selective unlearning on a trained
+shared representation is NOT ACHIEVABLE from above (war, defense,
+sequencing, geometry all measured); it must be designed in at
+formation (bearer-unsharing: e293's joint/interleaved protocols) —
+THE MEMBRANE'S LAW, now with its final clause. The free gem: the
+sham's BOOST — a random in-room displacement HELPS all five facts (a
+0.36 read at 1.0x) — the family's representation is
+displacement-hungry at these norms, a datum for the hijacker (e311:
+a parasite's routing trigger might ride exactly this).
+
+
 ## T275 — E313: the falsifier fired its null, and the membrane outlives the corpse (2026-10-09, datetime.now ~15:42Z)
 
 **The theory's pruning (verdict A).** The bearer axis is FORMATION-ONLY:
