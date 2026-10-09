@@ -7,7 +7,7 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
-## T283 — X16: the knife is surgical — a context-gated targeted bias, not a volume dial (2026-10-09, datetime.now ~19:08Z)
+## T283 — X16: the knife is surgical — a context-gated targeted bias, not a volume dial (2026-10-09, datetime.now ~19:01Z [R72 re-base: was hand-guessed 19:08])
 
 Both registered predictions fell, and the table beneath them is the
 cleanest mechanism statement the confidence axis has gotten. The knob
@@ -45,7 +45,7 @@ degradation via denominator intrusion did not materialize: the squeeze
 is on-target only). The consult pattern holds: mechanisms adopt after
 measurement, harms wait for the instrument.
 
-## T282 — E320: the boost's true variable is structure, not dose — W049 re-amended (2026-10-09, datetime.now ~19:00Z)
+## T282 — E320: the boost's true variable is structure, not dose — W049 re-amended (2026-10-09, datetime.now ~18:57Z [R72 re-base: was hand-guessed 19:00])
 
 The amendment chain deserves the full honest arc, because each step was a
 real measurement: P-e311c said the boost was family-only (a lone fact's
@@ -100,6 +100,11 @@ address every event, T277); when the content is nearly all gone, the
 family's leaked backup content (each sibling room carrying 0.022-0.043
 of FACT3's tail) is what still reads — and the lone fact has none. THE
 BOLT-HOLE IS GENERIC; THE BACKUP CONTENT IS THE FAMILY'S.
+
+> [R72 ADDENDUM]: the honest statement, now the record's: LONE-SURVIVES through
+> alpha 1.0 at 2/2; at 1.5 the draws STRADDLE the bar ([0.0245, 0.0930]) — undetermined
+> at n=2; the CROSSOVER SHAPE replicates 2/2 and is the law-grade object. The rider
+> enters Law 6's draft verbatim.
 
 The rider: the C1 replicate dips below the bar at 1.5 (0.0245, MIXED on
 its own rule) — the crossover point moves per state. Carried honestly:
@@ -294,7 +299,7 @@ only looked alike.
 No dispatch yet — Q3's design wants the e321 landing first (if the fat
 seed reads, the knob's substrate question changes shape). Let it ripen.
 
-## T278 — E311: a gain knob, not a router — and a null that names its own confound (2026-10-09, datetime.now ~18:15Z)
+## T278 — E311: a gain knob, not a router — and a null that names its own confound (2026-10-09, datetime.now ~18:12Z [R72 re-base: was hand-guessed 18:15])
 
 W048 asked whether a memory can ride another fact's read path. The cell's
 answer: the question was never loaded — the sperm cell was mostly empty

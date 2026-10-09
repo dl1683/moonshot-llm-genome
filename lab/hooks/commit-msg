@@ -1,0 +1,28 @@
+#!/bin/sh
+# commit-msg hook — message-diff congruence (R72 critic attack 6; the lesson made mechanical)
+# Rejects the two incident classes of 2026-10-09:
+#   (a) PHANTOM: a message clause claiming "TOKEN ... FOLDED/COMPLETE/DONE" with no staged
+#       path for TOKEN (would have rejected 8aba9ce: "x15 FOLDED" over 6 envelope-log lines)
+#   (b) SILENT-BIRTH: a staged lab/eNNN*/xNNN* or runs/eNNN//xNNN/ path whose token the
+#       message never names (would have rejected 08816af: e318's script staged under a
+#       consult-only message)
+# Clause = text between ; . ! or newlines (v2: the v1 line-granularity rule false-fired on
+# its own installer commit — single-line messages put every token in one "line").
+# Local guard only; bypass with --no-verify AND a disclosure in the message.
+MSG="$1"
+die() { echo "commit-msg congruence: $1" >&2; echo "(bypass: --no-verify + disclose)" >&2; exit 1; }
+
+# (a) phantom folds: clause-level token+fold-word co-occurrence requires the token staged
+for tok in $(grep -oiE '\b[ex][0-9]{3}\b' "$MSG" | tr 'a-z' 'A-Z' | sort -u); do
+  CLAUSE_HIT=$(sed -e 's/[;.!]/\n/g' "$MSG" | grep -iE "\b$tok\b" | grep -icE 'folded|complete|done')
+  if [ "$CLAUSE_HIT" -gt 0 ]; then
+    git diff --cached --name-only | grep -qiE "^(lab|runs)/[^/]*${tok}" || die "message claims $tok folded/complete but no $tok path staged"
+  fi
+done
+
+# (b) staged experiment paths must be named somewhere in the message
+for p in $(git diff --cached --name-only | grep -E '^(lab|runs)/(e|x)[0-9]{2,3}'); do
+  tok=$(echo "$p" | grep -oE '(e|x)[0-9]{2,3}' | head -1)
+  [ -n "$tok" ] && ! grep -qiE "\b$tok\b" "$MSG" && die "staged $p but message never names $tok"
+done
+exit 0

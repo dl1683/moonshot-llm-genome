@@ -23,7 +23,8 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
     dead (e310 + x15); dose buys logit nudges, never a read.
 - NEW CLAUSE (T280): the edge is FORMATION-THROUGH-TRAINING — a static truncation of a formed
   write is not a seed (e321: 43.7% energy, no read).
-- GATES: none pending — this law can be drafted now.
+- GATES: x15R (dispatched at R72) — the complement replicate on a second committed
+  write; necessity enters v2 n=1-write and the clause drafts only if the replicate floors.
 
 ## LAW 4 — THE CONTROLLER (as v2 + the R71 riders)
 - Five same-class endpoints (3.479/3.498/3.616/3.162/3.530) — n language fixed.
@@ -46,7 +47,9 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
   the displacement-hungry family (e314, e321's dose-gating on lone facts pending e320).
 - The demand: selective unlearning is designed at FORMATION (bearer-unsharing).
 - RIDERS: n=1-per-road, one family, one organism, one architecture (R71 scope notes);
-  GATES: e318 (does a LONE fact survive the scalpel?) + e320 (lone boost?) + e323's
+  GATES: e318 DONE — the rider carried verbatim: LONE-SURVIVES 2/2 through alpha 1.0;
+  at 1.5 the draws straddle ([0.0245, 0.0930], undetermined n=2); the CROSSOVER SHAPE
+  replicates 2/2 and is the law-grade object. Remaining gate: e323's family-redraw replicate. + e320 (lone boost?) + e323's
   family-redraw replicate. This law cannot be drafted before those three land.
 
 ## LAW 7 — THE TWO CHANNELS (new; tonight)
