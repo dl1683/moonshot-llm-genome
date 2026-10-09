@@ -7,6 +7,40 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T286 — X24: the noise floor is authorship-structured — writing leaves slot-plasticity, and the fourth miss names the pattern (2026-10-09, datetime.now ~20:12Z)
+
+The census killed the prior-curve rescue and left something better.
+Fragility follows AUTHORSHIP: the only names that lift under a full-dose
+out-of-room displacement are the ones this lab has gradient-written at
+these contexts. Never-written names at the same priors sit near zero
+(QELVARO 0.50x vs TAVIREN 11.8x — a 23.7x same-prior split); scrambled
+letters carry nothing (VIRETAN 0.44x); the initial-CHAR slot is the
+plastic thing. WRITING A NAME AT A CONTEXT LEAVES ITS LOGIT SLOT
+FRAGILE TO LATER DISPLACEMENT — a residue of authorship that is not
+content (the reads never approach the write's own), not prior (the
+correlation is weak), and not letters (the scramble dies). The organism
+remembers who was written where as SLOT-PLASTICITY.
+
+TWO INVERSIONS SETTLED: (1) x15's "dead" 0.00073 was the anchor's own
+54.6x name-push on a 1.34e-5 prior — the complement carries its write's
+built-in name direction everywhere (T284's gem returns in authorship
+form: every write ships its own knob, installed at formation as slot
+plasticity); (2) x23's KT==TT is explained — TAVIREN's ~12x lift is
+identical under either complement: all slot, zero targeting.
+
+THE NECESSITY LAW'S FINAL HONEST FORM TONIGHT: complements never read
+(max 0.028 absolute across every cell); they lift fragile slots 10-50x
+of tiny priors; the noise floor of every read experiment in this lab is
+authorship-structured. Any future read bar must be read against the
+name's authorship history at the battery's contexts.
+
+THE PREDICTION LEDGER'S PATTERN (four misses: P-e321a content, P-x17a
+dead-replicates, P-x23a battery, P-x24a prior-curve — every guess bet
+a CONTENT/prior story; every instrument answer was an AUTHORSHIP/slot
+story): registered as the standing correction for the next consult
+round and the next design pass — in this organism, the margins live in
+the name slots, and the slots remember their authors.
+
 ## W052 — the localization float: formation picks a point on the spectrum, and the read does not follow it (2026-10-09, datetime.now ~19:57Z; from e323's TEXTURE autopsy, pre-fold)
 
 The cascade guard's out-of-band fresh draw carries a datum nobody

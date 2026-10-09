@@ -28,8 +28,11 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
   dominates, cliff height is write-dependent' — pending x23 (the cross-battery fork:
   bias-at-home vs structure). x23 ROUND 3: neither — the effect follows the NAME SLOT
   (prior-fragility: dead TAVIREN lifts ~7x under EITHER complement; the formed name is
-  unmoved). Gate now x24 (the prior-fragility census): if lift-vs-prior is one generic
-  curve, necessity RESTORES with a prior-relative read-bar rider.
+  unmoved). ROUND 5 (x24): the prior-relative rider is DEAD (draws zero names) — fragility is
+  AUTHORSHIP-INDUCED slot plasticity (written names lift 10-50x; unwritten same-prior
+  names robust; letters irrelevant; the initial-char slot is the plastic thing).
+  FINAL FORM: complements never read (max 0.028 absolute); they lift fragile slots;
+  every read bar is authorship-relative. The clause drafts with THIS rider.
 
 ## LAW 4 — THE CONTROLLER (as v2 + the R71 riders)
 - Five same-class endpoints (3.479/3.498/3.616/3.162/3.530) — n language fixed.
