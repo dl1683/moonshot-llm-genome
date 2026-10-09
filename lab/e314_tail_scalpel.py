@@ -1292,30 +1292,32 @@ def main():
         word = "NOTHING-DIES"
         best_alpha = min(sweep, key=lambda a: sweep_tables["SCALPEL"]
                          [str(a)]["g0"][TARGET_FACT])
-    clause = {
-        "SURGICAL-GEOMETRY": (
+    if word == "SURGICAL-GEOMETRY":
+        clause = (
             f"alpha={alpha_kill} kills FACT3 "
             f"({sweep_tables['SCALPEL'][str(alpha_kill)]['g0'][TARGET_FACT]:.2e} "
             f"< {ERASE_BAR}) with {hc}/4 siblings >= {HOLD_FRAC:.0%}x "
             f"baseline AND the sham does NOT kill at the same alpha "
             f"(sham FACT3 {sweep_tables['SHAM'][str(alpha_kill)]['g0'][TARGET_FACT]:.2e}) "
-            "— the first selective unlearning, bought at the geometry"),
-        "EVERYTHING-IS-SHARED": (
+            "— the first selective unlearning, bought at the geometry")
+    elif word == "EVERYTHING-IS-SHARED":
+        clause = (
             f"alpha={alpha_kill} kills FACT3 but only {hc}/4 siblings "
             f"hold >= {HOLD_FRAC:.0%}x — the siblings fall with it; the "
-            "indivisibility is IN THE TAILS"),
-        "NOTHING-DIES": (
+            "indivisibility is IN THE TAILS")
+    elif word == "NOTHING-DIES":
+        clause = (
             "no alpha kills FACT3 even at 1.5x — best (lowest) read "
             f"{sweep_tables['SCALPEL'][str(best_alpha)]['g0'][TARGET_FACT]:.4f} "
             f"at alpha={best_alpha}; the read's bearer is not FACT3's "
             "own install tail — the bearer law's family reading needs "
-            "revision"),
-        "MIXED": (
+            "revision")
+    else:
+        clause = (
             f"alpha={alpha_kill} kills FACT3 with {hc}/4 siblings "
             "holding; sham_kills_at_same_alpha="
             f"{sham_kills} — the honest residual reading; the alpha "
-            "table verbatim (the dose-response IS the deliverable)"),
-    }[word]
+            "table verbatim (the dose-response IS the deliverable)")
     adjudication = {
         "word": word,
         "clause": clause,
