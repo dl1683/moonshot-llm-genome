@@ -7,6 +7,42 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T293 — E322: the shrinking neighborhood, the state-carried height, and the sand (2026-10-09, datetime.now ~23:05Z)
+
+The squatter's deed settles in three movements. FIRST, THE GHOST
+DIED: the never-seen name fell through the erase exactly as
+renormalization alone would take it, while the parasite held 2.3x the
+mechanical ceiling — e321's recruitment was real half-shaped content
+all along, and the peak replicates (n=2, +-0.004). The vacancy claim
+survives its sternest control. And the ecology datum underneath: the
+anti does not REDISTRIBUTE the name-slot mass, it DESTROYS it (the
+proper-name neighborhood fell 0.821 -> 0.148) — the kill is ecological,
+and the parasite's rise is the one stalk standing in a burned field.
+
+SECOND, THE HEIGHT IS STATE-CARRIED: the vacant room's teaching lands
+1.84x higher than fresh (0.412 vs 0.224) at the SAME speed — and the
+cons's write lands at chance in-room in every arm, so the advantage
+rides the organism's STATE at the vacancy (the recruit mass already
+half-shaped there), not the room's geometry. T277 said the room is the
+womb; e322 sharpens it once more: not even the room — the state. The
+room's biography ends at its fact's death except as it lives on in the
+state the death left.
+
+THIRD, THE SAND: nothing survives a 100-step unbiased wash (retentions
+0.002-0.005 across all three rooms; the wash-inversion prediction
+FELL, ordering roughly reversed). A 25-step cons formation is signed
+in sand wherever it is written. The economics of Law 5 inherit: cheap
+formation buys nothing durable — the retention bracket's currency
+(steps, not rooms) is the only one that matters, and W050's rent
+metaphor dissolves into "the womb rents you a taller sandcastle."
+
+THE LEDGER, UPDATED HONESTLY: P-e322a FIRED — a registered lab guess
+that hit the same night x25 logged the ninth seat-guess miss. The
+streak narrative retires; from here the record is the per-prediction
+table (seat-guesses 0-for-9; fork-guesses 1-for-2 with P-e322a hit,
+P-e322b fell). The class distinction — WHERE the lab bets — remains
+the finding.
+
 ## T292 — X25: the scalpel passed and the noun survived — but the causality door opened (2026-10-09, datetime.now ~22:55Z)
 
 The autopsy returned the cleanest possible refutation of the mass
