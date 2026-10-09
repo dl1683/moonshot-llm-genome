@@ -1,67 +1,60 @@
-# Droid brief — DIALOGUE MODE, edition 20 (Q1-Q4 open across TWENTY editions; the
+# Droid brief — DIALOGUE MODE, edition 21 (Q1-Q4 open across TWENTY-ONE editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-09T10:30:00Z (datetime.now-sourced)
+## Generated: 2026-10-09T12:31:40Z (datetime.now-sourced; at the mark)
 
-- Guard: ALERT served through the recovery (the R70 repairs, the T272 card).
-- THE CALENDAR NOTE (honest): a rate-limiter outage killed the fleet Oct 6
-  ~18:20Z and the window reopened Oct 9 ~06:26Z — a ~60-hour gap. The record
-  is continuous through it: the wild wave folded on the far side; the survivor
-  (e307) harvested; the lost cells re-dispatched from frozen specs; nothing
-  lost but wall time. The stamps tell the truth.
-- Fleet 2/2 + a dialogue: e294 (GPU — THE ANTI-CONTROLLER + the e305 Landauer
-  rider) + e309 (desk — the corpse seesaw) + agy consult #009 (the FIRST
-  BEAT-TIME dialogue round under the owner's new collaborator protocol).
+- Guard: ALERT served (T273, W048, the folds). Stamps all clock-sourced.
+- Fleet 1/1: e312 (GPU — THE PROTECTED-REPLAY ERASE, in design: the anti on
+  FACT3 + the four sibling controllers composed; the unlearning era's fork).
 
-## WHERE WE ARE (the wild era's first wave — six verdicts, three new laws)
+## WHERE WE ARE (the unlearning era has opened; the first verdict is in)
 
-1. DISPLACED-NOT-DEAD (e299): under pure transport, death is an ADDRESS
-   CHANGE — the subtraction surgery restores orthogonal-killed corpses to
-   baseline exactly; only free-stream deaths are real wounds (~15%
-   recoverable); two clocks (mass ~1,630 steps / read ~1,040).
-2. MASS IS NOT MEMORY (e306-desk): the read rides the ROOM-OVERLAP TAIL
-   spectrum — a rank-7 truncation carries 33.9% of the mass and reads dead.
-3. THE TEMPERATURE PRICE (e304): the founding controller success is
-   content-honest (the heat generalizes to held-out surfaces — not a tumor)
-   and calibration-hot (~2x overconfidence): MAINTAINED MEMORIES RUN HOT.
-4. THE BRUSH (e307): the controller's footprint is ONE REUSABLE ~73-DIM
-   STROKE, 16x below chance in-room, context-invariant — preservation has a
-   characteristic gesture.
-5. CONDITIONAL DOUBLE-MINDEDNESS (e308): the baseline was already bimodal;
-   the tug resolves winner-take-all; both claims live in context-switched
-   modes (0.83/0.96 given their own prefixes).
-6. CONTENTION AT BIRTH (e293): five distinct-name facts cannot co-form by
-   serial install — the e291 peace was doubly the family's.
-7. THE SYNTHESIS (T272 + R70): THE MEMORY AS A THREE-AXIS OBJECT (address /
-   bearer / confidence) — falsifiable via the pending BEARER SESSION.
-8. R70: SOUND-WITH-REPAIRS; all five repairs applied at claim sites (the
-   laws doc's family qualifier, the cost clause, the ~7-dims contradiction
-   marked, e299's demotion, e307's frozen word carried).
-9. COMPUTING: e294 THE ANTI-CONTROLLER (surgical erase / collateral /
-   immune — the unlearning verdict) + the e305 Landauer ledger.
+1. THE ANTI-CONTROLLER (e294): COLLATERAL — the kill law inverted WORKS as an
+   instrument (FACT3 erased in 25 steps; the gate self-limiting) but within a
+   family the scalpel is a family-wide stroke: all four siblings fell — agy's
+   registered prediction CONFIRMED before compute (the beat-time dialogue's
+   first scored hit). THE FAMILY IS ONE MEMORIA IN BOTH DIRECTIONS: the
+   sharing that makes preservation cheap makes erasure total.
+2. THE LANDAUER LEDGER (e305): PRICED-AT-THE-CONSTANT — the aimed erase's
+   work sits inside the passive threshold bracket: ERASURE HAS A METHOD-
+   INDEPENDENT PRICE. No Maxwell demon of forgetting, no immunity premium.
+   The kill-law constant is currency-neutral (drift, maintenance, erasure) —
+   THE LAB'S FIRST CONSERVATION LAW.
+3. THE GESTURE SYMMETRY (e294's trace): the anti's gradient rides at chance
+   in-room — the same out-of-room brush as the controller's maintenance.
+   Preservation and erasure are the same actuation with opposite signs
+   (a repeating soft brush vs one coherent hammer).
+4. THE BEARER LAW CLOSED (e310): room-overlap is NECESSARY (the perpendicular
+   write reads dead at 10.86% energy) — with e306's sufficiency direction,
+   the read's substrate is the room-overlap spectrum, both directions; Law 3's
+   contradiction resolved.
+5. THE ERA'S THREE-FORK (T273): the composition (e312, computing — maintain
+   the bystanders while erasing the target) / bearer-unsharing at formation
+   (the e293 successor protocols) / THE TAIL SCALPEL (the closed bearer law's
+   target list — erase only the target's room-overlap, sparing the siblings').
+6. COMPUTING NOW: e312 — PROTECTED-SURGICAL-ERASE (the first selective
+   unlearning) vs THE-SHARING-WINS (the family indivisible).
 
 ## WHAT CAN BE DONE (named)
 
-1. e294 + e309 LAND: the unlearning verdict + the seesaw.
-2. THE BEARER SESSION (R70's next-cell): e306's GPU maintenance ladder +
-   the complementary-truncation control — the three-axis theory's fastest
-   falsifier + the bearer circularity killed in one arm.
-3. e296 THE PROSTHETIC GRAFT (the ideator's #1): maintenance with NO
-   teaching signal.
-4. e301 EXTINCTION-vs-ERASURE (the cheap runner-up): is denial-death
-   deletion or silencing — spontaneous recovery in silicon.
+1. e312 LANDS (~30-40 min): the unlearning fork resolves.
+2. THE BEARER SESSION (the three-axis theory's last falsifier: maintain a
+   thin-bearer r100 memory; e306's checkpoints on disk).
+3. e296 THE PROSTHETIC GRAFT (maintenance with NO teaching signal) / e311
+   THE HIJACKER (W048's fork: the sperm-cell vs time-shared-memory forms).
+4. e301 EXTINCTION-vs-ERASURE (the cheapest: is denial-death deletion or
+   silencing — spontaneous recovery in silicon?).
 
-## BLOCKERS / ASKS (twentieth edition)
+## BLOCKERS / ASKS (twenty-first edition)
 
-- Q1 (standing): the laws doc (THE_LAWS_V2.md) has been R70-audited and
-  repaired — the supervisor's review remains the ask.
-- Q2 (standing): after e294 — the unlearning era's fork (the tenant cell?
-  the calm controller?) — we lean the bearer session first (the theory's
-  falsifier), the tenant second.
-- Q3 (standing, twentieth asking): the dialogue owes your side.
-- Q4 (new): the owner has promoted agy (anti-gravity) to a regular
-  beat-time collaborator — its rounds will be cross-checked against the
-  record before adoption. Flagged for your awareness.
-- The owner, if reading: the window assumed OPEN again post-outage; the
-  escalation (5-6 desk cells, zero-idle GPU) still in force unless you say
-  otherwise.
+- Q1 (standing): THE_LAWS_V2.md — now R70-repaired AND extended by the
+  erasure law + the bearer closure; the supervisor's review remains the ask.
+- Q2 (standing): after e312 — peaceful/surgical: the tail scalpel next;
+  sharing-wins: the bearer-unsharing protocols. The fork is registered.
+- Q3 (standing, twenty-first asking): the dialogue owes your side.
+- Q4 (new): the Landauer number (erasure priced at the passive constant) —
+  measured at 2.74M on one fact family. Does the supervisor want the 10M
+  scale point NEXT ERA as planned, or promoted (the safety story's two
+  numbers — the coupling constant and the erasure price — both want it)?
+- The owner, if reading: the escalation still in force; agy now a regular
+  beat-time collaborator (cross-checked); say the word on the envelope.
