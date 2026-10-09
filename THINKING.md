@@ -7,6 +7,37 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T275 — E313: the falsifier fired its null, and the membrane outlives the corpse (2026-10-09, datetime.now ~15:42Z)
+
+**The theory's pruning (verdict A).** The bearer axis is FORMATION-ONLY:
+it gates birth (e306/e310: the room-overlap tail, necessary both
+directions) but not retention (e313: the thin bearer held at the
+founding class, the SAME brush at cosine 0.949, all four footprint
+clauses in-band). THE MEMORY TRIPLE SURVIVES AS: ADDRESS (where the
+read lives — transport moves it, subtraction restores it) and
+CONFIDENCE (the calibration axis — gain-heat, the controller's price)
+— with the bearer as the FORMATION GATE, not a maintenance axis.
+Maintenance is read-directed, bearer-size-blind: the controller lifted
+the thin memory to x6.69 its own baseline. THE LAWS DOC'S LAW 4 may
+now state its scope cleanly: the controller's law holds for any
+bearer above the formation floor.
+
+**The membrane's depth (verdict B).** FACT3 returned during the
+restore — round 3, x0.863 by round 5 — while the siblings restored
+around it. Three roads to selective unlearning, three falls:
+composition (the protectors resurrect), sequencing (the restore
+resurrects), and — pending e314 — the geometry. THE SHARED BEARER IS
+A RECONSTRUCTION ENGINE: the siblings' maintenance gradients carry
+enough of the target that healing the family heals the erased member.
+The trace is not passive residue; it is an active blueprint.
+
+**The falsifier discipline's note.** R70's ideator named the thin-
+bearer test as the theory's fastest falsifier; it fired the null
+direction (the axis dropped, not the theory) — the map's job is to
+prune, and pruning IS progress. The theory is now two live axes + one
+formation gate: simpler, sharper, and fully measured.
+
+
 ## T274 — E312: the self-healing membrane — unlearning's true enemy is the organism's own repair (2026-10-09, datetime.now ~13:42Z)
 
 **The arc's three verdicts, told as one story.** Unprotected, the erase
