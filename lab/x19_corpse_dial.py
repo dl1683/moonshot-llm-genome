@@ -125,7 +125,9 @@ clauses, they do not move the bars):
   gates (30 windows / disjoint / name-free) AND the pre-erase
   organism's held read == e291's committed held_t0 0.2676781713962555
   (|d| <= 2e-6) AND its FACT3 literal read (the fact's own 12-window
-  battery = install_occ[36:48] at g0) == 0.2677536904811859.
+  battery = e291's FACT3 split install_occ[24:36] at g0 — the birth
+  docstring first wrote "[36:48]", a TYPO the smoke's G_RIDER caught and
+  this line corrects, disclosed) == 0.2677536904811859.
 * THE STATES (all on disk, md5-bound): pre-erase := e291_organism.pt
   (ee2bad6be9f55fd94ebf3a367967da30 — the five-fact organism);
   dead := e313_SEQ-P1_post.pt (efec6b109e10d74c403dd29b58c369c9 —
@@ -418,8 +420,7 @@ REGISTERED = {
         "DIAL-INDEPENDENT -> MIXED; THE W051 RIDER := e291's committed "
         "paraphrase bank (held_occ = host_occ[60:90], 30 windows, g0, "
         "mean p(Z)) verified by the pre-erase organism's held read == "
-        "0.2676781713962555 AND FACT3 baseline == 0.2677536904811859; "
-        "states pre-erase = e291_organism.pt, dead = e313_SEQ-P1_post."
+        "0.2676781713962555 AND FACT3 baseline == 0.2677536904811859; "        "states pre-erase = e291_organism.pt, dead = e313_SEQ-P1_post."
         "pt, resurrection = e313_SEQ-P2_post.pt (all md5-bound; FACT3 "
         "P2 read verified == 0.23097175359725952); literal_recovery := "
         "lit(P2)/lit(pre), para_recovery := para(P2)/para(pre); "
@@ -715,8 +716,11 @@ def main() -> None:
     }
     assert G_HELD["pass"], f"held bank gate FAILED: {G_HELD}"
 
-    # FACT3's literal battery (e291's split: install_occ[36:48] at g0)
-    fact3_ids = g0_ids[36:48]
+    # FACT3's literal battery (e291's split: group i := install_occ[12i:12(i+1)]
+    # -> FACT3 = install_occ[24:36] at g0; the birth docstring's
+    # "[36:48]" was a TYPO caught by the smoke's G_RIDER — this is the
+    # correction, disclosed)
+    fact3_ids = g0_ids[24:36]
     metrics["gates"].update({"G_NAMEFREE": G_NAMEFREE, "G_SPLICE": G_SPLICE,
                              "G_BATTERYGEO": G_BATTERYGEO, "G_HELD": G_HELD})
     log(f"P0: protocol gates PASS (namefree; splice 19+41; battery "
