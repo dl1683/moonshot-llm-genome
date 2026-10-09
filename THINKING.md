@@ -7,6 +7,43 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W050 — the womb for rent: what e322 must actually measure (2026-10-09, datetime.now ~18:38Z)
+
+T280 parked the squatter's deed as "vacancy + one breath of teaching vs
+vacancy alone." Ripening it on paper exposes the design trap: the cons
+teaches from ANYTHING (e309's no-write control reached 89.7% of the
+seeded mean) — so "can the parasite be taught at the vacancy?" is
+answerable YES before the cell runs, and a yes that means nothing. The
+question that discriminates is COST, not possibility:
+
+THE REAL FORK — is a VACANT room a formation accelerant?
+- (a) THE WOMB IS RENTABLE: teaching in the vacated room is FASTER /
+  CHEAPER / MORE STABLE than in a fresh room — the recruitment peak
+  (0.079) is real half-shaped content (T279's content channel is
+  room-bound; a content head-start should serve a content landing);
+  the room is a resource for whoever teaches into it next.
+- (b) THE CONS OVERWRITES: teaching cost is room-agnostic (e309's
+  corpse-independence generalized); the recruitment was epiphenomenal
+  noise on the volume channel, and the vacated womb rents at market
+  rate — no discount for prior occupancy.
+
+THE 3-ROOM LADDER (the design, when dispatched): teach the parasite's
+name with e281's cons, fixed budget, in (i) the VACANT room (post-erase,
+at the e10 peak), (ii) the HOST-OCCUPIED room (pre-erase — contention at
+formation, e293's regime), (iii) a FRESH DISJOINT room (the market
+rate). Measure steps-to-0.05, landing height, and stability under a
+short wash. Prediction to register at dispatch, stated now so it cannot
+drift: (a) — the vacant room teaches ~1.5-2x faster than fresh (the
+half-shape is spendable structure); the host-occupied room is the
+slowest (formation-time collision, the e293 regime). If (b) holds
+instead, the room's biography ends at its fact's death — the womb is
+not an inheritance, just a space.
+
+A free gem hiding in the design: arm (ii) is the DISTINCT-NAME INSTALL
+CONTENTION (e293) re-run at the single-fact scale with the modern
+instruments — the cell that halted the distinct-family program gets its
+cheapest re-attack as a rider.
+
 ## T280 — E321: no free ride, no static transplant, vacancy is the opening — and the dimension count is not the currency (2026-10-09, datetime.now ~18:30Z)
 
 P-e321a fell, honestly and instructively. I bet the (1k,2k] formation
