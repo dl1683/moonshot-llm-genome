@@ -23,8 +23,10 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
     dead (e310 + x15); dose buys logit nudges, never a read.
 - NEW CLAUSE (T280): the edge is FORMATION-THROUGH-TRAINING — a static truncation of a formed
   write is not a seed (e321: 43.7% energy, no read).
-- GATES: x15R (dispatched at R72) — the complement replicate on a second committed
-  write; necessity enters v2 n=1-write and the clause drafts only if the replicate floors.
+- GATES: x15R RETURNED GAP (x17): the null is WRITE-DEPENDENT (0.0284 vs 0.00073 at
+  matched dose, both under the alive floor). The clause drafts WEAKENED — 'geometry
+  dominates, cliff height is write-dependent' — pending x23 (the cross-battery fork:
+  bias-at-home vs structure).
 
 ## LAW 4 — THE CONTROLLER (as v2 + the R71 riders)
 - Five same-class endpoints (3.479/3.498/3.616/3.162/3.530) — n language fixed.

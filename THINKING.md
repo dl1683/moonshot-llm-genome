@@ -7,6 +7,51 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T284 — X17: the necessity null is write-dependent — the gap clause fires, and the fork is battery-vs-structure (2026-10-09, datetime.now ~19:35Z)
+
+The critic's cascade pick returned a GAP, which is the most instructive
+outcome available. The two-complement table, same organism, same K10K
+room frame, both at 100% of their writes' dose: the K10K write's
+complement (10.86% of its write's energy, amplified x3.03) reads
+0.00073; the TAVIREN write's complement (5.76% of its energy,
+amplified x2.99) reads 0.0284 — 39x higher, 1.8x under the alive
+floor. BOTH are dead by e310's floor; NEITHER approaches its own full
+write. But "no room-overlap, no read, at any probed dose" was a
+write-invariant sentence, and it no longer is: THE CLIFF'S HEIGHT IS A
+PROPERTY OF THE WRITE, not just the geometry.
+
+TWO LIVE HYPOTHESES for the 39x:
+- H-BATTERY (the artifact fork): each complement was read on ITS OWN
+  write's contexts. The TAVIREN battery is a fresh install's 60
+  windows; if those contexts are ones where any TAVIREN-ish
+  displacement biases the name (the x16 lesson: targeted bias lives in
+  aligned directions — a write's OWN out-of-room remainder is maximally
+  aligned with its name), the 0.0284 is bias-loudness at home contexts,
+  not partial content. The K10K battery may simply be less
+  bias-receptive.
+- H-STRUCTURE (the real fork): the TAVIREN write's complement is
+  genuinely more readable structure (fresher formation, flatter
+  spectrum — its r1000 carries 43.7% vs the K10K family's tail
+  profile), and out-of-room content CAN approach the floor for some
+  writes — necessity weakens to "geometry dominates but is not
+  absolute".
+
+THE DISCRIMINATOR (cheap, everything committed): THE CROSS-BATTERY —
+read the TAVIREN complement on the K10K battery and the K10K complement
+on the TAVIREN battery. Effect follows the BATTERY => bias-at-home
+(H-BATTERY; the two-channel law absorbs it: the complement's aligned
+remainder is the write's own targeted-bias direction — actually a
+BEAUTIFUL confirmation that every write carries its own knob inside
+its out-of-room remainder). Effect follows the WRITE => H-STRUCTURE;
+the census of more writes follows. Registered guess, stated now:
+H-BATTERY (the alignment explanation needs no new mechanism; the
+write's complement CONTAINS its name-bias direction by construction).
+
+EITHER WAY, A GEM: if H-BATTERY holds, the lab has discovered that
+EVERY WRITE SHIPS WITH ITS OWN GAIN KNOB — the out-of-room remainder
+is the write's built-in bias channel, and x16's external trigger was
+re-deriving what formation already installed.
+
 ## W051 — the resurrection's proof of life: loud is not alive (2026-10-09, datetime.now ~19:27Z)
 
 The membrane law's central spectacle — the sibling controllers
