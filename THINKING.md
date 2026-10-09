@@ -7,6 +7,38 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T281 — E318: the bolt-hole is generic, the backup content is the family's (2026-10-09, datetime.now ~18:57Z)
+
+The membrane law's closing clause survives its null-family control — with
+a rider that makes the law sharper than it was. A LONE fact's read
+retreats out-of-room under tail subtraction exactly as the family's did
+(min 0.0930 >= bar at alpha 1.5): SOMEWHERE-ELSE-TO-LIVE IS THE
+ADDRESS'S NATURE (T275/T277's pruned theory), not the family's gift.
+
+But both registered predictions fell, and the failure mode is the good
+kind: the shape is a CROSSOVER. At low dose the lone fact tolerates the
+scalpel BETTER than the family did (fracs 0.897/0.720 vs 0.761/0.618);
+at high dose it collapses FASTER (0.101 vs 0.351 at alpha 1.5). The
+two-channel reading explains both ends: the scalpel removes CONTENT;
+the loss lands first on the address channel, which absorbs it (the
+controller-maintained state is address-RICH — the brush reinforces the
+address every event, T277); when the content is nearly all gone, the
+family's leaked backup content (each sibling room carrying 0.022-0.043
+of FACT3's tail) is what still reads — and the lone fact has none. THE
+BOLT-HOLE IS GENERIC; THE BACKUP CONTENT IS THE FAMILY'S.
+
+The rider: the C1 replicate dips below the bar at 1.5 (0.0245, MIXED on
+its own rule) — the crossover point moves per state. Carried honestly:
+the clause holds on the primary; the crossover's location is
+state-dependent at n=1 per state.
+
+FOR THE LAWS v3 SKELETON: Law 6's closing clause can now be drafted with
+the e318 form ("within ANY representation, shared or lone, a fact's read
+retreats to its out-of-room address; a SHARED representation adds
+content-level redundancy that matters once the primary content is
+destroyed") — and Law 7's two-channel reading takes its third
+confirmation from a third instrument.
+
 ## W050 — the womb for rent: what e322 must actually measure (2026-10-09, datetime.now ~18:38Z)
 
 T280 parked the squatter's deed as "vacancy + one breath of teaching vs
