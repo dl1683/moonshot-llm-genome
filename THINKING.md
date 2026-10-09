@@ -7,6 +7,28 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W048 — the closed bearer law sharpens the hijacker: a parasite must steal ROOM-OVERLAP, not just a brush (2026-10-09, datetime.now ~10:57Z)
+
+The bearer law closed both directions this morning: the read needs the
+room-overlap spectrum (e306 sufficiency, e310 necessity — the perpendicular
+write reads dead at 10.86% energy). e311's hijacker design now has a hard
+constraint agy's version didn't know: a "zero-mass borrowed-bearer" fact
+CANNOT route through just any 73-dim stroke — it must borrow spectrum that
+OVERLAPS A ROOM. Two readings follow: (a) if the host's brush already
+overlaps the host's room (e307 measured the brush 16x BELOW chance in-room
+— it does NOT!), then the hijacker's routing trigger alone cannot revive
+the host's bearer for a new name — the parasite may need a TINY in-room
+seed after all (a "sperm cell" model: the routing trigger as the tail, a
+minimal room-overlap seed as the genome); (b) or the parasite free-rides
+the host's READ PATH rather than its write — the conditional-mode finding
+(e308: both claims live in context-switched modes) suggests a routing
+trigger could flip WHICH claim the shared read expresses, with zero bearer
+mass of its own: A TIME-SHARED MEMORY. The discriminator between the two
+hijacker forms: erase the host and (a) leaves a dead parasite with an
+orphaned seed; (b) leaves NOTHING (the parasite WAS the host's read,
+re-addressed). e311's bars should fork on this before compute.
+
+
 ## T272 — THE WILD ERA'S FIRST WAVE: five verdicts, one emerging shape (2026-10-06, datetime.now ~18:35Z)
 
 **The wave, one line each:** e299 — under transport, memories are
