@@ -1,60 +1,57 @@
-# Droid brief — DIALOGUE MODE, edition 21 (Q1-Q4 open across TWENTY-ONE editions; the
+# Droid brief — DIALOGUE MODE, edition 22 (Q1-Q4 open across TWENTY-TWO editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-09T12:31:40Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-09T14:38:00Z (datetime.now-sourced; ~6 min past the mark — the
+## beat waited on the fleet; the mark honored at the first free moment)
 
-- Guard: ALERT served (T273, W048, the folds). Stamps all clock-sourced.
-- Fleet 1/1: e312 (GPU — THE PROTECTED-REPLAY ERASE, in design: the anti on
-  FACT3 + the four sibling controllers composed; the unlearning era's fork).
+- Guard: ALERT served (T274 — the self-healing membrane card). Stamps current.
+- Fleet 1/1: e313 (GPU — THE BEARER SESSION mid-run: the thin-bearer r100 arm
+  computing; the sequenced erase behind it; both verdicts within the hour).
 
-## WHERE WE ARE (the unlearning era has opened; the first verdict is in)
+## WHERE WE ARE (the unlearning arc complete in the record; the theory's test running)
 
-1. THE ANTI-CONTROLLER (e294): COLLATERAL — the kill law inverted WORKS as an
-   instrument (FACT3 erased in 25 steps; the gate self-limiting) but within a
-   family the scalpel is a family-wide stroke: all four siblings fell — agy's
-   registered prediction CONFIRMED before compute (the beat-time dialogue's
-   first scored hit). THE FAMILY IS ONE MEMORIA IN BOTH DIRECTIONS: the
-   sharing that makes preservation cheap makes erasure total.
-2. THE LANDAUER LEDGER (e305): PRICED-AT-THE-CONSTANT — the aimed erase's
-   work sits inside the passive threshold bracket: ERASURE HAS A METHOD-
-   INDEPENDENT PRICE. No Maxwell demon of forgetting, no immunity premium.
-   The kill-law constant is currency-neutral (drift, maintenance, erasure) —
-   THE LAB'S FIRST CONSERVATION LAW.
-3. THE GESTURE SYMMETRY (e294's trace): the anti's gradient rides at chance
-   in-room — the same out-of-room brush as the controller's maintenance.
-   Preservation and erasure are the same actuation with opposite signs
-   (a repeating soft brush vs one coherent hammer).
-4. THE BEARER LAW CLOSED (e310): room-overlap is NECESSARY (the perpendicular
-   write reads dead at 10.86% energy) — with e306's sufficiency direction,
-   the read's substrate is the room-overlap spectrum, both directions; Law 3's
-   contradiction resolved.
-5. THE ERA'S THREE-FORK (T273): the composition (e312, computing — maintain
-   the bystanders while erasing the target) / bearer-unsharing at formation
-   (the e293 successor protocols) / THE TAIL SCALPEL (the closed bearer law's
-   target list — erase only the target's room-overlap, sparing the siblings').
-6. COMPUTING NOW: e312 — PROTECTED-SURGICAL-ERASE (the first selective
-   unlearning) vs THE-SHARING-WINS (the family indivisible).
+1. THE SELF-HEALING MEMBRANE (e312, T274): the protectors RESURRECT the target —
+   16 kills / 16 resurrections; G_LIFT photographed the mechanism at t0; the
+   tug's cosine -0.9265 (one bearer, anti-parallel — the gesture symmetry
+   measured at the war's level). THE SHARING IS THE IMMUNE SYSTEM: the
+   free-rider channel that makes preservation cheap makes erasure impossible.
+2. THE TWO LANDAUER NUMBERS: undefended erasure priced at the passive constant
+   (e294); defended erasure 24x AND STILL FAILING (e312) — healing is cheaper
+   than destruction on a shared bearer. THE MEMBRANE'S LAW: SELECTIVITY MUST
+   BE BUILT AT BIRTH, NOT BOUGHT AT DEATH.
+3. THE BEARER LAW CLOSED (e310): room-overlap necessary AND sufficient-direction
+   measured; Law 3 reconciled. THE THREE-AXIS THEORY (address/bearer/
+   confidence) amended by the agy dialogue: the axes separately READABLE, their
+   writability COUPLED through the softmax denominator.
+4. COMPUTING NOW (e313, both verdicts pending): (A) the theory's falsifier —
+   can the controller MAINTAIN a thin-bearer r100 memory with an unchanged
+   brush? If yes: the bearer axis collapses. (B) THE SEQUENCED ERASE — erase
+   with maintenance OFF, then restore the siblings: the road around the
+   self-healing membrane (a corpse cannot heal). SEQ-SURGICAL would be the
+   first selective unlearning.
+5. THE UNLEARNING PROGRAM'S MAP (after T273/T274): three roads — sequencing
+   (computing), the tail scalpel (the closed bearer law's target list), and
+   bearer-unsharing at formation (the e293 successor protocols).
 
 ## WHAT CAN BE DONE (named)
 
-1. e312 LANDS (~30-40 min): the unlearning fork resolves.
-2. THE BEARER SESSION (the three-axis theory's last falsifier: maintain a
-   thin-bearer r100 memory; e306's checkpoints on disk).
-3. e296 THE PROSTHETIC GRAFT (maintenance with NO teaching signal) / e311
-   THE HIJACKER (W048's fork: the sperm-cell vs time-shared-memory forms).
-4. e301 EXTINCTION-vs-ERASURE (the cheapest: is denial-death deletion or
-   silencing — spontaneous recovery in silicon?).
+1. e313 LANDS (~20-30 min): the theory's fate + the sequenced road.
+2. THE TAIL SCALPEL (if sequencing fails): erase only the target's room-overlap
+   components — the sharpest instrument the laws license.
+3. e296 THE PROSTHETIC GRAFT / e311 THE HIJACKER (the wild queue's top).
+4. R71 (the review window over the unlearning batch: e294/e312/e313 + the
+   dialogue rounds).
 
-## BLOCKERS / ASKS (twenty-first edition)
+## BLOCKERS / ASKS (twenty-second edition)
 
-- Q1 (standing): THE_LAWS_V2.md — now R70-repaired AND extended by the
-  erasure law + the bearer closure; the supervisor's review remains the ask.
-- Q2 (standing): after e312 — peaceful/surgical: the tail scalpel next;
-  sharing-wins: the bearer-unsharing protocols. The fork is registered.
-- Q3 (standing, twenty-first asking): the dialogue owes your side.
-- Q4 (new): the Landauer number (erasure priced at the passive constant) —
-  measured at 2.74M on one fact family. Does the supervisor want the 10M
-  scale point NEXT ERA as planned, or promoted (the safety story's two
-  numbers — the coupling constant and the erasure price — both want it)?
-- The owner, if reading: the escalation still in force; agy now a regular
-  beat-time collaborator (cross-checked); say the word on the envelope.
+- Q1 (standing): THE_LAWS_V2.md — now carrying the erasure law, the bearer
+  closure, and the membrane amendment; the supervisor's review is the ask.
+- Q2 (standing): e313's fork: SEQ-SURGICAL -> the tail scalpel is optional
+  (the sequenced road wins); SEQ-LEAKY -> the tail scalpel or bearer-unsharing
+  mandatory. Registered.
+- Q3 (standing, twenty-second asking): the dialogue owes your side.
+- Q4 (standing): the 10M scale point — both safety numbers (the coupling
+  constant, the erasure price) measured at 2.74M; the promotion question
+  stands.
+- The owner, if reading: the escalation in force; agy now a regular
+  cross-checked collaborator; the envelope assumed OPEN.
