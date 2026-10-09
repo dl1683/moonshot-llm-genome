@@ -595,6 +595,17 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE HALT-PATH COMPLETION (disclosed post-halt, pre-rerun; NO bar "
+    "moved — the verdict is exactly the registered one): the full run's "
+    "fresh write landed OUTSIDE the formation band (g0 0.4788 vs top "
+    "0.45) and the original halt path raised before writing the "
+    "adjudication + figure. The repair: the halt path now completes the "
+    "record (TEXTURE adjudication + the formation-autopsy figure + the "
+    "miss's own checkpoint) and the rider (if enabled) still runs; the "
+    "script RERUNS on the install's resume ckpt (zero recompute — the "
+    "resume convention). The smoke could not exercise this branch "
+    "end-to-end (its formation gate is vacuous) — the miss caught the "
+    "gap.",
     "THE SMOKE PASS CATCH (pass 1, fixed pre-compute; no bar, gate "
     "semantics touched): G_FORMATION fired WRONGLY at smoke — at smoke "
     "k=512 there is NO committed formation record (e285's smoke note: "
@@ -2476,11 +2487,132 @@ def main():
         f"{E290_WRITE_NORM:.4f}); in-own-room "
         f"{loads_fresh['in_own_room']:.4f}")
     if not G_FORMATION["pass"]:
-        write_partial("P2 G_FORMATION FAILED — the fresh draw is not a "
-                      "family member (TEXTURE; no redraw)")
-        raise RuntimeError(f"G_FORMATION FAILED: fresh g0 {fresh_g0:.6f} "
-                           f"outside [{FORMATION_BAND[0]}, "
-                           f"{FORMATION_BAND[1]}] — TEXTURE, disclosed")
+        # THE FROZEN HALT PATH — completed as a full record (the smoke
+        # could not exercise it end-to-end; this completion writes the
+        # TEXTURE adjudication + the formation-autopsy figure; NO bar
+        # moved — the verdict is exactly the registered one)
+        fresh_ck_halt = save_ckpt(
+            "e323_fresh_fact", fresh_sd,
+            {"desc": "e323's FRESH fact (OUT OF BAND — the formation gate "
+                     "FAILED): root + e261's install rig VERBATIM (400 Dmix "
+                     f"steps, room seeds {FRESH_ROOM_SEEDS}, gen "
+                     f"{FRESH_INST_GEN}) — the miss's own state, kept for "
+                     "the autopsy (the record's first fresh-install-draw "
+                     "formation datum)",
+             "post_g0": fresh_g0, "gm12": fresh_gm12,
+             "write_norm": write_norm, "rooms": rooms_ck})
+        G_FORMATION["autopsy_checkpoint"] = fresh_ck_halt
+        metrics["gates"]["G_FORMATION"] = G_FORMATION
+        metrics["the_fresh_fact"] = {
+            "checkpoint": fresh_ck_halt,
+            "post_g0": fresh_g0, "gm12": fresh_gm12, "gp12": fresh_gp12,
+            "ce_r": fresh_ce_r, "write_norm": write_norm,
+            "displacement_from_base": G_FORMATION["displacement_from_base"],
+            "install_traj": inst_out.get("traj", []),
+            "baseline_used_for_ratios": None,
+            "note": "OUT OF BAND — the rungs never ran on this write "
+                    "(the frozen halt; no shopping)",
+        }
+        metrics["adjudication"] = {
+            "bars_verbatim": REGISTERED["bars_verbatim"],
+            "composite_order": "TEXTURE (any hard-gate failure) -> "
+                               "BOTH-EDGES-HOLD -> EITHER-MOVES — frozen "
+                               "at birth",
+            "gates_pass": False,
+            "failed_gates": ["G_FORMATION"],
+            "reads": {
+                "the_widened_bands": {
+                    "ratio": {a: list(WIDENED_RATIO_BAND[a]) for a in ARMS},
+                    "drift": {a: list(WIDENED_DRIFT_BAND[a]) for a in ARMS},
+                    "formation": list(FORMATION_BAND)},
+                "the_fresh_formation": {
+                    "post_g0": fresh_g0, "band": list(FORMATION_BAND),
+                    "ratio_vs_committed": vs_committed,
+                    "family_values": FORMATION_FAMILY,
+                    "write_norm": write_norm,
+                    "write_norm_vs_committed": write_norm / E290_WRITE_NORM,
+                    "gm12": fresh_gm12, "ce_r": fresh_ce_r,
+                    "in_own_room": loads_fresh["in_own_room"]},
+                "rung_ratios_t400": None,
+                "note": "the rungs DID NOT RUN — the formation gate "
+                        "halted before any retention compute",
+            },
+            "verdict": "TEXTURE (G_FORMATION)",
+            "clause": (
+                f"the fresh draw's write landed OUTSIDE the formation "
+                f"trust band: g0 {fresh_g0:.4f} vs [{FORMATION_BAND[0]}, "
+                f"{FORMATION_BAND[1]}] — x{vs_committed:.4f} the committed "
+                "0.2646 (e272's room-only redraw: x0.7925). ONE draw, no "
+                "redraw, no shopping — the miss is the datum. WHAT THE "
+                "MISS SHOWS (the autopsy): the committed family "
+                "{0.2646 [e261/e264], 0.2097 [e272 K10KR]} shares ONE "
+                "install draw (gen 24314) whose FIRST AdamW step KILLS "
+                "the read (both committed trajectories read g0 0.0000 at "
+                "s1, then recover); the fresh draw (gen 32302) SURVIVED "
+                "its first step (s1 g0 0.7451) and formed a BULKIER, "
+                "LESS-LOCALIZED write: gm12 "
+                f"{fresh_gm12:.4f} vs the committed 0.1053, write norm "
+                f"{write_norm:.4f} vs 9.1788 (x"
+                f"{write_norm / E290_WRITE_NORM:.2f}), in-own-room "
+                f"{loads_fresh['in_own_room']:.4f} vs 0.9442. THE "
+                "INSTALL-DRAW LOTTERY AT FORMATION IS LARGER THAN THE "
+                "ROOM-ONLY LOTTERY (+81% vs committed here; the room-only "
+                "spread was -21%) — and the family band [0.15, 0.45], "
+                "calibrated on the room lottery, does not contain a full "
+                "fresh draw. The EITHER-MOVES/BOTH-EDGES-HOLD question is "
+                "THEREFORE UNANSWERED AT THIS DRAW: the cascade's guard "
+                "found a bigger crack UPSTREAM — the five dependents' "
+                "bracket stays n=1, and its formation-side uncertainty is "
+                "now measured as draw-structured (first-step-shock "
+                "survival), not just room-structured"),
+            "smoke_stamp": ("SMOKE — nothing adjudicated" if SMOKE
+                            else None),
+        }
+        metrics["honesty"] = {
+            "no_shopping": ("the frozen halt fired exactly as registered "
+                            "at birth; the tempting readings (6.4% over "
+                            "the top; a stronger-expressing write) were "
+                            "NOT adjudicated"),
+            "the_miss_is_the_datum": ("the first fresh INSTALL draw at "
+                                      "K10K ever measured: the formation "
+                                      "lottery's install-draw component "
+                                      "dominates the room component"),
+        }
+        metrics["provenance"] = {
+            "git_head_at_start": git_head(),
+            "script": str(Path(__file__).resolve()),
+            "machinery_imported_from": str(E261.__file__),
+            "thermal_envelope": _envelope_summary(),
+            "note": "halted at the formation gate; the rungs never ran",
+        }
+        make_formation_autopsy_plot(RD, metrics, inst_out.get("traj", []),
+                                    fresh_g0)
+        metrics["status"] = ("COMPLETE — halted at the formation gate "
+                             "(TEXTURE, the frozen no-shopping branch; "
+                             "the rungs never ran; the rider (if enabled "
+                             "by a later invocation) is unaffected)")
+        metrics["outputs"] = [str(RD / "metrics.json"),
+                              str(RD / "e323_cascade_guard.png")]
+        write_partial("P2 G_FORMATION FAILED — TEXTURE adjudicated, the "
+                      "record complete for the autopsy")
+        log("=" * 78)
+        log("E323 PRIMARY VERDICT: TEXTURE (G_FORMATION) — the fresh draw "
+            "is not a family member; the miss is the datum; no shopping")
+        log(f"  {metrics['adjudication']['clause']}")
+        log("=" * 78)
+        if RUN_RIDER:
+            run_rider(dev, corpus, stoi, itos, train_ids, train_text,
+                      val_ids, val_text, install_occ, held_occ, bat_ids,
+                      anchor_full, inst_mask, win_bank, g0_ids, gm12_ids,
+                      r_eval_xy, zid, base_flat_np, v64_np, Vp, rooms_ck)
+            metrics["outputs"].append(str(RD / "e323_rider_family.png"))
+        metrics["status"] = ("COMPLETE — primary TEXTURE (formation gate; "
+                             "the rungs never ran) + "
+                             + ("rider" if RUN_RIDER else "rider SKIPPED "
+                                "(not requested this invocation)"))
+        write_partial("DONE (formation-gate halt path)")
+        log(f"total {time.time() - T0:.1f}s")
+        return 0
     write_partial("P2 the fresh write formed IN BAND (the formation gate "
                   "PASSED)")
 
@@ -3397,6 +3529,87 @@ def run_rider(dev, corpus, stoi, itos, train_ids, train_text, val_ids,
 
 
 # ------------------------------------------------------------------ plots
+def make_formation_autopsy_plot(rd, metrics, inst_traj, fresh_g0):
+    """THE HALT PATH'S FIGURE: the formation autopsy — the fresh draw's
+    install trajectory vs the committed family's, the trust band, and the
+    miss; plus the write-structure comparison (norm/in-room/gm12)."""
+    fig, axes = plt.subplots(1, 3, figsize=(19.5, 5.6))
+    fam_traj = {
+        "e261/e264 committed (room 26113/26114, gen 24314)":
+            {1: 0.0, 100: 0.3059, 200: 0.2184, 300: 0.2102, 400: 0.2646},
+        "e272 K10KR (fresh room 27215/27216, gen 24314)":
+            {1: 0.0, 100: 0.3153, 200: 0.2037, 300: 0.1749, 400: 0.2097},
+    }
+    # (0) the formation trajectories
+    ax = axes[0]
+    for (lbl, tr), col in zip(fam_traj.items(),
+                              ("dimgray", "tab:brown")):
+        ax.plot(list(tr.keys()), list(tr.values()), "s--", ms=5, lw=1.4,
+                color=col, alpha=0.85, label=lbl)
+    if inst_traj:
+        ax.plot([t["step"] for t in inst_traj],
+                [t["g0_pz"] for t in inst_traj], "o-", ms=6, lw=1.8,
+                color="tab:red",
+                label=f"e323 fresh (room 32313/32314, gen 32302) -> "
+                      f"{fresh_g0:.4f} MISS")
+    ax.axhspan(FORMATION_BAND[0], FORMATION_BAND[1], color="gold",
+               alpha=0.22, label=f"the trust band {FORMATION_BAND}")
+    ax.set_xlabel("install step s (the Dmix install)")
+    ax.set_ylabel("post g0 (the formation read)")
+    ax.set_title("THE FORMATION AUTOPSY — the install-draw lottery (the "
+                 "committed family shares ONE install draw)", fontsize=9.5)
+    ax.legend(fontsize=7.0)
+    ax.grid(alpha=0.25)
+
+    # (1) the family values + the miss
+    ax = axes[1]
+    ax.scatter([0, 1], [E264_K10K_POST_G0, E272_K10KR_POST_G0], s=80,
+               color="dimgray", label="the committed family (gen 24314)")
+    ax.scatter([2], [fresh_g0], s=200, marker="*", color="tab:red",
+               zorder=5, label=f"e323's full fresh draw: {fresh_g0:.4f}")
+    ax.axhspan(FORMATION_BAND[0], FORMATION_BAND[1], color="gold",
+               alpha=0.22, label=f"the trust band {FORMATION_BAND}")
+    ax.set_xticks([0, 1, 2])
+    ax.set_xticklabels(["committed\ndraw", "e272 fresh\nroom (gen held)",
+                        "e323 fresh\nroom+gen"], fontsize=8)
+    ax.set_ylabel("post-install g0")
+    ax.set_title("THE MISS — x1.809 the committed; the band (calibrated on "
+                 "the ROOM lottery) does not contain a full fresh draw",
+                 fontsize=9.0)
+    ax.legend(fontsize=7.5)
+    ax.grid(alpha=0.25)
+
+    # (2) the write-structure comparison
+    ax = axes[2]
+    rows = ["write\nnorm", "in-own-room\nfrac", "gm12\n(localization)",
+            "ce_r"]
+    committed_v = [E290_WRITE_NORM, 0.9441588788935659, 0.10525520890951157,
+                   1.5920883417129517]
+    gf = metrics["gates"]["G_FORMATION"]
+    fresh_v = [gf["write_norm"], gf["displacement_from_base"]["in_own_room"],
+               gf["reads"]["gm12"], gf["reads"]["ce_r"]]
+    xs = np.arange(len(rows))
+    ax.bar(xs - 0.18, [v / c for v, c in zip(committed_v, committed_v)],
+           0.36, color="dimgray", label="committed write (e261/e264)")
+    ax.bar(xs + 0.18, [v / c for v, c in zip(fresh_v, committed_v)],
+           0.36, color="tab:red", label="e323's fresh write")
+    ax.axhline(1.0, color="black", ls=":", lw=1.0)
+    ax.set_xticks(xs)
+    ax.set_xticklabels(rows, fontsize=8)
+    ax.set_ylabel("fresh / committed (ratio)")
+    ax.set_title("THE FRESH WRITE'S STRUCTURE — bulkier, less localized "
+                 "(the first-step-shock survival)", fontsize=9.0)
+    ax.legend(fontsize=7.5)
+    ax.grid(alpha=0.25, axis="y")
+
+    fig.suptitle("E323 — THE CASCADE GUARD halted at the formation gate "
+                 "(TEXTURE; the rungs never ran; no shopping)",
+                 fontsize=11)
+    fig.tight_layout(rect=(0, 0.02, 1, 0.94))
+    fig.savefig(rd / "e323_cascade_guard.png", dpi=130)
+    plt.close(fig)
+
+
 def make_primary_plot(rd, metrics, verdict, clause, thermal_log,
                       budgets, write_norm):
     """THE PRIMARY FIGURE: the two fresh rungs' survival curves vs e290's
