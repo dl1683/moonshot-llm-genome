@@ -12,7 +12,10 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
 - (a) COLLISION (forming): shared-momentum funnel, coherence-beats-magnitude 7x (e284/e288).
 - (b) TRANSPORT (established): holographic read; the kill bracket [0.0008, 0.004] of write
   norm (e290; realized drift [0.00071, 0.00323]); the ~1,040-step passive clock.
-- RIDER (R71): the bracket is a bracket — two rungs, n=1, one organism; "constant" language
+- RIDER (R71): the bracket is a bracket — two rungs, n=1, one organism; 'constant' language
+  banned. [T288 addendum]: the n=1 deepens — the committed write is ONE INSTALL DRAW of a
+  lottery that dominates the room lottery (+81% vs -21%); the bracket is one-formation-
+  style. GATE: e324 (the install-draw census) before any retention re-ladder.
   banned until e323's fresh-draw re-ladder replicates both edges. e323 is this law's gate.
 
 ## LAW 3 — THE FLOOR (formation) — v3's biggest rewrite

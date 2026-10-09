@@ -7,6 +7,50 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T288 — E323: the formation lottery's hierarchy — the install draw outranks the room draw, and the committed canon is one biography (2026-10-09, datetime.now ~21:05Z)
+
+The cascade guard was sent to bound the retention bracket's draw
+uncertainty and found the draw structure living one floor down. The
+first full fresh draw (new room AND new install gen) didn't wobble —
+it formed at +81% over the committed value, while the room-only redraw
+(e272) had moved -21%. And the rider's five fresh family installs
+inherit the same texture (norm 31.8 vs 19.3; two of five baselines
+above the family band). THE INSTALL-DRAW LOTTERY DOMINATES THE ROOM
+LOTTERY at formation.
+
+THE AUTOPSY'S MECHANISM CANDIDATE (the first-step fork): the committed
+draw's first AdamW step KILLS its read (g0 0.0000 at s1, recovery
+follows); every fresh gen survives step one and keeps its bulk. Two
+formation styles: DIE-THEN-RECOVER (pruned, localized: 94% in-room,
+norm 9.2) and SURVIVE-AND-SPRAWL (bulky, spread: 63% in-room, norm 27,
+reads HIGHER). W052's localization float and this are one finding: the
+canon's pruned style is one draw's wound-healing, not a preference of
+the protocol.
+
+WHAT THIS DOES TO THE LEDGER, HONESTLY: every cross-draw comparison in
+the lab's history shares install genetics — the monoculture caveat now
+attaches to Law 3's formation numbers, the controller's endpoint family
+(one write lineage), e290's bracket (one formation style; its guard was
+interrupted by exactly the uncertainty it was sent to bound, one floor
+down), and the membrane chapter's vehicle. None of the committed
+numbers move; all of them gain a scope clause. THE CANON IS ONE
+BIOGRAPHY — beautifully instrumented, singularly drawn.
+
+THE FOLLOW-UP LADDER (the report's, adopted): (1) e324 THE INSTALL-DRAW
+CENSUS — n=4-5 fresh gens at HELD room + the committed gen: the
+lottery's distribution on the texture axes (g0, norm, in-room, gm12,
+s1-survival) — the same service e272 did for the room lottery, now for
+the bigger wheel; the s1-fork discriminator rides free (do the census's
+draws split cleanly by step-one survival, and does survival predict
+bulk?); (2) the retention re-ladder on e272's in-family K10KR state —
+the bracket question finally answerable on a fresh-but-in-band state;
+(3) the warmup experiment (force step-one survival on the committed
+gen: does the canon draw go bulky?) — wound-healing versus preference,
+the mechanism's cleanest test, queued behind the census.
+
+P-e323a/b and P-e323r/s remain REGISTERED-UNTESTED — the bars stand for
+whichever future session picks up the rungs.
+
 ## T287 — X22: the confidence channel is a committee — and the gate must be the state, not the knob (2026-10-09, datetime.now ~20:42Z)
 
 The seat hunt returned the least romantic and most explanatory answer
