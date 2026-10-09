@@ -7,6 +7,46 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T273 — E294+E305: the kill law inverted, and the price is right (2026-10-09, datetime.now ~12:07Z)
+
+**The unlearning mirror's first answer.** The anti-controller works as an
+instrument: FACT3 erased at the first event (25 steps; the gate
+self-limiting; the ascent real). But within a family the scalpel is a
+family-wide stroke — all four siblings fell, exactly as agy predicted
+before compute (the dialogue's first scored hit). THE FAMILY IS ONE
+MEMORIA IN BOTH DIRECTIONS: the sharing that makes preservation cheap
+(one antibody lifts all, e291) makes erasure total (one ascent kills
+all, e294). Indivisibility is the bearer-law's social corollary: a
+shared room-overlap spectrum cannot be partially destroyed.
+
+**The Landauer number.** PRICED-AT-THE-CONSTANT: the aimed erase's
+work (0.0200, one coherent stroke, zero cancellation) sits inside the
+passive threshold bracket. Erasure has a METHOD-INDEPENDENT PRICE —
+no Maxwell demon of forgetting (directed is not cheaper), no immunity
+premium (the organism does not defend). The kill law's constant is
+thus currency-neutral: it prices drift, maintenance budgets, and now
+directed erasure. THE LAB'S FIRST CONSERVATION LAW.
+
+**The gesture symmetry.** The anti's gradient rides at exactly chance
+in-room — the same out-of-room brush geometry the controller's
+maintenance uses (e307). Preservation and erasure are the SAME KIND
+of actuation with opposite signs: a soft repeating brush vs a single
+coherent hammer. This predicts the protected-replay composition (e312,
+computing) is a fair fight: both sides use comparable gestures; the
+outcome hangs on the budget split and the shared bearer's
+indivisibility, not on any actuation asymmetry.
+
+**The era's fork, honestly drawn.** Selective unlearning requires
+either (a) the composition to hold (e312) — maintain the bystanders
+while erasing the target; or (b) bearer-unsharing at formation (the
+e293 successor protocols: joint installs or per-install re-teaching)
+— make the memories separable before making one forgettable; or (c)
+the fine scalpel: e306/e310's closed bearer law hands the target
+list (the room-overlap tail) — an erase projected ONLY onto the
+target's tail overlap with the shared room, sparing the siblings'
+overlap, is the sharpest instrument the laws license.
+
+
 ## W048 — the closed bearer law sharpens the hijacker: a parasite must steal ROOM-OVERLAP, not just a brush (2026-10-09, datetime.now ~10:57Z)
 
 The bearer law closed both directions this morning: the read needs the
