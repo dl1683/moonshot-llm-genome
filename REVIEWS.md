@@ -91,6 +91,12 @@ one-liners carry their n-scope; (7) root-redraw cells queued after g2g.
 
 ---
 
+## R70 — the wild wave audited (third attempt; two model failures absorbed): every number exact, the laws doc's two citation defects caught, the three-axis theory made falsifiable (2026-10-09, folded ~10:30Z)
+
+Trigger: the wild era's first wave (e291/e293/e289+C1/e299/e304/e306-desk/e307/e308 + THE_LAWS_V2). AUDITOR: 27+ spot-checks EXACT across eight cells; births precede computes; no bar shopping; the two mid-run deviations disclosed with evidence. CRITIC: (i) e299's MASS-TRACKS is between-class at age 0 (the confound self-disclosed; demoted at the claim site); (ii) e304's headline survives with lens-dependence qualifiers; (iii) e306's bearer claim is CIRCULAR without the complementary-truncation control (the room was built from the write — 'room-overlap' may mean 'formation-stream-overlap'; the dissociation half solid); (iv) e307's brush is charitable-but-carried; (v) e308's conditional modes may restate the training (the seam-control named for e302); (vi) LAW 3's ~7-dims clause now CONTRADICTS e306 unreconciled; (vii) THE BIGGEST EMBARRASSMENT RISK: Law 4's family clause quoted without its scope. IDEATOR: the three-axis theory (address/bearer/confidence) is WRITABLE with the joint claim that the axes are SEPARATELY WRITABLE — the fastest falsifier is e306's GPU maintenance half at r100; the queue re-ranked (e296 graft first); TWO NEW CELLS: THE COMPLEMENTARY BEARER CONTROL (kills the circularity; rides the bearer session) + THE CALM CONTROLLER v3 (the temperature-gated dial — e304's cost converted to engineering); WILD-CARD: THE TENANT CELL (forget by giving something else to remember). NEXT CELL: THE BEARER SESSION (e306's GPU ladder + the complementary control). REPAIRS APPLIED: the five at claim sites (the laws doc's family qualifier + the cost clause; the ~7-dims reconciliation marker; e299's demotion; e307's frozen word carried).
+
+---
+
 ## R69 — the build extension audited: the founding success sound at its bar, the overshoot qualified, and the geometric half-life found (2026-10-06, folded ~13:07Z)
 
 Trigger: the 4h clock over e287/e288/e290 + consult #008 + the R68

@@ -60,7 +60,10 @@ win — the tug costs nothing measurable, e289). The teacher needs no
 geometric alignment: the name gradient rides at chance in-room (0.061,
 e287) — the room-frame is not the operative frame for maintenance.
 PRESERVATION REQUIRES NO EXTERNAL SCAFFOLD: a read the organism already
-computes, plus any traffic that touches the function.
+computes, plus any traffic that touches the function. THE STATED COST
+[added at R70, e304]: maintained memories run calibration-hot (~1.8-2.6x
+by the T-lens, ~1.3x by KL; the content generalizes, the confidence
+drifts).
 
 ## LAW 5 — THE ECONOMICS
 
