@@ -595,6 +595,15 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE PASS CATCH (pass 1, fixed pre-compute; no bar, gate "
+    "semantics touched): G_FORMATION fired WRONGLY at smoke — at smoke "
+    "k=512 there is NO committed formation record (e285's smoke note: "
+    "the smoke room captures only a fraction of the write; the smoke "
+    "install's g0 lands near the root landing 0.7513, as expected for "
+    "8 steps in a 512-dim room). The repair, e290's G_ROOMK10K "
+    "precedent verbatim: the formation gate (and the rider's "
+    "G_RIDER_FORMATION, same exposure) are SMOKE-VACUOUS — LIVE and "
+    "binding at the full run's k=10k. No bar moved.",
     "THE FRESH INSTALL RUNS THROUGH e261's chunked_install BY IMPORT (the "
     "committed rig VERBATIM — extend, don't repeat): the module-global "
     "FRESH_GEN is rebound to 32302 (the fresh Dmix draw; the committed "
@@ -2447,6 +2456,17 @@ def main():
             "note": "the fresh write's own standing displacement"},
         "pass": bool(FORMATION_BAND[0] <= fresh_g0 <= FORMATION_BAND[1]),
     }
+    if SMOKE:
+        # e290's G_ROOMK10K precedent: at smoke k there is NO committed
+        # formation record (e285's smoke note: the smoke room captures
+        # only ~21.7% of the write) — the gate is VACUOUS at smoke,
+        # LIVE and binding at the full run's k=10k.
+        G_FORMATION["pass"] = True
+        G_FORMATION["vacuous"] = (
+            "SMOKE: the formation gate is VACUOUS at smoke k=512 (no "
+            "committed formation record at this k; the smoke room captures "
+            "a fraction of the write) — LIVE and binding at the full "
+            "run's k=10k")
     metrics["gates"]["G_FORMATION"] = G_FORMATION
     log(f"P2 G_FORMATION: the fresh write's g0 {fresh_g0:.6f} "
         f"{'IN' if G_FORMATION['pass'] else 'OUTSIDE'} band "
@@ -3175,6 +3195,16 @@ def run_rider(dev, corpus, stoi, itos, train_ids, train_text, val_ids,
         "e291_write_norm": 19.270036448332284,
         "pass": bool(all(lo <= v <= hi for v in baseline_panel.values())),
     }
+    if SMOKE:
+        # the same smoke-vacuity as the primary's G_FORMATION (e290's
+        # G_ROOMK10K precedent): the smoke k=512 rooms barely write —
+        # the per-fact baselines land near the root landing; the gate is
+        # LIVE and binding at the full run's k=10k
+        G_RIDER_FORMATION["pass"] = True
+        G_RIDER_FORMATION["vacuous"] = (
+            "SMOKE: vacuous at smoke k=512 (the smoke rooms capture a "
+            "fraction of each write; no committed record at this k) — "
+            "LIVE and binding at the full run's k=10k")
     metrics["gates"]["G_RIDER_FORMATION"] = G_RIDER_FORMATION
     log("RIDER P2: the fresh organism formed — baselines "
         + " ".join(f"{k}:{v:.4f}" for k, v in baseline_panel.items())
