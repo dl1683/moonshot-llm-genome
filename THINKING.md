@@ -7,6 +7,27 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T277 — E296: the signal is load-bearing — and the graft's no-op locates the entire maintenance story outside the room (2026-10-09, datetime.now ~17:30Z)
+
+The preservation program's final fork resolves: SIGNAL-NEEDED. But the
+verdict's mechanism is the day's cleanest confirmation of the pruned
+theory: THE GRAFT NEVER ENGAGED (0.000008 of its budget; the in-room
+gap at the fp floor, 6.76e-07) because THE ROOM NEVER DRIFTS under
+this death — the sanctuary's orthogonalization pins it. The death is
+out-of-room; the controller's out-of-room brush is the only instrument
+that reaches it. THE FULL DIVISION OF LAB, now measured from every
+side: FORMATION lives in the room (the bearer law); DEATH lives
+outside it (transport); MAINTENANCE lives outside it (the brush);
+UNLEARNING fails because the shared room makes the read redundant.
+The room is the womb, not the home. THE ANESTHESIA METAPHOR RETIRES:
+there is nothing in the room to refresh — preservation is not
+consolidation-from-checkpoint; it is genuinely re-teaching, and the
+era's economics (re-teach when friendly; maintain when contradicted)
+stand as the final word. The controller twin's in-session replicate
+(3.530 vs the founding 3.479, n=2) quietly closes the founding
+success's last replication debt.
+
+
 ## T276 — E314: the unlearning program's final map — specific suppression, immovable read (2026-10-09, datetime.now ~16:05Z)
 
 Three cells, three closed roads, one law: **within a shared
