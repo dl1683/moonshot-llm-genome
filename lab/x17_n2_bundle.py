@@ -81,7 +81,8 @@ clauses, they do not move the bars):
     never trusted from prose); G_DOSEMATCH ||s_full*comp|| == ||dW_tav||
     to 1e-12; injection fp64->fp32 with the x15 checkpoint conventions
     ({'model','delta',provenance}, disk roundtrip verified, probed FROM
-    DISK); scaled arm's in-room share (fp64 intended AND fp32 injected)
+    DISK); scaled arm's in-room ENERGY share (x15's exact G_INROOM_SCALED
+    form, fp64 intended AND fp32 injected)
     <= 1e-12. CONTROLS BEFORE the primary arm: G_TAVFULL — theta_base +
     dW_tav must reproduce e311's committed fresh read 0.285851389169693
     (|d| <= 5e-3, x15's own G_FULLREAD bar); G_TAVPRIOR — the base
@@ -564,6 +565,19 @@ def inroom_frac(room: SRCT, v64: np.ndarray) -> float:
     return float(np.linalg.norm(room.project(v64)) / vn)
 
 
+def inroom_energy_share(room: SRCT, v64: np.ndarray) -> float:
+    """x15's G_INROOM_SCALED exact form: ||Pv||^2 / ||v||^2 (the SCALED
+    arms' gate; the fp32 injection layer's rounding noise lands at ~1e-9
+    NORM fraction == ~1e-18 ENERGY fraction — x15's committed 2.35e-18
+    class; the smoke caught the units mismatch and this is the repair,
+    disclosed in the commit)."""
+    e = float(v64 @ v64)
+    if e == 0.0:
+        return 0.0
+    p = room.project(v64)
+    return float((p @ p) / e)
+
+
 # ======================================================================
 # MAIN
 # ======================================================================
@@ -888,7 +902,7 @@ def main() -> None:
     comp_tav_norm = float(np.linalg.norm(comp_tav))
     s_full_t = dW_tav_norm / comp_tav_norm
     scaled64 = s_full_t * comp_tav
-    scaled_inroom64 = inroom_frac(room, scaled64)
+    scaled_inroom64 = inroom_energy_share(room, scaled64)
 
     def unflat_like_base(flat64: np.ndarray) -> dict:
         out, off = {}, 0
@@ -1002,13 +1016,19 @@ def main() -> None:
     }
     G_TAVINROOM = {
         "form": "scaling cannot change direction — verified anyway: the "
-                "scaled complement's in-room share (fp64 intended AND "
-                "fp32 injected) <= 1e-12 (x15's G_INROOM_SCALED)",
-        "scaled_fp64_in_room_frac": scaled_inroom64,
-        "fp32_injected_in_room_frac": inroom_frac(room, fl_scaled32),
+                "scaled complement's in-room ENERGY share (x15's exact "
+                "G_INROOM_SCALED form ||Pv||^2/||v||^2; fp64 intended "
+                "AND fp32 injected) <= 1e-12; the NORM fractions "
+                "co-reported (the fp32 rounding noise's ~1e-9 norm "
+                "fraction IS x15's committed 2.35e-18 energy class)",
+        "scaled_fp64_in_room_energy_share": scaled_inroom64,
+        "fp32_injected_in_room_energy_share":
+            inroom_energy_share(room, fl_scaled32),
+        "co_norm_fracs": {"fp64": inroom_frac(room, scaled64),
+                          "fp32": inroom_frac(room, fl_scaled32)},
         "bar": 1e-12,
         "pass": bool(scaled_inroom64 <= 1e-12
-                     and inroom_frac(room, fl_scaled32) <= 1e-12),
+                     and inroom_energy_share(room, fl_scaled32) <= 1e-12),
     }
     if not G_TAVDOSE["pass"]:
         raise SystemExit(f"G_TAVDOSE FAILURE: {G_TAVDOSE}")
