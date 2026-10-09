@@ -40,6 +40,15 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e310 — THE COMPLEMENTARY BEARER CONTROL (R70's circularity-killer): READ-DEAD-MASS-HIGH — THE BEARER CLAIM SURVIVES ITS CONTROL: the complementary write (the full 10k write MINUS its room-overlap components — perpendicular to the room by construction, gate 2.2e-14) reads 3.66e-05 DEAD while carrying 10.86% >= 10% of the full write's energy (32.95% of its mass): ROOM-OVERLAP IS NECESSARY FOR THE READ — the bearer is the tail that overlaps the room; e306's claim survives R70's critic-iii circularity attack; Law 3's ~7-dims clause does NOT revive (that was the READ-ALIVE branch); THE THREE-WAY TABLE: full 0.2646 alive (89.14% in-room) / complement DEAD (0% in-room) / mix-50/50-at-full-dose 0.0631 ALIVE-MID (50% in-room) — halving the in-room share cuts the read 4.2x; at complement-dose the 50/50 mix is DEAD: spectrum and dose both matter, but NO ARM EVER READS WITHOUT ROOM-OVERLAP; the complement is structured (median per-matrix T3 0.088 — between the null ~0.002 and the controller footprints ~0.19-0.23) — the out-of-room energy is not noise, it is real structure that does not read (2026-10-09, datetime.now) — DONE
+
+WHAT WE SAW: the necessity leg of the bearer law, closed. e306 showed
+sufficiency-direction decay (truncate the tail, the read dies); e310 shows
+the necessity direction (keep the mass, remove the room-overlap, the read
+dies anyway). The read's substrate is the room-overlap spectrum PERIOD —
+mass is ballast, out-of-room structure is decoration, and the organism's
+memory is the part of the write that its formation geometry reserved.
+
 ## e309 — THE CORPSE SEESAW (one corpse, two revival routes): TWO-MEMORIES — surgery revives the ORIGINAL write's read (corpse-dependent: 7.08x range across classes, mass-tracked rho +0.883, the product = theta0 + P(delta) by construction) while the cons builds ITS OWN standard construction on ANY substrate (the NO-WRITE zero-point control reaches 89.7% of the seeded mean; the landing varies just 1.25x across a sweep including nothing; the decisive geometry: e268/e270's landing states rank corpse-seeded ABOVE alive-seeded in-room — the landing geometry is the cons's SIGNATURE, not the write's) — e179's 'resurrection' and x14's 'resurrection' are DIFFERENT EVENTS sharing a name: revival vs REPLACEMENT; the value leg UNITS-BARRED (honestly: the routes were never measured in a common unit — no committed record reads a cons landing in the post-g0 battery or a surgery product in the root battery; the identity verdict decided WITHIN batteries, never needing the conversion); the named successor: a cons run from an ORTHOGONAL-class corpse (the cons column is empty at exactly the class where surgery restores 1.0000 — the clean head-to-head nobody has run) (2026-10-09, datetime.now) — DONE
 
 WHAT WE SAW: two revival vocabularies collapse into one distinction. The
