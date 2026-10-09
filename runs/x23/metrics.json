@@ -1,0 +1,779 @@
+{
+  "experiment": "x23_cross_battery",
+  "phase": "THE CROSS-BATTERY COMPLEMENT (T284's fork): the 2x2 matrix \u2014 both full-dose complements (x15's K10K + x17's TAVIREN, bit-regenerated + carrier-bound) x both batteries (the same 60 host g0 contexts read at each battery's own name) \u2014 does the 39x complement gap follow the BATTERY or the WRITE?",
+  "date": "2026-10-09T19:48:19+00:00",
+  "status": "COMPLETE \u2014 adjudicated",
+  "registration": "bars + P-x23a VERBATIM from the dispatch letter; operationalizations frozen HERE at birth BEFORE compute; this script committed at birth; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "question_verbatim": "does the effect follow the BATTERY or the WRITE?",
+    "bars_verbatim": {
+      "EFFECT-FOLLOWS-BATTERY (H-BATTERY)": "the TAVIREN complement reads high (>= 0.02 mean) on the TAVIREN battery but LOW (< 0.005) on the K10K battery, AND the K10K complement stays low on both \u2014 the 39x gap is a battery artifact; the gem stands: every write ships with its own gain knob (its out-of-room remainder is its built-in bias direction); necessity's clean form RESTORES with a battery-scope rider.",
+      "EFFECT-FOLLOWS-WRITE (H-STRUCTURE)": "the TAVIREN complement reads >= 0.02 on BOTH batteries (or the K10K complement reads materially higher on the TAVIREN battery) \u2014 out-of-room content genuinely varies by write; necessity weakens for real; the complement census (more writes) follows."
+    },
+    "P_x23a_verbatim": "Register P-x23a BEFORE compute. Lab guess (T284's stated guess, to be scored): EFFECT-FOLLOWS-BATTERY.",
+    "executor_position": "CONCUR with EFFECT-FOLLOWS-BATTERY (pre-compute): x17's committed pZ co-report 0.000316 is the TK prior (~16x under the LOW bar); x16/x16R's off-target nulls (n=2) say unaligned out-of-room structure barely moves a foreign name; base p(T) prior 0.0023 sits under the LOW bar. Sub-prediction P-x23a-exec (scored): KT within [0.5x, 2x] of the base p(T) prior.",
+    "clauses_fixed": {
+      "stays_low_on_both": "KK < 0.005 AND KT < 0.005",
+      "materially_higher": "KT >= 0.005 (the bars' own LOW threshold, 6.8x the committed KK diagonal 0.0007308); KT/KK ratio co-reported regardless",
+      "precedence": "H-BATTERY first (TT >= 0.02 AND TK < 0.005 AND KK < 0.005 AND KT < 0.005); then H-STRUCTURE ((TT >= 0.02 AND TK >= 0.02) OR KT >= 0.005); neither => GAP (verbatim report; no wording change without a new registered cell)"
+    },
+    "registration": "bars + P-x23a VERBATIM from the dispatch letter; operationalizations frozen HERE at birth BEFORE compute; this script committed at birth; adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "cpu_only": true,
+  "threads": {
+    "torch": 4,
+    "pocketfft": 4
+  },
+  "envelope": {
+    "device": "CPU ONLY (CUDA_VISIBLE_DEVICES=''; another agent owns the GPU lane; no envelope-log writes)",
+    "timestamps": "datetime.now(UTC) only"
+  },
+  "deviations": [
+    "CPU-ONLY cell (dispatch: another agent owns the GPU lane) \u2014 CUDA_VISIBLE_DEVICES='' before torch import, torch threads 4, pocketfft workers 4, no GPU code path, no envelope-log writes, no other runs/ touched.",
+    "THE HONEST CONSTRUCTION (the dispatch's own note, frozen at birth): both batteries are the SAME 60 host g0 install contexts read at different names \u2014 the battery axis is the name-query axis on identical contexts; the cross cells ask 'does displacement X raise the name battery Y contexts query?'.",
+    "The complement states are probed FROM THE COMMITTED CARRIERS' model dicts (x15/x17's own .pt artifacts, md5-bound, model == base + delta re-derived) \u2014 the cross cells are read on literally the committed vectors; no new .pt artifacts are written (the *.pt gitignore convention).",
+    "The fullK calibration state is built IN-MEMORY from the two md5-bound parents by x15's exact probe path (x15's own G_FULLREAD precedent \u2014 no committed carrier exists for the K10K full write; disclosed).",
+    "The TK cell has a committed in-parent prior (x17's pZ co-report 0.000316); it is re-measured fresh here and cross-checked in [0.5x, 2x]; the verdict leans only on THIS session's fresh reads.",
+    "No fresh random draws exist in this design (every vector deterministic from md5-bound parents); n=1 per cell (one lineage, one session \u2014 the g-series standing lottery note carried verbatim).",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat folds).",
+    "Smoke (X23_SMOKE=1): full gate path + all cells live, own smoke dir; NOTHING adjudicated."
+  ],
+  "builds_on": [
+    "x15 (THE K10K dose-matched complement: the construction, the carrier runs/x15/x15_comp_xFULL.pt, the committed KK diagonal 0.0007308, the G_FULLREAD/G_COMPREF reproduction conventions)",
+    "x17 (THE TAVIREN complement replicate: the construction, the carrier runs/x17/x17_x15R_compFULL.pt, the committed TT diagonal 0.02841, the pZ co-report that is TK's prior, the fullwrite control carrier)",
+    "e311 (the TAVIREN write's end state e311_TAVINST_post.pt + its certified p(T) battery convention + the committed fresh read)",
+    "T284 (the x17 fold card that named the battery-vs-structure fork and P-x23a)",
+    "x16/x16R (the off-target nulls that predict the cross cells read low \u2014 the prior, not the evidence)",
+    "e261/e264/e290/e310 (the K10K write, the room, the write norm, the complement construction the parents ported)"
+  ],
+  "whats_new": [
+    "THE FIRST CROSS OF WRITE x BATTERY on the complement axis: the two committed full-dose complements each read on BOTH batteries in one instrumented session \u2014 the diagonal-vs-offdiagonal asymmetry that T284's fork names",
+    "the K10K complement's p(T) read (KT) \u2014 never measured anywhere; the decisive cell for H-BATTERY's 'stays low on both' clause",
+    "both committed carriers used AS the probed states (bit-bound G_REGEN on both arms simultaneously \u2014 the strongest parent bind in the x-series)"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "corpus_taviren_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "form": "THE HONEST CONSTRUCTION: BOTH batteries = the SAME 60 host g0 install contexts (e261's splice bank verbatim); a battery := contexts + its own name read (K10K battery: p(Z) at zid; TAVIREN battery: p(T) at tid \u2014 e311's certified per-fact zid convention)",
+      "shapes": {
+        "g0": [
+          60,
+          130
+        ],
+        "gm12": [
+          60,
+          118
+        ]
+      },
+      "expected": {
+        "mix": {
+          "FLORIZEL": 19,
+          "ELIZABETH": 41
+        },
+        "shapes": {
+          "g0": [
+            60,
+            130
+          ],
+          "gm12": [
+            60,
+            118
+          ]
+        }
+      },
+      "pass": true
+    },
+    "G_ENDPOINTS": {
+      "form": "every parent artifact md5-bound (both complement CARRIERS included \u2014 the cross cells probe these very files) + every committed reference READ FROM THE ARTIFACT and cross-checked against the frozen literals",
+      "md5_binds": {
+        "e001": {
+          "path": "runs\\checkpoints\\e001.pt",
+          "md5": "d114536d1c0983ab3be67f67ff0667c8",
+          "bound": "d114536d1c0983ab3be67f67ff0667c8",
+          "match": true
+        },
+        "e261_K10K_inst_resume": {
+          "path": "runs\\checkpoints\\e261_K10K_inst_resume.pt",
+          "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+          "bound": "0f6dc1cf46850ce655dfafc9c853d467",
+          "match": true
+        },
+        "e264_rooms": {
+          "path": "runs\\checkpoints\\e264_rooms.pt",
+          "md5": "2d524655575cce00a3bc1c8770f4b211",
+          "bound": "2d524655575cce00a3bc1c8770f4b211",
+          "match": true
+        },
+        "e311_TAVINST_post": {
+          "path": "runs\\checkpoints\\e311_TAVINST_post.pt",
+          "md5": "9886b25242c90dd669c6363c39a2a3bf",
+          "bound": "9886b25242c90dd669c6363c39a2a3bf",
+          "match": true
+        },
+        "e311_metrics": {
+          "path": "runs\\e311\\metrics.json",
+          "md5": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+          "bound": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+          "match": true
+        },
+        "x15_metrics": {
+          "path": "runs\\x15\\metrics.json",
+          "md5": "c90dd9371a5a7e248fdbd92c06bb243a",
+          "bound": "c90dd9371a5a7e248fdbd92c06bb243a",
+          "match": true
+        },
+        "x15_comp_xFULL_carrier": {
+          "path": "runs\\x15\\x15_comp_xFULL.pt",
+          "md5": "b0a1785c6f759fdd1d8deeae7fee4a9b",
+          "bound": "b0a1785c6f759fdd1d8deeae7fee4a9b",
+          "match": true
+        },
+        "x17_metrics": {
+          "path": "runs\\x17\\metrics.json",
+          "md5": "98a6138279852ca0705718d77a9c28f7",
+          "bound": "98a6138279852ca0705718d77a9c28f7",
+          "match": true
+        },
+        "x17_compFULL_carrier": {
+          "path": "runs\\x17\\x17_x15R_compFULL.pt",
+          "md5": "b284262c69e2a24783290405f4c73cec",
+          "bound": "b284262c69e2a24783290405f4c73cec",
+          "match": true
+        },
+        "x17_fullwrite_carrier": {
+          "path": "runs\\x17\\x17_x15R_fullwrite_control.pt",
+          "md5": "c0a2a9574ebf0b71094ae5e254cc965f",
+          "bound": "c0a2a9574ebf0b71094ae5e254cc965f",
+          "match": true
+        }
+      },
+      "literal_crosscheck": {
+        "e311_fresh_g0_t": {
+          "artifact": 0.285851389169693,
+          "frozen": 0.285851389169693,
+          "tol": 1e-15,
+          "match": true
+        },
+        "e311_fresh_gm12_t": {
+          "artifact": 0.1744154542684555,
+          "frozen": 0.1744154542684555,
+          "tol": 1e-15,
+          "match": true
+        },
+        "e311_fresh_g0_z": {
+          "artifact": 0.00018831617489922792,
+          "frozen": 0.00018831617489922792,
+          "tol": 1e-18,
+          "match": true
+        },
+        "e311_dwtav_norm": {
+          "artifact": 8.94962906015724,
+          "frozen": 8.94962906015724,
+          "tol": 1e-12,
+          "match": true
+        },
+        "e311_dwtav_inroom": {
+          "artifact": 0.9424006308945148,
+          "frozen": 0.9424006308945148,
+          "tol": 1e-15,
+          "match": true
+        },
+        "e311_tavinst_ck": {
+          "artifact": "runs/checkpoints/e311_TAVINST_post.pt",
+          "frozen": "runs/checkpoints/e311_TAVINST_post.pt",
+          "tol": null,
+          "match": true
+        },
+        "x15_verdict": {
+          "artifact": "DEAD-AT-FULL-DOSE",
+          "frozen": "DEAD-AT-FULL-DOSE",
+          "tol": null,
+          "match": true
+        },
+        "x15_diag_kk": {
+          "artifact": 0.0007308000349439681,
+          "frozen": 0.0007308000349439681,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x15_s_full": {
+          "artifact": 3.0349885643664365,
+          "frozen": 3.0349885643664365,
+          "tol": 1e-15,
+          "match": true
+        },
+        "x15_comp_l2": {
+          "artifact": 3.024341960836486,
+          "frozen": 3.024341960836486,
+          "tol": 1e-12,
+          "match": true
+        },
+        "x15_fullread": {
+          "artifact": 0.26464763283729553,
+          "frozen": 0.26464763283729553,
+          "tol": 1e-15,
+          "match": true
+        },
+        "x15_base_g0_z": {
+          "artifact": 1.3383959412749391e-05,
+          "frozen": 1.3383959412749391e-05,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x17_p1_verdict": {
+          "artifact": "GAP",
+          "frozen": "GAP",
+          "tol": null,
+          "match": true
+        },
+        "x17_diag_tt": {
+          "artifact": 0.02840821072459221,
+          "frozen": 0.02840821072459221,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x17_tk_coreport": {
+          "artifact": 0.0003157635510433465,
+          "frozen": 0.0003157635510433465,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x17_s_full": {
+          "artifact": 2.989659522492716,
+          "frozen": 2.989659522492716,
+          "tol": 1e-15,
+          "match": true
+        },
+        "x17_comp_l2": {
+          "artifact": 2.993527855872774,
+          "frozen": 2.993527855872774,
+          "tol": 1e-12,
+          "match": true
+        },
+        "x17_fullctrl_g0_z": {
+          "artifact": 0.00018831614579539746,
+          "frozen": 0.00018831614579539746,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x17_base_g0_t": {
+          "artifact": 0.0023042955435812473,
+          "frozen": 0.0023042955435812473,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x17_tavfull_mine": {
+          "artifact": 0.2858513593673706,
+          "frozen": 0.285851389169693,
+          "tol": 0.005,
+          "match": true
+        }
+      },
+      "pass": true
+    },
+    "G_FLATBASIS": {
+      "params_count": 65,
+      "key_order_matches_parameters": true,
+      "n_params": 2739072,
+      "pass": true
+    },
+    "G_BASEPRIOR": {
+      "form": "the base organism's own priors on both batteries (e311's G_BASE convention, banded <= 0.05), co-reported vs the committed priors",
+      "base_pz_g0": {
+        "mine": 1.3383959412749391e-05,
+        "committed": 1.3383959412749391e-05,
+        "abs_diff": 0.0
+      },
+      "base_pt_g0": {
+        "mine": 0.0023042955435812473,
+        "committed": 0.0023042955435812473,
+        "abs_diff": 0.0
+      },
+      "bar": 0.05,
+      "pass": true
+    },
+    "G_ROOM": {
+      "form": "the committed K10K room (SRCT k=10,000, seeds 26113/26114): D/S bit-identical to e264_rooms.pt; light in-cell certification (x17's convention)",
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "idempotency_max": 5.616028768882275e-16,
+      "kept2_mean": 0.003570227349897262,
+      "kept2_expect": 0.0036508715360530864,
+      "pass": true
+    },
+    "G_ORTH": {
+      "k10k_write": {
+        "energy_sum_rel_resid": 2.1590080465057678e-14,
+        "cross_dot_rel": 2.932208403614868e-16,
+        "bar": 1e-09,
+        "pass": true
+      },
+      "taviren_write": {
+        "dW_norm": {
+          "mine": 8.94962906015724,
+          "committed": 8.94962906015724
+        },
+        "in_room_frac": {
+          "mine": 0.9424006308945149,
+          "committed": 0.9424006308945148
+        },
+        "energy_sum_rel_resid": 2.129077032358712e-14,
+        "cross_dot_rel": 2.9657507672733587e-16,
+        "bar": 1e-09,
+        "pass": true
+      }
+    },
+    "G_DOSEMATCH": {
+      "k10k": {
+        "form": "||s_full_k * comp_k|| == ||dW_k|| to 1e-12 (fp64, derived never trusted)",
+        "s_full": 3.0349885643664365,
+        "committed": 3.0349885643664365,
+        "s_full_abs_diff": 0.0,
+        "scaled_fp64_l2": 9.178843265872299,
+        "write_l2": 9.1788432658723,
+        "abs_diff": 1.7763568394002505e-15,
+        "bar": 1e-12,
+        "pass": true
+      },
+      "taviren": {
+        "form": "||s_full_t * comp_t|| == ||dW_tav|| to 1e-12 (fp64)",
+        "s_full": 2.989659522492716,
+        "committed": 2.989659522492716,
+        "s_full_abs_diff": 0.0,
+        "scaled_fp64_l2": 8.949629060157239,
+        "write_l2": 8.94962906015724,
+        "abs_diff": 1.7763568394002505e-15,
+        "bar": 1e-12,
+        "pass": true
+      }
+    },
+    "G_INROOM": {
+      "k10k": {
+        "form": "x15's exact G_INROOM_SCALED form (in-room ENERGY share <= 1e-12; fp64 intended AND fp32 injected)",
+        "scaled_fp64": 1.4675131901161413e-30,
+        "fp32_injected": 2.263464110779516e-18,
+        "co_norm_fracs": {
+          "fp64": 1.2114095880899e-15,
+          "fp32": 1.5044813427821282e-09
+        },
+        "bar": 1e-12,
+        "pass": true
+      },
+      "taviren": {
+        "form": "x15's exact G_INROOM_SCALED form on the TAVIREN arm",
+        "scaled_fp64": 1.4271612873419743e-30,
+        "fp32_injected": 2.288073662663518e-18,
+        "co_norm_fracs": {
+          "fp64": 1.1946385592897857e-15,
+          "fp32": 1.5126379813635243e-09
+        },
+        "bar": 1e-12,
+        "pass": true
+      }
+    },
+    "G_REGEN": {
+      "k10k": {
+        "form": "the regenerated full-dose complement (fp32) vs the committed carrier's on-disk delta \u2014 bit-equal on EVERY key; + natural fp64 comp L2 vs committed (1e-9); + carrier model == base + delta re-derived",
+        "carrier": "runs\\x15\\x15_comp_xFULL.pt",
+        "keys_bit_equal": 65,
+        "keys_total": 65,
+        "all_keys_bit_equal": true,
+        "my_comp64_l2": 3.024341960836486,
+        "committed_l2": 3.024341960836486,
+        "l2_abs_diff": 0.0,
+        "l2_bar": 1e-09,
+        "carrier_model_eq_base_plus_delta": true,
+        "pass": true
+      },
+      "taviren": {
+        "form": "the regenerated full-dose complement (fp32) vs the committed carrier's on-disk delta \u2014 bit-equal on EVERY key; + natural fp64 comp L2 vs committed (1e-9); + carrier model == base + delta re-derived",
+        "carrier": "runs\\x17\\x17_x15R_compFULL.pt",
+        "keys_bit_equal": 65,
+        "keys_total": 65,
+        "all_keys_bit_equal": true,
+        "my_comp64_l2": 2.993527855872774,
+        "committed_l2": 2.993527855872774,
+        "l2_abs_diff": 0.0,
+        "l2_bar": 1e-09,
+        "carrier_model_eq_base_plus_delta": true,
+        "pass": true
+      }
+    },
+    "G_FULLREAD": {
+      "form": "the two full-write diagonal calibrations (x15's own G_FULLREAD bar |d| <= 5e-3) \u2014 the instrument certified on BOTH batteries before any cell counts",
+      "fullK_on_K": {
+        "mine": 0.26464763283729553,
+        "committed": 0.26464763283729553,
+        "abs_diff": 0.0,
+        "bar": 0.005,
+        "pass": true
+      },
+      "fullT_on_T": {
+        "mine": 0.2858513593673706,
+        "committed": 0.285851389169693,
+        "abs_diff": 2.9802322387695312e-08,
+        "bar": 0.005,
+        "pass": true
+      },
+      "pass": true
+    },
+    "G_DIAG": {
+      "form": "both diagonal cells reproduce their committed values in-session (x15's G_COMPREF band [0.5x, 2x]) + the TK cross cell vs x17's committed pZ co-report",
+      "KK": {
+        "mine": 0.0007308000349439681,
+        "committed": 0.0007308000349439681,
+        "ratio": 1.0,
+        "band": [
+          0.5,
+          2.0
+        ],
+        "pass": true
+      },
+      "TT": {
+        "mine": 0.02840821072459221,
+        "committed": 0.02840821072459221,
+        "ratio": 1.0,
+        "band": [
+          0.5,
+          2.0
+        ],
+        "pass": true
+      },
+      "TK_crosscheck": {
+        "mine": 0.0003157635510433465,
+        "committed": 0.0003157635510433465,
+        "ratio": 1.0,
+        "band": [
+          0.5,
+          2.0
+        ],
+        "pass": true
+      },
+      "pass": true
+    }
+  },
+  "birth_commit": "de13c3d245674015dfab969d9063fa933a86a999",
+  "phase_note": "P9 COMPLETE (report + figure)",
+  "date_updated": "2026-10-09T19:48:39+00:00",
+  "matrix": {
+    "form": "rows = full-dose complements; cols = batteries; cell = g0 mean_pz of the battery's own name on theta_base + the row's complement",
+    "rows": [
+      "TAVIREN complement (x17's, x2.989660)",
+      "K10K complement (x15's, x3.034989)"
+    ],
+    "cols": [
+      "TAVIREN battery (p T)",
+      "K10K battery (p Z)"
+    ],
+    "TT": 0.02840821072459221,
+    "TK": 0.0003157635510433465,
+    "KT": 0.027287840843200684,
+    "KK": 0.0007308000349439681,
+    "ratio_TT_over_TK": 89.96671918188703,
+    "ratio_KT_over_KK": 37.339681908051496
+  },
+  "calibrations": {
+    "form": "the full-write calibration row: each full write on BOTH batteries + the base priors (the two full-write diagonals are gates; the crosses + priors are floor co-reports)",
+    "fullK_on_K": {
+      "mine": 0.26464763283729553,
+      "committed": 0.26464763283729553
+    },
+    "fullT_on_T": {
+      "mine": 0.2858513593673706,
+      "committed": 0.285851389169693
+    },
+    "fullK_on_T": {
+      "mine": 0.0037653441540896893,
+      "committed": null,
+      "note": "the fresh floor cell (never measured)"
+    },
+    "fullT_on_K": {
+      "mine": 0.00018831614579539746,
+      "committed_e311": 0.00018831617489922792,
+      "committed_x17_ctrl": 0.00018831614579539746
+    },
+    "base_on_K": {
+      "mine": 1.3383959412749391e-05,
+      "committed": 1.3383959412749391e-05
+    },
+    "base_on_T": {
+      "mine": 0.0023042955435812473,
+      "committed": 0.0023042955435812473
+    }
+  },
+  "states": {
+    "base": {
+      "reads": {
+        "K": {
+          "g0": {
+            "mean_pz": 1.3383959412749391e-05,
+            "median_pz": 1.1252003787376452e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.6666141152381897,
+            "rider_mean_entropy": 1.0195229053497314
+          },
+          "gm12": {
+            "mean_pz": 1.437231640011305e-05,
+            "median_pz": 1.2116333891754039e-05,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.6800113320350647,
+            "rider_mean_entropy": 1.0013214349746704
+          }
+        },
+        "T": {
+          "g0": {
+            "mean_pz": 0.0023042955435812473,
+            "median_pz": 0.00018961711612064391,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.6666141152381897,
+            "rider_mean_entropy": 1.0195229053497314
+          },
+          "gm12": {
+            "mean_pz": 0.002517493674531579,
+            "median_pz": 0.0001844853104557842,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.6800113320350647,
+            "rider_mean_entropy": 1.0013214349746704
+          }
+        },
+        "ce_r": 1.6161081790924072
+      },
+      "source": "in-memory e001 (md5-bound)"
+    },
+    "comp_k": {
+      "reads": {
+        "K": {
+          "g0": {
+            "mean_pz": 0.0007308000349439681,
+            "median_pz": 0.0007312815287150443,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.5161160230636597,
+            "rider_mean_entropy": 1.7403565645217896
+          },
+          "gm12": {
+            "mean_pz": 0.0006776932277716696,
+            "median_pz": 0.0006934012053534389,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.5456122159957886,
+            "rider_mean_entropy": 1.6123050451278687
+          }
+        },
+        "T": {
+          "g0": {
+            "mean_pz": 0.027287840843200684,
+            "median_pz": 0.008170575834810734,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.20000000298023224,
+            "frac_argmax_z": 0.016666666666666666,
+            "rider_mean_top1_p": 0.5161160230636597,
+            "rider_mean_entropy": 1.7403565645217896
+          },
+          "gm12": {
+            "mean_pz": 0.02557418681681156,
+            "median_pz": 0.009795577265322208,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.1666666716337204,
+            "frac_argmax_z": 0.016666666666666666,
+            "rider_mean_top1_p": 0.5456122159957886,
+            "rider_mean_entropy": 1.6123050451278687
+          }
+        },
+        "ce_r": 2.0602686405181885
+      },
+      "source": "runs/x15/x15_comp_xFULL.pt ['model'] (md5-bound; bit-regenerated + verified)"
+    },
+    "comp_t": {
+      "reads": {
+        "K": {
+          "g0": {
+            "mean_pz": 0.0003157635510433465,
+            "median_pz": 0.00034496522857807577,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.6618147492408752,
+            "rider_mean_entropy": 1.3591221570968628
+          },
+          "gm12": {
+            "mean_pz": 0.00033062289003282785,
+            "median_pz": 0.0003710260207299143,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.676892876625061,
+            "rider_mean_entropy": 1.303375005722046
+          }
+        },
+        "T": {
+          "g0": {
+            "mean_pz": 0.02840821072459221,
+            "median_pz": 0.012839265167713165,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.18333333730697632,
+            "frac_argmax_z": 0.016666666666666666,
+            "rider_mean_top1_p": 0.6618147492408752,
+            "rider_mean_entropy": 1.3591221570968628
+          },
+          "gm12": {
+            "mean_pz": 0.028545387089252472,
+            "median_pz": 0.015339796431362629,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.20000000298023224,
+            "frac_argmax_z": 0.016666666666666666,
+            "rider_mean_top1_p": 0.676892876625061,
+            "rider_mean_entropy": 1.303375005722046
+          }
+        },
+        "ce_r": 1.9953670501708984
+      },
+      "source": "runs/x17/x17_x15R_compFULL.pt ['model'] (md5-bound; bit-regenerated + verified)"
+    },
+    "fullT": {
+      "reads": {
+        "K": {
+          "g0": {
+            "mean_pz": 0.00018831614579539746,
+            "median_pz": 0.00014847902639303356,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.44879478216171265,
+            "rider_mean_entropy": 1.46513032913208
+          },
+          "gm12": {
+            "mean_pz": 0.0001882450160337612,
+            "median_pz": 0.0001791658578440547,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.5190603733062744,
+            "rider_mean_entropy": 1.4086850881576538
+          }
+        },
+        "T": {
+          "g0": {
+            "mean_pz": 0.2858513593673706,
+            "median_pz": 0.3379993140697479,
+            "frac_pz_ge_0.5": 0.1666666716337204,
+            "frac_pz_ge_0.05": 0.8833333253860474,
+            "frac_argmax_z": 0.21666666666666667,
+            "rider_mean_top1_p": 0.44879478216171265,
+            "rider_mean_entropy": 1.46513032913208
+          },
+          "gm12": {
+            "mean_pz": 0.17441555857658386,
+            "median_pz": 0.18586763739585876,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.8166666626930237,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.5190603733062744,
+            "rider_mean_entropy": 1.4086850881576538
+          }
+        },
+        "ce_r": 1.585256814956665
+      },
+      "source": "runs/x17/x17_x15R_fullwrite_control.pt ['model'] (md5-bound)"
+    },
+    "fullK": {
+      "reads": {
+        "K": {
+          "g0": {
+            "mean_pz": 0.26464763283729553,
+            "median_pz": 0.2770351767539978,
+            "frac_pz_ge_0.5": 0.13333334028720856,
+            "frac_pz_ge_0.05": 0.75,
+            "frac_argmax_z": 0.2,
+            "rider_mean_top1_p": 0.48531219363212585,
+            "rider_mean_entropy": 1.4644416570663452
+          },
+          "gm12": {
+            "mean_pz": 0.10525510460138321,
+            "median_pz": 0.10825469344854355,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.6833333373069763,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.57939213514328,
+            "rider_mean_entropy": 1.3581511974334717
+          }
+        },
+        "T": {
+          "g0": {
+            "mean_pz": 0.0037653441540896893,
+            "median_pz": 0.001209530048072338,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.48531219363212585,
+            "rider_mean_entropy": 1.4644416570663452
+          },
+          "gm12": {
+            "mean_pz": 0.003643594216555357,
+            "median_pz": 0.0013443187344819307,
+            "frac_pz_ge_0.5": 0.0,
+            "frac_pz_ge_0.05": 0.0,
+            "frac_argmax_z": 0.0,
+            "rider_mean_top1_p": 0.57939213514328,
+            "rider_mean_entropy": 1.3581511974334717
+          }
+        },
+        "ce_r": 1.5920884609222412
+      },
+      "source": "in-memory base + dW_k (x15's G_FULLREAD path; bit-equal to the e261 model: False)"
+    }
+  },
+  "verdict": {
+    "word": "EFFECT-FOLLOWS-WRITE",
+    "hypothesis": "H-STRUCTURE",
+    "clause": "the K10K complement reads materially higher on the TAVIREN battery (KT 0.0272878 >= 0.005, 37.3x its own-battery diagonal) \u2014 out-of-room content genuinely varies by write; necessity weakens for real; the complement census (more writes) follows",
+    "bars": {
+      "HIGH": 0.02,
+      "LOW": 0.005,
+      "co_alive_floor": 0.05,
+      "co_dead_bar": 0.01
+    },
+    "bars_verbatim": {
+      "EFFECT-FOLLOWS-BATTERY (H-BATTERY)": "the TAVIREN complement reads high (>= 0.02 mean) on the TAVIREN battery but LOW (< 0.005) on the K10K battery, AND the K10K complement stays low on both \u2014 the 39x gap is a battery artifact; the gem stands: every write ships with its own gain knob (its out-of-room remainder is its built-in bias direction); necessity's clean form RESTORES with a battery-scope rider.",
+      "EFFECT-FOLLOWS-WRITE (H-STRUCTURE)": "the TAVIREN complement reads >= 0.02 on BOTH batteries (or the K10K complement reads materially higher on the TAVIREN battery) \u2014 out-of-room content genuinely varies by write; necessity weakens for real; the complement census (more writes) follows."
+    },
+    "clauses_fixed": {
+      "stays_low_on_both": "KK < 0.005 AND KT < 0.005",
+      "materially_higher": "KT >= 0.005 (the bars' own LOW threshold, 6.8x the committed KK diagonal 0.0007308); KT/KK ratio co-reported regardless",
+      "precedence": "H-BATTERY first (TT >= 0.02 AND TK < 0.005 AND KK < 0.005 AND KT < 0.005); then H-STRUCTURE ((TT >= 0.02 AND TK >= 0.02) OR KT >= 0.005); neither => GAP (verbatim report; no wording change without a new registered cell)"
+    },
+    "prediction": {
+      "P_x23a_statement": "Register P-x23a BEFORE compute. Lab guess (T284's stated guess, to be scored): EFFECT-FOLLOWS-BATTERY.",
+      "P_x23a_outcome": "MISS \u2014 the verdict is EFFECT-FOLLOWS-WRITE",
+      "P_x23a_exec_statement": "CONCUR with EFFECT-FOLLOWS-BATTERY (pre-compute): x17's committed pZ co-report 0.000316 is the TK prior (~16x under the LOW bar); x16/x16R's off-target nulls (n=2) say unaligned out-of-room structure barely moves a foreign name; base p(T) prior 0.0023 sits under the LOW bar. Sub-prediction P-x23a-exec (scored): KT within [0.5x, 2x] of the base p(T) prior.",
+      "P_x23a_exec_outcome": "MISS \u2014 KT 0.0272878 vs base prior 0.0023043 (ratio 11.84)"
+    }
+  },
+  "outputs": {
+    "figure": "runs/x23/x23_cross_battery.png",
+    "metrics": "runs/x23/metrics.json",
+    "report": "runs/x23/REPORT.md"
+  }
+}
