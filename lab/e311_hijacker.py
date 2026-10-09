@@ -705,13 +705,22 @@ def apply_flat64(net, flat64: np.ndarray, offsets, shapes) -> None:
 
 
 def inroom_relresid(room, v64: np.ndarray) -> float:
-    """||P v - v|| / ||v|| — the exact in-room residual (the zero-bearer
-    gate's own quantity)."""
+    """||P v - v|| / ||v|| — the exact in-room residual (the SEED's gate:
+    exactly in-room => ~0)."""
     vn = float(np.linalg.norm(v64))
     if vn == 0.0:
         return 0.0
     pv = room.project(v64)
     return float(np.linalg.norm(pv - v64) / vn)
+
+
+def inroom_frac(room, v64: np.ndarray) -> float:
+    """||P v|| / ||v|| — the in-room FRACTION (the TRIGGER's zero-bearer
+    gate: exactly out-of-room => ~0)."""
+    vn = float(np.linalg.norm(v64))
+    if vn == 0.0:
+        return 0.0
+    return float(np.linalg.norm(room.project(v64)) / vn)
 
 
 # ======================================================================
@@ -1157,7 +1166,7 @@ def main() -> None:
     u_perp_norm = float(np.linalg.norm(u_perp))
     u = u_perp / u_perp_norm
     trigger = TRIGGER_SCALE * u
-    trig_resid = inroom_relresid(room, trigger)
+    trig_in_frac = inroom_frac(room, trigger)
     trig_cos_dwtav = float(trigger @ dW_tav
                            / (TRIGGER_SCALE * dW_tav_norm))
     trig_cos_dwhost = float(trigger @ dW_host
@@ -1176,11 +1185,11 @@ def main() -> None:
         "u_perp_norm": u_perp_norm,
         "trigger_scale_c": TRIGGER_SCALE,
         "scale_vs_kill_bracket_lo": TRIGGER_SCALE / KILL_BRACKET_LO,
-        "in_room_rel_resid": trig_resid,
+        "in_room_frac_of_trigger": trig_in_frac,
         "zero_bearer_bar": ZERO_BEARER_BAR,
         "cos_to_dW_tav": trig_cos_dwtav,
         "cos_to_dW_host": trig_cos_dwhost,
-        "pass": bool(top_tok == zid and trig_resid <= ZERO_BEARER_BAR
+        "pass": bool(top_tok == zid and trig_in_frac <= ZERO_BEARER_BAR
                      and abs(float(np.linalg.norm(trigger)) - TRIGGER_SCALE)
                      <= 1e-12),
     }
@@ -1190,7 +1199,8 @@ def main() -> None:
         f"{G_TRIGGER['window_pz']:.4f}); raw grad in-room {g_in_frac:.4f} "
         f"(the chance class); ||trigger|| {np.linalg.norm(trigger):.6f} "
         f"= {TRIGGER_SCALE / KILL_BRACKET_LO:.2f}x the kill-bracket lo; "
-        f"in-room resid {trig_resid:.1e} (zero bearer): PASS")
+        f"the trigger's in-room fraction {trig_in_frac:.1e} (ZERO bearer): "
+        f"PASS")
     del trig_net
     write_partial("P4 the trigger built (zero bearer verified)")
 
