@@ -7,6 +7,40 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T279 — X15: the two channels measured side by side — the room is the content channel, everything else is volume (2026-10-09, datetime.now ~18:26Z)
+
+The critic's sharpest attack is closed, and the close buys more than the
+bearer law's acquittal. The dose-matched pair now reads: FULL WRITE
+(89.14% in-room) 0.2646 ALIVE vs FULL-DOSE COMPLEMENT (0% in-room,
+100.00% of the energy) 0.00073 DEAD. At matched dose, geometry moves the
+read ~360x; the dose ladder at fixed zero geometry moves it ~20x over a
+3x climb and saturates three orders below the bar. NECESSITY SURVIVES:
+no room-overlap, no read, at any probed dose.
+
+But look at what the ladder's 20x IS. The out-of-room mass at full dose
+left the organism's distribution intact (top-1 0.516, entropy 1.740) —
+it perturbs logits without creating content. That is W049's gain knob
+seen from the other side: e311's 1-dim read-ALIGNED out-of-room stroke
+moved the host's confidence +32%; x15's 10k-dim read-PERPENDICULAR
+out-of-room mass moves logits ~20x and creates nothing. TWO CELLS, ONE
+STATEMENT: OUT-OF-ROOM DISPLACEMENT IS THE VOLUME CHANNEL (intensity,
+confidence, noise); THE ROOM-OVERLAP TAIL IS THE CONTENT CHANNEL
+(address, identity, the read itself). The pruned theory's ADDRESS +
+CONFIDENCE axes now have a geometric assignment: content is what
+overlaps the room; confidence is everything else. And T277's womb/home
+division inherits the same upgrade: formation (content) is room-bound;
+death, maintenance, and confidence all live in the out-of-room whole-
+state — the three out-of-room phenomena were one channel all along.
+
+WHAT IT KILLS: any future "just add more dose" escape from the bearer
+law (the complement cannot be bullied into reading); the last soft
+reading of e306's r10 death (it was geometry all along, not thinness).
+WHAT IT SHARPENS: e321's fork — if the FAT seed (43.7% energy, r1000,
+IN-room) reads, formation follows the content channel's dim count; if
+it floors, even in-room mass below the (1k,2k] edge cannot express, and
+the edge is a property of the CONTENT channel's width, not of dose.
+Either way the fork is now clean: geometry is no longer a variable.
+
 ## W049 — the gain knob: one dimension, both directions, and the confidence axis gets its first probe (2026-10-09, datetime.now ~18:16Z)
 
 e311's first gift deserves its own card. A single out-of-room dimension —

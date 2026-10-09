@@ -15,7 +15,7 @@ cards the ideator minted.
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
-| x15 | THE DOSE-MATCHED COMPLEMENT (R71 critic's cheapest cell; the bearer-necessity dose confound) | DISPATCHED ~18:15Z Oct-9 | CPU desk: scale e310's on-disk complement x3.033 to the full write's norm, inject, probe t0; ALIVE = necessity falls as dose artifact / DEAD-AT-FULL-DOSE = the law survives dose-matched |
+| x15 | THE DOSE-MATCHED COMPLEMENT (R71 critic's cheapest cell; the bearer-necessity dose confound) | DONE ~18:26Z Oct-9 (896eef3) | DEAD-AT-FULL-DOSE (P-x15a HIT): 0% in-room at 100% energy reads 0.00073 — necessity survives dose-matched; the ladder's ~20x-over-3x = logit nudges never a read (T279: volume vs content channels) |
 | e321 | THE FAT SPERM CELL (T278's discriminating observation; e311's successor) | DISPATCHED ~18:15Z Oct-9 | GPU: r1000 in-room seed at 43.7% energy, natural norm, zero bearer mass beyond; trigger+seed arms on the committed e311 vectors; P-e321a registered: FAT-SEED-READS (p>=0.05 at >=half the host contexts) vs CONTENT-LOCKED; if it reads, the erase-host discriminator rerides |
 | e318 | THE LONE SCALPEL (the membrane law's null-family control) | READY | e314's alpha ladder verbatim on e288's single-fact states: LONE-SURVIVES = the retreat is generic / LONE-DIES = the bearer becomes place-necessary when there is nowhere else to live; motivated by P-e311c's failure + the critic's n=1 attack |
 | e320 | THE SHAM'S SCOPE (the displacement diet, lone-fact arm) | READY | rides e318's session; e314's sham norm ladder on the same single-fact states; P-e311c says the boost is family-scoped — bar: LONE-BOOSTS = stiction (generic) / LONE-INDIFFERENT-OR-HURT = membrane-tension (social) |
