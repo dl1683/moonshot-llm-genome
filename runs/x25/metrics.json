@@ -1,0 +1,1663 @@
+{
+  "experiment": "x25_slots_autopsy",
+  "phase": "THE SLOT'S AUTOPSY: x24's fixed full-dose out-of-room displacement panel (the K10K complement, x15's carrier) x {live base, TAVINST-scalpel-1.0, scalpel-1.5, full-write co-report} x a pure-gaussian matched-norm rider x 4 names x 2 sites \u2014 PLASTICITY vs MASS for Law 3's mechanism noun, plus the energy-vs-name-push two-factor control",
+  "date": "2026-10-09T22:42:53+00:00",
+  "status": "COMPLETE \u2014 adjudicated",
+  "registration": "question + arms + bars + both predictions VERBATIM from the dispatch letter; operationalizations frozen HERE at birth BEFORE compute; this script committed at birth; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "question_verbatim": "x25 \u2014 THE SLOT'S AUTOPSY (R73's critic attack-1 control + the ideator's missing two-factor rider; decides Law 3's mechanism noun).",
+    "fork_verbatim": "THE FORK: PLASTICITY (writing mutates the slot's anchor; the lift survives the write's removal) vs MASS (the lift IS the write's mass; removing it collapses the lift to the never-written band).",
+    "bars_verbatim": {
+      "PLASTICITY": "TAVIREN's complement-lift at host survives the alpha-1.0 scalpel at >= 50% of its live value (the slot's anchor was durably mutated by writing).",
+      "MASS": "TAVIREN's complement-lift collapses under the alpha-1.0 scalpel to <= 2x the QELVARO band (the lift was the write's mass; Law 3's mechanism noun re-writes to residual-mass coupling; T286's correction applies).",
+      "RIDER_BAR": "ENERGY-LIFTS (written names lift under pure gaussian at >= 30% of their complement lift) / NEEDS-NAME-PUSH (gaussian <= 10% of complement lift on every name)."
+    },
+    "predictions_verbatim": "Register P-x25a (the main fork) and P-x25r (the rider) BEFORE compute. Lab guesses, with the scoped 0-for-8 ledger standing (the instruments have beaten the thinking lane's content-bets eight straight \u2014 bet the mass/slot side): P-x25a MASS (x19's bearer-coupling is the strongest same-evening prior); P-x25r NEEDS-NAME-PUSH (the lifts were 10-50x; generic energy at 9-norm has never shown such structure). State your own counters if you disagree.",
+    "executor_counters": {
+      "P_x25a_exec": "MIXED \u2014 neither fork bar fires at alpha-1.0. Registered pre-compute: the x24 lift (11.8x) was measured on the BASE organism with ZERO TAVIREN write present, so the lift's coupling does not require the write's room-overlap mass to sit in the probed state; the alpha-1.0 rung retains the write's out-of-room remainder (33.4% of the write's norm), and x19's own ladder showed scalpeled organisms keep reading (R-A1.0 read 0.3455) \u2014 the rung's TAVIREN read should sit ABOVE the never-written band yet plausibly below 0.5x of live. Scores TRUE iff the fork verdict == MIXED.",
+      "P_x25r_exec": "GAP \u2014 neither rider bar fires cleanly. Registered pre-compute: a 9.18-norm isotropic direction (per-coord RMS 5.5e-3 on 2.74M params) moves name logits by a random +-1-dlogit-ish amount \u2014 larger than the 10% clause tolerates on every written name, smaller than 30% of the complement's +2.5/+4.0 pushes; with 2 written names x 2 sites the max draw straddles the [10%, 30%] window. Scores TRUE iff the rider verdict == GAP."
+    },
+    "clauses_fixed": {
+      "read_currency": "a name's read := p(name[0]) at the final context position, mean over the site's 60 contexts (x15/x23/x24's committed currency)",
+      "lift": "lift(state, name, site) := p(state, name, site) / max(p_base(name, site), 1e-12) \u2014 x24's exact currency",
+      "live_panel": "LIVE := base + displacement (the x24 comp state, pinned by the dispatch's x24-reproduction gate; the gaussian's live panel = base + gaussian)",
+      "scalpel_rungs": "theta_alpha := TAVINST_fp64 - alpha * P_K10K(dW_tav), computed fp64, cast fp32 (e318's rig); alpha in {1.0, 1.5}",
+      "qelvaro_band": "max over {QELVARO, VIRETAN} of lift(scalpel-1.0 + comp, name, host); x24's committed 0.499x co-reported",
+      "rider_set": "the written names {TAVIREN, ZEPHYRA} at both sites; the never-written pair co-reported only (sub-1x comp lifts make the 10% clause degenerate there \u2014 disclosed)",
+      "fork_verdicts": "PLASTICITY iff lift(rung-1.0+comp, TAVIREN, host) >= 0.5 * live value; MASS iff the same lift <= 2 * the QELVARO band; both fire (contradiction) or neither -> MIXED",
+      "rider_verdicts": "ENERGY-LIFTS iff min written-name ratio >= 0.30; NEEDS-NAME-PUSH iff max written-name ratio <= 0.10; else GAP",
+      "precedence": "the fork adjudicates on its own bars; the rider separately; no noun change without a new registered cell"
+    },
+    "registration": "question + arms + bars + both predictions VERBATIM from the dispatch letter; operationalizations frozen HERE at birth BEFORE compute; this script committed at birth; adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "cpu_only": true,
+  "threads": {
+    "torch": 4,
+    "pocketfft": 4
+  },
+  "envelope": {
+    "device": "CPU ONLY (CUDA_VISIBLE_DEVICES=''; another agent owns the GPU lane; no envelope-log writes)",
+    "timestamps": "datetime.now(UTC) only"
+  },
+  "deviations": [
+    "CPU-ONLY cell (dispatch: another agent owns the GPU lane) \u2014 CUDA_VISIBLE_DEVICES='' before torch import, torch threads 4, pocketfft workers 4, no GPU code path, no envelope-log writes, no other runs/ touched.",
+    "THE STATE-SEMANTICS CATCH (disclosed, load-bearing): the dispatch's 'LIVE (unscalpeled) panel' is pinned by its own x24-reproduction gate to the BASE panel (only base + complement reproduces x24's committed values); the scalpel rungs are constructed from TAVINST (the organism state where the write lives, e318's rig); net of the live base panel the alpha-1.0 rung carries the write's OUT-OF-ROOM remainder \u2014 the full-write-present cells (TAVINST + displacement) are co-reported so the table shows the whole mass ladder {no write, OOP-only, OOP - 0.5*in-room, full write}.",
+    "THE READ CURRENCY: a name's read is its INITIAL char's probability at the final context position (the committed KK/KT currency); multi-char name bodies are not read (disclosed; the series' name-slot convention).",
+    "The anchor ZEPHYRA is the K10K complement's parent write's own target name \u2014 the x24-disclosed confound carried: its complement lift may be the displacement's own content, never a clean authorship datum (R73's critic); TAVIREN is the sole clean datum and the fork adjudicates on it.",
+    "The rider's 'every name' clause operationalized on the WRITTEN names (the lifted set); the never-written pair's ratios co-reported only (their sub-1x comp lifts make a 10%-of-lift suppression demand degenerate by construction).",
+    "The gaussian is the design's ONLY fresh random draw (seed 25001); in-room fractions gated at chance (norm band [0.055, 0.066] around sqrt(k/N)=0.060423); its organism cost (ce_r) is an honesty rider, never a bar \u2014 a 9.18-norm random direction may legitimately degrade the organism (e185's direction-matters lesson).",
+    "CE_R sanity band [1.0, 2.2] (e318's) scoped to the UNDISPLACED non-gaussian states only; displaced states' ce_r co-reported.",
+    "The scalpel rungs' own undisplaced reads are NEW measurements (the TAVIREN write is a different write) \u2014 sanity-gated only (scalpel norm/in-room vs e311's literals at 1e-9; rung distances reported).",
+    "gm12 NOT read (the dispatch froze the site axis at host-g0 + neutral, x24's convention).",
+    "n=1 per cell (one lineage, one session, one gaussian draw \u2014 the g-series standing lottery note); no NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat folds).",
+    "Smoke (X25_SMOKE=1): full gate path + all reads live at every state, own smoke dir; NOTHING adjudicated."
+  ],
+  "builds_on": [
+    "x24 (THE PRIOR-FRAGILITY CENSUS: the 11.8x TAVIREN lift + the ~0.5x never-written band this autopsy explains; the exact panel/site/read harness this script ports; the metrics this cell reproduces as its live-panel gate)",
+    "R73 (the critic's attack-1: the authorship noun unlicensed, the scalpel control demanded; the ideator's gaussian rider)",
+    "T286 (the AUTHORSHIP-INDUCED SLOT-PLASTICITY card under test)",
+    "e318 (THE LONE SCALPEL: the alpha-ladder rig \u2014 scalpel_vec := P_room(dW), theta_alpha := organism_fp64 - alpha*vec cast fp32; the two rungs 1.0/1.5; the overshoot disclosure)",
+    "x19 (THE CORPSE'S DIAL: the bearer-coupling finding \u2014 the MASS side's strongest same-evening prior: scalpel rungs lost the amplification, anti-erased states kept it)",
+    "e311 (the TAVIREN write's own organism: TAVINST_post, ||dW_tav|| 8.94962906015724, in-room 0.9424006308945148, read 0.285851)",
+    "x17 (the dW_tav carrier path verified; the fullwrite control)",
+    "x15 (the K10K dose-matched complement: the construction, the carrier, the G_FULLREAD/G_COMPREF conventions)",
+    "x23 (the KT committed reference 0.0272878)",
+    "e261/e264/e290/e310 (the K10K write, the room, the complement construction the parents ported)"
+  ],
+  "whats_new": [
+    "THE FIRST MASS-REMOVAL CONTROL ON THE AUTHORSHIP FLOOR: the TAVIREN write's own room-overlap mass scalpeled from its own organism (e318's rig) with x24's displacement panel re-run on the mass-removed states \u2014 the plasticity-vs-mass fork's first direct test",
+    "THE FIRST PURE-GAUSSIAN MATCHED-NORM DISPLACEMENT in the lab's history (every prior displacement carried its write's name-push) \u2014 the energy-vs-name-push two-factor control",
+    "the full 2x4x2 panel {complement, gaussian} x {live, scalpel-1.0, scalpel-1.5 (+full-write co-report)} x 4 names x 2 sites with x24's committed numbers reproduced as the live-panel gate"
+  ],
+  "gates": {
+    "G_PANEL": {
+      "form": "e311/x24's gate convention ported: synthetic/scrambled names \u2014 7 letters, every char in the 65-char vocab, count-0 train split, != G1.NAME; the anchor ZEPHYRA == G1.NAME by construction; initials all distinct; the bank parsed from e293's md5-bound source",
+      "e293_bank_on_disk": [
+        "ZEPHYRA",
+        "TAVIREN",
+        "QELVARO",
+        "BUVONDI",
+        "NYSTORA"
+      ],
+      "e293_bank_matches_frozen": true,
+      "fresh_bank_members_in_e293_bank": {
+        "QELVARO": true
+      },
+      "counts": {
+        "TAVIREN": 0,
+        "ZEPHYRA": 0,
+        "QELVARO": 0,
+        "VIRETAN": 0
+      },
+      "chars_in_vocab": {
+        "TAVIREN": true,
+        "ZEPHYRA": true,
+        "QELVARO": true,
+        "VIRETAN": true
+      },
+      "seven_letters": {
+        "TAVIREN": true,
+        "QELVARO": true,
+        "VIRETAN": true
+      },
+      "not_g1_name": {
+        "TAVIREN": true,
+        "QELVARO": true,
+        "VIRETAN": true
+      },
+      "zephyra_is_g1_name": true,
+      "initials": [
+        "T",
+        "Z",
+        "Q",
+        "V"
+      ],
+      "initials_distinct": true,
+      "scrambled_is_permutation": true,
+      "scrambled_not_a_bank_name": true,
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "synthetic_counts": {
+        "TAVIREN": 0,
+        "QELVARO": 0,
+        "VIRETAN": 0
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "form": "THE HOST-G0 SITE: e261's splice bank verbatim (x24's construction \u2014 the exact bank on which the committed panel values were read)",
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "shape": [
+        60,
+        130
+      ],
+      "expected": {
+        "mix": {
+          "FLORIZEL": 19,
+          "ELIZABETH": 41
+        },
+        "shape": [
+          60,
+          130
+        ]
+      },
+      "pass": true
+    },
+    "G_NEUTRAL": {
+      "form": "THE NEUTRAL SITE: x24's rule VERBATIM \u2014 60 train-split windows, 130 chars, ending at an uppercase ASCII letter, host-free in window + 30-char lookahead; random.Random(24001) shuffle, first 60; n_candidates gated == x24's committed count",
+      "n_candidates": 74852,
+      "x24_committed_n_candidates": 74852,
+      "shape": [
+        60,
+        130
+      ],
+      "next_char_upper": "60/60",
+      "host_free": "60/60",
+      "pass": true
+    },
+    "G_ENDPOINTS": {
+      "form": "every parent artifact md5-bound (the displacement's carrier + the TAVINST dW_tav carrier + e318's rig + x19's bearer-coupling + x24's committed panel included) + committed references READ FROM THE ARTIFACTS and cross-checked against frozen literals, never retyped",
+      "md5_binds": {
+        "e001": {
+          "path": "runs\\checkpoints\\e001.pt",
+          "md5": "d114536d1c0983ab3be67f67ff0667c8",
+          "bound": "d114536d1c0983ab3be67f67ff0667c8",
+          "match": true
+        },
+        "e261_K10K_inst_resume": {
+          "path": "runs\\checkpoints\\e261_K10K_inst_resume.pt",
+          "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+          "bound": "0f6dc1cf46850ce655dfafc9c853d467",
+          "match": true
+        },
+        "e264_rooms": {
+          "path": "runs\\checkpoints\\e264_rooms.pt",
+          "md5": "2d524655575cce00a3bc1c8770f4b211",
+          "bound": "2d524655575cce00a3bc1c8770f4b211",
+          "match": true
+        },
+        "x15_metrics": {
+          "path": "runs\\x15\\metrics.json",
+          "md5": "c90dd9371a5a7e248fdbd92c06bb243a",
+          "bound": "c90dd9371a5a7e248fdbd92c06bb243a",
+          "match": true
+        },
+        "x15_comp_xFULL_carrier": {
+          "path": "runs\\x15\\x15_comp_xFULL.pt",
+          "md5": "b0a1785c6f759fdd1d8deeae7fee4a9b",
+          "bound": "b0a1785c6f759fdd1d8deeae7fee4a9b",
+          "match": true
+        },
+        "x23_metrics": {
+          "path": "runs\\x23\\metrics.json",
+          "md5": "cb8a36f5e53615827aecfa1680155e44",
+          "bound": "cb8a36f5e53615827aecfa1680155e44",
+          "match": true
+        },
+        "x17_metrics": {
+          "path": "runs\\x17\\metrics.json",
+          "md5": "98a6138279852ca0705718d77a9c28f7",
+          "bound": "98a6138279852ca0705718d77a9c28f7",
+          "match": true
+        },
+        "x17_fullwrite_carrier": {
+          "path": "runs\\x17\\x17_x15R_fullwrite_control.pt",
+          "md5": "c0a2a9574ebf0b71094ae5e254cc965f",
+          "bound": "c0a2a9574ebf0b71094ae5e254cc965f",
+          "match": true
+        },
+        "e311_metrics": {
+          "path": "runs\\e311\\metrics.json",
+          "md5": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+          "bound": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+          "match": true
+        },
+        "e311_TAVINST_carrier": {
+          "path": "runs\\checkpoints\\e311_TAVINST_post.pt",
+          "md5": "9886b25242c90dd669c6363c39a2a3bf",
+          "bound": "9886b25242c90dd669c6363c39a2a3bf",
+          "match": true
+        },
+        "e318_metrics": {
+          "path": "runs\\e318\\metrics.json",
+          "md5": "64009fafee37b2e4ce9972e91c569b4f",
+          "bound": "64009fafee37b2e4ce9972e91c569b4f",
+          "match": true
+        },
+        "x19_metrics": {
+          "path": "runs\\x19\\metrics.json",
+          "md5": "2c158d1b4fe3704f76c1ee794c85d4ce",
+          "bound": "2c158d1b4fe3704f76c1ee794c85d4ce",
+          "match": true
+        },
+        "x24_metrics": {
+          "path": "runs\\x24\\metrics.json",
+          "md5": "7f1a91cc1d42a202c8fb23c4f8fb3e7e",
+          "bound": "7f1a91cc1d42a202c8fb23c4f8fb3e7e",
+          "match": true
+        },
+        "e293_bank_source": {
+          "path": "lab\\e293_distinct_contention.py",
+          "md5": "1f3e16968359171d3db1a52824c48cf4",
+          "bound": "1f3e16968359171d3db1a52824c48cf4",
+          "match": true
+        }
+      },
+      "literal_crosscheck": {
+        "x15_diag_kk": {
+          "artifact": 0.0007308000349439681,
+          "frozen": 0.0007308000349439681,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x15_s_full": {
+          "artifact": 3.0349885643664365,
+          "frozen": 3.0349885643664365,
+          "tol": 1e-15,
+          "match": true
+        },
+        "x15_comp_l2": {
+          "artifact": 3.024341960836486,
+          "frozen": 3.024341960836486,
+          "tol": 1e-12,
+          "match": true
+        },
+        "x15_verdict": {
+          "artifact": "DEAD-AT-FULL-DOSE",
+          "frozen": "DEAD-AT-FULL-DOSE",
+          "tol": null,
+          "match": true
+        },
+        "x23_matrix_kt": {
+          "artifact": 0.027287840843200684,
+          "frozen": 0.027287840843200684,
+          "tol": 1e-18,
+          "match": true
+        },
+        "x23_verdict": {
+          "artifact": "EFFECT-FOLLOWS-WRITE",
+          "frozen": "EFFECT-FOLLOWS-WRITE",
+          "tol": null,
+          "match": true
+        },
+        "e311_fresh_g0_t": {
+          "artifact": 0.285851389169693,
+          "frozen": 0.285851389169693,
+          "tol": 1e-15,
+          "match": true
+        },
+        "e311_dw_norm": {
+          "artifact": 8.94962906015724,
+          "frozen": 8.94962906015724,
+          "tol": 1e-09,
+          "match": true
+        },
+        "e311_dw_inroom": {
+          "artifact": 0.9424006308945148,
+          "frozen": 0.9424006308945148,
+          "tol": 1e-12,
+          "match": true
+        },
+        "e311_carrier_path": {
+          "artifact": "runs/checkpoints/e311_TAVINST_post.pt",
+          "frozen": "runs/checkpoints/e311_TAVINST_post.pt",
+          "tol": null,
+          "match": true
+        },
+        "e318_rig_dw_norm": {
+          "artifact": 9.1788432658723,
+          "frozen": 9.1788432658723,
+          "tol": 1e-09,
+          "match": true
+        },
+        "e318_rig_identity": {
+          "artifact": true,
+          "frozen": true,
+          "tol": null,
+          "match": true
+        },
+        "e318_rig_alphas": {
+          "artifact": true,
+          "frozen": true,
+          "tol": null,
+          "match": true
+        },
+        "x19_scalpel_rungs_exist": {
+          "artifact": true,
+          "frozen": true,
+          "tol": null,
+          "match": true
+        },
+        "x24_verdict": {
+          "artifact": "NAME-SPECIFIC-STRUCTURE",
+          "frozen": "NAME-SPECIFIC-STRUCTURE",
+          "tol": null,
+          "match": true
+        },
+        "x17_tavfull_mine": {
+          "artifact": 0.2858513593673706,
+          "frozen": 0.285851389169693,
+          "tol": 0.005,
+          "match": true
+        }
+      },
+      "pass": true
+    },
+    "G_FLATBASIS": {
+      "params_count": 65,
+      "key_order_matches_parameters": true,
+      "n_params": 2739072,
+      "pass": true
+    },
+    "G_BASEPRIOR": {
+      "form": "the base organism's own priors (every panel name banded <= 0.05 at host-g0, e311's G_BASE convention) + the two committed priors cross-checked in [0.5x, 2x]",
+      "priors_host_g0": {
+        "TAVIREN": 0.002304295776411891,
+        "ZEPHYRA": 1.3383960322244093e-05,
+        "QELVARO": 0.0025905624497681856,
+        "VIRETAN": 0.005193506833165884
+      },
+      "max_synthetic_prior_host": 0.005193506833165884,
+      "committed_x24_priors_match": {
+        "TAVIREN": true,
+        "ZEPHYRA": true,
+        "QELVARO": true,
+        "VIRETAN": true
+      },
+      "bar": 0.05,
+      "pass": true
+    },
+    "G_ROOM": {
+      "form": "the committed K10K room (SRCT k=10,000, seeds 26113/26114): D/S bit-identical to e264_rooms.pt; light in-cell certification (x17/x23/x24's convention)",
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "idempotency_max": 5.617455006010633e-16,
+      "kept2_mean": 0.003662704899036341,
+      "kept2_expect": 0.0036508715360530864,
+      "pass": true
+    },
+    "G_ORTH": {
+      "energy_sum_rel_resid": 2.1590080465057678e-14,
+      "cross_dot_rel": 2.932208403614868e-16,
+      "bar": 1e-09,
+      "pass": true
+    },
+    "G_DOSEMATCH": {
+      "form": "||s_full_k * comp_k|| == ||dW_k|| to 1e-12 (fp64, derived never trusted)",
+      "s_full": 3.0349885643664365,
+      "committed": 3.0349885643664365,
+      "s_full_abs_diff": 0.0,
+      "scaled_fp64_l2": 9.178843265872299,
+      "write_l2": 9.1788432658723,
+      "abs_diff": 1.7763568394002505e-15,
+      "bar": 1e-12,
+      "pass": true
+    },
+    "G_INROOM": {
+      "form": "x15's exact G_INROOM_SCALED form (in-room ENERGY share <= 1e-12; fp64 intended AND fp32 injected)",
+      "scaled_fp64": 1.4675131901161413e-30,
+      "fp32_injected": 2.263464110779516e-18,
+      "bar": 1e-12,
+      "pass": true
+    },
+    "G_REGEN": {
+      "form": "the regenerated full-dose complement (fp32) vs the committed carrier's on-disk delta \u2014 bit-equal on EVERY key; + natural fp64 comp L2 vs committed (1e-9); + carrier model == base + delta re-derived",
+      "carrier": "runs\\x15\\x15_comp_xFULL.pt",
+      "keys_bit_equal": 65,
+      "keys_total": 65,
+      "all_keys_bit_equal": true,
+      "my_comp64_l2": 3.024341960836486,
+      "committed_l2": 3.024341960836486,
+      "l2_abs_diff": 0.0,
+      "l2_bar": 1e-09,
+      "carrier_model_eq_base_plus_delta": true,
+      "pass": true
+    },
+    "G_TAVOBJ": {
+      "form": "dW_tav := TAVINST_post - base, gated vs e311's committed literals at 1e-9 (norm + in-room NORM fraction); x17's verified carrier path",
+      "dw_norm": 8.94962906015724,
+      "committed": 8.94962906015724,
+      "dw_norm_abs_diff": 0.0,
+      "inroom_norm_frac": 0.9424006308945148,
+      "committed_inroom": 0.9424006308945148,
+      "inroom_abs_diff": 0.0,
+      "oop_norm": 2.993527855872774,
+      "oop_norm_share": 0.3344862491787094,
+      "bar": 1e-09,
+      "pass": true
+    },
+    "G_SCALPEL": {
+      "form": "e318's rig ported to THIS write: scalpel_vec := P_K10K(dW_tav); theta_alpha := TAVINST_fp64 - alpha * scalpel_vec (fp64, cast fp32); alpha {1.0, 1.5}; the rungs' reads are NEW measurements \u2014 sanity-gated only (construction identity + distances)",
+      "scalpel_vec_norm": 8.434136072564067,
+      "per_alpha_subtracted_norm": {
+        "1.0": 8.434136072564067,
+        "1.5": 12.651204108846102
+      },
+      "rung_distance_from_tavinst": {
+        "1.0": 8.434136071574883,
+        "1.5": 12.651204110134543
+      },
+      "rung1.0_eq_base_plus_oop_maxdev": 5.960464477539063e-08,
+      "rung1.0_expected_composition": "base + OOP_tav (the write's out-of-room remainder, norm 2.993528)",
+      "pass": true
+    },
+    "G_GAUSS": {
+      "form": "ONE pure gaussian draw (seed 25001, this cell's only fresh random vector), fp64-normalized to the matched ~9.18 dose, fp32-injected by x15's method; in-room NORM fraction gated at chance sqrt(k/N)=0.060423",
+      "seed": 25001,
+      "fp64_l2": 9.1788432658723,
+      "fp64_l2_abs_diff": 0.0,
+      "fp32_l2": 9.17884326595502,
+      "inroom_norm_frac": 0.060812050104592036,
+      "inroom_norm_band": [
+        0.055,
+        0.066
+      ],
+      "chance_norm_frac": 0.06042244232115321,
+      "inroom_energy_share": 0.003698105437923412,
+      "inroom_energy_band": [
+        0.0034,
+        0.0039
+      ],
+      "chance_energy_share": 0.0036508715360530864,
+      "cos_vs_complement": -0.0006941204091173229,
+      "cos_vs_dW_tav": 0.0003620702049573284,
+      "pass": true
+    },
+    "G_ONESTATE": {
+      "form": "every probed state is ONE applied net (constructed once, probed at both sites on all 4 names; the live complement panel probed from the carrier's own model dict) \u2014 no per-name reconstruction; identical by construction, provenance recorded",
+      "n_states": 12,
+      "pass": true
+    },
+    "G_TAVINSTLOAD": {
+      "form": "the TAVINST carrier loads and reads its committed install (x17's G_TAVFULL band |d| <= 5e-3)",
+      "mine_g0_pT": 0.285851389169693,
+      "committed": 0.285851389169693,
+      "abs_diff": 0.0,
+      "bar": 0.005,
+      "pass": true
+    },
+    "G_X24REPRO": {
+      "form": "THE dispatch gate: the live panel's (base + the K10K complement, the x15 carrier's own model) values reproduce x24's committed numbers EXACTLY (|d| <= 1e-12) before any arm counts \u2014 read from the md5-bound x24 metrics, never retyped",
+      "cells": {
+        "TAVIREN_host_g0": {
+          "mine": 0.027287840843200684,
+          "committed": 0.027287840843200684,
+          "abs_diff": 0.0
+        },
+        "TAVIREN_neutral": {
+          "mine": 0.11278942227363586,
+          "committed": 0.11278942227363586,
+          "abs_diff": 0.0
+        },
+        "ZEPHYRA_host_g0": {
+          "mine": 0.0007308000349439681,
+          "committed": 0.0007308000349439681,
+          "abs_diff": 0.0
+        },
+        "ZEPHYRA_neutral": {
+          "mine": 0.0005763626541011035,
+          "committed": 0.0005763626541011035,
+          "abs_diff": 0.0
+        },
+        "QELVARO_host_g0": {
+          "mine": 0.0012933694524690509,
+          "committed": 0.0012933694524690509,
+          "abs_diff": 0.0
+        },
+        "QELVARO_neutral": {
+          "mine": 0.0005220571183599532,
+          "committed": 0.0005220571183599532,
+          "abs_diff": 0.0
+        },
+        "VIRETAN_host_g0": {
+          "mine": 0.00228944537229836,
+          "committed": 0.00228944537229836,
+          "abs_diff": 0.0
+        },
+        "VIRETAN_neutral": {
+          "mine": 0.0015177776804193854,
+          "committed": 0.0015177776804193854,
+          "abs_diff": 0.0
+        }
+      },
+      "bar": 1e-12,
+      "pass": true
+    },
+    "G_HOSTSANITY": {
+      "form": "ce_r within [1.0, 2.2] at the four UNDISPLACED non-gaussian states (e318's band: a scalped organism that torches the corpus read flags the kill-everything confound); displaced + gaussian states' ce_r are riders",
+      "ce_r": {
+        "base": 1.6161081790924072,
+        "tav": 1.5852566957473755,
+        "r1": 1.6000733375549316,
+        "r1_5": 1.6793683767318726
+      },
+      "band": [
+        1.0,
+        2.2
+      ],
+      "pass": true
+    }
+  },
+  "birth_commit": "e46da300f3815f4ac6ec89dc473247b83c17ff9d",
+  "phase_note": "P12 COMPLETE (report + figure)",
+  "date_updated": "2026-10-09T22:43:24+00:00",
+  "panel_reads": {
+    "TAVIREN": {
+      "class": "synthetic_count0",
+      "role": "written",
+      "cid": 32,
+      "base_host_g0": {
+        "mean_pz": 0.002304295776411891,
+        "median_pz": 0.00018961711612064391,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.759671211242676
+      },
+      "base_neutral": {
+        "mean_pz": 0.07263301312923431,
+        "median_pz": 0.0003598844923544675,
+        "frac_pz_ge_0.5": 0.05000000074505806,
+        "frac_pz_ge_0.05": 0.25,
+        "frac_argmax_z": 0.11666666716337204,
+        "mean_log_pz": -7.16339635848999
+      },
+      "live_comp_host_g0": {
+        "mean_pz": 0.027287840843200684,
+        "median_pz": 0.008170575834810734,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.20000000298023224,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -4.370507717132568
+      },
+      "live_comp_neutral": {
+        "mean_pz": 0.11278942227363586,
+        "median_pz": 0.015379678457975388,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.44999998807907104,
+        "frac_argmax_z": 0.23333333432674408,
+        "mean_log_pz": -4.795128345489502
+      },
+      "live_gauss_host_g0": {
+        "mean_pz": 0.00407449621707201,
+        "median_pz": 0.0001209989859489724,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.9083123207092285
+      },
+      "live_gauss_neutral": {
+        "mean_pz": 0.076715387403965,
+        "median_pz": 0.001176295569166541,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.2666666805744171,
+        "frac_argmax_z": 0.11666666716337204,
+        "mean_log_pz": -6.6277079582214355
+      },
+      "tav_host_g0": {
+        "mean_pz": 0.285851389169693,
+        "median_pz": 0.33800008893013,
+        "frac_pz_ge_0.5": 0.1666666716337204,
+        "frac_pz_ge_0.05": 0.8833333253860474,
+        "frac_argmax_z": 0.21666666865348816,
+        "mean_log_pz": -1.62654447555542
+      },
+      "tav_neutral": {
+        "mean_pz": 0.08505912125110626,
+        "median_pz": 0.0036696232855319977,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.3166666626930237,
+        "frac_argmax_z": 0.10000000149011612,
+        "mean_log_pz": -5.94821310043335
+      },
+      "tav_comp_host_g0": {
+        "mean_pz": 0.15093374252319336,
+        "median_pz": 0.1378680318593979,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.9333333373069763,
+        "frac_argmax_z": 0.11666666716337204,
+        "mean_log_pz": -2.0306248664855957
+      },
+      "tav_comp_neutral": {
+        "mean_pz": 0.11271654814481735,
+        "median_pz": 0.054962221533060074,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.5166666507720947,
+        "frac_argmax_z": 0.28333333134651184,
+        "mean_log_pz": -4.25482702255249
+      },
+      "tav_gauss_host_g0": {
+        "mean_pz": 0.15650542080402374,
+        "median_pz": 0.15035223960876465,
+        "frac_pz_ge_0.5": 0.01666666753590107,
+        "frac_pz_ge_0.05": 0.9333333373069763,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -2.029789686203003
+      },
+      "tav_gauss_neutral": {
+        "mean_pz": 0.08746494352817535,
+        "median_pz": 0.010092713870108128,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.36666667461395264,
+        "frac_argmax_z": 0.13333334028720856,
+        "mean_log_pz": -5.476128101348877
+      },
+      "r1_host_g0": {
+        "mean_pz": 0.004154589492827654,
+        "median_pz": 0.0003681174130178988,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.227783203125
+      },
+      "r1_neutral": {
+        "mean_pz": 0.07198525220155716,
+        "median_pz": 0.0006662129890173674,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.25,
+        "frac_argmax_z": 0.11666666716337204,
+        "mean_log_pz": -6.592953205108643
+      },
+      "r1_comp_host_g0": {
+        "mean_pz": 0.05443749204277992,
+        "median_pz": 0.015714023262262344,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.3166666626930237,
+        "frac_argmax_z": 0.20000000298023224,
+        "mean_log_pz": -3.6719624996185303
+      },
+      "r1_comp_neutral": {
+        "mean_pz": 0.10914476215839386,
+        "median_pz": 0.024087751284241676,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.44999998807907104,
+        "frac_argmax_z": 0.36666667461395264,
+        "mean_log_pz": -4.481600761413574
+      },
+      "r1_gauss_host_g0": {
+        "mean_pz": 0.007597646210342646,
+        "median_pz": 0.00031971733551472425,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.167751789093018
+      },
+      "r1_gauss_neutral": {
+        "mean_pz": 0.08071794360876083,
+        "median_pz": 0.004791091196238995,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.30000001192092896,
+        "frac_argmax_z": 0.13333334028720856,
+        "mean_log_pz": -5.906182289123535
+      },
+      "r1_5_host_g0": {
+        "mean_pz": 0.005490107461810112,
+        "median_pz": 6.006557305227034e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.343925476074219
+      },
+      "r1_5_neutral": {
+        "mean_pz": 0.07368674874305725,
+        "median_pz": 0.0018725584959611297,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.2666666805744171,
+        "frac_argmax_z": 0.11666666716337204,
+        "mean_log_pz": -6.2957377433776855
+      },
+      "r1_5_comp_host_g0": {
+        "mean_pz": 0.05603518337011337,
+        "median_pz": 0.008579968474805355,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.3166666626930237,
+        "frac_argmax_z": 0.30000001192092896,
+        "mean_log_pz": -4.080513954162598
+      },
+      "r1_5_comp_neutral": {
+        "mean_pz": 0.10183168202638626,
+        "median_pz": 0.013067822903394699,
+        "frac_pz_ge_0.5": 0.01666666753590107,
+        "frac_pz_ge_0.05": 0.4333333373069763,
+        "frac_argmax_z": 0.36666667461395264,
+        "mean_log_pz": -4.589449405670166
+      },
+      "r1_5_gauss_host_g0": {
+        "mean_pz": 0.009101198986172676,
+        "median_pz": 4.288855052436702e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.05000000074505806,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.358539581298828
+      },
+      "r1_5_gauss_neutral": {
+        "mean_pz": 0.08639390766620636,
+        "median_pz": 0.009361139498651028,
+        "frac_pz_ge_0.5": 0.03333333507180214,
+        "frac_pz_ge_0.05": 0.3499999940395355,
+        "frac_argmax_z": 0.1666666716337204,
+        "mean_log_pz": -5.681164264678955
+      },
+      "lift_live_comp_host_g0": 11.84216068203347,
+      "dlogit_live_comp_host_g0": 2.4970262168584245,
+      "lift_live_gauss_host_g0": 1.7682175434164824,
+      "dlogit_live_gauss_host_g0": 0.5717478664069722,
+      "lift_tav_host_g0": 124.05151808020209,
+      "dlogit_tav_host_g0": 5.155054192841801,
+      "lift_tav_comp_host_g0": 65.50102815282602,
+      "dlogit_tav_comp_host_g0": 4.343376938685611,
+      "lift_tav_gauss_host_g0": 67.9189808904326,
+      "dlogit_tav_gauss_host_g0": 4.3862103861588295,
+      "lift_r1_host_g0": 1.8029757878118093,
+      "dlogit_r1_host_g0": 0.591294804323395,
+      "lift_r1_comp_host_g0": 23.62435091885065,
+      "dlogit_r1_comp_host_g0": 3.21594632597835,
+      "lift_r1_gauss_host_g0": 3.2971662267129775,
+      "dlogit_r1_gauss_host_g0": 1.1983830809844562,
+      "lift_r1_5_host_g0": 2.382553280707294,
+      "dlogit_r1_5_host_g0": 0.8713709983951521,
+      "lift_r1_5_comp_host_g0": 24.317704325860436,
+      "dlogit_r1_5_comp_host_g0": 3.2465640874456225,
+      "lift_r1_5_gauss_host_g0": 3.9496661319861066,
+      "dlogit_r1_5_gauss_host_g0": 1.3804669649566348,
+      "displift_live_comp_host_g0": 11.84216068203347,
+      "displift_r1_comp_host_g0": 13.102977354744436,
+      "displift_r1_5_comp_host_g0": 10.206573142675486,
+      "displift_tav_comp_host_g0": 0.5280147245798164,
+      "displift_live_gauss_host_g0": 1.7682175434164824,
+      "displift_r1_gauss_host_g0": 1.8287357206912913,
+      "displift_r1_5_gauss_host_g0": 1.6577451442402134,
+      "displift_tav_gauss_host_g0": 0.5475062453207662,
+      "lift_live_comp_neutral": 1.5528671800101717,
+      "dlogit_live_comp_neutral": 0.4843700309801595,
+      "lift_live_gauss_neutral": 1.0562054925005935,
+      "dlogit_live_gauss_neutral": 0.05909459235970216,
+      "lift_tav_neutral": 1.1710807191732835,
+      "dlogit_tav_neutral": 0.17141693808680802,
+      "lift_tav_comp_neutral": 1.551863860366956,
+      "dlogit_tav_comp_neutral": 0.4836415792256106,
+      "lift_tav_gauss_neutral": 1.2042037051739947,
+      "dlogit_tav_gauss_neutral": 0.20194139396481425,
+      "lift_r1_neutral": 0.9910817285450542,
+      "dlogit_r1_neutral": -0.00965652813927731,
+      "lift_r1_comp_neutral": 1.502688067810088,
+      "dlogit_r1_comp_neutral": 0.44742298062042485,
+      "lift_r1_gauss_neutral": 1.1113120622593637,
+      "dlogit_r1_gauss_neutral": 0.11429773724877945,
+      "lift_r1_5_neutral": 1.0145076676352123,
+      "dlogit_r1_5_neutral": 0.015540350378462797,
+      "lift_r1_5_comp_neutral": 1.4020027207903298,
+      "dlogit_r1_5_comp_neutral": 0.3698936158408346,
+      "lift_r1_5_gauss_neutral": 1.1894578504197202,
+      "dlogit_r1_5_gauss_neutral": 0.18844748187360683,
+      "displift_live_comp_neutral": 1.5528671800101717,
+      "displift_r1_comp_neutral": 1.516210040534287,
+      "displift_r1_5_comp_neutral": 1.3819537944531828,
+      "displift_tav_comp_neutral": 1.325155332983779,
+      "displift_live_gauss_neutral": 1.0562054925005935,
+      "displift_r1_gauss_neutral": 1.121312229104266,
+      "displift_r1_5_gauss_neutral": 1.1724483593034951,
+      "displift_tav_gauss_neutral": 1.028284118642218
+    },
+    "ZEPHYRA": {
+      "class": "anchor_formed_host",
+      "role": "written_anchor",
+      "cid": 38,
+      "base_host_g0": {
+        "mean_pz": 1.3383960322244093e-05,
+        "median_pz": 1.1252003787376452e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.51407241821289
+      },
+      "base_neutral": {
+        "mean_pz": 2.0202314772177488e-05,
+        "median_pz": 4.508031452132855e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -12.638269424438477
+      },
+      "live_comp_host_g0": {
+        "mean_pz": 0.0007308000349439681,
+        "median_pz": 0.0007312815287150443,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.162775993347168
+      },
+      "live_comp_neutral": {
+        "mean_pz": 0.0005763626541011035,
+        "median_pz": 4.801780960406177e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.622818946838379
+      },
+      "live_gauss_host_g0": {
+        "mean_pz": 1.0355065569456201e-05,
+        "median_pz": 7.700419700995553e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.879053115844727
+      },
+      "live_gauss_neutral": {
+        "mean_pz": 2.5249719328712672e-05,
+        "median_pz": 4.800174792762846e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -12.356280326843262
+      },
+      "tav_host_g0": {
+        "mean_pz": 0.00018831617489922792,
+        "median_pz": 0.000148478735354729,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.155194282531738
+      },
+      "tav_neutral": {
+        "mean_pz": 8.296417217934504e-05,
+        "median_pz": 1.2456317563191988e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.40463638305664
+      },
+      "tav_comp_host_g0": {
+        "mean_pz": 0.00433037243783474,
+        "median_pz": 0.003958704881370068,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.6707353591918945
+      },
+      "tav_comp_neutral": {
+        "mean_pz": 0.0010258076945319772,
+        "median_pz": 0.00010821148316608742,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.760106086730957
+      },
+      "tav_gauss_host_g0": {
+        "mean_pz": 0.00013186530850362033,
+        "median_pz": 0.00010014383587986231,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.443573951721191
+      },
+      "tav_gauss_neutral": {
+        "mean_pz": 8.42382141854614e-05,
+        "median_pz": 1.4698389350087382e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.029452323913574
+      },
+      "r1_host_g0": {
+        "mean_pz": 3.674139588838443e-05,
+        "median_pz": 3.064866177737713e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -10.449316024780273
+      },
+      "r1_neutral": {
+        "mean_pz": 3.532148912199773e-05,
+        "median_pz": 8.019102097023278e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.743542671203613
+      },
+      "r1_comp_host_g0": {
+        "mean_pz": 0.0007390056853182614,
+        "median_pz": 0.0008304250077344477,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.806550025939941
+      },
+      "r1_comp_neutral": {
+        "mean_pz": 0.0008185064070858061,
+        "median_pz": 9.146054071607068e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.99100399017334
+      },
+      "r1_gauss_host_g0": {
+        "mean_pz": 2.2468866518465802e-05,
+        "median_pz": 1.7686152204987593e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -10.925814628601074
+      },
+      "r1_gauss_neutral": {
+        "mean_pz": 3.8507099816342816e-05,
+        "median_pz": 9.934436093317345e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.530498504638672
+      },
+      "r1_5_host_g0": {
+        "mean_pz": 2.3971564587554894e-05,
+        "median_pz": 1.8839304175344296e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -10.847269058227539
+      },
+      "r1_5_neutral": {
+        "mean_pz": 4.752920722239651e-05,
+        "median_pz": 9.55313862505136e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.566427230834961
+      },
+      "r1_5_comp_host_g0": {
+        "mean_pz": 0.0003065333003178239,
+        "median_pz": 0.0003448677307460457,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.417112350463867
+      },
+      "r1_5_comp_neutral": {
+        "mean_pz": 0.0007635597139596939,
+        "median_pz": 7.942478259792551e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.131601333618164
+      },
+      "r1_5_gauss_host_g0": {
+        "mean_pz": 1.5630936104571447e-05,
+        "median_pz": 1.302298824157333e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.342581748962402
+      },
+      "r1_5_gauss_neutral": {
+        "mean_pz": 5.277919990476221e-05,
+        "median_pz": 1.060144404618768e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -11.469282150268555
+      },
+      "lift_live_comp_host_g0": 54.60267494437959,
+      "dlogit_live_comp_host_g0": 4.000800556355683,
+      "lift_live_gauss_host_g0": 0.7736921897658439,
+      "dlogit_live_gauss_host_g0": -0.25658420106284474,
+      "lift_tav_host_g0": 14.07028789425258,
+      "dlogit_tav_host_g0": 2.6442402823430378,
+      "lift_tav_comp_host_g0": 323.5494079161066,
+      "dlogit_tav_comp_host_g0": 5.783678223147348,
+      "lift_tav_gauss_host_g0": 9.85248800270729,
+      "dlogit_tav_gauss_host_g0": 2.2878425023496884,
+      "lift_r1_host_g0": 2.7451811723709585,
+      "dlogit_r1_host_g0": 1.0098704316682525,
+      "lift_r1_comp_host_g0": 55.21577078273586,
+      "dlogit_r1_comp_host_g0": 4.011974509898369,
+      "lift_r1_gauss_host_g0": 1.6787905804773366,
+      "dlogit_r1_gauss_host_g0": 0.5180827266641259,
+      "lift_r1_5_host_g0": 1.7910666208203145,
+      "dlogit_r1_5_host_g0": 0.5828219077433996,
+      "lift_r1_5_comp_host_g0": 22.903034149643037,
+      "dlogit_r1_5_comp_host_g0": 3.131562593642389,
+      "lift_r1_5_gauss_host_g0": 1.1678857175475101,
+      "dlogit_r1_5_gauss_host_g0": 0.15519728206183636,
+      "displift_live_comp_host_g0": 54.60267494437959,
+      "displift_r1_comp_host_g0": 20.113707371469072,
+      "displift_r1_5_comp_host_g0": 12.787371437447353,
+      "displift_tav_comp_host_g0": 22.995223008071484,
+      "displift_live_gauss_host_g0": 0.7736921897658439,
+      "displift_r1_gauss_host_g0": 0.6115409057054688,
+      "displift_r1_5_gauss_host_g0": 0.6520615726804257,
+      "displift_tav_gauss_host_g0": 0.7002335756563892,
+      "lift_live_comp_neutral": 28.529535382493243,
+      "dlogit_live_comp_neutral": 3.351496206162551,
+      "lift_live_gauss_neutral": 1.24984288253376,
+      "dlogit_live_gauss_neutral": 0.22302289696033384,
+      "lift_tav_neutral": 4.106666642656356,
+      "dlogit_tav_neutral": 1.4126744286856514,
+      "lift_tav_comp_neutral": 50.77674049236742,
+      "dlogit_tav_comp_neutral": 3.928444517085577,
+      "lift_tav_gauss_neutral": 4.169730802406553,
+      "dlogit_tav_gauss_neutral": 1.4279155171926714,
+      "lift_r1_neutral": 1.7483882179007666,
+      "dlogit_r1_neutral": 0.5587094647891035,
+      "lift_r1_comp_neutral": 40.51547638555996,
+      "dlogit_r1_comp_neutral": 3.702482673142584,
+      "lift_r1_gauss_neutral": 1.9060736480244618,
+      "dlogit_r1_gauss_neutral": 0.6450637499046721,
+      "lift_r1_5_neutral": 2.3526614528278444,
+      "dlogit_r1_5_neutral": 0.8555745482603925,
+      "lift_r1_5_comp_neutral": 37.79565473414284,
+      "dlogit_r1_5_comp_neutral": 3.632937790749917,
+      "lift_r1_5_gauss_neutral": 2.612532301370208,
+      "dlogit_r1_5_gauss_neutral": 0.960352559449273,
+      "displift_live_comp_neutral": 28.529535382493243,
+      "displift_r1_comp_neutral": 23.173043589944566,
+      "displift_r1_5_comp_neutral": 16.065063117650585,
+      "displift_tav_comp_neutral": 12.364466101276482,
+      "displift_live_gauss_neutral": 1.24984288253376,
+      "displift_r1_gauss_neutral": 1.090189025817746,
+      "displift_r1_5_gauss_neutral": 1.110458242187802,
+      "displift_tav_gauss_neutral": 1.0153565324964882
+    },
+    "QELVARO": {
+      "class": "synthetic_count0_fresh_bank",
+      "role": "never_written",
+      "cid": 29,
+      "base_host_g0": {
+        "mean_pz": 0.0025905624497681856,
+        "median_pz": 8.175063157978002e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -10.241929054260254
+      },
+      "base_neutral": {
+        "mean_pz": 0.005314809735864401,
+        "median_pz": 1.1724551768566016e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -11.007867813110352
+      },
+      "live_comp_host_g0": {
+        "mean_pz": 0.0012933694524690509,
+        "median_pz": 0.0010320525616407394,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.819424152374268
+      },
+      "live_comp_neutral": {
+        "mean_pz": 0.0005220571183599532,
+        "median_pz": 0.0003760536783374846,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.631484985351562
+      },
+      "live_gauss_host_g0": {
+        "mean_pz": 0.0031650320161134005,
+        "median_pz": 3.6144995192444185e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -10.489358901977539
+      },
+      "live_gauss_neutral": {
+        "mean_pz": 0.007929409854114056,
+        "median_pz": 3.6563000321621075e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -10.567091941833496
+      },
+      "tav_host_g0": {
+        "mean_pz": 0.002081770682707429,
+        "median_pz": 1.3669301551999524e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.727664947509766
+      },
+      "tav_neutral": {
+        "mean_pz": 0.011354988440871239,
+        "median_pz": 2.548928387113847e-05,
+        "frac_pz_ge_0.5": 0.01666666753590107,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -10.296630859375
+      },
+      "tav_comp_host_g0": {
+        "mean_pz": 0.0032276734709739685,
+        "median_pz": 0.003078540787100792,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -5.948288440704346
+      },
+      "tav_comp_neutral": {
+        "mean_pz": 0.0008858368964865804,
+        "median_pz": 0.0006694084731861949,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.077342987060547
+      },
+      "tav_gauss_host_g0": {
+        "mean_pz": 0.003887756960466504,
+        "median_pz": 8.826407793094404e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.720335006713867
+      },
+      "tav_gauss_neutral": {
+        "mean_pz": 0.01437265332788229,
+        "median_pz": 4.429507316672243e-05,
+        "frac_pz_ge_0.5": 0.01666666753590107,
+        "frac_pz_ge_0.05": 0.05000000074505806,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -9.713399887084961
+      },
+      "r1_host_g0": {
+        "mean_pz": 0.003184736240655184,
+        "median_pz": 1.3021266568102874e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.689258575439453
+      },
+      "r1_neutral": {
+        "mean_pz": 0.0065108113922178745,
+        "median_pz": 1.6118943676701747e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.01666666753590107,
+        "mean_log_pz": -10.332157135009766
+      },
+      "r1_comp_host_g0": {
+        "mean_pz": 0.0016751433722674847,
+        "median_pz": 0.0015247042756527662,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.506452560424805
+      },
+      "r1_comp_neutral": {
+        "mean_pz": 0.0006702326354570687,
+        "median_pz": 0.0005647992948070168,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.173705101013184
+      },
+      "r1_gauss_host_g0": {
+        "mean_pz": 0.0026821705978363752,
+        "median_pz": 8.06291700428119e-06,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.822236061096191
+      },
+      "r1_gauss_neutral": {
+        "mean_pz": 0.003119782777503133,
+        "median_pz": 4.719874414149672e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -10.010723114013672
+      },
+      "r1_5_host_g0": {
+        "mean_pz": 0.0021391974296420813,
+        "median_pz": 1.6955764294834808e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.606901168823242
+      },
+      "r1_5_neutral": {
+        "mean_pz": 0.0015805893344804645,
+        "median_pz": 5.589968350250274e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -10.125836372375488
+      },
+      "r1_5_comp_host_g0": {
+        "mean_pz": 0.0010940966894850135,
+        "median_pz": 0.0009221183718182147,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.885799884796143
+      },
+      "r1_5_comp_neutral": {
+        "mean_pz": 0.0005884824204258621,
+        "median_pz": 0.0005258101155050099,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.240961074829102
+      },
+      "r1_5_gauss_host_g0": {
+        "mean_pz": 0.0006878888234496117,
+        "median_pz": 1.3603609659185167e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.897109985351562
+      },
+      "r1_5_gauss_neutral": {
+        "mean_pz": 0.0003220867074560374,
+        "median_pz": 7.38614980946295e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -10.129825592041016
+      },
+      "lift_live_comp_host_g0": 0.4992620241927721,
+      "dlogit_live_comp_host_g0": -0.6959239396503563,
+      "lift_live_gauss_host_g0": 1.2217547646444966,
+      "dlogit_live_gauss_host_g0": 0.20086428457331618,
+      "lift_tav_host_g0": 0.803597953368665,
+      "dlogit_tav_host_g0": -0.21916617605679267,
+      "lift_tav_comp_host_g0": 1.2459354034344141,
+      "dlogit_tav_comp_host_g0": 0.22052554575244976,
+      "lift_tav_gauss_host_g0": 1.5007385600043717,
+      "dlogit_tav_gauss_host_g0": 0.4072587704375987,
+      "lift_r1_host_g0": 1.229360921579083,
+      "dlogit_r1_host_g0": 0.20709035294895983,
+      "lift_r1_comp_host_g0": 0.6466330786263745,
+      "dlogit_r1_comp_host_g0": -0.4368936329795883,
+      "lift_r1_gauss_host_g0": 1.0353622619969602,
+      "dlogit_r1_gauss_host_g0": 0.03484322736801726,
+      "lift_r1_5_host_g0": 0.8257656285543341,
+      "dlogit_r1_5_host_g0": -0.19189672337626362,
+      "lift_r1_5_comp_host_g0": 0.42233943813356745,
+      "dlogit_r1_5_comp_host_g0": -0.8634451606129776,
+      "lift_r1_5_gauss_host_g0": 0.2655364758765676,
+      "dlogit_r1_5_gauss_host_g0": -1.3279088603730864,
+      "displift_live_comp_host_g0": 0.4992620241927721,
+      "displift_r1_comp_host_g0": 0.5259912425032924,
+      "displift_r1_5_comp_host_g0": 0.5114519465686118,
+      "displift_tav_comp_host_g0": 1.550446212825058,
+      "displift_live_gauss_host_g0": 1.2217547646444966,
+      "displift_r1_gauss_host_g0": 0.8421955211225224,
+      "displift_r1_5_gauss_host_g0": 0.3215639725056632,
+      "displift_tav_gauss_host_g0": 1.8675241191360785,
+      "lift_live_comp_neutral": 0.09822686875074857,
+      "dlogit_live_comp_neutral": -2.3252822786563874,
+      "lift_live_gauss_neutral": 1.49194613696259,
+      "dlogit_live_gauss_neutral": 0.40271343112582336,
+      "lift_tav_neutral": 2.136480703015131,
+      "dlogit_tav_neutral": 0.7652509089638633,
+      "lift_tav_comp_neutral": 0.16667330356323806,
+      "dlogit_tav_comp_neutral": -1.7961624027399177,
+      "lift_tav_gauss_neutral": 2.704264882879146,
+      "dlogit_tav_gauss_neutral": 1.0039780698174958,
+      "lift_r1_neutral": 1.2250318855786766,
+      "dlogit_r1_neutral": 0.20416998829697874,
+      "lift_r1_comp_neutral": 0.1261066094114961,
+      "dlogit_r1_comp_neutral": -2.075286149575022,
+      "lift_r1_gauss_neutral": 0.5869980173421451,
+      "dlogit_r1_gauss_neutral": -0.5349381609061785,
+      "lift_r1_5_neutral": 0.2973933993938914,
+      "dlogit_r1_5_neutral": -1.216446583370649,
+      "lift_r1_5_comp_neutral": 0.11072502115264363,
+      "dlogit_r1_5_comp_neutral": -2.205445766071369,
+      "lift_r1_5_gauss_neutral": 0.06060173806083638,
+      "dlogit_r1_5_gauss_neutral": -2.8084385504380416,
+      "displift_live_comp_neutral": 0.09822686875074857,
+      "displift_r1_comp_neutral": 0.1029414914795677,
+      "displift_r1_5_comp_neutral": 0.3723183546719899,
+      "displift_tav_comp_neutral": 0.07801301613818397,
+      "displift_live_gauss_neutral": 1.49194613696259,
+      "displift_r1_gauss_neutral": 0.47916958264711684,
+      "displift_r1_5_gauss_neutral": 0.20377633862872196,
+      "displift_tav_gauss_neutral": 1.2657567555198246
+    },
+    "VIRETAN": {
+      "class": "scrambled_control",
+      "role": "never_written",
+      "cid": 34,
+      "base_host_g0": {
+        "mean_pz": 0.005193506833165884,
+        "median_pz": 4.6760080294916406e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.5304536819458
+      },
+      "base_neutral": {
+        "mean_pz": 0.0037306477315723896,
+        "median_pz": 4.64463337266352e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.714361190795898
+      },
+      "live_comp_host_g0": {
+        "mean_pz": 0.00228944537229836,
+        "median_pz": 0.001850984524935484,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -6.249093532562256
+      },
+      "live_comp_neutral": {
+        "mean_pz": 0.0015177776804193854,
+        "median_pz": 0.000880845298524946,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.03796100616455
+      },
+      "live_gauss_host_g0": {
+        "mean_pz": 0.007342852186411619,
+        "median_pz": 2.9451008231262676e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.78183650970459
+      },
+      "live_gauss_neutral": {
+        "mean_pz": 0.003321214811876416,
+        "median_pz": 8.137770055327564e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.43620777130127
+      },
+      "tav_host_g0": {
+        "mean_pz": 0.007508828770369291,
+        "median_pz": 0.00015551091928500682,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.53670597076416
+      },
+      "tav_neutral": {
+        "mean_pz": 0.004101053811609745,
+        "median_pz": 0.0004677152610383928,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.621247291564941
+      },
+      "tav_comp_host_g0": {
+        "mean_pz": 0.0058044372126460075,
+        "median_pz": 0.005005745682865381,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -5.314478874206543
+      },
+      "tav_comp_neutral": {
+        "mean_pz": 0.005389666184782982,
+        "median_pz": 0.0016070184065029025,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.194365978240967
+      },
+      "tav_gauss_host_g0": {
+        "mean_pz": 0.009537698701024055,
+        "median_pz": 0.00015511712990701199,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0833333358168602,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.412309646606445
+      },
+      "tav_gauss_neutral": {
+        "mean_pz": 0.005376293323934078,
+        "median_pz": 0.0004952380550093949,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.254373550415039
+      },
+      "r1_host_g0": {
+        "mean_pz": 0.009101065807044506,
+        "median_pz": 7.458216714439914e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.102182388305664
+      },
+      "r1_neutral": {
+        "mean_pz": 0.004800428636372089,
+        "median_pz": 0.00010671483323676512,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.114364624023438
+      },
+      "r1_comp_host_g0": {
+        "mean_pz": 0.004217625595629215,
+        "median_pz": 0.003802878549322486,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -5.56890344619751
+      },
+      "r1_comp_neutral": {
+        "mean_pz": 0.0024217546451836824,
+        "median_pz": 0.0012515367707237601,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.593070030212402
+      },
+      "r1_gauss_host_g0": {
+        "mean_pz": 0.00711648678407073,
+        "median_pz": 6.338447565212846e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.03333333507180214,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.300161361694336
+      },
+      "r1_gauss_neutral": {
+        "mean_pz": 0.002654958050698042,
+        "median_pz": 0.00014340001507662237,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.887113571166992
+      },
+      "r1_5_host_g0": {
+        "mean_pz": 0.004586671479046345,
+        "median_pz": 7.177146471804008e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -8.497246742248535
+      },
+      "r1_5_neutral": {
+        "mean_pz": 0.0022345574107021093,
+        "median_pz": 9.7296891908627e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.01666666753590107,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.226408004760742
+      },
+      "r1_5_comp_host_g0": {
+        "mean_pz": 0.003897200571373105,
+        "median_pz": 0.003670301754027605,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -5.6469292640686035
+      },
+      "r1_5_comp_neutral": {
+        "mean_pz": 0.0017557836836203933,
+        "median_pz": 0.0009745710995048285,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -7.723899841308594
+      },
+      "r1_5_gauss_host_g0": {
+        "mean_pz": 0.0010254289954900742,
+        "median_pz": 4.912270014756359e-05,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.035786628723145
+      },
+      "r1_5_gauss_neutral": {
+        "mean_pz": 0.0007248769397847354,
+        "median_pz": 0.00019819250155705959,
+        "frac_pz_ge_0.5": 0.0,
+        "frac_pz_ge_0.05": 0.0,
+        "frac_argmax_z": 0.0,
+        "mean_log_pz": -9.181682586669922
+      },
+      "lift_live_comp_host_g0": 0.4408284124472304,
+      "dlogit_live_comp_host_g0": -0.8220145364777576,
+      "lift_live_gauss_host_g0": 1.4138524165444346,
+      "dlogit_live_gauss_host_g0": 0.34848109266296046,
+      "lift_tav_host_g0": 1.445810896486685,
+      "dlogit_tav_host_g0": 0.37100046018483646,
+      "lift_tav_comp_host_g0": 1.1176334987332075,
+      "dlogit_tav_comp_host_g0": 0.11182781078797799,
+      "lift_tav_gauss_host_g0": 1.836465996369936,
+      "dlogit_tav_gauss_host_g0": 0.6122195045279009,
+      "lift_r1_host_g0": 1.7523931515647266,
+      "dlogit_r1_host_g0": 0.5649180624643986,
+      "lift_r1_comp_host_g0": 0.8120958980347031,
+      "dlogit_r1_comp_host_g0": -0.2091173398662125,
+      "lift_r1_gauss_host_g0": 1.3702661828852598,
+      "dlogit_r1_gauss_host_g0": 0.31693990483554924,
+      "lift_r1_5_host_g0": 0.8831549907195132,
+      "dlogit_r1_5_host_g0": -0.12486438378719544,
+      "lift_r1_5_comp_host_g0": 0.7503986605900795,
+      "dlogit_r1_5_comp_host_g0": -0.2884528917402198,
+      "lift_r1_5_gauss_host_g0": 0.19744442982950464,
+      "dlogit_r1_5_gauss_host_g0": -1.6264791870431248,
+      "displift_live_comp_host_g0": 0.4408284124472304,
+      "displift_r1_comp_host_g0": 0.4634210635379257,
+      "displift_r1_5_comp_host_g0": 0.8496794656379895,
+      "displift_tav_comp_host_g0": 0.7730149921051589,
+      "displift_live_gauss_host_g0": 1.4138524165444346,
+      "displift_r1_gauss_host_g0": 0.7819399326354007,
+      "displift_r1_5_gauss_host_g0": 0.22356713363375222,
+      "displift_tav_gauss_host_g0": 1.2701979220329167,
+      "lift_live_comp_neutral": 0.40684025660596856,
+      "dlogit_live_comp_neutral": -0.9015533537775031,
+      "lift_live_gauss_neutral": 0.8902515195334709,
+      "dlogit_live_gauss_neutral": -0.1166621316301546,
+      "lift_tav_neutral": 1.0992873373979046,
+      "dlogit_tav_neutral": 0.09503395699110229,
+      "lift_tav_comp_neutral": 1.4446998410411027,
+      "dlogit_tav_comp_neutral": 0.3695681964050985,
+      "lift_tav_gauss_neutral": 1.4411152461366497,
+      "dlogit_tav_gauss_neutral": 0.3670704639641622,
+      "lift_r1_neutral": 1.2867547358455123,
+      "dlogit_r1_neutral": 0.25319770376181605,
+      "lift_r1_comp_neutral": 0.6491512518559247,
+      "dlogit_r1_comp_neutral": -0.43340246784146874,
+      "lift_r1_gauss_neutral": 0.711661416924785,
+      "dlogit_r1_gauss_neutral": -0.34123215395262907,
+      "lift_r1_5_neutral": 0.5989730393977162,
+      "dlogit_r1_5_neutral": -0.5140392574265551,
+      "lift_r1_5_comp_neutral": 0.4706377578245286,
+      "dlogit_r1_5_comp_neutral": -0.7556468696114873,
+      "lift_r1_5_gauss_neutral": 0.19430323952865286,
+      "dlogit_r1_5_gauss_neutral": -1.641347734082812,
+      "displift_live_comp_neutral": 0.40684025660596856,
+      "displift_r1_comp_neutral": 0.5044871674238484,
+      "displift_r1_5_comp_neutral": 0.7857411383620334,
+      "displift_tav_comp_neutral": 1.314214938981118,
+      "displift_live_gauss_neutral": 0.8902515195334709,
+      "displift_r1_gauss_neutral": 0.5530668721084289,
+      "displift_r1_5_gauss_neutral": 0.3243939655848786,
+      "displift_tav_gauss_neutral": 1.310954103726763
+    }
+  },
+  "verdict": {
+    "fork": {
+      "word": "PLASTICITY",
+      "clause": {
+        "lift_currency": "p(state)/p_base \u2014 x24's exact currency",
+        "live_value_T_host": 11.84216068203347,
+        "x24_committed_live_value": 11.84216068203347,
+        "rung_1.0_T_host": 23.62435091885065,
+        "rung_1.5_T_host": 24.317704325860436,
+        "qelvaro_band_rung_1.0_host": 0.8120958980347031,
+        "qelvaro_band_detail": {
+          "QELVARO": 0.6466330786263745,
+          "VIRETAN": 0.8120958980347031
+        },
+        "x24_committed_band": 0.4992620241927721,
+        "plasticity_bar": "lift(rung-1.0) >= 0.5 * live (5.9211)",
+        "plasticity_fired": true,
+        "mass_bar": "lift(rung-1.0) <= 2 * band (1.6242)",
+        "mass_fired": false,
+        "both_fired_contradiction": false,
+        "fullwrite_co_report_T_host": 65.50102815282602,
+        "never_band_on_live": {
+          "QELVARO": 0.4992620241927721,
+          "VIRETAN": 0.4408284124472304
+        }
+      },
+      "bars_verbatim": {
+        "PLASTICITY": "TAVIREN's complement-lift at host survives the alpha-1.0 scalpel at >= 50% of its live value (the slot's anchor was durably mutated by writing).",
+        "MASS": "TAVIREN's complement-lift collapses under the alpha-1.0 scalpel to <= 2x the QELVARO band (the lift was the write's mass; Law 3's mechanism noun re-writes to residual-mass coupling; T286's correction applies)."
+      },
+      "prediction": {
+        "statement": "Register P-x25a (the main fork) and P-x25r (the rider) BEFORE compute. Lab guesses, with the scoped 0-for-8 ledger standing (the instruments have beaten the thinking lane's content-bets eight straight \u2014 bet the mass/slot side): P-x25a MASS (x19's bearer-coupling is the strongest same-evening prior); P-x25r NEEDS-NAME-PUSH (the lifts were 10-50x; generic energy at 9-norm has never shown such structure). State your own counters if you disagree.",
+        "P_x25a_lab_guess": "MASS",
+        "P_x25a_outcome": "MISS \u2014 the fork verdict is PLASTICITY",
+        "P_x25a_exec_statement": "MIXED \u2014 neither fork bar fires at alpha-1.0. Registered pre-compute: the x24 lift (11.8x) was measured on the BASE organism with ZERO TAVIREN write present, so the lift's coupling does not require the write's room-overlap mass to sit in the probed state; the alpha-1.0 rung retains the write's out-of-room remainder (33.4% of the write's norm), and x19's own ladder showed scalpeled organisms keep reading (R-A1.0 read 0.3455) \u2014 the rung's TAVIREN read should sit ABOVE the never-written band yet plausibly below 0.5x of live. Scores TRUE iff the fork verdict == MIXED.",
+        "P_x25a_exec_outcome": "MISS \u2014 the fork verdict is PLASTICITY"
+      }
+    },
+    "rider": {
+      "word": "GAP",
+      "clause": {
+        "set": "the written names {TAVIREN, ZEPHYRA} at both sites",
+        "ratios_written": {
+          "TAVIREN_host_g0": 0.14931544934187246,
+          "TAVIREN_neutral": 0.6801647340461372,
+          "ZEPHYRA_host_g0": 0.014169492438858662,
+          "ZEPHYRA_neutral": 0.04380873595651715
+        },
+        "ratios_never_written_correport": {
+          "QELVARO_host_g0": 2.4471213620140273,
+          "QELVARO_neutral": 15.188778344837752,
+          "VIRETAN_host_g0": 3.207262455465437,
+          "VIRETAN_neutral": 2.188209020809104
+        },
+        "energy_bar": "min ratio >= 0.3",
+        "push_bar": "max ratio <= 0.1",
+        "gaussian_lifts_written": {
+          "TAVIREN_host_g0": 1.7682175434164824,
+          "TAVIREN_neutral": 1.0562054925005935,
+          "ZEPHYRA_host_g0": 0.7736921897658439,
+          "ZEPHYRA_neutral": 1.24984288253376
+        },
+        "complement_lifts_written": {
+          "TAVIREN_host_g0": 11.84216068203347,
+          "TAVIREN_neutral": 1.5528671800101717,
+          "ZEPHYRA_host_g0": 54.60267494437959,
+          "ZEPHYRA_neutral": 28.529535382493243
+        }
+      },
+      "bars_verbatim": "ENERGY-LIFTS (written names lift under pure gaussian at >= 30% of their complement lift) / NEEDS-NAME-PUSH (gaussian <= 10% of complement lift on every name).",
+      "prediction": {
+        "statement": "Register P-x25a (the main fork) and P-x25r (the rider) BEFORE compute. Lab guesses, with the scoped 0-for-8 ledger standing (the instruments have beaten the thinking lane's content-bets eight straight \u2014 bet the mass/slot side): P-x25a MASS (x19's bearer-coupling is the strongest same-evening prior); P-x25r NEEDS-NAME-PUSH (the lifts were 10-50x; generic energy at 9-norm has never shown such structure). State your own counters if you disagree.",
+        "P_x25r_lab_guess": "NEEDS-NAME-PUSH",
+        "P_x25r_outcome": "MISS \u2014 the rider verdict is GAP",
+        "P_x25r_exec_statement": "GAP \u2014 neither rider bar fires cleanly. Registered pre-compute: a 9.18-norm isotropic direction (per-coord RMS 5.5e-3 on 2.74M params) moves name logits by a random +-1-dlogit-ish amount \u2014 larger than the 10% clause tolerates on every written name, smaller than 30% of the complement's +2.5/+4.0 pushes; with 2 written names x 2 sites the max draw straddles the [10%, 30%] window. Scores TRUE iff the rider verdict == GAP.",
+        "P_x25r_exec_outcome": "HIT \u2014 the executor counter was GAP"
+      }
+    }
+  },
+  "outputs": {
+    "figure": "runs/x25/x25_slots_autopsy.png",
+    "metrics": "runs/x25/metrics.json",
+    "report": "runs/x25/REPORT.md"
+  }
+}
