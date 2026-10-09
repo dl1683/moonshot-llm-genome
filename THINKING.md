@@ -7,6 +7,39 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T287 — X22: the confidence channel is a committee — and the gate must be the state, not the knob (2026-10-09, datetime.now ~20:42Z)
+
+The seat hunt returned the least romantic and most explanatory answer
+available: NO ORGAN. The knob's +32% decomposes across ~20 fragments
+whose solo contributions superpose to 0.992 of the whole and track
+their squared norm shares almost perfectly (corr 0.947). The knob is
+not a mechanism — it is the read-gradient's MASS DISTRIBUTION, and the
+boost is linear addition of mass-proportional pushes. Era-1's oldest
+doctrine (lm_head token-row causality) had its cleanest possible
+reconnection test and failed it: the Z row carries 99.8% of the
+lm_head fragment and delivers 0.8%.
+
+THE INFERENCE THE COMMITTEE FORCES: if every fragment contributes its
+share AND every fragment carries the full 36x context gating (37-61x
+at all rungs), then THE GATE CANNOT LIVE IN THE KNOB — there is nothing
+special left in any fragment to gate. The gating must be a property of
+the READ STATE: at the host's contexts, the organism's state amplifies
+any aligned push ~36x; off its contexts, the same pushes land inert.
+The gate is the reader, not the read. x19 (the corpse's dial — the
+trigger across the deadness ladder) is now the direct test: if the
+gating dies as the read dies, the gate tracks the read's liveness
+(state-side); if the gating survives on corpses, the amplification is
+structural and the "resurrection-by-confidence" worry for e315's
+controller revivals becomes real. W051's paraphrase audit rides the
+same session.
+
+FOR THE LAWS v3: Law 7's confidence clause drafts with the committee
+geography — out-of-room aligned displacement acts as a mass-proportional
+additive push, context-amplified ~36x at the written name's own
+contexts, seatable in no single organ. And the fifth consecutive lab
+mechanism miss (vs one advance-registered executor counter that hit)
+sharpens the standing correction: when guessing seats, bet DISTRIBUTED.
+
 ## T286 — X24: the noise floor is authorship-structured — writing leaves slot-plasticity, and the fourth miss names the pattern (2026-10-09, datetime.now ~20:12Z)
 
 The census killed the prior-curve rescue and left something better.

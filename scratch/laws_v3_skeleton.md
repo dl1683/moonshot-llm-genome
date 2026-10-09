@@ -66,8 +66,10 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
   ISOTROPIC NOISE; x16 decides).
 - The hijack arc: NO FREE RIDE (e311) / NO STATIC TRANSPLANT (e321) / VACANCY IS THE OPENING
   (e321's recruit-then-relax; e293's zero-sum at erasure scale).
-- GATES: x16 (bias vs volume wording); e322 (the womb-for-rent economics) for the vacancy
-  clause's strength.
+- GATES: x16 DONE (context-gated targeted bias); x22 DONE (T287: the committee
+  geography — mass-proportional additive push, seatable nowhere, the gate is the
+  state); REMAINING: e322 (the womb-rent economics) + x19 (state-side gating) for
+  the confidence clause's final form.
 
 ## DELIBERATELY OUT (until their cells land)
 The gain-knob's nature (x16), womb-rent economics (e322), wound-ward medicine (e315),
