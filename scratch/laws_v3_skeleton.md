@@ -26,7 +26,10 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
 - GATES: x15R RETURNED GAP (x17): the null is WRITE-DEPENDENT (0.0284 vs 0.00073 at
   matched dose, both under the alive floor). The clause drafts WEAKENED — 'geometry
   dominates, cliff height is write-dependent' — pending x23 (the cross-battery fork:
-  bias-at-home vs structure).
+  bias-at-home vs structure). x23 ROUND 3: neither — the effect follows the NAME SLOT
+  (prior-fragility: dead TAVIREN lifts ~7x under EITHER complement; the formed name is
+  unmoved). Gate now x24 (the prior-fragility census): if lift-vs-prior is one generic
+  curve, necessity RESTORES with a prior-relative read-bar rider.
 
 ## LAW 4 — THE CONTROLLER (as v2 + the R71 riders)
 - Five same-class endpoints (3.479/3.498/3.616/3.162/3.530) — n language fixed.

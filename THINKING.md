@@ -7,6 +7,41 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T285 — X23: the name slot's fragility — neither the write nor the battery, the NAME (2026-10-09, datetime.now ~19:55Z)
+
+The cross-battery was built to decide between two hypotheses and killed
+both with one cell. KT — the K10K write's out-of-room complement, a
+displacement containing nothing of TAVIREN, applied at full dose and
+read on the TAVIREN battery — inflates p(T) to 0.0273, within 4% of the
+TAVIREN complement's own diagonal (0.0284). Whatever lifts the dead
+TAVIREN name is IN THE BATTERY'S NAME SLOT, not in the displaced
+structure: TAVIREN (count-0, ~0.004 prior) lifts ~7x under EITHER
+complement; the entrenched host name Z is unmoved by either. THE TWO
+NAME SLOTS HAVE OPPOSITE FRAGILITY TO LARGE GENERIC DISPLACEMENT.
+
+THE MECHANISM CANDIDATE (prior-fragility): a full-dose complement is a
+~9-norm generic perturbation (+0.4-0.5 nats CE_R); weakly-anchored
+logits drift up under it, strongly-anchored ones do not. The 39x
+"write-dependence" of x17 dissolves into NAME-dependence: the TAVIREN
+battery reads a marginal name, the K10K battery reads a formed one.
+
+THE LAW'S RESCUE PATH: the absolute 0.05 alive bar was calibrated on
+formed names. For marginal names the honest scale is prior-relative:
+complements lift ~7x over prior; full writes lift ~21-75x — an order
+of magnitude apart, cleanly separable by a x10-prior bar. If x24's
+census (one fixed displacement, a panel of names across the prior
+spectrum) shows lift-vs-prior is one generic curve, NECESSITY RESTORES
+with the rider that reads are scored prior-relative — and tonight's
+whole write-dependence scare becomes an instrument lesson: absolute
+read bars are name-slot-confounded.
+
+THE PREDICTION LEDGER'S PATTERN (stated honestly): P-x23a is the third
+missed mechanism guess tonight (after P-e321a, P-x17a) — the
+instrument keeps choosing prior/slot-structure stories where I bet
+alignment/bias stories. Registered for the next consult round: the
+lab's mechanism intuitions over-index on content; the organism's
+margins live in its name slots.
+
 ## T284 — X17: the necessity null is write-dependent — the gap clause fires, and the fork is battery-vs-structure (2026-10-09, datetime.now ~19:35Z)
 
 The critic's cascade pick returned a GAP, which is the most instructive
