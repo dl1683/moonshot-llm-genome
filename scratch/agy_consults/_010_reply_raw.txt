@@ -1,2 +1,60 @@
-Error: unexpected argument "print".
-Prompts are read only from -p/--print, -i/--prompt-interactive, or stdin, so this argument would have been ignored.
+### Q1: The Sharpest Hole in the Two-Channel Split
+
+**The Hole: Conflating Token-Specific Logit Bias with a Global Volume Channel.**  
+Calling out-of-room displacement the "volume channel (intensity/confidence/noise)" dangerously packages two fundamentally different mathematical phenomena into one label:
+1. **Target-Aligned Logit Bias ([`e311`](file:///C:/Users/devan/OneDrive/Desktop/Projects/AI%20Moonshots/moonshot-llm-genome/runs/e311/metrics.json)):** The 1-dim trigger in `e311` was explicitly constructed as the gradient of the host’s read ($\nabla_W \mathcal{L}_{\text{host}}$). In residual stream algebra, adding a vector aligned with the host's unembedding projection trivially acts as an additive scalar bias on the host's logit ($\Delta z_{\text{host}} > 0$). It boosted the host $+32\%$ because it was *target-specific*, not because out-of-room space is an abstract "volume knob".
+2. **Isotropic Entropy Noise ([`x15`](file:///C:/Users/devan/OneDrive/Desktop/Projects/AI%20Moonshots/moonshot-llm-genome/THINKING.md#L95-L128)):** The 10k-dim complement in `x15` is orthogonal to the room and carries no coherent alignment with any single token's unembedding. Scaling it moved logits $\sim 20\times$ as diffuse high-dimensional noise (top-1 $0.516$ vs ctrl $0.485$), creating neither content nor selective confidence.
+
+A true volume/confidence channel must be *content-independent* (scaling confidence for whatever token the prompt demands, like temperature or LayerNorm gain). If `e311`'s knob is token-specific, it is not a volume channel—it is an out-of-room direct logit bias masquerading as gain because it was only tested on the host's own prompt.
+
+**Cheapest Discriminating Measurement NOT Run:**  
+*The Off-Target Specificity Probe (CPU eval, zero training, seconds):*  
+Take the exact committed 1-dim trigger vector from `runs/e311/e311_hijack_vectors.pt` and evaluate it on prompts for an **unrelated known fact (Fact B)** and on the general validation set:
+- *If it is a true Volume Channel:* Fact B's confidence will also rise ($p(\text{Fact B}) \uparrow$, margin sharpens).
+- *If it is an Out-of-Room Logit Bias (the hole):* Fact B's read will degrade because Host A's logit intrudes unconditionally ($\Delta z_{\text{host}}$ acts as an unaddressed prior, suppressing Fact B in the denominator).
+
+---
+
+### Q2: Prediction for the 3-Room Ladder ([`W050`](file:///C:/Users/devan/OneDrive/Desktop/Projects/AI%20Moonshots/moonshot-llm-genome/THINKING.md#L10-L46))
+
+**Committed Ranking:**
+
+1. **Speed to Bar ($\text{steps to } p \ge 0.05$):**  
+   $$\textbf{Vacant (fastest)} < \textbf{Fresh Disjoint} < \textbf{Host-Occupied (slowest)}$$
+2. **Wash Stability ($\Delta p$ retention under corpus wash):**  
+   $$\textbf{Fresh Disjoint (most stable)} > \textbf{Vacant} \gg \textbf{Host-Occupied}$$
+
+**Mechanistic Rationale:**
+- **Why Vacant is fastest to cross:** In [`e321`](file:///C:/Users/devan/OneDrive/Desktop/Projects/AI%20Moonshots/moonshot-llm-genome/runs/e321/metrics.json), the parasite at $e10$ *already* sat at $0.0790$ (above the $0.05$ bar). The host's denominator weight is dead ($0.4366 \to 0.0003$), and attention routing into that coordinate room was already trained during the host's life. A short rehearsal stream easily ratifies an existing routing pathway.
+- **Why Host-Occupied is slowest:** Classic `e293` formation contention. The living host ($p=0.4366$) fiercely defends the softmax denominator; gradients must fight active cross-entropy competition before the parasite can register.
+- **The Catch (Fragile Tenancy):** The vacant room's discount is borrowed from the anti-controller's asymmetric push ($0.019 \to 0.079 \to 0.030$ recruit-then-relax). That relaxation curve proves the substrate exerts an elastic restorative force toward baseline. Under an unbiased corpus wash, the squatter in the vacant room will decay significantly faster than an install grounded in a fresh, dedicated orthogonal room.
+
+---
+
+### Q3: Next-GPU-Slot Fork: e322 vs e323
+
+**Decision: Run [`e323`](file:///C:/Users/devan/OneDrive/Desktop/Projects/AI%20Moonshots/moonshot-llm-genome/QUEUE.md) (The Cascade Guard) FIRST.**
+
+**Why e323 first:**
+1. **Audit Debt:** Review [`R71`](file:///C:/Users/devan/OneDrive/Desktop/Projects/AI%20Moonshots/moonshot-llm-genome/REVIEWS.md#L2242-L2255) caught the lab overstating repair ledgers and calling brackets "constants". The transport-kill bracket $[0.0065, 0.012]$ supports **five dependent structures** (Law 2b, Law 4 necessity, Law 5 Landauer pricing, T277 premise, and the dose scale $c = 0.0005 \times ||dW||$ used in `e311` and `W049`). If that bracket is a draw artifact, the entire dosing scaffolding collapses.
+2. **Execution Asymmetry:** `e323` is a fast, bounded falsification check (1 install + 2 short eval arms). 
+3. **No Perishability:** All checkpoints for `e322` are safely committed on disk (`runs/e311/`, `runs/e321/`). Exploration loses nothing by waiting one beat.
+
+**What would make me flip to e322:**  
+I would flip to `e322` first **only if**:
+- `e318` + `e320` lands with an anomalous failure on lone-fact tail subtraction, indicating that unlearning itself is fundamentally re-scoped and rendering the current transport-kill bracket moot; OR
+- `e322` is formally stripped of all dose-relative thresholds (pure relative step count across fixed checkpointed rooms), and the supervisor explicitly demands formation economics data before the next drafting window.
+
+---
+
+### Q4: Honest Self-Scorecard on Consult #009
+
+| Call | Outcome | Grade | Analysis |
+| :--- | :--- | :--- | :--- |
+| **COLLATERAL Prediction** | Confirmed (`P-e294sig`) | **HIT** | Correctly predicted that anti-controller erasure bleeds along the shared $\sim 73$-dim family brush while sparing out-of-family reads and general $CE_R$. |
+| **Softmax/LN Coupling** | Adopted (amended T272) | **PARTIAL** | **What was missed:** We framed the denominator coupling solely as *destructive interference / zero-sum suppression*. We completely missed that the denominator shift would produce **recruitment** (`e321`: erasing the host boosted the parasite from $0.019 \to 0.079$). Coupling is bidirectional. |
+| **Parasitic Hijacker** | Ran (`e311` dead, `e321` dead/mixed) | **MISS / OVERPROMISED** | **What we got wrong:** We oversold the idea of "zero-mass borrowing." A bearer is not a plug-and-play, token-agnostic engine that can be commandeered by a 1-dim attention nudge. Truncated static mass is not a seed (`e321`). |
+
+**What the lab should NOT have adopted:**  
+The lab should NOT have adopted **Arm (a) of `e311` (pure hijack with zero bearer mass)**.  
+Expecting a 1-dim perturbation at norm $0.0005 \times ||dW||$ to override an entrenched token binding across multi-head attention projections was wishful thinking. A quick parameter-budget sanity check should have ruled out "zero-bearer doublethink" before burning compute. The lab should have moved straight to testing whether partial spectrum seeds can form, bypassing the zero-mass diversion.

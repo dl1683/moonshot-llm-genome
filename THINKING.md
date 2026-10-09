@@ -39,6 +39,13 @@ slowest (formation-time collision, the e293 regime). If (b) holds
 instead, the room's biography ends at its fact's death — the womb is
 not an inheritance, just a space.
 
+ADDDED AT CONSULT #010 (cross-checked; agy's committed co-prediction, adopted):
+the SPEED ranking above (vacant fastest) comes with a WASH-STABILITY INVERSION —
+Fresh > Vacant >> Host-occupied ("fragile tenancy": the vacant room's discount is
+borrowed from the anti's asymmetric push; the relaxation curve implies an elastic
+restorative force, so the squatter decays fastest under an unbiased wash). The
+ladder's wash leg is now a first-class prediction, not a control.
+
 A free gem hiding in the design: arm (ii) is the DISTINCT-NAME INSTALL
 CONTENTION (e293) re-run at the single-fact scale with the modern
 instruments — the cell that halted the distinct-family program gets its
