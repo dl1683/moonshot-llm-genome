@@ -7,6 +7,37 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T274 — E312: the self-healing membrane — unlearning's true enemy is the organism's own repair (2026-10-09, datetime.now ~13:42Z)
+
+**The arc's three verdicts, told as one story.** Unprotected, the erase
+kills everyone (e294: COLLATERAL — the shared bearer cannot lose one
+member). Protected, the erase kills no one for long (e312: 16 kills /
+16 resurrections — the controllers' maintenance heals the TARGET through
+the same sharing). The family is not merely indivisible; it is ACTIVELY
+SELF-HEALING — the same free-rider channel that makes preservation cheap
+(e291: one controller lifts five) makes erasure impossible (e312: one
+controller's lift revives what the anti just killed). THE SHARING IS THE
+IMMUNE SYSTEM.
+
+**The two Landauer numbers, side by side.** Undefended erasure: priced
+at the constant (e294 — 0.020, the passive bracket). Defended erasure:
+24x (e313's rider — 0.489 and the erase still dissolved). IMMUNITY IS
+EXPENSIVE — but the striking thing is which side pays: the PROTECTOR
+wins the war of attrition at 0.93 maintenance-spend while the anti
+burns 0.50 and fails. In the organism's own currency, healing is
+cheaper than destruction when the bearer is shared.
+
+**The roads that remain (sharpened):** (1) SEQUENCING (e313-B,
+computing): erase with maintenance off, restore after — the
+resurrection needs the controllers LIVE during the erase; a corpse
+cannot heal. (2) THE TAIL SCALPEL: erase only the target's room-overlap
+components (the closed bearer law's target list) — the siblings'
+overlap untouched by construction. (3) BEARER-UNSHARING at formation —
+the e293 successor protocols; make the memories strangers before making
+one forgettable. The membrane's law: SELECTIVITY MUST BE BUILT AT
+BIRTH, NOT BOUGHT AT DEATH.
+
+
 ## T273 — E294+E305: the kill law inverted, and the price is right (2026-10-09, datetime.now ~12:07Z)
 
 **The unlearning mirror's first answer.** The anti-controller works as an
