@@ -3345,9 +3345,98 @@ def run_rider(dev, corpus, stoi, itos, train_ids, train_text, val_ids,
         + f"); write norm {org_write_norm:.4f} (e291's 19.2700): "
         f"{'PASS' if G_RIDER_FORMATION['pass'] else 'FAIL'}")
     if not G_RIDER_FORMATION["pass"]:
-        write_partial("RIDER G_RIDER_FORMATION FAILED — the fresh family "
-                      "is not a family member (TEXTURE; no redraw)")
-        raise RuntimeError("G_RIDER_FORMATION FAILED — TEXTURE, disclosed")
+        # THE RIDER'S FROZEN HALT PATH — completed as a full record (the
+        # primary's halt-path completion, applied to the rider's own gate;
+        # NO bar moved — the verdict is the registered one)
+        org_ck_halt = save_ckpt(
+            "e323_rider_organism", organism_sd,
+            {"desc": "e323's rider organism (OUT OF BAND — "
+                     "G_RIDER_FORMATION FAILED): the fresh-seed family "
+                     "redraw's completed state, kept for the autopsy",
+             "baseline_panel_g0": baseline_panel,
+             "write_norm": org_write_norm, "rooms": rooms5_ck})
+        G_RIDER_FORMATION["autopsy_checkpoint"] = org_ck_halt
+        metrics["gates"]["G_RIDER_FORMATION"] = G_RIDER_FORMATION
+        out_of_band = [f for f, v in baseline_panel.items()
+                       if not (lo <= v <= hi)]
+        metrics["rider"] = {
+            "the_family": {
+                "rooms": {"construction": "SHARED-FRAME (e291's class "
+                                          "VERBATIM)",
+                          "seeds": [RIDER_ROOM_D_SEED, RIDER_ROOM_S_SEED],
+                          "e291_seeds": [29111, 29112],
+                          "checkpoint": rooms5_ck,
+                          "certification": cert5},
+                "installs": {f"FACT{i + 1}": {
+                    "gen_seed": RIDER_INSTALL_GEN_SEEDS[i],
+                    "traj": rider_inst[f"FACT{i + 1}"]["traj"],
+                    "panel_final": (rider_inst[f"FACT{i + 1}"]["panel"][-1]
+                                    ["reads"] if rider_inst[f"FACT{i + 1}"]
+                                    ["panel"] else None)}
+                    for i in range(RIDER_N_ROOMS)},
+                "the_organism": {
+                    "checkpoint": org_ck_halt,
+                    "baseline_panel_g0": baseline_panel,
+                    "baseline_panel_gm12": baseline_panel12,
+                    "ce_r": org_ce_r, "write_norm": org_write_norm,
+                    "e291_write_norm": 19.270036448332284},
+            },
+            "adjudication": {
+                "bars_verbatim": {k: v for k, v in
+                                  REGISTERED["bars_verbatim"].items()
+                                  if k.startswith("RIDER")},
+                "gates_pass": False,
+                "failed_gates": ["G_RIDER_FORMATION"],
+                "reads": {
+                    "baseline_panel_g0": baseline_panel,
+                    "e291_committed_baselines": e291_base,
+                    "out_of_band_facts": out_of_band,
+                    "band": [lo, hi],
+                    "note": "the anti arm DID NOT RUN — the family "
+                            "formation gate halted before any war compute",
+                },
+                "verdict": "RIDER-TEXTURE (G_RIDER_FORMATION)",
+                "clause": (
+                    f"the fresh family redraw's completed-organism "
+                    f"baselines landed OUTSIDE [{lo}, {hi}]: "
+                    + "; ".join(f"{f}: {baseline_panel[f]:.4f} "
+                                f"(e291's {e291_base[f]:.4f})"
+                                for f in out_of_band)
+                    + f" — the install-draw lottery at formation (the "
+                    "primary's autopsy finding) propagates to the family "
+                    "construction: e291's committed baselines "
+                    "(gens 29121-29125) span 0.267-0.382, the fresh draw's "
+                    "(gens 32321-32325) land higher. ONE draw, no redraw, "
+                    "no shopping — the COLLATERAL-REPLICATES/"
+                    "FAMILY-DRAW-DEPENDENT question is UNANSWERED at this "
+                    "draw; the membrane law's n=1-family objection stands "
+                    "unanswered, now with the reason named: the family "
+                    "itself is install-draw-structured at formation"),
+                "smoke_stamp": ("SMOKE — nothing adjudicated" if SMOKE
+                                else None),
+            },
+        }
+        metrics["adjudication"]["rider_verdict"] = \
+            metrics["rider"]["adjudication"]["verdict"]
+        metrics["adjudication"]["rider_clause"] = \
+            metrics["rider"]["adjudication"]["clause"]
+        make_rider_formation_autopsy_plot(RD, metrics, baseline_panel,
+                                          e291_base, rider_inst)
+        write_partial("RIDER G_RIDER_FORMATION FAILED — RIDER-TEXTURE "
+                      "adjudicated, the record complete for the autopsy")
+        log("=" * 78)
+        log("E323 RIDER VERDICT: RIDER-TEXTURE (G_RIDER_FORMATION) — the "
+            "fresh family is not a family member; the anti arm never ran; "
+            "no shopping")
+        log(f"  {metrics['rider']['adjudication']['clause']}")
+        log("=" * 78)
+        metrics["outputs"].append(str(RD / "e323_rider_family.png"))
+        metrics["status"] = ("COMPLETE — primary TEXTURE (formation gate) "
+                             "+ rider TEXTURE (family formation gate); "
+                             "neither retention question was posed")
+        write_partial("DONE (both halt paths)")
+        log(f"total {time.time() - T0:.1f}s")
+        return
     org_ck = save_ckpt(
         "e323_rider_organism", organism_sd,
         {"desc": "e323's rider organism: the committed root + FIVE serial "
@@ -3529,6 +3618,50 @@ def run_rider(dev, corpus, stoi, itos, train_ids, train_text, val_ids,
 
 
 # ------------------------------------------------------------------ plots
+def make_rider_formation_autopsy_plot(rd, metrics, baseline_panel, e291_base,
+                                      rider_inst):
+    """THE RIDER HALT PATH'S FIGURE: the fresh family's formation autopsy —
+    per-fact baselines vs e291's committed family + the install
+    trajectories."""
+    fig, axes = plt.subplots(1, 2, figsize=(14.5, 5.6))
+    # (0) the baselines: fresh vs committed
+    ax = axes[0]
+    xs = np.arange(len(RIDER_FACTS))
+    ax.bar(xs - 0.18, [e291_base[f] for f in RIDER_FACTS], 0.36,
+           color="dimgray", label="e291 committed (gens 29121-29125)")
+    ax.bar(xs + 0.18, [baseline_panel[f] for f in RIDER_FACTS], 0.36,
+           color="tab:red", label="e323 fresh (gens 32321-32325)")
+    ax.axhspan(0.05, 0.45, color="gold", alpha=0.22,
+               label="the family band [0.05, 0.45]")
+    ax.set_xticks(xs)
+    ax.set_xticklabels(RIDER_FACTS)
+    ax.set_ylabel("completed-organism baseline g0")
+    ax.set_title("THE FAMILY REDRAW'S FORMATION — the install-draw lottery "
+                 "propagates to the family", fontsize=9.5)
+    ax.legend(fontsize=7.5)
+    ax.grid(alpha=0.25, axis="y")
+    # (1) the install trajectories
+    ax = axes[1]
+    for i, f in enumerate(RIDER_FACTS):
+        tr = rider_inst[f]["traj"]
+        if tr:
+            ax.plot([t["step"] for t in tr], [t["own_g0"] for t in tr],
+                    "o-", ms=4, lw=1.4, label=f"{f} (gen "
+                    f"{RIDER_INSTALL_GEN_SEEDS[i]})")
+    ax.axhspan(0.05, 0.45, color="gold", alpha=0.22)
+    ax.set_xlabel("install step s (each fact's own Dmix install)")
+    ax.set_ylabel("own-g0 (the fact's battery)")
+    ax.set_title("THE FIVE SERIAL INSTALLS (fresh draws)", fontsize=9.5)
+    ax.legend(fontsize=7.0)
+    ax.grid(alpha=0.25)
+    fig.suptitle("E323 RIDER — halted at the family formation gate "
+                 "(RIDER-TEXTURE; the anti arm never ran; no shopping)",
+                 fontsize=10.5)
+    fig.tight_layout(rect=(0, 0.02, 1, 0.93))
+    fig.savefig(rd / "e323_rider_family.png", dpi=130)
+    plt.close(fig)
+
+
 def make_formation_autopsy_plot(rd, metrics, inst_traj, fresh_g0):
     """THE HALT PATH'S FIGURE: the formation autopsy — the fresh draw's
     install trajectory vs the committed family's, the trust band, and the
