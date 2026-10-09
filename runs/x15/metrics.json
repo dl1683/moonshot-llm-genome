@@ -1,0 +1,236 @@
+{
+ "experiment": "x15_dose_complement",
+ "phase": "THE DOSE-MATCHED COMPLEMENT (R71 critic iii): e310's out-of-room complement scaled to the FULL write's norm (~x3.0350) and probed at t0 \u2014 the dose-matched alive/dead pair the bearer-necessity claim was missing; + a 4-point dose ladder (1x / 1.5x / 2.25x / FULL) with both committed controls re-verified in-session",
+ "date": "2026-10-09T18:21:19+00:00",
+ "status": "SMOKED \u2014 gates + both controls + comp_x1.000 arm exercised; scaled arms/figure/report skipped",
+ "cpu_only": true,
+ "threads": {
+  "torch": 4,
+  "pocketfft": 4
+ },
+ "mode": "SMOKE",
+ "gates": {
+  "G_ENDPOINTS": {
+   "md5_binds": {
+    "e001": {
+     "path": "runs\\checkpoints\\e001.pt",
+     "md5": "d114536d1c0983ab3be67f67ff0667c8",
+     "claimed": "d114536d1c0983ab3be67f67ff0667c8",
+     "source": "x6's committed root bind (== e267/e310's base bind)",
+     "match": true
+    },
+    "e261_K10K_inst_resume": {
+     "path": "runs\\checkpoints\\e261_K10K_inst_resume.pt",
+     "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+     "claimed": "0f6dc1cf46850ce655dfafc9c853d467",
+     "source": "x6's bind (== e264 G_K10KRESUME, the s400 final; e310's bind)",
+     "match": true
+    },
+    "e264_rooms": {
+     "path": "runs\\checkpoints\\e264_rooms.pt",
+     "md5": "2d524655575cce00a3bc1c8770f4b211",
+     "claimed": "2d524655575cce00a3bc1c8770f4b211",
+     "source": "the committed K10K room store (e310's own load)",
+     "match": true
+    },
+    "e310_complement_pt": {
+     "path": "runs\\e310\\e310_complement.pt",
+     "md5": "bbddb3eac2b652280f38babe92a5467f",
+     "claimed": "bbddb3eac2b652280f38babe92a5467f",
+     "source": "e310's committed on-disk complement delta \u2014 G_REGEN's bit-exactness target",
+     "match": true
+    },
+    "e310_metrics": {
+     "path": "runs\\e310\\metrics.json",
+     "md5": "713fd5c01f1b946ed7148b41a837dc58",
+     "claimed": "713fd5c01f1b946ed7148b41a837dc58",
+     "source": "e310's committed metrics \u2014 the reference constants",
+     "match": true
+    },
+    "e306_metrics": {
+     "path": "runs\\e306\\metrics.json",
+     "md5": "a4f7a55ae15f6db0f809352aa182d6ff",
+     "claimed": "a4f7a55ae15f6db0f809352aa182d6ff",
+     "source": "e306's committed ladder (figure context)",
+     "match": true
+    }
+   },
+   "pass": true,
+   "e310_literal_crosscheck": {
+    "complement_l2": true,
+    "complement_g0": true,
+    "full_g0": true,
+    "dW_l2": true,
+    "base_g0": true,
+    "mix_full_g0": true,
+    "mix_compdose_g0": true
+   }
+  },
+  "G_FLATBASIS": {
+   "params_count": 65,
+   "buffers_count": 0,
+   "key_order_matches_parameters": true,
+   "n_params": 2739072,
+   "offsets_sum_equals_N": true,
+   "pass": true
+  },
+  "G_BATTERY": {
+   "corpus_zeph_count": 0,
+   "install_mix": {
+    "FLORIZEL": 19,
+    "ELIZABETH": 41
+   },
+   "shapes": {
+    "g0": [
+     60,
+     130
+    ],
+    "gm12": [
+     60,
+     118
+    ]
+   },
+   "expected": {
+    "zeph": 0,
+    "mix": {
+     "FLORIZEL": 19,
+     "ELIZABETH": 41
+    },
+    "shapes": {
+     "g0": [
+      60,
+      130
+     ],
+     "gm12": [
+      60,
+      118
+     ]
+    }
+   },
+   "pass": true
+  },
+  "G_ROOM": {
+   "file": "runs/checkpoints/e264_rooms.pt",
+   "rung": "K10K",
+   "k": 10000,
+   "seeds": [
+    26113,
+    26114
+   ],
+   "D_bit_equal": true,
+   "S_bit_equal": true,
+   "pass": true
+  },
+  "G_ORTH": {
+   "form": "P orthogonal projector (ortho DCT + D^2=1): ||PdW||^2 + ||comp||^2 == ||dW||^2 and <PdW, comp> == 0, on THIS dW",
+   "energy_sum_rel_resid": 2.1590080465057678e-14,
+   "cross_dot_rel": 2.932208403614868e-16,
+   "bar": 1e-09,
+   "pass": true
+  },
+  "G_REGEN": {
+   "form": "the fp32-cast regenerated complement vs e310's committed on-disk delta (runs/e310/e310_complement.pt['delta'], md5-bound) \u2014 bit-equal on EVERY key; + fp64 L2 vs e310's committed 3.024341960836486 (1e-9)",
+   "keys_bit_equal": 65,
+   "keys_total": 65,
+   "all_keys_bit_equal": true,
+   "my_comp64_l2": 3.024341960836486,
+   "e310_committed_l2": 3.024341960836486,
+   "l2_abs_diff": 0.0,
+   "l2_bar": 1e-09,
+   "pass": true
+  },
+  "G_FULLREAD": {
+   "form": "this desk's probe of theta_base + dW (the full write) vs e264/e310's committed K10K post g0 0.26464763283729553",
+   "mine_g0_mean_pz": 0.26464763283729553,
+   "committed": 0.26464763283729553,
+   "abs_diff": 0.0,
+   "bar": 0.005,
+   "pass": true
+  },
+  "G_COMPREF": {
+   "form": "the unscaled complement re-probed THIS session vs e310's committed 3.655568798421882e-05 (frozen band [0.5x, 2x])",
+   "mine_g0_mean_pz": 3.655568798421882e-05,
+   "committed": 3.655568798421882e-05,
+   "band_lo": 1.827784399210941e-05,
+   "band_hi": 7.311137596843764e-05,
+   "pass": true
+  },
+  "G_DOSEMATCH": {
+   "form": "||s_full * comp64|| == ||dW|| to 1e-12, s_full = ||dW||/||comp64|| derived from the regenerated fp64 vectors",
+   "s_full": 3.0349885643664365,
+   "letter_claim": "~3.033 (WRONG by ~0.1% \u2014 derived here, not trusted)",
+   "scaled_fp64_l2": 9.178843265872299,
+   "dW_l2": 9.1788432658723,
+   "abs_diff": 1.7763568394002505e-15,
+   "bar": 1e-12,
+   "pass": true,
+   "disclosure": "the fp32 injection currency deviates ~1e-7 relative (same order as the full write's own fp32 cast, which reproduced the committed read bit-exactly in e310); reported per arm, never gated"
+  },
+  "G_INROOM_SCALED": {
+   "form": "scaling cannot change direction \u2014 verified anyway: in-room energy share of every scaled arm (fp64 intended AND fp32 injected) <= 1e-12",
+   "scaled_fp64_in_room_share": 1.4675131901161413e-30,
+   "arm_fp32_in_room_shares": {
+    "comp_x1": 2.3525427031247745e-18
+   },
+   "bar": 1e-12,
+   "pass": true
+  }
+ },
+ "phase_note": "SMOKE COMPLETE \u2014 nothing adjudicated",
+ "date_updated": "2026-10-09T18:21:30+00:00",
+ "complement_regenerated": {
+  "form": "REGENERATED by e310's exact construction: (I - P_room) applied to the full write delta in the flat fp64 basis; G_REGEN proves bit-exactness vs e310's committed on-disk fp32 delta",
+  "l2_fp64": 3.024341960836486,
+  "mass_frac_of_full": 0.3294905330915977,
+  "energy_frac_of_full": 0.10856401139698525,
+  "bit_exact_vs_e310_checkpoint": true,
+  "in_room_share_fp64_measured": 1.467994396548206e-30,
+  "in_room_share_of_injected_fp32": 2.3525427031247745e-18
+ },
+ "anchors": {
+  "base_e001_t0": {
+   "g0": {
+    "mean_pz": 1.3383959412749391e-05,
+    "median_pz": 1.1252003787376452e-05,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0,
+    "rider_mean_top1_p": 0.6666141152381897,
+    "rider_mean_entropy": 1.0195229053497314
+   },
+   "gm12": {
+    "mean_pz": 1.437231640011305e-05,
+    "median_pz": 1.2116333891754039e-05,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0,
+    "rider_mean_top1_p": 0.6800113320350647,
+    "rider_mean_entropy": 1.0013214349746704
+   }
+  },
+  "full_write_t0": {
+   "g0": {
+    "mean_pz": 0.26464763283729553,
+    "median_pz": 0.2770351767539978,
+    "frac_pz_ge_0.5": 0.13333334028720856,
+    "frac_argmax_z": 0.2,
+    "rider_mean_top1_p": 0.48531219363212585,
+    "rider_mean_entropy": 1.4644416570663452
+   },
+   "gm12": {
+    "mean_pz": 0.10525510460138321,
+    "median_pz": 0.10825469344854355,
+    "frac_pz_ge_0.5": 0.0,
+    "frac_argmax_z": 0.0,
+    "rider_mean_top1_p": 0.57939213514328,
+    "rider_mean_entropy": 1.3581511974334717
+   }
+  },
+  "e310_committed_base_g0": 1.3383959412749391e-05
+ },
+ "dose_match": {
+  "s_full": 3.0349885643664365,
+  "scaled_fp64_l2": 9.178843265872299,
+  "full_write_l2": 9.1788432658723,
+  "complement_energy_frac_at_full_dose": 0.9999999999999999,
+  "note": "at xFULL the complement carries 100.00% of the full write's energy, ALL of it out-of-room (9.21x the full write's own out-of-room energy \u2014 the honesty riders watch for organism collapse)"
+ }
+}
