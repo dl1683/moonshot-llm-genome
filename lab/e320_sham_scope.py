@@ -614,7 +614,7 @@ def main():
                          "note": "the saturated column's parent"},
         "e311_metrics": {"path": str(E311_METRICS), "md5": md5of(E311_METRICS),
                          "bound_md5": E311_MD5,
-                         "verdict": e311m["adjudication"]["verdict"],
+                         "verdict": e311m["adjudication"]["word"],
                          "r10_seed_norm": d1_parent,
                          "r10_seedonly_host_g0": e321_r10,
                          "note": "D1's parent (the r10 scale + the "
@@ -628,7 +628,7 @@ def main():
                                  "(FACT3 0.359)"},
         "e321_metrics": {"path": str(E321_METRICS), "md5": md5of(E321_METRICS),
                          "bound_md5": E321_MD5,
-                         "verdict": e321m["adjudication"]["verdict"],
+                         "verdict": e321m["adjudication"]["word"],
                          "r1000_seed_norm": d3_parent,
                          "host_baseline_g0": e321_host,
                          "r1000_seedonly_host_g0": e321_r1000,
@@ -650,7 +650,7 @@ def main():
                      and md5of(E321_METRICS) == E321_MD5
                      and e288m["adjudication"]["verdict"] == E288_VERDICT
                      and e314m["adjudication"]["word"] == E314_VERDICT
-                     and e321m["adjudication"]["verdict"] == E321_VERDICT
+                     and e321m["adjudication"]["word"] == E321_VERDICT
                      and abs(d1_parent - D1_LIT) <= DOSE_BIND_TOL
                      and abs(d3_parent - D3_LIT) <= DOSE_BIND_TOL
                      and abs(d4_parent - D4_LIT) <= DOSE_BIND_TOL

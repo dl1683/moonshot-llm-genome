@@ -999,15 +999,17 @@ def main():
     c1_stamp = ("LONE-DIES" if c1_kills else
                 ("LONE-SURVIVES" if c1_all_hold else "MIXED"))
 
-    # the prediction scorings (frozen at birth)
+    # the prediction scorings (frozen at birth; over the LIVE sweep —
+    # meaningful only in the full run; smoke stamps everything anyway)
     fam_fracs = {a: E314_FAMILY_SCALPEL[a] / E314_FAMILY_BASELINE
-                 for a in SWEEP}
+                 for a in sweep}
     prim_fracs = {a: prim[str(a)]["g0"] / ORG_BASELINE_G0 for a in sweep}
     p_a = bool(word == "LONE-SURVIVES"
-               and prim[str(1.0)]["g0"] >= SURVIVE_BAR
-               and all(prim_fracs[a] < fam_fracs[a] for a in SWEEP))
+               and prim.get(str(1.0), prim[str(sweep[-1])])["g0"]
+               >= SURVIVE_BAR
+               and all(prim_fracs[a] < fam_fracs[a] for a in sweep))
     p_b = bool(word == "LONE-SURVIVES"
-               and all(prim_fracs[a] >= fam_fracs[a] for a in SWEEP))
+               and all(prim_fracs[a] >= fam_fracs[a] for a in sweep))
     adjudication = {
         "word": word,
         "clause": clause,
@@ -1028,7 +1030,7 @@ def main():
             "baseline": E314_FAMILY_BASELINE,
             "scalpel_g0": {str(a): E314_FAMILY_SCALPEL[a] for a in SWEEP},
             "scalpel_frac_of_baseline": {str(a): fam_fracs[a]
-                                         for a in SWEEP},
+                                         for a in sweep},
             "sham_ref_alpha1": E314_FAMILY_SHAM_REF},
         "prediction_scoring": {
             "P-e318a_lab_guess": {
@@ -1054,9 +1056,9 @@ def main():
         + f" | C1: " + " ".join(f"{c1[str(a)]['g0']:.4f}" for a in sweep)
         + f" ({c1_stamp})")
     log(f"    family fracs: "
-        + " ".join(f"{fam_fracs[a]:.3f}" for a in SWEEP)
+        + " ".join(f"{fam_fracs[a]:.3f}" for a in sweep)
         + " | primary fracs: "
-        + " ".join(f"{prim_fracs[a]:.3f}" for a in SWEEP))
+        + " ".join(f"{prim_fracs[a]:.3f}" for a in sweep))
     log(f"    P-e318a (lab guess) scored {p_a}; P-e318b (executor "
         f"counter) scored {p_b}")
     write_partial("P6 adjudicated" if not SMOKE else "P6 smoke complete")
@@ -1069,13 +1071,13 @@ def main():
     # (a) absolute reads
     ax = axes[0]
     ax.plot(xs, [E314_FAMILY_BASELINE] + [E314_FAMILY_SCALPEL[a]
-                                          for a in SWEEP],
+                                          for a in sweep],
             "-s", color="tab:purple", lw=2.0, label=
             "e314 FAMILY (FACT3, five siblings)")
-    ax.plot(xs, [ORG_BASELINE_G0] + [prim[str(a)]["g0"] for a in SWEEP],
+    ax.plot(xs, [ORG_BASELINE_G0] + [prim[str(a)]["g0"] for a in sweep],
             "-o", color="tab:red", lw=3.0, zorder=5,
             label="e318 LONE (e288 ERROR-GATED, PRIMARY)")
-    ax.plot(xs, [C1_BASELINE_G0] + [c1[str(a)]["g0"] for a in SWEEP],
+    ax.plot(xs, [C1_BASELINE_G0] + [c1[str(a)]["g0"] for a in sweep],
             "--^", color="tab:orange", lw=1.8,
             label="e318 LONE C1 replicate (e289)")
     ax.scatter([1.0], [E314_FAMILY_SHAM_REF], marker="*", s=160,
@@ -1096,13 +1098,13 @@ def main():
     ax.legend(fontsize=8, loc="best")
     # (b) fraction of baseline (the shape comparison)
     ax = axes[1]
-    ax.plot(xs, [1.0] + [fam_fracs[a] for a in SWEEP],
+    ax.plot(xs, [1.0] + [fam_fracs[a] for a in sweep],
             "-s", color="tab:purple", lw=2.0, label="e314 family curve")
-    ax.plot(xs, [1.0] + [prim_fracs[a] for a in SWEEP],
+    ax.plot(xs, [1.0] + [prim_fracs[a] for a in sweep],
             "-o", color="tab:red", lw=3.0, zorder=5,
             label="e318 lone PRIMARY")
     ax.plot(xs, [1.0] + [c1[str(a)]["g0"] / C1_BASELINE_G0
-                         for a in SWEEP],
+                         for a in sweep],
             "--^", color="tab:orange", lw=1.8, label="e318 lone C1")
     ax.axhline(1.0, color="k", lw=0.8, alpha=0.5)
     ax.set_xlabel("alpha (fraction of P_K10K(dW) subtracted)")
