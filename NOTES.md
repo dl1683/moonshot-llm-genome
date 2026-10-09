@@ -40,6 +40,20 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e294 — THE ANTI-CONTROLLER (the kill law inverted; the unlearning era opens) + THE e305 LANDAUER LEDGER: COLLATERAL — FACT3 dies (0.001324 < 0.01; t_erase 25 steps) BUT ALL FOUR SIBLINGS FALL TOO (0/4 hold in both ABS and TWIN-REL terms): THE SHARED REPRESENTATION BLEEDS — within-family erasure is all-or-nothing (the siblings share the bearer; ascent on one pulls the shared subspace down with it) — AGY'S REGISTERED PREDICTION CONFIRMED (COLLATERAL, called before compute in consult #009); THE LANDAUER RIDER: PRICED-AT-THE-CONSTANT — the anti's work 0.020003 sits INSIDE the passive threshold bracket [0.005307, 0.024165]: ERASURE HAS A METHOD-INDEPENDENT PRICE (the kill law's constant prices both passive drift and directed ascent — the lab's Landauer number, and e290's bracket promoted from survival law to ERASURE LAW); the selectivity test is within-family (disclosed: the siblings share representation — the HARDEST selectivity case; if surgical erase is impossible here, it may be possible nowhere the bearer is shared); P-e294sig's signature check (subspace-confined vs broad-brush) rides the complete-write harvest (2026-10-09, datetime.now) — DONE
+
+WHAT WE SAW: the unlearning mirror's first honest answer: the same
+sharing that makes the controller's peace cheap (one antibody lifts all)
+makes the anti-controller's war total (one ascent kills all) — THE
+FAMILY IS ONE MEMORIA, IN BOTH DIRECTIONS. And the price is right:
+directed erasure costs no more than passive drift at the threshold —
+no Maxwell demon of forgetting, no immunity premium; forgetting is
+PRICED, not free and not forbidden. The unlearning program's next
+question sharpens: selective erasure requires either a bearer to
+unshare (distinct rooms at formation — e293's successor protocols)
+or a scalpel finer than the shared brush (the room-overlap tail
+itself — e306/e310's closed law hands the target list).
+
 ## e310 — THE COMPLEMENTARY BEARER CONTROL (R70's circularity-killer): READ-DEAD-MASS-HIGH — THE BEARER CLAIM SURVIVES ITS CONTROL: the complementary write (the full 10k write MINUS its room-overlap components — perpendicular to the room by construction, gate 2.2e-14) reads 3.66e-05 DEAD while carrying 10.86% >= 10% of the full write's energy (32.95% of its mass): ROOM-OVERLAP IS NECESSARY FOR THE READ — the bearer is the tail that overlaps the room; e306's claim survives R70's critic-iii circularity attack; Law 3's ~7-dims clause does NOT revive (that was the READ-ALIVE branch); THE THREE-WAY TABLE: full 0.2646 alive (89.14% in-room) / complement DEAD (0% in-room) / mix-50/50-at-full-dose 0.0631 ALIVE-MID (50% in-room) — halving the in-room share cuts the read 4.2x; at complement-dose the 50/50 mix is DEAD: spectrum and dose both matter, but NO ARM EVER READS WITHOUT ROOM-OVERLAP; the complement is structured (median per-matrix T3 0.088 — between the null ~0.002 and the controller footprints ~0.19-0.23) — the out-of-room energy is not noise, it is real structure that does not read (2026-10-09, datetime.now) — DONE
 
 WHAT WE SAW: the necessity leg of the bearer law, closed. e306 showed
