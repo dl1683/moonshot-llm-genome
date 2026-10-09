@@ -7,6 +7,44 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W051 — the resurrection's proof of life: loud is not alive (2026-10-09, datetime.now ~19:27Z)
+
+The membrane law's central spectacle — the sibling controllers
+resurrecting the erased FACT3 (e312: 16 kills / 16 resurrections; e313:
+first return at round 3, 0.863 of baseline by round 5) — was measured
+in ONE currency: the read's probability at the literal install
+contexts. Tonight x16 taught the lab that probability moves have TWO
+mechanically distinct sources: CONTENT (the read's address restored)
+and BIAS (a targeted logit push with near-zero off-target footprint).
+Nobody has ever asked which currency the resurrections were paid in.
+
+THE QUESTION: when the family resurrects its dead member, does the
+fact's CONTENT return (generalization: paraphrase reads, the e291
+battery) or only its LOUDNESS (the literal string's probability lifted
+by the shared maintenance stroke riding the same subspace — the
+-0.9265 anti/controller tug cosine says the strokes are nearly
+parallel, and a parallel stroke that heals siblings can plausibly
+re-bias the dead name's logit without rebuilding its address)?
+
+THE DISCRIMINATING OBSERVATION (all committed assets): the e312/e313
+war-state checkpoints exist; run FACT3's PARAPHRASE battery (and a
+held-out literal battery) at the resurrection moments vs the pre-erase
+baseline. CONTENT-RETURNS: paraphrases recover in proportion to the
+literal read. LOUD-ONLY: the literal string recovers while paraphrases
+stay dead — the resurrection is a haunting, not a revival, and the
+membrane law's "indivisibility" needs the rider that what it shares is
+the VOLUME channel too.
+
+WHY IT MATTERS BEYOND THE CHAPTER: e309's surgery-vs-cons fork asked
+the same question of corpse revival and answered it geometrically
+(corpse-tracked vs corpse-independent). The family resurrection is the
+third revival route and the only one never audited for content. If it
+is loud-only, then NO road to true selective restoration exists at all
+— not even the family's — and unlearning-by-formation (bearer
+unsharing) is the field's only lever, full stop. Rides naturally as
+the R72-noted rider on x19's corpse-dial session (the x16 battery +
+paraphase audit on the war states).
+
 ## T283 — X16: the knife is surgical — a context-gated targeted bias, not a volume dial (2026-10-09, datetime.now ~19:01Z [R72 re-base: was hand-guessed 19:08])
 
 Both registered predictions fell, and the table beneath them is the
