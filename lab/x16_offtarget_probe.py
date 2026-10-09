@@ -650,7 +650,7 @@ def main() -> None:
                              "theirs": e311_armA["host_g0"]},
             "armA_flat_md5": {"mine": E311_ARM_A_FLAT_MD5,
                               "theirs": e311m["arms"]["PURE-HIJACK"]
-                              ["flat_md5"]},
+                              ["reads"]["flat_md5"]},
             "trigger_bytes_md5": {"mine": E311_TRIGGER_BYTES_MD5},
             "trigger_inroom": {"mine": E311_TRIG_INROOM,
                                "theirs": e311_trig["in_room_frac_of_trigger"]},
@@ -664,7 +664,7 @@ def main() -> None:
                      and e311_vmd5 == E311_VECTORS_MD5
                      and e311m["adjudication"]["word"] == E311_METRICS_VERDICT
                      and e311_armA["host_g0"] == E311_ARM_A_HOST_G0
-                     and e311m["arms"]["PURE-HIJACK"]["flat_md5"]
+                     and e311m["arms"]["PURE-HIJACK"]["reads"]["flat_md5"]
                      == E311_ARM_A_FLAT_MD5
                      and e311_trig["in_room_frac_of_trigger"]
                      == E311_TRIG_INROOM
