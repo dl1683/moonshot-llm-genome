@@ -40,6 +40,17 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e309 — THE CORPSE SEESAW (one corpse, two revival routes): TWO-MEMORIES — surgery revives the ORIGINAL write's read (corpse-dependent: 7.08x range across classes, mass-tracked rho +0.883, the product = theta0 + P(delta) by construction) while the cons builds ITS OWN standard construction on ANY substrate (the NO-WRITE zero-point control reaches 89.7% of the seeded mean; the landing varies just 1.25x across a sweep including nothing; the decisive geometry: e268/e270's landing states rank corpse-seeded ABOVE alive-seeded in-room — the landing geometry is the cons's SIGNATURE, not the write's) — e179's 'resurrection' and x14's 'resurrection' are DIFFERENT EVENTS sharing a name: revival vs REPLACEMENT; the value leg UNITS-BARRED (honestly: the routes were never measured in a common unit — no committed record reads a cons landing in the post-g0 battery or a surgery product in the root battery; the identity verdict decided WITHIN batteries, never needing the conversion); the named successor: a cons run from an ORTHOGONAL-class corpse (the cons column is empty at exactly the class where surgery restores 1.0000 — the clean head-to-head nobody has run) (2026-10-09, datetime.now) — DONE
+
+WHAT WE SAW: two revival vocabularies collapse into one distinction. The
+subtraction route reads the CORPSE (its output tracks what survived); the
+cons route reads ITSELF (its output is corpse-independent, band-fixed). In
+the organism's own terms: SURGERY IS REMEMBERING; THE CONS IS RE-
+LEARNING. The lab's oldest two findings — e179's one-replay law and x14's
+subtraction — are not two doors to one memory but two different events,
+and the whole rehearsal-lane story (the cons teaching from anything)
+now includes its complement: the surgery teaching from ONLY the thing.
+
 ## e307 — THE MAINTENANCE FOOTPRINT (the geometry of the controller's carving; survived the rate-limiter kill complete on disk): MIXED/INSTRUMENT-MISSING as the frozen word [carried per R70] (the rank clause failed) — BUT THE SHAPE IS THE FINDING [a derived reading, not the adjudicated verdict]: the footprint REPEATS STRONGLY (cross-event cos R1 = 0.800; consecutive-step cos 0.984 — ONE direction reused every event, ~16 applications of nearly the same step) yet is MEDIUM-RANK (top-3 SVD only 20.6%; 73 dims at 90% energy — not low-rank, not high-rank) and rides FAR BELOW CHANCE IN-ROOM (0.0037 vs the 0.06 chance floor — the ACCUMULATED footprint is 16x MORE out-of-room than single gradients: the controller's medicine lives almost entirely outside the room it was never aimed into); rho_mean 0.72 (state-tracking present but the repeat dominates); the class is STABLE across contexts (neutral R1 0.800 / denial R1 0.793; the denial footprint cos~the neutral's — ONE ANTIBODY, ONE SHAPE, context-invariant); the reading: THE CONTROLLER FOUND A REUSABLE ~73-DIMENSIONAL STROKE — not a vital signal (too broad), not navigation (too repeating): A BRUSH (2026-10-06, datetime.now) — DONE
 
 WHAT WE SAW: preservation has a characteristic gesture. Every maintenance
