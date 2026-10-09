@@ -1288,6 +1288,10 @@ def thin_maint_phase(tag: str, injected_sd: dict,
         t_burst = None
     net.eval()
     sd_cpu = {k: v.detach().cpu().clone() for k, v in net.state_dict().items()}
+    state.update({"S_corpus": S_corpus, "S_maint": S_maint,
+                  "n_capped": n_capped, "n_maint": n_maint,
+                  "n_maint_capped": n_maint_capped, "orth_max": orth_max,
+                  "chunk_table": chunk_table})
     out = _thin_final(state, n_steps)
     out["sd"] = sd_cpu
     out["bufF_final_flat"] = opt_buffer_flat(opt_F, list(net.parameters()))
@@ -1704,6 +1708,10 @@ def seq_phase1(tag: str, net0_sd: dict, rooms, organism_flat_np: np.ndarray,
         t_burst = None
     net.eval()
     sd_cpu = {k: v.detach().cpu().clone() for k, v in net.state_dict().items()}
+    state.update({"S_corpus": S_corpus, "S_anti": S_anti,
+                  "n_capped": n_capped, "n_anti": n_anti,
+                  "n_anti_capped": n_anti_capped, "orth_max": orth_max,
+                  "chunk_table": chunk_table})
     out = _p1_final(state, n_steps)
     out["sd"] = sd_cpu
     out["anti_cum_np"] = anti_cum.double().cpu().numpy()
@@ -2204,6 +2212,7 @@ def seq_restore_phase(tag: str, start_sd: dict, rooms,
         t_burst = None
     net.eval()
     sd_cpu = {k: v.detach().cpu().clone() for k, v in net.state_dict().items()}
+    state.update({"S_restore": S_restore, "events_done": events_done})
     out = _p2_final(state, RESTORE_ROUNDS)
     out["sd"] = sd_cpu
     out["restore_cums_np"] = [c.double().cpu().numpy() for c in maint_cums]
