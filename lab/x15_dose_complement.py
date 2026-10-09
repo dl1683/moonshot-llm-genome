@@ -843,7 +843,7 @@ p_score = {
                        ("MISS — ALIVE fired" if verdict == "ALIVE" else
                         "PARTIAL — the GAP reading (dead by e310's floor, "
                         "not by the frozen 0.01 bar)")),
-    "P-x15a_exec_subprediction": P_X15a["executor_position"],
+    "P-x15a_exec_subprediction": P_X15A["executor_position"],
     "P-x15a_exec_outcome": ("HIT — g < 1e-3" if g_full_dose < 1e-3 else
                             f"MISS — g = {g_full_dose:.6g} >= 1e-3"),
 }
