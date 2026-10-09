@@ -71,8 +71,10 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
   (e321's recruit-then-relax; e293's zero-sum at erasure scale).
 - GATES: x16 DONE (context-gated targeted bias); x22 DONE (T287: the committee
   geography — mass-proportional additive push, seatable nowhere, the gate is the
-  state); REMAINING: e322 (the womb-rent economics) + x19 (state-side gating) for
-  the confidence clause's final form.
+  state); x19 DONE (T289: the gate is BEARER-coupled — the state is the authorship-
+  structured write; anti kills address, scalpel kills authorship; e325 the double
+  kill registered). REMAINING: e322 (the womb-rent economics) for the vacancy
+  clause.
 
 ## DELIBERATELY OUT (until their cells land)
 The gain-knob's nature (x16), womb-rent economics (e322), wound-ward medicine (e315),

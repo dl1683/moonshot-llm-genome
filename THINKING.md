@@ -7,6 +7,42 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T289 — X19: the two removals — anti kills the address, scalpel kills the authorship, and nothing ever removed both (2026-10-09, datetime.now ~21:20Z)
+
+The corpse's dial returned the evening's most elegant structure. The
+amplification gate does not track the read's VALUE — it tracks the
+WRITE'S MASS. The anti-erased corpses (read 0.0016, 0.0003 — dead by
+any behavioral bar) still amplify aligned pushes at 56-72% of live:
+their bearer mass is ~intact (the erase moved 0.13-0.15 norm), and the
+gate lives there. The scalpeled states (read 0.35, 0.09 — alive!) have
+LOST the amplification (6-7% of live push): their bearer mass is gone
+(subtracted at 8.7-13.0 norm), and the read survives on the out-of-room
+address alone. THE ORGANISM REMEMBERS ITS AUTHORS IN THE MASS, NOT IN
+THE BEHAVIOR.
+
+THE TWO-REMOVALS MAP, now clean: the ANTI-CONTROLLER removes the
+address (the read dies, the authorship mass stands — which is WHY e313's
+resurrections worked: the restore only had to re-light an address on an
+intact bearer); the SCALPEL removes the authorship (the gate dies, the
+read lives elsewhere). EVERY unlearning road of the chapter removed one
+component while the other kept — or resurrected — the read. THE
+SUCCESSOR THIS FORCES: e325 THE DOUBLE KILL — the anti's corpse (bearer
+intact, address dead) under the scalpel (remove the bearer too), then
+the restore attempt: if the read stays dead, the lab's FIRST complete
+unlearning, by composition of its two failed instruments; if it STILL
+returns, the address can be rebuilt from nothing (the cons lesson) and
+unlearning requires blocking re-formation itself.
+
+W051 SETTLED GENTLY: the e313 resurrection returns paraphrases at x1.272
+(ratio 1.475 over literal) — the revival was content, not haunting; the
+membrane's memory is real. But the trigger control can never be skipped
+again: the gating never left the dead family.
+
+AND THE LEDGER: the sixth consecutive lab mechanism miss (this one bet
+the gate would track liveness — it tracks the BEARER). The instruments
+have now won six straight; the standing correction is itself becoming
+the lab's most reliable predictor.
+
 ## T288 — E323: the formation lottery's hierarchy — the install draw outranks the room draw, and the committed canon is one biography (2026-10-09, datetime.now ~21:05Z)
 
 The cascade guard was sent to bound the retention bracket's draw
