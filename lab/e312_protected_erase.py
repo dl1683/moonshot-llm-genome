@@ -1016,6 +1016,10 @@ def med(xs):
     return float(xs[len(xs) // 2]) if xs else None
 
 
+def _fm(v, spec=".4f"):
+    return format(v, spec) if v is not None else "n/a"
+
+
 # ======================================================================
 # THE COMPOSED-PHASE DRIVER — the corpus stream (both arms, bit-identical
 # draws) + THE COMPOSITION on arm (a): at every M-boundary the ANTI event
@@ -1318,8 +1322,10 @@ def composed_phase(tag: str, protected: bool, net0_sd: dict,
                 # ---- THE STATIC COMPOSITION PROBE at the FIRST boundary:
                 # all the arm's intervention gradients at the SAME
                 # pre-event state (scratch replays of the generators'
-                # opening draws) — the tug's geometry read clean.
-                if not static_probe_done:
+                # opening draws) — the tug's geometry read clean (arm (a)
+                # only: the twin's pre-event state at the first boundary
+                # is identical by construction — pure duplication).
+                if not static_probe_done and protected:
                     agen_s = torch.Generator().manual_seed(ANTI_GEN_SEED)
                     mgen_s = torch.Generator().manual_seed(MAINT_GEN_SEED)
                     rows = []
@@ -1350,12 +1356,14 @@ def composed_phase(tag: str, protected: bool, net0_sd: dict,
                     ce_a, g_anti = _probe_grad(ti, agen_s, True)
                     rows.append({"stream": "ANTI(FACT3)", "name_ce": ce_a,
                                  "gn": float(np.linalg.norm(g_anti))})
+                    ctl_gs = []
                     for ci, fi in enumerate(CTL_IDX):
                         ce_i, g_i = _probe_grad(fi, mgen_s, False)
                         rows.append({"stream": f"CTL(FACT{fi + 1})",
                                      "name_ce": ce_i,
                                      "gn": float(np.linalg.norm(g_i))})
-                    gs = [g_anti] + [r[1] for r in rows[1:]]
+                        ctl_gs.append(g_i)
+                    gs = [g_anti] + ctl_gs
                     gm_ = np.stack(gs)
                     norms_ = np.linalg.norm(gm_, axis=1)
                     cos_ = (gm_ @ gm_.T) / np.outer(np.maximum(norms_, 1e-30),
@@ -1536,8 +1544,9 @@ def composed_phase(tag: str, protected: bool, net0_sd: dict,
                     f"{tag}:anti:c{n_chunks}.x")
                 chunk_temps.append(temp)
 
-                # ---- (2) THE FOUR CONTROLLERS (arm (a) only) ----------
-                for ci, fi in enumerate(CTL_IDX):
+                # ---- (2) THE FOUR CONTROLLERS (arm (a) only — the
+                #      twin skips the loop entirely: no controllers) ----
+                for ci, fi in ((enumerate(CTL_IDX)) if protected else ()):
                     ctl_fact = f"FACT{fi + 1}"
                     base_i = baselines[ctl_fact]
                     ix_m = torch.randint(facts_x[fi].shape[0], (name_bs,),
@@ -3160,8 +3169,8 @@ def main():
         f"PASS ({pro['n_anti']}+{twn['n_anti']} anti events, 0 violations);"
         f" G_MAINTBIND PASS ({len(pro['maint_ledger'])} controller events, "
         "0 violations); stream live arm a: "
-        f"{stream_a['live']} ({stream_a['early_median']:.4f} -> "
-        f"{stream_a['late_median']:.4f}), twin: {stream_t['live']}")
+        f"{stream_a['live']} ({_fm(stream_a['early_median'])} -> "
+        f"{_fm(stream_a['late_median'])}), twin: {stream_t['live']}")
 
     R3 = final_panel_a[TARGET_FACT]
     T3_twn = final_panel_t[TARGET_FACT]
@@ -3794,10 +3803,10 @@ def main():
                "events (4 x 16, machine-counted), the deficit law "
                "asserted at every event, zero isolation violations\n"
                f"- The stream: arm (a) live={stream_a['live']} (CE "
-               f"{stream_a['early_median']:.4f} -> "
-               f"{stream_a['late_median']:.4f}); twin live="
-               f"{stream_t['live']} ({stream_t['early_median']:.4f} -> "
-               f"{stream_t['late_median']:.4f})\n")
+               f"{_fm(stream_a['early_median'])} -> "
+               f"{_fm(stream_a['late_median'])}); twin live="
+               f"{stream_t['live']} ({_fm(stream_t['early_median'])} -> "
+               f"{_fm(stream_t['late_median'])})\n")
     rep.append("\n## Disclosures\n\n"
                "THE SELECTIVITY TEST IS WITHIN-FAMILY. THE TWIN-RELATIVE "
                "VACUITY: the letter's literal sibling clause (>= 0.5x the "
