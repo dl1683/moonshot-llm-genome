@@ -2138,9 +2138,14 @@ def main():
                     "bit-exact — the vehicle's rooms are THE organism's "
                     "own rooms, not merely the same construction)",
             "D_bit_equal": D_ok, "sets_bit_equal_all": sets_ok,
+            "artifact_k": rooms_art["model"].get("k"),
+            "artifact_seeds": rooms_art["model"].get("seeds"),
             "vacuous": False,
             "pass": bool(D_ok and sets_ok
-                         and rooms_art.get("meta", {}).get("k") == ROOM_K),
+                         and rooms_art["model"].get("k") == ROOM_K
+                         and rooms_art["model"].get("n_rooms") == N_ROOMS
+                         and list(rooms_art["model"].get("seeds", []))
+                         == [ROOM_D_SEED, ROOM_S_SEED]),
         }
     G_ROOMS5 = {
         "form": "THE FIVE ROOMS' pairwise orthogonality (the shared-frame "
