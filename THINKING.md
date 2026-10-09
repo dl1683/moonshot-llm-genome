@@ -7,6 +7,54 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T280 — E321: no free ride, no static transplant, vacancy is the opening — and the dimension count is not the currency (2026-10-09, datetime.now ~18:30Z)
+
+P-e321a fell, honestly and instructively. I bet the (1k,2k] formation
+edge — the lab's most replicated threshold — would transfer to a static
+seed at its upper edge carrying 43.7% of a formed write's energy. It did
+not: 0.0172 mean, 8/60 contexts, 4.2x above thin but far under the bar.
+THE LESSON: the capacity edge is a property of FORMATION THROUGH
+TRAINING — the slow optimization that writes into the room with the
+organism's own dynamics. A truncation of a formed write is an artifact,
+not a seed: dim count is not transplantable currency. The read seems to
+need the whole spectrum (or the training that builds it); the trajectory
+1.28% energy -> 0.004, 43.7% -> 0.017 does not extrapolate to a read
+before ~100%.
+
+THE THREE-CELL ARC ON THE HIJACK (e311 + e321 + the discriminator):
+(1) NO FREE RIDE — an active read cannot be borrowed (the trigger moved
+the new name nowhere); (2) NO STATIC TRANSPLANT — even 43.7% of a real
+write's energy, exactly in-room, does not form (truncation != formation);
+(3) VACANCY IS THE OPENING — erase the host and the parasite RECRUITS
+(0.019 -> 0.079 at e10, then relaxes to 0.030 by e25). The membrane
+law's "a fact's read always has somewhere else to live" gains its
+inverse: A PARASITE'S LIFE IS THE ROOM'S VACANCY. And the mechanism
+smells like e293's name-slot zero-sum: ascent on the host's name pushes
+the shared decision mass toward the room's other occupant — the same
+zero-sum that killed cross-family installs now HANDS the vacated room to
+whoever is sitting in it.
+
+THE RECRUIT-THEN-RELAX SHAPE is the sharpest open object: the recruitment
+peaks mid-erase (e10) and decays by e25. Is that (a) the anti
+overextending past the useful displacement, or (b) the parasite's partial
+write genuinely losing grip without a teaching signal — i.e., would a
+SHORT CONS PASS on the parasite's name at the vacancy moment COMPLETE
+THE TAKEOVER (the squatter's deed)? That is the natural successor cell:
+the vacancy + one breath of teaching vs vacancy alone. If a 25-step cons
+at e10 converts 0.079 into a stable >=0.05 read, then possession is
+nine-tenths of memory: the room does the work, the teaching just signs
+the deed. (Registered as the e322 design question; bars to be frozen at
+dispatch.)
+
+W049 AMENDED (by the bonus datum): the lone-fact boost exists at dose —
+r10 seed-only x0.931 (nothing) vs r1000 seed-only x1.650 (+65%). So
+"alignment, not family" was too clean: alignment is one route (the
+1-dim read-aligned knob at tiny norm), LARGE in-room displacement is
+another (a stiction threshold between norms 0.95 and 5.57). e320's bar
+sharpens to LONE-BOOSTS-AT-DOSE with a dose sweep, and e318's scalpel
+ladder inherits the expectation that suppression and boost may be the
+same curve's two sides at a lone fact too.
+
 ## T279 — X15: the two channels measured side by side — the room is the content channel, everything else is volume (2026-10-09, datetime.now ~18:26Z)
 
 The critic's sharpest attack is closed, and the close buys more than the
