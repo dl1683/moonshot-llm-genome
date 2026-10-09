@@ -40,6 +40,16 @@ of its 1k room?) dispatch now; the DAY_TEN capacity wording amended
 (second amendment); e280 (the SGD-M ladder) inherits a SHARPER
 question: is the ~1-2k edge Adam's geometry or the space's?
 
+## e307 — THE MAINTENANCE FOOTPRINT (the geometry of the controller's carving; survived the rate-limiter kill complete on disk): MIXED/INSTRUMENT-MISSING as the frozen word (the rank clause failed) — BUT THE SHAPE IS THE FINDING: the footprint REPEATS STRONGLY (cross-event cos R1 = 0.800; consecutive-step cos 0.984 — ONE direction reused every event, ~16 applications of nearly the same step) yet is MEDIUM-RANK (top-3 SVD only 20.6%; 73 dims at 90% energy — not low-rank, not high-rank) and rides FAR BELOW CHANCE IN-ROOM (0.0037 vs the 0.06 chance floor — the ACCUMULATED footprint is 16x MORE out-of-room than single gradients: the controller's medicine lives almost entirely outside the room it was never aimed into); rho_mean 0.72 (state-tracking present but the repeat dominates); the class is STABLE across contexts (neutral R1 0.800 / denial R1 0.793; the denial footprint cos~the neutral's — ONE ANTIBODY, ONE SHAPE, context-invariant); the reading: THE CONTROLLER FOUND A REUSABLE ~73-DIMENSIONAL STROKE — not a vital signal (too broad), not navigation (too repeating): A BRUSH (2026-10-06, datetime.now) — DONE
+
+WHAT WE SAW: preservation has a characteristic gesture. Every maintenance
+event applies nearly the same 73-dim stroke (0.98 consecutive cos), the same
+stroke under denial as under neutral traffic, and the stroke lives outside
+the room (below chance — the room was never the operative frame, T267,
+now confirmed at the ACCUMULATED level). The anti-controller (e294) should
+invert this brush; the fever (e304) heats while the brush paints — the
+three-axis object (T272) gains its motor description.
+
 ## e308 — THE DOUBLETALK PRECURSOR: HELD-UNIMODAL (the controller's win is exclusive: P(Z) >= 10% at 60/60, argmax=Z at 60/60, both-claims 0/60) — BUT THE HIDDEN GEM: THE LOADED-FACT BASELINE WAS ITSELF ALREADY BIMODAL (frac_both 41/60, entropy 1.46 nats — the budget-constrained write left the corpus's host claim at 0.45 beside the installed 0.26: DOUBLETHINK'S RAW MATERIAL EXISTS AT LOAD TIME; the tug resolves it exclusively — in either direction: the corpse state is the mirror image, host-unimodal 0.96); AND THE ORGANISM IS CONDITIONALLY DOUBLE-MINDED: the held state still knows BOTH continuations in their own contexts (P_host 0.83 given the host prefix, P_ZEPHYRA 0.96 given the ZEPHYRA prefix at offsets 1-6) — the two claims live in DIFFERENT INPUT-CONDITIONED MODES, never together at the shared decision point; e302's two-controllers-each-own-one-mode question genuinely open (2026-10-06, datetime.now) — DONE
 
 WHAT WE SAW: at the shared decision point, belief is winner-take-all (the

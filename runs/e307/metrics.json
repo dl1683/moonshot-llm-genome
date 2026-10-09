@@ -1,0 +1,1394 @@
+{
+ "experiment": "e307_footprint",
+ "phase": "THE MAINTENANCE FOOTPRINT \u2014 the geometry of the controller's own carving; CPU-only desk cell, committed records only",
+ "date": "2026-10-06T18:22:00+00:00",
+ "status": "COMPLETE \u2014 adjudicated",
+ "cpu_only": true,
+ "threads": {
+  "torch": 4,
+  "pocketfft": 4
+ },
+ "gates": {
+  "G_ENDPOINTS": {
+   "files": {
+    "e287_NAME-MAINTAINED[flat-founding]": {
+     "path": "runs/checkpoints/e287_NAME-MAINTAINED_resume.pt",
+     "md5": "cba7c938ea99626a3bde0a29f5b173b9"
+    },
+    "e288_ERROR-GATED[controller,neutral]": {
+     "path": "runs/checkpoints/e288_ERROR-GATED_resume.pt",
+     "md5": "da7ee5cb1dce887bc711abb2898f3dc8"
+    },
+    "e288_NAME-FIXED-TWIN[flat,neutral]": {
+     "path": "runs/checkpoints/e288_NAME-FIXED-TWIN_resume.pt",
+     "md5": "d38814da898c394eba9adde161d1aa55"
+    },
+    "e289_CONTRADICTED-WITH-CONTROLLER[controller,denial]": {
+     "path": "runs/checkpoints/e289_CONTRADICTED-WITH-CONTROLLER_resume.pt",
+     "md5": "aa572f5c2a7e895d0981f5f9151c4723"
+    },
+    "e289_CONTRADICTED-NO-CONTROLLER[passive,denial]": {
+     "path": "runs/checkpoints/e289_CONTRADICTED-NO-CONTROLLER_resume.pt",
+     "md5": "8c7461f89f7568b29ce9d508523f1ed2"
+    },
+    "e289_C1-ERROR-GATED[controller,neutral-replicate]": {
+     "path": "runs/checkpoints/e289_C1-ERROR-GATED_resume.pt",
+     "md5": "2e79532918c4ab33dd54f3ccc4180915"
+    },
+    "e289_C1-NAME-FIXED-TWIN[flat,neutral-replicate]": {
+     "path": "runs/checkpoints/e289_C1-NAME-FIXED-TWIN_resume.pt",
+     "md5": "87567414bbb4ff286557172a40ca771e"
+    },
+    "e291_FIVE-CONTROLLERS[fleet]": {
+     "path": "runs/checkpoints/e291_FIVE-CONTROLLERS_resume.pt",
+     "md5": "43d538f1c08b533c53545d16f1f7968d"
+    },
+    "e291_SINGLE-CONTROL-TWIN[controller,fact1]": {
+     "path": "runs/checkpoints/e291_SINGLE-CONTROL-TWIN_resume.pt",
+     "md5": "7716b340a35ca47aaaf0eb80b95b0be1"
+    },
+    "e288_ERROR-GATED_post.pt": {
+     "path": "runs/checkpoints/e288_ERROR-GATED_post.pt",
+     "md5": "7c978ceedeb91d22c286b65a0fcdafa9"
+    },
+    "e288_NAME-FIXED-TWIN_post.pt": {
+     "path": "runs/checkpoints/e288_NAME-FIXED-TWIN_post.pt",
+     "md5": "6f975204e2e1b30dad0a3ceaaf539a79"
+    },
+    "e289_CONTRADICTED-NO-CONTROLLER_post.pt": {
+     "path": "runs/checkpoints/e289_CONTRADICTED-NO-CONTROLLER_post.pt",
+     "md5": "c122b35f905346e883fb2328de21f0d8"
+    },
+    "e289_CONTRADICTED-WITH-CONTROLLER_post.pt": {
+     "path": "runs/checkpoints/e289_CONTRADICTED-WITH-CONTROLLER_post.pt",
+     "md5": "ba6d347f1d3e137f887a64582e4f88a4"
+    },
+    "e289_C1-ERROR-GATED_post.pt": {
+     "path": "runs/checkpoints/e289_C1-ERROR-GATED_post.pt",
+     "md5": "900e1096d5ce9e05dbb5ad87d4d60682"
+    },
+    "e289_C1-NAME-FIXED-TWIN_post.pt": {
+     "path": "runs/checkpoints/e289_C1-NAME-FIXED-TWIN_post.pt",
+     "md5": "2beac285e363157f4d369b361d9dbb49"
+    },
+    "e288_rooms.pt": {
+     "path": "runs/checkpoints/e288_rooms.pt",
+     "md5": "05957ce44de741847638b0dcbe27211f"
+    },
+    "e291_rooms.pt": {
+     "path": "runs/checkpoints/e291_rooms.pt",
+     "md5": "163f90a1edcfbd1dbc44bfd72296d5cb"
+    }
+   },
+   "pass": true
+  },
+  "G_FLATBASIS": {
+   "params_count": 65,
+   "buffers_count": 0,
+   "key_order_matches_parameters": true,
+   "n_params": 2739072,
+   "pass": true
+  },
+  "G_ROOMS": {
+   "K10K": {
+    "seeds": [
+     26113,
+     26114
+    ],
+    "k": 10000,
+    "D_bit_equal": true,
+    "S_bit_equal": true,
+    "k_fraction_of_N": 0.0036508715360530864
+   },
+   "E291_shared_frame": {
+    "seeds": [
+     29111,
+     29112
+    ],
+    "n_rooms": 5,
+    "D_bit_equal": true,
+    "sets_bit_equal": true
+   },
+   "pass": true
+  },
+  "G_INSTRUMENT": {
+   "checks": {
+    "passive_maint_cum_norm_zero": 0.0,
+    "passive_maint_cum_is_zero": true,
+    "post_eq_resume[e288_e288_ERROR-GATED]": {
+     "abs_diff": 0.0,
+     "rel": 0.0,
+     "pass_lt_1e-4": true
+    },
+    "post_eq_resume[e288_e288_NAME-FIXED-TWIN]": {
+     "abs_diff": 0.0,
+     "rel": 0.0,
+     "pass_lt_1e-4": true
+    },
+    "post_eq_resume[e289_e289_CONTRADICTED-NO-CONTROLLER]": {
+     "abs_diff": 0.0,
+     "rel": 0.0,
+     "pass_lt_1e-4": true
+    },
+    "post_eq_resume[e289_e289_CONTRADICTED-WITH-CONTROLLER]": {
+     "abs_diff": 0.0,
+     "rel": 0.0,
+     "pass_lt_1e-4": true
+    },
+    "post_eq_resume[e289_e289_C1-ERROR-GATED]": {
+     "abs_diff": 0.0,
+     "rel": 0.0,
+     "pass_lt_1e-4": true
+    },
+    "post_eq_resume[e289_e289_C1-NAME-FIXED-TWIN]": {
+     "abs_diff": 0.0,
+     "rel": 0.0,
+     "pass_lt_1e-4": true
+    },
+    "displacement_identity[e288_ERROR-GATED]": {
+     "abs_residual": 9.10711143440033e-10,
+     "rel_residual": 7.962503274396572e-10,
+     "pass_lt_1e-3": true
+    },
+    "displacement_identity[e289_CONTRADICTED-WITH-CONTROLLER]": {
+     "abs_residual": 1.015528277196262e-09,
+     "rel_residual": 5.852386499961809e-10,
+     "pass_lt_1e-3": true
+    },
+    "displacement_identity[e289_C1-ERROR-GATED]": {
+     "abs_residual": 7.663675521016966e-10,
+     "rel_residual": 6.764118550513366e-10,
+     "pass_lt_1e-3": true
+    },
+    "corp_cum_inroom[e288_ERROR-GATED]": 2.4504710021399093e-12,
+    "corp_cum_inroom[e289_CONTRADICTED-WITH-CONTROLLER]": 1.2966533567147077e-12,
+    "note": "the corpus cumulatives ride at the fp floor in the K10K room (the parents' G_ORTH construction); e291's corpus was orthogonalized to the 50k UNION, not to K10K \u2014 its K10K read is a co-report only"
+   },
+   "pass": true
+  }
+ },
+ "phase_note": "P8 COMPLETE (report + figure)",
+ "date_updated": "2026-10-06T18:22:31+00:00",
+ "inventory": {
+  "pure_footprints": {
+   "e287_NAME-MAINTAINED[flat-founding]": {
+    "l2": 0.17345777389007336
+   },
+   "e288_ERROR-GATED[controller,neutral]": {
+    "l2": 1.1238004984055916
+   },
+   "e288_NAME-FIXED-TWIN[flat,neutral]": {
+    "l2": 0.1723741096281625
+   },
+   "e289_CONTRADICTED-WITH-CONTROLLER[controller,denial]": {
+    "l2": 1.2134329595332514
+   },
+   "e289_CONTRADICTED-NO-CONTROLLER[passive,denial]": {
+    "l2": 0.0
+   },
+   "e289_C1-ERROR-GATED[controller,neutral-replicate]": {
+    "l2": 1.1150861039393793
+   },
+   "e289_C1-NAME-FIXED-TWIN[flat,neutral-replicate]": {
+    "l2": 0.17420324793407502
+   },
+   "e291_FIVE-CONTROLLERS[fleet]:FACT1": {
+    "l2": 0.3263442018318414
+   },
+   "e291_FIVE-CONTROLLERS[fleet]:FACT2": {
+    "l2": 0.02323238007556551
+   },
+   "e291_FIVE-CONTROLLERS[fleet]:FACT3": {
+    "l2": 0.01614977070203205
+   },
+   "e291_FIVE-CONTROLLERS[fleet]:FACT4": {
+    "l2": 0.002088772346871689
+   },
+   "e291_FIVE-CONTROLLERS[fleet]:FACT5": {
+    "l2": 0.006728893956263757
+   },
+   "e291_SINGLE-CONTROL-TWIN[controller,fact1]:FACT1": {
+    "l2": 0.7774069366120435
+   }
+  },
+  "pair_deltas": {
+   "e289_causal[WC-NC,denial]": {
+    "l2": 0.8319090374277406
+   },
+   "e288_pair[EG-NFT,neutral]": {
+    "l2": 0.9071346347776283
+   },
+   "e289_c1_pair[C1EG-C1NFT,neutral]": {
+    "l2": 0.8980464102525803
+   }
+  },
+  "disclosures": [
+   "the per-event step VECTORS are not in the records (ledgers carry scalars only) \u2014 the full cos(step_i, step_j) matrix is instrument-missing; R1/R2/R3 are the exact registered substitutes",
+   "e288's and e289-C1's twins are FLAT-DOSE maintained arms, not passive \u2014 their pair deltas are controller-vs-flat contrasts; the ONLY passive-twin pair is e289 WC-NC (the causal delta)",
+   "e287's SANCTUARY-TWIN is passive but on e287's own session stream (cross-session draws differ) \u2014 excluded from bars, disclosed",
+   "e293 exists on disk (uncommitted, outside the dispatch's provenance e288/e289/e291) \u2014 not read",
+   "the pair deltas contain the maintenance carving AND the corpus stream's causal response to it (the arms diverge after event 1, so later corpus gradients differ even under bit-identical draws) \u2014 the FULL controller-presence footprint, disclosed as such"
+  ],
+  "corpus_cum_norms": {
+   "e287_NAME-MAINTAINED[flat-founding]": 1.7993479428379155,
+   "e288_ERROR-GATED[controller,neutral]": 1.441536666556881,
+   "e288_NAME-FIXED-TWIN[flat,neutral]": 1.803628103115984,
+   "e289_CONTRADICTED-WITH-CONTROLLER[controller,denial]": 1.9478334080206292,
+   "e289_CONTRADICTED-NO-CONTROLLER[passive,denial]": 2.1688342439399237,
+   "e289_C1-ERROR-GATED[controller,neutral-replicate]": 1.4455711846687822,
+   "e289_C1-NAME-FIXED-TWIN[flat,neutral-replicate]": 1.8033309333984346,
+   "e291_FIVE-CONTROLLERS[fleet]": 1.252901153556554,
+   "e291_SINGLE-CONTROL-TWIN[controller,fact1]": 1.302443313623755
+  }
+ },
+ "geometry": {
+  "e287_NAME-MAINTAINED[flat-founding]": {
+   "label": "e287_NAME-MAINTAINED[flat-founding]",
+   "l2": 0.17345777389007336,
+   "in_room_frac": 0.003729364127257805,
+   "natural": {
+    "m": {
+     "50": 58934,
+     "90": 566082,
+     "99": 1442718
+    }
+   },
+   "svd": {
+    "T3": 0.11963413619009614,
+    "T10": 0.3167174048624998,
+    "T50": 0.725223375133294,
+    "top10_shares": [
+     0.045397495839575634,
+     0.038129990909373156,
+     0.03610664944114735,
+     0.03252768325360064,
+     0.0322308666846487,
+     0.03087538945509117,
+     0.028343285701027322,
+     0.026247829521041797,
+     0.02453266477981612,
+     0.022325549277177857
+    ],
+    "cross90": 113,
+    "cross99": 301,
+    "e_2d": 0.029655682150450145,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.3.attn.c_attn.weight",
+      "energy_share": 0.07465980355252748
+     },
+     {
+      "param": "h.4.mlp.0.weight",
+      "energy_share": 0.06989076106752223
+     },
+     {
+      "param": "h.2.mlp.2.weight",
+      "energy_share": 0.06832904886480252
+     }
+    ]
+   }
+  },
+  "e288_ERROR-GATED[controller,neutral]": {
+   "label": "e288_ERROR-GATED[controller,neutral]",
+   "l2": 1.1238004984055916,
+   "in_room_frac": 0.0036825196035369964,
+   "natural": {
+    "m": {
+     "50": 45583,
+     "90": 509485,
+     "99": 1366120
+    }
+   },
+   "svd": {
+    "T3": 0.20572741652625495,
+    "T10": 0.48350026137708046,
+    "T50": 0.8502802628841626,
+    "top10_shares": [
+     0.08677583782935358,
+     0.05989223833404195,
+     0.059059340362859446,
+     0.05695030952055215,
+     0.04903293445799906,
+     0.04131845749606426,
+     0.04095793060342032,
+     0.03171223198052186,
+     0.030755530808073486,
+     0.027045449984194406
+    ],
+    "cross90": 73,
+    "cross99": 301,
+    "e_2d": 1.2395168813913073,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.5.mlp.0.weight",
+      "energy_share": 0.09495789974855844
+     },
+     {
+      "param": "h.4.mlp.0.weight",
+      "energy_share": 0.0732522490221337
+     },
+     {
+      "param": "h.4.mlp.2.weight",
+      "energy_share": 0.07290794703510245
+     }
+    ]
+   }
+  },
+  "e288_NAME-FIXED-TWIN[flat,neutral]": {
+   "label": "e288_NAME-FIXED-TWIN[flat,neutral]",
+   "l2": 0.1723741096281625,
+   "in_room_frac": 0.003729866641069142,
+   "natural": {
+    "m": {
+     "50": 58488,
+     "90": 560715,
+     "99": 1437618
+    }
+   },
+   "svd": {
+    "T3": 0.11754216918104578,
+    "T10": 0.31954208030150466,
+    "T50": 0.7278914494190805,
+    "top10_shares": [
+     0.04368441926672207,
+     0.03788454589240745,
+     0.035973204021916255,
+     0.03416957258258075,
+     0.0336165540359732,
+     0.03201574338486419,
+     0.02868609083140359,
+     0.025575675545936604,
+     0.02494944921383487,
+     0.022986825525865735
+    ],
+    "cross90": 113,
+    "cross99": 293,
+    "e_2d": 0.029298788734937797,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.3.attn.c_attn.weight",
+      "energy_share": 0.07372572437934158
+     },
+     {
+      "param": "h.4.mlp.0.weight",
+      "energy_share": 0.07079464498590819
+     },
+     {
+      "param": "h.2.mlp.2.weight",
+      "energy_share": 0.07040666835778916
+     }
+    ]
+   }
+  },
+  "e289_CONTRADICTED-WITH-CONTROLLER[controller,denial]": {
+   "label": "e289_CONTRADICTED-WITH-CONTROLLER[controller,denial]",
+   "l2": 1.2134329595332514,
+   "in_room_frac": 0.0036610139497402507,
+   "natural": {
+    "m": {
+     "50": 42368,
+     "90": 494471,
+     "99": 1340041
+    }
+   },
+   "svd": {
+    "T3": 0.23043147537677527,
+    "T10": 0.5093330223998256,
+    "T50": 0.8607576042371444,
+    "top10_shares": [
+     0.09619528425777761,
+     0.0697483082316173,
+     0.06448788288738036,
+     0.055451870939550736,
+     0.0481827681773896,
+     0.044545558604931,
+     0.04199341513775638,
+     0.030374126013460123,
+     0.03004329791199266,
+     0.02831051023796985
+    ],
+    "cross90": 68,
+    "cross99": 328,
+    "e_2d": 1.4447045396086895,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.5.mlp.0.weight",
+      "energy_share": 0.10615233163864561
+     },
+     {
+      "param": "h.4.mlp.2.weight",
+      "energy_share": 0.07878487890205611
+     },
+     {
+      "param": "h.5.mlp.2.weight",
+      "energy_share": 0.07437915066025899
+     }
+    ]
+   }
+  },
+  "e289_C1-ERROR-GATED[controller,neutral-replicate]": {
+   "label": "e289_C1-ERROR-GATED[controller,neutral-replicate]",
+   "l2": 1.1150861039393793,
+   "in_room_frac": 0.003685510324090742,
+   "natural": {
+    "m": {
+     "50": 47588,
+     "90": 517880,
+     "99": 1374143
+    }
+   },
+   "svd": {
+    "T3": 0.19135344724040235,
+    "T10": 0.46216447526862464,
+    "T50": 0.8463292829729435,
+    "top10_shares": [
+     0.07944628635829104,
+     0.05692050135627457,
+     0.05498665952583674,
+     0.053242534269662835,
+     0.04634046996779639,
+     0.04258888563055732,
+     0.03796607250407094,
+     0.034900636550575716,
+     0.02842864092741594,
+     0.02734378817814321
+    ],
+    "cross90": 74,
+    "cross99": 313,
+    "e_2d": 1.2198714304069547,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.5.mlp.0.weight",
+      "energy_share": 0.09030667503679272
+     },
+     {
+      "param": "h.4.mlp.2.weight",
+      "energy_share": 0.07144725004693118
+     },
+     {
+      "param": "h.4.mlp.0.weight",
+      "energy_share": 0.06965008959198898
+     }
+    ]
+   }
+  },
+  "e289_C1-NAME-FIXED-TWIN[flat,neutral-replicate]": {
+   "label": "e289_C1-NAME-FIXED-TWIN[flat,neutral-replicate]",
+   "l2": 0.17420324793407502,
+   "in_room_frac": 0.003743189217276908,
+   "natural": {
+    "m": {
+     "50": 59732,
+     "90": 566632,
+     "99": 1442615
+    }
+   },
+   "svd": {
+    "T3": 0.11875855387819123,
+    "T10": 0.31612468806041616,
+    "T50": 0.7232044212254739,
+    "top10_shares": [
+     0.0453530858712337,
+     0.0375798123856027,
+     0.03582565562135485,
+     0.033264947459616175,
+     0.03189463348877785,
+     0.031076586028392462,
+     0.027180519663470983,
+     0.02712825410125573,
+     0.025463880563089642,
+     0.02135731287762203
+    ],
+    "cross90": 115,
+    "cross99": 301,
+    "e_2d": 0.029912315379998358,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.3.attn.c_attn.weight",
+      "energy_share": 0.07405901771514865
+     },
+     {
+      "param": "h.4.mlp.0.weight",
+      "energy_share": 0.0707227258672771
+     },
+     {
+      "param": "h.2.mlp.2.weight",
+      "energy_share": 0.06722014102062723
+     }
+    ]
+   }
+  },
+  "e289_causal[WC-NC,denial]": {
+   "label": "e289_causal[WC-NC,denial]",
+   "l2": 0.8319090374277406,
+   "in_room_frac": 0.0077889897388663636,
+   "natural": {
+    "m": {
+     "50": 126416,
+     "90": 739538,
+     "99": 1625642
+    }
+   },
+   "svd": {
+    "T3": 0.0841355650741227,
+    "T10": 0.17523424653091813,
+    "T50": 0.31356936372576966,
+    "top10_shares": [
+     0.033329274221416634,
+     0.026340821749932176,
+     0.024465469102773897,
+     0.02191715481116757,
+     0.017468243051494473,
+     0.01377232810707784,
+     0.013741519689529837,
+     0.009446629843845523,
+     0.007610963695309114,
+     0.007141842258371061
+    ],
+    "cross90": 1170,
+    "cross99": 2578,
+    "e_2d": 0.6847738307808259,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.5.mlp.0.weight",
+      "energy_share": 0.1125620496955244
+     },
+     {
+      "param": "h.4.mlp.0.weight",
+      "energy_share": 0.10480709957033875
+     },
+     {
+      "param": "h.4.mlp.2.weight",
+      "energy_share": 0.0868369673200706
+     }
+    ]
+   }
+  },
+  "e288_pair[EG-NFT,neutral]": {
+   "label": "e288_pair[EG-NFT,neutral]",
+   "l2": 0.9071346347776283,
+   "in_room_frac": 0.0045781522300031696,
+   "natural": {
+    "m": {
+     "50": 148393,
+     "90": 768813,
+     "99": 1645149
+    }
+   },
+   "svd": {
+    "T3": 0.04292934276327677,
+    "T10": 0.09467170663520899,
+    "T50": 0.1999899411545081,
+    "top10_shares": [
+     0.015744880512421074,
+     0.014963723451217366,
+     0.012220738799638335,
+     0.009470194472417747,
+     0.009305068486981313,
+     0.008140127061251157,
+     0.008031126277753113,
+     0.00602289957927519,
+     0.005454031345485449,
+     0.005318916648768239
+    ],
+    "cross90": 1395,
+    "cross99": 2732,
+    "e_2d": 0.8137943940020946,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.5.mlp.0.weight",
+      "energy_share": 0.11481534763340086
+     },
+     {
+      "param": "h.4.mlp.0.weight",
+      "energy_share": 0.11084749978669514
+     },
+     {
+      "param": "h.3.mlp.2.weight",
+      "energy_share": 0.09437379304912645
+     }
+    ]
+   }
+  },
+  "e289_c1_pair[C1EG-C1NFT,neutral]": {
+   "label": "e289_c1_pair[C1EG-C1NFT,neutral]",
+   "l2": 0.8980464102525803,
+   "in_room_frac": 0.0045214292696702275,
+   "natural": {
+    "m": {
+     "50": 150363,
+     "90": 772248,
+     "99": 1647810
+    }
+   },
+   "svd": {
+    "T3": 0.035169164191024845,
+    "T10": 0.08140954387336428,
+    "T50": 0.18655447253835014,
+    "top10_shares": [
+     0.012800651003355314,
+     0.012306658200539815,
+     0.010061854987129715,
+     0.008029399121489394,
+     0.007788258984357327,
+     0.00675320697176778,
+     0.006713834954438839,
+     0.00649529529806375,
+     0.005437996951629186,
+     0.005022387400593166
+    ],
+    "cross90": 1410,
+    "cross99": 2741,
+    "e_2d": 0.7975343074184966,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.5.mlp.0.weight",
+      "energy_share": 0.1143415586260396
+     },
+     {
+      "param": "h.4.mlp.0.weight",
+      "energy_share": 0.11041523758707962
+     },
+     {
+      "param": "h.3.mlp.2.weight",
+      "energy_share": 0.09469555406971207
+     }
+    ]
+   }
+  },
+  "null_gaussian[seed30701,norm-matched-EG]": {
+   "label": "null",
+   "l2": 1.1238004984055914,
+   "in_room_frac": 0.0037285511803328082,
+   "natural": {
+    "m": {
+     "50": 339347,
+     "90": 1217619,
+     "99": 2012268
+    }
+   },
+   "svd": {
+    "T3": 0.0019172151329716143,
+    "T10": 0.006295961107835125,
+    "T50": 0.030362005386369153,
+    "top10_shares": [
+     0.0006560488306722683,
+     0.0006326074103590433,
+     0.0006285588919403027,
+     0.0006284256845554014,
+     0.0006281541225271519,
+     0.0006277284931612172,
+     0.0006266746854703084,
+     0.0006231799196532516,
+     0.0006229152636520524,
+     0.0006216678058441282
+    ],
+    "cross90": 3182,
+    "cross99": 4266,
+    "e_2d": 1.2579502448387008,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.0.mlp.2.weight",
+      "energy_share": 0.05416621262897204
+     },
+     {
+      "param": "h.5.mlp.0.weight",
+      "energy_share": 0.054037969170654725
+     },
+     {
+      "param": "h.4.mlp.0.weight",
+      "energy_share": 0.0540318484772146
+     }
+    ]
+   }
+  }
+ },
+ "nulls": {
+  "gaussian_seed": 30701,
+  "gaussian_in_room": 0.0037285511803328082,
+  "volume_null_k_over_n": 0.0036508715360530864,
+  "class_null_band": [
+   0.055,
+   0.065
+  ],
+  "class_null_law": "T267/T268: corpus and name-gradient in-room fraction ~0.060 (the committed cells' per-step reads 0.0597-0.0611)"
+ },
+ "repeat": {
+  "e287_NAME-MAINTAINED[flat-founding]": {
+   "n_events": 16,
+   "sum_r": 0.17717676144093275,
+   "cum_norm": 0.17345777389007336,
+   "wmean_cross_event_cos_R1": 0.9556907275364219,
+   "rho_series_R2": [
+    0.9334079189544238,
+    0.920799366011908,
+    0.9125481790506921,
+    0.88133306674708,
+    0.91365752945115,
+    0.8759744366503187,
+    0.9154751332476857,
+    0.9531135314676187,
+    0.922052333655312,
+    0.9217190343507784,
+    0.9128147544725088,
+    0.9097904090746227,
+    0.932884374869377,
+    0.9169807908504184,
+    0.9191392409559689
+   ],
+   "rho_mean": 0.9161126733206576,
+   "rho_median": 0.9169807908504184,
+   "rho_min": 0.8759744366503187,
+   "rho_max": 0.9531135314676187,
+   "consec_step_cos": [
+    0.9813818801720029,
+    0.9889524584435759,
+    0.9923192830645097,
+    0.9925790504005583,
+    0.9957802655135328,
+    0.9951156279533346,
+    0.9971446217394925,
+    0.9986173472870402,
+    0.9979948601565097,
+    0.9981831283607837,
+    0.9981510661910035,
+    0.9982247567855036,
+    0.9987528333763334,
+    0.9985537555955618,
+    0.9986584334229701
+   ],
+   "consec_cos_mean": 0.9953606245641808,
+   "realized_eq_lr_x_bt_maxrel": 3.1482232921634057e-07,
+   "g_in_room_frac_per_event": [
+    0.06098247232069466,
+    0.06104822688623926,
+    0.06091468432817331,
+    0.061128896325131264,
+    0.060985254098390056,
+    0.06110533204264724,
+    0.060692746038988006,
+    0.06109116482298046,
+    0.06095682399802789,
+    0.06117398654008573,
+    0.06080998078736747,
+    0.060951055781047245,
+    0.06077190516584168,
+    0.060883799378737904,
+    0.06057747579465991,
+    0.06066953685557736
+   ],
+   "cos_cum_vs_final_bufF_R3": 0.9679481569335359
+  },
+  "e288_ERROR-GATED[controller,neutral]": {
+   "n_events": 16,
+   "sum_r": 1.2461527194827795,
+   "cum_norm": 1.1238004984055916,
+   "wmean_cross_event_cos_R1": 0.799885971652932,
+   "rho_series_R2": [
+    0.7634621825420772,
+    0.7992245655153212,
+    0.8087476857837954,
+    0.8261295438235012,
+    0.7495491834010172,
+    0.7051790113886988,
+    0.7229893898536373,
+    0.6833968569511745,
+    0.6014537981366472,
+    0.671754480486494,
+    0.6714287958852668,
+    0.7056678818777117,
+    0.7303892073831579,
+    0.66603295389902,
+    0.6301543863925534
+   ],
+   "rho_mean": 0.715703994888005,
+   "rho_median": 0.7056678818777117,
+   "rho_min": 0.6014537981366472,
+   "rho_max": 0.8261295438235012,
+   "consec_step_cos": [
+    0.9322031859357199,
+    0.9701684037361391,
+    0.9817938995125467,
+    0.9880550150634603,
+    0.9868440127957003,
+    0.9872073235699108,
+    0.9894802436213301,
+    0.9894305251291271,
+    0.9881014789870841,
+    0.9905381226351496,
+    0.9911380460995713,
+    0.9924324666045508,
+    0.9934178358623724,
+    0.992442160682335,
+    0.9919980142870263
+   ],
+   "consec_cos_mean": 0.9843500489681349,
+   "realized_eq_lr_x_bt_maxrel": 1.6109017253305253e-07,
+   "g_in_room_frac_per_event": [
+    0.061112341685042815,
+    0.060804496634005334,
+    0.060772989953795035,
+    0.06036725967233888,
+    0.06067952957749266,
+    0.06009575698092267,
+    0.06023019611087517,
+    0.06032373685698765,
+    0.06026178670986923,
+    0.059962892724126415,
+    0.06029610226710901,
+    0.05971982843176418,
+    0.05979120041829019,
+    0.05987579204357637,
+    0.06001322322367971,
+    0.06004851654757915
+   ],
+   "cos_cum_vs_final_bufF_R3": 0.8358789996023601,
+   "dose_deficit_corr_by_construction": 1.0
+  },
+  "e288_NAME-FIXED-TWIN[flat,neutral]": {
+   "n_events": 16,
+   "sum_r": 0.1771857663989067,
+   "cum_norm": 0.1723741096281625,
+   "wmean_cross_event_cos_R1": 0.9428538104056458,
+   "rho_series_R2": [
+    0.9012654276504999,
+    0.9346881621852658,
+    0.8575724910291369,
+    0.9383259386616002,
+    0.9282693968473033,
+    0.9212701543073083,
+    0.8987970780364726,
+    0.8968214265740022,
+    0.8688594501905795,
+    0.9008313544621366,
+    0.8748660671970755,
+    0.934075654860434,
+    0.9361128316765476,
+    0.9116739117152313,
+    0.9376100693528177
+   ],
+   "rho_mean": 0.9094026276497609,
+   "rho_median": 0.9116739117152313,
+   "rho_min": 0.8575724910291369,
+   "rho_max": 0.9383259386616002,
+   "consec_step_cos": [
+    0.9722691395796949,
+    0.9907974266611068,
+    0.9874896558605035,
+    0.996041152814357,
+    0.9964926917601156,
+    0.9968917314245311,
+    0.9966496461980181,
+    0.9970230666940979,
+    0.9966497995014277,
+    0.9976696474618078,
+    0.9973194120414072,
+    0.9986604542918285,
+    0.99879141162485,
+    0.9984416174840586,
+    0.9989453689728123
+   ],
+   "consec_cos_mean": 0.9946754814913743,
+   "realized_eq_lr_x_bt_maxrel": 3.438622604532448e-07,
+   "g_in_room_frac_per_event": [
+    0.06099943786479003,
+    0.060846055701042526,
+    0.06074189630536438,
+    0.06098858529448719,
+    0.06119108665105168,
+    0.06114698727968416,
+    0.06110990056173889,
+    0.06129422505703922,
+    0.061093757411775106,
+    0.060930453251489006,
+    0.06072145577794558,
+    0.061062120352498125,
+    0.060709720327037024,
+    0.06085738843356136,
+    0.06052524328816796,
+    0.06061059665848963
+   ],
+   "cos_cum_vs_final_bufF_R3": 0.9595461178396529
+  },
+  "e289_CONTRADICTED-WITH-CONTROLLER[controller,denial]": {
+   "n_events": 16,
+   "sum_r": 1.3506013620644808,
+   "cum_norm": 1.2134329595332514,
+   "wmean_cross_event_cos_R1": 0.7931265443821351,
+   "rho_series_R2": [
+    0.7745151003990299,
+    0.7879429515448371,
+    0.8787918420374959,
+    0.8366708303097221,
+    0.766648106676142,
+    0.7139024793143409,
+    0.6572113742334739,
+    0.6185093946080841,
+    0.6476850781987576,
+    0.6138436219709559,
+    0.5778258229833213,
+    0.5924245354625399,
+    0.5428621945003831,
+    0.5521050520376695,
+    0.5445969965430756
+   ],
+   "rho_mean": 0.6737023587213219,
+   "rho_median": 0.6476850781987576,
+   "rho_min": 0.5428621945003831,
+   "rho_max": 0.8787918420374959,
+   "consec_step_cos": [
+    0.9354793321782584,
+    0.968602354653167,
+    0.9884157690965074,
+    0.9890259709147059,
+    0.9879769012275499,
+    0.9878532594473425,
+    0.9874526131080434,
+    0.9874554680498729,
+    0.989135608275422,
+    0.9890003673872156,
+    0.9886930771471366,
+    0.9894073440015226,
+    0.9886945186618499,
+    0.9890699170725912,
+    0.9891000722377861
+   ],
+   "consec_cos_mean": 0.9836908382305981,
+   "realized_eq_lr_x_bt_maxrel": 1.177846987257291e-07,
+   "g_in_room_frac_per_event": [
+    0.06092757823455667,
+    0.06108841843815458,
+    0.06087404362935973,
+    0.060703032567926696,
+    0.06054240477966804,
+    0.0604817420707315,
+    0.060479878277274815,
+    0.059974275952353974,
+    0.06018964642195742,
+    0.05998023833736926,
+    0.06047818866431702,
+    0.05981998373889402,
+    0.06020091314598597,
+    0.06022940376254828,
+    0.060668034689094825,
+    0.06057267335834308
+   ],
+   "cos_cum_vs_final_bufF_R3": 0.8187724896520437,
+   "dose_deficit_corr_by_construction": 1.0
+  },
+  "e289_C1-ERROR-GATED[controller,neutral-replicate]": {
+   "n_events": 16,
+   "sum_r": 1.216074824333191,
+   "cum_norm": 1.1150861039393793,
+   "wmean_cross_event_cos_R1": 0.829480052699358,
+   "rho_series_R2": [
+    0.9290240552690293,
+    0.8016312207413578,
+    0.8573071580440448,
+    0.8471100454197911,
+    0.7737548995693553,
+    0.7708280177260872,
+    0.7632126143609206,
+    0.719113315295786,
+    0.7086109022292797,
+    0.6947365617768352,
+    0.71000236007371,
+    0.7063484947685756,
+    0.6922993679087608,
+    0.6770662037959329,
+    0.5021773155309902
+   ],
+   "rho_mean": 0.7435481688340305,
+   "rho_median": 0.719113315295786,
+   "rho_min": 0.5021773155309902,
+   "rho_max": 0.9290240552690293,
+   "consec_step_cos": [
+    0.9801439457049927,
+    0.972177535846562,
+    0.9869411750166815,
+    0.9899682665577472,
+    0.9885968748853015,
+    0.9903694344647379,
+    0.9914323339043388,
+    0.9910916880721254,
+    0.9915847358815169,
+    0.9918524160814929,
+    0.99268856986295,
+    0.9930138496501365,
+    0.9930560795279136,
+    0.9930237874719972,
+    0.9901615523500025
+   ],
+   "consec_cos_mean": 0.9890734830185665,
+   "realized_eq_lr_x_bt_maxrel": 1.7830777941429573e-07,
+   "g_in_room_frac_per_event": [
+    0.06120259916905092,
+    0.06087309488836597,
+    0.06082442524164618,
+    0.06053658205053793,
+    0.06046157775700712,
+    0.060640604987599586,
+    0.060510878416196096,
+    0.06047593360507164,
+    0.060072173704927644,
+    0.06018702273709799,
+    0.060336846981157044,
+    0.05971077480437303,
+    0.059794107379426635,
+    0.05972865384533523,
+    0.05982853878132779,
+    0.059956491026552636
+   ],
+   "cos_cum_vs_final_bufF_R3": 0.8435989072171999,
+   "dose_deficit_corr_by_construction": 1.0
+  },
+  "e289_C1-NAME-FIXED-TWIN[flat,neutral-replicate]": {
+   "n_events": 16,
+   "sum_r": 0.1772067155689001,
+   "cum_norm": 0.17420324793407502,
+   "wmean_cross_event_cos_R1": 0.9641486595363681,
+   "rho_series_R2": [
+    0.8952120773810233,
+    0.9110965539612564,
+    0.9145482629359967,
+    0.9530703332172773,
+    0.9297031885863472,
+    0.9473137891148239,
+    0.8718175692337775,
+    0.917424260084749,
+    0.9183735547855872,
+    0.8196510887337964,
+    0.9066555308131714,
+    0.9032102982119392,
+    0.9079018444822546,
+    0.9151501865984777,
+    0.9022658910794656
+   ],
+   "rho_mean": 0.907559628614663,
+   "rho_median": 0.9110965539612564,
+   "rho_min": 0.8196510887337964,
+   "rho_max": 0.9530703332172773,
+   "consec_step_cos": [
+    0.9705434755087887,
+    0.9874369797152307,
+    0.9924012665811834,
+    0.9970181974468455,
+    0.9966085882007925,
+    0.9979343010719673,
+    0.9958488808953562,
+    0.9976229707654217,
+    0.997912987487399,
+    0.9959362824489937,
+    0.9979825584996991,
+    0.9980618131283688,
+    0.9982690614378328,
+    0.9984911483656543,
+    0.9983554899710476
+   ],
+   "consec_cos_mean": 0.9946949334349721,
+   "realized_eq_lr_x_bt_maxrel": 4.1621567907334395e-07,
+   "g_in_room_frac_per_event": [
+    0.06137475126805098,
+    0.060850926382688256,
+    0.061304544106310914,
+    0.061037444851769,
+    0.060919553462042274,
+    0.06101477722478252,
+    0.060724307261312276,
+    0.061260921703893516,
+    0.06101986789441961,
+    0.06095555124438402,
+    0.06136464348215185,
+    0.060949791131164714,
+    0.06100910667385857,
+    0.06099181236682987,
+    0.06086580019279705,
+    0.060824106326018666
+   ],
+   "cos_cum_vs_final_bufF_R3": 0.9718068383491335
+  }
+ },
+ "cross_session_cos": {
+  "e287_NAME-MAINTAINED~e288_ERROR-GATED": 0.6961148871463491,
+  "e287_NAME-MAINTAINED~e288_NAME-FIXED-TWIN": 0.9938803208525224,
+  "e287_NAME-MAINTAINED~e289_CONTRADICTED-WITH-CONTROLLER": 0.6667455857417487,
+  "e287_NAME-MAINTAINED~e289_C1-ERROR-GATED": 0.6973291294229067,
+  "e287_NAME-MAINTAINED~e289_C1-NAME-FIXED-TWIN": 0.9935612736130547,
+  "e287_NAME-MAINTAINED~e291_SINGLE-CONTROL-TWIN": 0.5099789692595824,
+  "e288_ERROR-GATED~e288_NAME-FIXED-TWIN": 0.6786323477631432,
+  "e288_ERROR-GATED~e289_CONTRADICTED-WITH-CONTROLLER": 0.9307812326396815,
+  "e288_ERROR-GATED~e289_C1-ERROR-GATED": 0.9905294312441725,
+  "e288_ERROR-GATED~e289_C1-NAME-FIXED-TWIN": 0.7106608017374224,
+  "e288_ERROR-GATED~e291_SINGLE-CONTROL-TWIN": 0.6462530560616019,
+  "e288_NAME-FIXED-TWIN~e289_CONTRADICTED-WITH-CONTROLLER": 0.6535568034180451,
+  "e288_NAME-FIXED-TWIN~e289_C1-ERROR-GATED": 0.6749061522824943,
+  "e288_NAME-FIXED-TWIN~e289_C1-NAME-FIXED-TWIN": 0.990785899098196,
+  "e288_NAME-FIXED-TWIN~e291_SINGLE-CONTROL-TWIN": 0.4925826096550628,
+  "e289_CONTRADICTED-WITH-CONTROLLER~e289_C1-ERROR-GATED": 0.9221397846110193,
+  "e289_CONTRADICTED-WITH-CONTROLLER~e289_C1-NAME-FIXED-TWIN": 0.6771253185495872,
+  "e289_CONTRADICTED-WITH-CONTROLLER~e291_SINGLE-CONTROL-TWIN": 0.5901784340090966,
+  "e289_C1-ERROR-GATED~e289_C1-NAME-FIXED-TWIN": 0.7157946665853048,
+  "e289_C1-ERROR-GATED~e291_SINGLE-CONTROL-TWIN": 0.6672986406569495,
+  "e289_C1-NAME-FIXED-TWIN~e291_SINGLE-CONTROL-TWIN": 0.5300332513333104
+ },
+ "fleet_e291": {
+  "per_fact": {
+   "FACT1": {
+    "l2": 0.3263442018318414,
+    "in_own_room": 0.0036765329128363353,
+    "in_union": 0.01808925764298471,
+    "svd_T3": 0.13696183376714594,
+    "svd_cross90": 66
+   },
+   "FACT2": {
+    "l2": 0.02323238007556551,
+    "in_own_room": 0.0036564785033142634,
+    "in_union": 0.01807559820914592,
+    "svd_T3": 0.1448456272534188,
+    "svd_cross90": 54
+   },
+   "FACT3": {
+    "l2": 0.01614977070203205,
+    "in_own_room": 0.003609354518366546,
+    "in_union": 0.018316284606662386,
+    "svd_T3": 0.1468265816907728,
+    "svd_cross90": 69
+   },
+   "FACT4": {
+    "l2": 0.002088772346871689,
+    "in_own_room": 0.0036731317740307176,
+    "in_union": 0.01814461263366182,
+    "svd_T3": 0.1396046424859485,
+    "svd_cross90": 56
+   },
+   "FACT5": {
+    "l2": 0.006728893956263757,
+    "in_own_room": 0.0035814881608265707,
+    "in_union": 0.01816428456620831,
+    "svd_T3": 0.13795636248153792,
+    "svd_cross90": 70
+   }
+  },
+  "cross_fact_cos": {
+   "FACT1~FACT2": 0.9064684859832739,
+   "FACT1~FACT3": 0.899112084636161,
+   "FACT1~FACT4": 0.8828581876565261,
+   "FACT1~FACT5": 0.9046154476820586,
+   "FACT2~FACT3": 0.812963093425381,
+   "FACT2~FACT4": 0.9574105452118972,
+   "FACT2~FACT5": 0.8945868762971033,
+   "FACT3~FACT4": 0.7819713862624624,
+   "FACT3~FACT5": 0.8800912321224618,
+   "FACT4~FACT5": 0.8568668607127957
+  },
+  "fleet_sum": {
+   "label": "e291:fleet-sum",
+   "l2": 0.3701360087522158,
+   "in_room_frac": 0.01809801832558313,
+   "natural": {
+    "m": {
+     "50": 58797,
+     "90": 567657,
+     "99": 1407121
+    }
+   },
+   "svd": {
+    "T3": 0.1364888508875988,
+    "T10": 0.4104990706550987,
+    "T50": 0.8587432668865049,
+    "top10_shares": [
+     0.04651753434380766,
+     0.045834373703856526,
+     0.04413694283993461,
+     0.04275918126837192,
+     0.042536291032300895,
+     0.041530725742429414,
+     0.04145859995313659,
+     0.037834652209150395,
+     0.034107933033055135,
+     0.03378283652905559
+    ],
+    "cross90": 65,
+    "cross99": 249,
+    "e_2d": 0.13380694611457408,
+    "top3_matrices_by_energy": [
+     {
+      "param": "h.3.mlp.2.weight",
+      "energy_share": 0.06556601717684146
+     },
+     {
+      "param": "h.2.mlp.2.weight",
+      "energy_share": 0.06267382202149302
+     },
+     {
+      "param": "h.3.attn.c_attn.weight",
+      "energy_share": 0.06240510470465788
+     }
+    ]
+   },
+   "in_room_frac_K10K": 0.0036893677167550557
+  },
+  "twin_fact1": {
+   "l2": 0.7774069366120435,
+   "in_own_room": 0.003654676989923095,
+   "in_union": 0.018075192818944326,
+   "cos_cum_vs_final_bufF_R3": 0.9366853865348863,
+   "svd_T3": 0.15353675601999342,
+   "svd_cross90": 60
+  }
+ },
+ "verdict": {
+  "word": "MIXED/INSTRUMENT-MISSING",
+  "primary_object": "e288_ERROR-GATED[controller,neutral]",
+  "bars_verbatim": {
+   "ONE-ANTIBODY": "low-rank (top-3 SVD >= 50% energy) and repeating (median cross-event cos >= 0.5; registered exact substitute: R1 wmean_cos >= 0.5 AND mean gradient-level rho_t >= 0.5) \u2014 the controller found a vital signal",
+   "NAVIGATION": "high-rank footprint + state-tracking (cos with deficit gradient >> cross-event cos) \u2014 DIRECT tracking instrument-missing (per-event deficit-gradient directions not saved); this branch fires MIXED/INSTRUMENT-MISSING with the table verbatim",
+   "CHANCE-CARVING": "in-room at chance ([0.055, 0.065] \u2014 the class null band) AND no repeat (R1 < 0.5 or mean rho < 0.5) AND no tracking (mean rho < 0.5 as registered) \u2014 only the GATING is the intelligence",
+   "MIXED/INSTRUMENT-MISSING": "anything else \u2014 disclose"
+  },
+  "clause_trace": {
+   "rank_T3_ge_50pct": false,
+   "T3": 0.20572741652625495,
+   "repeat_R1_ge_05": true,
+   "R1": 0.799885971652932,
+   "repeat_rho_mean_ge_05": true,
+   "rho_mean": 0.715703994888005,
+   "in_room_at_chance": false,
+   "in_room_frac": 0.0036825196035369964,
+   "high_rank_cross90_ge_1000": false,
+   "cross90": 73,
+   "tracking_direct": "INSTRUMENT-MISSING (per-event deficit-gradient directions not in the records; disclosed)"
+  },
+  "class_table": {
+   "e289_CONTRADICTED-WITH-CONTROLLER[controller,denial]": {
+    "T3": 0.23043147537677527,
+    "cross90": 68,
+    "in_room": 0.0036610139497402507,
+    "R1": 0.7931265443821351,
+    "rho_mean": 0.6737023587213219,
+    "rank_clause": false,
+    "repeat_clause": true
+   },
+   "e289_C1-ERROR-GATED[controller,neutral-replicate]": {
+    "T3": 0.19135344724040235,
+    "cross90": 74,
+    "in_room": 0.003685510324090742,
+    "R1": 0.829480052699358,
+    "rho_mean": 0.7435481688340305,
+    "rank_clause": false,
+    "repeat_clause": true
+   },
+   "e288_NAME-FIXED-TWIN[flat,neutral]": {
+    "T3": 0.11754216918104578,
+    "cross90": 113,
+    "in_room": 0.003729866641069142,
+    "R1": 0.9428538104056458,
+    "rho_mean": 0.9094026276497609,
+    "rank_clause": false,
+    "repeat_clause": true
+   },
+   "e289_C1-NAME-FIXED-TWIN[flat,neutral-replicate]": {
+    "T3": 0.11875855387819123,
+    "cross90": 115,
+    "in_room": 0.003743189217276908,
+    "R1": 0.9641486595363681,
+    "rho_mean": 0.907559628614663,
+    "rank_clause": false,
+    "repeat_clause": true
+   },
+   "e287_NAME-MAINTAINED[flat-founding]": {
+    "T3": 0.11963413619009614,
+    "cross90": 113,
+    "in_room": 0.003729364127257805,
+    "R1": 0.9556907275364219,
+    "rho_mean": 0.9161126733206576,
+    "rank_clause": false,
+    "repeat_clause": true
+   }
+  },
+  "cross_cell_d": {
+   "neutral_e288_EG": {
+    "in_room": 0.0036825196035369964,
+    "T3": 0.20572741652625495,
+    "R1": 0.799885971652932,
+    "rho_mean": 0.715703994888005
+   },
+   "denial_e289_WC": {
+    "in_room": 0.0036610139497402507,
+    "T3": 0.23043147537677527,
+    "R1": 0.7931265443821351,
+    "rho_mean": 0.6737023587213219
+   },
+   "cos_neutral_vs_denial_footprint": 0.9307812326396815,
+   "causal_delta_in_room": 0.0077889897388663636,
+   "causal_delta_T3": 0.0841355650741227
+  }
+ },
+ "decomposition": {
+  "e287_NAME-MAINTAINED[flat-founding]": {
+   "f_in_accumulated": 0.003729364127257805,
+   "f_p_median_per_step": 0.06104692380482095,
+   "predicted_f_in_if_inroom_orthogonal": 0.003980513742720876,
+   "mean_inroom_cross_event_cos": -0.004206318768821222,
+   "mean_outofroom_cross_event_cos": 1.0180946524391072,
+   "full_R1": 0.9556907275364219,
+   "note": "the R1 identity split by subspace; denominators use the f_p-weighted pairwise products (f_p varies 0.0597-0.0611, negligible); derived interpretation, never a bar; the cos_out values slightly above 1.0 (<= 1.03, flat arms) are the approximation's + fp32-ledger-norm slack \u2014 read as '~1.0, perfectly aligned'"
+  },
+  "e288_ERROR-GATED[controller,neutral]": {
+   "f_in_accumulated": 0.0036825196035369964,
+   "f_p_median_per_step": 0.060716039868820806,
+   "predicted_f_in_if_inroom_orthogonal": 0.004977498076420702,
+   "mean_inroom_cross_event_cos": -0.018640038236349233,
+   "mean_outofroom_cross_event_cos": 0.8526433904016627,
+   "full_R1": 0.799885971652932,
+   "note": "the R1 identity split by subspace; denominators use the f_p-weighted pairwise products (f_p varies 0.0597-0.0611, negligible); derived interpretation, never a bar; the cos_out values slightly above 1.0 (<= 1.03, flat arms) are the approximation's + fp32-ledger-norm slack \u2014 read as '~1.0, perfectly aligned'"
+  },
+  "e288_NAME-FIXED-TWIN[flat,neutral]": {
+   "f_in_accumulated": 0.003729866641069142,
+   "f_p_median_per_step": 0.061052876558873356,
+   "predicted_f_in_if_inroom_orthogonal": 0.004031069606538723,
+   "mean_inroom_cross_event_cos": -0.004981360549768458,
+   "mean_outofroom_cross_event_cos": 1.0044726090176987,
+   "full_R1": 0.9428538104056458,
+   "note": "the R1 identity split by subspace; denominators use the f_p-weighted pairwise products (f_p varies 0.0597-0.0611, negligible); derived interpretation, never a bar; the cos_out values slightly above 1.0 (<= 1.03, flat arms) are the approximation's + fp32-ledger-norm slack \u2014 read as '~1.0, perfectly aligned'"
+  },
+  "e289_CONTRADICTED-WITH-CONTROLLER[controller,denial]": {
+   "f_in_accumulated": 0.0036610139497402507,
+   "f_p_median_per_step": 0.0605737788695634,
+   "predicted_f_in_if_inroom_orthogonal": 0.005093213922635922,
+   "mean_inroom_cross_event_cos": -0.020493489354007233,
+   "mean_outofroom_cross_event_cos": 0.8455454346108604,
+   "full_R1": 0.7931265443821351,
+   "note": "the R1 identity split by subspace; denominators use the f_p-weighted pairwise products (f_p varies 0.0597-0.0611, negligible); derived interpretation, never a bar; the cos_out values slightly above 1.0 (<= 1.03, flat arms) are the approximation's + fp32-ledger-norm slack \u2014 read as '~1.0, perfectly aligned'"
+  },
+  "e289_C1-ERROR-GATED[controller,neutral-replicate]": {
+   "f_in_accumulated": 0.003685510324090742,
+   "f_p_median_per_step": 0.0607772442103561,
+   "predicted_f_in_if_inroom_orthogonal": 0.004785573124831403,
+   "mean_inroom_cross_event_cos": -0.016348058946031148,
+   "mean_outofroom_cross_event_cos": 0.8840477815825891,
+   "full_R1": 0.829480052699358,
+   "note": "the R1 identity split by subspace; denominators use the f_p-weighted pairwise products (f_p varies 0.0597-0.0611, negligible); derived interpretation, never a bar; the cos_out values slightly above 1.0 (<= 1.03, flat arms) are the approximation's + fp32-ledger-norm slack \u2014 read as '~1.0, perfectly aligned'"
+  },
+  "e289_C1-NAME-FIXED-TWIN[flat,neutral-replicate]": {
+   "f_in_accumulated": 0.003743189217276908,
+   "f_p_median_per_step": 0.06114817527603616,
+   "predicted_f_in_if_inroom_orthogonal": 0.003955564123616995,
+   "mean_inroom_cross_event_cos": -0.00357934582940646,
+   "mean_outofroom_cross_event_cos": 1.0271925697368947,
+   "full_R1": 0.9641486595363681,
+   "note": "the R1 identity split by subspace; denominators use the f_p-weighted pairwise products (f_p varies 0.0597-0.0611, negligible); derived interpretation, never a bar; the cos_out values slightly above 1.0 (<= 1.03, flat arms) are the approximation's + fp32-ledger-norm slack \u2014 read as '~1.0, perfectly aligned'"
+  }
+ },
+ "reading": {
+  "local_vs_global": "consecutive-step cosine ~0.98 (consec_cos_mean) but norm-weighted mean over ALL pairs 0.80 and T1 0.087: the steps are LOCALLY repeating (the buffer's momentum memory) and GLOBALLY rotating \u2014 a slowly-rotating repertoire spanning ~cross90 dims over the 16 events",
+  "the_answer_to_the_dispatch": "neither one antibody (T3 0.21 < 0.50) nor chance carving (repeat fires 0.80 >> 0.5; 90x more concentrated than the null): a SESSION-INVARIANT, MID-RANK (~70-dim at 90%), slowly-rotating repertoire living ENTIRELY outside the room (in-room channel decorrelates to the volume null; out-of-room channel repeats at 0.85-1.0); the state-dependent part is the DOSE, not the direction",
+  "tracking_status": "NAVIGATION's direction-tracking clause is instrument-missing (per-event deficit-gradient directions not saved); the rho_t series declining 0.83->0.60 within the phase is the nearest available texture (the alignment itself state-tracks), but no bar reads it"
+ },
+ "outputs": {
+  "figure": "runs/e307/e307_footprint.png",
+  "metrics": "runs/e307/metrics.json",
+  "report": "runs/e307/REPORT.md"
+ },
+ "date_completed": "2026-10-06T18:22:31+00:00"
+}
