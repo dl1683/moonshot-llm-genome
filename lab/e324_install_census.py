@@ -1504,6 +1504,12 @@ def make_census_plot(rd, census, canon_row, s1_table, spread_g0,
                label="formation trust band [0.15, 0.45] (context, NOT a gate)")
     ax.axvline(e323_g0, color="tab:green", ls="--", lw=1.0, alpha=0.7,
                label=f"e323's both-wheels-fresh draw {e323_g0:.4f}")
+    # stagger the fresh-draw labels by x-rank (the four draws cluster tight:
+    # the render catch caught by inspection post-run; disclosed) — alternate
+    # above/below/below-left so the annotations never pile
+    _xrank = {g: i for i, (v, g) in enumerate(
+        sorted((census[g]["post_g0"], g) for g in census))}
+    _offsets = [(8, 8), (8, -18), (-76, -20), (8, 8)]
     for g, row in census.items():
         side = ("DIE" if row["s1_g0"] < S1_DIE_BAR
                 else "SURVIVE" if row["s1_g0"] > S1_GAP_HI else "GAP")
@@ -1513,16 +1519,20 @@ def make_census_plot(rd, census, canon_row, s1_table, spread_g0,
                    marker="o", zorder=3, edgecolors="k", linewidths=0.6)
         ax.annotate(f"gen {g}\ns1 {row['s1_g0']:.3f}",
                     (row["post_g0"], row["in_own_room"]),
-                    textcoords="offset points", xytext=(8, -4),
-                    fontsize=7.5, color=col)
+                    textcoords="offset points",
+                    xytext=_offsets[_xrank[g] % len(_offsets)],
+                    fontsize=7.5, color=col,
+                    ha="left" if _offsets[_xrank[g] % len(_offsets)][0] > 0
+                    else "right")
     ax.scatter(canon_row["post_g0"], canon_row["in_own_room"], s=340,
                c="gold", marker="*", zorder=4, edgecolors="k",
                linewidths=1.0)
     ax.annotate(f"THE CANON gen {COMMITTED_INST_GEN}\n"
                 f"s1 {canon_row['s1_g0']:.1e} (DIE)",
                 (canon_row["post_g0"], canon_row["in_own_room"]),
-                textcoords="offset points", xytext=(10, 6),
-                fontsize=8, fontweight="bold")
+                textcoords="offset points", xytext=(-6, -38),
+                fontsize=8, fontweight="bold", ha="right")
+    ax.margins(y=0.14)
     ax.set_xlabel("post-install g0 (the draw's own battery)")
     ax.set_ylabel("in-own-room fraction (write displacement)")
     ax.set_title(f"e324 THE INSTALL-DRAW CENSUS — held room K10K "
