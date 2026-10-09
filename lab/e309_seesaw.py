@@ -215,10 +215,11 @@ FROZEN = {
              "SERIAL_root_in_room": 0.6483002018978558,
              "SERIAL_root_g0": 0.6884167194366455,
              "CONCURRENT_install_in_room": 0.7681272067523449,
-             "CONCURRENT_root_in_room": 0.6896646631755344,
+             "CONCURRENT_root_in_room": 0.6896646631755264,
              "CONCURRENT_root_g0": 0.8102989196777344},
     # --- e179: the founding law (family-1 g-12 ruler; cross-era battery) ---
     "e179_resurrection_gm12_at50": 0.6861528158187866,
+    "e179_wash_control_gm12_at50": 0.022121647372841835,
     # --- room chance occupancy (K10K) ---
     "k10k_chance_occupancy": 0.0036508715360530864,
 }
@@ -290,6 +291,29 @@ MET = {
                   "anchors) yet cannot discriminate — the zero point has no "
                   "denominator; a construction and a revival convert identically",
     },
+    "deviations": [
+        "THE SNAPSHOT CORRECTION (post-birth, pre-adjudication, the gate's own "
+        "catch): the design-time frozen literal e270.CONCURRENT_root_in_room was "
+        "transcribed ...5344 for the file's verbatim ...5264 (a 2-digit slip); "
+        "G_LITERAL halted the first run on it BEFORE any table, unit work, or "
+        "adjudication executed; the literal was corrected verbatim from "
+        "runs/e270/metrics.json and the run restarted clean. No bar, gate form, "
+        "extraction path, or adjudication logic was touched — the bind did "
+        "exactly what it exists to do.",
+        "INSTRUMENT SHAKEOUT (disclosed): the first execution attempts halted on "
+        "extraction-path misses (e299's hardbound lives under G_PARENTS; e179's "
+        "cells live under cells.r1_32) and two report-format defects — all fixed "
+        "before the adjudicating run; the adjudication, bars, and frozen rule are "
+        "exactly the birth-committed forms.",
+        "HEAD MOVED BETWEEN BIRTH AND RUN: other fleet cells committed after "
+        "this cell's birth commit 81f6511 and before its adjudicating run — "
+        "both hashes recorded in provenance; the registration is the birth "
+        "commit.",
+        "CPU-ONLY desk cell (dispatch): threads 4 pinned, no torch import, no "
+        "cuda tensor, no GPU op, no training, no state loads, no envelope-log "
+        "writes; datetime.now(UTC) only.",
+        "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the coordinator folds).",
+    ],
 }
 
 
@@ -307,10 +331,15 @@ def halt(gate, msg):
 
 
 def check_val(gate, name, mine, frozen, tol=0.0):
-    ok = (abs(mine - frozen) <= tol) if isinstance(frozen, float) else (mine == frozen)
+    if isinstance(frozen, float) and isinstance(mine, (int, float)) and not isinstance(mine, bool):
+        ok = abs(mine - frozen) <= tol
+        diff = abs(mine - frozen)
+    else:
+        ok = mine == frozen
+        diff = 0.0 if ok else float("inf")
     if not ok:
         halt(gate, "value bind FAILED for %s: mine=%r frozen=%r" % (name, mine, frozen))
-    return {"name": name, "mine": mine, "frozen": frozen, "abs_diff": abs(mine - frozen)}
+    return {"name": name, "mine": mine, "frozen": frozen, "abs_diff": diff}
 
 
 # ============================================================================
@@ -331,10 +360,10 @@ m299, m281, m268, m270, m179 = P["e299"], P["e281"], P["e268"], P["e270"], P["e1
 
 # --- extract + bind: e299 surgery route ---
 binds = []
-base = m299["gates"]["hardbound"]["fact_baseline_g0"]
+base = m299["gates"]["G_PARENTS"]["hardbound"]["fact_baseline_g0"]
 binds.append(check_val("G_LITERAL", "baseline_post_g0", base, FROZEN["baseline_post_g0"]))
 binds.append(check_val("G_LITERAL", "x14_arm_A_g0",
-                       m299["gates"]["hardbound"]["x14_arm_A_g0"], FROZEN["x14_arm_A_g0"]))
+                       m299["gates"]["G_PARENTS"]["hardbound"]["x14_arm_A_g0"], FROZEN["x14_arm_A_g0"]))
 binds.append(check_val("G_LITERAL", "x14_port_abs_diff",
                        m299["gates"]["G_PORTX14"]["arm_A_g0"]["abs_diff"], FROZEN["x14_port_abs_diff"]))
 binds.append(check_val("G_LITERAL", "e299_verdict",
@@ -410,8 +439,11 @@ for run, m in (("e268", m268), ("e270", m270)):
         binds.append(check_val("G_LITERAL", "%s_%s_root_g0" % (run, tag),
                                arms[arm]["root"]["g0"], FROZEN[run]["%s_root_g0" % tag]))
 binds.append(check_val("G_LITERAL", "e179_resurrection_gm12_at50",
-                       m179["cells_full"]["50"]["gm12"],
+                       m179["cells"]["r1_32"]["cells_full"]["50"]["gm12"],
                        FROZEN["e179_resurrection_gm12_at50"]))
+binds.append(check_val("G_LITERAL", "e179_wash_control_gm12_at50",
+                       m179["cells"]["r0_wash"]["cells_full"]["50"]["gm12"],
+                       FROZEN["e179_wash_control_gm12_at50"]))
 
 MET["gates"] = {
     "G_PARENTS": {"per_parent": g_parents, "pass": True},
@@ -667,12 +699,17 @@ geometry = {
     },
     "e179_law_record": {
         "event": "r=1/32: the first replay at +32 resurrects the +2-dead fact, "
-                 "ruler gm12 %.4f at +50" % FROZEN["e179_resurrection_gm12_at50"],
+                 "ruler gm12 %.4f at +50 (the wash control's corpse reads %.4f "
+                 "at the same milestone — a %.0fx behavioral jump)"
+                 % (FROZEN["e179_resurrection_gm12_at50"],
+                    FROZEN["e179_wash_control_gm12_at50"],
+                    FROZEN["e179_resurrection_gm12_at50"] / FROZEN["e179_wash_control_gm12_at50"]),
         "battery": "family-1 g-12 ruler (install-60 battery) — cross-era, "
                    "cross-battery vs both modern routes",
         "scope_note": "e179's corpse was TWO STEPS dead under wash (a fresh "
                       "kill), not a t400 corpse; e281's zero point is the "
-                      "modern, controlled form of the same question",
+                      "modern, controlled form of the same question — and it "
+                      "lands the same band with NO corpse at all",
     },
 }
 MET["geometry"] = geometry
@@ -938,7 +975,7 @@ lines.append("- **Cons side (e268/e270, the parents of the anchors):** the write
              "in-room; the corpse-seeded landings sit %.3f/%.3f; the ALIVE-seeded landings sit %.3f/%.3f. "
              "**The landing states do not rank by the write's presence** — corpse-seeded landings are MORE "
              "in-room than alive-seeded in both records. If the landing were the write revived, the "
-             "alive-seeded landing (starting from the full 94%-in-room write) should be the more "
+             "alive-seeded landing (starting from the full 94%%-in-room write) should be the more "
              "write-like; it is the less. The landing geometry is the cons's own signature."
              % (FROZEN["e268"]["SERIAL_install_in_room"], FROZEN["e270"]["SERIAL_install_in_room"],
                 FROZEN["e268"]["CONCURRENT_root_in_room"], FROZEN["e270"]["CONCURRENT_root_in_room"],
@@ -948,7 +985,7 @@ lines.append("- **The zero point:** NOINST has no write, no room, displacement 0
 lines.append("")
 lines.append("## (c) The seesaw verdict")
 lines.append("")
-lines.append(branch)
+lines.append(branch[0].upper() + branch[1:] if branch else branch)
 lines.append("")
 lines.append("**The founding-law reconciliation:** e179's resurrection (one replay at +32 restores a "
              "+2-step-dead fact's ruler to %.4f, family-1 g-12 battery) is the cons's standard "
@@ -988,8 +1025,12 @@ except Exception as e:
     provs.append(("git_head_at_start", "unavailable: %s" % e))
 MET["provenance"] = {
     "script": str(ROOT / "lab" / "e309_seesaw.py"),
+    "birth_commit": "81f65113b22c7814919e9865b74c4249a3aac927 "
+                    "(the script's bars-frozen registration commit)",
     "git_head_at_start": provs[0][1],
-    "birth_commit": provs[0][1] + " (the script's own commit — this run starts from it)",
+    "head_note": "HEAD at run start is NOT the birth commit — other fleet cells "
+                 "committed between this cell's birth and its run; both hashes "
+                 "recorded, no ambiguity (the registration is the birth commit)",
     "machinery": "NONE imported — a pure desk adjudication (json/hashlib/numpy/"
                  "matplotlib only); no torch, no cuda tensor, no state loads",
     "records_read": {k: {"path": v["path"], "md5": v["md5"]} for k, v in PARENTS.items()},
@@ -1000,6 +1041,7 @@ MET["provenance"] = {
 }
 for k, v in provs:
     lines.append("- **%s**: `%s`" % (k, v))
+lines.append("- **birth_commit** (the bars-frozen registration): `81f65113b22c7814919e9865b74c4249a3aac927` — HEAD moved past it before the run (other fleet cells committed in between); the registration is the birth commit, the run started at the HEAD above")
 lines.append("- parents md5-bound: " + ", ".join("%s (%s)" % (k, v["md5"][:8]) for k, v in PARENTS.items()))
 lines.append("- outputs: `runs/e309/metrics.json`, `runs/e309/e309_seesaw.png`, this report")
 lines.append("")
