@@ -72,6 +72,8 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
 - GATES: x16 DONE (context-gated targeted bias); x22 DONE (T287: the committee
   geography — mass-proportional additive push, seatable nowhere, the gate is the
   state); x19 DONE (T289: the gate is BEARER-coupled — the state is the authorship-
+  x20 DONE (T290: the family clause — confidence is family-global, a near-master
+  fader, direction-blind coupling; W049-Q3's dial is the membrane's, not the fact's).
   structured write; anti kills address, scalpel kills authorship; e325 the double
   kill registered). REMAINING: e322 (the womb-rent economics) for the vacancy
   clause.

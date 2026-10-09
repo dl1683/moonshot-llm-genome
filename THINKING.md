@@ -7,6 +7,43 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T290 — X20: the membrane shares one confidence dial — and the coupling is direction-blind (2026-10-09, datetime.now ~21:32Z)
+
+The mixing desk answers T289's family-scale question with a
+near-master fader: every fact's knob lifts every fact (all 20
+off-diagonals positive, median 70% of the diagonal; each row's own
+fact keeps only 16-31% of its trigger's total lift). THE MEMBRANE
+SHARES NOT JUST CONTENT BUT CONFIDENCE — the family's calibration is
+one dial, which is exactly what a bearer-coupled gate on a shared
+bearer fabric predicts. The two leaks are honest texture: FACT4
+receives just under half from two triggers, and FACT2's own knob is
+weak (4.1%) — the fabric has thin spots.
+
+THE DEEPER GEM IS DIRECTION-DECOUPLING: T4's direction is nearly
+orthogonal to the other four triggers yet delivers the largest family
+lift. The cross-fact coupling does NOT travel in the knob's direction
+— it travels through the shared state the knobs all touch. Combined
+with x22 (each knob is a mass-proportional committee) and T289 (the
+gate rides the bearer mass): THE FAMILY'S CONFIDENCE ARCHITECTURE IS
+A SHARED SURFACE THAT ANY ALIGNED PUSH DEFORMS EVERYWHERE — the
+confidence twin of the content membrane (e294's collateral kill was
+the same surface, pushed down instead of up).
+
+FOR THE LAWS v3: Law 7's family clause drafts — confidence is
+family-global (a near-master fader), direction-blind in coupling,
+surgically gated off-target, and thin-spotted (FACT4/FACT2). The
+calibration-dial design (W049-Q3) inherits a warning: on a family,
+cooling one memory cools all five — the dial is the membrane's, not
+the fact's. The single-fact organism (all of x16/x22) was the right
+substrate for the knob's anatomy; the family is the substrate of its
+SCOPE.
+
+THE LEDGER: the seventh consecutive lab mechanism miss under the
+strict scorer (near-miss under the plain reading — the gap between
+frozen scorer wording and intent is itself tonight's lesson: bars want
+pre-registered SCORERS, not just thresholds). The instruments remain
+undefeated.
+
 ## T289 — X19: the two removals — anti kills the address, scalpel kills the authorship, and nothing ever removed both (2026-10-09, datetime.now ~21:20Z)
 
 The corpse's dial returned the evening's most elegant structure. The
