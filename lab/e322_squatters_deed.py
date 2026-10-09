@@ -1367,6 +1367,7 @@ def main() -> None:
     armo_host = G1.battery_cell(armo_net, g0_ids, zid)["mean_pz"]
     armo_para = G1.battery_cell(armo_net, g0_ids, tid)["mean_pz"]
     armo_ghost = G1.battery_cell(armo_net, g0_ids, qid)["mean_pz"]
+    armo_eco = slot_ecology(armo_net, g0_ids, LETTER_IDS)
     del armo_net
     G_ARMOLOAD = {
         "form": "the replay's start state := e321's committed best arm "
@@ -1578,7 +1579,8 @@ def main() -> None:
 
     # -- PART 1 adjudication (frozen)
     pan = [dict(event=0, host_g0=armo_host, para_g0=armo_para,
-                ghost_g0=armo_ghost)] + replay["panel"]
+                ghost_g0=armo_ghost, ghost2_g0=armo_eco["p_N"],
+                ghost3_g0=armo_eco["p_B"], ecology=armo_eco)]         + replay["panel"]
     g0v, t0v = pan[0]["ghost_g0"], pan[0]["para_g0"]
     renorm = {p["event"]: 1.0 / (1.0 - pan[0]["host_g0"] + p["host_g0"])
               for p in pan}
