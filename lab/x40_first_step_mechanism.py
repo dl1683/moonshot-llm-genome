@@ -1328,8 +1328,10 @@ def replay_arm(tag: str, theta: dict, pool_x: torch.Tensor,
         if step % 25 == 0 or step == n_pool_draws:
             panels.append({"step": step, "disp": roam[-1]})
     fid = []
-    for mine, ref in zip(panels, committed_traj):
-        if ref["step"] == mine["step"]:
+    ref_by_step = {int(r["step"]): r for r in committed_traj}
+    for mine in panels:
+        ref = ref_by_step.get(int(mine["step"]))
+        if ref is not None:
             fid.append({"step": mine["step"], "mine": mine["disp"],
                         "committed": ref["disp"],
                         "rel_diff": (abs(mine["disp"] - ref["disp"])
