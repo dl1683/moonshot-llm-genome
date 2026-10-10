@@ -7,6 +7,52 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W056 — the same object? the variety channel's decorrelation and the cons's fingerprint may be one thing (2026-10-10, datetime.now ~20:50Z; the beat's thinking bulk, both compute lanes busy)
+
+Two instruments, a day apart, both mid-formation, both about INDEPENDENCE OF
+RESPONSE. x44 (T321): the VARIED anneal arm's per-context reads DECORRELATE across
+geometries (r 0.33-0.46 vs fresh's ~0.97; the two offsets mutually bound 0.88-0.92) —
+the variety channel reads as elicitation decorrelation, and the flip threshold did not
+move. x45 (T325): the cons's mid-formation states ride MORE DECORRELATED ELICITATION
+FAMILIES than the anneal's matched-read states (consistency 0.78-0.83 vs coherent) —
+elicitation structure carries path history. And the one place variety ever won a cell:
+GEOMETRY-GENERALIZATION (e341's gm12 0.688 vs 0.131).
+
+QUESTION: are these THE SAME OBJECT at two doses — the cons's life of varied contexts
+being a long anneal, e341's varied 300-step anneal being a miniature cons? If yes, the
+era's two newest threads braid into one: the missing formation protocol (x43's
+ceiling) would be a DECORRELATION DEFICIT, not a dose deficit — the anneal at matched
+reads carries MORE write (x45's write-norm finding) and still coheres; the cons
+carried less write and decorrelated. The cons did DIFFERENT work, and 'different' may
+literally mean 'independent.'
+
+THREE HYPOTHESES: (a) ONE CURRENCY — decorrelation is a single measurable that ranks
+fresh < fixed < varied < cons and PREDICTS outcomes (gm12 generalization, retention
+under wash); the assembly gap closes by maximizing independence, not steps. (b) TWO
+OBJECTS — the cons's decorrelation lives BETWEEN elicitation families along the path,
+the variety's BETWEEN geometries at one state; the instruments disagree when run on
+the same states (varied looks free to x44's matrix, coherent to x45's). (c) NULL — no
+outcome coupling; decorrelation is a passenger.
+
+THE CHEAP DISCRIMINATOR (all committed, CPU minutes, no new formation): run BOTH
+instruments on the SAME four arm-sets — fresh, fixed-300, varied-300 (e341), the cons
+walk rungs (x42/x45) — x44's cross-geometry per-context matrix and x45's consistency
+side by side. (a) ranks identically under both and the ranking tracks gm12; (b)
+disagrees somewhere specific; (c) couples to nothing. This is the x46
+redundancy-profile card's sharpened design — RIPENING, not dispatched: e343's
+name-swap verdict lands first (the fingerprint's instrument control), and a scale
+rider belongs in the same cell (g1bS9's 10M arms through both instruments — if (a),
+the fade is a DECORRELATION COLLAPSE, and the recovery inversion reads as the two
+axes' independence dying at scale).
+
+THE WILDER TAIL (curiosity only): if (a), durability is REDUNDANCY MADE VISIBLE — a
+wash-proof read is one with enough independent elicitation families that no single
+displacement direction can reach them all; the 'wall' is then the organism-level
+shadow of a read-level fact, and the recipe's 2.74M-specificity reads as SMALL-MODEL
+LUCK: decorrelation is cheap at 2.74M (a 300-step menu suffices) and expensive at 10M
+(the graded fade). The deepest cut: the cons never 'learned more' — it learned
+INDEPENDENTLY, and the lab's whole dose vocabulary has been measuring the wrong axis.
+
 ## W053 — the map's dynamics: does the receptivity table drift along the lineage? (2026-10-10, datetime.now ~01:57Z; the guard's owed thinking bulk)
 
 The interaction form (T297) leaves the map with a dynamics question it
