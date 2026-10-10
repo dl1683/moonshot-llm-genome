@@ -472,12 +472,62 @@ REGISTERED = {
                      "this; no bar shopping."),
 }
 
-deviations: list[str] = []
-
-
-def _dev(m: str) -> None:
-    if m not in deviations:
-        deviations.append(m)
+deviations: list[str] = [
+    "THE SMOKE PASS (runs/e326_smoke/, local per .gitignore; the e260-"
+    "family record): ONE code catch, fixed pre-compute — the figure passed "
+    "the RAW displacement_loads dict (no out_of_room_norm key; KeyError at "
+    "P7); fixed to pass G_SUBSTRATE's extended copy; the smoke rerun "
+    "RESUMED both rungs from their checkpoints (zero recompute); no bar, "
+    "gate, arm, or read touched. THE SUBSTANCE VERIFICATIONS (all PASS, "
+    "SMOKE-stamped, nothing adjudicated): the substrate loads BIT-EXACT "
+    "(flat-md5 ebd30967... exact; g0 |d| 0.0 vs the census row; write "
+    "norm rel-diff 0.0); both rungs' cap/buffer/orth machinery exercised "
+    "at the FULL RUN'S PER-STEP SHARE (S to exactly 100.0% of the scaled "
+    "budget, lr > 0 every step, cum 87.7% — the orthogonal steps cancel "
+    "below the triangle exactly as designed; orth max 1.03e-17; isolation "
+    "0 violations; bufC at the fp floor ~8e-10 vs the 1e-4 bar); the "
+    "draw-integrity check EXACT (t1 corpus CE + clipped gn bit-identical "
+    "across both rungs); G_ROOMK10K SMOKE-VACUOUS at k=512 (no committed "
+    "512-room record; LIVE + binding at k=10k) and G_DRIFT SMOKE-VACUOUS "
+    "(8-step drift is 1/50 of the full rung's), both per e290's own smoke "
+    "precedent; G_SUBSTRATE's in_own_room co-reported only at smoke k "
+    "(0.1393 at k=512 vs the census's 0.6312 at k=10k — the identity "
+    "checks are room-independent and stay LIVE).",
+    "THE CHECKPOINT SCOPE (disclosed at birth): this cell's checkpoints "
+    "live INSIDE runs/e326/ (the dispatch's write-scope: write ONLY "
+    "lab/e326_* + runs/e326/*) — a deviation from the family's "
+    "runs/checkpoints/ convention; *.pt is gitignored either way; md5s in "
+    "metrics.",
+    "THE SUBSTRATE IS LOADED, NEVER RE-FORMED (extend, don't repeat): "
+    "e327's census FRESH5 checkpoint raw-md5-bound + flat-md5-verified; "
+    "the write-norm RECOMPUTED fp64 from the loaded checkpoint and gated "
+    "against the census row (rel 1e-8) — the budgets derive from THIS "
+    "measurement, never the canon's absolute numbers; the install rig is "
+    "not run in this cell.",
+    "THE CANON BRACKET IS CITED, NEVER RERUN: e290's committed per-rung "
+    "ratios/drifts/curves are read from its md5-bound record (the die-"
+    "mode reference curve in the figure + the widened bands' anchor); "
+    "re-running it would double the GPU bill for a class already "
+    "committed.",
+    "THE WIDENED BANDS ARE e323's REGISTRATION (the dispatch's named "
+    "source): runs/e323/metrics.json's registered."
+    "the_widened_band_derivation_verbatim (git-canonical md5-bound) "
+    "asserted literal-for-literal at P0b; e323's rungs NEVER RAN (its "
+    "formation gate halted) — the bands arrive unspent and are spent "
+    "HERE, exactly as registered; no re-derivation, no widening.",
+    "THE MACHINERY IS IMPORTED, NOT COPIED (the family's convention): "
+    "e261's LadderRooms/SRCT/thermal envelope and e290's rung body (via "
+    "e323's port) — the committed files are NOT modified; the module-"
+    "global rebinding retargets the machinery's I/O to this cell (tags "
+    "e326:*); the e261 import opens runs/e261/run.log in append mode (the "
+    "standing import behavior since e261; no line is ever written — "
+    "E261.log is rebound before any call).",
+    "n=1 per rung, ONE census organism of eight, one lineage, one session "
+    "(the g-series standing caveat — the critic's lottery note carried "
+    "verbatim); the census's within-mode spread (norm 0.5%, in-room 0.8%) "
+    "bounds the substrate draw's representativeness; nothing guaranteed.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat folds).",
+]
 
 
 # ------------------------------------------------------------------ helpers
@@ -2265,7 +2315,8 @@ def main():
 
     # ================= P7: figures + report + close =====================
     make_primary_plot(RD, metrics, verdict, clause, thermal_log, budgets,
-                      write_norm, loads_sub, sub_g0)
+                      write_norm, G_SUBSTRATE["displacement_from_base"],
+                      sub_g0)
     write_report(RD, metrics, verdict, clause, G_BUDGET, G_DRIFT, f5_rank)
     metrics["status"] = ("COMPLETE — the rungs on the survive mode "
                          "adjudicated (this write replaces all PARTIAL "
