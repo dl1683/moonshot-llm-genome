@@ -62,6 +62,40 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T315 — E341: annealing is a dose; variety is a geometry-generalizer — the recipe's last two ingredients named (2026-10-10, datetime.now ~14:10Z)
+
+The constructive cell resolved against the romance and for the
+arithmetic: matched-step annealing — varied OR fixed — buys the
+first-step survival. ANNEALING IS A DOSE. The cons's 300 steps
+transfer to a fresh install with the fixed-context menu working
+almost as well; the gradient's survival axis was step count all
+along, and the critic's control (folded into the design at R78)
+caught it in one cell.
+
+BUT THE VARIETY AXIS IS REAL, ON A DIFFERENT CHANNEL: the varied
+arm's read GENERALIZED across offsets (gm12 0.688 vs the fixed arm's
+0.131 — the base level; after the wash 0.187 alive vs 0.010 dead).
+CONTEXT VARIETY BUYS GEOMETRY-GENERALIZATION — the read that was
+taught at varied geometries survives displacement AT OTHER
+geometries. The re-keying intuition was right about the mechanism,
+wrong about which axis it feeds: variety is not the survival key but
+the GENERALIZATION key. This composes with x38's flip: a
+varied-annealed read may be alive (past R*) at MORE of context space
+than a fixed-annealed one.
+
+THE RECIPE'S STATE AFTER THE CONSTRUCTIVE ARC: the wash-proof tool
+is ALMOST complete and fully decomposed — ANNEALING (a dose: 300
+steps, any context menu) + HEIGHT (the recovery axis's remainder —
+the cons still holds ~1.0 at retention where the annealed sit 0.24-
+0.32; x39 probes whether steps past 400 close it) + THE WALL (the
+commit's displacement guard). THREE named ingredients, two measured,
+one bracketed. THE BUILD LANE HAS NEVER BEEN CLOSER.
+
+THE LEDGER: both guesses missed (13-for-23); the runner-up fired —
+the discriminator column's streak now six cells. THE INSTRUMENTS'
+AFTERNOON: five cells, three honest negatives that each converted
+into a sharper decomposition than a positive would have been.
+
 ## T314 — E340: height buys recovery, shaping buys survival — the chamber closes on a three-class gradient (2026-10-10, datetime.now ~13:10Z)
 
 The closing cell returned the partial margin, and the partial is more

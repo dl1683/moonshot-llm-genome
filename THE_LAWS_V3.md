@@ -92,9 +92,12 @@ while CE_R barely notices): WARM RE-FORMATION IS RESUMED FORMATION, LITERALLY.
 RESOLVED (e337/e338/e340 — the chamber): the ball decomposes into THREE separable
 contributions — THE WALL (a runtime displacement veto, not a memory guard: it held
 the organism while fresh reads died), THE HEIGHT (recovery capacity: the s100
-gradient install-fresh 0.013 < controller-annealed 0.114 < cons-shaped ~0.92 [derived: band-legs' height x retention; carries an unstated STEPS-VS-TYPE confound (R78) — e341's matched arms + the t400 rung are the controls]), and
-THE SHAPING (first-step survival: the cons's varied-context annealing — the s1
-annihilation is height-blind but the shaped roots never die). SURVIVAL IS THE
+gradient fresh 0.045 < controller 0.130 < varied-annealed 0.244 < fixed-annealed 0.320 << cons ~1.0 [the STEPS-VS-TYPE confound RESOLVED by e341: the survival axis was DOSE; the remainder is the height axis — x39 probes]), and
+THE ANNEALING (first-step survival — A DOSE, NOT A TYPE: e341's matched-steps
+control bought the s1 survival with EITHER context menu, varied or fixed; the s1
+annihilation is height-blind but ANY 300-step annealed read survives; CONTEXT VARIETY
+buys a different channel — GEOMETRY-GENERALIZATION: the varied arm's read survives
+displacement at other offsets, gm12 0.688 vs the fixed arm's 0.131). SURVIVAL IS THE
 SHAPING'S; RECOVERY IS THE HEIGHT'S; THE WALL IS THE ORGANISM'S. The build lane's
 wash-proof tool remains incomplete: the missing ingredient is a varied-context
 annealing protocol on a fresh install.
