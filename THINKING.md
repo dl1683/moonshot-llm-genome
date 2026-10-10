@@ -7,6 +7,38 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W053 — the map's dynamics: does the receptivity table drift along the lineage? (2026-10-10, datetime.now ~01:57Z; the guard's owed thinking bulk)
+
+The interaction form (T297) leaves the map with a dynamics question it
+begs. Three facts: (1) every write shifts its neighbors (e330's
+contamination: QELVARO x5.4, KING x3.1, no write of their own); (2)
+the table is lineage-specific (x29's same-arch rider: TAVIREN
+out-of-band on a fresh-seed organism); (3) a name's own entry moves
+DIFFERENTLY per name (TAVIREN up, NYSTORA damped). QUESTION: is the
+map a random walk (each write jitters everything, the committed table
+is one trajectory's accident) or does it CONVERGE (repeated writes of
+any name settle the landscape toward some attractor table)?
+
+THE CHEAP DISCRIMINATOR (all on disk): the family lineage's
+checkpoints are a natural longitudinal series — base -> five installs
+(e291) -> war (e294/e312) -> restore (e313) -> scalpel (e314). Run the
+x24 panel at each checkpoint (the instrument is committed; CPU
+minutes). RANDOM-WALK: the table reshuffles at every stage with no
+trend (the committed table is the endpoint of one drunk walk; cross-
+lineage comparison meaningless without the walk). CONVERGENT: the
+table stabilizes as installs accumulate (there is an attractor
+landscape; the map becomes MORE predictive with organism age — and
+the noise floor of an OLD organism is systematically different from a
+young one's, a scope clause every read bar inherits).
+
+THE WILDER TAIL (curiosity only): if convergent, the map is quietly
+measuring ORGANISM AGE — and two organisms of the same architecture
+but different training histories would have measurably different
+innate-seeming receptivities. The lab's "innate" vocabulary would
+then be a misreading of accumulated history — which is the
+interaction form's deepest form: THERE MAY BE NO INNATE LEVEL AT ALL,
+only history all the way down.
+
 ## T297 — X29+E330: both simple nouns fell in one night — the map is sculpted name by name (2026-10-10, datetime.now ~01:45Z)
 
 The two cells landed an hour apart and kill each other's simple

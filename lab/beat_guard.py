@@ -43,9 +43,12 @@ def parse_commits():
                 r"\bfolded:", subj) or re.search(r"\bFOLDED\b", subj):
             folds += 1
         # thinking lane: a NEW wonder card / synthesis / fresh-questions commit
+        # [R74-era fix 2026-10-10]: T-card folds (T2\d\d FOLDED) are thinking too —
+        # the detector false-fired THINKING-DUE over T296/T297's window.
         if re.search(r"\bW0\d\d\b.*(wonder|:)", subj) or "WONDER" in subj or (
                 "synthesis" in subj.lower() and "day" in subj.lower()) or \
-           "fresh-question" in subj.lower() or re.match(r"^W0\d\d[ :]", subj):
+           "fresh-question" in subj.lower() or re.match(r"^W0\d\d[ :]", subj) or \
+           re.search(r"\bT2\d\d\b", subj):
             thinking += 1
             last_thinking = parts[1] + " " + subj[:60]
     return folds, thinking, last_thinking
