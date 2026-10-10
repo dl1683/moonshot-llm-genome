@@ -39,6 +39,29 @@ then be a misreading of accumulated history — which is the
 interaction form's deepest form: THERE MAY BE NO INNATE LEVEL AT ALL,
 only history all the way down.
 
+## W054 — instruments age: the detector that went blind at T300 (2026-10-10, datetime.now ~05:20Z; the guard's owed bulk)
+
+The beat guard fired THINKING-DUE over a window that contained two
+T-card folds (T301, T302 — real thinking, committed and pushed). The
+detector had been fixed yesterday to count T-cards — with the pattern
+T2\d\d. The T-cards crossed 300 yesterday evening. A guard
+written for a two-hundred-series card numbering silently went blind
+the moment the series rolled over — and fired a false alarm over
+exactly the work it was built to see.
+
+THE LESSON, generalized: EVERY HARD-CODED RANGE IN THE LAB'S GUARDRAILS
+HAS AN EXPIRY DATE WRITTEN BY ITS OWN SUCCESS. The hook's three-digit
+token regex went blind at two-digit cells (caught at R73); the guard's
+T2xx went blind at T300 (caught tonight). The instruments that watch
+the instruments age on the same clock as the work they watch. The fix
+pattern is always the same: generalize the range (T\d{3}), add
+the expiry to the next review's checklist, and let the false alarm
+itself be the teacher — a guard that fires wrongly over real work is
+telling you it has fallen behind the lab it guards.
+
+(And the small grace: the false fire produced this card — the guard
+doing its job even when wrong: forcing thinking onto the record.)
+
 ## T302 — E334: the controller answers on the second branch — sufficiency extended, the overshoot unmasked as the gate's own mechanics (2026-10-10, datetime.now ~05:15Z)
 
 The monoculture clause's cheapest cut has landed, and the document's
