@@ -446,6 +446,12 @@ deviations: list[str] = [
     "LEG LENGTH 200 steps (8 events x M=25) vs the dispatch's bare '8 "
     "more events' — the event count fixes the length under M=25 "
     "UNCHANGED (the regime constant); no other reading is available",
+    "PRE-COMPUTE REPAIR (caught by the smoke's own G_REGIME gate at the "
+    "first smoke launch, before any full compute; disclosed): the "
+    "M-unchanged clause compared the SMOKE leg's M=2 against x41's "
+    "M=25 — the smoke base runs M=2 by construction; the clause is now "
+    "smoke-vacuity-stamped (the FULL run asserts M==25 unchanged); no "
+    "frozen bar or operationalization touched",
 ]
 builds_on = [
     "R79's minted card (the dispatch: 'W055 THE RELAY TUNER (W049 "
@@ -1246,8 +1252,11 @@ def main():
         "schedule_extension": {"from": inst_total_committed,
                                "to": SCHED_EXT_TOTAL,
                                "restored_after": True},
+        "smoke_note": ("SMOKE: the M-unchanged clause vacuous (the smoke "
+                       "base runs M=2 by construction; the full run "
+                       "asserts M==25)" if SMOKE else None),
         "pass": bool(lr_m == float(xl["lr_m_max"])
-                     and m == int(xl["m_every"])
+                     and (SMOKE or m == int(xl["m_every"]))
                      and inst_total_committed == 1000
                      and E261.INST_TOTAL == 1000)}
     assert G_REGIME["pass"], f"regime identity FAILED: {G_REGIME}"
