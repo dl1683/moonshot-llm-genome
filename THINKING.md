@@ -62,6 +62,34 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T317 — X40: directional armor — the annealed read is armored along the wash's own direction (2026-10-10, datetime.now ~15:40Z)
+
+The mechanism leg resolved as MIXED with the two channels the lean
+guessed — but the shape is sharper than the hypotheses: THE ARMOR IS
+DIRECTIONAL. The gaussian control does nothing to anyone (flat at
+1R for all three states) while the kill-ray separates hugely (the
+fresh read 94% dead at a quarter of R; the annealed holding 0.77+).
+The annealed read is not sitting in a wider basin — it is armored
+EXACTLY ALONG THE DIRECTION THE WASH PUSHES. The 300 annealing steps
+(each individually far sub-floor) walked a 5.7x-floor PATH that
+happens to trace the wash direction: the vaccination is directional
+practice, and the practice direction is the game direction.
+
+AND THE SUPPORT PICTURE COMPOSES BEAUTIFULLY: the battery-geometry
+tail is the DOSE's (shared 24/23 of 60); the OFFSET tail is the
+VARIETY's (28/60 vs 2/60) — e341's generalization channel, now seen
+as SUPPORT BREADTH at the offsets. The recipe's mechanism reads:
+ANNEAL-DOSE = directional practice at the game geometry (the s1
+survival); VARIETY = support breadth at the other geometries (the
+generalization); the two compose into a read that survives its own
+wash AND displaces gracefully.
+
+FOR THE DOC: the recipe's mechanism note enters Law 3's scope tail;
+the vaccination clause carries the path-length carrier with its
+honest endpoint disclosure. THE RECIPE IS NOW EXPLAINED, not just
+measured. THE LEDGER: the lean hit (16-for-26 — both the MIXED call
+and its two channels).
+
 ## T316 — X39: the recipe's last clause resolves — height, not steps (2026-10-10, datetime.now ~14:30Z)
 
 The constructive arc closes with its cleanest number: t400 keeps
