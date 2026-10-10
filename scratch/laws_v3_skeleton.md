@@ -17,8 +17,10 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
   lottery that dominates the room lottery (+81% vs -21%); the bracket is one-formation-
   style. GATE: e324 DONE (T291) — the wheel is BIMODAL (within-mode 12.2%; mode gap
   2-3x; the fork gen-tracked at step one); THE CANON IS A DIE-MODE EXTREME — every
-  committed formation number describes the die mode's biography. The bracket is a
-  one-MODE measurement; e326 (the rungs on a survive-mode state) is the new gate.
+  committed formation number describes the die mode's biography. e327 DONE (T295): BIMODAL-CONFIRMED at n=9 full-range seeds; die-share 0/8
+  [0%, 37%] CP; 'rare' licensed (0 of 13 unconditioned fresh draws died — the trust
+  band enriched the rare mode). The bracket is a ONE-BRANCH measurement; e326
+  (the rungs on a survive-mode state) licenses and remains the cross-branch gate.
   banned until e323's fresh-draw re-ladder replicates both edges. e323 is this law's gate.
 
 ## LAW 3 — THE FLOOR (formation) — v3's biggest rewrite

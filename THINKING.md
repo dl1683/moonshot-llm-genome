@@ -7,6 +7,46 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T295 — E327: the mode question closes — two modes, three orders of seed magnitude, and the canon alone in the rare one (2026-10-10, datetime.now ~00:45Z)
+
+The census did what censuses are for. Eight seeds spread as equal-bin
+midpoints across the entire 32-bit range — no seed family can hide a
+conspiracy at that spacing — and every fresh draw survived step one
+(span 0.00035, as tight as the consecutive block), sprawled at norm
+~27, and read 0.46-0.56. The canon died at step one and recovered
+pruned. THE WHEEL IS BIMODAL; THE MODES ARE REAL; THE FORK IS STEP ONE.
+
+THE HONEST ARITHMETIC OF "RARE": 0 of 13 unconditioned fresh draws
+died (8 spread + 4 e324 + 1 e323, two rooms). The Clopper-Pearson band
+[0%, 37%] is wide and disclosed — 0/13 does not rule out a third of
+the wheel — but the direction is now licensed and the selection story
+is quantified: the trust band that chose the canon [0.15, 0.45] admits
+die-mode recoveries (0.26) and EXCLUDES survive-mode sprawl (0.46+),
+so the committed canon was drawn from a filtered stream in which the
+rare mode is ENRICHED. THE LAB'S TWELVE DAYS OF LAWS DESCRIBE A
+FORMATION STYLE THAT ZERO OF THIRTEEN NATURAL DRAWS PRODUCE. Every
+formation number in the canon carries this rider now — not as a
+demotion (the die-mode physics is real and cleanly measured) but as a
+scope: the canon is the pruned branch's biography.
+
+WHAT THE WIDENING SAYS: the survive cluster's g0 spread tripled at
+spread seeds (12.2% -> 21.6%) while its texture axes stayed at 0.5-0.8%
+— the ROOM-and-GEN noise lives in the landing height, not in the mode
+or the texture. The fork is rock; the height is weather.
+
+FOR THE V3 DRAFTING (now unblocked on this gate): Law 3's formation
+clause carries the two-mode rider; Law 2b's one-MEASUREMENT rider
+upgrades to one-BRANCH (the bracket measured the pruned branch's
+retention; e326 now licenses the cross-branch test); W052's
+localization-as-scar drafts as written. THE REMAINING FORMATION
+QUESTIONS: why the die mode exists at all (e328's first-page swap and
+the warmup experiment — the canon's genetics), and whether maintenance
+is mode-blind (the controller-on-survive-mode spare).
+
+THE LEDGER: P-e327a HIT — the registered lean is 3-for-3 since the
+lesson. The night's meta-finding holds: calibrated uncertainty beats
+confident intuition every time it is tried.
+
 ## T294 — X26: the row is not the seat — the causality question narrows to one cell (2026-10-09, datetime.now ~23:15Z)
 
 The forge gave a name's output row real gradient history — prior up
