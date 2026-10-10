@@ -274,8 +274,14 @@ full-swap, never run — the arm-level closer); e343's upper segment the free
 ZEPHYRA-side candidate (BASE-forming cold interior — a warm-class instance only if
 x48's class table says so); N1 MIXED (age carries 4x a name-aliased menu factor, no
 bar cleared; both s125-class states hard residuals — a CANDIDATE decorrelation event,
-n=2, permutation p=0.035, age perfectly aliased with reshape step; the stronger form:
-the walk/anneal residuals co-move at all shared reshape steps, r=+0.667); support
+n=2, permutation p=0.035, RESOLVED BY x49: WARM-EXCLUSIVE and age-timed (the cold
+swap's own s125 silent at -0.222 vs the fire line 0.288; the raw-collapse census
+warm-only; a LEVEL-SHIFT band's extreme, not a discontinuity — the elementary-unit
+claim demoted; warm-age-125 and cold-age-525 cells unsampled by design, disclosed);
+the stronger form:
+the walk/anneal residuals co-move at all shared reshape steps, r=+0.667, and THE STAR
+SURVIVES WITHOUT THE TICK (swap-anneal 0.674 excluding s125; the swap-walk edge
+tick-carried at 0.351)); support
 breadth and the in-room split do not separate. THE RE-READ (x48): P-T328a hit as a
 SIGN FACT (16 pooled pairs sign − 0.75/0.81 — the segments sit below the anneal ruler
 together, their net0 classes dissenting: the install's upper segment is cold interior);
@@ -313,10 +319,10 @@ rung is the measured band [0.957, 1.088] on the cons legs.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 21-for-39
-   (refreshed at the x46 fold: the eight cells since R80 went 3-for-8 — e342, x48, and
-   x46 hit; g1bS9, x45, x47, e343, e344 missed; W058's P-W058a RESOLVED at 2-of-3 —
-   the lean column is NOISE, not bias; the card closed; the executor counter-column hit on ALL THREE of its
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 21-for-40
+   (refreshed at the x49 fold: the nine cells since R80 went 3-for-9 — e342, x48, x46
+   hit; g1bS9, x45, x47, e343, e344, x49 missed; W058 closed — the lean column is
+   NOISE, not bias; misses are priced, not spun; the executor counter-column hit on ALL THREE of its
    contested calls (g1bS9, e343, e344) — the lean column is statistically a coin
    (one-sided no-edge p ~ 0.98; two-sided exact binomial 0.22) and the ordering
    hypothesis 'guess < lean < counter < instrument' is CONSISTENT WITH the ordering on

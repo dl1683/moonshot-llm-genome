@@ -7,6 +7,42 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T331 — x49: the tick is warm-exclusive and age-timed — and the star survives without it (2026-10-10, datetime.now ~23:15Z)
+
+The natural experiment broke the alias toward AGE: the swap's own s125 (age 125, cold)
+sits at -0.2218 — mid-descent but silent against the factor-2 fire line — while the
+warm age-525 pair fires at the pool's top-2 magnitudes. The tick tracks the
+WARM-FORMATION CLASS, not the reshape step. THE GRID'S HONESTY carries the nuance:
+warm-age-125 and cold-age-525 are empty cells (design truncation, not physics) — the
+clean statement is 'warm-exclusive, and within warm, age-525-timed'; warmth is the
+axis the data supports, the age interior stays unsampled. The raw-collapse census
+sharpens it: r1 <= 0.15 fires ONLY in warm arms (anneal s125+s725, walk s125) — zero
+cold. And the lean missed again (priced as noise since W058 closed; the executor's
+counter hit on the adjudicating call while its own shape sub-prediction missed on the
+same knife-edge the walk's level-shift cleared by 0.0013 — everyone's predictions are
+sitting near floors now, which is itself information: the objects are getting small
+relative to the instruments).
+
+THE STAR SURVIVES WITHOUT THE TICK: swap-anneal 0.674 excluding s125 (the counter's
+carried-by-non-s125 ground CONFIRMED — the hub is not the tick), but swap-walk dies to
+0.351 — the tick was the weakest edge's largest contributor. Composite topology: a
+ROBUST ANNEAL-HUBBED CORE (both anneal edges hold without the tick) plus one
+tick-carried weak edge. H2 (universal phase) is now damaged twice — the tick is
+warm-specific AND the star is anneal-starred, not mesh.
+
+REGISTERED PREDICTION (P-T331a, on e345 the TAVIREN warm walk — frozen before it
+runs): the s125-class tick FIRES on e345's warm cons walk (warm-exclusivity replicates
+across names; if warm-at-525 is sufficient, the second name's walk ticks); the
+countervailing: TAVIREN's anneal is already warm-coherent, so warm is not sufficient —
+the tick may need warm x cons-menu x a timing window, and a miss re-cuts it to
+curriculum-tuned. Either way the {warm,cold} x {ZEPHYRA,TAVIREN} grid completes.
+
+CONNECTS: T329 (the hub keeps its core; H2 damaged; H1/H3 wait on N3); T330 (the
+level/phase split sharpens — the tick rides the LEVEL side after all: a warm-class
+level-shift, not phase machinery); Law 8's candidate-event clause (carries the
+warm-exclusive + age-timed wording with the empty-cells disclosure); x50 (the live
+re-formation now has a registered target: watch the band step DOWN mid-phase).
+
 ## T330 — x46: the history-clock lands — the lineage-relative facts share one measurable, and the weak leg teaches the hand-off (2026-10-10, datetime.now ~23:00Z)
 
 W057's hypothesis (a) is no longer a wonder: ONE-OBJECT at the birth-frozen rule — the
