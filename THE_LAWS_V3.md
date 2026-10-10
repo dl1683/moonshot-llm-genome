@@ -95,16 +95,23 @@ the organism while fresh reads died), THE HEIGHT (recovery capacity: the s100
 gradient fresh 0.045 < controller-400 0.118 < controller-800 0.130 << varied-300 0.244 <
 fixed-300 0.320 << cons [0.957, 1.088] [RESOLVED: e341 — the survival axis is DOSE; x39 — the
 recovery axis is HEIGHT (t400 keeps 90.2% of t800's retention at half the dose; the controller's
-dose axis flat 400-800). THE RECIPE, COMPLETE: ANNEAL-DOSE (300 steps, any menu) + HEIGHT +
-WALL = a wash-proof memory; the cons band (~1.0) is the recipe's PROTOCOL-SCOPE clause]), and
+dose axis flat 400-800). THE RECIPE: ANNEAL-DOSE (300 steps, any menu) + HEIGHT + WALL = a wash-proof
+memory; the cons band (~1.0) is the recipe's PROTOCOL-SCOPE clause. THE MECHANISM
+(x40, landed at R79): THE ARMOR IS DIRECTIONAL — the gaussian does nothing to anyone
+(flat at 1R for all states) while the kill-ray separates hugely: the annealed read is
+armored EXACTLY along the wash's direction (the vaccination is directional practice:
+per-step far sub-floor, the path 5.7x the floor — the path is the carrier, the
+endpoints alone sit ~6% below, disclosed); the battery tail is the DOSE's (shared),
+the offset tail the VARIETY's (support breadth — the generalization channel seen
+as breadth)]), and
 THE ANNEALING (first-step survival — A DOSE, NOT A TYPE: e341's matched-steps
 control bought the s1 survival with EITHER context menu, varied or fixed; the s1
 annihilation is height-blind but ANY 300-step annealed read survives; CONTEXT VARIETY
 buys a different channel — GEOMETRY-GENERALIZATION: the varied arm's read survives
 displacement at other offsets, gm12 0.688 vs the fixed arm's 0.131). SURVIVAL IS THE
-SHAPING'S; RECOVERY IS THE HEIGHT'S; THE WALL IS THE ORGANISM'S. The build lane's
-wash-proof tool remains incomplete: the missing ingredient is a varied-context
-annealing protocol on a fresh install.
+SHAPING'S; RECOVERY IS THE HEIGHT'S; THE WALL IS THE ORGANISM'S. The build lane's position (R79's honest re-word): NO INGREDIENT UNNAMED, THE ASSEMBLY
+UNBUILT — the legs were isolated on non-composable instruments; the composition cell
+(x43: anneal + height + wall on ONE organism) is the capstone.
 
 ## LAW 4 — THE CONTROLLER [invariant]
 
@@ -216,7 +223,7 @@ all five).
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 13-for-22 (R78 refresh; 59%, p~0.26 — coin-adjacent, unchanged in kind; the e-series 0-for-3, the x-series 2-for-2 this afternoon); THE EARNED EDGE IS THE DISCRIMINATOR COLUMN: registered discriminating bars resolved all three afternoon e-cell misses (five-plus cells running) — the only calibration claim the data supports
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 17-for-27 (R79 refresh; 63%, two-sided p=0.248 — still coin-adjacent, unchanged in kind; the 4-of-last-5 window p~0.19). THE ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven straight cells (selection-conditioned: its verb stays 'resolved', never 'predicted')
    (NOT distinguishable from a fair coin, p ~ 0.25). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).
@@ -236,7 +243,7 @@ The lab's oldest question — "why do memories die?" — keeps its measured answ
 newest — "whose memories are they?" — now has one too: the organism's, in the sense
 that the land was theirs before the lab ever wrote a name on it.
 
-*Edited at R75/R76/R77/R78 (the residue wording; the net0 re-scope; the x35 license; the e335 resolution; Law 4's riders; Law 7's flip parameter; the chamber decomposition — the 0.92 rung derived, dated R78). All named gates resolved: e326 (EITHER-MOVES — the conservative class; Law
+*Edited at R75-R79 (the residue wording; the net0 re-scope; the licenses and resolutions; Law 4's riders + the relay clause; Law 7's flip parameter; the chamber decomposition; the recipe + mechanism; the cadence note). All named gates resolved: e326 (EITHER-MOVES — the conservative class; Law
 2b's scope) and e325 (READ-RETURNS — the doubled revival price; Law 6's scope). The
 audit's repairs applied the same night. The document is complete and awaits the
 supervisor's review.*

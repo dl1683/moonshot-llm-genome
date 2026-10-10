@@ -134,6 +134,16 @@ to every bar; the ledger is scoped (0-for-8 on mechanism-seat guesses).
 
 THE v3.1 STRUCTURAL PROGRAM (adopted at R78, the next draft's shape): promote resolved gates into law prose (e326 -> Law 2b; e325 -> Law 6); the chamber + provenance -> A CANDIDATE LAW 8 — THE GUARD; split Law 3's scope into labeled sub-blocks; the doc's edits footer current.
 
+
+## R79 SECTION (2026-10-10, folded ~16:10Z) — the capstone named; the costume lesson cashed
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x43 | THE COMPOSITION CELL (the recipe's capstone; R79's critic pick) | READY — NEXT GPU SLOT | the varied anneal driven past e341's 0.752 toward cons-class height (does 600-900 steps reach ~0.9?), then commit(0.7) + the wash on ONE organism: BAND-REACHED (the recipe graduates from decomposition to construction) / PARTIAL-MARGIN-AT-HEIGHT / CEILING (the protocol gap is real) |
+| W055 | THE RELAY TUNER (W049 graduates; design card) | READY (GPU, one short leg) | resume x41's LRCAP post 8 events: STABLE-PERIOD-1 (the tuner's intermediate regime confirmed) / RE-BIFURCATION / RAIL-DECAY; the setpoint observable phase-declared per METHODS 4 |
+| x44 | R*-AT-THE-OFFSETS (composes x38's flip with x40's support) | READY (CPU) | per-context flip behavior (lift vs collapse) for the varied/fixed annealed states at g-12/g0/g+12: R*-UNIFORM (a slot property) / R*-TRACKS-THE-SUPPORT-TAIL (offset contexts sit nearer the flip — the variety channel re-read as flip-margin) |
+| e342 | THE PHASE AUDIT (the costume lesson cashed; the desk half done at R79 — no zero-dose events in ANY founding trace) | READY (GPU, one short leg) | resume e336's t400 and read at event+13 (mid-phase) for 4-8 events: SAG-EXISTS (the founding heights are rails; Law 4's endpoints carry the phase clause) / NO-SAG (the founding numbers stand as written) |
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),
