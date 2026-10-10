@@ -281,6 +281,7 @@ device_events: list[dict] = []
 E38.log = log
 E38.RD = RD
 E38.NAME = NAME
+E38.T0 = T0                        # the harness's traj elapsed_s origin
 E38.SUBJ_READ_T = 0.8732402324676514          # e339's committed t800 read
 E38.NET0_CLASS = (
     "BASE-formed lineage (e311 TAVIREN install) + e336/e339 ERROR-GATED "
