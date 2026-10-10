@@ -326,6 +326,7 @@ import hashlib
 import json
 import math
 import os
+import re
 import subprocess
 import sys
 import time
@@ -741,6 +742,24 @@ deviations: list[str] = [
     "(*.pt gitignored by the house convention — regenerable "
     "deterministically from this committed script + the committed "
     "anchors); this cell writes ONLY lab/e345_* and runs/e345/*",
+    "THE SMOKE-CAUGHT SELF-PAIR REPAIR (pre-adjudication, disclosed): "
+    "the arm-row filters first used startswith('tav_s'), which also "
+    "admitted 'tav_subject' — the t0 anchor whose read IS the anneal "
+    "floor panel ann_s0 (the subject IS the ruler's s0), a degenerate "
+    "self-pair at the match and a KeyError at the tick projection "
+    "(no age field). Repaired to a strict rung pattern (tav_s<digits> "
+    "ONLY). No bar touched; both failed passes preserved in "
+    "runs/e345_smoke's logs.",
+    "THE SMOKE-CAUGHT CHANNEL REPAIR (pre-adjudication, disclosed): "
+    "G_ENDPOINTS' base row first compared my T-primary base read "
+    "(2.30e-03) against e335's committed base literal (1.34e-05) — a "
+    "channel mismatch in MY gate wiring (e335's base literal is a "
+    "ZEPHYRA-channel read of e001; x51's CHANNEL catch applied to my "
+    "own wiring, not just the parents'). Repaired to compare the same "
+    "state's Z-channel value (the dual summary) — the own-install + "
+    "root rows had already matched |d| 0.0 on the Z channel. No bar, "
+    "arm, stream or scoring touched; the failed pass is preserved in "
+    "runs/e345_smoke's progressive metrics + run log.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat "
     "folds).",
     "Smoke mode (E345_SMOKE=1): 8-step GPU arm replay, captures "
@@ -1470,6 +1489,8 @@ def phase_P1b(p0: dict) -> dict:
                 break
         burst_rec["steps"][1] = step
         burst_rec["dur_s"] = round(time.time() - t_burst, 1)
+        gs_end = common.gpu_status()
+        max_temp_seen = max(max_temp_seen, gs_end["temp"])
         burst_rec["max_temp"] = max_temp_seen
         gs_end = common.gpu_status()
         burst_rec["post_poll"] = gs_end
@@ -1864,9 +1885,18 @@ def phase_P3(p0: dict, arm: dict, rows: dict) -> None:
         "anchors reproduced")
 
     # ---- G_ENDPOINTS (the committed anchor reads reproduce) -----------
+    # THE CHANNEL NOTE (smoke-caught repair, pre-adjudication, disclosed
+    # in metrics.deviations): e335's committed base literal (1.34e-05) is
+    # a ZEPHYRA-channel read of e001 (e335's walk is the ZEPHYRA
+    # lineage); my base row is T-primary with the Z-channel value in its
+    # dual summary — the comparison pairs the SAME channel (x51's
+    # CHANNEL catch applied to my own gate wiring). No bar, arm or
+    # scoring touched; the own-install + root rows already matched |d|
+    # 0.0 on the Z channel.
     e335 = p0["committed_e335"]
     ep_rows = {
-        "base_read": {"mine": rows["base"]["read"],
+        "base_read": {"mine": rows["base"]["dual"]["means"]["g0"],
+                      "channel": "p(Z) (e335's own channel)",
                       "committed": e335["base_read"]},
         "own_install_s400_read": {"mine": rows["zeph_s400"]["read"],
                                   "committed": e335["own_install_read"]},
@@ -1966,6 +1996,17 @@ def arm_capture_keys(p0: dict, e344_rows: dict) -> set:
 PRIMARY = ("r_g-12|g0", "r_g0|g+12")
 COREPORT = ("r_g-12|g+12", "alive_g0", "write_norm", "in_room")
 
+RUNG_RE = re.compile(r"tav_s\d+$")   # the ARM's captured rungs ONLY —
+                                      # never the t0 subject anchor (its
+                                      # read IS the anneal floor panel
+                                      # ann_s0; matching it against the
+                                      # ruler would be a degenerate
+                                      # self-pair — smoke-caught)
+
+
+def is_arm_rung(key: str) -> bool:
+    return bool(RUNG_RE.match(key))
+
 
 def score_separation(ds: list) -> dict:
     """x45's frozen separation rule, scoped: dominant sign, consistency,
@@ -2027,7 +2068,7 @@ def phase_P4(p0: dict, rows: dict) -> dict:
 
     my_rows = [{"tag": v["tag"], "step": v["step"], "read": v["read"],
                 "row": v} for k, v in rows.items()
-               if k.startswith("tav_s")]
+               if is_arm_rung(k)]
     ann_rows = [{"tag": v["tag"], "step": v["step"], "read": v["read"],
                  "row": v} for v in
                 p0["committed_x45"]["anneal_panels"].values()]
@@ -2313,7 +2354,7 @@ def phase_P5(p0: dict, rows: dict, p4: dict) -> dict:
 
     # (ii) my rows projected through the committed fit (out-of-sample)
     my_in_band = [rows[k] for k in sorted(rows)
-                  if k.startswith("tav_s")
+                  if is_arm_rung(k)
                   and rows[k]["corrs"]["g-12|g0"] is not None
                   and band[0] - 1e-9 <= rows[k]["read"] <= band[1] + 1e-9]
     proj = []
@@ -2451,7 +2492,7 @@ def phase_P5(p0: dict, rows: dict, p4: dict) -> dict:
     }
 
     # ================= RIDER B: P-T332a (the compactness row) ==========
-    arm_rungs = [rows[k] for k in sorted(rows) if k.startswith("tav_s")]
+    arm_rungs = [rows[k] for k in sorted(rows) if is_arm_rung(k)]
     ws_ = [r["write_norm"] for r in arm_rungs if r.get("write_norm")]
     irs_ = [r["in_room"] for r in arm_rungs if r.get("in_room") is not None]
     med_w = float(np.median(ws_)) if ws_ else None
@@ -3040,9 +3081,11 @@ def write_report(p4: dict, rows: dict, p0: dict, riders: dict,
 # ======================================================================
 # MAIN
 # ======================================================================
-BIRTH_COMMIT = "PENDING"   # pinned to the birth commit hash right after
-                           # the birth commit lands (before any compute);
-                           # the adjudication form is the birth-commit form
+BIRTH_COMMIT = "32f5ab8"   # the commit where the bars + parity + P-e345a
+                           # + riders were frozen BEFORE any compute (the
+                           # runtime head at later passes includes the
+                           # disclosed shakedown/repair commits; the
+                           # adjudication form is the birth-commit form)
 
 
 def main() -> None:
