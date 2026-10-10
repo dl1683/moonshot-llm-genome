@@ -1622,8 +1622,8 @@ def make_png(p4: dict) -> None:
     # ---- panel 1: the two trajectories on the read axis ---------------
     ax1 = fig.add_subplot(gs[0, :2])
     wr = [(p["walk_pos"], p["walk_read"]) for p in pairs]
-    ar = [(p["ann_step"], p["ann_read"])
-          for p in sorted(p4["ann_rows"], key=lambda a: a["step"])]
+    ar = [(a["step"], a["read"])
+          for a in sorted(p4["ann_rows"], key=lambda x: x["step"])]
     ax1.plot([s for s, _ in wr], [r for _, r in wr], "o-",
              color="tab:blue", label="the cons walk (p(Z), my realization)")
     ax1.plot([s for s, _ in ar], [r for _, r in ar], "s--",
