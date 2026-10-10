@@ -1,0 +1,1510 @@
+{
+ "experiment": "x32_first_step_atlas",
+ "phase": "COMPLETE",
+ "date": "2026-10-10T07:18:07.111264+00:00",
+ "smoke": false,
+ "cpu_only_by_construction": true,
+ "torch_threads": 4,
+ "gates": {
+  "G_PARENTS": {
+   "form": "every artifact this atlas reads, md5-bound at runtime (files never modified; values read at runtime, never retyped)",
+   "md5": {
+    "runs/e264/metrics.json": "a42ff4786784b04cb9819a69b545e343",
+    "runs/e324/metrics.json": "269baa13d6562b533fadbc5d4e55eacd",
+    "runs/e327/metrics.json": "5f99d0ab32f4b81e1e5923b1f5f903da",
+    "runs/e330/metrics.json": "c5d519373bb27ef6c6f278af7674404c",
+    "runs/e311/metrics.json": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+    "runs/x28/metrics.json": "4081c5ff751a535624bdd7095c84a70b",
+    "runs/x34/metrics.json": "47ed74c2f3c2584e01a6ecd832bd0cd3",
+    "runs/x24/metrics.json": "7f1a91cc1d42a202c8fb23c4f8fb3e7e",
+    "runs/checkpoints/e311_TAVINST_resume.pt": "c6526334f66e956b8fff4b66dd4ff9c9",
+    "runs/checkpoints/x28_QELINST_resume.pt": "4df254f1622f9f4b9239a879d12bd8b9",
+    "runs/checkpoints/g1c_root.pt": "9c7d4ca1b60c8a1158d080f932e2c95f",
+    "runs/checkpoints/e001.pt": "d114536d1c0983ab3be67f67ff0667c8",
+    "runs/checkpoints/e246_late_span.pt": "3464ff6081d8e402103dd9ca65bfb53a",
+    "runs/checkpoints/e258_vmap.pt": "baafd327e9e35cffa2d41ea4ecf5fc5c",
+    "runs/checkpoints/e264_rooms.pt": "2d524655575cce00a3bc1c8770f4b211"
+   },
+   "pass": true
+  },
+  "G_VOCAB": {
+   "vocab_size": 65,
+   "expected": 65,
+   "pass": true
+  },
+  "G_NAMEFREE": {
+   "corpus_counts": {
+    "ZEPH": 0,
+    "TAVI": 0,
+    "QELV": 0,
+    "NYST": 0
+   },
+   "pass": true
+  },
+  "G_SPLICE": {
+   "install_mix": {
+    "FLORIZEL": 19,
+    "ELIZABETH": 41
+   },
+   "pass": true
+  },
+  "G_BATTERY": {
+   "shapes": {
+    "g-12": [
+     60,
+     118
+    ],
+    "g+0": [
+     60,
+     130
+    ],
+    "g+12": [
+     60,
+     142
+    ]
+   },
+   "pass": true
+  },
+  "G_NAMEWIN": {
+   "n_windows": 60,
+   "masked_decode_all_name": true,
+   "parasites_differ_only_in_slot": true,
+   "pass": true
+  },
+  "G_INSTMASK": {
+   "name_positions": 420,
+   "expected": 420,
+   "pass": true
+  },
+  "G_BASE": {
+   "checkpoint": "runs/checkpoints/e001.pt",
+   "params": 2739072,
+   "fact_free_gm12": 1.437231640011305e-05,
+   "pass": true
+  },
+  "G_ROOT": {
+   "checkpoint": "runs/checkpoints/g1c_root.pt",
+   "n_params": 2739072,
+   "battery_read_measured": 0.9026340246200562,
+   "battery_read_committed": 0.9026340246200562,
+   "abs_diff": 0.0,
+   "tol": 0.005,
+   "flat_md5": "a7f02b367c5342535aecfc814d780631",
+   "pass": true
+  },
+  "G_VMBIND": {
+   "size": 2739072,
+   "expected": 2739072,
+   "meta_experiment": "e258",
+   "pass": true
+  },
+  "G_SPANBIND": {
+   "rank": 10,
+   "n": 2739072,
+   "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+   "bound_md5": "3464ff6081d8e402103dd9ca65bfb53a",
+   "meta_experiment": "e246",
+   "pass": true
+  },
+  "G_PROJ": {
+   "form": "the held rank-10000 room certified (fp64 CPU, 4 probes, seed 26115)",
+   "reads": {
+    "probes": 4,
+    "seed": 26115,
+    "dct_roundtrip_rel": 8.195877245616001e-16,
+    "per_rung": {
+     "K10K": {
+      "k": 10000,
+      "seeds": [
+       26113,
+       26114
+      ],
+      "idempotency_max": 5.669754673327867e-16,
+      "kept2_mean": 0.0036073728283031233,
+      "kept2_expect": 0.0036508715360530864,
+      "kept2_bar_10sig": 0.0002581556020384085,
+      "kept2_pass": true,
+      "idempotency_pass": true,
+      "span_overlap_mean": 0.06038652639299012,
+      "span_overlap_expect": 0.06042244232115321
+     }
+    },
+    "pass": true
+   },
+   "pass": true
+  },
+  "G_ROOMHELD": {
+   "form": "the room is THE CANON'S OWN: rebuilt from the registered seeds and BIT-BOUND against e264_rooms.pt's committed K10K record (the +-1 diagonal D AND the kept set S exactly equal)",
+   "seeds_match": true,
+   "D_bit_equal": true,
+   "S_bit_equal": true,
+   "pass": true
+  },
+  "G_FIDELITY": {
+   "form": "per draw (strict birth form, restored after the net0 repair): the CPU-recomputed s1 lands within 1 decade of the committed s1 AND on the same side of the fork on X34'S AXIS (s1 vs the committed prior basis; surge >= 100x, no-surge <= 1.2x, the interior AMBIGUOUS, disclosed per draw). After the net0 repair every draw's step is recomputed from its parent's ACTUAL starting state \u2014 the canon from the BASE reproduces its committed record BIT-EXACTLY (ce and s1 identical to 16 digits); the strict gate is expected to pass for all 16.",
+   "fidelity_decades": {
+    "canon": 0.0,
+    "e324/32401": 0.0,
+    "e324/32402": 3.4737568381843926e-08,
+    "e324/32403": 3.473424000585933e-08,
+    "e324/32404": 0.0,
+    "e327/268435456": 0.0,
+    "e327/805306368": 0.0,
+    "e327/1342177280": -3.474894463228638e-08,
+    "e327/1879048192": 3.474612833034877e-08,
+    "e327/2415919104": 0.0,
+    "e327/2952790016": 3.473649315680472e-08,
+    "e327/3489660928": 0.0,
+    "e327/4026531840": 3.47358096415511e-08,
+    "e311/TAVIREN": 7.007600784259301e-07,
+    "x28/QELVARO": 0.0,
+    "e330/NYSTORA": 3.2125249353799264e-07
+   },
+   "same_side": {
+    "canon": true,
+    "e324/32401": true,
+    "e324/32402": true,
+    "e324/32403": true,
+    "e324/32404": true,
+    "e327/268435456": true,
+    "e327/805306368": true,
+    "e327/1342177280": true,
+    "e327/1879048192": true,
+    "e327/2415919104": true,
+    "e327/2952790016": true,
+    "e327/3489660928": true,
+    "e327/4026531840": true,
+    "e311/TAVIREN": true,
+    "x28/QELVARO": true,
+    "e330/NYSTORA": true
+   },
+   "side_cpu": {
+    "canon": "NO-SURGE",
+    "e324/32401": "SURGE",
+    "e324/32402": "SURGE",
+    "e324/32403": "SURGE",
+    "e324/32404": "SURGE",
+    "e327/268435456": "SURGE",
+    "e327/805306368": "SURGE",
+    "e327/1342177280": "SURGE",
+    "e327/1879048192": "SURGE",
+    "e327/2415919104": "SURGE",
+    "e327/2952790016": "SURGE",
+    "e327/3489660928": "SURGE",
+    "e327/4026531840": "SURGE",
+    "e311/TAVIREN": "NO-SURGE",
+    "x28/QELVARO": "NO-SURGE",
+    "e330/NYSTORA": "NO-SURGE"
+   },
+   "rider_canon_free_decades": -3.381770978124899e-07,
+   "failures": [],
+   "pass": true
+  },
+  "G_STANDING": {
+   "form": "the confound's own cross-check: the root's measured g0 battery read (the STANDING read that made root-start draws read ~0.745 at s1) vs e261's committed G1C_ROOT_G0 landing anchor",
+   "measured": 0.7447534203529358,
+   "committed": 0.7447534203529358,
+   "abs_diff": 0.0,
+   "pass": true
+  }
+ },
+ "the_no_event_probes": {
+  "form": "THE NO-EVENT PROBES (post-confound repair): the step-scale t-scan read(t) on theta0 + t*d1 for the canon (from the BASE, its true convention) + the FREE rider + one root-start draw + one parasite \u2014 does ANY first-step ray reach a read transition at up to 2x scale? The sign-flip probe then asks the converse on the canon (base start): can ANY sign pattern of the first applied gradient ignite the read at step one? Expected under the no-event picture: nothing moves at any probed scale or pattern.",
+  "probes": [
+   {
+    "draw": "canon",
+    "mode": "K10K",
+    "s1_cpu": 1.3466433301800862e-05,
+    "s1_committed": 1.3466433301800862e-05,
+    "dose_read_step": 4.7120640728653215e-05,
+    "scan": [
+     [
+      0.0,
+      1.3383959412749391e-05
+     ],
+     [
+      0.5,
+      1.3425057659333106e-05
+     ],
+     [
+      0.9,
+      1.3458125067700166e-05
+     ],
+     [
+      0.95,
+      1.3462265997077338e-05
+     ],
+     [
+      0.99,
+      1.3465596566675231e-05
+     ],
+     [
+      1.0,
+      1.3466433301800862e-05
+     ],
+     [
+      1.01,
+      1.3467264579958282e-05
+     ],
+     [
+      1.05,
+      1.3470586964103859e-05
+     ],
+     [
+      1.1,
+      1.347473244095454e-05
+     ],
+     [
+      1.5,
+      1.3508080883184448e-05
+     ],
+     [
+      2.0,
+      1.3550015864893794e-05
+     ]
+    ],
+    "t_star_kill": null
+   },
+   {
+    "draw": "canon",
+    "mode": "FREE",
+    "s1_cpu": 1.5183904906734824e-05,
+    "s1_committed": 1.3466433301800862e-05,
+    "dose_read_step": 0.0009720459650046573,
+    "scan": [
+     [
+      0.0,
+      1.3383959412749391e-05
+     ],
+     [
+      0.5,
+      1.4248821571527515e-05
+     ],
+     [
+      0.9,
+      1.4991025636845734e-05
+     ],
+     [
+      0.95,
+      1.5086979146872181e-05
+     ],
+     [
+      0.99,
+      1.5164392607402988e-05
+     ],
+     [
+      1.0,
+      1.5183904906734824e-05
+     ],
+     [
+      1.01,
+      1.5203428120003082e-05
+     ],
+     [
+      1.05,
+      1.5281593732652254e-05
+     ],
+     [
+      1.1,
+      1.5379842807305977e-05
+     ],
+     [
+      1.5,
+      1.6195272110053338e-05
+     ],
+     [
+      2.0,
+      1.7289534298470244e-05
+     ]
+    ],
+    "t_star_kill": null
+   },
+   {
+    "draw": "e324/32401",
+    "mode": "K10K",
+    "s1_cpu": 0.7449015974998474,
+    "s1_committed": 0.7449015974998474,
+    "dose_read_step": 2.504287079909104e-05,
+    "scan": [
+     [
+      0.0,
+      0.7447534203529358
+     ],
+     [
+      0.5,
+      0.744827389717102
+     ],
+     [
+      0.9,
+      0.7448868155479431
+     ],
+     [
+      0.95,
+      0.7448943853378296
+     ],
+     [
+      0.99,
+      0.7449001669883728
+     ],
+     [
+      1.0,
+      0.7449015974998474
+     ],
+     [
+      1.01,
+      0.744903028011322
+     ],
+     [
+      1.05,
+      0.7449089884757996
+     ],
+     [
+      1.1,
+      0.7449163794517517
+     ],
+     [
+      1.5,
+      0.7449758052825928
+     ],
+     [
+      2.0,
+      0.7450497150421143
+     ]
+    ],
+    "t_star_kill": null
+   },
+   {
+    "draw": "e311/TAVIREN",
+    "mode": "K10K",
+    "s1_cpu": 0.002308742143213749,
+    "s1_committed": 0.0023087384179234505,
+    "dose_read_step": 5.340421833168716e-05,
+    "scan": [
+     [
+      0.0,
+      0.0023042955435812473
+     ],
+     [
+      0.5,
+      0.002306511392816901
+     ],
+     [
+      0.9,
+      0.0023082958068698645
+     ],
+     [
+      0.95,
+      0.0023085197899490595
+     ],
+     [
+      0.99,
+      0.00230869697406888
+     ],
+     [
+      1.0,
+      0.002308742143213749
+     ],
+     [
+      1.01,
+      0.002308786613866687
+     ],
+     [
+      1.05,
+      0.0023089649621397257
+     ],
+     [
+      1.1,
+      0.0023091884795576334
+     ],
+     [
+      1.5,
+      0.00231098267249763
+     ],
+     [
+      2.0,
+      0.0023132292553782463
+     ]
+    ],
+    "t_star_kill": null
+   }
+  ],
+  "the_reading": "Under the no-event picture every probed ray should stay on its state's own read level (the base's prior for base-start draws; the root's standing read for root-start draws) at every t up to 2 \u2014 no transition, in either direction, at any doubled-step scale. Any observed transition would locate a REAL step-one-reachable cliff and would be reported as such.",
+  "signflip": {
+   "form": "the ignition probe: the canon's first step (from the BASE, its true convention) rerun with the applied gradient's |g1| < thr coordinates' signs flipped \u2014 near-total sign randomization of the first applied gradient; if the read stays at prior under every threshold, the step-one no-event is pattern-robust",
+   "rows": [
+    {
+     "threshold": 1e-12,
+     "n_flipped": 0,
+     "frac_flipped": 0.0,
+     "read_after": 1.3466433301800862e-05
+    },
+    {
+     "threshold": 1e-10,
+     "n_flipped": 7,
+     "frac_flipped": 2.5556100752371607e-06,
+     "read_after": 1.346643239230616e-05
+    },
+    {
+     "threshold": 1e-08,
+     "n_flipped": 590,
+     "frac_flipped": 0.0002154014206271321,
+     "read_after": 1.3466315067489631e-05
+    },
+    {
+     "threshold": 1e-07,
+     "n_flipped": 5948,
+     "frac_flipped": 0.002171538389644376,
+     "read_after": 1.3467408280121163e-05
+    },
+    {
+     "threshold": 1e-06,
+     "n_flipped": 59169,
+     "frac_flipped": 0.02160184179167251,
+     "read_after": 1.3468354154611006e-05
+    },
+    {
+     "threshold": 1e-05,
+     "n_flipped": 587094,
+     "frac_flipped": 0.21434047735875508,
+     "read_after": 1.3442356248560827e-05
+    },
+    {
+     "threshold": 0.0001,
+     "n_flipped": 2721437,
+     "frac_flipped": 0.9935616880461704,
+     "read_after": 1.3304626918397844e-05
+    }
+   ]
+  }
+ },
+ "the_net0_confound": {
+  "form": "THE NET0 CONFOUND (smoke catch 2): the fork corpus mixed STARTING STATES. The committed canon (e264 K10K, resumed from e261's cut vehicle) and e272's K10KR replicate ran chunked_install from G1.evl_load(base_sd) \u2014 THE BASE e001; e324's and e327's census draws ran it from the g1c ROOT (load_g1) \u2014 the FORMED organism. The root's own standing g0 read (committed as e261's G1C_ROOT_G0) IS the 'surge': the root-start draws' s1 ~ the standing read (ratio-to-standing ~ 1.0002), which x34's e001-prior axis read as ~5.5e4x 'SURGE'; the base-start draws' s1 = prior x 1.002-1.006 ('NO-SURGE'). AT STEP ONE NOTHING EVER HAPPENS \u2014 every draw's first step is a no-event on its own state's read. The s1 fork of x34/e324/e327 is (almost entirely) the starting-state confound; the [0.01, 0.15] 'empty gap' is the gap between the base's prior and the root's standing read \u2014 no step-one read can land there because step-one reads do not move. The canon's 'die-then-recover' texture re-words to plain FORMATION from the base (nothing -> 0.31 at s100 -> 0.2646 at s400). Verified at the fingerprint level: the canon's committed ce_batch reproduces BIT-EXACTLY from the base; GEN32401's from the root.",
+  "root_standing_g0": 0.7447534203529358,
+  "root_standing_g0_committed": 0.7447534203529358,
+  "root_start_draws_committed_stay_ratio_range": [
+   1.0001989613513174,
+   1.000719894350402
+  ],
+  "base_start_draws": [
+   "canon",
+   "e311/TAVIREN",
+   "x28/QELVARO",
+   "e330/NYSTORA"
+  ],
+  "class_boundary_equals_net0_boundary": true,
+  "the_re_wording": "ONE step-one texture exists: NO-EVENT (the read does not move at step one, for any draw, any name, either starting state, any room, either platform). The fork's discriminative content moves ENTIRELY to the formation phase (s100/s400/texture axes)."
+ },
+ "P_e328x32": {
+  "registered_at": "2026-10-10T07:20:42.949451+00:00",
+  "form": "P-e328x32 \u2014 x32's atlas answer APPLIED to e328's design, registered BEFORE e328's compute (the dispatch's ordering); the mapping rule was frozen at x32's BIRTH commit (this file's docstring), the concrete call below is data-derived at COMPLETE and never shopped",
+  "atlas_verdict": "THREE-DEATHS",
+  "mapping_rule_verbatim": "ONE-HAMMER -> FLIPS-TO-SURGE (the first batch carries a geometry that separates the textures; e328's swap arm predicts s1/prior >= 1e3); THREE-DEATHS -> STAYS-NO-SURGE (the first batch carries no distinguishing geometry; e328's swap arm predicts s1/prior ~ 1)",
+  "the_concrete_call": "STAYS-NO-SURGE",
+  "the_concrete_call_text": "The atlas's verdict is THREE-DEATHS: no candidate statistic separates the textures at zero overlap \u2014 F1_d1_norm: surge [0.0165,0.0165] vs no-surge [0.0165,0.0165] (overlap); F2_in_room_frac: surge [0.799,0.8] vs no-surge [0.8,0.8] (overlap); F3_cos_sign_ray: surge [1,1] vs no-surge [1,1] (overlap); F4_dose_read_step: surge [2.45e-05,8.31e-05] vs no-surge [4.71e-05,0.000152] (overlap); F5_cos_read_step: surge [0.00148,0.00503] vs no-surge [0.00285,0.00922] (overlap); F6_dose_read_grad: surge [-0.000431,-9.92e-05] vs no-surge [-0.000698,-0.000216] (overlap); F7_cos_read_grad: surge [-0.00712,-0.0018] vs no-surge [-0.0115,-0.00356] (overlap). The first batch's content carries NO distinguishing geometry \u2014 and the net0 confound found on the way explains why nothing could: at step one NO draw's read moves at all (every first step is a no-event on its own state's prior; the fork itself was the starting-state confound). Per the frozen mapping: fork-in-the-gen \u2014 e328's swap arm (the canon's run from the BASE with 32401's first minibatch) is predicted to STAY NO-SURGE (s1/prior ~ 1.0x, the STAYS-NO-SURGE bar), matching the control arm's committed 1.346643e-05; the FLIPS-TO-SURGE bar cannot fire under the corrected reading, and the fork-in-batch vs fork-in-gen content moves to the formation axes (s100/s400, write norm, in-room).",
+  "countervailing": "P-e328a's own lean is STAYS-NO-SURGE weakly (e327's gen-tracked evidence). THE CONFOUND SHARPENER from this run: the fork corpus mixed starting states (the canon from the BASE, the 'surge' draws from the FORMED ROOT), and AT STEP ONE NOTHING EVER HAPPENS on either state's own read \u2014 so e328's swap arm (the canon's run from the BASE with 32401's first minibatch) is predicted to read ~prior at s1 not because the gen carries the fork but because NO first page moves the read at all; the FLIPS-TO-SURGE bar cannot fire under the corrected reading, and the informative content moves ENTIRELY to the formation axes (s100/s400, write norm, in-room: does the swapped first page shift the canon's formation trajectory toward 32401's class or not \u2014 the fork-in-batch question now lives there, and e328's control arm re-verifies the canon's committed record bit-exactly on GPU)."
+ },
+ "gates_summary": {
+  "n_gate_classes": 15,
+  "n_pass": 15,
+  "detail": {
+   "G_PARENTS": true,
+   "G_VOCAB": true,
+   "G_NAMEFREE": true,
+   "G_SPLICE": true,
+   "G_BATTERY": true,
+   "G_NAMEWIN": true,
+   "G_INSTMASK": true,
+   "G_BASE": true,
+   "G_ROOT": true,
+   "G_VMBIND": true,
+   "G_SPANBIND": true,
+   "G_PROJ": true,
+   "G_ROOMHELD": true,
+   "G_FIDELITY": true,
+   "G_STANDING": true
+  }
+ },
+ "the_atlas": [
+  {
+   "gen": 24314,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.0701713562011719,
+   "led": {
+    "gn": 0.9999995298472809,
+    "gpn": 0.06080268941190631,
+    "kept_frac": 0.0608027179984695,
+    "v_excess_pre": 24.05209686370578,
+    "v_excess_post": 1.0925966996636463,
+    "in_span_frac": 0.06095736948709052,
+    "applied_in_span_frac": 0.004559008700390626
+   },
+   "theta0_md5": "b8cd47e63dcc16dae07122bb703623e3",
+   "r_norm": 114.43985876055639,
+   "prior_cpu": 1.3383959412749391e-05,
+   "g1_norm": 0.06080268941015241,
+   "kept_frac": 0.0608027179984695,
+   "d1_norm": 0.016522481769052164,
+   "d1_raw_norm": 0.016522481769052164,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7998437927985551,
+   "cos_sign_ray": 0.999880953563012,
+   "dose_read_step": 4.7120640728653215e-05,
+   "cos_read_step": 0.0028519105899038554,
+   "dose_read_grad": -0.000216278855534086,
+   "cos_read_grad": -0.0035570606766281206,
+   "s1_cpu": 1.3466433301800862e-05,
+   "s1_argmax_frac": 0.0,
+   "batch_ix_md5": "722568d9f907995accd213df72918885",
+   "batch_aj_md5": "8bbec48fb9d770b507b3a3a825010512",
+   "batch_rj_md5": "e3c7fc7f40e5c4b688da85e8ad792edc",
+   "draw": "canon",
+   "name": "ZEPHYRA",
+   "side": "DIE",
+   "s1_committed": 1.3466433301800862e-05,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 0.0,
+   "same_side": true,
+   "ratio_vs_committed_prior": 1.0061620759155794,
+   "ratio_to_standing": 1.0061621442884014,
+   "ratio_committed": 1.0061620759155794,
+   "standing_read": 1.3383959412749391e-05,
+   "committed_ratio_to_standing": 1.0061621442884014,
+   "side_cpu": "NO-SURGE"
+  },
+  {
+   "gen": 32401,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.1151078939437866,
+   "led": {
+    "gn": 0.9164101157557327,
+    "gpn": 0.055168923027281214,
+    "kept_frac": 0.06020112837993418,
+    "v_excess_pre": 29.427827955092177,
+    "v_excess_post": 1.1160636879612533,
+    "in_span_frac": 0.03968562944341575,
+    "applied_in_span_frac": 0.0031297190833077192
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.05516892303053072,
+   "kept_frac": 0.06020112837993418,
+   "d1_norm": 0.016520037248846427,
+   "d1_raw_norm": 0.016520037248846427,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7999228925529229,
+   "cos_sign_ray": 0.9998673971690476,
+   "dose_read_step": 2.504287079909104e-05,
+   "cos_read_step": 0.0015159088579439887,
+   "dose_read_grad": -9.920022673325568e-05,
+   "cos_read_grad": -0.0017981178765871073,
+   "s1_cpu": 0.7449015974998474,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "5527f89fdadd4167f7fe4960b07ea6b3",
+   "batch_aj_md5": "2cbef23b8f752502b40fc96b79e21de5",
+   "batch_rj_md5": "34a298fa1ddd350e5ad9f87b631902dc",
+   "draw": "e324/32401",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7449015974998474,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 0.0,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55656.29152843674,
+   "ratio_to_standing": 1.0001989613513174,
+   "ratio_committed": 55656.29152843674,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.0001989613513174,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 32402,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.158932089805603,
+   "led": {
+    "gn": 0.9999997989508688,
+    "gpn": 0.060882438779584255,
+    "kept_frac": 0.06088245101994814,
+    "v_excess_pre": 35.24710030696148,
+    "v_excess_post": 1.1338530021690787,
+    "in_span_frac": 0.0583090164727584,
+    "applied_in_span_frac": 0.004952410339382513
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.06088243878172864,
+   "kept_frac": 0.06088245101994814,
+   "d1_norm": 0.016522690415746406,
+   "d1_raw_norm": 0.016522690415746406,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7996087042351552,
+   "cos_sign_ray": 0.9998844770706484,
+   "dose_read_step": 6.433738300556015e-05,
+   "cos_read_step": 0.0038938805598055363,
+   "dose_read_grad": -0.00031744742488687693,
+   "cos_read_grad": -0.005214104941245325,
+   "s1_cpu": 0.7451865673065186,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "c034561b9269762e3f48ad65e5559581",
+   "batch_aj_md5": "ff958b318106f7d2d2145bfd768cd098",
+   "batch_rj_md5": "49d8f9c5659253b12e32b297c5f22943",
+   "draw": "e324/32402",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7451865077018738,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 3.4737568381843926e-08,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55677.58341811737,
+   "ratio_to_standing": 1.00058159780371,
+   "ratio_committed": 55677.578964678825,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.0005815177709863,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 32403,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.1547666788101196,
+   "led": {
+    "gn": 0.9999998230180741,
+    "gpn": 0.060847925689526176,
+    "kept_frac": 0.06084793645851116,
+    "v_excess_pre": 32.58453889226568,
+    "v_excess_post": 1.1196308151299477,
+    "in_span_frac": 0.06051163416089167,
+    "applied_in_span_frac": 0.005272995388849993
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.06084792569003917,
+   "kept_frac": 0.06084793645851116,
+   "d1_norm": 0.01652266878695556,
+   "d1_raw_norm": 0.01652266878695556,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7998087207189724,
+   "cos_sign_ray": 0.9998820703823462,
+   "dose_read_step": 7.604449577452181e-05,
+   "cos_read_step": 0.004602434192384102,
+   "dose_read_grad": -0.00037283674273851065,
+   "cos_read_grad": -0.006127353373354921,
+   "s1_cpu": 0.7452579736709595,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "f9c641fdf547a8caa2781cb1d1ec3e90",
+   "batch_aj_md5": "e1297f1895e6e5ecd4feafc7b40c3bbb",
+   "batch_rj_md5": "71cfe4da7055eb3d6f54a3f9fbe60795",
+   "draw": "e324/32403",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7452579140663147,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 3.473424000585933e-08,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55682.91863749353,
+   "ratio_to_standing": 1.0006774770067985,
+   "ratio_committed": 55682.914184054986,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.0006773969740748,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 32404,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.0641392469406128,
+   "led": {
+    "gn": 0.9999996653090933,
+    "gpn": 0.060811961536525495,
+    "kept_frac": 0.06081198188974285,
+    "v_excess_pre": 36.60017985776577,
+    "v_excess_post": 1.1370220236448363,
+    "in_span_frac": 0.05438132798894345,
+    "applied_in_span_frac": 0.0034438838796676174
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.0608119615364209,
+   "kept_frac": 0.06081198188974285,
+   "d1_norm": 0.016522514035953884,
+   "d1_raw_norm": 0.016522514035953884,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7994211832402286,
+   "cos_sign_ray": 0.9998807243635522,
+   "dose_read_step": 3.953147992513015e-05,
+   "cos_read_step": 0.002392582620242147,
+   "dose_read_grad": -0.000176832013814714,
+   "cos_read_grad": -0.0029078492018187515,
+   "s1_cpu": 0.7449929118156433,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "e6d4a0d2f7e951de44936c307983ad9c",
+   "batch_aj_md5": "3987073f22877757ff9ab0ef9efa7b72",
+   "batch_rj_md5": "9d9951a932290a5b6cb27011a2db7f89",
+   "draw": "e324/32404",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7449929118156433,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 0.0,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55663.11419628672,
+   "ratio_to_standing": 1.0003215714841485,
+   "ratio_committed": 55663.11419628672,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.0003215714841485,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 268435456,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.2131149768829346,
+   "led": {
+    "gn": 0.9999999513891483,
+    "gpn": 0.060571093055815574,
+    "kept_frac": 0.060571096000228135,
+    "v_excess_pre": 38.68054817272923,
+    "v_excess_post": 1.1499694098536564,
+    "in_span_frac": 0.064722244105454,
+    "applied_in_span_frac": 0.0052727866151640775
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.06057109305455014,
+   "kept_frac": 0.060571096000228135,
+   "d1_norm": 0.0165225736278169,
+   "d1_raw_norm": 0.0165225736278169,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.79957087578438,
+   "cos_sign_ray": 0.999876297764547,
+   "dose_read_step": 8.309303895052813e-05,
+   "cos_read_step": 0.00502906150229739,
+   "dose_read_grad": -0.000431278903209593,
+   "cos_read_grad": -0.007120210012079278,
+   "s1_cpu": 0.7452895641326904,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "48379eac6854f6fd0563e2ea18463436",
+   "batch_aj_md5": "94bb47c9d187315c33e2f244fbb7c1e7",
+   "batch_rj_md5": "f3646719e996ac463418455cacc7b263",
+   "draw": "e327/268435456",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7452895641326904,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 0.0,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55685.27895992204,
+   "ratio_to_standing": 1.000719894350402,
+   "ratio_committed": 55685.27895992204,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.000719894350402,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 805306368,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.0564836263656616,
+   "led": {
+    "gn": 0.9999995022455053,
+    "gpn": 0.061061458320974545,
+    "kept_frac": 0.061061488714605004,
+    "v_excess_pre": 31.838453806470284,
+    "v_excess_post": 1.118009406788985,
+    "in_span_frac": 0.05487361385359683,
+    "applied_in_span_frac": 0.004048195092000021
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.06106145832125175,
+   "kept_frac": 0.061061488714605004,
+   "d1_norm": 0.016522794079849985,
+   "d1_raw_norm": 0.016522794079849985,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7995750800374279,
+   "cos_sign_ray": 0.999882715917311,
+   "dose_read_step": 6.0272584744879526e-05,
+   "cos_read_step": 0.0036478445748097574,
+   "dose_read_grad": -0.00027052891242017443,
+   "cos_read_grad": -0.004430436479209012,
+   "s1_cpu": 0.7451399564743042,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "fcb51d6ef74b07f31e1780088f23c73c",
+   "batch_aj_md5": "b9c3c069e575878f3d402fea4fd0af58",
+   "batch_rj_md5": "f652d91a0264d47d3183ecbf9c4de06d",
+   "draw": "e327/805306368",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7451399564743042,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 0.0,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55674.10082917567,
+   "ratio_to_standing": 1.000519012213714,
+   "ratio_committed": 55674.10082917567,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.000519012213714,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 1342177280,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.1027532815933228,
+   "led": {
+    "gn": 0.9746371747812484,
+    "gpn": 0.05942670774651223,
+    "kept_frac": 0.06097315932962459,
+    "v_excess_pre": 32.38437573963187,
+    "v_excess_post": 1.1355056689984948,
+    "in_span_frac": 0.03734312421810154,
+    "applied_in_span_frac": 0.003721288493912592
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.059426707745250495,
+   "kept_frac": 0.06097315932962459,
+   "d1_norm": 0.016522122960972704,
+   "d1_raw_norm": 0.016522122960972704,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7998742940977126,
+   "cos_sign_ray": 0.9998790744506123,
+   "dose_read_step": 2.449454443699565e-05,
+   "cos_read_step": 0.0014825300897986736,
+   "dose_read_grad": -0.00015582319797916377,
+   "cos_read_grad": -0.0026221071954237204,
+   "s1_cpu": 0.7449425458908081,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "f5035b38c32ed2f03393a5381b5293a1",
+   "batch_aj_md5": "5ca3a116a74c789d8328bea9bb4b8d7a",
+   "batch_rj_md5": "6d177d360034de8e58aba353295c3421",
+   "draw": "e327/1342177280",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7449426054954529,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": -3.474894463228638e-08,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55659.35104071673,
+   "ratio_to_standing": 1.0002539438325542,
+   "ratio_committed": 55659.35549415527,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.000254023865278,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 1879048192,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.121411919593811,
+   "led": {
+    "gn": 0.9999998224106261,
+    "gpn": 0.060716537968304764,
+    "kept_frac": 0.06071654875091864,
+    "v_excess_pre": 32.39485474525405,
+    "v_excess_post": 1.1187150048621373,
+    "in_span_frac": 0.04578709835050317,
+    "applied_in_span_frac": 0.0031825064042942533
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.06071653796786804,
+   "kept_frac": 0.06071654875091864,
+   "d1_norm": 0.016522789231986544,
+   "d1_raw_norm": 0.016522789231986544,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7996701288468829,
+   "cos_sign_ray": 0.9998844462930699,
+   "dose_read_step": 3.266599056995215e-05,
+   "cos_read_step": 0.001977026403430352,
+   "dose_read_grad": -0.00016315691547686212,
+   "cos_read_grad": -0.002687190688691887,
+   "s1_cpu": 0.7450029850006104,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "8dfad693987d6df3c3d44375b87bdd41",
+   "batch_aj_md5": "067fa10a49bfd8fb33ec4a53586024a1",
+   "batch_rj_md5": "693f893e077246db8c0df5c443203f16",
+   "draw": "e327/1879048192",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7450029253959656,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 3.474612833034877e-08,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55663.866827400714,
+   "ratio_to_standing": 1.0003350970144673,
+   "ratio_committed": 55663.86237396217,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.0003350169817435,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 2415919104,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.1265008449554443,
+   "led": {
+    "gn": 0.9999997453960845,
+    "gpn": 0.0611588649635493,
+    "kept_frac": 0.06115888053483976,
+    "v_excess_pre": 31.960788798274322,
+    "v_excess_post": 1.128698142361629,
+    "in_span_frac": 0.05942842539115105,
+    "applied_in_span_frac": 0.0050755733489385585
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.061158864965166454,
+   "kept_frac": 0.06115888053483976,
+   "d1_norm": 0.016522857216845235,
+   "d1_raw_norm": 0.016522857216845235,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7999039093662739,
+   "cos_sign_ray": 0.9998820145130745,
+   "dose_read_step": 4.0871751228222704e-05,
+   "cos_read_step": 0.00247364912084052,
+   "dose_read_grad": -0.00022918545132169597,
+   "cos_read_grad": -0.0037473790831832844,
+   "s1_cpu": 0.7450078129768372,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "c0420588cd87f3198a7d68254aa727ec",
+   "batch_aj_md5": "dc28b33fe69cc6ef58832fb66b291596",
+   "batch_rj_md5": "ab7b06dab688b64cc7322569e15ba6b7",
+   "draw": "e327/2415919104",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7450078129768372,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 0.0,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55664.22755592281,
+   "ratio_to_standing": 1.0003415796650934,
+   "ratio_committed": 55664.22755592281,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.0003415796650934,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 2952790016,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.1033793687820435,
+   "led": {
+    "gn": 0.9537075858524362,
+    "gpn": 0.057898903475402164,
+    "kept_frac": 0.06070928273434186,
+    "v_excess_pre": 30.463504110781486,
+    "v_excess_post": 1.11687282489276,
+    "in_span_frac": 0.050551484965013535,
+    "applied_in_span_frac": 0.004350866973294264
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.0578989034766789,
+   "kept_frac": 0.06070928273434186,
+   "d1_norm": 0.016521506130215517,
+   "d1_raw_norm": 0.016521506130215517,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7999295957172123,
+   "cos_sign_ray": 0.9998748421627545,
+   "dose_read_step": 6.426759524115418e-05,
+   "cos_read_step": 0.0038899356229767554,
+   "dose_read_grad": -0.00028515155268032206,
+   "cos_read_grad": -0.004924990553494312,
+   "s1_cpu": 0.7452096343040466,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "c2ecfa59710adb8466fcfe42a4eba966",
+   "batch_aj_md5": "23f435e5181a20506341edfb5da482bb",
+   "batch_rj_md5": "e98e447a1e4c3e23cd381612226ede18",
+   "draw": "e327/2952790016",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7452095746994019,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 3.473649315680472e-08,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55679.306898834046,
+   "ratio_to_standing": 1.0006125704678128,
+   "ratio_committed": 55679.3024453955,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.000612490435089,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 3489660928,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.0869289636611938,
+   "led": {
+    "gn": 0.974988669815188,
+    "gpn": 0.05960156407473198,
+    "kept_frac": 0.061130519686992506,
+    "v_excess_pre": 34.7163900073969,
+    "v_excess_post": 1.139552622953493,
+    "in_span_frac": 0.037930936680644296,
+    "applied_in_span_frac": 0.0032739982538289446
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.05960156407290467,
+   "kept_frac": 0.061130519686992506,
+   "d1_norm": 0.016522428313324233,
+   "d1_raw_norm": 0.016522428313324233,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7996902263451064,
+   "cos_sign_ray": 0.9998845935452014,
+   "dose_read_step": 6.369611431400665e-05,
+   "cos_read_step": 0.003855130317777801,
+   "dose_read_grad": -0.0003087867459582714,
+   "cos_read_grad": -0.005180849710262015,
+   "s1_cpu": 0.7451968789100647,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "465f0464a86bc2e8d92cf4e3e159aaf2",
+   "batch_aj_md5": "3320de71c64911aeba3a7fd3f91a7d8f",
+   "batch_rj_md5": "90e55f49d727a6599886da9ec7f681cc",
+   "draw": "e327/3489660928",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7451968789100647,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 0.0,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55678.35386298555,
+   "ratio_to_standing": 1.000595443464924,
+   "ratio_committed": 55678.35386298555,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.000595443464924,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 4026531840,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.108839750289917,
+   "led": {
+    "gn": 0.9999998514943723,
+    "gpn": 0.06035476753664339,
+    "kept_frac": 0.06035477649966736,
+    "v_excess_pre": 29.177243167525386,
+    "v_excess_post": 1.1070067278120137,
+    "in_span_frac": 0.06154406167587821,
+    "applied_in_span_frac": 0.005151077553523235
+   },
+   "theta0_md5": "4c962fb6ee8da02f45011fc568ed4657",
+   "r_norm": 20.392391789793628,
+   "prior_cpu": 0.7447534203529358,
+   "g1_norm": 0.06035476753521297,
+   "kept_frac": 0.06035477649966736,
+   "d1_norm": 0.016522471977811492,
+   "d1_raw_norm": 0.016522471977811492,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7999625636382737,
+   "cos_sign_ray": 0.9998821250600449,
+   "dose_read_step": 6.28833617668126e-05,
+   "cos_read_step": 0.0038059293942976882,
+   "dose_read_grad": -0.0003225217264895047,
+   "cos_read_grad": -0.005343765532711802,
+   "s1_cpu": 0.7452242970466614,
+   "s1_argmax_frac": 0.75,
+   "batch_ix_md5": "fb05c7db643c9d41b53e12add26052bd",
+   "batch_aj_md5": "991b9328cda576461aec13d070f520de",
+   "batch_rj_md5": "48ccbdf3b55c07d66ed855a69c1d1c72",
+   "draw": "e327/4026531840",
+   "name": "ZEPHYRA",
+   "side": "SURVIVE",
+   "s1_committed": 0.7452242374420166,
+   "prior_committed": 1.3383960322244093e-05,
+   "fidelity_decades": 3.47358096415511e-08,
+   "same_side": true,
+   "ratio_vs_committed_prior": 55680.40244471596,
+   "ratio_to_standing": 1.0006322585178629,
+   "ratio_committed": 55680.397991277416,
+   "standing_read": 0.7447534203529358,
+   "committed_ratio_to_standing": 1.000632178485139,
+   "side_cpu": "SURGE"
+  },
+  {
+   "gen": 31102,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 0.9996352195739746,
+   "led": {
+    "gn": 0.9999995078146835,
+    "gpn": 0.06094523642250753,
+    "kept_frac": 0.06094526641887277,
+    "v_excess_pre": 21.305752672616418,
+    "v_excess_post": 1.0750951062857244,
+    "in_span_frac": 0.06333255464708534,
+    "applied_in_span_frac": 0.004062210844186173
+   },
+   "theta0_md5": "b8cd47e63dcc16dae07122bb703623e3",
+   "r_norm": 117.82758273293427,
+   "prior_cpu": 0.0023042955435812473,
+   "g1_norm": 0.06094523642331162,
+   "kept_frac": 0.06094526641887277,
+   "d1_norm": 0.016522647386666464,
+   "d1_raw_norm": 0.016522647386666464,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7997753676608922,
+   "cos_sign_ray": 0.9998815964879767,
+   "dose_read_step": 5.340421833168716e-05,
+   "cos_read_step": 0.0032321828991390095,
+   "dose_read_grad": -0.00024533579844785244,
+   "cos_read_grad": -0.004025512293426939,
+   "s1_cpu": 0.002308742143213749,
+   "s1_argmax_frac": 0.0,
+   "batch_ix_md5": "7cac12aba14236418ec036296ca07a08",
+   "batch_aj_md5": "7135a1fea9df09d51b46be50b9780db9",
+   "batch_rj_md5": "c3fe30b4d5b44f9043245df3ab9c392e",
+   "draw": "e311/TAVIREN",
+   "name": "TAVIREN",
+   "side": "PRIOR-FLAT?",
+   "s1_committed": 0.0023087384179234505,
+   "prior_committed": 0.0023042955435812473,
+   "fidelity_decades": 7.007600784259301e-07,
+   "same_side": true,
+   "ratio_vs_committed_prior": 1.0019297002265564,
+   "ratio_to_standing": 1.0019297002265564,
+   "ratio_committed": 1.0019280835544637,
+   "standing_read": 0.0023042955435812473,
+   "committed_ratio_to_standing": 1.0019280835544637,
+   "side_cpu": "NO-SURGE"
+  },
+  {
+   "gen": 32801,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.0422786474227905,
+   "led": {
+    "gn": 0.9999997604855387,
+    "gpn": 0.06074756632530848,
+    "kept_frac": 0.06074758087523258,
+    "v_excess_pre": 18.34853047786056,
+    "v_excess_post": 1.0655693712378829,
+    "in_span_frac": 0.0411837671468587,
+    "applied_in_span_frac": 0.0033424537292872235
+   },
+   "theta0_md5": "b8cd47e63dcc16dae07122bb703623e3",
+   "r_norm": 107.89358962563993,
+   "prior_cpu": 0.0025905624497681856,
+   "g1_norm": 0.06074756632383684,
+   "kept_frac": 0.06074758087523258,
+   "d1_norm": 0.01652233712756183,
+   "d1_raw_norm": 0.01652233712756183,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7997546133924592,
+   "cos_sign_ray": 0.9998789093604017,
+   "dose_read_step": 0.0001523215645952493,
+   "cos_read_step": 0.009219129437877957,
+   "dose_read_grad": -0.0006982208498131035,
+   "cos_read_grad": -0.011493807769861685,
+   "s1_cpu": 0.0025957857724279165,
+   "s1_argmax_frac": 0.0,
+   "batch_ix_md5": "95fd2181f9070164015e3f66a912fa28",
+   "batch_aj_md5": "3cbe247de6fe4934eafdb4244117b4da",
+   "batch_rj_md5": "74fd251e414c2fa421ef49c28fed934d",
+   "draw": "x28/QELVARO",
+   "name": "QELVARO",
+   "side": "PRIOR-FLAT?",
+   "s1_committed": 0.0025957857724279165,
+   "prior_committed": 0.0025905624497681856,
+   "fidelity_decades": 0.0,
+   "same_side": true,
+   "ratio_vs_committed_prior": 1.0020162890341433,
+   "ratio_to_standing": 1.0020162890341433,
+   "ratio_committed": 1.0020162890341433,
+   "standing_read": 0.0025905624497681856,
+   "committed_ratio_to_standing": 1.0020162890341433,
+   "side_cpu": "NO-SURGE"
+  },
+  {
+   "gen": 33002,
+   "mode": "K10K",
+   "lr_s1": 1e-05,
+   "loss_s1": 1.049045443534851,
+   "led": {
+    "gn": 0.9999995341431123,
+    "gpn": 0.06041556960579045,
+    "kept_frac": 0.06041559775081279,
+    "v_excess_pre": 21.31673973146931,
+    "v_excess_post": 1.0758914538380508,
+    "in_span_frac": 0.07042835333002821,
+    "applied_in_span_frac": 0.004187854104993473
+   },
+   "theta0_md5": "b8cd47e63dcc16dae07122bb703623e3",
+   "r_norm": 104.33769641598445,
+   "prior_cpu": 0.0028261502739042044,
+   "g1_norm": 0.06041556960458118,
+   "kept_frac": 0.06041559775081279,
+   "d1_norm": 0.01652255595240641,
+   "d1_raw_norm": 0.01652255595240641,
+   "wall_correction": 0.0,
+   "in_room_frac": 0.7998929496096308,
+   "cos_sign_ray": 0.9998811244042789,
+   "dose_read_step": 8.977603120917125e-05,
+   "cos_read_step": 0.005433543785100388,
+   "dose_read_grad": -0.0003781280341114252,
+   "cos_read_grad": -0.006258784558124109,
+   "s1_cpu": 0.002832830650731921,
+   "s1_argmax_frac": 0.0,
+   "batch_ix_md5": "2c8e66317b135ec69735d87b8622704b",
+   "batch_aj_md5": "94f5084fe9dab77136d21ea3b3154882",
+   "batch_rj_md5": "096cefa0f9468d729ce2442ad800d1c4",
+   "draw": "e330/NYSTORA",
+   "name": "NYSTORA",
+   "side": "PRIOR-FLAT?",
+   "s1_committed": 0.0028328285552561283,
+   "prior_committed": 0.0028261500410735607,
+   "fidelity_decades": 3.2125249353799264e-07,
+   "same_side": true,
+   "ratio_vs_committed_prior": 1.0023638552664467,
+   "ratio_to_standing": 1.00236377268732,
+   "ratio_committed": 1.002363113806948,
+   "standing_read": 0.0028261502739042044,
+   "committed_ratio_to_standing": 1.0023630312278824,
+   "side_cpu": "NO-SURGE"
+  }
+ ],
+ "the_rider_free": {
+  "gen": 24314,
+  "mode": "FREE",
+  "lr_s1": 1e-05,
+  "loss_s1": 1.0701713562011719,
+  "led": {
+   "gn": 0.9999995298472809,
+   "gpn": 0.9999995298472809,
+   "kept_frac": 1.0,
+   "v_excess_pre": 24.05209686370578,
+   "v_excess_post": 24.05209686370578,
+   "in_span_frac": 0.06095736948709052,
+   "applied_in_span_frac": 0.06095736948709052
+  },
+  "theta0_md5": "b8cd47e63dcc16dae07122bb703623e3",
+  "r_norm": 114.43985876055639,
+  "prior_cpu": 1.3383959412749391e-05,
+  "g1_norm": 0.9999995298472809,
+  "kept_frac": 1.0,
+  "d1_norm": 0.016543130918076424,
+  "d1_raw_norm": 0.016543130918076424,
+  "wall_correction": 0.0,
+  "in_room_frac": 1.0,
+  "cos_sign_ray": 0.9999722344232885,
+  "dose_read_step": 0.0009720459650046573,
+  "cos_read_step": 0.05875828280742901,
+  "dose_read_grad": -0.05894574671925881,
+  "cos_read_grad": -0.05894577443277495,
+  "s1_cpu": 1.5183904906734824e-05,
+  "s1_argmax_frac": 0.0,
+  "batch_ix_md5": "722568d9f907995accd213df72918885",
+  "batch_aj_md5": "8bbec48fb9d770b507b3a3a825010512",
+  "batch_rj_md5": "e3c7fc7f40e5c4b688da85e8ad792edc",
+  "committed_s1": 1.5183916730165947e-05,
+  "fidelity_decades": -3.381770978124899e-07
+ },
+ "separation_all16": {
+  "F1_d1_norm": {
+   "surge_range": [
+    0.016520037248846427,
+    0.016522857216845235
+   ],
+   "nosurge_range": [
+    0.01652233712756183,
+    0.016522647386666464
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F2_in_room_frac": {
+   "surge_range": [
+    0.7994211832402286,
+    0.7999625636382737
+   ],
+   "nosurge_range": [
+    0.7997546133924592,
+    0.7998929496096308
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F3_cos_sign_ray": {
+   "surge_range": [
+    0.9998673971690476,
+    0.9998845935452014
+   ],
+   "nosurge_range": [
+    0.9998789093604017,
+    0.9998815964879767
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F4_dose_read_step": {
+   "surge_range": [
+    2.449454443699565e-05,
+    8.309303895052813e-05
+   ],
+   "nosurge_range": [
+    4.7120640728653215e-05,
+    0.0001523215645952493
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F5_cos_read_step": {
+   "surge_range": [
+    0.0014825300897986736,
+    0.00502906150229739
+   ],
+   "nosurge_range": [
+    0.0028519105899038554,
+    0.009219129437877957
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F6_dose_read_grad": {
+   "surge_range": [
+    -0.000431278903209593,
+    -9.920022673325568e-05
+   ],
+   "nosurge_range": [
+    -0.0006982208498131035,
+    -0.000216278855534086
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F7_cos_read_grad": {
+   "surge_range": [
+    -0.007120210012079278,
+    -0.0017981178765871073
+   ],
+   "nosurge_range": [
+    -0.011493807769861685,
+    -0.0035570606766281206
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  }
+ },
+ "separation_zephyra13": {
+  "F1_d1_norm": {
+   "surge_range": [
+    0.016520037248846427,
+    0.016522857216845235
+   ],
+   "nosurge_range": [
+    0.016522481769052164,
+    0.016522481769052164
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F2_in_room_frac": {
+   "surge_range": [
+    0.7994211832402286,
+    0.7999625636382737
+   ],
+   "nosurge_range": [
+    0.7998437927985551,
+    0.7998437927985551
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F3_cos_sign_ray": {
+   "surge_range": [
+    0.9998673971690476,
+    0.9998845935452014
+   ],
+   "nosurge_range": [
+    0.999880953563012,
+    0.999880953563012
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F4_dose_read_step": {
+   "surge_range": [
+    2.449454443699565e-05,
+    8.309303895052813e-05
+   ],
+   "nosurge_range": [
+    4.7120640728653215e-05,
+    4.7120640728653215e-05
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F5_cos_read_step": {
+   "surge_range": [
+    0.0014825300897986736,
+    0.00502906150229739
+   ],
+   "nosurge_range": [
+    0.0028519105899038554,
+    0.0028519105899038554
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F6_dose_read_grad": {
+   "surge_range": [
+    -0.000431278903209593,
+    -9.920022673325568e-05
+   ],
+   "nosurge_range": [
+    -0.000216278855534086,
+    -0.000216278855534086
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  },
+  "F7_cos_read_grad": {
+   "surge_range": [
+    -0.007120210012079278,
+    -0.0017981178765871073
+   ],
+   "nosurge_range": [
+    -0.0035570606766281206,
+    -0.0035570606766281206
+   ],
+   "zero_overlap": false,
+   "separation_dir": null,
+   "gap": null
+  }
+ },
+ "verdict": "THREE-DEATHS",
+ "date_completed": "2026-10-10T07:20:43.138310+00:00",
+ "outputs": [
+  "runs\\x32\\metrics.json",
+  "runs\\x32\\REPORT.md",
+  "runs\\x32\\x32_first_step_atlas.png"
+ ]
+}

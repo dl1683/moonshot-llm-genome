@@ -155,6 +155,40 @@ PROTOCOL (house rules honored)
 
 Run:  python lab/x32_first_step_atlas.py            (full)
       X32_SMOKE=1 python lab/x32_first_step_atlas.py (smoke, 3 draws)
+
+AMENDMENTS (dated, post-birth repairs — disclosed, no bar ever moved):
+- 2026-10-10 SMOKE CATCH 1 (the canon "flip") + SMOKE CATCH 2 (THE NET0
+  CONFOUND — the cell's real finding). Catch 1: the canon row first ran
+  from the g1c ROOT (my error) and "flipped" (CPU s1 0.745 vs committed
+  1.3466e-05) while the instrument validated exactly on e324/32401 and
+  TAVIREN. Chasing it produced Catch 2: the committed canon's step-1
+  ledger fingerprint (ce_batch 1.0701713562011719) does NOT match a
+  root-start step — but matches BIT-EXACTLY a step from THE BASE e001.
+  Source check: e264's run_arm and e272's K10KR both pass
+  G1.evl_load(base_sd) as net0 (THE canon's actual convention), while
+  e324/e327's draws pass the g1c ROOT. From the base, this cell
+  reproduces the canon's committed record EXACTLY (ce and s1 identical
+  to all 16 digits). THE NET0 CONFOUND: the "SURGE" class (e324 x4 +
+  e327 x8) started from the FORMED root (standing g0 read 0.7447534) —
+  their s1 ~ 0.745 is the STANDING READ STAYING (ratio-to-standing
+  1.0002), which reads as ~5.5e4x on x34's e001-prior axis; the
+  "NO-SURGE" class (canon + parasites) started from the base — s1 =
+  prior x 1.002-1.006. AT STEP ONE NOTHING EVER HAPPENS ON EITHER
+  SIDE: every one of the 16 draws' first step is a no-event on its own
+  state's prior. THE S1 FORK OF x34/e324/e327 IS (almost entirely) A
+  STARTING-STATE CONFOUND, not a first-step event. REPAIRS at smoke,
+  none touching a bar or the candidate list: (a) net0 per lineage
+  corrected to each parent's ACTUAL convention (canon: base; e324/e327:
+  root; parasites: base) — a harness repair, disclosed; (b) the
+  fidelity gate restored to its strict birth form (all 16 draws must
+  reproduce); (c) the knife-edge probe reframed as the NO-EVENT probes
+  (t-scan + sign-flip, now on the correct states); (d) P6c re-written
+  as THE NET0 CONFOUND section; (e) P-e328x32's countervailing carries
+  the confound (the call logic untouched — frozen at birth). The class
+  boundary of the frozen adjudication (SURVIVE vs DIE) coincides with
+  the net0 boundary — any zero-overlap "hammer" would separate STARTING
+  STATES, not step-one textures; the verdict interpretation carries
+  this verbatim.
 """
 
 from __future__ import annotations
@@ -606,7 +640,7 @@ def first_batch(gen_seed: int):
     return ix, aj, rj, gen
 
 
-def run_first_step(net0, win_x, gen_seed, mode, zid_draw):
+def run_first_step(net0, win_x, gen_seed, mode, zid_draw, return_d1=False):
     """ONE step of e261's chunked_install body VERBATIM on CPU + the
     geometry capture. The arithmetic lines are chunked_install's own
     (batch -> masked union CE -> clip -> the room hook -> opt.step); the
@@ -698,7 +732,7 @@ def run_first_step(net0, win_x, gen_seed, mode, zid_draw):
     cos_read = float(d1 @ r / (d1_norm * r_norm))
     dose_g = float(g1 @ r_hat)
     cos_g = float(g1 @ r / (g1_norm * r_norm))
-    return {
+    fp = {
         "gen": int(gen_seed), "mode": mode, "lr_s1": lr_s1,
         "loss_s1": float(loss.item()), "led": led,
         "theta0_md5": hashlib.md5(theta0.tobytes()).hexdigest(),
@@ -714,21 +748,31 @@ def run_first_step(net0, win_x, gen_seed, mode, zid_draw):
         "batch_aj_md5": hashlib.md5(aj.numpy().tobytes()).hexdigest(),
         "batch_rj_md5": hashlib.md5(rj.numpy().tobytes()).hexdigest(),
     }
+    if return_d1:
+        return fp, d1
+    return fp
 
 
 WINSETS = {"ZEPHYRA": win_bank, "TAVIREN": win_tav,
            "QELVARO": win_qel, "NYSTORA": win_nys}
 ZIDS = {"ZEPHYRA": zid, "TAVIREN": tid, "QELVARO": qid, "NYSTORA": nid}
 
+# THE NET0 MAP — each parent's ACTUAL convention (smoke catch 2's repair;
+# verified against the committed step-1 ledger fingerprints: the canon's
+# committed ce_batch 1.07017135... reproduces BIT-EXACTLY from the BASE;
+# e324/GEN32401's committed ce_batch 1.11510777... reproduces BIT-EXACTLY
+# from the ROOT):
+#   canon 24314  -> BASE  (e264's run_arm passes G1.evl_load(base_sd))
+#   e324/e327    -> ROOT  (their drivers pass load_g1(g1c_root.pt))
+#   parasites    -> BASE  (e311/x28/e330 pass G1.evl_load(base_sd))
+NET0_KIND = {"canon": "base", "e324": "root", "e327": "root",
+             "e311": "base", "x28": "base", "e330": "base"}
 
-def net0_for(name: str):
-    """The parents' own convention: the ZEPHYRA draws start from the ARMED
-    g1c root (e264/e324/e327 passed load_g1's net); the parasite installs
-    started from the SETTLED e001 base (e311/x28/e330 passed
-    G1.evl_load(base_sd))."""
-    if name == "ZEPHYRA":
-        return root_net
-    return G1.evl_load(base_sd)
+
+def net0_for(row_draw: str):
+    lineage = row_draw.split("/")[0]
+    kind = NET0_KIND[lineage]
+    return G1.evl_load(base_sd) if kind == "base" else root_net
 
 
 # =============================================================================
@@ -736,14 +780,19 @@ def net0_for(name: str):
 # =============================================================================
 atlas: list[dict] = []
 for row in ROWS_ADJ:
-    fp = run_first_step(net0_for(row["name"]), WINSETS[row["name"]],
+    fp = run_first_step(net0_for(row["draw"]), WINSETS[row["name"]],
                         row["gen"], ROOM_MODE, ZIDS[row["name"]])
     dec = math.log10(max(fp["s1_cpu"], 1e-30)
                      / max(row["s1_committed"], 1e-30))
-    ratio_cpu = fp["s1_cpu"] / max(fp["prior_cpu"], 1e-30)
+    # side_cpu on X34'S OWN AXIS (vs the committed prior basis, e001 for
+    # the ZEPHYRA draws) so side_cpu means exactly what the committed
+    # side means; the STANDING-read ratio (vs prior_cpu, the pre-install
+    # organism's own read) is the discovery co-axis
+    ratio_vs_committed = fp["s1_cpu"] / max(row["prior_committed"], 1e-30)
+    ratio_standing = fp["s1_cpu"] / max(fp["prior_cpu"], 1e-30)
     ratio_committed = row["s1_committed"] / row["prior_committed"]
-    side_cpu = ("SURGE" if ratio_cpu >= 100.0 else
-                ("NO-SURGE" if ratio_cpu <= 1.2 else "AMBIGUOUS"))
+    side_cpu = ("SURGE" if ratio_vs_committed >= 100.0 else
+                ("NO-SURGE" if ratio_vs_committed <= 1.2 else "AMBIGUOUS"))
     side_committed = "SURGE" if row["side"] == "SURVIVE" else "NO-SURGE"
     same_side = bool(side_cpu == side_committed)
     fp.update({
@@ -751,20 +800,25 @@ for row in ROWS_ADJ:
         "s1_committed": row["s1_committed"],
         "prior_committed": row["prior_committed"],
         "fidelity_decades": dec, "same_side": same_side,
-        "ratio_cpu": ratio_cpu, "ratio_committed": ratio_committed,
+        "ratio_vs_committed_prior": ratio_vs_committed,
+        "ratio_to_standing": ratio_standing,
+        "ratio_committed": ratio_committed,
+        "standing_read": fp["prior_cpu"],
+        "committed_ratio_to_standing": (row["s1_committed"]
+                                        / max(fp["prior_cpu"], 1e-30)),
         "side_cpu": side_cpu,
     })
     atlas.append(fp)
     log(f"P5 {row['draw']:<14} gen {row['gen']:<10} [{row['side']:<12}] "
         f"s1_cpu {fp['s1_cpu']:.4e} (committed {row['s1_committed']:.4e}, "
-        f"{dec:+.3f} dec) |d1| {fp['d1_norm']:.4e} in-room "
-        f"{fp['in_room_frac']:.4f} cos_sign {fp['cos_sign_ray']:.6f} "
-        f"dose {fp['dose_read_step']:+.3e} cos_read "
-        f"{fp['cos_read_step']:+.3e}")
+        f"{dec:+.3f} dec; vs-standing {ratio_standing:.4f}) |d1| "
+        f"{fp['d1_norm']:.4e} in-room {fp['in_room_frac']:.4f} cos_sign "
+        f"{fp['cos_sign_ray']:.6f} dose {fp['dose_read_step']:+.3e} "
+        f"cos_read {fp['cos_read_step']:+.3e}")
 
 # the rider: the canon's first batch, NO projection (mode FREE)
 canon_gen_actual = next(r["gen"] for r in ROWS if r["draw"] == "canon")
-rider = run_first_step(net0_for("ZEPHYRA"), win_bank, canon_gen_actual,
+rider = run_first_step(net0_for("canon"), win_bank, canon_gen_actual,
                        "FREE", zid)
 rider_dec = math.log10(max(rider["s1_cpu"], 1e-30)
                        / max(float(CANON_FREE_S1), 1e-30))
@@ -812,19 +866,263 @@ verdict = "ONE-HAMMER" if hammers else "THREE-DEATHS"
 fid_fail = [d["draw"] for d in atlas
             if (abs(d["fidelity_decades"]) > 1.0 or not d["same_side"])]
 G_FIDELITY = {
-    "form": "per draw: the CPU-recomputed s1 lands within 1 decade of the "
-            "committed GPU s1 AND on the same side of the fork (x34's "
-            "ratio axis; surge >= 100x prior, no-surge <= 1.2x prior, the "
-            "1.2-100x interior = AMBIGUOUS, disclosed per draw)",
+    "form": "per draw (strict birth form, restored after the net0 repair): "
+            "the CPU-recomputed s1 lands within 1 decade of the committed "
+            "s1 AND on the same side of the fork on X34'S AXIS (s1 vs the "
+            "committed prior basis; surge >= 100x, no-surge <= 1.2x, the "
+            "interior AMBIGUOUS, disclosed per draw). After the net0 "
+            "repair every draw's step is recomputed from its parent's "
+            "ACTUAL starting state — the canon from the BASE reproduces "
+            "its committed record BIT-EXACTLY (ce and s1 identical to 16 "
+            "digits); the strict gate is expected to pass for all 16.",
     "fidelity_decades": {d["draw"]: d["fidelity_decades"] for d in atlas},
     "same_side": {d["draw"]: d["same_side"] for d in atlas},
     "side_cpu": {d["draw"]: d["side_cpu"] for d in atlas},
     "rider_canon_free_decades": rider_dec,
+    "failures": list(fid_fail),
     "pass": bool(not fid_fail),
 }
 METRICS["gates"]["G_FIDELITY"] = G_FIDELITY
 log(f"P6 G_FIDELITY: {'PASS' if not fid_fail else 'FAIL ' + str(fid_fail)} "
     f"(rider FREE {rider_dec:+.3f} dec)")
+
+# ---- P6b: the no-event probes (the t-scan + the sign-flip) --------------
+def t_scan(net0, zid_draw, d1_vec, ts):
+    """read(t) = the battery read on theta0 + t*d1 (the settled eval path)."""
+    out = []
+    theta0 = flat_params_cpu(net0).double()
+    with torch.no_grad():
+        for t in ts:
+            th = theta0 + float(t) * torch.from_numpy(d1_vec)
+            net_t = copy.deepcopy(net0)
+            i = 0
+            for p in net_t.parameters():
+                n = p.numel()
+                p.copy_(th[i:i + n].float().view(p.shape))
+                i += n
+            out.append((float(t),
+                        G1.battery_cell(net_t, g0_ids, zid_draw)["mean_pz"]))
+            del net_t
+    return out
+
+
+knife = {"form": "THE NO-EVENT PROBES (post-confound repair): the "
+                 "step-scale t-scan read(t) on theta0 + t*d1 for the "
+                 "canon (from the BASE, its true convention) + the FREE "
+                 "rider + one root-start draw + one parasite — does ANY "
+                 "first-step ray reach a read transition at up to 2x "
+                 "scale? The sign-flip probe then asks the converse on "
+                 "the canon (base start): can ANY sign pattern of the "
+                 "first applied gradient ignite the read at step one? "
+                 "Expected under the no-event picture: nothing moves at "
+                 "any probed scale or pattern."}
+
+
+def probe_knife(draw_row, mode):
+    fp, d1_vec = run_first_step(net0_for(draw_row["draw"]),
+                                WINSETS[draw_row["name"]], draw_row["gen"],
+                                mode, ZIDS[draw_row["name"]],
+                                return_d1=True)
+    net0_ref = net0_for(draw_row["draw"])
+    ts = [0.0, 0.5, 0.9, 0.95, 0.99, 1.0, 1.01, 1.05, 1.1, 1.5, 2.0]
+    scan = t_scan(net0_ref, ZIDS[draw_row["name"]], d1_vec, ts)
+    # t* := the SMALLEST t where the read CRASHES below 0.15 (leaves the
+    # standing plateau DOWNWARD — the kill event); None if no crash by t=2;
+    # NOT APPLICABLE when the standing read itself is below 0.15 (the
+    # parasite rows — their plateau sits under the threshold)
+    r2 = dict(scan).get(2.0)
+    r0 = dict(scan).get(0.0)
+    t_star = None
+    if r2 is not None and r2 < 0.15 and r0 is not None and r0 >= 0.15:
+        lo_t, hi_t = 0.0, 2.0        # read(lo)=high, read(hi)=crashed
+        for _ in range(18):
+            mid = (lo_t + hi_t) / 2
+            r_mid = t_scan(net0_ref, ZIDS[draw_row["name"]], d1_vec,
+                           [mid])[0][1]
+            if r_mid >= 0.15:
+                lo_t = mid
+            else:
+                hi_t = mid
+        t_star = (lo_t + hi_t) / 2
+    return {"draw": draw_row["draw"], "mode": mode,
+            "s1_cpu": fp["s1_cpu"],
+            "s1_committed": draw_row["s1_committed"],
+            "dose_read_step": fp["dose_read_step"],
+            "scan": scan, "t_star_kill": t_star}
+
+
+canon_row = next(r for r in ROWS if r["draw"] == "canon")
+_root_standing_meas = G1.battery_cell(root_net, g0_ids, zid)["mean_pz"]
+G_STANDING = {
+    "form": "the confound's own cross-check: the root's measured g0 "
+            "battery read (the STANDING read that made root-start draws "
+            "read ~0.745 at s1) vs e261's committed G1C_ROOT_G0 landing "
+            "anchor",
+    "measured": float(_root_standing_meas),
+    "committed": E261.G1C_ROOT_G0,
+    "abs_diff": abs(float(_root_standing_meas) - E261.G1C_ROOT_G0),
+    "pass": bool(abs(float(_root_standing_meas) - E261.G1C_ROOT_G0)
+                 <= 1e-12),
+}
+assert G_STANDING["pass"], "standing-read cross-check FAILED"
+METRICS["gates"]["G_STANDING"] = G_STANDING
+log(f"P6 G_STANDING: the root's standing g0 {_root_standing_meas:.10f} "
+    f"== e261's committed G1C_ROOT_G0: PASS")
+surge_row = next((r for r in ROWS if r["draw"] == "e324/32401"), None)
+parasite_row = next(r for r in ROWS if r["name"] == "TAVIREN")
+knife["probes"] = []
+for prow, pmode in ((canon_row, ROOM_MODE), (canon_row, "FREE"),
+                    (surge_row, ROOM_MODE) if surge_row else None,
+                    (parasite_row, ROOM_MODE)):
+    if prow is None:
+        continue
+    pk = probe_knife(prow, pmode)
+    knife["probes"].append(pk)
+    scan_txt = ", ".join(f"t={t:.3f}:{v:.4g}" for t, v in pk["scan"][:11])
+    log(f"P6b knife {pk['draw']}@{pk['mode']}: t*_kill "
+        f"{pk['t_star_kill']}; scan {scan_txt}")
+knife["the_reading"] = (
+    "Under the no-event picture every probed ray should stay on its "
+    "state's own read level (the base's prior for base-start draws; the "
+    "root's standing read for root-start draws) at every t up to 2 — "
+    "no transition, in either direction, at any doubled-step scale. "
+    "Any observed transition would locate a REAL step-one-reachable "
+    "cliff and would be reported as such.")
+METRICS["the_no_event_probes"] = knife
+
+# ---- P6b2: the sign-flip probe (can anything ignite the read at step 1?) -
+def probe_signflip(gen_seed, thresholds):
+    """For each threshold: rerun the canon's first step VERBATIM (from
+    the BASE, its true convention) but with the applied gradient's
+    smallest-magnitude coordinates' signs FLIPPED (|g1| < thr -> -g1).
+    Upper bound on pattern perturbation of the first applied gradient:
+    if even near-total sign randomization cannot move the read off its
+    prior at step one, the no-event is PATTERN-robust, not just
+    magnitude-robust."""
+    rows = []
+    net0 = net0_for("canon")
+    theta0 = flat_params_cpu(net0).double().numpy().astype(np.float64)
+    for thr in thresholds:
+        net = copy.deepcopy(net0).to(CPU)
+        net.train()
+        opt = torch.optim.AdamW(net.parameters(), lr=LR, betas=(0.9, 0.95),
+                                weight_decay=0.1)
+        f = cosine_lr(0, E261.INST_TOTAL)
+        for g in opt.param_groups:
+            g["lr"] = LR * f
+        ix, aj, rj, _gen = first_batch(gen_seed)
+        corp = torch.cat([anchor_full[aj],
+                          torch.stack([train_ids[s: s + G1.BLOCK]
+                                       for s in rj])], 0)
+        nw = win_bank[ix]
+        x = torch.cat([nw[:, :-1], corp[:, :-1]], 0).to(CPU)
+        y = torch.cat([nw[:, 1:], corp[:, 1:]], 0).to(CPU)
+        m = torch.zeros(NAME_BS + CORP_BS, x.shape[1], dtype=torch.bool)
+        m[:NAME_BS] = inst_mask[ix]
+        logits, _ = net(x)
+        nll = F.cross_entropy(logits.reshape(-1, logits.shape[-1]),
+                              y.reshape(-1), reduction="none"
+                              ).view(x.shape[0], x.shape[1])
+        nm = nll[:NAME_BS][m[:NAME_BS]]
+        cm = nll[NAME_BS:]
+        loss = (nm.sum() + cm.sum()) / (nm.numel() + cm.numel())
+        opt.zero_grad(set_to_none=True)
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(net.parameters(), 1.0)
+        rooms.step_hook(list(net.parameters()), ROOM_MODE)
+        with torch.no_grad():
+            flipped = 0
+            for p in net.parameters():
+                gflat = p.grad.reshape(-1)
+                sel = gflat.abs() < thr
+                flipped += int(sel.sum())
+                gflat[sel] = -gflat[sel]
+        opt.step()
+        sd_cpu = {k: v.detach().cpu().clone()
+                  for k, v in net.state_dict().items()}
+        evl = copy.deepcopy(net0)
+        evl.load_state_dict(sd_cpu)
+        read = G1.battery_cell(evl, g0_ids, zid)["mean_pz"]
+        del net, evl
+        rows.append({"threshold": float(thr),
+                     "n_flipped": flipped,
+                     "frac_flipped": flipped / N,
+                     "read_after": float(read)})
+        log(f"P6b2 signflip thr={thr:.1e}: flipped {flipped} coords "
+            f"({flipped / N:.4%}); read {read:.4e}")
+    return rows
+
+
+knife["signflip"] = {
+    "form": "the ignition probe: the canon's first step (from the BASE, "
+            "its true convention) rerun with the applied gradient's "
+            "|g1| < thr coordinates' signs flipped — near-total sign "
+            "randomization of the first applied gradient; if the read "
+            "stays at prior under every threshold, the step-one no-event "
+            "is pattern-robust",
+    "rows": probe_signflip(canon_gen_actual,
+                           [1e-12, 1e-10, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4]),
+}
+
+# ---- P6c: THE NET0 CONFOUND (the cell's discovery; numbers at runtime) --
+canon_atlas = next(d for d in atlas if d["draw"] == "canon") \
+    if any(d["draw"] == "canon" for d in atlas) else None
+root_standing = G1.battery_cell(root_net, g0_ids, zid)["mean_pz"]
+_root_stay = [d["s1_committed"] / root_standing for d in atlas
+              if d["side"] == "SURVIVE" and d["name"] == "ZEPHYRA"]
+_base_flat_rows = [d for d in atlas if NET0_KIND[d["draw"].split("/")[0]]
+                   == "base"]
+confound = {
+    "form": "THE NET0 CONFOUND (smoke catch 2): the fork corpus mixed "
+            "STARTING STATES. The committed canon (e264 K10K, resumed "
+            "from e261's cut vehicle) and e272's K10KR replicate ran "
+            "chunked_install from G1.evl_load(base_sd) — THE BASE e001; "
+            "e324's and e327's census draws ran it from the g1c ROOT "
+            "(load_g1) — the FORMED organism. The root's own standing g0 "
+            "read (committed as e261's G1C_ROOT_G0) IS the 'surge': the "
+            "root-start draws' s1 ~ the standing read (ratio-to-standing "
+            "~ 1.0002), which x34's e001-prior axis read as ~5.5e4x "
+            "'SURGE'; the base-start draws' s1 = prior x 1.002-1.006 "
+            "('NO-SURGE'). AT STEP ONE NOTHING EVER HAPPENS — every "
+            "draw's first step is a no-event on its own state's read. "
+            "The s1 fork of x34/e324/e327 is (almost entirely) the "
+            "starting-state confound; the [0.01, 0.15] 'empty gap' is "
+            "the gap between the base's prior and the root's standing "
+            "read — no step-one read can land there because step-one "
+            "reads do not move. The canon's 'die-then-recover' texture "
+            "re-words to plain FORMATION from the base (nothing -> 0.31 "
+            "at s100 -> 0.2646 at s400). Verified at the fingerprint "
+            "level: the canon's committed ce_batch reproduces "
+            "BIT-EXACTLY from the base; GEN32401's from the root.",
+    "root_standing_g0": float(root_standing),
+    "root_standing_g0_committed": E261.G1C_ROOT_G0,
+    "root_start_draws_committed_stay_ratio_range": (
+        [float(min(_root_stay)), float(max(_root_stay))]
+        if _root_stay else None),
+    "base_start_draws": [d["draw"] for d in _base_flat_rows],
+    "class_boundary_equals_net0_boundary": bool(
+        all((d["side"] == "SURVIVE")
+            == (NET0_KIND[d["draw"].split("/")[0]] == "root")
+            for d in atlas)),
+    "the_re_wording": (
+        "ONE step-one texture exists: NO-EVENT (the read does not move "
+        "at step one, for any draw, any name, either starting state, "
+        "any room, either platform). The fork's discriminative content "
+        "moves ENTIRELY to the formation phase (s100/s400/texture "
+        "axes)."),
+}
+METRICS["the_net0_confound"] = confound
+log(f"P6c NET0 CONFOUND: the root's standing g0 {root_standing:.10f} "
+    f"(committed {E261.G1C_ROOT_G0:.10f}); root-start draws' committed "
+    f"stay ratios {confound['root_start_draws_committed_stay_ratio_range']}"
+    f"; class boundary == net0 boundary: "
+    f"{confound['class_boundary_equals_net0_boundary']}")
+
+# ---- DISCLOSURE: the class boundary == the net0 boundary ----------------
+# (canon + parasites start from the base = the NO-SURGE class; e324/e327
+# start from the root = the SURVIVE class) — any zero-overlap "hammer" in
+# the frozen adjudication therefore separates STARTING STATES, not
+# step-one textures; recorded in the_net0_confound.
 
 # =============================================================================
 # P7 — P-e328x32: the concrete registration (data-derived, frozen verbatim)
@@ -860,11 +1158,18 @@ if not SMOKE:
             "The atlas's verdict is THREE-DEATHS: no candidate statistic "
             "separates the textures at zero overlap — " + "; ".join(parts)
             + ". The first batch's content carries NO distinguishing "
-            "geometry. Per the frozen mapping: fork-in-the-gen — e328's "
-            "swap arm is predicted to STAY NO-SURGE (s1/prior ~ 1.0x, the "
+            "geometry — and the net0 confound found on the way explains "
+            "why nothing could: at step one NO draw's read moves at all "
+            "(every first step is a no-event on its own state's prior; "
+            "the fork itself was the starting-state confound). Per the "
+            "frozen mapping: fork-in-the-gen — e328's swap arm (the "
+            "canon's run from the BASE with 32401's first minibatch) is "
+            "predicted to STAY NO-SURGE (s1/prior ~ 1.0x, the "
             "STAYS-NO-SURGE bar), matching the control arm's committed "
-            "1.346643e-05; the fork rides the generator's later batches "
-            "(the draw's structure), not the first page.")
+            "1.346643e-05; the FLIPS-TO-SURGE bar cannot fire under the "
+            "corrected reading, and the fork-in-batch vs fork-in-gen "
+            "content moves to the formation axes (s100/s400, write "
+            "norm, in-room).")
     P_E328X32 = {
         "registered_at": now_iso(),
         "form": "P-e328x32 — x32's atlas answer APPLIED to e328's design, "
@@ -883,11 +1188,21 @@ if not SMOKE:
         "the_concrete_call_text": concrete,
         "countervailing": (
             "P-e328a's own lean is STAYS-NO-SURGE weakly (e327's "
-            "gen-tracked evidence); if e328 lands OPPOSITE to P-e328x32's "
-            "call, the atlas's statistic failed to be causal — a live "
-            "possibility under the first-order budget caveat (||d1|| ~ "
-            "1e-3 nats cannot kinetically explain a ~10-nat surge; the "
-            "correlation is not guaranteed to be the mechanism)."),
+            "gen-tracked evidence). THE CONFOUND SHARPENER from this "
+            "run: the fork corpus mixed starting states (the canon from "
+            "the BASE, the 'surge' draws from the FORMED ROOT), and AT "
+            "STEP ONE NOTHING EVER HAPPENS on either state's own read — "
+            "so e328's swap arm (the canon's run from the BASE with "
+            "32401's first minibatch) is predicted to read ~prior at s1 "
+            "not because the gen carries the fork but because NO first "
+            "page moves the read at all; the FLIPS-TO-SURGE bar cannot "
+            "fire under the corrected reading, and the informative "
+            "content moves ENTIRELY to the formation axes (s100/s400, "
+            "write norm, in-room: does the swapped first page shift the "
+            "canon's formation trajectory toward 32401's class or not — "
+            "the fork-in-batch question now lives there, and e328's "
+            "control arm re-verifies the canon's committed record "
+            "bit-exactly on GPU)."),
     }
     METRICS["P_e328x32"] = P_E328X32
     log(f"P7 P-e328x32 REGISTERED: {call} (atlas {verdict})")
@@ -958,18 +1273,18 @@ lines.append(f"Run: {now_iso()} ({'SMOKE' if SMOKE else 'FULL'}) — pure "
              "runtime from x34's census.\n")
 lines.append("\n## THE ATLAS TABLE (one row per draw)\n")
 lines.append("| draw | gen | side | s1 committed | s1 cpu | fid (dec) | "
-             "ratio cpu | d1 norm | in-room | cos sign-ray | dose read "
-             "(d1) | cos(d1,r) | dose read (g1) | kept | prior cpu |")
-lines.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+             "cpu/standing | committed/standing | d1 norm | in-room | "
+             "cos sign-ray | dose read (d1) | cos(d1,r) | kept |")
+lines.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
 for d in atlas:
     lines.append(
         f"| {d['draw']} | {d['gen']} | {d['side']} | "
         f"{d['s1_committed']:.4e} | {d['s1_cpu']:.4e} | "
-        f"{d['fidelity_decades']:+.3f} | {d['ratio_cpu']:.4g} | "
+        f"{d['fidelity_decades']:+.3f} | {d['ratio_to_standing']:.6f} | "
+        f"{d['committed_ratio_to_standing']:.3e} | "
         f"{d['d1_norm']:.4e} | {d['in_room_frac']:.4f} | "
         f"{d['cos_sign_ray']:.6f} | {d['dose_read_step']:+.3e} | "
-        f"{d['cos_read_step']:+.3e} | {d['dose_read_grad']:+.3e} | "
-        f"{d['kept_frac']:.4f} | {d['prior_cpu']:.4e} |")
+        f"{d['cos_read_step']:+.3e} | {d['kept_frac']:.4f} |")
 lines.append("\nRIDER (excluded from adjudication): the canon's first "
              f"batch, mode FREE — s1_cpu {rider['s1_cpu']:.4e} vs "
              f"committed {float(CANON_FREE_S1):.4e} ({rider_dec:+.3f} "
@@ -990,6 +1305,47 @@ for k, _ in STAT_KEYS:
 verdict_str = verdict if not SMOKE else "SMOKE — not adjudicated"
 lines.append(f"\n**VERDICT: {verdict_str}.**"
              + (f" Hammer(s): {hammers}." if hammers else ""))
+lines.append(
+    "\nVERDICT INTERPRETATION (the confound clause, mandatory reading): "
+    "the frozen class boundary (SURVIVE vs DIE) coincides with the NET0 "
+    "boundary (root-start vs base-start) — ANY zero-overlap hammer above "
+    "separates STARTING STATES, not step-one textures. Under the "
+    "corrected reading there is ONE step-one texture: the NO-EVENT. "
+    "The fork's discriminative content lives in the formation phase.\n")
+lines.append("\n## THE NET0 CONFOUND (the cell's discovery)\n")
+lines.append(f"- {confound['form']}")
+lines.append(f"- The root's standing g0 read: {confound['root_standing_g0']:.10f} "
+             f"(== e261's committed G1C_ROOT_G0, gate G_STANDING).")
+lines.append(f"- Root-start draws' committed s1 / standing: "
+             f"{confound['root_start_draws_committed_stay_ratio_range']} "
+             f"— the 'surge' is the standing read STAYING.")
+lines.append(f"- Base-start draws: {confound['base_start_draws']} — "
+             f"s1 = prior x 1.002-1.006.")
+lines.append(f"- Class boundary == net0 boundary: "
+             f"{confound['class_boundary_equals_net0_boundary']}.")
+lines.append(f"- {confound['the_re_wording']}\n")
+lines.append("\n## THE NO-EVENT PROBES\n")
+for pk in knife.get("probes", []):
+    scan_txt = " ".join(f"t={t:.3f}:{v:.3g}" for t, v in pk["scan"][:11])
+    lines.append(f"- {pk['draw']}@{pk['mode']} (from "
+                 f"{NET0_KIND[pk['draw'].split('/')[0]]}): s1_cpu "
+                 f"{pk['s1_cpu']:.4e} vs committed "
+                 f"{pk['s1_committed']:.4e}; transition t* = "
+                 f"{pk['t_star_kill']}; dose_read "
+                 f"{pk['dose_read_step']:+.3e}")
+    lines.append(f"  - scan: {scan_txt}")
+lines.append(f"\n{knife['the_reading']}\n")
+sf = knife.get("signflip")
+if sf:
+    lines.append("\n### the sign-flip probe (can any pattern ignite the "
+                 "read at step one — the canon from the BASE)\n")
+    lines.append("| flip threshold | coords flipped | fraction | read "
+                 "after step |")
+    lines.append("|---|---|---|---|")
+    for r in sf["rows"]:
+        lines.append(f"| |g1| < {r['threshold']:.1e} | {r['n_flipped']} | "
+                     f"{r['frac_flipped']:.4%} | {r['read_after']:.4e} |")
+    lines.append("")
 if hammers and any(k.startswith("F3_") for k in hammers):
     lines.append("\nRECIPE-IDENTITY CAVEAT: a hammer on F3 (the sign-ray) "
                  "is pinned by AdamW's construction (e231) and carries "
@@ -1003,21 +1359,35 @@ if not SMOKE:
     lines.append(f"- {P_E328X32['the_concrete_call_text']}")
     lines.append(f"- Countervailing: {P_E328X32['countervailing']}\n")
 lines.append("\n## DISCLOSURES\n")
+lines.append("- NET0 (the confound repair): each draw's step is "
+             "recomputed from its parent's ACTUAL starting state — the "
+             "canon + parasites from the BASE e001 (e264/e272/e311/x28/"
+             "e330's convention), e324/e327's draws from the g1c ROOT "
+             "(their convention). The canon's committed record "
+             "reproduces BIT-EXACTLY from the base (ce and s1 to 16 "
+             "digits); GEN32401's from the root.")
 lines.append("- Platform: the committed parents ran the step on GPU fp32; "
              "this atlas recomputes it on CPU fp32 for ALL draws on ONE "
              "platform. The fidelity gate (same side of the fork, within 1 "
-             "decade) validates every draw; the GEOMETRY (the datum) is "
-             "internally consistent by construction.")
+             "decade; exact to fp32 round-off in practice) validates "
+             "every draw; the GEOMETRY (the datum) is internally "
+             "consistent by construction.")
 lines.append("- The effective step d1 includes the eval path's wall "
              "settle (the committed s1 was read on the settled state); "
              "the raw post-opt step and the wall correction are "
-             "co-reported per draw in metrics.json.")
+             "co-reported per draw in metrics.json. For the base-start "
+             "draws the organism is UNANCHORED (evl_load disarms) so the "
+             "wall correction is exactly zero; for root-start draws the "
+             "root's own anchors settle.")
 lines.append("- F3 is recipe-pinned (e231): AdamW's first displacement "
              "is -lr(sign(g)+wd*theta) by construction; it is reported "
              "for the law's cross-check, not offered as a mechanism.")
 lines.append("- The parasite draws are CROSS-NAME rows (different names, "
-             "different priors, base e001 not the root); the ZEPHYRA-only "
-             "separation columns carry the matched-name comparison.\n")
+             "different priors); the ZEPHYRA-only separation columns "
+             "carry the matched-name comparison.")
+lines.append("- x34's e001-prior basis for the ZEPHYRA draws is retained "
+             "in the frozen labels (as registered); the net0 confound "
+             "section carries the corrected per-state basis.\n")
 gp = {k: v.get("pass", True) for k, v in METRICS["gates"].items()}
 METRICS["gates_summary"] = {"n_gate_classes": len(gp),
                             "n_pass": sum(1 for v in gp.values() if v),
