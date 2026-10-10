@@ -92,7 +92,11 @@ while CE_R barely notices): WARM RE-FORMATION IS RESUMED FORMATION, LITERALLY.
 RESOLVED (e337/e338/e340 — the chamber): the ball decomposes into THREE separable
 contributions — THE WALL (a runtime displacement veto, not a memory guard: it held
 the organism while fresh reads died), THE HEIGHT (recovery capacity: the s100
-gradient fresh 0.045 < controller 0.130 < varied-annealed 0.244 < fixed-annealed 0.320 << cons ~1.0 [the STEPS-VS-TYPE confound RESOLVED by e341: the survival axis was DOSE; the remainder is the height axis — x39 probes]), and
+gradient fresh 0.045 < controller-400 0.118 < controller-800 0.130 << varied-300 0.244 <
+fixed-300 0.320 << cons [0.957, 1.088] [RESOLVED: e341 — the survival axis is DOSE; x39 — the
+recovery axis is HEIGHT (t400 keeps 90.2% of t800's retention at half the dose; the controller's
+dose axis flat 400-800). THE RECIPE, COMPLETE: ANNEAL-DOSE (300 steps, any menu) + HEIGHT +
+WALL = a wash-proof memory; the cons band (~1.0) is the recipe's PROTOCOL-SCOPE clause]), and
 THE ANNEALING (first-step survival — A DOSE, NOT A TYPE: e341's matched-steps
 control bought the s1 survival with EITHER context menu, varied or fixed; the s1
 annihilation is height-blind but ANY 300-step annealed read survives; CONTEXT VARIETY

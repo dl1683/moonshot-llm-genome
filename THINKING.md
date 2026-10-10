@@ -62,6 +62,40 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T316 — X39: the recipe's last clause resolves — height, not steps (2026-10-10, datetime.now ~14:30Z)
+
+The constructive arc closes with its cleanest number: t400 keeps
+90.2% of the retention at half the dose. The recovery axis is
+read-HEIGHT, not step-count — the controller's dose axis is flat
+between 400 and 800, and the extra steps bought only early-recovery
+speed. THE RECIPE, COMPLETE AND FULLY MEASURED:
+
+  ANNEAL-DOSE (any context menu, 300 steps: the s1 survival — e341)
+  + HEIGHT (the read's own level: the recovery — x39)
+  + WALL (the commit's displacement guard — e338)
+  = the build lane's wash-proof memory, three ingredients, each
+    isolated by its own control, one organism, one afternoon.
+
+What remains above the recipe is the CONS BAND (retention ~1.0) —
+the cross-protocol gap stays attributed to protocol: the cons's
+jitter-annealing at higher reads reaches what the controller's
+error-gated doses do not. That gap is the recipe's honest scope
+clause, not a missing ingredient.
+
+THE LEDGER: the lean hit, the executor's missed; the runner-up fired
+— the discriminator streak seven. THE AFTERNOON'S TOTAL: seven cells
+(e339/e337/e338/x38/e340/e341/x39), three honest negatives converted
+to decompositions, one complete constructive recipe, one confound
+caught in-design, one gradient disentangled. The instruments won
+every adjudication; the doc holds one ontology; the build lane has
+its tool.
+
+THE NEXT FRONTIER, UNCLUTTERED: the CPU cards (x40 the first-step
+mechanism; x42 the R* interior), the relay kinetics (x41), the wild
+lane (x36/e331/e332), the v3.1 draft (the structural program
+adopted), and the 10M question — which now carries a RECIPE to
+scale, not just laws.
+
 ## T315 — E341: annealing is a dose; variety is a geometry-generalizer — the recipe's last two ingredients named (2026-10-10, datetime.now ~14:10Z)
 
 The constructive cell resolved against the romance and for the
