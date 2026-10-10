@@ -85,8 +85,12 @@ re-words to the root-formed class (still conservative-direction); e334's control
 re-words to a root-formed substrate (still a genuine second-substrate sufficiency
 test). LOCALIZATION IS THE COLD-START'S SIGNATURE (W052, re-worded). STANDING RULE:
 any cross-era install comparison gate-checks the STARTING STATE (the net0 class
-recorded in every install's metrics). Open: where the root's standing read itself
-came from (the g1c ladder's history — the substrate has a memory).
+recorded in every install's metrics). RESOLVED (e335): the root IS the ladder's cons final, bit-exact — its 0.745
+INSTALL-BORN (the same Dmix teach as the canon), cons-reshaped 0.53->0.74, and
+WASHABLE IN ONE STEP (retention 0.0003; the cold-AdamW start-up shock kills it
+while CE_R barely notices): WARM RE-FORMATION IS RESUMED FORMATION, LITERALLY.
+The open question moves to WHAT THE BALL HAS that the root lacks (the
+consolidation question — the family's only wash-proof object).
 
 ## LAW 4 — THE CONTROLLER [invariant]
 

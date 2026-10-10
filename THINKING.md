@@ -62,6 +62,38 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T307 — E335: the root is the ladder's half-finished product — warm re-formation is resumed formation, literally (2026-10-10, datetime.now ~09:30Z)
+
+The foundation question resolved in the lean's direction with the
+cleanest possible provenance: the root IS the ladder's cons final,
+bit-exact. Its 0.745 was installed by the same Dmix teach that made
+the canon, reshaped by 300 jitter-consolidation steps, and left
+half-finished on disk — where three eras later the census mistook it
+for a fresh starting line. The wash killed it in ONE unbiased step
+(the cold-AdamW start-up shock: the read dies while the organism
+barely notices).
+
+THE COLD/WARM VOCABULARY, SETTLED: every root-started formation is
+RESUMED FORMATION — the lab's install run atop the ladder's
+interrupted install. There was never a mysterious warm-start magic;
+there was unfinished work under the floorboards. And the family's
+wash-survivors census sharpens the era's oldest contrast: the ONLY
+wash-proof thing in the lineage is the committed ball (W1_s300) —
+consolidation, wherever the era achieved it, is real and rare;
+everything else (the root's standing read, cons-scale formations,
+e322's taught facts) is sand before the unbiased stream.
+
+FOR THE DOC: Law 3's scope gains the root's identity (the ladder's
+cons final, install-born, washable in one step); the open question
+moves from WHAT the root is to WHAT THE BALL HAS that the root lacks
+— the consolidation question, which is now the formation frontier's
+deepest chamber and the natural parent of W053's map-dynamics thread.
+
+THE LEDGER: the lean hit (10-for-15). The standing rule's second
+enactment worked (8 states' net0 classes recorded). The instruments
+remain undefeated — and the substrate's biography is now a measured
+object.
+
 ## T306 — X35: the start is the wheel, the gen a tremor — and 'diffuse' was the substrate's shadow (2026-10-10, datetime.now ~09:10Z)
 
 The causal cross closes the confound's arc at its strongest form. One
