@@ -105,11 +105,13 @@ one name-step lifts wholesale (e334's trace; class-robust: the root-formed subst
 overshot the same way at its battery ceiling; better-learned names do not tame it).
 
 *Scope (Law 4):* family-scoped peace (e293's distinct-name patients were never born —
-cross-family peace untested; re-read via Law 3's map: slots refusing); SUFFICIENCY NOW n=2 SUBSTRATES (e334: a root-formed census draw held AT the
-battery ceiling, 110x over its dead twin, spend within the lottery band of the canon
-class — class-robust in sufficiency, not cheaper; the canon is base-formed, e334's
-substrate root-formed — one draw each; a base-formed fresh-NAME replicate remains
-the missing founding-class second instance); the HORIZON exposure remains — no run past the organism's own ~1,040-step
+cross-family peace untested; re-read via Law 3's map: slots refusing); SUFFICIACY n=3 SUBSTRATES x 2 NAMES (e334 root-formed at its battery ceiling, 110x;
+e336 base-formed fresh-name at 281.9x — the record's largest contrast — with the
+founding sawtooth transplanted whole and the spend inside the founding lottery
+band); the ENDPOINT HEIGHT IS NAME-TUNED (e336: the landing settled outside the
+founding band [2.85 vs 3.11-3.62] and was still rising at t400 — the equilibrium is
+the slot's, not the gate's; the founding band was ZEPHYRA's slot, not the
+controller's); the HORIZON exposure remains — no run past the organism's own ~1,040-step
 death clock; the fresh-room draw untested; the maintained state is address-rich (e318:
 low-dose tolerance above the family's, high-dose collapse faster).
 

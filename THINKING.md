@@ -62,6 +62,36 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T309 — E336: the controller holds everything — but the landing is name-tuned (2026-10-10, datetime.now ~10:40Z)
+
+The founding-class replicate denied the letter and granted the
+spirit. The controller held TAVIREN's base-formed fresh-name fact at
+282x over its dead twin — the record's largest contrast — with the
+founding sawtooth transplanted whole (deficits, wholesale lifts,
+brush at the class null) and the spend inside the founding lottery
+band. But the LANDING settled outside the founding band and was still
+rising at t400: the equilibrium height is name-tuned. THE MECHANISM
+IS NAME-AGNOSTIC; THE EQUILIBRIUM IS NOT.
+
+WHAT THIS WRITES INTO LAW 4: sufficiency generalizes (three
+substrates, two classes, now two names — the controller holds
+everything it meets); the endpoint family's height range does NOT (a
+name-tuned rider joins the scope); and the founding band's
+narrowness [3.11, 3.62] was never a property of the controller — it
+was a property of ZEPHYRA's slot. The receptivity map's fingerprint
+(TAVIREN's fragile slot, x24) is the obvious correlate: the lifts
+land wholesale (x9.89) but the read settles at 0.70-0.81 — the slot's
+ceiling, not the gate's. W049's calibration dial inherits a new
+question: is the equilibrium height itself dialable?
+
+THE LEDGER: both registered reads missed (the lab's lean and the
+executor's — the discriminator caught what both called wrong; 11-for-
+17). THE MORNING'S ARC CLOSES: confound -> three repair passes ->
+causal isolation -> substrate biography -> provenance-agnostic
+physics -> the founding-class replicate. Seven cells, one document
+rewritten twice, one ontology. The consolidation question (what the
+ball has that the root lacks) opens the next chamber.
+
 ## T308 — X37: provenance does not matter — the physics is the same; the sign flips with the living read (2026-10-10, datetime.now ~09:55Z)
 
 The root finally sat as the specimen, and the answer is the
