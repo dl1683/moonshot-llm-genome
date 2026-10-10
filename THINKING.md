@@ -32,6 +32,13 @@ live re-formation reads it mid-phase; e345's warm walk tests it in a second name
 asks whether FEEDBACK writes it). W057's meta-layer enters the record: any future
 lineage-relative claim can be priced against the shared measurable.
 
+[THE PRICING NUANCE (the executor's catch 4, carried here so the record prices its own
+verdict): pairs (i)/(iii)/(iv) were deterministic on committed literals with their
+signs visible at reconnaissance — pair (ii) was the ONLY open regression, and it came
+in weak. ONE-OBJECT is three foreseeable signs plus one honest struggle; the claim's
+named thin point is the install transient, the same segment the co-movement star
+leaves out.]
+
 CONNECTS: W057 (the card closes as LANDED — its wilder tail, 'the protocol is the name
 of whatever writes the second clock,' now has an operational reading: whatever writes
 DECORRELATION); W056 (the surviving variety anchor was the anneal hub — the same arm
