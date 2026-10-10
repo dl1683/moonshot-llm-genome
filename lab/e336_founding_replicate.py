@@ -2639,9 +2639,15 @@ def main():
                      and abs(sub_gm12 - TAV_POST_GM12) <= 2e-6
                      and abs(write_norm - TAV_WRITE_NORM)
                      / TAV_WRITE_NORM <= 1e-8
-                     and abs(loads_sub["in_own_room"] - TAV_IN_ROOM)
-                     <= 1e-8),
+                     and (SMOKE or abs(loads_sub["in_own_room"] - TAV_IN_ROOM)
+                          <= 1e-8)),
     }
+    if SMOKE:
+        G_SUBSTRATE["in_own_room_smoke_vacuous"] = (
+            "SMOKE: in_own_room recomputed against the smoke k=512 room "
+            f"(measured {loads_sub['in_own_room']:.4f}); the committed "
+            f"{TAV_IN_ROOM} is the k=10,000 read — co-reported only, the "
+            "identity checks above are the gate (e326/e334's precedent)")
     metrics["gates"]["G_SUBSTRATE"] = G_SUBSTRATE
     assert G_SUBSTRATE["pass"], f"substrate gate FAILED: {G_SUBSTRATE}"
     log(f"P2 G_SUBSTRATE: the TAVIREN organism loaded bit-exact (flat-md5 "
