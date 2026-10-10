@@ -489,6 +489,12 @@ deviations: list[str] = [
     "at the first smoke launch; the artifact itself verified "
     "UNMODIFIED vs git HEAD; the resume + post literals were correct "
     "at birth",
+    "PRE-COMPUTE REPAIR 2 (before any compute, disclosed): the "
+    "leg-2-spend assert read e336's metrics KEY LAYOUT (phase['budget']"
+    "['S_total_final']) where e339's record uses the budget_ledger's "
+    "last row; re-keyed to phase['budget_ledger'][-1] — the asserted "
+    "VALUES unchanged (S_corpus 2.684888717..., S_maint "
+    "0.875167257...)",
 ]
 builds_on = [
     "R78's ideator card (the dispatch: 'THE RELAY'S KINETICS + THE R* "
@@ -830,13 +836,18 @@ def main():
     assert abs(e339_traj[800]["g0_pz"] - E339_REA_T800_G0) < 1e-15 \
         and abs(e339_traj[800]["survival_ratio_vs_committed"]
                 - E339_REA_T800_RATIO) < 1e-15, "committed t800 read drift"
-    assert abs(e339_rea_ph["budget"]["S_total_final"]
-               - (E339_LEG2_S_CORPUS + E339_LEG2_S_MAINT)) < 1e-9, \
+    _bl_last = e339_rea_ph["budget_ledger"][-1]
+    assert _bl_last["step"] == 800 \
+        and abs(_bl_last["S_corpus"] - E339_LEG2_S_CORPUS) < 1e-9 \
+        and abs(_bl_last["S_maint"] - E339_LEG2_S_MAINT) < 1e-9, \
         "committed leg-2 spend drift"
     # the committed cycle's signature asserted literal-for-literal
+    # (e339's leg-2 ledger numbers its own events 1-16; the GLOBAL index
+    # = 16 e336 leg-1 events + idx — hence 'from event 25' = leg-2 idx 9;
+    # x41's legs continue after all 32 committed events: global = 32+idx)
     for (g, st_, gate, dfd, lr_) , row in zip(
             E339_CYCLE, e339_rea_ph["maint_ledger"][8:16]):
-        assert 32 + int(row["maint_index"]) == g \
+        assert 16 + int(row["maint_index"]) == g \
             and int(row["step"]) == st_ \
             and abs(float(row["read_at_gate"]) - gate) < 1e-15 \
             and abs(float(row["deficit_t"]) - dfd) < 1e-15 \
