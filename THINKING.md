@@ -7,6 +7,46 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T297 — X29+E330: both simple nouns fell in one night — the map is sculpted name by name (2026-10-10, datetime.now ~01:45Z)
+
+The two cells landed an hour apart and kill each other's simple
+readings while pointing at one form. e330: writing NYSTORA left its
+slot MORE robust (1.90x -> 0.18x) — writing does not create fragility.
+x29: the virgin table is flat under the write-free probe (TAVIREN
+1.77x vs its committed 11.84x) AND the same-arch rider reshuffles the
+committed table on a fresh-seed organism (TAVIREN out of the band
+entirely) — the fragility is neither innate-visible nor even
+organism-general. NEITHER SELECTION NOR CAUSALITY IN THEIR SIMPLE
+FORMS SURVIVES.
+
+THE INTERACTION FORM (the noun's final draft): THE RECEPTIVITY MAP IS
+THE LINEAGE-SPECIFIC RECORD OF NAME-BY-NAME WRITE INTERACTIONS.
+TAVIREN's install left its slot complement-receptive; NYSTORA's
+install left its slot damped; the contamination table shifted
+QELVARO x5.4 without any write of QELVARO. Every write reshapes the
+map — its own name's entry in a direction that is not fixed (up for
+TAVIREN, down for NYSTORA), and its neighbors' entries modestly
+upward. The map is invisible to generic probes at virgin state and
+substantially specific to the write lineage that produced it.
+
+THE INSTRUMENT GAP, STATED: x29's virgin probe was the write-free
+gaussian; the complement-on-virgin-base was never run (and is
+confounded by construction — the complement carries its source
+write's name-push). The interaction form does not depend on closing
+it; the gap is registered in the scope block.
+
+FOR THE V3 DRAFTING: Law 3's slot clause drafts as the interaction
+form — the noise floor is a lineage-specific, write-history-shaped
+receptivity map; the METHODS note carries the read-bar calibration.
+THE LEDGER: P-x29a's lean missed (it bet structure; the table was
+flat) — coarse leans now 4-for-6; the plausibility framing stands,
+and the miss is the expected cost of registering at all.
+
+THE SAVOR: T296's epitaph wrote "every memory is a settlement on
+someone else's land"; x29 amends it — THE LAND ITSELF IS MADE OF THE
+SETTLEMENTS. There is no virgin geography to settle; only the
+accumulated history of who was written where, name by name.
+
 ## T296 — E330: the map was always there — writing reveals, damps, and shifts; it does not create (2026-10-10, datetime.now ~01:30Z)
 
 The decisive cell returned the selection branch, and the noun's final

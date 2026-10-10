@@ -32,7 +32,13 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
   e330 DONE (T296): SELECTION-REVEALED — writing DAMPS its own slot (causal keel);
   the fragility predates the lab; the table is an innate-receptivity map, shifted
   by every write (the contamination rider); the third s1 texture (prior-flat, n=1)
-  re-opens the fork's texture count. Law 3's slot clause drafts SELECTION-REVEALED.]
+  re-opens the fork's texture count. AMENDED BY x29 (T297): both simple nouns fell — the virgin table flat (write-free probe)
+  AND the committed table lineage-specific (TAVIREN out-of-band on a fresh-seed organism).
+  Law 3's slot clause drafts as THE INTERACTION FORM: the receptivity map is the
+  lineage-specific record of name-by-name write interactions (TAVIREN's install left
+  its slot receptive; NYSTORA's damped it; contamination shifts neighbors) — invisible
+  to generic probes at virgin state. The instrument gap (complement-on-virgin, confounded
+  by construction) registered in the scope block.]
 - NEW CLAUSES (the bearer law, promoted from notes):
   - SUFFICIENCY: the room-overlap tail carries the read (e306 — truncation kills, r7 = 33.9% mass).
   - NECESSITY, DOSE-MATCHED: the out-of-room complement at 100% of the write's energy reads
