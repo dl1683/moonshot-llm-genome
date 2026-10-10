@@ -47,7 +47,7 @@ point in the safe direction. RIG-SPECIFICITY: the out-of-room death account hold
 orthogonalized-rig kills; free-stream kills carry in-room components (e299's two kinds
 of death). Law 4's necessity consequence, Law 5's passive pricing, T277's premise, and
 the e311 dose scale inherit the one-class clause (net0: the canon is base-formed;
-e326's substrate root-formed — the cross-class comparison stands; x35 isolates).
+e326's substrate root-formed — the cross-class comparison stands; x35 isolated).
 
 ## LAW 3 — THE FLOOR AND THE BEARER (formation) [invariant]
 
@@ -190,7 +190,7 @@ all five).
    artifact).
 3. PRE-REGISTER THE SCORER, not just the threshold (x20's near-miss lesson).
 4. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 8-for-13 (membership frozen at R76: the ten through e333 + e334a + x34a + e328a + the x32 NONE lean — the drift R73 caught, closed)
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 11-for-17 (R77 refresh; p~0.17 — still coin-adjacent, unchanged in kind); THE EARNED EDGE IS THE DISCRIMINATOR COLUMN: registered discriminating bars have out-called the leans four-plus times (e336 the latest — both leans wrong, the discriminator right)
    (NOT distinguishable from a fair coin, p ~ 0.25). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).
@@ -210,7 +210,7 @@ The lab's oldest question — "why do memories die?" — keeps its measured answ
 newest — "whose memories are they?" — now has one too: the organism's, in the sense
 that the land was theirs before the lab ever wrote a name on it.
 
-*All gates resolved at press time: e326 (EITHER-MOVES — the conservative class; Law
+*Edited at R75/R76/R77 (the residue wording; the net0 re-scope; the x35 license; the e335 resolution; Law 4's name-tuned rider). All named gates resolved: e326 (EITHER-MOVES — the conservative class; Law
 2b's scope) and e325 (READ-RETURNS — the doubled revival price; Law 6's scope). The
 audit's repairs applied the same night. The document is complete and awaits the
 supervisor's review.*

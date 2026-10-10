@@ -109,6 +109,16 @@ to every bar; the ledger is scoped (0-for-8 on mechanism-seat guesses).
 | x37 | THE ROOT AS SUBJECT | DONE ~09:45Z Oct-10 (a790d98) | ROOT-READS-LIKE-AN-INSTALL (P-x37a HIT — 11-for-16): provenance does not matter — the physics is the same; THE SIGN FLIPS WITH THE LIVING READ (the same complement lifts the empty slot 54.6x and collapses the living read -71%); the gaussian silent at scale — T308 | the x24 panel + x16 battery on the bare g1c root: ROOT-READS-LIKE-AN-INSTALL / ROOT-READS-LIKE-CORPUS — the confound's accidental gift: the first natural taught-vs-installed contrast |
 | e336 | THE FOUNDING-CLASS SECOND INSTANCE (Law 4's named gap) | DONE ~10:35Z Oct-10 (5d955bb) | DIVERGES (both reads missed; the discriminator resolved): held at 281.9x (the record) with the founding sawtooth whole and the spend in-band, but the landing settled outside the founding band and still rising — THE MECHANISM IS NAME-AGNOSTIC, THE EQUILIBRIUM IS NOT — T309 | a base-formed fresh-NAME organism (TAVIREN-class) under e288's controller verbatim: the sufficiency claim's missing replicate |
 
+
+## R77 SECTION (2026-10-10, folded ~10:50Z) — the consolidation chamber opens
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| e339 | THE LONG LANDING (the critic's continuation; must precede the name-tuned prose migration) | DISPATCHED ~10:50Z Oct-10 (GPU) | resume e336's committed ERROR-GATED checkpoint to t800: LANDS-IN-BAND (DIVERGES was a kinetics artifact; the rider re-words to settling-RATE name-tuned) / PLATEAUS-BELOW (the genuine lower equilibrium stands) / STILL-CLIMBING (the horizon exposure named) |
+| e338 | THE COMMIT EVENT AS CONSOLIDATOR (R77's cascade pick) | DISPATCHED ~10:50Z Oct-10 (GPU, behind e339) | apply the ball's L2-commit event verbatim to e311's committed TAVIREN organism, then e322's wash, with an uncommitted twin: BALL-FORMS (retention in [0.957,1.088] — consolidation is ONE construction event; the build lane's first wash-proof tool) / STILL-SAND (the recipe is more than the event; the question decomposes) |
+| e337 | THE BALL AS SUBJECT | READY (CPU, nearly free) | x37's exact panel on the committed ball: BALL-FRAGILE-ROBUST-WASH-PROOF (fragility and consolidation dissociate) / BALL-ARMORED ('what the ball has' becomes a positive localizable property) |
+| x38 | THE FLIP THRESHOLD | READY (CPU) | the fixed complement across the read-level ladder (1.3e-5 -> 0.556 -> 0.530 -> 0.745 -> 0.704): SHARP-FLIP (the two-channel law gains its control parameter) / GRADED-CROSSOVER; the gaussian-at-2x/4x rider — does pure energy EVER move a living memory |
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),
