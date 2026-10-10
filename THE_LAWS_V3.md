@@ -139,7 +139,10 @@ founding band — peak 3.148 at t600 — then receded to settle at 3.055, slope 
 REACHABLE BUT NOT HOLDABLE; a genuine lower equilibrium with the even-longer-horizon
 disclosure; the sawtooth bifurcated into a 2-CYCLE from event 25 — the dose fully
 self-limits every other event; THE CYCLE IS ENTRAINABLE (x41: period re-locks to the
-event spacing; amplitude tracks the lr cap) and the 'equilibrium' was THE UPPER RAIL
+event spacing; amplitude tracks the lr cap) AND THE PERIOD-1 WEAK-DOSING REGIME IS A
+STABLE SETPOINT (W055: no re-bifurcation over 8 phase-declared events; the floor
+flat; the controller resting at ~1/3 of its own ceiling — the three regimes a clean
+knob map: 2-cycle 0.37/0.88 rails / period-1 0.19/0.57 / the transient between) and the 'equilibrium' was THE UPPER RAIL
 SAMPLING-LOCKED (the milestones sample only the dose phase: plateau 0.873 == dose-phase
 mean 0.880; the cycle's true average 0.42) — 'plateau' readings carry the phase question); the HORIZON exposure remains — no run past the organism's own ~1,040-step
 death clock; the fresh-room draw untested; the maintained state is address-rich (e318:

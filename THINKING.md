@@ -62,6 +62,36 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T322 — W055: the tuner has its setpoint — the relay settles at a third of its own ceiling (2026-10-10, datetime.now ~18:15Z)
+
+The tuner program's first probe returned the stable answer: the
+period-1 weak-dosing regime is a genuine setpoint. Eight events, no
+re-bifurcation, the floor flat, and the controller resting at ~1/3 of
+its own ceiling — the negative feedback loop visible closing in the
+raw trace (the highest gate drew the smallest dose, which produced
+the lowest post, which restored the gate in one cycle). THE THREE
+REGIMES ARE NOW A CLEAN KNOB MAP: 2-cycle (rails 0.373/0.880) ->
+period-1 setpoint (0.189/0.568) -> the transient (between) — the
+calibration program that began at W049 ('can a knob cool a hot
+memory?') now has a measured answer at every setting, with the
+phase-declared convention (the costume lesson) making every number
+honest.
+
+THE DAY'S FINAL COMPOSITION: the controller is a relay (T318), its
+cycle is tunable (x41), its setpoint is stable (this cell), and the
+memory it maintains is armored by dose (x40) but recoverable only to
+the protocol's ceiling (x43). The build-and-hold program's complete
+honest picture: WE CAN HOLD A MEMORY AT ANY HEIGHT WE CHOOSE — and
+the wash-proof boundary is a formation question, exactly where the
+lab's next era begins.
+
+THE LEDGER: both calls hit (18-for-31 — the leans' best run of the
+day: 5 of the last 7). THE DAY CLOSES: seventeen cells, one arc, one
+map, zero uncorrected slips. The instruments are undefeated; the
+questions are better than yesterday's; the lab's memory of itself
+(in NOTES, THINKING, REVIEWS, and the twice-corrected doc) is
+exactly as long as its runs directory.
+
 ## T321 — X44: the flip is a slot property; the variety channel is elicitation decorrelation (2026-10-10, datetime.now ~18:00Z)
 
 The offsets cell resolved against the lean and for the simpler object:
