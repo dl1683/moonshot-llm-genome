@@ -883,10 +883,15 @@ def main():
         f"(2nd room {canon_row['s1_second_room_e272']:.2e}) — PASS")
 
     # ---- e324's four-draw record: READ at runtime + asserted ------------
+    # (e324's axes_table keys are g0 / write_norm / in_own_room / gm12 /
+    #  s1_g0 — mapped here to this cell's axis names; the canon row of the
+    #  table cross-checked against the G_CANONREAD literals)
     e324_axes = e324m["the_census"]["axes_table"]
+    _e324_keymap = {"post_g0": "g0", "write_norm": "write_norm",
+                    "in_own_room": "in_own_room", "s1_g0": "s1_g0"}
     e324_reads = {
-        axis: {g: e324_axes[axis][f"gen{g}"] for g in E324_GENS}
-        for axis in ("post_g0", "write_norm", "in_own_room", "s1_g0")}
+        axis: {g: e324_axes[key][f"gen{g}"] for g in E324_GENS}
+        for axis, key in _e324_keymap.items()}
     e324_reads["canon_s1"] = e324_axes["s1_g0"]["canon"]
     _ok_e324 = all(
         abs(e324_reads[axis][g] - E324_AXES_LITERALS[axis][g]) < 1e-12
