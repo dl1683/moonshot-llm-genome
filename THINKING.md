@@ -62,6 +62,34 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T321 — X44: the flip is a slot property; the variety channel is elicitation decorrelation (2026-10-10, datetime.now ~18:00Z)
+
+The offsets cell resolved against the lean and for the simpler object:
+R* is a SLOT property — the flip threshold agrees within 1.06x across
+a state change AND a geometry change, pooling to R*(TAVIREN) ~
+0.045-0.05 at the low end of x42's window. The two-channel law's
+control parameter survives its sternest composition test unchanged.
+
+BUT THE CO-FINDINGS CARRY THE CELL: (1) the margin map does NOT
+split — the varied arm's support tail is not simply flip-margin
+(P(alive|pre>R*) only 0.69-0.87): x40's support breadth and the flip
+threshold are DIFFERENT objects, closing the composition's tempting
+shortcut; (2) THE OFFSETS ARE THEIR OWN ELICITATION FAMILY — the
+fresh read correlates r~0.97 across geometries (one coherent read)
+while the varied anneal DECORRELATES g0 from the offsets (r 0.33-
+0.46) with the offsets mutually bound (r 0.88-0.92). THE VARIETY
+CHANNEL'S GIFT IS ELICITATION DECORRELATION: the varied-annealed
+organism answers the offset contexts more independently — a richer
+read family at the same threshold. That composes with x37's sign-
+flip (the living read absorbs) into a picture where variety buys
+INDEPENDENCE of response, not margin of survival.
+
+FOR THE DOC: Law 7's flip parameter gains its location (R*(slot) ~
+0.045 for TAVIREN; uniform across state and geometry) and x40's
+support clause separates cleanly from it. THE LEDGER: both reads
+missed (17-for-30); the executor's registered falsifier fired —
+the pattern holds to the day's last cell.
+
 ## T320 — X43: the ceiling — dose buys armor without limit, recovery has a cap, and the missing piece is a formation protocol (2026-10-10, datetime.now ~17:20Z)
 
 The capstone returned the honest negative the arc's trajectory
