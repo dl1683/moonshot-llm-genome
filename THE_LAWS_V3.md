@@ -67,8 +67,10 @@ shifts its neighbors; the map is invisible to generic probes at virgin state and
 substantially specific to the write lineage that produced it.
 
 *Scope (Law 3):* the canon — the source of the edge, the fill, and every committed
-formation number — is a DIE-MODE draw of a BIMODAL wheel (e323/e324/e327: the fork lands
-at optimizer step one, gen-tracked; within-mode spread 12.2%; die share 0/8 clean
+formation number — is a DIE-MODE draw of a BIMODAL wheel (e323/e324/e327: the fork lands at optimizer step one, gen-tracked, and (x34) RE-WORDS ON THE RATIO AXIS:
+NO-SURGE (~1.0x the name's prior — there was never a kill; the canon's s1 = 1.006x prior) vs
+SURGE (>= 1e4x); every lab-installed fresh name took the no-surge branch — the surge
+belongs to canonical-fact reinstalls; within-mode spread 12.2%; die share 0/8 clean
 [0%, 36.9%] CP, corroborated 0/5 under variant protocols; typical fresh draws read ~2x
 the canon at ~3x its norm, 63% localized). LOCALIZATION IS THE DIE MODE'S SCAR (W052).
 A THIRD first-step texture (prior-flat) exists at n=1 (e330): the texture count is open.

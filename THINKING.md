@@ -62,6 +62,36 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T303 — X34: the kill that never was — the die texture dissolves into no-surge, and the surge is the anomaly (2026-10-10, datetime.now ~05:55Z)
+
+The census's central finding rewrites the formation story's oldest
+sentence. The canon's first step never killed anything: its read sat
+AT ITS PRIOR (1.006x) and then formed slowly. "Die-then-recover" was
+"no-surge-then-form" all along — the pruned localized write is the
+slow former's signature, and no draw in twenty-seven ever read below
+its prior at step one. THE BIMODAL WHEEL RE-WORDS CLEANLY: NO-SURGE
+(~1.0x prior, late, pruned) vs SURGE (>=1e4x, instant, bulky).
+
+AND THE BURIED GEM INVERTS THE LAB'S FRAME: every fresh name the lab
+itself installed — TAVIREN, QELVARO, NYSTORA, the committed protocol
+at the host contexts — took the NO-SURGE branch. The surge belongs to
+the canonical fact's reinstalls (the census gens re-installing the
+host fact's own name at its own contexts). THE ANOMALY WAS NEVER THE
+KILL; IT WAS THE SURGE. What makes the same rig surge on one name-
+context pair and not another? That question now owns the formation
+frontier: e328's first-page swap (fork-in-the-batch vs fork-in-the-
+gen) and x32's first-step atlas (the sign-ray geometry) both aim at
+it, with the taxonomy registered before either computes.
+
+FOR THE DOC: Law 3's scope re-words the fork to the ratio axis (the
+two textures: no-surge vs surge; the empty absolute band stands). The
+scar clause survives intact — localization remains the no-surge
+branch's slow-formation signature.
+
+THE LEDGER: the lean fell (7-for-12); the executor's advance read hit
+every clause. The pattern T299 named keeps holding: the counters see
+the instruments' answers coming better than the thinking lane does.
+
 ## T302 — E334: the controller answers on the second branch — sufficiency extended, the overshoot unmasked as the gate's own mechanics (2026-10-10, datetime.now ~05:15Z)
 
 The monoculture clause's cheapest cut has landed, and the document's
