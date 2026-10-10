@@ -39,6 +39,42 @@ then be a misreading of accumulated history — which is the
 interaction form's deepest form: THERE MAY BE NO INNATE LEVEL AT ALL,
 only history all the way down.
 
+## T299 — E326: the bracket is branch-dependent — and the canon was the fragile branch (2026-10-10, datetime.now ~02:30Z)
+
+The cascade guard's long-deferred question finally has its answer, and
+it is the better kind of EITHER-MOVES: the kill edge moved UP. On the
+survive-mode census organism — 2.94x the canon's write mass, 63%
+localized — the canon's kill-edge budget reads 0.61 at t400 where the
+canon itself read 0.32 and died. The survive mode is MORE
+transport-robust at matched fractional budgets. THE DIE-MODE CANON IS
+THE CONSERVATIVE BRANCH: whatever claims the bracket licenses about
+death-easiness hold a fortiori for the mode typical installs actually
+take (0 of 13 natural draws produced the canon's branch).
+
+THE MECHANISM NOTE THAT MATTERS: the drift realizations replicated the
+committed form almost exactly — the bracket's move is the READ's
+response to displacement, not a change in how drift accumulates. The
+coupling constant is organism-state-dependent; the drift physics is
+not. And the absolute-floor alternative died: 2.9x the absolute drift
+kills LESS on the bulky write — the fractional scale is the operative
+one.
+
+THE CASCADE SETTLED (the R71 critic's five dependents): Law 2b's
+margin gains the mode rider in the conservative direction; Law 4's
+"always necessary" consequence is now one-branch-scoped (the
+controller's necessity was argued from the die-mode bracket — a
+survive-mode fact may need less defending); Law 5's passive pricing
+inherits the branch scope; T277's premise and the e311 dose scale
+carry the caveat. NONE OF THE COMMITTED NUMBERS MOVE; ALL OF THEM GAIN
+THE BRANCH CLAUSE — and the direction is the safe one.
+
+THE LEDGER: the executor's advance-registered counter hit its exact
+discriminating texture (EITHER-MOVES through the 0.004x rung, above);
+the lab's weak lean missed. Coarse leans 5-for-8 — the plausibility
+framing holds; the counters keep outperforming the leans, which keep
+outperforming the guesses. THE ORDERING IS THE FINDING: guess < lean <
+counter < instrument.
+
 ## T298 — X28: the vacancy's two halves — it fills with content and rents to anyone (2026-10-10, datetime.now ~02:10Z)
 
 The cascade pick returned the cleanest possible split. Give the ghost

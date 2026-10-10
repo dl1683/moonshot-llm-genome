@@ -16,7 +16,8 @@ Nothing fades, leaks, or decays. Every memory death ever observed in this lab is
 by optimizer steps: stepped on, steered past, or steered into (e273/e278/e283/e285/x14).
 
 *Scope:* none. The oldest law; never dented. [The mechanism noun — whether all step-one
-kills are one sign-ray sweep — is x32's open question, not a gate.]
+kills are one sign-ray sweep — is the REGISTERED first-step-atlas card (QUEUE x32, not
+yet a run), not a gate.]
 
 ## LAW 2 — THE TWO KILL CHANNELS [invariant]
 
@@ -27,16 +28,25 @@ cancels — COHERENCE BEATS MAGNITUDE 7x (e284/e288). Separate the buffers and t
 re-aiming dies at machine precision (2.3e-7, e284).
 
 **(b) TRANSPORT (the established regime).** Once formed, the read is a property of the
-WHOLE STATE (x14: subtracting the out-of-room drift resurrects the read 4,328x at 84%
-mass intact). The read dies at a few parts in a thousand of orthogonal drift; the curve
+WHOLE STATE (x14: subtracting the out-of-room drift restores the read 4,328x over the
+dead state — 15% of baseline, real signal short of the transport bar, per x14's own
+MIXED adjudication; e299 completes the split: orthogonal-rig corpses restore EXACTLY,
+free-stream corpses only ~15% — two kinds of death, and the whole-state claim is
+fully licensed for the orthogonal class; 84% mass intact). The read dies at a few parts in a thousand of orthogonal drift; the curve
 is consistent with survival ~ 1/drift; PASSIVE BUYS TIME, NEVER PERMANENCE (the ~1,040-
 step geometric clock, e290).
 
 *Scope (Law 2b):* the coupling bracket — budgets [0.0008, 0.004] of write norm, realized
 drift [0.00071, 0.00323] — is TWO RUNGS, n=1, measured on ONE BRANCH of a bimodal
 formation wheel (the die-mode canon; see Law 3's scope). "Constant" language is banned:
-it is a bracket. GATE (pending, named): **e326** — the same rungs on a survive-mode
-census organism; EITHER-MOVES gives this law's margin a mode rider.
+it is a bracket. RESOLVED GATE (e326): EITHER-MOVES — the bracket is BRANCH-DEPENDENT
+and the canon is the CONSERVATIVE branch (the survive-mode kill edge sits ABOVE 0.004x:
+0.6066 at the canon's kill budget vs its 0.3194; the drift realizations replicate, so
+the move is the read's response; the absolute floor ruled out). The margin's riders
+point in the safe direction. RIG-SPECIFICITY: the out-of-room death account holds for
+orthogonalized-rig kills; free-stream kills carry in-room components (e299's two kinds
+of death). Law 4's necessity consequence, Law 5's passive pricing, T277's premise, and
+the e311 dose scale inherit the one-branch clause.
 
 ## LAW 3 — THE FLOOR AND THE BEARER (formation) [invariant]
 
@@ -46,9 +56,10 @@ acquitted at matched rank) — and the write DENSELY FILLS whatever room it is g
 a formed write is not a seed (e321: 43.7% of a real write's energy reads no memory).
 The read rides the room-overlap tail: sufficiency (e306 — truncation kills the read),
 necessity dose-matched (e310/x15/x17: the out-of-room complement at 100% of a write's
-energy reads at most 0.028 absolute — complements never read).
+energy reads at most 0.0284 absolute — complements never read).
 
-THE RECEPTIVITY MAP (the interaction form, x29+e330): the noise floor under large
+THE RECEPTIVITY MAP (the interaction form, x29+e330; the causal leg is ONE install,
+ONE name, one draw — the n carries in the scope block): the noise floor under large
 displacement is neither innate geography nor writing-created fragility. It is the
 LINEAGE-SPECIFIC RECORD OF NAME-BY-NAME WRITE INTERACTIONS — one install left its name's
 slot receptive (TAVIREN), another damped its own (NYSTORA, 1.90x -> 0.18x); every write
@@ -62,7 +73,10 @@ at optimizer step one, gen-tracked; within-mode spread 12.2%; die share 0/8 clea
 the canon at ~3x its norm, 63% localized). LOCALIZATION IS THE DIE MODE'S SCAR (W052).
 A THIRD first-step texture (prior-flat) exists at n=1 (e330): the texture count is open.
 Gates: resolved (e327, e330, x28); the mode census and the texture question are open
-instruments, not gates.
+instruments, not gates. The map's causal evidence base: e330 is n=1 install, n=1 name;
+TAVIREN's committed lift is the sole other written-name datum. Law 2a's 2.3e-7 buffer
+separation is a single-session single-draw SEP-arm number (the shared-arm share
+replicated: 0.4553/0.4503 across e280/e284).
 
 ## LAW 4 — THE CONTROLLER [invariant]
 
@@ -84,7 +98,8 @@ untested (the survive-mode controller spare); the maintained state is address-ri
 ## LAW 5 — THE ECONOMICS [invariant]
 
 RE-TEACH WHEN THE STREAM IS FRIENDLY: the cons stream teaches any fact from anything in
-~25 steps (e281/e309). PRESERVE WHEN CONTRADICTED, LATENCY-BOUND, OR ROOM-HELD (e289).
+~25 steps (e281/e309). PRESERVE WHEN CONTRADICTED (e289), LATENCY-BOUND (the economic argument), OR ROOM-HELD
+(the 73.5% fill law, x6/x10).
 UNDEFENDED ERASURE IS PRICED INSIDE THE PASSIVE BRACKET (e294: 0.0200 within
 [0.0053, 0.0242]); DEFENDED ERASURE COSTS ~24x (e312 — the membrane premium; intrinsic
 vs sibling-attribution open, e317 demoted). CHEAP FORMATION BUYS NOTHING DURABLE: a
@@ -158,7 +173,7 @@ Day twelve: nothing fades — everything is stepped on. Day thirteen: the membra
 refuses every scalpel. Day fourteen: the head arrives with a map nobody drew — the
 receptivity of every name's slot is the accumulated record of every write that ever
 landed, name by name, lineage by lineage; formation is negotiation with that record;
-death removes an address or a authorship but never both; and the vacancy left by a kill
+death removes an address or an authorship but never both; and the vacancy left by a kill
 rents its landing to whoever asks, while the rise belongs only to the occupant who
 earned it.
 
@@ -166,5 +181,7 @@ The lab's oldest question — "why do memories die?" — keeps its measured answ
 newest — "whose memories are they?" — now has one too: the organism's, in the sense
 that the land was theirs before the lab ever wrote a name on it.
 
-*Pending gates at press time: e326 (Law 2b's cross-branch rungs — computing); e325
-(Law 6's double kill — queued). The scope blocks flip on their landings.*
+*Pending gates at press time: e326 RESOLVED (EITHER-MOVES, the conservative branch —
+see Law 2b's scope); e325 (Law 6's double kill — queued). The audit's repairs applied
+the same night: x14 qualified with e299's completing split, the dangling x32 cite fixed,
+the map's n carried.*
