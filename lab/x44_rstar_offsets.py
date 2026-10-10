@@ -128,16 +128,20 @@ verdict == R*-TRACKS-THE-SUPPORT-TAIL.
   band.
 
 * THE PER-CONTEXT CLASSIFICATION — PRIMARY FORM (x38's convention,
-  made per-context; adjudicates):
-  - band_i := max(|dQ_i|, |dZ_i|) (floored at 1e-9; floor firings
-    counted + disclosed).
-  - COLLAPSE_i iff |dT_i| > 5.0 x band_i (x38's "~5x band" bar;
-    EITHER direction — big UP moves class by the magnitude clause
-    with direction co-reported, x38's own note; SAT-UP counted
-    separately for disclosure).
-  - LIFT_i iff (not COLLAPSE_i) and POST_i > PRE_i (the dispatch's
-    literal "LIFT (post > pre)"; x38's ratio clause).
-  - else AMBIG_i.
+  made per-context; adjudicates; incl. x38's LIVING-READ currency rule,
+  restored by the smoke's repair #3 — see DEVIATIONS):
+  - LIVING_i := PRE_i > 0.05 (x38's living bar). A DEAD/EMPTY context
+    (PRE <= 0.05) adjudicates in the RATIO currency only: LIFT iff
+    POST > PRE, else AMBIG — an empty slot cannot "collapse" (the
+    dispatch's own literal "COLLAPSE (post << pre)"; x38: rungs below
+    0.05 could only LIFT or be AMBIGUOUS).
+  - A LIVING context adjudicates in the MOVE currency:
+    band_i := max(|dQ_i|, |dZ_i|) (floored at 1e-9; floor firings
+    counted + disclosed); COLLAPSE_i iff |dT_i| > 5.0 x band_i (x38's
+    "~5x band" bar; EITHER direction — big UP moves class by the
+    magnitude clause with direction co-reported, x38's own note; SAT-UP
+    counted separately for disclosure); LIFT_i iff (not COLLAPSE_i)
+    and POST_i > PRE_i; else AMBIG_i.
   THE FLIP BRACKET per (state, geometry): L_max := max PRE over LIFT
   contexts; C_min := min PRE over COLLAPSE contexts (None if a class
   is empty); the cell is TWO-SIDED-CONSISTENT iff both exist and
@@ -334,6 +338,9 @@ REPO = common.REPO
 # THE CONFIG (frozen)
 # ======================================================================
 READ_BAR = 0.05                    # the family's frozen 0.05 aliveness bar
+LIVING_BAR = 0.05                  # x38's living-read currency bar (the
+                                   # smoke's repair #3: ratio currency at
+                                   # or below it; move currency above)
 READ_TOL = 2e-6                    # the family's cross-session read law
 CE_TOL = 5e-3                      # e338's CE_R convention
 REPRO_TOL = 1e-12                  # x38's "bit-exact" panel convention
@@ -537,14 +544,23 @@ REGISTERED = {
                 "reader)",
         "pre_post": "PRE := the bare state's read; POST := the "
                     "state+complement read (x15's fp32 per-key injection)",
-        "primary_classification": "band_i := max(|dQ_i|, |dZ_i|) floored "
+        "primary_classification": "x38's living-read rule per context: "
+                                  "PRE <= 0.05 (dead/empty) -> RATIO "
+                                  "currency (LIFT iff POST > PRE, else "
+                                  "AMBIG; an empty slot cannot collapse); "
+                                  "PRE > 0.05 (living) -> MOVE currency: "
+                                  "band_i := max(|dQ_i|, |dZ_i|) floored "
                                   "1e-9 (the per-context never-written "
                                   "envelope; Q/Z never written on this "
                                   "lineage); COLLAPSE_i iff |dT_i| > "
                                   "5.0 x band_i (either direction, x38's "
                                   "magnitude clause; SAT-UP counted "
                                   "separately); LIFT_i iff not COLLAPSE "
-                                  "and POST > PRE; else AMBIG",
+                                  "and POST > PRE; else AMBIG (the "
+                                  "living-read rule restored by the "
+                                  "smoke's repair #3 — x38's own "
+                                  "convention, dropped in the birth "
+                                  "transcription, disclosed)",
         "sensitivity_classification": "COLLAPSE_i iff POST <= 0.5 x PRE; "
                                       "LIFT_i iff POST > PRE; else AMBIG "
                                       "(parameter-free; co-reported, "
@@ -612,6 +628,29 @@ DEVIATIONS = [
     "THE NEUTRAL SITE + THE GAUSSIAN RIDER ARE NOT RUN (disclosed "
     "omissions): the offsets are this cell's site axis; x38's committed "
     "neutral/gauss record stands.",
+    "THE FP32 MEAN-CONVENTION SPLIT (the smoke's own catches #1-2, "
+    "repaired pre-adjudication): battery_cell's family means a "
+    "CONTIGUOUS 1D cat (the flip analysis reads this convention, "
+    "G_PERCTX 1e-9); x24's committed panel cells mean a STRIDED column "
+    "(x38's site_read family — the certification gate G_CARRIER reads "
+    "THAT convention, 1e-12). The two orders differ ~1e-7 in absolute "
+    "probability — five orders under every band/move this cell "
+    "adjudicates on; each gate compares like-for-like.",
+    "SMOKE REPAIR #3 (the classifier's living-read rule, restored "
+    "pre-adjudication, disclosed): the birth transcription of the "
+    "PRIMARY form applied x38's 5x-band magnitude clause to EVERY "
+    "context, dropping x38's living-read currency rule (move currency "
+    "only above 0.05; ratio currency below). Without the rule, "
+    "low-read contexts RISING 5-8x under the complement (the "
+    "empty-slot LIFT channel, this cell's own low tail) classed as "
+    "'COLLAPSE' by the magnitude clause — contradicting both the "
+    "dispatch's literal 'COLLAPSE (post << pre)' and x38's own "
+    "convention the form claims to port. The restoration is "
+    "direction-neutral (it moves the adjudication AGAINST the "
+    "executor's own registered guess); the parameter-free sensitivity "
+    "form (unchanged since birth) co-reports either way; the full "
+    "per-context data table is committed in the metrics so any "
+    "classification is re-derivable.",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat folds).",
     "Smoke (X44_SMOKE=1): the full gate path + all reads + the "
     "classification machinery live (the whole cell is minutes; nothing "
@@ -729,14 +768,18 @@ def utcnow() -> str:
 def battery_percell(net, ids: torch.Tensor, cids: list[int],
                     bs: int = 30) -> torch.Tensor:
     """battery_cell's exact instrument (x40's) returning the FULL
-    per-context probability matrix for the wanted columns."""
+    per-context probability matrix for the wanted columns, as CONTIGUOUS
+    per-column rows [len(cids), 60] — the contiguity is load-bearing:
+    a strided column's .mean() reduces in a different fp32 order than
+    battery_cell's contiguous 1D (the smoke's G_PERCTX caught the ~1e-7
+    residual; contiguous rows restore bit-agreement)."""
     net.eval()
     rows = []
     for i in range(0, ids.shape[0], bs):
         lg, _ = net(ids[i:i + bs])
         pr = F.softmax(lg[:, -1], -1)
-        rows.append(pr[:, cids])
-    return torch.cat(rows)                    # [60, len(cids)]
+        rows.append(pr.index_select(1, torch.tensor(cids)))
+    return torch.cat(rows, 0).t().contiguous()   # [len(cids), 60]
 
 
 def load_state(rel: str) -> dict:
@@ -921,8 +964,11 @@ def phase_carrier(hp: dict) -> dict:
         "form": "the carrier's own model == e001 + delta BIT-EQUAL on "
                 "every key (x38's G_ONESTATE convention) AND x24's "
                 "committed host-g0 panel cells reproduce BIT-EXACT "
-                "(tol 1e-12) through THIS cell's own reader + injection "
-                "path — my path certified identical to x38/x24's",
+                "(tol 1e-12) through THIS cell's own injection path "
+                "under x24's OWN mean convention (the strided-column "
+                "mean, x38's site_read family; the smoke caught the "
+                "convention split — contiguous-row means drift ~1e-8, "
+                "disclosed in the deviations)",
         "carrier_model_eq_base_plus_delta": bool(model_ok),
         "delta_l2": float(torch.norm(torch.cat(
             [delta[k].reshape(-1) for k in base_keys]).float())),
@@ -931,7 +977,25 @@ def phase_carrier(hp: dict) -> dict:
     if not g_carrier["pass"]:
         raise texture(f"G_CARRIER FAILED (model!=base+delta): {g_carrier}")
 
-    # x24's panel cells through my own path: base + base+delta at host-g0
+    # x24's panel cells through my own path: base + base+delta at host-g0.
+    # THE MEAN CONVENTION IS X24'S OWN (x38's site_read family): the mean
+    # over a STRIDED column of the [60, n_names] probability matrix —
+    # the smoke's second catch: x24's committed cells reproduce BIT-EXACT
+    # under the strided-column mean and drift ~1e-8..3e-8 under the
+    # contiguous-row mean (battery_cell's family; two fp32 reduction
+    # orders, ~1e-7 apart — both disclosed; the flip analysis reads the
+    # battery_cell convention, certified by G_PERCTX; THIS gate reads
+    # x24's, certified by x38's own 1e-12 precedent).
+    @torch.no_grad()
+    def x24_read(net, ids, cids, bs=30):
+        net.eval()
+        rows = []
+        for i in range(0, ids.shape[0], bs):
+            lg, _ = net(ids[i:i + bs])
+            pr = F.softmax(lg[:, -1], -1)
+            rows.append(pr[:, cids])
+        return torch.cat(rows)                 # [60, n_names]
+
     x24m = json.loads((REPO / MD5_BINDS["x24_metrics"][0])
                       .read_text(encoding="utf-8"))
     stoi = p0["stoi"]
@@ -940,8 +1004,8 @@ def phase_carrier(hp: dict) -> dict:
     g0_ids = hp["batteries"]["g0"]
     net_base = G1.evl_load(base_params)
     net_comp = G1.evl_load(apply_delta(base_params, delta))
-    pm_base = battery_percell(net_base, g0_ids, cids)
-    pm_comp = battery_percell(net_comp, g0_ids, cids)
+    pm_base = x24_read(net_base, g0_ids, cids)
+    pm_comp = x24_read(net_comp, g0_ids, cids)
     del net_base, net_comp
     cells = {}
     for j, nm in enumerate(X24_PANEL):
@@ -1018,13 +1082,13 @@ def phase_states(hp: dict, car: dict) -> dict:
         reads = {"pre": {}, "post": {}}
         for cond, net in (("pre", net_pre), ("post", net_post)):
             for bn, ids in batteries.items():
-                mat = battery_percell(net, ids, cid_list)   # [60, 3]
+                mat = battery_percell(net, ids, cid_list)  # [3, 60] contig
                 reads[cond][bn] = {
-                    "T": [float(v) for v in mat[:, 0]],
-                    "Q": [float(v) for v in mat[:, 1]],
-                    "Z": [float(v) for v in mat[:, 2]],
-                    "T_mean": float(mat[:, 0].mean()),
-                    "T_alive_frac": float((mat[:, 0] >= READ_BAR)
+                    "T": [float(v) for v in mat[0]],
+                    "Q": [float(v) for v in mat[1]],
+                    "Z": [float(v) for v in mat[2]],
+                    "T_mean": float(mat[0].mean()),
+                    "T_alive_frac": float((mat[0] >= READ_BAR)
                                           .float().mean()),
                 }
         reads["ce_r_bare"] = G1.ce_fixed_cpu(net_pre, *p0["r_eval_xy"])
@@ -1107,7 +1171,13 @@ def phase_states(hp: dict, car: dict) -> dict:
 # ======================================================================
 def classify_cell(pre: list[float], post: list[float],
                   dQ: list[float], dZ: list[float]) -> dict:
-    """The frozen per-context classifier (both forms) + the bracket."""
+    """The frozen per-context classifier (both forms) + the bracket.
+
+    PRIMARY (band) form — x38's convention per context, WITH x38's
+    living-read currency rule (restored by the smoke's repair #3):
+    PRE <= 0.05 -> ratio currency (an empty slot cannot collapse);
+    PRE > 0.05 -> move currency (|dT| > 5x the per-context Q/Z band).
+    """
     n = len(pre)
     cls_band, cls_ratio = [], []
     band_floor_fired = 0
@@ -1119,14 +1189,17 @@ def classify_cell(pre: list[float], post: list[float],
         if band < BAND_FLOOR:
             band = BAND_FLOOR
             band_floor_fired += 1
-        if dT > BAND_X * band:
+        if pre[i] <= LIVING_BAR:
+            # x38's ratio currency: a dead/empty context can only LIFT
+            cls_band.append("LIFT" if post[i] > pre[i] else "AMBIG")
+            if post[i] > pre[i] and pre[i] < NOISE_ZONE:
+                noise_lifts += 1
+        elif dT > BAND_X * band:
             cls_band.append("COLLAPSE")
             if post[i] > pre[i]:
                 sat_up += 1
         elif post[i] > pre[i]:
             cls_band.append("LIFT")
-            if pre[i] < NOISE_ZONE:
-                noise_lifts += 1
         else:
             cls_band.append("AMBIG")
         if post[i] <= COLLAPSE_RATIO * pre[i]:
@@ -1183,6 +1256,10 @@ def phase_flip(st: dict) -> dict:
                   zip(st["reads"][a]["post"][bn]["Z"],
                       st["reads"][a]["pre"][bn]["Z"])]
             cells[a][bn] = classify_cell(pre, post, dQ, dZ)
+            cells[a][bn]["pre"] = pre           # the cell's own data table
+            cells[a][bn]["post"] = post
+            cells[a][bn]["band"] = [max(abs(q), abs(z), BAND_FLOOR)
+                                    for q, z in zip(dQ, dZ)]
             bb = cells[a][bn]["bracket_band"]
             log(f"  [{a}:{bn}] band {bb['n_lift']}L/{bb['n_collapse']}C/"
                 f"{bb['n_ambig']}A; bracket "
