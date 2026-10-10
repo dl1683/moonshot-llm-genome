@@ -951,7 +951,9 @@ def phase_gates() -> dict:
                for c in e335m["cut1_walk"]["committed"]["install_traj"]}[1]
     x42_rung_reads = {X42_SLOT_NAMES[k]: v["battery_read_inloop"]
                       for k, v in x42m["ladder"].items()
-                      if v.get("kind") == "re-formed-install"}
+                      if k in X42_SLOT_NAMES}   # the 8 interior slots only
+                      # (smoke repair #1: x42's cert riders share the
+                      # 're-formed-install' kind — filtered by slot key)
     x42_priors = {k: v["prior_host"]
                   for k, v in x42m["ladder_clauses"].items()}
     refs = {
