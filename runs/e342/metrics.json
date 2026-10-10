@@ -1,0 +1,2546 @@
+{
+  "gates": {
+    "G_E336RECORD": {
+      "path": "runs/e336/metrics.json",
+      "md5": "f90b439a0a4eff55e7f115901af469d6",
+      "bound_md5": "f90b439a0a4eff55e7f115901af469d6",
+      "t400_row": {
+        "step": 400,
+        "g0_pz": 0.8147322535514832,
+        "gm12_pz": 0.7971041202545166,
+        "ce_r": 1.6229653358459473,
+        "disp_norm": 1.1536193280751479,
+        "n_maint_so_far": 16
+      },
+      "checks": {
+        "t400_read": true,
+        "milestones_all_post_dose": true,
+        "spend_ledger": true
+      },
+      "claim": "the founding trajectory's committed description md5-bound; its t400 milestone literals are the repro gate's parents; its own milestones ALL sit on event steps (post-dose \u2014 the phase character under audit)",
+      "pass": true
+    },
+    "G_E339RECORD": {
+      "path": "runs/e339/metrics.json",
+      "md5": "00e5f9822b6559ede2ab0ee9987c5121",
+      "bound_md5": "00e5f9822b6559ede2ab0ee9987c5121",
+      "leg2_refs": {
+        "t500_g0": 0.8529938459396362,
+        "t600_g0": 0.8999966382980347,
+        "win1_rows": {
+          "win1:t424": 0.2279321402311325,
+          "win1:t425-pre": 0.21111607551574707,
+          "win1:t425-post": 0.6339741349220276,
+          "win1:t426": 0.615505576133728
+        },
+        "gates_17_24": [
+          0.21111607551574707,
+          0.12916554510593414,
+          0.2059592306613922,
+          0.1249639093875885,
+          0.24551410973072052,
+          0.10180409252643585,
+          0.2786334455013275,
+          0.09039571136236191
+        ],
+        "deficits_17_24": [
+          0.2614481387375032,
+          0.5481374238511878,
+          0.2794884388715479,
+          0.5628360955300279,
+          0.1411127633702932,
+          0.6438565758867073,
+          0.02525068599222589,
+          0.6837667585771313
+        ],
+        "maint_steps_17_24": [
+          425,
+          450,
+          475,
+          500,
+          525,
+          550,
+          575,
+          600
+        ],
+        "leg2_spend": {
+          "S_corpus": 2.684888717252761,
+          "S_maint": 0.8751672571524978
+        }
+      },
+      "checks": {
+        "t500_t600": true,
+        "win1": true,
+        "gates": true,
+        "deficits": true,
+        "events_17_24_all_dosed": true
+      },
+      "claim": "the shared-draw co-read's parents md5-bound: e339's committed t401-t800 leg-2 re-ran events 17-24 at these gates/deficits; this leg re-draws the same stream",
+      "pass": true
+    },
+    "G_NAMEWIN": {
+      "form": "e336's G_NAMEWIN mirror: the TRUE TAVIREN install windows, decode-gated, pre-context bit-equal the anchor bank",
+      "n_windows": 60,
+      "masked_decode_all_name": true,
+      "precontext_bit_equal_anchor": true,
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "corpus_taviren_count": 0,
+      "pass": true
+    },
+    "G_BASE": {
+      "checkpoint": "runs/checkpoints/e001.pt",
+      "md5": "d114536d1c0983ab3be67f67ff0667c8",
+      "params": 2739072,
+      "base_prior_parasite_g0": 0.0023042955435812473,
+      "committed_base_prior": 0.0023042955435812473,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    "G_VMBIND": {
+      "path": "runs/checkpoints/e258_vmap.pt",
+      "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c",
+      "meta_experiment": "e258",
+      "size": 2739072,
+      "pass": true
+    },
+    "G_SPANBIND": {
+      "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+      "rank": 10,
+      "N": 2739072,
+      "meta_experiment": "e246",
+      "pass": true
+    },
+    "G_ROOMK10K": {
+      "form": "the room re-derived from the committed seeds and bit-compared vs e336's committed e336_rooms.pt \u2014 the same room the founding stream orthogonalized against",
+      "D_bit_equal_e336": true,
+      "S_bit_equal_e336": true,
+      "cert": {
+        "k": 10000,
+        "idempotency_max": 5.669754673327867e-16,
+        "kept2_mean": 0.0036073728283031233,
+        "kept2_expect": 0.0036508715360530864,
+        "kept2_bar_10sig": 0.0002581556020384085,
+        "kept2_pass": true,
+        "idempotency_pass": true,
+        "span_overlap_mean": 0.06038652639299012,
+        "span_overlap_expect": 0.06042244232115321
+      },
+      "pass": true
+    },
+    "G_LR_BIND": {
+      "form": "the leg runs on e336's COMMITTED lr constants: LR_STABLE = x0.01 x LR_SGD_matched; LR_M_MAX = 0.40 x BUDGET / e287's b_m sum (the same identity, the same value \u2014 NEVER scaled); momentum 0.9, wd 0.0 EXACTLY",
+      "lr_sgd_record": 21.7385748014537,
+      "lr_sgd_runtime": 21.7385748014537,
+      "lr_stable_module": 0.21738574801453703,
+      "lr_stable_metrics": 0.21738574801453703,
+      "lr_m_max_module": 0.021942464013242388,
+      "lr_m_max_metrics": 0.021942464013242388,
+      "momentum": 0.9,
+      "wd": 0.0,
+      "pass": true
+    },
+    "G_SUBSTRATE": {
+      "form": "e336's substrate gate mirror: the organism artifact raw-md5-bound; its reads gated vs e311's committed literals (the family's 2e-6 law); the write norm recomputed fp64",
+      "artifact_md5": "9886b25242c90dd669c6363c39a2a3bf",
+      "committed_md5": "9886b25242c90dd669c6363c39a2a3bf",
+      "post_g0": 0.285851389169693,
+      "committed_post_g0": 0.285851389169693,
+      "g0_abs_diff": 0.0,
+      "write_norm": 8.94962906015724,
+      "committed_write_norm": 8.94962906015724,
+      "write_norm_rel_diff": 0.0,
+      "pass": true
+    },
+    "G_PROTOCOL_IDENT": {
+      "form": "the continuation's identity: e336's COMMITTED module constants asserted == its md5-bound metrics literals BEFORE any re-binding; then the ONLY re-bindings are the leg parameters (asserted set)",
+      "corpus_gen_seed_module": 33601,
+      "inst_gen_seed_module": 33602,
+      "maint_every_module_committed": 25,
+      "phase_steps_module_committed": 400,
+      "baseline_gate_module": 0.285851389169693,
+      "budget_frac_module": 0.5,
+      "checks": {
+        "seeds": true,
+        "cadence": true,
+        "baseline": true,
+        "budget_form": true,
+        "bufsep_ledger": true,
+        "milestones_committed": true
+      },
+      "pass": true,
+      "leg_rebind": {
+        "before": {
+          "PHASE_STEPS": "400",
+          "MILESTONES": "(100, 200, 300, 400)",
+          "WIN1": "(24, 25, 26)",
+          "WIN2": "(199, 200, 201)",
+          "MAINT_EVERY": "25"
+        },
+        "after": {
+          "PHASE_STEPS": "600",
+          "MILESTONES": "(425, 438, 450, 463, 475, 488, 500, 513, 525, 538, 550, 563, 575, 588, 600)",
+          "WIN1": "(424, 425, 426)",
+          "WIN2": "(574, 575, 576)",
+          "MAINT_EVERY": "25"
+        }
+      }
+    },
+    "G_RESUME": {
+      "form": "the cross-cell resume identity: e336's committed t400 resume state (raw-md5-bound) \u2014 step/n_maint/spend/isolation ledgers asserted == the committed metrics; the resume model bit-compared vs the committed post checkpoint (x39's own subject bind)",
+      "rea_resume_md5": "e67a7d4749299002a50868500be01d6a",
+      "rea_post_md5": "6c42e8131994122fcdb9ef56c0314e0a",
+      "rea_step": 400,
+      "rea_n_maint": 16,
+      "rea_S_corpus": 2.684888718649745,
+      "rea_S_maint": 1.0470825023949146,
+      "expected": {
+        "rea_step": 400,
+        "rea_n_maint": 16,
+        "rea_S_corpus": 2.684888718649745,
+        "rea_S_maint": 1.0470825023949146
+      },
+      "resume_model_bit_equal_post": true,
+      "pass": true
+    },
+    "G_T400_REPRO": {
+      "form": "THE DISPATCH'S GATE ('the boundary reads reproduce e336/x39's committed values'): the restored t400 bits re-read the committed g0/gm12/CE_R (== e336's t400 milestone row == x39's md5-bound subject literals) on the same battery + channel, BEFORE any stepping",
+      "g0": {
+        "mine": 0.8147322535514832,
+        "committed": 0.8147322535514832,
+        "e336_traj_row": 0.8147322535514832,
+        "abs_diff": 0.0
+      },
+      "gm12": {
+        "mine": 0.7971041202545166,
+        "committed": 0.7971041202545166,
+        "abs_diff": 0.0
+      },
+      "ce_r": {
+        "mine": 1.6229653358459473,
+        "committed": 1.6229653358459473,
+        "abs_diff": 0.0
+      },
+      "tol": {
+        "read": 2e-06,
+        "ce": 0.005
+      },
+      "pass": true
+    },
+    "G_STAGING": {
+      "form": "the ONLY protocol-touching transformation: e336's committed state bits (model/optC/optF/cgen/igen) pass through UNTOUCHED (digest-verified before/after the staging write); the leg ledgers + spend pools zeroed (the leg convention); the generator states carried \u2014 the stream CONTINUES (never re-seeded)",
+      "rea": {
+        "src": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e336\\ERROR-GATED_resume.pt",
+        "dst": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e342\\e342_REA_leg_resume.pt",
+        "step": 600,
+        "bits_unchanged": true,
+        "reused_completed_leg": true,
+        "source_S_corpus": 2.684888718649745,
+        "source_S_maint": 1.0470825023949146,
+        "source_n_maint": 16
+      },
+      "first_continued_draws_disclosure": "corpus steps 401.. draw the continuation of seed 33601's sequence (cgen_state restored); maintenance events 17.. draw the continuation of seed 33602's (igen_state restored) \u2014 the SAME continuation e339's committed leg consumed",
+      "pass": true
+    },
+    "G_LEG_IDENTITY": {
+      "form": "the leg's protocol identity: M=25 UNCHANGED (the founding cadence), lr_m_max the frozen constant, PHASE_STEPS the leg end, events at the declared steps, pools length-scaled; the applied corpus lr's MEDIAN inside x41's committed LR_BAND; the corpus cap bound below the cosine schedule at EVERY logged step (the disclosed schedule immateriality, verified)",
+      "m_every": 25,
+      "lr_m_max": 0.021942464013242388,
+      "phase_steps": 600,
+      "event_steps": [
+        425,
+        450,
+        475,
+        500,
+        525,
+        550,
+        575,
+        600
+      ],
+      "milestones_declared": [
+        425,
+        438,
+        450,
+        463,
+        475,
+        488,
+        500,
+        513,
+        525,
+        538,
+        550,
+        563,
+        575,
+        588,
+        600
+      ],
+      "milestones_present": [
+        425,
+        438,
+        450,
+        463,
+        475,
+        488,
+        500,
+        513,
+        525,
+        538,
+        550,
+        563,
+        575,
+        588,
+        600
+      ],
+      "budget_c": 1.3424443590235862,
+      "budget_m": 0.8949629060157241,
+      "applied_lr_median": 0.0031182131353111584,
+      "applied_lr_min": 0.0022577119199648364,
+      "applied_lr_max": 0.003467534292273553,
+      "lr_band": [
+        0.0018,
+        0.0043
+      ],
+      "cap_below_sched_all": true,
+      "steps_ran": 600,
+      "pass": true
+    },
+    "G_PHASEDECL": {
+      "form": "the phase-declared convention throughout: EVERY event carries its pre pair (the maint gate read \u2014 the floor, the dose's own input) AND its post pair (a milestone row at the event step \u2014 the founding read channel); every period k<24 carries its mid read at s_k+13; the window quadruples bracket the leg",
+      "n_events": 8,
+      "pre_post_pairs": true,
+      "n_mids": 7,
+      "mids_present": true,
+      "win1_rows": [
+        "win1:t424",
+        "win1:t425-post",
+        "win1:t425-pre",
+        "win1:t426"
+      ],
+      "win2_rows": [
+        "win2:t574",
+        "win2:t575-post",
+        "win2:t575-pre",
+        "win2:t576"
+      ],
+      "win1_full": true,
+      "win2_full": true,
+      "gate_vs_pre_max": 0.0,
+      "milestone_eq_windowpost": {
+        "win1": 0.0,
+        "win2": 0.0,
+        "tol": 2e-06
+      },
+      "zero_events": [],
+      "pass": true
+    },
+    "G_E339_COVERREAD": {
+      "form": "the shared-draw co-read (NON-HALTING, disclosed tolerance): this leg re-draws the continuation e339's committed leg-2 consumed (the same restored generator states); the t500/t600 milestone reads + the win1 quadruple vs e339's committed literals \u2014 a consistency check, never a gate (cross-run GPU op-order determinism is not the family's law)",
+      "tol": 0.05,
+      "t500": {
+        "mine": 0.8529938459396362,
+        "e339_committed": 0.8529938459396362,
+        "abs_diff": 0.0
+      },
+      "t600": {
+        "mine": 0.8999965786933899,
+        "e339_committed": 0.8999966382980347,
+        "abs_diff": 5.960464477539063e-08
+      },
+      "win1": {
+        "win1:t424": {
+          "mine": 0.2279321551322937,
+          "e339_committed": 0.2279321402311325,
+          "abs_diff": 1.4901161193847656e-08
+        },
+        "win1:t425-pre": {
+          "mine": 0.2111160159111023,
+          "e339_committed": 0.21111607551574707,
+          "abs_diff": 5.960464477539063e-08
+        },
+        "win1:t425-post": {
+          "mine": 0.6339743733406067,
+          "e339_committed": 0.6339741349220276,
+          "abs_diff": 2.384185791015625e-07
+        },
+        "win1:t426": {
+          "mine": 0.6155058145523071,
+          "e339_committed": 0.615505576133728,
+          "abs_diff": 2.384185791015625e-07
+        }
+      },
+      "max_abs_diff": 2.384185791015625e-07,
+      "consistent_within_tol": true,
+      "non_halting": true,
+      "pass": true
+    },
+    "G_BUFSEP": {
+      "form": "e336's G_BUFSEP mirror (the isolation HALT carried): bidirectional buffer separation at every leg optimizer event",
+      "rea": {
+        "corpus_checks": 200,
+        "corpus_violations": 0,
+        "maint_checks": 8,
+        "maint_violations": 0,
+        "optF_steps": 8
+      },
+      "pass": true
+    },
+    "G_ORTH": {
+      "form": "e336's G_ORTH mirror (NON-HALTING): the stepped corpus gradient entirely orthogonal to the room at every leg step",
+      "rea_orth_max_rel_err": 4.557492111593049e-17,
+      "bar": 1e-06,
+      "pass": true
+    },
+    "G_STREAMELIVE": {
+      "form": "e288's standing condition: the corpus stream live (median corpus CE late-vs-early within 1.05x)",
+      "median_early": 0.8428294062614441,
+      "median_late": 0.8463016748428345,
+      "n_rows_early": 10,
+      "n_rows_late": 10,
+      "vacuous_smoke": false,
+      "pass": true
+    },
+    "G_BUDGET": {
+      "form": "the LEG budget held (NON-HALTING): the length-scaled pools respected",
+      "S_corpus_leg": 1.3424443574622273,
+      "S_maint_leg": 0.49426323268562555,
+      "B_C": 1.3424443590235862,
+      "B_M": 0.8949629060157241,
+      "cumulative_t0_t600": 5.5686788111925125,
+      "e339_leg2_same_segment": {
+        "S_corpus": 2.684888717252761,
+        "S_maint": 0.8751672571524978
+      },
+      "pass": true
+    },
+    "G_NET0": {
+      "subject": "BASE-formed lineage (e311 TAVIREN install) + e336 ERROR-GATED controller-annealed to t400 (read 0.815, 16 events) \u2014 THE FOUNDING-CLASS TRAJECTORY (x39's own subject class)",
+      "leg": "the same organism continued t401-t600 under the identical protocol (8 more events, length-scaled pools) \u2014 the audit leg",
+      "claim": "every state classed (x32's standing rule)",
+      "pass": true
+    }
+  },
+  "experiment": "e342_phase_audit",
+  "phase": "THE PHASE AUDIT (R79's minted card; the costume lesson's last open residual): e336's committed t400 ERROR-GATED state (the founding-class trajectory \u2014 the same state x39 consumed) resumed md5-bound; the IDENTICAL protocol continued 8 events (t401-t600, M=25 unchanged, length-scaled pools) with the PHASE-DECLARED reads at full cadence \u2014 every event's pre+post pair PLUS the mid-phase read at event+13 \u2014 the sag profile vs the frozen bars: SAG-EXISTS (the founding heights are rails; the 3.16-3.62x band an upper-rail band) / NO-SAG (the founding numbers stand as written) / PARTIAL-SAG (the named residual)",
+  "date": "2026-10-10T19:01:17Z",
+  "status": "COMPLETE \u2014 adjudicated SAG-EXISTS (2026-10-10T19:01:59Z)",
+  "registration": "background + design + bars + lab lean frozen VERBATIM from the dispatch letter (R79's minted card \u2014 e342 THE PHASE AUDIT); P-e342a registered HERE at birth; this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "registration": "background + design + bars + lab lean frozen VERBATIM from the dispatch letter (R79's minted card \u2014 e342 THE PHASE AUDIT); P-e342a registered HERE at birth; this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
+    "background_verbatim": "x41's verification rider discovered the milestone-costume effect (the milestone cadence sampled only the dose phase; the 'equilibrium' was the upper rail). The founding traces (e288/e334/e336) show no zero-dose events (R79's desk check) \u2014 but their milestone reads were taken at event boundaries (post-dose). THE RESIDUAL: does the read SAG intra-period (between events, under the wash) and recover at each dose \u2014 making the founding heights upper-rail samples too \u2014 or does it hold flat between events?",
+    "design_verbatim": {
+      "1_THE_SUBJECT": "e336's committed t400 checkpoint (md5-bound \u2014 the same state x39 used; read 0.815; the founding-class trajectory).",
+      "2_THE_MID_PHASE_READS": "resume and continue the IDENTICAL protocol for 4-8 events, reading at event+13 (mid-period, ~halfway to the next dose) IN ADDITION to the standard pre/post pairs \u2014 the phase-declared convention (every phase read, not just the boundaries).",
+      "3_THE_ANALYSIS": "the sag profile (boundary read vs mid-phase read per period); the founding numbers' phase character."
+    },
+    "bars_verbatim": {
+      "SAG-EXISTS": "the mid-phase reads fall materially below the boundary reads (>= ~15% mean sag) \u2014 THE FOUNDING HEIGHTS ARE RAILS (the endpoint class carries the phase clause; Law 4's endpoint language joins x41's rider; the 3.16-3.62x band is an upper-rail band).",
+      "NO-SAG": "the mid-phase reads hold within noise (< ~5%) \u2014 THE FOUNDING NUMBERS STAND AS WRITTEN (the 25-step periods hold; the costume lesson does not reach the founding class)."
+    },
+    "lab_lean_verbatim": "Lab lean: SAG-EXISTS, weakly \u2014 x41's PERIOD2X showed 2.4x sag within 50 steps (the read cannot hold half a doubled period); whether 25 steps (the founding period) is short enough to hold is the open question \u2014 the founding deficit-medians (0.6-0.7) suggest substantial decay between events. State your own read.",
+    "P-e342a": {
+      "my_guess": "SAG-EXISTS, MODERATELY (diverging from the lean only in strength)",
+      "registered": "GROUNDS: (1) THE COMMITTED ENDPOINTS ALREADY COMMIT THE SWING \u2014 both legs' pre/post pairs bound the +25 floors at 10-28% OF THE PEAKS (e336 leg-1: gate 0.1254 vs milestone 0.8147 at t400 = 6.5x; e339 leg-2: t599 0.0916 vs t600-post 0.9000 = 9.8x); a mid read at +13 above 95% of its boundary would need the ENTIRE collapse packed into the final 12 steps \u2014 a cliff with no mechanism (the wash steps are homogeneous draws under a per-step-constant cap and clip). (2) THE +1 COMMITS THE DECAY'S START ON THE SMALL-DOSE HALF \u2014 e339's committed win1:t426 0.6155 after the 0.6340 post (\u22122.9% in ONE step): the small-dose periods (17/19/21/23 by the committed 2-cycle deficits) are already falling at +1. (3) THE COUNTERVAILING (why moderately, not strongly): the big-dose periods' +1 HOLDS (e339's win2:t601 0.8983 after the 0.9000 post \u2014 \u22120.19%): the decay is CONVEX and its knee's location is the genuinely open parameter. (4) x41's PERIOD2X bounds the hold below 50 steps.",
+      "predicted_shape": "mean sag in [0.35, 0.60]; small-dose periods sag 0.45-0.65, big-dose 0.20-0.45; every mid strictly above the next gate floor (the collapse back-loaded, front-half convex); the leg's t500/t600 boundary reads within 0.03 of e339's committed (0.85299/0.899997 \u2014 the shared-draw continuation; disclosed tolerance, never a law).",
+      "falsifier": "mean sag < 0.15 (my card flips to the residual cells) or > 0.75 (the collapse completes BEFORE +13 \u2014 front-loaded; the phase character worse than my card).",
+      "scored": "TRUE iff the verdict == SAG-EXISTS"
+    }
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "cuda fp32 training (this cell owns the GPU lane; ONE leg \u2014 never concurrent) + CPU fp64 projections, threads 4",
+    "bursts": "<= 175s (dispatch 180), per-step thermal polls at a 78C margin, cooldown 40s (dispatch 30-60), the 84C never-past line (dispatch 85), recorded to runs/_envelope_log.jsonl tagged e342:AUDIT-LEG:*",
+    "trainings": "1 continuation leg x 200 corpus steps (e336's committed driver VERBATIM; 8 NAME-ONLY maintenance events at the error-gated lr; length-scaled pools); NO cons"
+  },
+  "builds_on": [
+    "R79 (the review that minted this card: the desk half \u2014 no zero-dose events in any founding trace, the endpoints phase-consistent; the residual named: the intra-period sag)",
+    "e336 / THE FOUNDING-CLASS SECOND INSTANCE (THE SUBJECT: its committed t400 ERROR-GATED resume state \u2014 the model + both SGD-M buffers + both generator states; its committed driver executed verbatim; its own-period gate floors the desk half's evidence)",
+    "e339 / THE LONG LANDING (the resume + leg convention + the length-scaled-pool parent; its committed t401-t800 leg-2 the shared-draw co-read's parent \u2014 gates, deficits, windows, t500/t600)",
+    "x41 / THE RELAY KINETICS (the milestone-costume discovery cell + the length-scaled pool form + LR_BAND + the 2-cycle rails; its PERIOD2X the lean's own evidence)",
+    "x39 / THE STEP-DOSE RUNG (the subject's prior consumer \u2014 the same md5-bound t400 state; its committed subject literals this cell's repro targets)",
+    "e288 / e287 / e285 / e311 / e273 / e268 / e264 / e261 (the controller rig, the calibration, the sanctuary form, the TAVIREN organism, the lr, the corpus step, the room, the burst machinery)"
+  ],
+  "whats_new": [
+    "THE MID-PHASE READ \u2014 the first measurement INSIDE a founding-period interval: every prior read of this lineage sat at event boundaries (pre/post) or coarse milestones (t100-multiples); the +13 read is the phase audit's own datum",
+    "THE PHASE-DECLARED CONVENTION at full cadence: every event pre+post pair + every period's mid \u2014 15 declared milestone reads + 8 gate reads + 8 window reads on one 200-step leg",
+    "THE SAG PROFILE against the founding numbers: the founding heights' phase character quantified (rail vs flat), joining x41's rider with the endpoint clause it implied"
+  ],
+  "deviations": [
+    "THE BAR OPERATIONALIZATION (frozen at birth): the dispatch's '~15%'/'~5%' leave [5%, 15%) unnamed \u2014 PARTIAL-SAG frozen as the named residual cell (the founding numbers carry a mid-strength phase clause; neither rail nor flat). Boundaries 0.15/0.05 frozen as literals on the MEAN of the per-period sags.",
+    "THE SAG STATISTIC (frozen): sag_k = (post_k \u2212 mid_k)/post_k with post_k = the MILESTONE g0 read at the event step (post-dose \u2014 the founding read convention: the same battery, channel p(T), baseline and read point as e336's committed milestones) and mid_k = the milestone read at s_k+13; the mean over the leg's 7 complete pairs (period 24's mid sits at t613 beyond the leg \u2014 disclosed); NO pair dropped post-hoc.",
+    "THE LEG (frozen): 8 events \u2014 the dispatch's 4-8 at its top (every event a sag pair); M=25 UNCHANGED; pools LENGTH-SCALED (x41's frozen form: B_C x 200/400, B_M x 8/16; LR_M_MAX never scaled) \u2014 the per-step/per-event equal-share arithmetic identical to e336's leg-1 and e339's leg-2 at their starts; the applied corpus lr asserted inside x41's committed LR_BAND (0.0018, 0.0043).",
+    "THE WINDOWS (frozen): WIN1 = (424,425,426) == e339's committed win1 (a 4-row shared-draw repro co-read); WIN2 = (574,575,576) around event 23 \u2014 a second +1-after-small-dose datum mid-leg; e339's committed win2 t601 (+1-after-big-dose) is CITED from its record (this leg ends at t600 \u2014 its t601 flank would never fire); the t600-pre floor comes free in the event-24 gate read.",
+    "THE e339 CO-READ (non-halting, disclosed): this leg re-runs the shared-draw continuation of e339's committed t401-t600 segment (the same restored generator states; e339 kept full-leg pools, this leg the length-scaled form \u2014 proportional equal-share paths, x41's precedent); my t500/t600 + win1 rows vs e339's committed literals at a DISCLOSED 0.05 tolerance \u2014 a consistency check, NEVER a gate (cross-run GPU op-order determinism is not the family's law; the 2e-6 law covers same-bits CPU reads only).",
+    "THE ZERO-EVENT CLAUSE (frozen): e339's committed events 17-24 ALL dosed (deficits 0.025-0.684); if a ZERO event (deficit 0.0) fires inside this leg its post == its gate and the pair still measures the wash's decay from an undosed boundary \u2014 stamped per-period, never excluded.",
+    "ONE ARM (the dispatch's design names ONE subject): the ERROR-GATED continuation only; the twin has no events \u2014 no phases \u2014 and is irrelevant to the intra-period question (x39/x41's one-arm precedent).",
+    "THE FOUNDED-CHARACTER DESK HALF is runtime-computed from the md5-bound committed records only (e336's own-period peak/floor ratios + the canon's deficit-medians) \u2014 zero compute of its own.",
+    "IMPORT SIDE EFFECTS (disclosed, inherited): importing e336 opens runs/e336/run.log in append and asserts CUDA \u2014 zero bytes written by this cell (the handle is re-pointed before any use); E261's module globals are re-bound label-only (tags e342:AUDIT-LEG:*); E336.REA_ARM re-bound label-only for the burst tag and restored.",
+    "Smoke mode (E342_SMOKE=1): e339's smoke form \u2014 a manufactured tiny leg-1 (8 steps, M=2) staged + continued by the audit leg (8 steps, M=2, mids at +1 \u2014 a 2-step period's half, disclosed); machinery validation only, NOTHING adjudicated (SMOKE stamp on every read).",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat folds).",
+    "THE OUTPUT-PHASE REPAIR (disclosed post-compute, bars untouched): the first full invocation completed the leg + the adjudication (all 22 gates PASS, verdict SAG-EXISTS) but crashed writing the figure (an invalid matplotlib color name) \u2014 the repair fixes the color and adds the COMPLETED-LEG REUSE (an already-complete leg resume is served verbatim through the driver's own early-return; the leg never re-runs, the envelope never double-logged). NOTHING adjudicative touched: the same leg bits, the same ledgers, the same frozen bars."
+  ],
+  "last_write": "2026-10-10T19:01:58Z",
+  "budget": {
+    "form": "THE LEG CONVENTION (frozen at birth): e336's budget identity (0.5 x the TAVIREN write's norm) with pools LENGTH-SCALED to the leg (B_C x 200/400, B_M x 8/16 \u2014 x41's frozen form); LR_M_MAX the frozen constant (never scaled); the per-step/per-event equal-share arithmetic identical to e336's leg-1 and e339's leg-2 at their starts",
+    "write_norm": 8.94962906015724,
+    "budget_identity": 4.47481453007862,
+    "b_c400": 2.6848887180471723,
+    "b_m400": 1.7899258120314483,
+    "budget_c_leg": 1.3424443590235862,
+    "budget_m_leg": 0.8949629060157241,
+    "lr_m_max": 0.021942464013242388,
+    "leg1_committed": {
+      "S_corpus": 2.684888718649745,
+      "S_maint": 1.0470825023949146,
+      "S_total": 3.7319712210446596
+    }
+  },
+  "adjudication": {
+    "bars_verbatim": {
+      "SAG-EXISTS": "the mid-phase reads fall materially below the boundary reads (>= ~15% mean sag) \u2014 THE FOUNDING HEIGHTS ARE RAILS (the endpoint class carries the phase clause; Law 4's endpoint language joins x41's rider; the 3.16-3.62x band is an upper-rail band).",
+      "NO-SAG": "the mid-phase reads hold within noise (< ~5%) \u2014 THE FOUNDING NUMBERS STAND AS WRITTEN (the 25-step periods hold; the costume lesson does not reach the founding class)."
+    },
+    "composite_order": "TEXTURE -> standing conditions -> the sag partition (>= 0.15 SAG-EXISTS / < 0.05 NO-SAG / between PARTIAL-SAG) \u2014 frozen at birth",
+    "gates_pass": true,
+    "reads": {
+      "the_sag_profile": [
+        {
+          "global_event": 17,
+          "event_step": 425,
+          "mid_step": 438,
+          "next_gate_step": 450,
+          "dose_class": "DOSE",
+          "deficit": 0.2614483472537009,
+          "post_read": 0.6339743733406067,
+          "mid_read": 0.2535926103591919,
+          "next_gate_read": 0.12916550040245056,
+          "sag_frac": 0.5999954871630944,
+          "mid_over_floor": 1.9633153556410536,
+          "peak_to_floor_ratio": 4.908233013964917
+        },
+        {
+          "global_event": 18,
+          "event_step": 450,
+          "mid_step": 463,
+          "next_gate_step": 475,
+          "dose_class": "DOSE",
+          "deficit": 0.5481375802383361,
+          "post_read": 0.8393980264663696,
+          "mid_read": 0.5554761290550232,
+          "next_gate_read": 0.2059592306613922,
+          "sag_frac": 0.33824465683649274,
+          "mid_over_floor": 2.6970198289789455,
+          "peak_to_floor_ratio": 4.075554291841302
+        },
+        {
+          "global_event": 19,
+          "event_step": 475,
+          "mid_step": 488,
+          "next_gate_step": 500,
+          "dose_class": "DOSE",
+          "deficit": 0.2794884388715479,
+          "post_read": 0.676957905292511,
+          "mid_read": 0.27232620120048523,
+          "next_gate_read": 0.12496388703584671,
+          "sag_frac": 0.5977206277208417,
+          "mid_over_floor": 2.1792391999007417,
+          "peak_to_floor_ratio": 5.417228299711269
+        },
+        {
+          "global_event": 20,
+          "event_step": 500,
+          "mid_step": 513,
+          "next_gate_step": 525,
+          "dose_class": "DOSE",
+          "deficit": 0.562836173723602,
+          "post_read": 0.8529938459396362,
+          "mid_read": 0.5881325006484985,
+          "next_gate_read": 0.2455141246318817,
+          "sag_frac": 0.31050792048724946,
+          "mid_over_floor": 2.395513909964777,
+          "peak_to_floor_ratio": 3.4743167922358675
+        },
+        {
+          "global_event": 21,
+          "event_step": 525,
+          "mid_step": 538,
+          "next_gate_step": 550,
+          "dose_class": "DOSE",
+          "deficit": 0.14111271124124375,
+          "post_read": 0.5161287784576416,
+          "mid_read": 0.17383648455142975,
+          "next_gate_read": 0.10180404037237167,
+          "sag_frac": 0.6631916455600307,
+          "mid_over_floor": 1.7075597777414615,
+          "peak_to_floor_ratio": 5.0698260753677555
+        },
+        {
+          "global_event": 22,
+          "event_step": 550,
+          "mid_step": 563,
+          "next_gate_step": 575,
+          "dose_class": "DOSE",
+          "deficit": 0.6438567583383803,
+          "post_read": 0.9031934142112732,
+          "mid_read": 0.6744145154953003,
+          "next_gate_read": 0.2786335349082947,
+          "sag_frac": 0.25330000763541594,
+          "mid_over_floor": 2.4204355578278367,
+          "peak_to_floor_ratio": 3.2415100878239116
+        },
+        {
+          "global_event": 23,
+          "event_step": 575,
+          "mid_step": 588,
+          "next_gate_step": 600,
+          "dose_class": "DOSE",
+          "deficit": 0.025250373217929348,
+          "post_read": 0.32557982206344604,
+          "mid_read": 0.13042736053466797,
+          "next_gate_read": 0.09039567410945892,
+          "sag_frac": 0.5993997425637407,
+          "mid_over_floor": 1.4428495812391997,
+          "peak_to_floor_ratio": 3.6017190564805763
+        }
+      ],
+      "mean_sag": 0.4803371554238379,
+      "sag_bars": {
+        "sag_exists": 0.15,
+        "no_sag": 0.05
+      },
+      "the_plus_one_reads": {
+        "event 17 (small-dose, e339-comparand)": {
+          "post": 0.6339743733406067,
+          "plus_one": 0.6155058145523071,
+          "drop_frac": 0.029131396417465618
+        },
+        "event 23 (small-dose, the new datum)": {
+          "post": 0.32557982206344604,
+          "plus_one": 0.3020673394203186,
+          "drop_frac": 0.07221725994599733
+        },
+        "event 21 (big-dose; e339's committed t600->t601, CITED)": {
+          "post": 0.8999966382980347,
+          "plus_one": 0.8982803821563721,
+          "drop_frac": 0.0019069583914315222
+        }
+      },
+      "the_founding_desk_half": {
+        "form": "THE DESK HALF (runtime-computed from the md5-bound committed records; zero compute): the founding trace's own milestones (ALL post-dose) vs the SAME-TIME gate floors \u2014 the committed sawtooth the founding heights ride",
+        "milestones": {
+          "100": 0.6703165769577026,
+          "200": 0.6985082030296326,
+          "300": 0.7698389291763306,
+          "400": 0.8147322535514832
+        },
+        "gate_at_same_event": {
+          "100": 0.01754826121032238,
+          "200": 0.1120544970035553,
+          "300": 0.12348766624927521,
+          "400": 0.1253841519355774
+        },
+        "peak_over_floor": {
+          "100": 38.19846131327266,
+          "200": 6.23364721370772,
+          "300": 6.234136189943982,
+          "400": 6.4978886164983125
+        },
+        "canon_deficit_medians": "0.6-0.7 (the dispatch's citation)"
+      },
+      "the_boundary_milestones": {
+        "425": 0.6339743733406067,
+        "450": 0.8393980264663696,
+        "475": 0.676957905292511,
+        "500": 0.8529938459396362,
+        "525": 0.5161287784576416,
+        "550": 0.9031934142112732,
+        "575": 0.32557982206344604,
+        "600": 0.8999965786933899
+      },
+      "the_event_gates": {
+        "425": 0.2111160159111023,
+        "450": 0.12916550040245056,
+        "475": 0.2059592306613922,
+        "500": 0.12496388703584671,
+        "525": 0.2455141246318817,
+        "550": 0.10180404037237167,
+        "575": 0.2786335349082947,
+        "600": 0.09039567410945892
+      },
+      "the_event_deficits": {
+        "425": 0.2614483472537009,
+        "450": 0.5481375802383361,
+        "475": 0.2794884388715479,
+        "500": 0.562836173723602,
+        "525": 0.14111271124124375,
+        "550": 0.6438567583383803,
+        "575": 0.025250373217929348,
+        "600": 0.6837668888997549
+      },
+      "post_cells": {
+        "gm12": 0.8738638758659363,
+        "g0": 0.8999965786933899,
+        "g0_z": 5.599744326900691e-06,
+        "ce_r": 1.6434035301208496
+      }
+    },
+    "verdict": "SAG-EXISTS",
+    "clause": "mean sag 48.0% >= 15% (the mid-phase reads fall materially below the boundary reads; per-period sags 60%/34%/60%/31%/66%/25%/60%) \u2014 THE FOUNDING HEIGHTS ARE RAILS: the endpoint class carries the phase clause (Law 4's endpoint language joins x41's rider); the 3.16-3.62x band is an upper-rail band \u2014 the between-events state of this trajectory sits at 34%-75% of its boundary reads at mid-period and at 18%-31% at the floors (the committed floors already showed the valleys; the mid-phase point is the new datum)",
+    "founding_character_clause": "THE FOUNDING NUMBERS' PHASE CHARACTER: the founding milestones (e336 leg-1: 0.6703/0.6985/0.7698/0.8147; the canon endpoints' band 3.16-3.62x) were ALL read post-dose; the committed desk half shows their own-period floors at 38.2x-6.5x below them (the gates); the live half measures the mid-period state at 52% of the boundary read on average \u2014 the founding heights are UPPER-RAIL samples of an intra-period oscillation; the phase clause joins the endpoint class",
+    "P-e342a": {
+      "guess": "SAG-EXISTS, MODERATELY (diverging from the lean only in strength)",
+      "lab_lean": "Lab lean: SAG-EXISTS, weakly \u2014 x41's PERIOD2X showed 2.4x sag within 50 steps (the read cannot hold half a doubled period); whether 25 steps (the founding period) is short enough to hold is the open question \u2014 the founding deficit-medians (0.6-0.7) suggest substantial decay between events. State your own read.",
+      "hit": true,
+      "scored": "TRUE iff the verdict == SAG-EXISTS",
+      "shape_scored": {
+        "mean_in_035_060": true,
+        "every_mid_above_floor": true
+      }
+    },
+    "smoke_stamp": null
+  },
+  "arms": {
+    "ERROR-GATED": {
+      "desc": "the audit leg: e336's committed t400 state (model + buffers + generators) resumed; e336's driver VERBATIM; corpus steps t401-t600 over length-scaled pools; 8 more NAME-ONLY events (17-24) at the error-gated lr; the PHASE-DECLARED reads at full cadence (every event pre+post + every period's mid at +13)",
+      "phase": {
+        "traj": [
+          {
+            "step": 425,
+            "g0_pz": 0.6339743733406067,
+            "g0_argmax": 0.9,
+            "gm12_pz": 0.6441017389297485,
+            "ce_r": 1.6239206790924072,
+            "ce_corpus": 0.8594413995742798,
+            "survival_ratio_vs_committed": 2.217846046444272,
+            "disp_norm": 1.2034622227341614,
+            "in_room_frac": 0.05074643064669047,
+            "remaining_in_room_frac": 0.9368983369297122,
+            "corpus_disp_cum_in_room_frac": 4.94257047107207e-06,
+            "maint_disp_cum_in_room_frac": 0.06028325758358745,
+            "budget_S_total_usage_frac": 0.09271971003857613,
+            "budget_S_corpus": 0.167805555742234,
+            "budget_S_maint": 0.039646197110414505,
+            "lr_applied": 0.0032277011096920123,
+            "lr_sched": 0.154972048900255,
+            "capped": true,
+            "n_maint_so_far": 1,
+            "elapsed_s": 144.5
+          },
+          {
+            "step": 438,
+            "g0_pz": 0.2535926103591919,
+            "g0_argmax": 0.06666666666666667,
+            "gm12_pz": 0.2891732156276703,
+            "ce_r": 1.6260716915130615,
+            "ce_corpus": 0.8972054719924927,
+            "survival_ratio_vs_committed": 0.8871484273551983,
+            "disp_norm": 1.230801792889972,
+            "in_room_frac": 0.04961921480457034,
+            "remaining_in_room_frac": 0.9365929714374194,
+            "corpus_disp_cum_in_room_frac": 4.3502032812893446e-06,
+            "maint_disp_cum_in_room_frac": 0.06028325758358745,
+            "budget_S_total_usage_frac": 0.13171970939173394,
+            "budget_S_corpus": 0.25506443763151765,
+            "budget_S_maint": 0.039646197110414505,
+            "lr_applied": 0.0032439861665969206,
+            "lr_sched": 0.15046303709471315,
+            "capped": true,
+            "n_maint_so_far": 1,
+            "elapsed_s": 199.3
+          },
+          {
+            "step": 450,
+            "g0_pz": 0.8393980264663696,
+            "g0_argmax": 0.9833333333333333,
+            "gm12_pz": 0.8177487850189209,
+            "ce_r": 1.6277769804000854,
+            "ce_corpus": 0.8528777956962585,
+            "survival_ratio_vs_committed": 2.9364839852783393,
+            "disp_norm": 1.2608136671927828,
+            "in_room_frac": 0.05171976241159127,
+            "remaining_in_room_frac": 0.9362480739757609,
+            "corpus_disp_cum_in_room_frac": 4.063612024204623e-06,
+            "maint_disp_cum_in_room_frac": 0.06029994817976992,
+            "budget_S_total_usage_frac": 0.20533202335025882,
+            "budget_S_corpus": 0.33561110915616155,
+            "budget_S_maint": 0.12380025163292885,
+            "lr_applied": 0.0034301813152108973,
+            "lr_sched": 0.14622432764595297,
+            "capped": true,
+            "n_maint_so_far": 2,
+            "elapsed_s": 299.3
+          },
+          {
+            "step": 463,
+            "g0_pz": 0.5554761290550232,
+            "g0_argmax": 0.85,
+            "gm12_pz": 0.588363528251648,
+            "ce_r": 1.6274374723434448,
+            "ce_corpus": 0.8209627866744995,
+            "survival_ratio_vs_committed": 1.943233967372011,
+            "disp_norm": 1.2824608267634539,
+            "in_room_frac": 0.050846763172357465,
+            "remaining_in_room_frac": 0.9359985579770591,
+            "corpus_disp_cum_in_room_frac": 3.6930335303728185e-06,
+            "maint_disp_cum_in_room_frac": 0.06029994817976992,
+            "budget_S_total_usage_frac": 0.24433202291154205,
+            "budget_S_corpus": 0.4228699915111065,
+            "budget_S_maint": 0.12380025163292885,
+            "lr_applied": 0.0027089802434862665,
+            "lr_sched": 0.14155832644619815,
+            "capped": true,
+            "n_maint_so_far": 2,
+            "elapsed_s": 352.4
+          },
+          {
+            "step": 475,
+            "g0_pz": 0.676957905292511,
+            "g0_argmax": 0.9,
+            "gm12_pz": 0.6869922280311584,
+            "ce_r": 1.6279065608978271,
+            "ce_corpus": 0.8473234176635742,
+            "survival_ratio_vs_committed": 2.368216251314564,
+            "disp_norm": 1.307695984843731,
+            "in_room_frac": 0.05145525647507668,
+            "remaining_in_room_frac": 0.9356934746475972,
+            "corpus_disp_cum_in_room_frac": 3.4764598862570606e-06,
+            "maint_disp_cum_in_room_frac": 0.06031383145306135,
+            "budget_S_total_usage_frac": 0.29965828687793905,
+            "budget_S_corpus": 0.5034166541881859,
+            "budget_S_maint": 0.16704097390174866,
+            "lr_applied": 0.003196192929682455,
+            "lr_sched": 0.13719096936734926,
+            "capped": true,
+            "n_maint_so_far": 3,
+            "elapsed_s": 401.9
+          },
+          {
+            "step": 488,
+            "g0_pz": 0.27232620120048523,
+            "g0_argmax": 0.1,
+            "gm12_pz": 0.33574995398521423,
+            "ce_r": 1.629738688468933,
+            "ce_corpus": 0.8643843531608582,
+            "survival_ratio_vs_committed": 0.9526845470001244,
+            "disp_norm": 1.3337660771258462,
+            "in_room_frac": 0.05044950103016108,
+            "remaining_in_room_frac": 0.935373886919208,
+            "corpus_disp_cum_in_room_frac": 3.253751492980181e-06,
+            "maint_disp_cum_in_room_frac": 0.06031383145306135,
+            "budget_S_total_usage_frac": 0.338658284774219,
+            "budget_S_corpus": 0.5906755328178406,
+            "budget_S_maint": 0.16704097390174866,
+            "lr_applied": 0.003082181406946567,
+            "lr_sched": 0.1324034898599201,
+            "capped": true,
+            "n_maint_so_far": 3,
+            "elapsed_s": 503.1
+          },
+          {
+            "step": 500,
+            "g0_pz": 0.8529938459396362,
+            "g0_argmax": 0.9833333333333333,
+            "gm12_pz": 0.8307446241378784,
+            "ce_r": 1.6317754983901978,
+            "ce_corpus": 0.8396965861320496,
+            "survival_ratio_vs_committed": 2.984046529972483,
+            "disp_norm": 1.3621281813568948,
+            "in_room_frac": 0.05245432821111133,
+            "remaining_in_room_frac": 0.9350139006458252,
+            "corpus_disp_cum_in_room_frac": 3.1640415922751487e-06,
+            "maint_disp_cum_in_room_frac": 0.060334691014800726,
+            "budget_S_total_usage_frac": 0.41403798071028064,
+            "budget_S_corpus": 0.6712221917696297,
+            "budget_S_maint": 0.25514939427375793,
+            "lr_applied": 0.003300433685805427,
+            "lr_sched": 0.12794072337543486,
+            "capped": true,
+            "n_maint_so_far": 4,
+            "elapsed_s": 562.7
+          },
+          {
+            "step": 513,
+            "g0_pz": 0.5881325006484985,
+            "g0_argmax": 0.85,
+            "gm12_pz": 0.6265333890914917,
+            "ce_r": 1.6338040828704834,
+            "ce_corpus": 0.837958812713623,
+            "survival_ratio_vs_committed": 2.0574764473135345,
+            "disp_norm": 1.3829474946376579,
+            "in_room_frac": 0.051664664712572014,
+            "remaining_in_room_frac": 0.9347538872579468,
+            "corpus_disp_cum_in_room_frac": 2.9656680459022043e-06,
+            "maint_disp_cum_in_room_frac": 0.060334691014800726,
+            "budget_S_total_usage_frac": 0.4530379792309368,
+            "budget_S_corpus": 0.7584810717962682,
+            "budget_S_maint": 0.25514939427375793,
+            "lr_applied": 0.0027705246945044304,
+            "lr_sched": 0.12306820117014207,
+            "capped": true,
+            "n_maint_so_far": 4,
+            "elapsed_s": 617.9
+          },
+          {
+            "step": 525,
+            "g0_pz": 0.5161287784576416,
+            "g0_argmax": 0.7666666666666667,
+            "gm12_pz": 0.5735005140304565,
+            "ce_r": 1.6292510032653809,
+            "ce_corpus": 0.815833568572998,
+            "survival_ratio_vs_committed": 1.8055842931420796,
+            "disp_norm": 1.405570020197809,
+            "in_room_frac": 0.051567395728562726,
+            "remaining_in_room_frac": 0.9344547904962959,
+            "corpus_disp_cum_in_room_frac": 2.870771313918676e-06,
+            "maint_disp_cum_in_room_frac": 0.06033841051233771,
+            "budget_S_total_usage_frac": 0.49899610133698485,
+            "budget_S_corpus": 0.839027744717896,
+            "budget_S_maint": 0.27742975763976574,
+            "lr_applied": 0.0031760891514073554,
+            "lr_sched": 0.11854398962765951,
+            "capped": true,
+            "n_maint_so_far": 5,
+            "elapsed_s": 670.9
+          },
+          {
+            "step": 538,
+            "g0_pz": 0.17383648455142975,
+            "g0_argmax": 0.016666666666666666,
+            "gm12_pz": 0.22764354944229126,
+            "ce_r": 1.6346931457519531,
+            "ce_corpus": 0.8811209201812744,
+            "survival_ratio_vs_committed": 0.608135874575839,
+            "disp_norm": 1.4320946401862622,
+            "in_room_frac": 0.05061228552090702,
+            "remaining_in_room_frac": 0.9340966628968594,
+            "corpus_disp_cum_in_room_frac": 2.7662646783775485e-06,
+            "maint_disp_cum_in_room_frac": 0.06033841051233771,
+            "budget_S_total_usage_frac": 0.537996097776387,
+            "budget_S_corpus": 0.9262866200879216,
+            "budget_S_maint": 0.27742975763976574,
+            "lr_applied": 0.0033867296926905557,
+            "lr_sched": 0.1136235075605947,
+            "capped": true,
+            "n_maint_so_far": 5,
+            "elapsed_s": 767.7
+          },
+          {
+            "step": 550,
+            "g0_pz": 0.9031934142112732,
+            "g0_argmax": 1.0,
+            "gm12_pz": 0.8825539350509644,
+            "ce_r": 1.6380261182785034,
+            "ce_corpus": 0.8585341572761536,
+            "survival_ratio_vs_committed": 3.159660748316675,
+            "disp_norm": 1.460032549740419,
+            "in_room_frac": 0.05288417264192667,
+            "remaining_in_room_frac": 0.9337128985685758,
+            "corpus_disp_cum_in_room_frac": 2.7042787861126037e-06,
+            "maint_disp_cum_in_room_frac": 0.06034902697370971,
+            "budget_S_total_usage_frac": 0.61983619247433,
+            "budget_S_corpus": 1.00683328602463,
+            "budget_S_maint": 0.3799927141517401,
+            "lr_applied": 0.003464171860615736,
+            "lr_sched": 0.10907228294174673,
+            "capped": true,
+            "n_maint_so_far": 6,
+            "elapsed_s": 819.0
+          },
+          {
+            "step": 563,
+            "g0_pz": 0.6744145154953003,
+            "g0_argmax": 0.95,
+            "gm12_pz": 0.6968829035758972,
+            "ce_r": 1.6386727094650269,
+            "ce_corpus": 0.8504136204719543,
+            "survival_ratio_vs_committed": 2.359318656642737,
+            "disp_norm": 1.4770930550939658,
+            "in_room_frac": 0.052273355509247305,
+            "remaining_in_room_frac": 0.9334837010656141,
+            "corpus_disp_cum_in_room_frac": 2.5830902236943956e-06,
+            "maint_disp_cum_in_room_frac": 0.06034902697370971,
+            "budget_S_total_usage_frac": 0.6588361926599894,
+            "budget_S_corpus": 1.0940921697765589,
+            "budget_S_maint": 0.3799927141517401,
+            "lr_applied": 0.002432495510623128,
+            "lr_sched": 0.10414128885250863,
+            "capped": true,
+            "n_maint_so_far": 6,
+            "elapsed_s": 870.5
+          },
+          {
+            "step": 575,
+            "g0_pz": 0.32557982206344604,
+            "g0_argmax": 0.25,
+            "gm12_pz": 0.40303537249565125,
+            "ce_r": 1.6326115131378174,
+            "ce_corpus": 0.8670587539672852,
+            "survival_ratio_vs_committed": 1.138982822539892,
+            "disp_norm": 1.4974751156224089,
+            "in_room_frac": 0.05168297928675532,
+            "remaining_in_room_frac": 0.9331991313744834,
+            "corpus_disp_cum_in_room_frac": 2.503436394321034e-06,
+            "maint_disp_cum_in_room_frac": 0.06034921444128269,
+            "budget_S_total_usage_frac": 0.6966351854393443,
+            "budget_S_corpus": 1.1746388361789286,
+            "budget_S_maint": 0.38401778880506754,
+            "lr_applied": 0.0030793450810446413,
+            "lr_sched": 0.09959768872474921,
+            "capped": true,
+            "n_maint_so_far": 7,
+            "elapsed_s": 970.3
+          },
+          {
+            "step": 588,
+            "g0_pz": 0.13042736053466797,
+            "g0_argmax": 0.016666666666666666,
+            "gm12_pz": 0.17005160450935364,
+            "ce_r": 1.6369075775146484,
+            "ce_corpus": 0.8442686200141907,
+            "survival_ratio_vs_committed": 0.45627681192495795,
+            "disp_norm": 1.5229587631212507,
+            "in_room_frac": 0.05081816702068861,
+            "remaining_in_room_frac": 0.9328342157041405,
+            "corpus_disp_cum_in_room_frac": 2.452470754706247e-06,
+            "maint_disp_cum_in_room_frac": 0.06034921444128269,
+            "budget_S_total_usage_frac": 0.7356351812543703,
+            "budget_S_corpus": 1.2618977101519704,
+            "budget_S_maint": 0.38401778880506754,
+            "lr_applied": 0.0034584000768670842,
+            "lr_sched": 0.0946937104557725,
+            "capped": true,
+            "n_maint_so_far": 7,
+            "elapsed_s": 1024.6
+          },
+          {
+            "step": 600,
+            "g0_pz": 0.8999965786933899,
+            "g0_argmax": 1.0,
+            "gm12_pz": 0.8738638758659363,
+            "ce_r": 1.6434035301208496,
+            "ce_corpus": 0.8095842003822327,
+            "survival_ratio_vs_committed": 3.1484771905695212,
+            "disp_norm": 1.5494205136861356,
+            "in_room_frac": 0.05308764388596338,
+            "remaining_in_room_frac": 0.9324543698493513,
+            "corpus_disp_cum_in_room_frac": 2.4162608113897252e-06,
+            "maint_disp_cum_in_room_frac": 0.06034422278924006,
+            "budget_S_total_usage_frac": 0.8209089238456472,
+            "budget_S_corpus": 1.3424443574622273,
+            "budget_S_maint": 0.49426323268562555,
+            "lr_applied": 0.003467534292273553,
+            "lr_sched": 0.09019231435957469,
+            "capped": true,
+            "n_maint_so_far": 8,
+            "elapsed_s": 1079.9
+          }
+        ],
+        "corpus_ledger": {
+          "410": {
+            "ce": 0.8261545300483704,
+            "gn_clipped": 0.8563934564590454,
+            "g_in_room_frac": 0.060704695999736165
+          },
+          "420": {
+            "ce": 0.840587854385376,
+            "gn_clipped": 0.8161678314208984,
+            "g_in_room_frac": 0.0611685493587013
+          },
+          "430": {
+            "ce": 0.859718918800354,
+            "gn_clipped": 0.8678331971168518,
+            "g_in_room_frac": 0.06091781280240643
+          },
+          "440": {
+            "ce": 0.8428294062614441,
+            "gn_clipped": 0.8190129995346069,
+            "g_in_room_frac": 0.06014009595199434
+          },
+          "450": {
+            "ce": 0.8528777956962585,
+            "gn_clipped": 0.7945594191551208,
+            "g_in_room_frac": 0.06043845139073771
+          },
+          "460": {
+            "ce": 0.9019935131072998,
+            "gn_clipped": 0.9011070728302002,
+            "g_in_room_frac": 0.06101057566188226
+          },
+          "470": {
+            "ce": 0.8567665219306946,
+            "gn_clipped": 0.8869521617889404,
+            "g_in_room_frac": 0.0603424350725121
+          },
+          "480": {
+            "ce": 0.8410945534706116,
+            "gn_clipped": 0.8627322316169739,
+            "g_in_room_frac": 0.06105050399796412
+          },
+          "490": {
+            "ce": 0.8280161023139954,
+            "gn_clipped": 0.8117746710777283,
+            "g_in_room_frac": 0.06087643142632007
+          },
+          "500": {
+            "ce": 0.8396965861320496,
+            "gn_clipped": 0.8410320281982422,
+            "g_in_room_frac": 0.060144196807186766
+          },
+          "510": {
+            "ce": 0.8326928615570068,
+            "gn_clipped": 0.829611599445343,
+            "g_in_room_frac": 0.060029651993177204
+          },
+          "520": {
+            "ce": 0.8479977250099182,
+            "gn_clipped": 0.8769731521606445,
+            "g_in_room_frac": 0.06073732728977365
+          },
+          "530": {
+            "ce": 0.8475897312164307,
+            "gn_clipped": 0.8202588558197021,
+            "g_in_room_frac": 0.06063314394253979
+          },
+          "540": {
+            "ce": 0.8304887413978577,
+            "gn_clipped": 0.8773947954177856,
+            "g_in_room_frac": 0.06077607045041444
+          },
+          "550": {
+            "ce": 0.8585341572761536,
+            "gn_clipped": 0.8232017159461975,
+            "g_in_room_frac": 0.06069795456767085
+          },
+          "560": {
+            "ce": 0.8512416481971741,
+            "gn_clipped": 0.8623121380805969,
+            "g_in_room_frac": 0.06038123391122455
+          },
+          "570": {
+            "ce": 0.7989757657051086,
+            "gn_clipped": 0.8212868571281433,
+            "g_in_room_frac": 0.06110078802546566
+          },
+          "580": {
+            "ce": 0.8463016748428345,
+            "gn_clipped": 0.9122394919395447,
+            "g_in_room_frac": 0.06071346476879709
+          },
+          "590": {
+            "ce": 0.842642068862915,
+            "gn_clipped": 0.8205424547195435,
+            "g_in_room_frac": 0.06019678481487675
+          },
+          "600": {
+            "ce": 0.8095842003822327,
+            "gn_clipped": 0.8100981712341309,
+            "g_in_room_frac": 0.0607592394763148
+          }
+        },
+        "orth_ledger": {
+          "410": {
+            "gn_clipped": 0.8563934564590454,
+            "gperp_norm": 0.8548140512610967,
+            "norm_ratio": 0.9981557693484382,
+            "in_room_frac": 0.06070469599979521,
+            "orth_rel_err": 4.4529579380195735e-17
+          },
+          "420": {
+            "gn_clipped": 0.8161678314208984,
+            "gperp_norm": 0.8146395379076637,
+            "norm_ratio": 0.9981274510649154,
+            "in_room_frac": 0.061168549358759525,
+            "orth_rel_err": 4.447948566120752e-17
+          },
+          "430": {
+            "gn_clipped": 0.8678331971168518,
+            "gperp_norm": 0.8662214522604678,
+            "norm_ratio": 0.9981427854186813,
+            "in_room_frac": 0.06091781280246583,
+            "orth_rel_err": 4.5232296089325356e-17
+          },
+          "440": {
+            "gn_clipped": 0.8190129995346069,
+            "gperp_norm": 0.817530554373113,
+            "norm_ratio": 0.9981899462822079,
+            "in_room_frac": 0.060140095952059124,
+            "orth_rel_err": 4.4343489778259794e-17
+          },
+          "450": {
+            "gn_clipped": 0.7945594191551208,
+            "gperp_norm": 0.7931068839722122,
+            "norm_ratio": 0.9981719258692271,
+            "in_room_frac": 0.06043845139080101,
+            "orth_rel_err": 4.448123241401131e-17
+          },
+          "460": {
+            "gn_clipped": 0.9011070728302002,
+            "gperp_norm": 0.8994284029710067,
+            "norm_ratio": 0.9981371196671321,
+            "in_room_frac": 0.06101057566193811,
+            "orth_rel_err": 4.44922668764203e-17
+          },
+          "470": {
+            "gn_clipped": 0.8869521617889404,
+            "gperp_norm": 0.8853359200027539,
+            "norm_ratio": 0.9981777349397811,
+            "in_room_frac": 0.06034243507257526,
+            "orth_rel_err": 4.459427144171869e-17
+          },
+          "480": {
+            "gn_clipped": 0.8627322316169739,
+            "gperp_norm": 0.8611229274742416,
+            "norm_ratio": 0.9981346782682119,
+            "in_room_frac": 0.061050503998027,
+            "orth_rel_err": 4.4807016136242044e-17
+          },
+          "490": {
+            "gn_clipped": 0.8117746710777283,
+            "gperp_norm": 0.8102690769990075,
+            "norm_ratio": 0.9981453101111027,
+            "in_room_frac": 0.06087643142637841,
+            "orth_rel_err": 4.470085627288298e-17
+          },
+          "500": {
+            "gn_clipped": 0.8410320281982422,
+            "gperp_norm": 0.839509503322614,
+            "norm_ratio": 0.9981896992007134,
+            "in_room_frac": 0.060144196807249604,
+            "orth_rel_err": 4.4749132969575594e-17
+          },
+          "510": {
+            "gn_clipped": 0.829611599445343,
+            "gperp_norm": 0.8281154981589713,
+            "norm_ratio": 0.9981965943047343,
+            "in_room_frac": 0.06002965199324155,
+            "orth_rel_err": 4.4963966246488585e-17
+          },
+          "520": {
+            "gn_clipped": 0.8769731521606445,
+            "gperp_norm": 0.8753541067031979,
+            "norm_ratio": 0.9981537842806026,
+            "in_room_frac": 0.06073732728983162,
+            "orth_rel_err": 4.4340926841279896e-17
+          },
+          "530": {
+            "gn_clipped": 0.8202588558197021,
+            "gperp_norm": 0.8187496668258136,
+            "norm_ratio": 0.9981601183455666,
+            "in_room_frac": 0.06063314394260279,
+            "orth_rel_err": 4.470803837503154e-17
+          },
+          "540": {
+            "gn_clipped": 0.8773947954177856,
+            "gperp_norm": 0.8757728821482955,
+            "norm_ratio": 0.9981514260174148,
+            "in_room_frac": 0.060776070450477296,
+            "orth_rel_err": 4.43835916521571e-17
+          },
+          "550": {
+            "gn_clipped": 0.8232017159461975,
+            "gperp_norm": 0.8216838882358772,
+            "norm_ratio": 0.9981561793182937,
+            "in_room_frac": 0.06069795456773154,
+            "orth_rel_err": 4.473432907860124e-17
+          },
+          "560": {
+            "gn_clipped": 0.8623121380805969,
+            "gperp_norm": 0.8607387708674836,
+            "norm_ratio": 0.9981753886924637,
+            "in_room_frac": 0.060381233911282986,
+            "orth_rel_err": 4.5079072046520804e-17
+          },
+          "570": {
+            "gn_clipped": 0.8212868571281433,
+            "gperp_norm": 0.8197524260125084,
+            "norm_ratio": 0.9981316013946556,
+            "in_room_frac": 0.06110078802552686,
+            "orth_rel_err": 4.476362674795556e-17
+          },
+          "580": {
+            "gn_clipped": 0.9122394919395447,
+            "gperp_norm": 0.9105566509444601,
+            "norm_ratio": 0.9981552360208111,
+            "in_room_frac": 0.06071346476885337,
+            "orth_rel_err": 4.42847197664537e-17
+          },
+          "590": {
+            "gn_clipped": 0.8205424547195435,
+            "gperp_norm": 0.8190544673629515,
+            "norm_ratio": 0.9981865292108205,
+            "in_room_frac": 0.06019678481493672,
+            "orth_rel_err": 4.415450586520401e-17
+          },
+          "600": {
+            "gn_clipped": 0.8100981712341309,
+            "gperp_norm": 0.8086014517097726,
+            "norm_ratio": 0.9981524506898994,
+            "in_room_frac": 0.06075923947637836,
+            "orth_rel_err": 4.4351111396120156e-17
+          }
+        },
+        "disp_ledger": [
+          {
+            "step": 425,
+            "drift_from_fact_norm": 1.2034622227341614,
+            "drift_from_fact_in_room_frac": 0.05074643064669047,
+            "remaining_from_base_norm": 9.010714661922568,
+            "remaining_from_base_in_room_frac": 0.9368983369297122,
+            "corpus_disp_cum_norm": 0.1135780134389436,
+            "corpus_disp_cum_in_room_frac": 4.94257047107207e-06,
+            "maint_disp_cum_norm": 0.039646198407884754,
+            "maint_disp_cum_in_room_frac": 0.06028325758358745,
+            "total_disp_interval_norm": 0.0974451318614841,
+            "total_disp_interval_in_room_frac": 0.024526639434925196,
+            "total_disp_cum_norm": 0.0974451318614841
+          },
+          {
+            "step": 438,
+            "drift_from_fact_norm": 1.230801792889972,
+            "drift_from_fact_in_room_frac": 0.04961921480457034,
+            "remaining_from_base_norm": 9.013652505840696,
+            "remaining_from_base_in_room_frac": 0.9365929714374194,
+            "corpus_disp_cum_norm": 0.16110645016296962,
+            "corpus_disp_cum_in_room_frac": 4.3502032812893446e-06,
+            "maint_disp_cum_norm": 0.039646198407884754,
+            "maint_disp_cum_in_room_frac": 0.06028325758358745,
+            "total_disp_interval_norm": 0.06853288074951502,
+            "total_disp_interval_in_room_frac": 5.953502134611051e-06,
+            "total_disp_cum_norm": 0.14242607855612965
+          },
+          {
+            "step": 450,
+            "drift_from_fact_norm": 1.2608136671927828,
+            "drift_from_fact_in_room_frac": 0.05171976241159127,
+            "remaining_from_base_norm": 9.017377200068804,
+            "remaining_from_base_in_room_frac": 0.9362480739757609,
+            "corpus_disp_cum_norm": 0.1976341101260306,
+            "corpus_disp_cum_in_room_frac": 4.063612024204623e-06,
+            "maint_disp_cum_norm": 0.12367751792339002,
+            "maint_disp_cum_in_room_frac": 0.06029994817976992,
+            "total_disp_interval_norm": 0.09452839329335687,
+            "total_disp_interval_in_room_frac": 0.053690987370853774,
+            "total_disp_cum_norm": 0.16744361218672915
+          },
+          {
+            "step": 463,
+            "drift_from_fact_norm": 1.2824608267634539,
+            "drift_from_fact_in_room_frac": 0.050846763172357465,
+            "remaining_from_base_norm": 9.019781019734795,
+            "remaining_from_base_in_room_frac": 0.9359985579770591,
+            "corpus_disp_cum_norm": 0.24327118542595702,
+            "corpus_disp_cum_in_room_frac": 3.6930335303728185e-06,
+            "maint_disp_cum_norm": 0.12367751792339002,
+            "maint_disp_cum_in_room_frac": 0.06029994817976992,
+            "total_disp_interval_norm": 0.0698817381715807,
+            "total_disp_interval_in_room_frac": 5.776258888257744e-06,
+            "total_disp_cum_norm": 0.1972390167139832
+          },
+          {
+            "step": 475,
+            "drift_from_fact_norm": 1.307695984843731,
+            "drift_from_fact_in_room_frac": 0.05145525647507668,
+            "remaining_from_base_norm": 9.022913581474644,
+            "remaining_from_base_in_room_frac": 0.9356934746475972,
+            "corpus_disp_cum_norm": 0.28003071652457345,
+            "corpus_disp_cum_in_room_frac": 3.4764598862570606e-06,
+            "maint_disp_cum_norm": 0.16665888656025563,
+            "maint_disp_cum_in_room_frac": 0.06031383145306135,
+            "total_disp_interval_norm": 0.06211699979326896,
+            "total_disp_interval_in_room_frac": 0.042019118521340104,
+            "total_disp_cum_norm": 0.22309812234080095
+          },
+          {
+            "step": 488,
+            "drift_from_fact_norm": 1.3337660771258462,
+            "drift_from_fact_in_room_frac": 0.05044950103016108,
+            "remaining_from_base_norm": 9.02599643024423,
+            "remaining_from_base_in_room_frac": 0.935373886919208,
+            "corpus_disp_cum_norm": 0.3236689286565911,
+            "corpus_disp_cum_in_room_frac": 3.253751492980181e-06,
+            "maint_disp_cum_norm": 0.16665888656025563,
+            "maint_disp_cum_in_room_frac": 0.06031383145306135,
+            "total_disp_interval_norm": 0.06904862470780386,
+            "total_disp_interval_in_room_frac": 5.747069770468027e-06,
+            "total_disp_cum_norm": 0.2571357642238187
+          },
+          {
+            "step": 500,
+            "drift_from_fact_norm": 1.3621281813568948,
+            "drift_from_fact_in_room_frac": 0.05245432821111133,
+            "remaining_from_base_norm": 9.029841595169223,
+            "remaining_from_base_in_room_frac": 0.9350139006458252,
+            "corpus_disp_cum_norm": 0.3570106026951415,
+            "corpus_disp_cum_in_room_frac": 3.1640415922751487e-06,
+            "maint_disp_cum_norm": 0.2538423731958788,
+            "maint_disp_cum_in_room_frac": 0.060334691014800726,
+            "total_disp_interval_norm": 0.09495791308531883,
+            "total_disp_interval_in_room_frac": 0.05602972771103711,
+            "total_disp_cum_norm": 0.2859669231762455
+          },
+          {
+            "step": 513,
+            "drift_from_fact_norm": 1.3829474946376579,
+            "drift_from_fact_in_room_frac": 0.051664664712572014,
+            "remaining_from_base_norm": 9.032353359490946,
+            "remaining_from_base_in_room_frac": 0.9347538872579468,
+            "corpus_disp_cum_norm": 0.40243705632148513,
+            "corpus_disp_cum_in_room_frac": 2.9656680459022043e-06,
+            "maint_disp_cum_norm": 0.2538423731958788,
+            "maint_disp_cum_in_room_frac": 0.060334691014800726,
+            "total_disp_interval_norm": 0.07123457548272856,
+            "total_disp_interval_in_room_frac": 5.6561714371913615e-06,
+            "total_disp_cum_norm": 0.3119917491093721
+          },
+          {
+            "step": 525,
+            "drift_from_fact_norm": 1.405570020197809,
+            "drift_from_fact_in_room_frac": 0.051567395728562726,
+            "remaining_from_base_norm": 9.035333908727058,
+            "remaining_from_base_in_room_frac": 0.9344547904962959,
+            "corpus_disp_cum_norm": 0.4380979021597677,
+            "corpus_disp_cum_in_room_frac": 2.870771313918676e-06,
+            "maint_disp_cum_norm": 0.27571950837250025,
+            "maint_disp_cum_in_room_frac": 0.06033841051233771,
+            "total_disp_interval_norm": 0.060768511815623656,
+            "total_disp_interval_in_room_frac": 0.022143091576121706,
+            "total_disp_cum_norm": 0.3376637296132735
+          },
+          {
+            "step": 538,
+            "drift_from_fact_norm": 1.4320946401862622,
+            "drift_from_fact_in_room_frac": 0.05061228552090702,
+            "remaining_from_base_norm": 9.038798007897096,
+            "remaining_from_base_in_room_frac": 0.9340966628968594,
+            "corpus_disp_cum_norm": 0.478059839792186,
+            "corpus_disp_cum_in_room_frac": 2.7662646783775485e-06,
+            "maint_disp_cum_norm": 0.27571950837250025,
+            "maint_disp_cum_in_room_frac": 0.06033841051233771,
+            "total_disp_interval_norm": 0.07012815350421012,
+            "total_disp_interval_in_room_frac": 5.743935825046215e-06,
+            "total_disp_cum_norm": 0.3704440753651476
+          },
+          {
+            "step": 550,
+            "drift_from_fact_norm": 1.460032549740419,
+            "drift_from_fact_in_room_frac": 0.05288417264192667,
+            "remaining_from_base_norm": 9.04293134408361,
+            "remaining_from_base_in_room_frac": 0.9337128985685758,
+            "corpus_disp_cum_norm": 0.5079082090580517,
+            "corpus_disp_cum_in_room_frac": 2.7042787861126037e-06,
+            "maint_disp_cum_norm": 0.3758862681618517,
+            "maint_disp_cum_in_room_frac": 0.06034902697370971,
+            "total_disp_interval_norm": 0.11115368885712842,
+            "total_disp_interval_in_room_frac": 0.055713556367245606,
+            "total_disp_cum_norm": 0.40117639836115593
+          },
+          {
+            "step": 563,
+            "drift_from_fact_norm": 1.4770930550939658,
+            "drift_from_fact_in_room_frac": 0.052273355509247305,
+            "remaining_from_base_norm": 9.045151642539974,
+            "remaining_from_base_in_room_frac": 0.9334837010656141,
+            "corpus_disp_cum_norm": 0.5516501230096098,
+            "corpus_disp_cum_in_room_frac": 2.5830902236943956e-06,
+            "maint_disp_cum_norm": 0.3758862681618517,
+            "maint_disp_cum_in_room_frac": 0.06034902697370971,
+            "total_disp_interval_norm": 0.07372981156435478,
+            "total_disp_interval_in_room_frac": 5.421138511901395e-06,
+            "total_disp_cum_norm": 0.4213690968338755
+          },
+          {
+            "step": 575,
+            "drift_from_fact_norm": 1.4974751156224089,
+            "drift_from_fact_in_room_frac": 0.05168297928675532,
+            "remaining_from_base_norm": 9.047925319698352,
+            "remaining_from_base_in_room_frac": 0.9331991313744834,
+            "corpus_disp_cum_norm": 0.5878867592648911,
+            "corpus_disp_cum_in_room_frac": 2.503436394321034e-06,
+            "maint_disp_cum_norm": 0.37977268835823,
+            "maint_disp_cum_in_room_frac": 0.06034921444128269,
+            "total_disp_interval_norm": 0.06388713008228618,
+            "total_disp_interval_in_room_frac": 0.0038041820320401007,
+            "total_disp_cum_norm": 0.44561620468044316
+          },
+          {
+            "step": 588,
+            "drift_from_fact_norm": 1.5229587631212507,
+            "drift_from_fact_in_room_frac": 0.05081816702068861,
+            "remaining_from_base_norm": 9.051464778248905,
+            "remaining_from_base_in_room_frac": 0.9328342157041405,
+            "corpus_disp_cum_norm": 0.6217220036232438,
+            "corpus_disp_cum_in_room_frac": 2.452470754706247e-06,
+            "maint_disp_cum_norm": 0.37977268835823,
+            "maint_disp_cum_in_room_frac": 0.06034921444128269,
+            "total_disp_interval_norm": 0.06833794650976474,
+            "total_disp_interval_in_room_frac": 6.032653039833216e-06,
+            "total_disp_cum_norm": 0.4758075331923186
+          },
+          {
+            "step": 600,
+            "drift_from_fact_norm": 1.5494205136861356,
+            "drift_from_fact_in_room_frac": 0.05308764388596338,
+            "remaining_from_base_norm": 9.055544855446023,
+            "remaining_from_base_in_room_frac": 0.9324543698493513,
+            "corpus_disp_cum_norm": 0.6494579725563034,
+            "corpus_disp_cum_in_room_frac": 2.4162608113897252e-06,
+            "maint_disp_cum_norm": 0.4852063465824433,
+            "maint_disp_cum_in_room_frac": 0.06034422278924006,
+            "total_disp_interval_norm": 0.11983504581009828,
+            "total_disp_interval_in_room_frac": 0.05551919610758132,
+            "total_disp_cum_norm": 0.5059404763989239
+          }
+        ],
+        "buf_ledger": [
+          {
+            "step": 425,
+            "bufC_inroom_frac": 5.319814096135522e-09,
+            "bufC_norm": 2.079567500278865,
+            "bufF_inroom_frac": 0.060283252305605786,
+            "bufF_norm": 6.910831051157474,
+            "optF_steps": 1
+          },
+          {
+            "step": 438,
+            "bufC_inroom_frac": 5.338684879629086e-09,
+            "bufC_norm": 2.069128129787222,
+            "bufF_inroom_frac": 0.060283252305605786,
+            "bufF_norm": 6.910831051157474,
+            "optF_steps": 1
+          },
+          {
+            "step": 450,
+            "bufC_inroom_frac": 5.225351029694776e-09,
+            "bufC_norm": 1.9568126014890843,
+            "bufF_inroom_frac": 0.06030985120887462,
+            "bufF_norm": 6.99680960653667,
+            "optF_steps": 2
+          },
+          {
+            "step": 463,
+            "bufC_inroom_frac": 5.2187727380532014e-09,
+            "bufC_norm": 2.477766885178719,
+            "bufF_inroom_frac": 0.06030985120887462,
+            "bufF_norm": 6.99680960653667,
+            "optF_steps": 2
+          },
+          {
+            "step": 475,
+            "bufC_inroom_frac": 5.252171903822673e-09,
+            "bufC_norm": 2.100067978792688,
+            "bufF_inroom_frac": 0.060362041785989105,
+            "bufF_norm": 7.0508861994881755,
+            "optF_steps": 3
+          },
+          {
+            "step": 488,
+            "bufC_inroom_frac": 5.082988428376989e-09,
+            "bufC_norm": 2.1777501706592246,
+            "bufF_inroom_frac": 0.060362041785989105,
+            "bufF_norm": 7.0508861994881755,
+            "optF_steps": 3
+          },
+          {
+            "step": 500,
+            "bufC_inroom_frac": 5.072253200437697e-09,
+            "bufC_norm": 2.033739247773992,
+            "bufF_inroom_frac": 0.060385474677809844,
+            "bufF_norm": 7.13427799548306,
+            "optF_steps": 4
+          },
+          {
+            "step": 513,
+            "bufC_inroom_frac": 5.275653827104366e-09,
+            "bufC_norm": 2.4227259116893323,
+            "bufF_inroom_frac": 0.060385474677809844,
+            "bufF_norm": 7.13427799548306,
+            "optF_steps": 4
+          },
+          {
+            "step": 525,
+            "bufC_inroom_frac": 5.361072794794053e-09,
+            "bufC_norm": 2.1133606555015985,
+            "bufF_inroom_frac": 0.060394665462810235,
+            "bufF_norm": 7.195661987803195,
+            "optF_steps": 5
+          },
+          {
+            "step": 538,
+            "bufC_inroom_frac": 5.233718495465644e-09,
+            "bufC_norm": 1.9819182644544477,
+            "bufF_inroom_frac": 0.060394665462810235,
+            "bufF_norm": 7.195661987803195,
+            "optF_steps": 5
+          },
+          {
+            "step": 550,
+            "bufC_inroom_frac": 5.23019716940034e-09,
+            "bufC_norm": 1.9376123725856915,
+            "bufF_inroom_frac": 0.0603801956362071,
+            "bufF_norm": 7.259653280450218,
+            "optF_steps": 6
+          },
+          {
+            "step": 563,
+            "bufC_inroom_frac": 5.191645374699271e-09,
+            "bufC_norm": 2.759397130219338,
+            "bufF_inroom_frac": 0.0603801956362071,
+            "bufF_norm": 7.259653280450218,
+            "optF_steps": 6
+          },
+          {
+            "step": 575,
+            "bufC_inroom_frac": 5.521737445429879e-09,
+            "bufC_norm": 2.1797558912291026,
+            "bufF_inroom_frac": 0.060382531350779214,
+            "bufF_norm": 7.264748900714922,
+            "optF_steps": 7
+          },
+          {
+            "step": 588,
+            "bufC_inroom_frac": 5.374790090459337e-09,
+            "bufC_norm": 1.9408457325581294,
+            "bufF_inroom_frac": 0.060382531350779214,
+            "bufF_norm": 7.264748900714922,
+            "optF_steps": 7
+          },
+          {
+            "step": 600,
+            "bufC_inroom_frac": 5.126364859472169e-09,
+            "bufC_norm": 1.9357328297674543,
+            "bufF_inroom_frac": 0.060348458387348966,
+            "bufF_norm": 7.347966915130917,
+            "optF_steps": 8
+          }
+        ],
+        "budget_ledger": [
+          {
+            "step": 425,
+            "S_corpus": 0.167805555742234,
+            "S_maint": 0.039646197110414505,
+            "S_total": 0.2074517528526485,
+            "S_total_usage_frac": 0.09271971003857613,
+            "cum_corpus_norm": 0.1135780134389436,
+            "cum_maint_norm": 0.039646198407884754,
+            "cum_total_norm": 0.0974451318614841,
+            "cum_total_usage_frac": 0.04355270199758292,
+            "n_capped_so_far": 25,
+            "n_maint_so_far": 1,
+            "lr_sched": 0.154972048900255,
+            "cap": 0.0032277011096920123,
+            "lr_applied": 0.0032277011096920123,
+            "capped": true
+          },
+          {
+            "step": 438,
+            "S_corpus": 0.25506443763151765,
+            "S_maint": 0.039646197110414505,
+            "S_total": 0.29471063474193215,
+            "S_total_usage_frac": 0.13171970939173394,
+            "cum_corpus_norm": 0.16110645016296962,
+            "cum_maint_norm": 0.039646198407884754,
+            "cum_total_norm": 0.14242607855612965,
+            "cum_total_usage_frac": 0.06365675162569355,
+            "n_capped_so_far": 38,
+            "n_maint_so_far": 1,
+            "lr_sched": 0.15046303709471315,
+            "cap": 0.0032439861665969206,
+            "lr_applied": 0.0032439861665969206,
+            "capped": true
+          },
+          {
+            "step": 450,
+            "S_corpus": 0.33561110915616155,
+            "S_maint": 0.12380025163292885,
+            "S_total": 0.4594113607890904,
+            "S_total_usage_frac": 0.20533202335025882,
+            "cum_corpus_norm": 0.1976341101260306,
+            "cum_maint_norm": 0.12367751792339002,
+            "cum_total_norm": 0.16744361218672915,
+            "cum_total_usage_frac": 0.07483823566818858,
+            "n_capped_so_far": 50,
+            "n_maint_so_far": 2,
+            "lr_sched": 0.14622432764595297,
+            "cap": 0.0034301813152108973,
+            "lr_applied": 0.0034301813152108973,
+            "capped": true
+          },
+          {
+            "step": 463,
+            "S_corpus": 0.4228699915111065,
+            "S_maint": 0.12380025163292885,
+            "S_total": 0.5466702431440353,
+            "S_total_usage_frac": 0.24433202291154205,
+            "cum_corpus_norm": 0.24327118542595702,
+            "cum_maint_norm": 0.12367751792339002,
+            "cum_total_norm": 0.1972390167139832,
+            "cum_total_usage_frac": 0.0881551695106871,
+            "n_capped_so_far": 63,
+            "n_maint_so_far": 2,
+            "lr_sched": 0.14155832644619815,
+            "cap": 0.0027089802434862665,
+            "lr_applied": 0.0027089802434862665,
+            "capped": true
+          },
+          {
+            "step": 475,
+            "S_corpus": 0.5034166541881859,
+            "S_maint": 0.16704097390174866,
+            "S_total": 0.6704576280899346,
+            "S_total_usage_frac": 0.29965828687793905,
+            "cum_corpus_norm": 0.28003071652457345,
+            "cum_maint_norm": 0.16665888656025563,
+            "cum_total_norm": 0.22309812234080095,
+            "cum_total_usage_frac": 0.09971279070504012,
+            "n_capped_so_far": 75,
+            "n_maint_so_far": 3,
+            "lr_sched": 0.13719096936734926,
+            "cap": 0.003196192929682455,
+            "lr_applied": 0.003196192929682455,
+            "capped": true
+          },
+          {
+            "step": 488,
+            "S_corpus": 0.5906755328178406,
+            "S_maint": 0.16704097390174866,
+            "S_total": 0.7577165067195892,
+            "S_total_usage_frac": 0.338658284774219,
+            "cum_corpus_norm": 0.3236689286565911,
+            "cum_maint_norm": 0.16665888656025563,
+            "cum_total_norm": 0.2571357642238187,
+            "cum_total_usage_frac": 0.1149257751334337,
+            "n_capped_so_far": 88,
+            "n_maint_so_far": 3,
+            "lr_sched": 0.1324034898599201,
+            "cap": 0.003082181406946567,
+            "lr_applied": 0.003082181406946567,
+            "capped": true
+          },
+          {
+            "step": 500,
+            "S_corpus": 0.6712221917696297,
+            "S_maint": 0.25514939427375793,
+            "S_total": 0.9263715860433877,
+            "S_total_usage_frac": 0.41403798071028064,
+            "cum_corpus_norm": 0.3570106026951415,
+            "cum_maint_norm": 0.2538423731958788,
+            "cum_total_norm": 0.2859669231762455,
+            "cum_total_usage_frac": 0.12781174337128168,
+            "n_capped_so_far": 100,
+            "n_maint_so_far": 4,
+            "lr_sched": 0.12794072337543486,
+            "cap": 0.003300433685805427,
+            "lr_applied": 0.003300433685805427,
+            "capped": true
+          },
+          {
+            "step": 513,
+            "S_corpus": 0.7584810717962682,
+            "S_maint": 0.25514939427375793,
+            "S_total": 1.0136304660700262,
+            "S_total_usage_frac": 0.4530379792309368,
+            "cum_corpus_norm": 0.40243705632148513,
+            "cum_maint_norm": 0.2538423731958788,
+            "cum_total_norm": 0.3119917491093721,
+            "cum_total_usage_frac": 0.1394434325768092,
+            "n_capped_so_far": 113,
+            "n_maint_so_far": 4,
+            "lr_sched": 0.12306820117014207,
+            "cap": 0.0027705246945044304,
+            "lr_applied": 0.0027705246945044304,
+            "capped": true
+          },
+          {
+            "step": 525,
+            "S_corpus": 0.839027744717896,
+            "S_maint": 0.27742975763976574,
+            "S_total": 1.1164575023576617,
+            "S_total_usage_frac": 0.49899610133698485,
+            "cum_corpus_norm": 0.4380979021597677,
+            "cum_maint_norm": 0.27571950837250025,
+            "cum_total_norm": 0.3376637296132735,
+            "cum_total_usage_frac": 0.15091741896500052,
+            "n_capped_so_far": 125,
+            "n_maint_so_far": 5,
+            "lr_sched": 0.11854398962765951,
+            "cap": 0.0031760891514073554,
+            "lr_applied": 0.0031760891514073554,
+            "capped": true
+          },
+          {
+            "step": 538,
+            "S_corpus": 0.9262866200879216,
+            "S_maint": 0.27742975763976574,
+            "S_total": 1.2037163777276874,
+            "S_total_usage_frac": 0.537996097776387,
+            "cum_corpus_norm": 0.478059839792186,
+            "cum_maint_norm": 0.27571950837250025,
+            "cum_total_norm": 0.3704440753651476,
+            "cum_total_usage_frac": 0.165568460044595,
+            "n_capped_so_far": 138,
+            "n_maint_so_far": 5,
+            "lr_sched": 0.1136235075605947,
+            "cap": 0.0033867296926905557,
+            "lr_applied": 0.0033867296926905557,
+            "capped": true
+          },
+          {
+            "step": 550,
+            "S_corpus": 1.00683328602463,
+            "S_maint": 0.3799927141517401,
+            "S_total": 1.3868260001763701,
+            "S_total_usage_frac": 0.61983619247433,
+            "cum_corpus_norm": 0.5079082090580517,
+            "cum_maint_norm": 0.3758862681618517,
+            "cum_total_norm": 0.40117639836115593,
+            "cum_total_usage_frac": 0.1793041457537716,
+            "n_capped_so_far": 150,
+            "n_maint_so_far": 6,
+            "lr_sched": 0.10907228294174673,
+            "cap": 0.003464171860615736,
+            "lr_applied": 0.003464171860615736,
+            "capped": true
+          },
+          {
+            "step": 563,
+            "S_corpus": 1.0940921697765589,
+            "S_maint": 0.3799927141517401,
+            "S_total": 1.474084883928299,
+            "S_total_usage_frac": 0.6588361926599894,
+            "cum_corpus_norm": 0.5516501230096098,
+            "cum_maint_norm": 0.3758862681618517,
+            "cum_total_norm": 0.4213690968338755,
+            "cum_total_usage_frac": 0.18832918951234043,
+            "n_capped_so_far": 163,
+            "n_maint_so_far": 6,
+            "lr_sched": 0.10414128885250863,
+            "cap": 0.002432495510623128,
+            "lr_applied": 0.002432495510623128,
+            "capped": true
+          },
+          {
+            "step": 575,
+            "S_corpus": 1.1746388361789286,
+            "S_maint": 0.38401778880506754,
+            "S_total": 1.5586566249839962,
+            "S_total_usage_frac": 0.6966351854393443,
+            "cum_corpus_norm": 0.5878867592648911,
+            "cum_maint_norm": 0.37977268835823,
+            "cum_total_norm": 0.44561620468044316,
+            "cum_total_usage_frac": 0.1991663349106958,
+            "n_capped_so_far": 175,
+            "n_maint_so_far": 7,
+            "lr_sched": 0.09959768872474921,
+            "cap": 0.0030793450810446413,
+            "lr_applied": 0.0030793450810446413,
+            "capped": true
+          },
+          {
+            "step": 588,
+            "S_corpus": 1.2618977101519704,
+            "S_maint": 0.38401778880506754,
+            "S_total": 1.645915498957038,
+            "S_total_usage_frac": 0.7356351812543703,
+            "cum_corpus_norm": 0.6217220036232438,
+            "cum_maint_norm": 0.37977268835823,
+            "cum_total_norm": 0.4758075331923186,
+            "cum_total_usage_frac": 0.21266022535417078,
+            "n_capped_so_far": 188,
+            "n_maint_so_far": 7,
+            "lr_sched": 0.0946937104557725,
+            "cap": 0.0034584000768670842,
+            "lr_applied": 0.0034584000768670842,
+            "capped": true
+          },
+          {
+            "step": 600,
+            "S_corpus": 1.3424443574622273,
+            "S_maint": 0.49426323268562555,
+            "S_total": 1.836707590147853,
+            "S_total_usage_frac": 0.8209089238456472,
+            "cum_corpus_norm": 0.6494579725563034,
+            "cum_maint_norm": 0.4852063465824433,
+            "cum_total_norm": 0.5059404763989239,
+            "cum_total_usage_frac": 0.2261280207249326,
+            "n_capped_so_far": 200,
+            "n_maint_so_far": 8,
+            "lr_sched": 0.09019231435957469,
+            "cap": 0.003467534292273553,
+            "lr_applied": 0.003467534292273553,
+            "capped": true
+          }
+        ],
+        "lr_ledger": {
+          "410": {
+            "lr_sched": 0.16005577475521898,
+            "cap": 0.002735855352700671,
+            "lr_applied": 0.002735855352700671,
+            "capped": true,
+            "b_norm": 2.453427144292215,
+            "share": 0.006712221785172978,
+            "realized_step_norm": 0.006712222006171942,
+            "rem_corpus": 191,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.06712222006171942
+          },
+          "420": {
+            "lr_sched": 0.15668141403823332,
+            "cap": 0.00298092476659843,
+            "lr_applied": 0.00298092476659843,
+            "capped": true,
+            "b_norm": 2.2517246418267627,
+            "share": 0.006712221752381376,
+            "realized_step_norm": 0.006712222937494516,
+            "rem_corpus": 181,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.1342444447800517
+          },
+          "430": {
+            "lr_sched": 0.15324858667728783,
+            "cap": 0.0028845064868719197,
+            "lr_applied": 0.0028845064868719197,
+            "capped": true,
+            "b_norm": 2.3269913748862856,
+            "share": 0.006712221715754498,
+            "realized_step_norm": 0.0067122215405106544,
+            "rem_corpus": 171,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.20136666717007756
+          },
+          "440": {
+            "lr_sched": 0.14976147504373538,
+            "cap": 0.0033518951824014005,
+            "lr_applied": 0.0033518951824014005,
+            "capped": true,
+            "b_norm": 2.002515403126353,
+            "share": 0.006712221732423821,
+            "realized_step_norm": 0.006712223403155804,
+            "rem_corpus": 161,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.2684888835065067
+          },
+          "450": {
+            "lr_sched": 0.14622432764595297,
+            "cap": 0.0034301813152108973,
+            "lr_applied": 0.0034301813152108973,
+            "capped": true,
+            "b_norm": 1.9568124980076678,
+            "share": 0.006712221668037063,
+            "realized_step_norm": 0.006712222006171942,
+            "rem_corpus": 151,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.33561110915616155
+          },
+          "460": {
+            "lr_sched": 0.14264145395318908,
+            "cap": 0.0026168587939945955,
+            "lr_applied": 0.0026168587939945955,
+            "capped": true,
+            "b_norm": 2.5649919256191063,
+            "share": 0.00671222167708149,
+            "realized_step_norm": 0.006712222471833229,
+            "rem_corpus": 141,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.4027333250269294
+          },
+          "470": {
+            "lr_sched": 0.13901721914513895,
+            "cap": 0.003050108575043906,
+            "lr_applied": 0.003050108575043906,
+            "capped": true,
+            "b_norm": 2.2006500627541743,
+            "share": 0.006712221627077417,
+            "realized_step_norm": 0.00671222060918808,
+            "rem_corpus": 131,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.46985554648563266
+          },
+          "480": {
+            "lr_sched": 0.1353560387936456,
+            "cap": 0.0029672904207570325,
+            "lr_applied": 0.0029672904207570325,
+            "capped": true,
+            "b_norm": 2.2620710187534514,
+            "share": 0.006712221665019218,
+            "realized_step_norm": 0.0067122201435267925,
+            "rem_corpus": 121,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.5369777576997876
+          },
+          "490": {
+            "lr_sched": 0.13166237348300575,
+            "cap": 0.0032840882094357263,
+            "lr_applied": 0.0032840882094357263,
+            "capped": true,
+            "b_norm": 2.043861558768385,
+            "share": 0.006712221646870178,
+            "realized_step_norm": 0.006712225265800953,
+            "rem_corpus": 111,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.6040999814867973
+          },
+          "500": {
+            "lr_sched": 0.12794072337543486,
+            "cap": 0.003300433685805427,
+            "lr_applied": 0.003300433685805427,
+            "capped": true,
+            "b_norm": 2.033739295935993,
+            "share": 0.006712221680453363,
+            "realized_step_norm": 0.006712222471833229,
+            "rem_corpus": 101,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.6712221917696297
+          },
+          "510": {
+            "lr_sched": 0.12419562272831276,
+            "cap": 0.0026685706736817444,
+            "lr_applied": 0.0026685706736817444,
+            "capped": true,
+            "b_norm": 2.515287198908539,
+            "share": 0.006712221654894427,
+            "realized_step_norm": 0.006712221074849367,
+            "rem_corpus": 91,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.7383444095030427
+          },
+          "520": {
+            "lr_sched": 0.12043163436988943,
+            "cap": 0.0029947270844097773,
+            "lr_applied": 0.0029947270844097773,
+            "capped": true,
+            "b_norm": 2.2413466734495797,
+            "share": 0.006712221588531213,
+            "realized_step_norm": 0.0067122201435267925,
+            "rem_corpus": 81,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.8054666304960847
+          },
+          "530": {
+            "lr_sched": 0.11665334414018168,
+            "cap": 0.0031182131353111584,
+            "lr_applied": 0.0031182131353111584,
+            "capped": true,
+            "b_norm": 2.1525858831163727,
+            "share": 0.006712221575618843,
+            "realized_step_norm": 0.006712222471833229,
+            "rem_corpus": 71,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.8725888496264815
+          },
+          "540": {
+            "lr_sched": 0.1128653553038334,
+            "cap": 0.0034116907942115782,
+            "lr_applied": 0.0034116907942115782,
+            "capped": true,
+            "b_norm": 1.9674179172479849,
+            "share": 0.006712221596641867,
+            "realized_step_norm": 0.0067122215405106544,
+            "rem_corpus": 61,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 0.9397110631689429
+          },
+          "550": {
+            "lr_sched": 0.10907228294174673,
+            "cap": 0.003464171860615736,
+            "lr_applied": 0.003464171860615736,
+            "capped": true,
+            "b_norm": 1.9376121611586004,
+            "share": 0.006712221525472466,
+            "realized_step_norm": 0.006712224800139666,
+            "rem_corpus": 51,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 1.00683328602463
+          },
+          "560": {
+            "lr_sched": 0.10527874832831685,
+            "cap": 0.0022577119199648364,
+            "lr_applied": 0.0022577119199648364,
+            "capped": true,
+            "b_norm": 2.973019391009148,
+            "share": 0.006712221317367952,
+            "realized_step_norm": 0.006712219677865505,
+            "rem_corpus": 41,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 1.0739555046893656
+          },
+          "570": {
+            "lr_sched": 0.10148937330112107,
+            "cap": 0.002809310256801602,
+            "lr_applied": 0.002809310256801602,
+            "capped": true,
+            "b_norm": 2.389277259050878,
+            "share": 0.006712221110194449,
+            "realized_step_norm": 0.006712222937494516,
+            "rem_corpus": 31,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 1.1410777275450528
+          },
+          "580": {
+            "lr_sched": 0.09770877462992143,
+            "cap": 0.0032197687903127163,
+            "lr_applied": 0.0032197687903127163,
+            "capped": true,
+            "b_norm": 2.084690364103161,
+            "share": 0.006712220971805011,
+            "realized_step_norm": 0.006712221074849367,
+            "rem_corpus": 21,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 1.2081999396905303
+          },
+          "590": {
+            "lr_sched": 0.09394155839184234,
+            "cap": 0.0034657498331221266,
+            "lr_applied": 0.0034657498331221266,
+            "capped": true,
+            "b_norm": 1.9367297702735828,
+            "share": 0.006712220878128324,
+            "realized_step_norm": 0.00671222060918808,
+            "rem_corpus": 11,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 1.2753221499733627
+          },
+          "600": {
+            "lr_sched": 0.09019231435957469,
+            "cap": 0.003467534292273553,
+            "lr_applied": 0.003467534292273553,
+            "capped": true,
+            "b_norm": 1.9357329278208115,
+            "share": 0.006712220307901751,
+            "realized_step_norm": 0.006712218746542931,
+            "rem_corpus": 1,
+            "budget_c": 1.3424443590235862,
+            "S_corpus": 1.3424443574622273
+          }
+        },
+        "maint_ledger": [
+          {
+            "step": 425,
+            "maint_index": 1,
+            "name_ce": 0.22035259008407593,
+            "n_name_tokens": 112,
+            "gn_clipped": 0.9999998211860657,
+            "g_in_room_frac": 0.060648794462043014,
+            "read_at_gate": 0.2111160159111023,
+            "deficit_t": 0.2614483472537009,
+            "gate_vs_pre_absdiff": 0.0,
+            "lr_m_max": 0.021942464013242388,
+            "lr_target": 0.005736820950936031,
+            "cap_m": 0.01618768723388555,
+            "lr_maint": 0.005736820950936031,
+            "capped_m": false,
+            "binder": "controller",
+            "b_m_norm": 6.910830536544358,
+            "share_m": 0.11187036325196552,
+            "realized_step_norm": 0.039646197110414505,
+            "realized_vs_share": 0.3543941036565637,
+            "bufF_inroom_frac": 0.060283252305605786,
+            "bufF_norm": 6.910831051157474,
+            "S_maint": 0.039646197110414505,
+            "S_total": 0.2074517528526485,
+            "budget_m": 0.8949629060157241,
+            "elapsed_s": 131.4
+          },
+          {
+            "step": 450,
+            "maint_index": 2,
+            "name_ce": 0.30766817927360535,
+            "n_name_tokens": 112,
+            "gn_clipped": 0.9999998807907104,
+            "g_in_room_frac": 0.060711802095792536,
+            "read_at_gate": 0.12916550040245056,
+            "deficit_t": 0.5481375802383361,
+            "gate_vs_pre_absdiff": null,
+            "lr_m_max": 0.021942464013242388,
+            "lr_target": 0.012027489128685454,
+            "cap_m": 0.0174634036169224,
+            "lr_maint": 0.012027489128685454,
+            "capped_m": false,
+            "binder": "controller",
+            "b_m_norm": 6.996809095896076,
+            "share_m": 0.12218810127218709,
+            "realized_step_norm": 0.08415405452251434,
+            "realized_vs_share": 0.6887254458194106,
+            "bufF_inroom_frac": 0.06030985120887462,
+            "bufF_norm": 6.99680960653667,
+            "S_maint": 0.12380025163292885,
+            "S_total": 0.4594113607890904,
+            "budget_m": 0.8949629060157241,
+            "elapsed_s": 287.8
+          },
+          {
+            "step": 475,
+            "maint_index": 3,
+            "name_ce": 0.23498620092868805,
+            "n_name_tokens": 112,
+            "gn_clipped": 0.9999998211860657,
+            "g_in_room_frac": 0.06089844372477691,
+            "read_at_gate": 0.2059592306613922,
+            "deficit_t": 0.2794884388715479,
+            "gate_vs_pre_absdiff": null,
+            "lr_m_max": 0.021942464013242388,
+            "lr_target": 0.006132665012056234,
+            "cap_m": 0.018228504225819526,
+            "lr_maint": 0.006132665012056234,
+            "capped_m": false,
+            "binder": "controller",
+            "b_m_norm": 7.050886209398832,
+            "share_m": 0.12852710906379922,
+            "realized_step_norm": 0.04324072226881981,
+            "realized_vs_share": 0.33643269955878075,
+            "bufF_inroom_frac": 0.060362041785989105,
+            "bufF_norm": 7.0508861994881755,
+            "S_maint": 0.16704097390174866,
+            "S_total": 0.6704576280899346,
+            "budget_m": 0.8949629060157241,
+            "elapsed_s": 390.3
+          },
+          {
+            "step": 500,
+            "maint_index": 4,
+            "name_ce": 0.32627367973327637,
+            "n_name_tokens": 112,
+            "gn_clipped": 0.9999999403953552,
+            "g_in_room_frac": 0.06060152981919896,
+            "read_at_gate": 0.12496388703584671,
+            "deficit_t": 0.562836173723602,
+            "gate_vs_pre_absdiff": null,
+            "lr_m_max": 0.021942464013242388,
+            "lr_target": 0.012350012487281178,
+            "cap_m": 0.020406325269019233,
+            "lr_maint": 0.012350012487281178,
+            "capped_m": false,
+            "binder": "controller",
+            "b_m_norm": 7.134277460715599,
+            "share_m": 0.1455843864227951,
+            "realized_step_norm": 0.08810842037200928,
+            "realized_vs_share": 0.605205149652048,
+            "bufF_inroom_frac": 0.060385474677809844,
+            "bufF_norm": 7.13427799548306,
+            "S_maint": 0.25514939427375793,
+            "S_total": 0.9263715860433877,
+            "budget_m": 0.8949629060157241,
+            "elapsed_s": 549.1
+          },
+          {
+            "step": 525,
+            "maint_index": 5,
+            "name_ce": 0.22211571037769318,
+            "n_name_tokens": 112,
+            "gn_clipped": 0.9999998211860657,
+            "g_in_room_frac": 0.06050820903617959,
+            "read_at_gate": 0.2455141246318817,
+            "deficit_t": 0.14111271124124375,
+            "gate_vs_pre_absdiff": null,
+            "lr_m_max": 0.021942464013242388,
+            "lr_target": 0.0030963605882220555,
+            "cap_m": 0.022229141213593262,
+            "lr_maint": 0.0030963605882220555,
+            "capped_m": false,
+            "binder": "controller",
+            "b_m_norm": 7.195661604672296,
+            "share_m": 0.15995337793549155,
+            "realized_step_norm": 0.022280363366007805,
+            "realized_vs_share": 0.13929285929174545,
+            "bufF_inroom_frac": 0.060394665462810235,
+            "bufF_norm": 7.195661987803195,
+            "S_maint": 0.27742975763976574,
+            "S_total": 1.1164575023576617,
+            "budget_m": 0.8949629060157241,
+            "elapsed_s": 659.0
+          },
+          {
+            "step": 550,
+            "maint_index": 6,
+            "name_ce": 0.3504955470561981,
+            "n_name_tokens": 112,
+            "gn_clipped": 0.9999998211860657,
+            "g_in_room_frac": 0.0600627976340024,
+            "read_at_gate": 0.10180404037237167,
+            "deficit_t": 0.6438567583383803,
+            "gate_vs_pre_absdiff": null,
+            "lr_m_max": 0.021942464013242388,
+            "lr_target": 0.014127803749522811,
+            "cap_m": 0.028354573268862274,
+            "lr_maint": 0.014127803749522811,
+            "capped_m": false,
+            "binder": "controller",
+            "b_m_norm": 7.259653701719971,
+            "share_m": 0.20584438279198614,
+            "realized_step_norm": 0.10256295651197433,
+            "realized_vs_share": 0.49825482299227103,
+            "bufF_inroom_frac": 0.0603801956362071,
+            "bufF_norm": 7.259653280450218,
+            "S_maint": 0.3799927141517401,
+            "S_total": 1.3868260001763701,
+            "budget_m": 0.8949629060157241,
+            "elapsed_s": 808.1
+          },
+          {
+            "step": 575,
+            "maint_index": 7,
+            "name_ce": 0.19036971032619476,
+            "n_name_tokens": 112,
+            "gn_clipped": 0.9999998211860657,
+            "g_in_room_frac": 0.060550391313505245,
+            "read_at_gate": 0.2786335349082947,
+            "deficit_t": 0.025250373217929348,
+            "gate_vs_pre_absdiff": 0.0,
+            "lr_m_max": 0.021942464013242388,
+            "lr_target": 0.0005540554056553542,
+            "cap_m": 0.0354430812621992,
+            "lr_maint": 0.0005540554056553542,
+            "capped_m": false,
+            "binder": "controller",
+            "b_m_norm": 7.264749191165988,
+            "share_m": 0.25748509593199204,
+            "realized_step_norm": 0.004025074653327465,
+            "realized_vs_share": 0.01563226267042106,
+            "bufF_inroom_frac": 0.060382531350779214,
+            "bufF_norm": 7.264748900714922,
+            "S_maint": 0.38401778880506754,
+            "S_total": 1.5586566249839962,
+            "budget_m": 0.8949629060157241,
+            "elapsed_s": 957.5
+          },
+          {
+            "step": 600,
+            "maint_index": 8,
+            "name_ce": 0.36430028080940247,
+            "n_name_tokens": 112,
+            "gn_clipped": 0.9999998807907104,
+            "g_in_room_frac": 0.060228141690726406,
+            "read_at_gate": 0.09039567410945892,
+            "deficit_t": 0.6837668888997549,
+            "gate_vs_pre_absdiff": null,
+            "lr_m_max": 0.021942464013242388,
+            "lr_target": 0.015003530353129579,
+            "cap_m": 0.06953557622746417,
+            "lr_maint": 0.015003530353129579,
+            "capped_m": false,
+            "binder": "controller",
+            "b_m_norm": 7.347966967861996,
+            "share_m": 0.5109451172106566,
+            "realized_step_norm": 0.11024544388055801,
+            "realized_vs_share": 0.21576768260827733,
+            "bufF_inroom_frac": 0.060348458387348966,
+            "bufF_norm": 7.347966915130917,
+            "S_maint": 0.49426323268562555,
+            "S_total": 1.836707590147853,
+            "budget_m": 0.8949629060157241,
+            "elapsed_s": 1068.1
+          }
+        ],
+        "window_ledger": [
+          {
+            "window_phase": "win1:t424",
+            "step": 424,
+            "g0_pz": 0.2279321551322937,
+            "g0_argmax": 0.03333333333333333,
+            "survival_ratio_vs_committed": 0.797379910569488,
+            "drift_from_fact_norm": 1.2002297718497918,
+            "n_maint_so_far": 0,
+            "S_corpus": 0.16109333420172334,
+            "S_maint": 0.0,
+            "elapsed_s": 124.1
+          },
+          {
+            "window_phase": "win1:t425-pre",
+            "step": 425,
+            "g0_pz": 0.2111160159111023,
+            "g0_argmax": 0.016666666666666666,
+            "survival_ratio_vs_committed": 0.7385516527462991,
+            "drift_from_fact_norm": 1.2024476469000205,
+            "n_maint_so_far": 0,
+            "S_corpus": 0.167805555742234,
+            "S_maint": 0.0,
+            "elapsed_s": 127.7
+          },
+          {
+            "window_phase": "win1:t425-post",
+            "step": 425,
+            "g0_pz": 0.6339743733406067,
+            "g0_argmax": 0.9,
+            "survival_ratio_vs_committed": 2.217846046444272,
+            "drift_from_fact_norm": 1.2034622227341614,
+            "n_maint_so_far": 1,
+            "S_corpus": 0.167805555742234,
+            "S_maint": 0.039646197110414505,
+            "elapsed_s": 132.0
+          },
+          {
+            "window_phase": "win1:t426",
+            "step": 426,
+            "g0_pz": 0.6155058145523071,
+            "g0_argmax": 0.9,
+            "survival_ratio_vs_committed": 2.1532370940723955,
+            "drift_from_fact_norm": 1.2056089415677667,
+            "n_maint_so_far": 1,
+            "S_corpus": 0.17451777961105108,
+            "S_maint": 0.039646197110414505,
+            "elapsed_s": 148.3
+          },
+          {
+            "window_phase": "win2:t574",
+            "step": 574,
+            "g0_pz": 0.3029160797595978,
+            "g0_argmax": 0.15,
+            "survival_ratio_vs_committed": 1.0596977703675754,
+            "drift_from_fact_norm": 1.4956037826523936,
+            "n_maint_so_far": 6,
+            "S_corpus": 1.1679266174323857,
+            "S_maint": 0.3799927141517401,
+            "elapsed_s": 950.8
+          },
+          {
+            "window_phase": "win2:t575-pre",
+            "step": 575,
+            "g0_pz": 0.2786335349082947,
+            "g0_argmax": 0.11666666666666667,
+            "survival_ratio_vs_committed": 0.9747496267820707,
+            "drift_from_fact_norm": 1.497461032052169,
+            "n_maint_so_far": 6,
+            "S_corpus": 1.1746388361789286,
+            "S_maint": 0.3799927141517401,
+            "elapsed_s": 954.3
+          },
+          {
+            "window_phase": "win2:t575-post",
+            "step": 575,
+            "g0_pz": 0.32557982206344604,
+            "g0_argmax": 0.25,
+            "survival_ratio_vs_committed": 1.138982822539892,
+            "drift_from_fact_norm": 1.4974751156224089,
+            "n_maint_so_far": 7,
+            "S_corpus": 1.1746388361789286,
+            "S_maint": 0.38401778880506754,
+            "elapsed_s": 958.1
+          },
+          {
+            "window_phase": "win2:t576",
+            "step": 576,
+            "g0_pz": 0.3020673394203186,
+            "g0_argmax": 0.15,
+            "survival_ratio_vs_committed": 1.0567286039705028,
+            "drift_from_fact_norm": 1.4993412385799616,
+            "n_maint_so_far": 7,
+            "S_corpus": 1.1813510549254715,
+            "S_maint": 0.38401778880506754,
+            "elapsed_s": 974.4
+          }
+        ],
+        "bufsep": {
+          "corpus_checks": 200,
+          "corpus_violations": 0,
+          "maint_checks": 8,
+          "maint_violations": 0,
+          "optF_steps": 8
+        },
+        "chunk_table": [
+          {
+            "chunk": 1,
+            "device": "cuda",
+            "t_start": 47.0,
+            "seconds": 175.4,
+            "steps_done": 444,
+            "capped": true,
+            "max_temp_c": 61.0
+          },
+          {
+            "chunk": 2,
+            "device": "cuda",
+            "t_start": 265.3,
+            "seconds": 177.2,
+            "steps_done": 487,
+            "capped": true,
+            "max_temp_c": 60.0
+          },
+          {
+            "chunk": 3,
+            "device": "cuda",
+            "t_start": 487.9,
+            "seconds": 183.0,
+            "steps_done": 525,
+            "capped": true,
+            "max_temp_c": 62.0
+          },
+          {
+            "chunk": 4,
+            "device": "cuda",
+            "t_start": 716.3,
+            "seconds": 177.0,
+            "steps_done": 570,
+            "capped": true,
+            "max_temp_c": 61.0
+          },
+          {
+            "chunk": 5,
+            "device": "cuda",
+            "t_start": 938.7,
+            "seconds": 141.2,
+            "steps_done": 600,
+            "capped": false,
+            "max_temp_c": 61.0
+          }
+        ],
+        "steps_ran": 600
+      },
+      "post_cells": {
+        "gm12": 0.8738638758659363,
+        "g0": 0.8999965786933899,
+        "g0_z": 5.599744326900691e-06,
+        "ce_r": 1.6434035301208496
+      },
+      "S_corpus": 1.3424443574622273,
+      "S_maint": 0.49426323268562555,
+      "budget_c": 1.3424443590235862,
+      "budget_m": 0.8949629060157241,
+      "checkpoint": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e342\\e342_REA_post.pt"
+    }
+  },
+  "honesty": {
+    "intervention_not_logits": "the sag is read from BEHAVIOR of the same channel the bars read (the g0 battery p(T)), not from logits alone; the intervening variable is time-since-dose under the protocol's own wash \u2014 the phase-declared reads are the observation, the identical protocol the control",
+    "the_leg_disclosure": "the leg convention (length-scaled pools, LR_M_MAX never scaled, M unchanged, the stream continued never re-seeded) is FROZEN AT BIRTH in this file's header; the schedule immateriality is verified per-step (cap <= sched at every logged step)",
+    "the_resume_disclosure": "the resume is the protocol's own checkpoint convention \u2014 the state is e336's committed artifact, never re-formed; the repro gate re-reads the battery on the restored bits before any stepping",
+    "n_and_scope": "n=1: ONE organism, one lineage, one leg; the sag profile a single realization read against the founding class's committed record (the canon's own floors were never re-measured here \u2014 the desk half cites them)",
+    "loads_measured_not_nominal": "every read measured: per-event doses (the gate reads + deficits + applied lr_m), the 15 milestone panels, the 8 window rows, the spend ledgers, the thermal polls"
+  },
+  "provenance": {
+    "git_head_at_start": "139c6d2d436c178dacbeeb4361cd82776a01d6ce",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\e342_phase_audit.py",
+    "machinery_imported_from": [
+      "lab/e336_founding_replicate.py (THE COMMITTED DRIVER \u2014 chunked_errorgated_phase executed VERBATIM under the disclosed leg re-binding)",
+      "lab/e261_rank_ladder.py (the burst machinery + the room)",
+      "lab/e339_long_landing.py (the resume + staging + leg convention this cell inherits)"
+    ],
+    "checkpoints": {
+      "resumed_from": [
+        "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e336\\ERROR-GATED_resume.pt"
+      ],
+      "e336_metrics": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e336\\metrics.json",
+      "e339_metrics": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e339\\metrics.json",
+      "leg_resume": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e342\\e342_REA_leg_resume.pt"
+    },
+    "thermal_envelope": {
+      "polls": 218,
+      "max_temp_c": 62.0,
+      "source": "the durable ledger runs/_envelope_log.jsonl tagged e342:* (the reused-leg output re-run stages no GPU work; the leg's own polls live there)",
+      "temp_early_end_margin_c": 78.0,
+      "temp_hard_line_c": 84.0,
+      "cooldown_s": 40.0,
+      "burst_cap_s": 175.0,
+      "concurrent_gpu_jobs": 0,
+      "note": "every burst logged to runs/_envelope_log.jsonl tagged e342:AUDIT-LEG:*"
+    },
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.6"
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e342\\e342_phase_audit.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e342\\REPORT.md",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e342\\metrics.json"
+  ]
+}

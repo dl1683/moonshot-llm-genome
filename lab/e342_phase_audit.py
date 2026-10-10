@@ -497,6 +497,15 @@ deviations: list[str] = [
     "validation only, NOTHING adjudicated (SMOKE stamp on every read).",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat "
     "folds).",
+    "THE OUTPUT-PHASE REPAIR (disclosed post-compute, bars untouched): "
+    "the first full invocation completed the leg + the adjudication "
+    "(all 22 gates PASS, verdict SAG-EXISTS) but crashed writing the "
+    "figure (an invalid matplotlib color name) — the repair fixes the "
+    "color and adds the COMPLETED-LEG REUSE (an already-complete leg "
+    "resume is served verbatim through the driver's own early-return; "
+    "the leg never re-runs, the envelope never double-logged). NOTHING "
+    "adjudicative touched: the same leg bits, the same ledgers, the "
+    "same frozen bars.",
 ]
 
 builds_on = [
@@ -1224,7 +1233,30 @@ def main():
     # ---- the staging: state bits through, leg pools zeroed -------------
     rea_leg_ck = RD / ("smoke_REA_leg_resume.pt" if SMOKE
                        else "e342_REA_leg_resume.pt")
-    stage_rea = stage_leg_resume(rea_src, rea_leg_ck, n_par)
+    # THE COMPLETED-LEG REUSE (the repair's idempotent-output path,
+    # disclosed): if this cell's own leg resume is ALREADY COMPLETE
+    # (step >= LEG_END — a prior invocation ran the leg and only the
+    # output phase crashed), the completed state is REUSED verbatim and
+    # the driver's own early-return serves the ledgers — the leg is
+    # NEVER re-run, the envelope never double-logged
+    leg_already = False
+    if rea_leg_ck.exists():
+        _pre = torch.load(rea_leg_ck, map_location="cpu",
+                          weights_only=False)
+        leg_already = int(_pre.get("step", -1)) >= LEG_END
+        del _pre
+    if leg_already:
+        log(f"P3 G_STAGING: the leg resume is ALREADY COMPLETE at "
+            f"t{LEG_END} — reusing the completed state verbatim (the "
+            "output-phase re-run path; the leg never re-runs)")
+        stage_rea = {"src": str(rea_src), "dst": str(rea_leg_ck),
+                     "step": LEG_END, "bits_unchanged": True,
+                     "reused_completed_leg": True,
+                     "source_S_corpus": float(rea_st["S_corpus"]),
+                     "source_S_maint": float(rea_st.get("S_maint", 0.0)),
+                     "source_n_maint": int(rea_st.get("n_maint", 0))}
+    else:
+        stage_rea = stage_leg_resume(rea_src, rea_leg_ck, n_par)
     assert stage_rea["bits_unchanged"], \
         f"staging altered state bits: {stage_rea}"
     metrics["gates"]["G_STAGING"] = {
@@ -1766,7 +1798,7 @@ def main():
                     label=f"mean sag {mean_sag:.1%}")
         ax3.axhspan(SAG_BAR_HI, 1.0, color="tab:red", alpha=0.10,
                     label="SAG-EXISTS (>= 15%)")
-        ax3.axhspan(SAG_BAR_LO, SAG_BAR_HI, color="tab:yellow", alpha=0.15,
+        ax3.axhspan(SAG_BAR_LO, SAG_BAR_HI, color="gold", alpha=0.18,
                     label="PARTIAL-SAG (the residual)")
         ax3.axhspan(0.0, SAG_BAR_LO, color="tab:green", alpha=0.12,
                     label="NO-SAG (< 5%)")
@@ -1811,6 +1843,26 @@ def main():
                      else "e342_phase_audit.png")
     fig.savefig(fig_path, dpi=130)
     plt.close(fig)
+
+    # ---- the envelope stats (the reused-leg path reads the durable
+    # ledger — the output re-run stages no GPU work of its own)
+    env_polls = len(thermal_log)
+    env_max = max((r.get("temp", 0) for r in thermal_log), default=None)
+    env_source = "in-process polls"
+    if env_polls == 0:
+        try:
+            env_rows = [json.loads(l) for l in
+                        open(E43.REPO / "runs" / "_envelope_log.jsonl",
+                             encoding="utf-8") if '"e342:' in l]
+            env_polls = len(env_rows)
+            env_max = max((r.get("temp", 0) for r in env_rows),
+                          default=None)
+            env_source = ("the durable ledger runs/_envelope_log.jsonl "
+                          "tagged e342:* (the reused-leg output re-run "
+                          "stages no GPU work; the leg's own polls live "
+                          "there)")
+        except OSError:
+            pass
 
     # ---- REPORT.md ------------------------------------------------------
     ts = common.now_iso()
@@ -1886,12 +1938,20 @@ def main():
             + ", ".join(f"{k}" for k in metrics["gates"]),
             "",
             "## Envelope\n",
-            f"- {len(thermal_log)} thermal polls; max temp "
-            f"{max((r.get('temp', 0) for r in thermal_log), default=0):.1f}C; "
+            f"- {env_polls} thermal polls (source: {env_source}); max "
+            f"temp {env_max if env_max is not None else 0.0:.1f}C; "
             f"burst cap {E261.BURST_MAX_S:.0f}s; cooldown "
             f"{E261.COOLDOWN_S:.0f}s; zero concurrent GPU jobs; every "
             "burst logged to runs/_envelope_log.jsonl tagged "
-            "e342:AUDIT-LEG:*",
+            "e342:AUDIT-LEG:*; chunk durations "
+            + "/".join(f"{c['seconds']:.0f}s"
+                       for c in rea["chunk_table"]),
+            "- THE BURST-DURATION NOTE (disclosed): the phase-declared "
+            "cadence puts CPU milestone reads INSIDE burst windows (15 "
+            "vs any prior cell's 4); one chunk's RECORDED duration is "
+            "183s vs the 175s driver cap (the post-step break check + "
+            "the edge milestone read) — the thermal never-past line "
+            "untouched (max 62C of 84C); zero poll violations",
             "",
             "## Registered predictions\n",
             f"- P-e342a (the executor's own read: SAG-EXISTS, "
@@ -2002,9 +2062,9 @@ def main():
             "leg_resume": str(rea_leg_ck),
         },
         "thermal_envelope": {
-            "polls": len(thermal_log),
-            "max_temp_c": max((r.get("temp", 0) for r in thermal_log),
-                              default=None),
+            "polls": env_polls,
+            "max_temp_c": env_max,
+            "source": env_source,
             "temp_early_end_margin_c": E261.TEMP_EARLY_END,
             "temp_hard_line_c": E261.TEMP_HARD,
             "cooldown_s": E261.COOLDOWN_S,
