@@ -1,9 +1,13 @@
-# THE LAWS OF MEMORY DEATH AND PRESERVATION — v3 (2026-10-10, drafted ~02:06Z true)
+# THE LAWS OF MEMORY DEATH AND PRESERVATION — v3.1 (2026-10-10; v3 drafted ~02:06Z true, structural pass ~20:40Z)
 
 The successor to v2 (2026-10-06). Drafted under the R74 protocol: a TWO-LAYER document —
 each law states only its INVARIANT CORE (what holds across every observed mode, branch,
 room, and lineage); every n=1, one-branch, one-mode, or pending-gate condition lives in
 that law's SCOPE BLOCK, never in the law's prose. One pending gate per clause, named.
+v3.1 (the R79-R80 structural order, applied post-R80): the resolved gates PROMOTED into
+law prose (e326 → Law 2b; e325 → Law 6); Law 3's scope SPLIT into labeled sub-blocks;
+the chamber, recipe, mechanism, ceiling, scale, and fingerprint material RE-CUT as
+LAW 8 — THE GUARD AND ITS CEILING (eight laws).
 The instrument-calibration rule that lived in Law 3 through five rounds of v2-era
 revisions is DEMOTED to METHODS (the R74 demotion vote). Fourteen days of measurement,
 one 2.74M architecture, ~50 cells; every number below is artifact-traceable (the R71-R74
@@ -34,16 +38,17 @@ MIXED adjudication; e299 completes the split: orthogonal-rig corpses restore EXA
 free-stream corpses only ~15% — two kinds of death, and the whole-state claim is
 fully licensed for the orthogonal class; 84% mass intact). The read dies at a few parts in a thousand of orthogonal drift; the curve
 is consistent with survival ~ 1/drift; PASSIVE BUYS TIME, NEVER PERMANENCE (the ~1,040-
-step geometric clock, e290).
+step geometric clock, e290). THE KILL EDGE IS CLASS-DEPENDENT (e326, resolved gate
+promoted at v3.1): on root-formed states the edge sits ABOVE the canon bracket (0.6066
+vs its 0.3194 at the canon's kill budget; the drift realizations replicate, so the move
+is the read's response) — the canon is the CONSERVATIVE class; an absolute floor is
+ruled out.
 
 *Scope (Law 2b):* the coupling bracket — budgets [0.0008, 0.004] of write norm, realized
 drift [0.00071, 0.00323] — is TWO RUNGS, n=1, measured on ONE CLASS of a two-convention
 formation split (the base-formed canon; see Law 3's scope — the 'wheel' was the net0 confound). "Constant" language is banned:
-it is a bracket. RESOLVED GATE (e326): EITHER-MOVES — the bracket is CLASS-DEPENDENT
-and the canon is the CONSERVATIVE class (the root-formed kill edge sits ABOVE 0.004x:
-0.6066 at the canon's kill budget vs its 0.3194; the drift realizations replicate, so
-the move is the read's response; the absolute floor ruled out). The margin's riders
-point in the safe direction. RIG-SPECIFICITY: the out-of-room death account holds for
+it is a bracket. [e326's resolution PROMOTED to Law 2b prose at v3.1.] The margin's
+riders point in the safe direction. RIG-SPECIFICITY: the out-of-room death account holds for
 orthogonalized-rig kills; free-stream kills carry in-room components (e299's two kinds
 of death). Law 4's necessity consequence, Law 5's passive pricing, T277's premise, and
 the e311 dose scale inherit the one-class clause (net0: the canon is base-formed;
@@ -67,7 +72,7 @@ slot receptive (TAVIREN), another damped its own (NYSTORA, 1.90x -> 0.18x); ever
 shifts its neighbors; the map is invisible to generic probes at virgin state and
 substantially specific to the write lineage that produced it.
 
-*Scope (Law 3):* [RE-WRITTEN AT T304 — the net0 confound]: the "bimodal formation wheel"
+*Scope (Law 3a — the formation classes; net0 re-written at T304):* the "bimodal formation wheel"
 (e323/e324/e327) was TWO LOADING CONVENTIONS, not two stochastic modes — the canon
 lineage installs from the base (prior-level start); the census lineage installs from
 the g1c root (standing read 0.745). AT STEP ONE NOTHING HAPPENS in either class
@@ -85,50 +90,16 @@ re-words to the root-formed class (still conservative-direction); e334's control
 re-words to a root-formed substrate (still a genuine second-substrate sufficiency
 test). LOCALIZATION IS THE COLD-START'S SIGNATURE (W052, re-worded). STANDING RULE:
 any cross-era install comparison gate-checks the STARTING STATE (the net0 class
-recorded in every install's metrics). RESOLVED (e335): the root IS the ladder's cons final, bit-exact — its 0.745
+recorded in every install's metrics).
+
+*Scope (Law 3b — warm re-formation, resolved e335):* the root IS the ladder's cons final, bit-exact — its 0.745
 INSTALL-BORN (the same Dmix teach as the canon), cons-reshaped 0.53->0.74, and
 WASHABLE IN ONE STEP (retention 0.0003; the cold-AdamW start-up shock kills it
 while CE_R barely notices): WARM RE-FORMATION IS RESUMED FORMATION, LITERALLY.
-RESOLVED (e337/e338/e340 — the chamber): the ball decomposes into THREE separable
-contributions — THE WALL (a runtime displacement veto, not a memory guard: it held
-the organism while fresh reads died), THE HEIGHT (recovery capacity: the s100
-gradient fresh 0.045 < controller-400 0.118 < controller-800 0.130 << varied-300 0.244 <
-fixed-300 0.320 << cons [0.957, 1.088] [RESOLVED: e341 — the survival axis is DOSE; x39 — the
-recovery axis is HEIGHT (t400 keeps 90.2% of t800's retention at half the dose; the controller's
-dose axis flat 400-800). THE RECIPE: ANNEAL-DOSE (300 steps, any menu) + HEIGHT + WALL = a wash-proof
-memory; the cons band (~1.0) is the recipe's PROTOCOL-SCOPE clause. THE MECHANISM
-(x40, landed at R79): THE ARMOR IS DIRECTIONAL — the gaussian does nothing to anyone
-(flat at 1R for all states) while the kill-ray separates hugely: the annealed read is
-armored EXACTLY along the wash's direction (the vaccination is directional practice:
-per-step far sub-floor, the path 5.7x the floor — the path is the carrier, the
-endpoints alone sit ~6% below, disclosed); the battery tail is the DOSE's (shared),
-the offset tail the VARIETY's (support breadth — the generalization channel seen
-as breadth)]), and
-THE ANNEALING (first-step survival — A DOSE, NOT A TYPE: e341's matched-steps
-control bought the s1 survival with EITHER context menu, varied or fixed; the s1
-annihilation is height-blind but ANY 300-step annealed read survives; CONTEXT VARIETY
-buys a different channel — GEOMETRY-GENERALIZATION: the varied arm's read survives
-displacement at other offsets, gm12 0.688 vs the fixed arm's 0.131). SURVIVAL IS THE
-SHAPING'S; RECOVERY IS THE HEIGHT'S; THE WALL IS THE ORGANISM'S. THE ASSEMBLY RUN (x43, the capstone): CEILING — the composed retention stalls at
-0.26-0.33 (~4x under the band) and the anneal itself cannot climb (600 extra steps
-of the cons's own protocol bought nothing); DOSE BUYS FIRST-STEP ARMOR WITHOUT LIMIT
-(s1 0.115 -> 0.427) WHILE THE WALL-INTERIOR RECOVERY CAPS — the two axes independent,
-the second ceilinged. THE PROTOCOL GAP IS REAL AND MECHANISTICALLY BOUNDED: the
-missing piece is a FORMATION PROTOCOL (the cons's own curated history), not an
-ingredient. THE BUILD LANE'S TOOL IS BAND-ADJACENT (sand-proof, first-step-proof)
-BUT NOT WASH-PROOF — and the gap is a named question. THE SCALE CLAUSE (g1bS9):
-THE RECIPE IS 2.74M-SPECIFIC — both legs tested at 10M fade (the wall g1bS6; the dose
-g1bS9: both arms dead at s1, the dose's margin graded 4.6x vs 2.74M's 28x; the port
-held, the death is scale); THE RECOVERY INVERSION (the control out-recovers the
-annealed at 10M — the two axes' independence flips sign at scale) and THE WASH-
-CONTENT FINDING (the install-anchor wash kills at 10M where the neutral spared) are
-the fade's named mechanism leads. AND THE FINGERPRINT (x45, the era's
-first cell): AT MATCHED READS the cons's mid-formation states ride MORE DECORRELATED
-ELICITATION FAMILIES than the anneal's matched states (consistency 0.78-0.83 vs the
-anneal's coherent profile) — ELICITATION STRUCTURE CARRIES PATH HISTORY: the missing
-protocol's first positive fingerprint is a correlation profile, not a scalar; support
-breadth and the in-room split do NOT separate; the name-swap cross is the
-instrument-confound control owed.
+*[The chamber decomposition (e337/e338/e340), the recipe + mechanism (e341/x39/x40), the
+composition ceiling (x43), the scale clause (g1bS9), and the path fingerprint (x45)
+formerly closed this block; they are LAW 8 — THE GUARD AND ITS CEILING — as of v3.1
+(the R80 order).]*
 
 ## LAW 4 — THE CONTROLLER [invariant]
 
@@ -187,20 +158,21 @@ anti-controller kills the ADDRESS (the read dies, the authorship mass stands —
 why e313's restores worked: re-lighting an address on an intact bearer); the scalpel
 kills the AUTHORSHIP (the amplification gate dies, the read lives elsewhere). NO
 INSTRUMENT EVER REMOVED BOTH. The resurrections were CONTENT (x19's paraphrase audit:
-x1.272 — not haunting; the trigger control is mandatory for every revival claim).
+x1.272 — not haunting; the trigger control is mandatory for every revival claim). NO
+COMPOSITION OF THE TWO REMOVALS PREVENTS RETURN (e325, resolved gate promoted at v3.1):
+anti-then-scalpel-then-restore DOUBLED the revival price (0.165 → 0.275/0.312) without
+preventing it — the address REBUILDS FROM NOTHING (e333: the vacuumed room ran ahead of
+the residue road at every panel; the re-formed read lives out-of-room; re-formation is
+maintenance-class ~0.3, not install-class ~9.2): selective unlearning must block
+RE-FORMATION itself.
 
 *Scope (Law 6):* one family, one organism, one architecture; the fresh-family replicate
 never ran (both redraws TEXTURED out of band — the membrane law's cross-lineage
 replication rides the class question); the alpha-1.5 rung straddles the bar at n=2
-([0.0245, 0.0930] — undetermined). RESOLVED GATE (e325): READ-RETURNS — the composition (anti then scalpel
-then restore) DOUBLED the revival price (0.165 -> 0.275/0.312) without preventing it;
-the address REBUILDS FROM NOTHING — LICENSED VERBATIM BY e333 (the vacuumed road:
-the room emptied to 2.4e-15 ran AHEAD of the residue road at every panel and spent
-less; the restore repopulated 0.27% of the removed mass — THE RE-FORMED READ LIVES
-OUT-OF-ROOM; the womb is for first births only); re-formation is
-maintenance-class (~0.3 norm), not install-class (~9.2). Selective unlearning must
-block RE-FORMATION itself; formation-time bearer-unsharing stands as the only road
-(e333 may re-open one).
+([0.0245, 0.0930] — undetermined). [e325's resolution PROMOTED to Law 6 prose at v3.1 (e333's vacuum leg
+carried it: the room emptied to 2.4e-15, the restore repopulating 0.27% of the removed
+mass — the re-formed read lives out-of-room; the womb is for first births only).]
+Formation-time bearer-unsharing stands as the only road (e333 may re-open one).
 
 ## LAW 7 — THE TWO CHANNELS AND THE VACANCY [invariant]
 
@@ -238,6 +210,53 @@ dependence is registered, not resolved); the calibration dial (W049-Q3) is bound
 standing amendment (off-target battery + read floor at every rung; on a family it moves
 all five).
 
+## LAW 8 — THE GUARD AND ITS CEILING [invariant; added at v3.1, the R80 re-cut]
+
+CONSOLIDATION IS EXTERNAL: the wash-proof object (the 'ball') decomposes into THREE
+separable contributions (e337/e338/e340, re-cut from Law 3's scope at v3.1) — THE WALL
+(a runtime displacement veto around the organism, not a memory guard: it held the
+organism while fresh reads died 0.045); THE HEIGHT (recovery capacity, graded: s100
+gradient fresh 0.045 < controller-400 0.118 < controller-800 0.130 << varied-300 0.244
+< fixed-300 0.320 << cons [0.957, 1.088]; x39: THE HEIGHT CLAUSE STANDS — t400 keeps
+90.2% of t800's retention at half the dose, the controller's dose axis flat 400-800);
+and THE ANNEALING (first-step survival — A DOSE, NOT A TYPE: e341's matched-steps
+control bought the s1 survival with EITHER context menu; the s1 annihilation is
+height-blind but any 300-step annealed read survives; context variety buys a different
+channel — GEOMETRY-GENERALIZATION: gm12 0.688 vs the fixed arm's 0.131). THE RECIPE:
+ANNEAL-DOSE + HEIGHT + WALL — SURVIVAL IS THE SHAPING'S, RECOVERY IS THE HEIGHT'S,
+THE WALL IS THE ORGANISM'S. THE MECHANISM (x40): THE ARMOR IS DIRECTIONAL — the
+gaussian control is flat at 1R for all states while the kill-ray separates hugely; the
+annealed read is armored EXACTLY along the wash's direction (per-step far sub-floor,
+the path 5.7x the floor — the path is the carrier, the endpoints alone ~6% below,
+disclosed); the battery tail is the dose's, the offset tail the variety's.
+
+AND THE CEILING (x43, the capstone): the composed retention stalls at 0.26-0.33 (~4x
+under the band) and the anneal itself cannot climb (600 extra steps of the cons's own
+protocol bought nothing); DOSE BUYS FIRST-STEP ARMOR WITHOUT LIMIT (s1 0.115 → 0.427)
+WHILE WALL-INTERIOR RECOVERY CAPS — the two axes independent, the second ceilinged;
+the build lane's tool is band-adjacent (sand-proof, first-step-proof) but not
+wash-proof. THE PROTOCOL GAP IS REAL AND MECHANISTICALLY BOUNDED: the missing piece
+is a FORMATION PROTOCOL (the cons's own curated history), not an ingredient. THE
+SCALE CLAUSE (g1bS9): THE RECIPE IS 2.74M-SPECIFIC — both legs fade at 10M (the wall
+g1bS6; the dose g1bS9: both arms dead at s1, the margin graded 4.6x vs 2.74M's 28x;
+the port held — the death is scale); the fade's named mechanism leads: the RECOVERY
+INVERSION (the control out-recovers the annealed at 10M — the two axes' independence
+flips sign at scale), the WASH-CONTENT FINDING (the install-anchor wash kills at 10M
+where the neutral spared), and the DIMENSION-MATCH PARADOX (the projection-geometry
+explanation of the fade is dead). AND THE ERA'S FIRST FINGERPRINT (x45): AT MATCHED
+READS the cons's mid-formation states ride MORE DECORRELATED ELICITATION FAMILIES than
+the anneal's matched states (consistency 0.78-0.83 vs the anneal's coherent profile) —
+ELICITATION STRUCTURE CARRIES PATH HISTORY: the missing protocol's first positive
+fingerprint is a correlation profile, not a scalar; support breadth and the in-room
+split do NOT separate; the name-swap cross (e343, in flight) is the
+instrument-confound control.
+
+*Scope (Law 8):* one organism, one wash protocol, one architecture at 2.74M (the scale
+clause is two legs at 10M); the recipe's protocol-scope clause (the cons band ~1.0 is
+the reference — no composed arm reached it); the fingerprint is n=1 with the
+instrument certified on one name's side (e343 running); the recovery gradient's cons
+rung is the measured band [0.957, 1.088] on the cons legs.
+
 ## METHODS (the demoted instrument rules)
 
 1. READ BARS ARE AUTHORSHIP-RELATIVE: a name's displacement-lift is read against its
@@ -251,8 +270,14 @@ all five).
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 19-for-32 (post-R80 refresh; the day closed with both calls hitting its last two cells — still coin-adjacent in kind; the discriminator column the only accumulating edge). THE ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven straight cells (selection-conditioned: its verb stays 'resolved', never 'predicted')
-   (NOT distinguishable from a fair coin, p ~ 0.25). Down-weight seats; register leans
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 19-for-34
+   (refreshed at the v3.1 pass: the e342/g1bS9/x45 folds had left this at 19-for-32;
+   the three cells since R80 went 1-for-3 — e342 hit, g1bS9 and x45 missed, in both
+   misses with the executor's counter-call or registered falsifier firing — two-sided
+   p ~ 0.6, still coin-adjacent in kind; the lean column carries no edge). THE
+   ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven
+   straight cells and both post-R80 misses (selection-conditioned: its verb stays
+   'resolved', never 'predicted'). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).
 
@@ -265,7 +290,11 @@ receptivity of every name's slot is the accumulated record of every write that e
 landed, name by name, lineage by lineage; formation is negotiation with that record;
 death removes an address or an authorship but never both; and the vacancy left by a kill
 rents its landing to whoever asks, while the rise belongs only to the occupant who
-earned it.
+earned it. Day fifteen: the guard turns out to be three separable parts — a wall that
+is the organism's, a height that is the read's, a dose that is the shaping's — and
+their composition stalls four-fold short of the band: the missing piece is not an
+ingredient but the road itself, and the decorrelated families a read carries are the
+first fingerprint of the road it took.
 
 The lab's oldest question — "why do memories die?" — keeps its measured answer. Its
 newest — "whose memories are they?" — now has one too: the organism's, in the sense
@@ -273,5 +302,10 @@ that the land was theirs before the lab ever wrote a name on it.
 
 *Edited at R75-R80 (the residue wording; the net0 re-scope; the licenses and resolutions; Law 4's riders + the relay clause; Law 7's flip parameter; the chamber decomposition; the recipe + mechanism; the cadence note). All named gates resolved: e326 (EITHER-MOVES — the conservative class; Law
 2b's scope) and e325 (READ-RETURNS — the doubled revival price; Law 6's scope). The
-audit's repairs applied the same night. The document is complete and awaits the
-supervisor's review.*
+audit's repairs applied the same night. v3.1 (the R80 structural order, applied at the
+2026-10-10 ~20:40Z beat, before R81): e326's resolution PROMOTED into Law 2b prose;
+e325's into Law 6; Law 3's scope split into labeled sub-blocks (3a the formation
+classes / 3b warm re-formation); the chamber, recipe, mechanism, ceiling, scale clause,
+and fingerprint RE-CUT as LAW 8 — THE GUARD AND ITS CEILING; METHODS 5 refreshed to
+19-for-34 (the e342/g1bS9/x45 folds had left it two cells stale). The document is
+complete and awaits the supervisor's review.*
