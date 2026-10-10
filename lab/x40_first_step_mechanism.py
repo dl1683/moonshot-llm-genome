@@ -742,7 +742,7 @@ metrics: dict = {
 }
 E38.metrics = metrics                     # the harness's phases write here
 
-BIRTH_COMMIT_PINNED = "PENDING-BIRTH"     # pinned at the birth commit
+BIRTH_COMMIT_PINNED = "fc0d67d"     # pinned at the birth commit
 
 
 # ------------------------------------------------------------------ helpers
