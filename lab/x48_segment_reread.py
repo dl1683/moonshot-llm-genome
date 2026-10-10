@@ -225,10 +225,10 @@ DEVIATIONS = [
     "THE PROSE SITES (T328's line, Law 8's clause) live in THINKING.md / THE_LAWS_V3.md — files the "
     "heartbeat edits; they are QUOTE-gated (substring at run time), never md5-bound (disclosed: "
     "binds on live files would fail on any sibling commit; the sites are labels, never adjudicating).",
-    "THRESHOLD DISCLOSURE: e343's upper-segment mean|d| (0.2134/0.1950) sits BELOW the family's 0.15 "
-    "floor? No — it clears it; but its n=4 (3/4 sign-) is the pool's smallest component and is "
-    "co-reported with the flip-count (one sign flip moves it to 0.50) — the pooled bar is T328's "
-    "frozen sign+consistency form; the 0.15 floor rides as a co-report only, per the frozen wording.",
+    "THRESHOLD DISCLOSURE: component B (n=4, 3/4 sign-) is the pool's smallest component — one "
+    "sign flip moves it to 0.50; the pooled bar is T328's frozen sign+consistency form, and the "
+    "family's 0.15 mean|d| floor rides as a co-report only (both pooled profiles clear it: "
+    "0.2371/0.2803).",
     "Smoke mode (X48_SMOKE=1): pairs truncated to the first 2 per component, shared steps truncated "
     "to the first 3, numeric reproduction gates SKIPPED (stamped), every verdict VACUOUS — all code "
     "paths exercised, NOTHING adjudicated.",
@@ -472,12 +472,14 @@ def main():
     anneal_rows = [r for r in n1_rows if r["tag"].startswith("anneal_")]
     ann_r1_mean = float(np.mean([r["r1"] for r in anneal_rows]))
 
+    warm_starts = {"install-end", "TAVIREN-subject"}  # committed start labels of the two warm arms
+
     def seg_stats(tags):
         rows = [r for r in n1_rows if r["tag"] in tags]
         return {
             "n_states": len(rows),
             "ages": [r["age"] for r in rows],
-            "reshape_steps": [r["age"] - 400 if r["start"] == "install-end" else r["age"] for r in rows],
+            "reshape_steps": [r["age"] - 400 if r["start"] in warm_starts else r["age"] for r in rows],
             "reads_in_band": [round(r["read"], 4) for r in rows],
             "r1_mean": round(float(np.mean([r["r1"] for r in rows])), 4) if rows else None,
         }
@@ -507,8 +509,9 @@ def main():
                                        **seg_stats([f"walk_cons_s{s}" for s in range(25, 276, 25)] + ["walk_s700"])},
         "anneal_reshape_s0_s900": {"name_read": "TAVIREN", "start_class": "install-end WARM (e311 TAVINST "
                                    "post-install subject)", "menu": "varied (anneal)",
-                                   "committed_labels": "x45 panels net0_class: ANNEAL-forming (all); e344 n1: "
-                                   "start=install-end (all)",
+                                   "committed_labels": "x45 panels net0_class: ANNEAL-forming (all 36 "
+                                   "reshape panels); e344 n1 rows: start=TAVIREN-subject (the e311 "
+                                   "TAVINST post-install state — warm)",
                                    **seg_stats([f"anneal_s{s}" for s in range(25, 901, 25)])},
     }
     # reshape-step alias disclosure per segment
@@ -538,7 +541,11 @@ def main():
             ("BASE-forming" in e343["zeph_path"]["rows"][t]["net0_class"] or "BASE-formed" in e343["zeph_path"]["rows"][t]["net0_class"])
             for t in ["zeph_s100", "zeph_s200", "zeph_s300", "zeph_s400"]),
         "anneal_all_ANNEAL_forming": all(
-            x45["anneal"]["panels"][t]["net0_class"] == "ANNEAL-forming" for t in x45["anneal"]["panels"]),
+            x45["anneal"]["panels"][t]["net0_class"] == "ANNEAL-forming"
+            for t in x45["anneal"]["panels"] if t.startswith("anneal_s")),
+        "anneal_anchor_labels_disclosed": {
+            t: x45["anneal"]["panels"][t]["net0_class"]
+            for t in x45["anneal"]["panels"] if not t.startswith("anneal_s")},
         "swap_all_BASE_start": swap_rows_ok,
         "boundary_state_check": ("BASE-formed" in e343["zeph_path"]["rows"]["zeph_s400"]["net0_class"]),
     }
@@ -673,6 +680,11 @@ def main():
         "r_swap_walk": round(r_sw, 4) if r_sw is not None else None,
         "perm_p_swap_anneal": p_sa, "perm_p_swap_walk": p_sw,
         "verdict": ext_verdict,
+        "asymmetry_note": "the swap tracks the anneal (r=+0.7233, p=0.0041) MORE strongly than the "
+                          "walk does (+0.6673) and misses the both-sides bar only on the walk side "
+                          "(+0.4862, p=0.0644, borderline at n=11) — the co-movement is not "
+                          "warm-exclusive on the anneal side; the warm-specific content, if any, "
+                          "lives in the walk-side miss",
         "phase_alias_disclosure": "the swap's reshape step == its total age (cold start): its 'matched "
                                   "phase' is cold first-formation, not warm reshape — a null here does "
                                   "not exclude an age-matched cold signature, only the warm-phase one.",
@@ -680,7 +692,11 @@ def main():
     log(f"[x48] extension: r(swap,anneal)={extension['r_swap_anneal']} r(swap,walk)={extension['r_swap_walk']} -> {ext_verdict}")
 
     # ---------------- HALF 3: P-T328a pooled scoring ----------------
-    compA = [p for p in x45_pairs if p["walk_tag"].startswith("walk_cons_") or p["walk_tag"] == "walk_s700"]
+    # the frozen dedup (birth registration + e344's N1 state-identity rule): walk_cons_s300 is the
+    # same state as walk_s700 — keep the committed anchor, drop the replay rung
+    compA = [p for p in x45_pairs
+             if (p["walk_tag"].startswith("walk_cons_") or p["walk_tag"] == "walk_s700")
+             and p["walk_tag"] != "walk_cons_s300"]
     compB = upper_pairs
     if SMOKE:
         compA, compB = compA[:2], compB[:2]
@@ -790,7 +806,27 @@ def main():
         "birth_commit": birth,
         "git_head_final": head_final,
         "date_finished": now(),
-        "catches": [],
+        "catches": [
+            "THE POOL-DEDUP ENACTMENT (disclosed): the first full run computed pooled n=17 — the "
+            "frozen dedup (drop walk_cons_s300, keep the walk_s700 anchor) was in the birth "
+            "registration but not yet enacted in code; that run stamped itself TEXTURE on an "
+            "unrelated gate failure and adjudicated NOTHING; this run enacts the frozen dedup "
+            "(n=16). Both computations disclosed: 17-pair 0.7647/0.8235 sign - vs 16-pair "
+            "0.7500/0.8125 sign - — the verdict (WARM-PHASE-SHARED) is identical either way.",
+            "THE ANNEAL-LABEL GATE SCOPE: x45's anneal panels dict carries 4 non-reshape anchor "
+            "rows with their own committed labels (ann_s0 'BASE-formed (K10K-room-projected)' — the "
+            "TAVIREN subject; ann_s300/600/900 'ANNEAL leg (x43 snapshot)'); the all-panels "
+            "assertion was over-strict and failed the first run's gate; scoped to the 36 every-25 "
+            "reshape panels (all ANNEAL-forming), anchors disclosed in the gate.",
+            "SMOKE-STAGE REPAIRS (in the smoke commit): runs/e344/REPORT.md initially parsed as "
+            "JSON (loader split), and walk_s700's committed net0_class is 'ROOT' (the finished "
+            "anchor), not 'ROOT-forming' — the warm-class assertion uses the ROOT prefix.",
+            "THE ANNEAL START LABEL (display repair): e344's n1 rows carry start='TAVIREN-subject' "
+            "for the anneal (not 'install-end') — the class table's reshape-step axis initially "
+            "printed the anneal's ages as its reshape steps; corrected to the warm-start set "
+            "{install-end, TAVIREN-subject}; no adjudicated number touched (the pooled/co-movement "
+            "pools key on tags, not start labels).",
+        ],
     }
 
     # ---------------- figure ----------------

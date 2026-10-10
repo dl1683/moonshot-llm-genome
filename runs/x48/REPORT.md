@@ -1,6 +1,6 @@
-# x48 — THE SEGMENT-LEVEL FOUR-ARM RE-READ, UPGRADED (R81's ordering) — SMOKE — NOTHING ADJUDICATED (stamped)
+# x48 — THE SEGMENT-LEVEL FOUR-ARM RE-READ, UPGRADED (R81's ordering) — ADJUDICATED: identity LINEAGE-ZEPHYRA; P-T328a WARM-PHASE-SHARED; extension SWAP-APART
 
-*2026-10-10T22:40:10Z -> 2026-10-10T22:40:11Z | CPU desk only | birth 919d2d4 -> final 919d2d46 | smoke=True*
+*2026-10-10T22:42:41Z -> 2026-10-10T22:42:43Z | CPU desk only | birth 919d2d4 -> final 46138be1 | smoke=False*
 
 ## 0. The registration (frozen at birth, committed BEFORE compute)
 
@@ -49,9 +49,9 @@ The artifacts win 4-0: the walk (x45's only-decorrelated arm) is **ZEPHYRA-read 
 | install_upper_s100_s400 | ZEPHYRA | BASE cold (pre-boundary interior; s400 = the boundary state itself) | install (Dmix) | 4 | [100, 200, 300, 400] | [100, 200, 300, 400] | 0.564 |
 | walk_install_leg_s1_s400 | ZEPHYRA | BASE cold | install (Dmix) | 5 | [1, 100, 200, 300, 400] | [1, 100, 200, 300, 400] | 0.6415 |
 | walk_cons_reshape_s25_s300 | ZEPHYRA | install-end WARM (the cons leg resumes g1c_install_resume) | cons | 13 | [425, 450, 475, 500, 525, 550, 575, 600, 625, 650, 675, 700, 700] | [25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 300] | 0.3959 |
-| anneal_reshape_s0_s900 | TAVIREN | install-end WARM (e311 TAVINST post-install subject) | varied (anneal) | 36 | [425, 450, 475, 500, 525, 550, 575, 600, 625, 650, 675, 700, 725, 750, 775, 800, 825, 850, 875, 900, 925, 950, 975, 1000, 1025, 1050, 1075, 1100, 1125, 1150, 1175, 1200, 1225, 1250, 1275, 1300] | [425, 450, 475, 500, 525, 550, 575, 600, 625, 650, 675, 700, 725, 750, 775, 800, 825, 850, 875, 900, 925, 950, 975, 1000, 1025, 1050, 1075, 1100, 1125, 1150, 1175, 1200, 1225, 1250, 1275, 1300] | 0.5448 |
+| anneal_reshape_s0_s900 | TAVIREN | install-end WARM (e311 TAVINST post-install subject) | varied (anneal) | 36 | [425, 450, 475, 500, 525, 550, 575, 600, 625, 650, 675, 700, 725, 750, 775, 800, 825, 850, 875, 900, 925, 950, 975, 1000, 1025, 1050, 1075, 1100, 1125, 1150, 1175, 1200, 1225, 1250, 1275, 1300] | [25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600, 625, 650, 675, 700, 725, 750, 775, 800, 825, 850, 875, 900] | 0.5448 |
 
-Class-table gate: {"walk_cons_all_ROOT_forming": true, "install_upper_e343_labels": true, "anneal_all_ANNEAL_forming": false, "swap_all_BASE_start": true, "boundary_state_check": true}
+Class-table gate: {"walk_cons_all_ROOT_forming": true, "install_upper_e343_labels": true, "anneal_all_ANNEAL_forming": true, "anneal_anchor_labels_disclosed": {"ann_s0": "BASE-formed (K10K-room-projected)", "ann_s300": "ANNEAL leg (x43's snapshot)", "ann_s600": "ANNEAL leg (x43's snapshot)", "ann_s900": "ANNEAL leg (x43's snapshot)"}, "swap_all_BASE_start": true, "boundary_state_check": true}
 
 **The classes DISSENT across the pooled components:** compA (walk cons) = install-end WARM post-boundary reshape (ROOT-forming); compB (install s100-s400) = BASE cold pre-boundary interior (BASE-forming; s400 the boundary state itself). The swap arm aliases age==reshape (cold start); the walk/anneal run age=400+reshape.
 
@@ -59,20 +59,20 @@ Class-table gate: {"walk_cons_all_ROOT_forming": true, "install_upper_e343_label
 
 ## 3. P-T328a — the pooled segment scoring at the remodeling boundary
 
-**VERDICT: SMOKE-VACUOUS** (frozen bar: both primary profiles dominant sign - with consistency >= 0.70 on the pooled pairs)
+**VERDICT: WARM-PHASE-SHARED** (frozen bar: both primary profiles dominant sign - with consistency >= 0.70 on the pooled pairs)
 
-* pooled (A+B, n=4): r_g-12|g0: sign + cons 0.75 mean|d| 0.271007 (n=4) | r_g0|g+12: sign + cons 0.75 mean|d| 0.231606 (n=4)
-* component A — the walk's decorrelated states (cons rungs, deduped, n=2): r_g-12|g0: sign + cons 1.0 mean|d| 0.287184 (n=2) | r_g0|g+12: sign + cons 1.0 mean|d| 0.290857 (n=2)
-* component B — e343's install upper segment s100-s400 (n=2): r_g-12|g0: sign + cons 0.5 mean|d| 0.254829 (n=2) | r_g0|g+12: sign + cons 0.5 mean|d| 0.172355 (n=2)
-* dedup: {"dropped_walk_cons_s300": "state-identical to walk_s700 (e344's N1 rule: keep the committed anchor)", "dropped_install_leg_rungs": ["walk_install_s100", "walk_install_s200", "walk_install_s300", "walk_install_s400", "walk_s400"], "reason": "same states as e343's zeph rows (they enter once, as component B)", "compA_n": 2, "compB_n": 2, "pooled_n": 4}
+* pooled (A+B, n=16): r_g-12|g0: sign - cons 0.75 mean|d| 0.237087 (n=16) | r_g0|g+12: sign - cons 0.8125 mean|d| 0.280304 (n=16)
+* component A — the walk's decorrelated states (cons rungs, deduped, n=12): r_g-12|g0: sign - cons 0.75 mean|d| 0.244988 (n=12) | r_g0|g+12: sign - cons 0.8333 mean|d| 0.308723 (n=12)
+* component B — e343's install upper segment s100-s400 (n=4): r_g-12|g0: sign - cons 0.75 mean|d| 0.213384 (n=4) | r_g0|g+12: sign - cons 0.75 mean|d| 0.195045 (n=4)
+* dedup: {"dropped_walk_cons_s300": "state-identical to walk_s700 (e344's N1 rule: keep the committed anchor)", "dropped_install_leg_rungs": ["walk_install_s100", "walk_install_s200", "walk_install_s300", "walk_install_s400", "walk_s400"], "reason": "same states as e343's zeph rows (they enter once, as component B)", "compA_n": 12, "compB_n": 4, "pooled_n": 16}
 
 Reading: the pooled bar is a SIGN fact; the class table's dissent (warm vs cold interior) rides beside it — if both land, the honest sentence is 'the pooled segments sit below the anneal ruler together, though their net0 classes differ'.
 
 ## 4. THE CO-MOVEMENT REPRODUCTION + THE SWAP EXTENSION
 
-* REPRODUCED: r(walk_cons residual, anneal residual) = 0.9635 across the 3 shared reshape steps [25, 50, 75] (the critic's +0.667; gate ±0.005; permutation p = 0.3421). Both positive early, both negative from s75, extreme at s125 — the matched-phase co-movement stands.
+* REPRODUCED: r(walk_cons residual, anneal residual) = 0.6673 across the 11 shared reshape steps [25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275] (the critic's +0.667; gate ±0.005; permutation p = 0.0128). Both positive early, both negative from s75, extreme at s125 — the matched-phase co-movement stands.
 
-* EXTENSION — does the swap join? **SMOKE-VACUOUS**: r(swap, anneal) = 0.9406 (p=0.3421, n=3); r(swap, walk) = 0.9972 (p=0.1735, n=3). Frozen bars: JOINS iff both >= +0.50; OPPOSES iff either <= -0.50; else APART.
+* EXTENSION — does the swap join? **SWAP-APART**: r(swap, anneal) = 0.7233 (p=0.0041, n=12); r(swap, walk) = 0.4862 (p=0.0644, n=11). Frozen bars: JOINS iff both >= +0.50; OPPOSES iff either <= -0.50; else APART.
 
 * Phase alias disclosed: the swap's reshape step == its total age (cold start): its 'matched phase' is cold first-formation, not warm reshape — a null here does not exclude an age-matched cold signature, only the warm-phase one.
 
@@ -80,48 +80,51 @@ Reading: the pooled bar is a SIGN fact; the class table's dissent (warm vs cold 
 
 | gate | recomputed | committed | pass |
 |---|---|---|---|
-| G_X45REPRO.r_g-12|g0.dominant_sign | + | - | NO |
-| G_X45REPRO.r_g-12|g0.sign_consistency | 0.5 | 0.7778 | NO |
-| G_X45REPRO.r_g-12|g0.mean_abs_d | 0.254829 | 0.233464 | NO |
-| G_X45REPRO.r_g0|g+12.dominant_sign | + | - | NO |
-| G_X45REPRO.r_g0|g+12.sign_consistency | 0.5 | 0.8333 | NO |
-| G_X45REPRO.r_g0|g+12.mean_abs_d | 0.172355 | 0.288761 | NO |
+| G_X45REPRO.r_g-12|g0.dominant_sign | - | - | YES |
+| G_X45REPRO.r_g-12|g0.sign_consistency | 0.7778 | 0.7778 | YES |
+| G_X45REPRO.r_g-12|g0.mean_abs_d | 0.233464 | 0.233464 | YES |
+| G_X45REPRO.r_g0|g+12.dominant_sign | - | - | YES |
+| G_X45REPRO.r_g0|g+12.sign_consistency | 0.8333 | 0.8333 | YES |
+| G_X45REPRO.r_g0|g+12.mean_abs_d | 0.288761 | 0.288761 | YES |
 | G_E343REPRO.r_g-12|g0.dominant_sign | + | + | YES |
-| G_E343REPRO.r_g-12|g0.sign_consistency | 1.0 | 0.5714 | NO |
-| G_E343REPRO.r_g-12|g0.mean_abs_d | 0.567075 | 0.325254 | NO |
+| G_E343REPRO.r_g-12|g0.sign_consistency | 0.5714 | 0.5714 | YES |
+| G_E343REPRO.r_g-12|g0.mean_abs_d | 0.325254 | 0.325254 | YES |
 | G_E343REPRO.r_g0|g+12.dominant_sign | + | + | YES |
-| G_E343REPRO.r_g0|g+12.sign_consistency | 1.0 | 0.5714 | NO |
-| G_E343REPRO.r_g0|g+12.mean_abs_d | 0.40573 | 0.254512 | NO |
-| G_E343UPPER.r_g-12|g0.dominant_sign | + | - | NO |
-| G_E343UPPER.r_g-12|g0.sign_consistency | 0.5 | 0.75 | NO |
-| G_E343UPPER.r_g-12|g0.mean_abs_d | 0.254829 | 0.213384 | NO |
-| G_E343UPPER.r_g0|g+12.dominant_sign | + | - | NO |
-| G_E343UPPER.r_g0|g+12.sign_consistency | 0.5 | 0.75 | NO |
-| G_E343UPPER.r_g0|g+12.mean_abs_d | 0.172355 | 0.195045 | NO |
+| G_E343REPRO.r_g0|g+12.sign_consistency | 0.5714 | 0.5714 | YES |
+| G_E343REPRO.r_g0|g+12.mean_abs_d | 0.254512 | 0.254512 | YES |
+| G_E343UPPER.r_g-12|g0.dominant_sign | - | - | YES |
+| G_E343UPPER.r_g-12|g0.sign_consistency | 0.75 | 0.75 | YES |
+| G_E343UPPER.r_g-12|g0.mean_abs_d | 0.213384 | 0.213384 | YES |
+| G_E343UPPER.r_g0|g+12.dominant_sign | - | - | YES |
+| G_E343UPPER.r_g0|g+12.sign_consistency | 0.75 | 0.75 | YES |
+| G_E343UPPER.r_g0|g+12.mean_abs_d | 0.195045 | 0.195045 | YES |
 | G_E344REPRO.r_g-12|g0.dominant_sign | + | + | YES |
-| G_E344REPRO.r_g-12|g0.sign_consistency | 1.0 | 0.7826 | NO |
-| G_E344REPRO.r_g-12|g0.mean_abs_d | 0.414712 | 0.312591 | NO |
+| G_E344REPRO.r_g-12|g0.sign_consistency | 0.7826 | 0.7826 | YES |
+| G_E344REPRO.r_g-12|g0.mean_abs_d | 0.312591 | 0.312591 | YES |
 | G_E344REPRO.r_g0|g+12.dominant_sign | + | + | YES |
-| G_E344REPRO.r_g0|g+12.sign_consistency | 1.0 | 0.7826 | NO |
-| G_E344REPRO.r_g0|g+12.mean_abs_d | 0.284248 | 0.267985 | NO |
+| G_E344REPRO.r_g0|g+12.sign_consistency | 0.7826 | 0.7826 | YES |
+| G_E344REPRO.r_g0|g+12.mean_abs_d | 0.267985 | 0.267985 | YES |
 | G_E344SUBSETS.r_g-12|g0.dominant_sign | + | + | YES |
-| G_E344SUBSETS.r_g-12|g0.sign_consistency | 1.0 | 0.8462 | NO |
-| G_E344SUBSETS.r_g-12|g0.mean_abs_d | 0.414712 | 0.427496 | NO |
+| G_E344SUBSETS.r_g-12|g0.sign_consistency | 0.8462 | 0.8462 | YES |
+| G_E344SUBSETS.r_g-12|g0.mean_abs_d | 0.427496 | 0.427496 | YES |
 | G_E344SUBSETS2.r_g-12|g0.dominant_sign | + | + | YES |
-| G_E344SUBSETS2.r_g-12|g0.sign_consistency | 1.0 | 0.7 | NO |
-| G_E344SUBSETS2.r_g-12|g0.mean_abs_d | 0.206824 | 0.163213 | NO |
+| G_E344SUBSETS2.r_g-12|g0.sign_consistency | 0.7 | 0.7 | YES |
+| G_E344SUBSETS2.r_g-12|g0.mean_abs_d | 0.163213 | 0.163213 | YES |
 
 * G_N1REFIT: R2_age 0.2214 / R2_menu 0.0548 / R2_full 0.2793 (committed 0.2214/0.0548/0.2793); top-2 residuals [('anneal_s125', -0.5930330610467919), ('walk_cons_s125', -0.5756191872738688)] — pass True
 
 ## 6. Gates tally
 
-* 64 sub-gates across 11 gate families: {"G_MD5": "PASS", "G_IDENTITY": "PASS", "G_CLASSTABLE": "FAIL", "G_X45REPRO": "FAIL", "G_E343REPRO": "FAIL", "G_E343UPPER": "FAIL", "G_E344REPRO": "FAIL", "G_E344SUBSETS": "FAIL", "G_E344SUBSETS2": "FAIL", "G_N1REFIT": "PASS", "G_COMOVE": "FAIL"}
-* all_pass: False
+* 65 sub-gates across 11 gate families: {"G_MD5": "PASS", "G_IDENTITY": "PASS", "G_CLASSTABLE": "PASS", "G_X45REPRO": "PASS", "G_E343REPRO": "PASS", "G_E343UPPER": "PASS", "G_E344REPRO": "PASS", "G_E344SUBSETS": "PASS", "G_E344SUBSETS2": "PASS", "G_N1REFIT": "PASS", "G_COMOVE": "PASS"}
+* all_pass: True
 
 ## 7. P-x48a scorecard
 
-* scored TRUE iff identity==LINEAGE-ZEPHYRA AND P-T328a==WARM-PHASE-SHARED -> **False** (identity LINEAGE-ZEPHYRA; P-T328a SMOKE-VACUOUS)
+* scored TRUE iff identity==LINEAGE-ZEPHYRA AND P-T328a==WARM-PHASE-SHARED -> **True** (identity LINEAGE-ZEPHYRA; P-T328a WARM-PHASE-SHARED)
 
 ## 8. Catches
 
-* none at run time; the design-time catch is the record's own: e344's four_arm_table KEY and REPORT row labeled the walk TAVIREN while its own n1_rider rows carried name=ZEPHYRA start=install-end — the mislabel this cell was minted to adjudicate.
+* THE POOL-DEDUP ENACTMENT (disclosed): the first full run computed pooled n=17 — the frozen dedup (drop walk_cons_s300, keep the walk_s700 anchor) was in the birth registration but not yet enacted in code; that run stamped itself TEXTURE on an unrelated gate failure and adjudicated NOTHING; this run enacts the frozen dedup (n=16). Both computations disclosed: 17-pair 0.7647/0.8235 sign - vs 16-pair 0.7500/0.8125 sign - — the verdict (WARM-PHASE-SHARED) is identical either way.
+* THE ANNEAL-LABEL GATE SCOPE: x45's anneal panels dict carries 4 non-reshape anchor rows with their own committed labels (ann_s0 'BASE-formed (K10K-room-projected)' — the TAVIREN subject; ann_s300/600/900 'ANNEAL leg (x43 snapshot)'); the all-panels assertion was over-strict and failed the first run's gate; scoped to the 36 every-25 reshape panels (all ANNEAL-forming), anchors disclosed in the gate.
+* SMOKE-STAGE REPAIRS (in the smoke commit): runs/e344/REPORT.md initially parsed as JSON (loader split), and walk_s700's committed net0_class is 'ROOT' (the finished anchor), not 'ROOT-forming' — the warm-class assertion uses the ROOT prefix.
+* THE ANNEAL START LABEL (display repair): e344's n1 rows carry start='TAVIREN-subject' for the anneal (not 'install-end') — the class table's reshape-step axis initially printed the anneal's ages as its reshape steps; corrected to the warm-start set {install-end, TAVIREN-subject}; no adjudicated number touched (the pooled/co-movement pools key on tags, not start labels).
