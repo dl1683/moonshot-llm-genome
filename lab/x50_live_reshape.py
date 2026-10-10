@@ -294,6 +294,7 @@ else:
 REPLAY_RUNGS = DENSE_RUNGS | FINE_RUNGS                  # the instrumented set
 
 # ---- the emergence constants (frozen at birth) ----------------------------
+READ_BAR = 0.05         # x40's aliveness bar (verbatim; the instrument's own)
 COH_BAR = 0.75          # the coherent regime line
 DECO_LEVEL = 0.50       # the decorrelated band's ceiling
 RAW_BAR = 0.15          # the raw-collapse census line (co-report only)
@@ -1747,7 +1748,14 @@ def main() -> None:
         f"{len(metrics['gates'])})")
 
 
-CATCHES: list[str] = []
+CATCHES: list[str] = [
+    "SMOKE-CAUGHT REPAIR 1 (pre-adjudication; registration + bars "
+    "byte-untouched): x40's READ_BAR (0.05, the aliveness bar inside the "
+    "ported instrument) was consumed by the ported instrument() but never "
+    "defined in this cell's config — NameError at the first row; the "
+    "constant added verbatim (0.05, x40's own value). Caught at smoke; "
+    "nothing adjudicated.",
+]
 
 
 if __name__ == "__main__":
