@@ -116,7 +116,13 @@ of the cons's own protocol bought nothing); DOSE BUYS FIRST-STEP ARMOR WITHOUT L
 the second ceilinged. THE PROTOCOL GAP IS REAL AND MECHANISTICALLY BOUNDED: the
 missing piece is a FORMATION PROTOCOL (the cons's own curated history), not an
 ingredient. THE BUILD LANE'S TOOL IS BAND-ADJACENT (sand-proof, first-step-proof)
-BUT NOT WASH-PROOF — and the gap is a named question.
+BUT NOT WASH-PROOF — and the gap is a named question. THE SCALE CLAUSE (g1bS9):
+THE RECIPE IS 2.74M-SPECIFIC — both legs tested at 10M fade (the wall g1bS6; the dose
+g1bS9: both arms dead at s1, the dose's margin graded 4.6x vs 2.74M's 28x; the port
+held, the death is scale); THE RECOVERY INVERSION (the control out-recovers the
+annealed at 10M — the two axes' independence flips sign at scale) and THE WASH-
+CONTENT FINDING (the install-anchor wash kills at 10M where the neutral spared) are
+the fade's named mechanism leads.
 
 ## LAW 4 — THE CONTROLLER [invariant]
 

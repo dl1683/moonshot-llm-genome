@@ -62,6 +62,41 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T324 — g1bS9: the recipe is 2.74M-specific — and the fade's shape is the finding (2026-10-10, datetime.now ~19:50Z)
+
+The scale probe returned the honest negative with a mechanism
+texture richer than the binary: both arms die at s1 at 10M, so THE
+RECIPE'S FIRST TWO LEGS FADE (the wall at g1bS6, the dose here) —
+the wash-proof construction is 2.74M-specific on every ingredient
+tested at scale. But the fade is GRADED: the dose bought a real
+4.6x s1 margin where 2.74M bought 28x and cleared the bar — the
+armor weakens with scale rather than switching off.
+
+THREE SCALE-SPECIFIC FINDINGS COME WITH THE VERDICT: (1) THE
+RECOVERY INVERSION — the control out-recovers the annealed arm at
+10M (0.596 vs 0.383): the two axes (first-step margin vs
+wall-interior recovery) were independent at 2.74M and now move
+OPPOSITELY — the recipe's ingredients may be competing for the same
+capacity at scale. (2) THE WASH-CONTENT FINDING — the install-anchor
+wash kills where the neutral wash spared (the same control, 0.871 at
+g1bS6, dead at s1 here): the wash's CONTENT, not just its energy,
+sets the bar at scale. (3) THE DIMENSION-MATCH PARADOX — the step/
+rung ratio is 2.36x at BOTH scales by construction, yet the armor
+faded: projection geometry is dead as the fade's explanation; the
+explanation must live in the read's own structure (the 10M read's
+support breadth? its elicitation families? — x44's instrument is
+the natural next scale probe).
+
+THE PROGRAM CONSEQUENCE: the 10M question stops being 're-derive
+the recipe' and becomes 'WHY does the armor fade gradedly?' — a
+mechanism question the two-axis theory already frames (the axes'
+scale-sign flip is the anomaly to explain). The formation-protocol
+era at 2.74M continues; the scale lane waits for its mechanism
+cell.
+
+THE LEDGER: the executor's against-the-lean call hit (19-for-33).
+x45 still computing.
+
 ## T323 — E342: the founding heights are rails — the whole controller record re-read at its true amplitude (2026-10-10, datetime.now ~19:15Z)
 
 The costume lesson's last residual resolved in the lesson's
