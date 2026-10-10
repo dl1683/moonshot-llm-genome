@@ -946,6 +946,7 @@ def phase_P0() -> dict:
     write_partial("P0 the binds + the bank + the room + the records")
     return {
         "corpus": corpus, "stoi": stoi, "itos": itos, "tid": tid,
+        "zid": stoi["Z"],
         "bat_ids": bat_ids, "g0_ids": bat_ids[0], "gm12_ids": bat_ids[-12],
         "gp12_ids": bat_ids[12], "r_eval_xy": (r_eval_x, r_eval_y),
         "room": room,
@@ -1024,15 +1025,21 @@ NEW_STATES = [
      "open-loop"),
 ]
 CERT_STATES = [
-    # (tag, path, x45-row-tag, x44-row) — the certification states on disk
+    # (tag, path, x45-row-tag, x44-row, channel) — the certification states
+    # on disk; the CHANNEL NOTE (x45's own deviation): the walk reads p(Z)
+    # (ZEPHYRA), the anneal + the subject read p(T) (TAVIREN) — each path on
+    # its own name channel
     ("subject_t0", "runs/checkpoints/e311_TAVINST_post.pt", "ann_s0",
-     "FRESH"),
-    ("ann_s300_anchor", "runs/x43/x43_anneal_leg300.pt", "ann_s300", None),
-    ("ann_s600_anchor", "runs/x43/x43_anneal_leg600.pt", "ann_s600", None),
-    ("ann_s900_anchor", "runs/x43/x43_anneal_leg900.pt", "ann_s900", None),
+     "FRESH", "T"),
+    ("ann_s300_anchor", "runs/x43/x43_anneal_leg300.pt", "ann_s300",
+     None, "T"),
+    ("ann_s600_anchor", "runs/x43/x43_anneal_leg600.pt", "ann_s600",
+     None, "T"),
+    ("ann_s900_anchor", "runs/x43/x43_anneal_leg900.pt", "ann_s900",
+     None, "T"),
     ("walk_s400", "runs/checkpoints/g1c_install_resume.pt", "walk_s400",
-     None),
-    ("walk_s700", "runs/checkpoints/g1c_root.pt", "walk_s700", None),
+     None, "Z"),
+    ("walk_s700", "runs/checkpoints/g1c_root.pt", "walk_s700", None, "Z"),
 ]
 
 
@@ -1061,16 +1068,21 @@ def phase_P1(p0: dict) -> dict:
             f"inroom {row['in_room']:.3f} | CE_R {row['ce_r']:.4f}")
 
     cert_rows: dict = {}
-    for tag, rel, x45_tag, x44_key in CERT_STATES:
-        row = instrument(p0, load_model_sd(REPO / rel), tag, p0["tid"],
+    for tag, rel, x45_tag, x44_key, ch in CERT_STATES:
+        name_id = p0["tid"] if ch == "T" else p0["zid"]
+        row = instrument(p0, load_model_sd(REPO / rel), tag, name_id,
                          base_flat64)
         row.update({"x45_tag": x45_tag, "x44_key": x44_key,
+                    "channel": ch,
                     "state_file": rel,
                     "provenance": "committed anchor (certification target)"})
         cert_rows[tag] = row
-        log(f"  [cert {tag}] read {row['read']:.6f} r(g-12|g0) "
-            f"{row['corrs']['g-12|g0']} (x45's committed row: "
-            f"{p0['recs']['x45']['anneal']['panels'].get(x45_tag, {}).get('read', 'n/a')})")
+        x45_row = (p0["recs"]["x45"]["anneal"]["panels"].get(x45_tag)
+                   or p0["recs"]["x45"]["walk"]["rungs"].get(x45_tag)
+                   or {})
+        log(f"  [cert {tag} p({ch})] read {row['read']:.6f} "
+            f"r(g-12|g0) {row['corrs']['g-12|g0']} "
+            f"(x45's committed row: {x45_row.get('read', 'n/a')})")
     # the two open-loop arms' x44 certification keys
     for tag, key in (("ol_varied_s300", "VARIED"),
                      ("ol_fixed_s300", "FIXED")):
@@ -1906,7 +1918,18 @@ def main() -> None:
     make_png(p4, p1)
     metrics["git_head_final"] = git_head()
     metrics["date_finished"] = common.now_iso()
-    metrics["catches"] = []     # runtime catches appended by repairs
+    metrics["catches"] = [
+        "THE CHANNEL REPAIR (smoke-caught, repaired before any "
+        "adjudication): the first smoke read the ZEPHYRA-side certification "
+        "anchors (walk_s400/walk_s700) on the TAVIREN channel — p(T) reads "
+        "~1e-5 at the floor and G_INSTRUMENT failed on 18 drift rows; the "
+        "repair adds the per-state channel field (x45's own CHANNEL NOTE: "
+        "each path on its own name channel — the walk p(Z), the anneal + "
+        "the subject + the controller p(T)). The TAVIREN-side rows had "
+        "already reproduced at |d| 0.0 exactly; no adjudicative machinery "
+        "touched (the primary/rider read the controller rows, all "
+        "TAVIREN-side); the full run re-certified BOTH channels.",
+    ]
     save_json(RD / "metrics.json", metrics)
     write_report(p4, p0, p1)
     log(f"DONE — primary {p4['adj']['verdict']}, rider "
