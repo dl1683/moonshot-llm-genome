@@ -144,6 +144,18 @@ THE v3.1 STRUCTURAL PROGRAM (adopted at R78, the next draft's shape): promote re
 | x44 | R*-AT-THE-OFFSETS | DONE ~17:55Z Oct-10 (e77553d) | R*-UNIFORM (both reads missed — 17-for-30): the flip threshold is a SLOT property (agreement 1.06x across state AND geometry; R*(TAVIREN) ~0.045-0.05); the margin map does NOT split (support != flip-margin); THE VARIETY CHANNEL = ELICITATION DECORRELATION (r 0.97 fresh -> 0.33-0.46 varied) — T321 | per-context flip behavior (lift vs collapse) for the varied/fixed annealed states at g-12/g0/g+12: R*-UNIFORM (a slot property) / R*-TRACKS-THE-SUPPORT-TAIL (offset contexts sit nearer the flip — the variety channel re-read as flip-margin) |
 | e342 | THE PHASE AUDIT (the costume lesson cashed; the desk half done at R79 — no zero-dose events in ANY founding trace) | READY (GPU, one short leg) | resume e336's t400 and read at event+13 (mid-phase) for 4-8 events: SAG-EXISTS (the founding heights are rails; Law 4's endpoints carry the phase clause) / NO-SAG (the founding numbers stand as written) |
 
+
+## R80 SECTION (2026-10-10, folded ~18:25Z) — the era named: THE FORMATION PROTOCOL
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x45 | THE PATH DIFFERENCE (the formation-protocol question's first cell) | READY (CPU desk + one panel session) | diff the cons's formation PATH (e335's committed walk) vs x43's anneal panels at matched reads: support breadth, decorrelation structure, wall-recovery ALONG THE PATH — PROTOCOL-SECRET-IN-THE-PATH (a mid-formation signature the anneal skips: the first positive fingerprint of the missing piece) / ENDPOINTS-ONLY (the gap is curriculum order, not trajectory shape) |
+| g1bS8 | THE 10M DOSE CHECK (the cheapest scale probe) | READY (GPU, 2-3 bursts) | e341's anneal + commit + the one-step wash on the existing 10M root: DOSE-TRANSFERS (the armor ingredient is scale-robust; the 10M program becomes a one-ingredient re-derivation) / DOSE-FADES (2.74M-specific); the receptivity panel rides free |
+| x46 | THE REDUNDANCY PROFILE (the decorrelation channel to mechanism) | READY (CPU + one short GPU arm) | WASH-PROOFNESS REQUIRES REDUNDANCY: the cons's read carried by weakly-correlated elicitation families vs every recipe arm's r~0.97 monoculture; the partial-kill rider (kill the g0 family only, read the offsets) — if it fires, the protocol gap re-reads as a redundancy accumulator |
+| x36 | THE PAGE LADDER | PROMOTED (the formation-protocol era makes it the direct question) | swap the first K pages (4/16/64/all) of the canon: EARLY-BLOCK (the curated history is front-loaded — the protocol is cheap and transplantable) / LATE-BLOCK / DIFFUSED (the gap is irreducibly long) |
+
+THE SLOT-PROPERTY n=2 (the standing replicate debt): a second name's committed states through x44's per-context instrument — registered here; dispatch with the next CPU session.
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),

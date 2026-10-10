@@ -199,7 +199,14 @@ to 0.992; the lm_head name-row carries 99.8% of its fragment and delivers 0.8%),
 THE FLIP IS A TWO-PARAMETER OBJECT (x38+x42): the SIGN flips below the lowest
 living read ever formed (DOWN by 0.114; the outer rungs total) while the MAGNITUDE
 RAMPS through mid-formation (move 0.6 -> 5.4x over reads 0.11-0.51, joining the
-living band 6.9-11.9x) — a sign-threshold plus a graded ramp, not a scalar R*; once living, the collapse is uniform (1.71x envelope) and host-gated; THE
+living band 6.9-11.9x) — a sign-threshold plus a graded ramp, not a scalar R*; AND
+THE THRESHOLD IS A SLOT PROPERTY (x44, landed at R80): the two resolvable brackets
+agree 1.06x across a state AND a geometry change, pooling R*(TAVIREN) ~0.045-0.05
+[n=2-of-9 cells, one slot, one organism — the second-slot replicate is the standing
+debt; the verdict rode the secondary pooled comparison; the support tail is NOT
+flip-margin (P(alive|R*) 0.69-0.87 varied-arm-only) and THE VARIETY CHANNEL IS
+ELICITATION DECORRELATION (fresh r~0.97 across geometries; varied 0.33-0.46 with the
+offsets mutually bound 0.88-0.92) — independence of response, not margin]; once living, the collapse is uniform (1.71x envelope) and host-gated; THE
 NOISE FLOOR OF A LIVING READ IS A DOSE: ~2x its own write's norm in a random
 direction (4x is general destruction) (x19: the
 gate rides the write's mass, not the read's value — dead states amplify at 72% of live
@@ -232,7 +239,7 @@ all five).
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 17-for-27 (R79 refresh; 63%, two-sided p=0.248 — still coin-adjacent, unchanged in kind; the 4-of-last-5 window p~0.19). THE ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven straight cells (selection-conditioned: its verb stays 'resolved', never 'predicted')
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 18-for-31 (R80 refresh; two-sided p=0.473 — FIRMER coin-adjacency: the lean column went 1-for-4 on the day and has NO real edge; the 'finishing run' was the either-column, lean-only 4-of-7). THE ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven straight cells (selection-conditioned: its verb stays 'resolved', never 'predicted')
    (NOT distinguishable from a fair coin, p ~ 0.25). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).
@@ -252,7 +259,7 @@ The lab's oldest question — "why do memories die?" — keeps its measured answ
 newest — "whose memories are they?" — now has one too: the organism's, in the sense
 that the land was theirs before the lab ever wrote a name on it.
 
-*Edited at R75-R79 (the residue wording; the net0 re-scope; the licenses and resolutions; Law 4's riders + the relay clause; Law 7's flip parameter; the chamber decomposition; the recipe + mechanism; the cadence note). All named gates resolved: e326 (EITHER-MOVES — the conservative class; Law
+*Edited at R75-R80 (the residue wording; the net0 re-scope; the licenses and resolutions; Law 4's riders + the relay clause; Law 7's flip parameter; the chamber decomposition; the recipe + mechanism; the cadence note). All named gates resolved: e326 (EITHER-MOVES — the conservative class; Law
 2b's scope) and e325 (READ-RETURNS — the doubled revival price; Law 6's scope). The
 audit's repairs applied the same night. The document is complete and awaits the
 supervisor's review.*
