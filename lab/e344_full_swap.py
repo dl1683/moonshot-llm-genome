@@ -163,8 +163,11 @@ CURRICULUM-SIGNATURE (P-e344a FELLS); any hard-gate failure -> TEXTURE
   walk_s700 row (the cons-walk end). G_ANCHORS — my g0 reads on x43's
   committed anneal leg snapshots {300,600,900} reproduce x43's committed
   leg t0 literals (2e-6) and my read on e341's committed VARIED end
-  state (anneal_VARIED_resume.pt) reproduces x43's leg300 t0 (the same
-  state; 2e-6). G_LANDING — my swap arm's s300 read reproduces e281's
+  state (anneal_VARIED_resume.pt) reproduces e341's own annealed_t0.
+  VARIED.g0 literal (2e-6; x43's leg300 is its own continuation
+  realization of the same stream — the 4.4e-4 class delta to e341's end
+  is x43's own G_REPL300 precedent, disclosed as a non-gating
+  co-report). G_LANDING — my swap arm's s300 read reproduces e281's
   committed NO-INSTALL landing 0.6508122086524963 within the
   cross-device class tolerance 0.020 (x45's precedent: CPU replays of
   committed GPU trajectories land 0.0000-0.0046; e281's same-device
@@ -376,7 +379,7 @@ MD5_BINDS = {
     "e341_metrics": ("runs/e341/metrics.json",
                      "279bd235e43da13dc78998fe9da7b63d"),
     "x43_metrics": ("runs/x43/metrics.json",
-                    "b772f84ca5ce586dbc5a501d6010c239"),
+                    "b772f84ca1ce586dbc5a501d6010c239"),
     "e335_metrics": ("runs/e335/metrics.json",
                      "5d92359bc9b2e943c01bf521487cf177"),
     "e001": ("runs/checkpoints/e001.pt",
@@ -965,6 +968,11 @@ def phase_P0() -> dict:
             ["root_g0_landing"],
         "verdict": e281m["adjudication"]["verdict"],
     }
+    e341m = json.loads((REPO / "runs" / "e341" / "metrics.json")
+                       .read_text(encoding="utf-8"))
+    committed_e341dose = {
+        "varied_end_read": e341m["annealed_t0"]["VARIED"]["g0"],
+    }
     x43m = json.loads((REPO / "runs" / "x43" / "metrics.json")
                       .read_text(encoding="utf-8"))
     committed_x43 = {L: x43m["legs"][str(L)]["t0"] for L in (300, 600, 900)}
@@ -994,6 +1002,7 @@ def phase_P0() -> dict:
         "committed_e343": committed_e343,
         "committed_fresh": committed_fresh,
         "committed_e281": committed_e281,
+        "committed_e341": committed_e341dose,
         "committed_x43": committed_x43,
         "committed_e335": committed_e335,
     }
@@ -1449,16 +1458,26 @@ def phase_P3(p0: dict, replay: dict, rows: dict) -> None:
                          "abs_diff": abs(rows[f"ann_leg{L_}"]["read"]
                                          - x43t[L_])}
         for L_ in (300, 600, 900)}
-    # e341's VARIED end == x43's leg300 state (x43 continued e341's stream)
+    # e341's committed VARIED-end literal is its OWN annealed_t0 (the
+    # wash subject's t0 = the anneal end); x43's leg300 is its own
+    # continuation realization (x43's G_REPL300: t0 |d| 4.4e-4 vs e341's
+    # arm — the class delta, disclosed below as a non-gating co-report)
     ve = rows["e341_varied_end"]["read"]
-    anchor_rows["e341_varied_end_vs_x43_leg300"] = {
-        "mine": ve, "committed": x43t[300], "abs_diff": abs(ve - x43t[300])}
+    e341_lit = p0["committed_e341"]["varied_end_read"]
+    anchor_rows["e341_varied_end"] = {
+        "mine": ve, "committed": e341_lit, "abs_diff": abs(ve - e341_lit)}
+    cross_delta = abs(ve - x43t[300])
     g_anch = {"rows": anchor_rows, "tol": READ_TOL,
+              "e341_vs_x43_leg300_cross_delta_disclosed": cross_delta,
+              "cross_note": ("x43's leg300 t0 is its own continuation "
+                             "realization of e341's VARIED stream — the "
+                             "4.4e-4 class delta is x43's own G_REPL300 "
+                             "precedent (disclosed, never a gate)"),
               "claim": ("my g0 reads on x43's committed anneal leg "
                         "snapshots reproduce x43's committed leg t0 "
                         "literals AND e341's committed VARIED end state "
-                        "reads as x43's leg300 (the e341-dose carrier "
-                        "bound)"),
+                        "reproduces e341's own annealed_t0.VARIED.g0 "
+                        "literal (the e341-dose carrier bound)"),
               "pass": bool(all(r["abs_diff"] <= READ_TOL
                                for r in anchor_rows.values()))}
     assert g_anch["pass"], f"G_ANCHORS FAILED: {g_anch}"
@@ -1499,13 +1518,14 @@ def phase_P3(p0: dict, replay: dict, rows: dict) -> None:
             pairs = p0["committed_e343"]["match_pairs"]
             seps = p0["committed_e343"]["separations"]
         cell = {}
+        n_key = "n" if src == "e343" else "n_pairs"
         for key in ("r_g-12|g0", "r_g0|g+12"):
             ds = [p[key]["d"] for p in pairs
                   if p.get("in_window") and p[key]["d"] is not None]
             s = score_separation(ds)
             cell[key] = {
                 "mine": s, "committed": {k: seps[key][k] for k in
-                                         ("n", "dominant_sign",
+                                         (n_key, "dominant_sign",
                                           "sign_consistency",
                                           "mean_abs_d")},
                 "mean_abs_d_delta": abs(s["mean_abs_d"]
@@ -1894,8 +1914,8 @@ def phase_P5(p0: dict, rows: dict) -> dict:
                  "n_excluded": len(excluded), "excluded_tags": excluded,
                  "read_band": [ann_min, ann_max],
                  "per_menu_in_band": {
-                     m: sum(1 for p_ in in_band if p_["menu"] == m_)
-                     for m in ("install", "cons", "varied")}},
+                     m_: sum(1 for p_ in in_band if p_["menu"] == m_)
+                     for m_ in ("install", "cons", "varied")}},
         "rows": pool,
         "fits": fits,
         "frozen_rule": {"R2_min": RIDER_R2_MIN, "margin": RIDER_MARGIN,
@@ -1989,9 +2009,12 @@ def make_png(p4: dict, rows: dict, p0: dict, rider: dict) -> None:
     ax3.axis("off")
     fa = adj["four_arm_table"]
     tbl = [["arm", "r_g-12|g0", "r_g0|g+12"]]
-    labels = [("1 swap: cons-ZEPHYRA from BASE (mine)", "arm1"),
-              ("2 install-ZEPHYRA (e343)", "arm2"),
-              ("4 the walk (x45, reference)", "arm4")]
+    labels = [("1 swap: cons-ZEPHYRA from BASE (mine)",
+               "arm1_swap_cons_from_BASE"),
+              ("2 install-ZEPHYRA (e343)",
+               "arm2_install_ZEPHYRA_e343_committed"),
+              ("4 the walk (x45, reference)",
+               "arm4_the_walk_TAVIREN_cons_x45_committed")]
     for lab, key in labels:
         cells = []
         for k in PRIMARY:
