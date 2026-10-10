@@ -412,7 +412,7 @@ PARENTS_REC = {
              "the corpse's committed erase record"),
     "e313": ("runs/e313/metrics.json", "4894788c7f3a56082ce7cb41acd64b3f",
              "the restore convention + the resurrection band"),
-    "e314": ("runs/e314/metrics.json", "284b9b7a8d7257e9a3af04005cd21b7e",
+    "e314": ("runs/e314/metrics.json", "284b9b7a8d7257e9a3af04005cd21f7e",
              "the family tail-scalpel (the rig's parent)"),
     "e318": ("runs/e318/metrics.json", "64009fafee37b2e4ce9972e91c569b4f",
              "the lone scalpel (the vector + the rung flats)"),
@@ -1151,6 +1151,14 @@ def main() -> None:
         "was amended after x16's run by the fold machinery — x19's own "
         "disclosure, carried); the literals used here were re-read from "
         "the current file and match x16's REPORT")
+    G_PARENTS["note_e314_md5"] = (
+        "e314's metrics.json bound at its CURRENT on-disk md5 "
+        "284b9b7a8d7257e9a3af04005cd21f7e — the file was amended after "
+        "x19 bound 284b9b7a8d7257e9a3af04005cd21b7e (the fold machinery; "
+        "the smoke's G_PARENTS catch, disclosed); NOTHING is read from "
+        "e314's metrics at runtime — it is a provenance parent only "
+        "(the scalpel rig's family origin); all literals used here come "
+        "from e318's/e321's/x19's records, each md5-bound unchanged")
     G_PARENTS["pass"] = bool(
         all(v["md5"] == v["bound_md5"]
             for v in list(G_PARENTS["records"].values())
