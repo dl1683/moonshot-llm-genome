@@ -334,6 +334,7 @@ REPO = common.REPO
 # ---- THE ANNEAL, EXTENDED (the cons's own constants via e341's port) ----
 ANNEAL_SEED = G1.CONS_SEED                  # 10901 — the cons's own seed
 LEGS = (8, 16, 24) if SMOKE else (300, 600, 900)
+BARE_TAG = f"LEG{LEGS[-1]}-BARE"            # the matched-anneal bare twin
 ANNEAL_STEPS = LEGS[-1]                     # G1.CONS_STEPS's horizon x3
 ANNEAL_LR = G1.FT_LR                        # 1e-3 const (the cons's own)
 ANNEAL_BETAS = (0.9, 0.95)
@@ -1167,8 +1168,7 @@ def phase_P6x(washes: dict, legs: dict, refs: dict) -> dict:
     # G_T0MATCH: every wash's t0 == its leg's read (the wall inert at t0)
     t0_rows = {}
     for tag in tags:
-        L = 300 if tag.startswith("LEG300") else (
-            600 if tag.startswith("LEG600") else 900)
+        L = int(tag[3:].split("-")[0])      # LEG{n}-COMMIT / LEG{n}-BARE
         wt0 = washes[tag]["traj"][0]["read_g0_pT"]
         lt0 = legs[L]["t0"]
         t0_rows[tag] = {"wash_t0": wt0, "leg_t0": lt0,
@@ -1219,15 +1219,16 @@ def phase_P6x(washes: dict, legs: dict, refs: dict) -> dict:
     assert g_pin["pass"], f"G_PIN FAILED: {g_pin}"
 
     # G_REPL300: LEG300-COMMIT replicates e341's composed arm's class
-    w300 = washes["LEG300-COMMIT"]["traj"]
-    t0_300 = next(r for r in w300 if r["step"] == 0)["read_g0_pT"]
-    s1_300 = next(r for r in w300 if r["step"] == 1)["read_g0_pT"]
-    end300 = max(w300, key=lambda r: r["step"])["read_g0_pT"]
-    ret_300 = end300 / t0_300
     if SMOKE:
         g_repl = {"claim": "LEG300-COMMIT replicates e341's composed arm",
-                  "status": "VACUOUS AT SMOKE", "pass": True}
+                  "status": "VACUOUS AT SMOKE (smoke legs are 24 steps; "
+                            "e341's record is 300)", "pass": True}
     else:
+        w300 = washes["LEG300-COMMIT"]["traj"]
+        t0_300 = next(r for r in w300 if r["step"] == 0)["read_g0_pT"]
+        s1_300 = next(r for r in w300 if r["step"] == 1)["read_g0_pT"]
+        end300 = max(w300, key=lambda r: r["step"])["read_g0_pT"]
+        ret_300 = end300 / t0_300
         g_repl = {"t0": t0_300, "e341_t0": refs["e341"]["varied_committed"]["t0"],
                   "t0_abs_diff": abs(t0_300 - E341_T0),
                   "retention": ret_300,
@@ -1495,14 +1496,14 @@ def make_png(adj: dict, legs: dict, traj: list[dict], band: dict,
                              "tab:orange", "o"),
                             ("LEG600-COMMIT", "LEG600 + commit",
                              "tab:green", "s"),
-                            ("LEG900-COMMIT",
-                             "LEG900 + commit — THE COMPOSED ARM",
+                            (f"LEG{LEGS[-1]}-COMMIT",
+                             f"LEG{LEGS[-1]} + commit — THE COMPOSED ARM",
                              "tab:purple", "D"),
-                            ("LEG900-BARE",
-                             "LEG900 bare (the matched-anneal twin)",
+                            (BARE_TAG,
+                             f"LEG{LEGS[-1]} bare (the matched-anneal twin)",
                              "tab:cyan", "v")):
         a = arms.get(tag) or (adj.get("bare900", {})
-                              if tag == "LEG900-BARE" else None)
+                              if tag == BARE_TAG else None)
         if not a or not a.get("traj"):
             continue
         steps = [r["step"] for r in a["traj"]]
@@ -1537,7 +1538,7 @@ def make_png(adj: dict, legs: dict, traj: list[dict], band: dict,
                        "leg)")
         b = adj.get("bare900")
         if b:
-            ax3.plot([900], [b["retention"]], "v", color="tab:cyan",
+            ax3.plot([LEGS[-1]], [b["retention"]], "v", color="tab:cyan",
                      ms=10,
                      label=f"LEG900 bare (the wall's contribution: "
                            f"{b['retention']:.4f})")
@@ -1549,12 +1550,14 @@ def make_png(adj: dict, legs: dict, traj: list[dict], band: dict,
     ax3.grid(alpha=0.25)
 
     # ---- panel 4: the recovery trajectories (retention-vs-step) ----------
-    for tag, lab, c in (("LEG300-COMMIT", "LEG300 + commit", "tab:orange"),
-                        ("LEG600-COMMIT", "LEG600 + commit", "tab:green"),
-                        ("LEG900-COMMIT", "LEG900 + commit", "tab:purple"),
-                        ("LEG900-BARE", "LEG900 bare", "tab:cyan")):
+    leg_colors = {LEGS[0]: "tab:orange", LEGS[1]: "tab:green",
+                  LEGS[-1]: "tab:purple"}
+    p4_series = [(f"LEG{L}-COMMIT", f"LEG{L} + commit", leg_colors[L])
+                 for L in LEGS]
+    p4_series.append((BARE_TAG, f"LEG{LEGS[-1]} bare", "tab:cyan"))
+    for tag, lab, c in p4_series:
         a = arms.get(tag) or (adj.get("bare900", {})
-                              if tag == "LEG900-BARE" else None)
+                              if tag == BARE_TAG else None)
         if not a or not a.get("traj"):
             continue
         rel = [(r["step"], r["read_g0_pT"] / a["t0"])
@@ -1638,8 +1641,7 @@ def write_report(adj: dict, legs: dict, traj: list[dict], band: dict,
     arms = dict(adj.get("arms", {}))
     if adj.get("bare900"):
         arms["LEG900-BARE"] = adj["bare900"]
-    for tag in ("LEG300-COMMIT", "LEG600-COMMIT", "LEG900-COMMIT",
-                "LEG900-BARE"):
+    for tag in tuple(f"LEG{L}-COMMIT" for L in LEGS) + (BARE_TAG,):
         a = arms.get(tag)
         if not a:
             continue
@@ -1750,7 +1752,7 @@ def main() -> None:
     bare900 = G1.evl_load(anneal["leg_sds"][LEGS[-1]])  # the bare twin
 
     legs_order = [(f"LEG{L}-COMMIT", nets[L], True) for L in LEGS]
-    legs_order.append(("LEG900-BARE", bare900, False))
+    legs_order.append((BARE_TAG, bare900, False))
     for i, (tag, net0, armed) in enumerate(legs_order):
         if i and torch.cuda.is_available():
             E38.E261.burst_cooldown(f"between-{tag}")
@@ -1767,7 +1769,7 @@ def main() -> None:
     adj = adjudicate_x43(legs,
                          {f"LEG{L}-COMMIT": summaries[f"LEG{L}-COMMIT"]
                           for L in LEGS},
-                         summaries["LEG900-BARE"],
+                         summaries[BARE_TAG],
                          p3["band"], refs, [])
     metrics["adjudication"] = adj
     metrics["thermal"] = {"max_temp": (max((r["temp"] for r in thermal_log),
