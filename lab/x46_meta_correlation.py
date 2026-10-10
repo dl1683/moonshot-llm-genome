@@ -367,8 +367,10 @@ def main():
     t0_wall = now()
     print(f"[x46] THE META-CORRELATION TEST  smoke={SMOKE}  start={t0_wall}")
     print("[x46] R81 PARITY STANDARD — the lab lean AND the counter, side by side:")
-    print("[x46] LEAN:    " + REGISTRATION["lab_lean_verbatim"].split("COUNTER")[0].strip())
-    print("[x46] COUNTER: " + "COUNTER" + REGISTRATION["lab_lean_verbatim"].split("COUNTER", 1)[1].strip())
+    _lv = REGISTRATION["lab_lean_verbatim"]
+    _lean, _ctr = _lv.split("COUNTER", 1)
+    print("[x46] LEAN:    " + _lean.replace("LAB LEAN (dispatch VERBATIM; printed side by side with the counter at run start, per R81's parity standard): ", "").strip())
+    print("[x46] COUNTER: COUNTER" + _ctr.strip())
     print()
 
     metrics = {
@@ -488,7 +490,7 @@ def main():
     rows["ann_s900.read==x43.LEG900.t0"] = {"a": ann["ann_s900"]["read"], "b": x43["washes"]["LEG900-COMMIT"]["t0"], "abs_d": abs(ann["ann_s900"]["read"] - x43["washes"]["LEG900-COMMIT"]["t0"])}
     rows["ann_s0.read==e341.TWIN.t0"] = {"a": ann["ann_s0"]["read"], "b": e341["washes"]["TWIN-COMMIT"]["t0"], "abs_d": abs(ann["ann_s0"]["read"] - e341["washes"]["TWIN-COMMIT"]["t0"])}
     rows["x44.FRESH.g0pre==e341.TWIN.t0"] = {"a": x44["reads_summary"]["FRESH"]["g0"]["pre_mean"], "b": e341["washes"]["TWIN-COMMIT"]["t0"], "abs_d": abs(x44["reads_summary"]["FRESH"]["g0"]["pre_mean"] - e341["washes"]["TWIN-COMMIT"]["t0"])}
-    rows["x44.FRESH.gm12==e341.G_SUBJECT"] = {"a": x44["reads_summary"]["FRESH"]["g-12"]["pre_mean"], "b": e341["gates"]["G_SUBJECT"]["read_gm12_t"], "abs_d": abs(x44["reads_summary"]["FRESH"]["g-12"]["pre_mean"] - e341["gates"]["G_SUBJECT"]["read_gm12_t"])}
+    rows["x44.FRESH.gm12==e341.G_SUBJECT"] = {"a": x44["reads_summary"]["FRESH"]["g-12"]["pre_mean"], "b": e341["gates"]["G_SUBJECT"]["read_gm12_t"]["committed"], "abs_d": abs(x44["reads_summary"]["FRESH"]["g-12"]["pre_mean"] - e341["gates"]["G_SUBJECT"]["read_gm12_t"]["committed"])}
     rows["x45.own_inst==x47.walk_s400"] = {"a": rung_rmats["own_inst"]["g-12|g0"], "b": x45["walk"]["rungs"]["walk_s400"]["corrs"]["g-12|g0"], "abs_d": abs(rung_rmats["own_inst"]["g-12|g0"] - x45["walk"]["rungs"]["walk_s400"]["corrs"]["g-12|g0"])}
     for k, v in rows.items():
         ok &= v["abs_d"] <= max(1e-4, 0.01 * abs(v["b"]))
@@ -542,7 +544,7 @@ def main():
     gm12 = {
         "VARIED": e341["annealed_t0"]["VARIED"]["gm12"],
         "FIXED": e341["annealed_t0"]["FIXED"]["gm12"],
-        "FRESH": e341["gates"]["G_SUBJECT"]["read_gm12_t"],
+        "FRESH": e341["gates"]["G_SUBJECT"]["read_gm12_t"]["committed"],
     }
     pair_iii_points = []
     for arm in ["VARIED", "FIXED", "FRESH"]:
