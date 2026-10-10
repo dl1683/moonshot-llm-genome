@@ -7,6 +7,51 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T328 — e344: the fingerprint closes — and its home narrows to warm re-formation (or the instrument), with the s125 wrinkle promoted to an event class (2026-10-10, datetime.now ~22:15Z)
+
+The fork resolved against the lab's lean (the counter column's third contested hit —
+the ordering hypothesis 'guess < lean < counter < instrument' is now directly
+supported at the column level: counter 3-for-3, lean 1-for-6 since R80). The cons
+curriculum run from BASE bought NOTHING decorrelated — worse, coherent-above, its
+young subset the most coherent segment the instrument has ever measured. Read with
+e343: COLD FORMATION IS COHERENT UNDER BOTH CURRICULA (install AND cons); the
+family's ONLY decorrelated arm is x45's TAVIREN walk — whose states are install-end
+REMODELING states: WARM RE-FORMATION, Law 3b's own class.
+
+THE FINGERPRINT'S HOME, NARROWED TO TWO: (i) the instrument's TAVIREN-side
+certification (an artifact — the bar's frozen clause, honored); (ii) THE WARM
+RE-FORMATION SIGNATURE — decorrelation is what resumed formation looks like from the
+inside, a property of RE-forming an already-formed substrate, purchasable by neither
+curriculum from cold. The curriculum reading is dead; the age reading is
+MIXED-directional (R2_age 4x R2_menu, no bar cleared).
+
+THE FREE OBSERVATION ALREADY IN THE RECORD: e343's install-arm UPPER SEGMENT
+(s100-s400, sign - 0.75) — if those states are ZEPHYRA-side remodeling-phase
+(post-install-end, warm), the family already holds a second-lineage warm-phase
+decorrelating instance and (ii) wins at the segment level where the arm-level bars
+said NO. The segment-level four-arm re-read (x48) is the cheapest discriminator in
+the lab's history: pure desk, every row committed, zero new compute.
+
+AND THE S125 WRINKLE IS NOW A CLASS: the N1 regression's two largest residuals are
+BOTH s125 states (anneal_s125 -0.59, walk_cons_s125 -0.58) — the SAME formation age
+(525) decorrelating hard on BOTH menus, unpredicted by age or menu. Whatever happens
+at s125 happens twice. A decorrelation EVENT, not a trend — the first candidate for
+the fingerprint's elementary unit.
+
+REGISTERED PREDICTION (P-T328a, on x48 the segment-level re-read): the walk's
+decorrelation and the install-arm's upper segment share the warm-phase class — a
+segment-level pooled scoring at the remodeling boundary lands sign - with consistency
+>= 0.70; the countervailing: the segments' net0 classes may not align (the install's
+s100-s400 are BASE-formed end-states, not re-formation middles) and the instrument's
+certification gap swallows segment-level patterns too.
+
+CONNECTS: Law 3b (warm re-formation — the fingerprint may be its read-side signature:
+RESUMED FORMATION IS DECORRELATING FORMATION); W057 (the two clocks GAIN from N1's
+age-4x-menu and the s125 event class — history-like, menu-independent); W056 (the
+cons-side anchor closes; the variety-side anchor stands alone); x43's ceiling re-reads
+once more: the assembly dosed COLD formation — if the protocol gap is warm-phase
+decorrelation, no cold menu could ever have closed it.
+
 ## T327 — e343: the fingerprint retracts at its first cross — and the retraction's shape points at the curriculum (with formation age the free second) (2026-10-10, datetime.now ~21:20Z)
 
 The era's first positive finding lasted one beat. The cross — the ZEPHYRA install
@@ -131,6 +176,10 @@ TAVIREN-lineage — the cross retracted its path-general form; six of seven pill
 untouched, and the retraction's own shape (young-coherent, old-decorrelated) feeds
 the history-clock side. See T327.]
 
+[e344 NOTE (2026-10-10 ~22:15Z): pillar seven's final form — 'warm re-formation or
+instrument'; the two-clocks pattern GAINS from N1 (age carries 4x menu) and from the
+s125 event class (history-like, menu-independent). See T328.]
+
 ## T326 — x47: the flip's death edge is slot-shared, its lift channel is lineage-coupled — the threshold was two objects all along (2026-10-10, datetime.now ~21:00Z)
 
 The replicate debt came due and paid in an unexpected currency: UNRESOLVABLE at the
@@ -218,6 +267,10 @@ INDEPENDENTLY, and the lab's whole dose vocabulary has been measuring the wrong 
 [e343 NOTE (2026-10-10 ~21:20Z): the fingerprint retracted at the cross — hypothesis
 (a)'s cons-side anchor is TAVIREN-lineage-only until the full-swap (e344) lands; the
 variety-side anchor (x44's r 0.33-0.46) is untouched. See T327.]
+
+[e344 NOTE (2026-10-10 ~22:15Z): the cons-side anchor CLOSES — the cons curriculum
+from BASE buys no decorrelation (coherent-above); hypothesis (a) now rests on the
+variety-side anchor alone plus the s125 event class. See T328.]
 
 ## W053 — the map's dynamics: does the receptivity table drift along the lineage? (2026-10-10, datetime.now ~01:57Z; the guard's owed thinking bulk)
 

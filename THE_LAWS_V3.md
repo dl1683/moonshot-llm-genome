@@ -249,25 +249,29 @@ the port held — the death is scale); the fade's named mechanism leads: the REC
 INVERSION (the control out-recovers the annealed at 10M — the two axes' independence
 flips sign at scale), the WASH-CONTENT FINDING (the install-anchor wash kills at 10M
 where the neutral spared), and the DIMENSION-MATCH PARADOX (the projection-geometry
-explanation of the fade is dead). AND THE FINGERPRINT RETRACTED AT ITS FIRST CROSS
-(x45 → e343): the TAVIREN-side separation stands in x45's own data (the cons walk's
-matched states, consistency 0.78-0.83, vs the anneal), but the cross — the ZEPHYRA
-install path through the same instrument — shows NO decorrelated signature (7 matched
-pairs: sign +, 0.57 consistency, failing on sign; the install's steep-transient rungs
-near-perfectly coherent at r 0.986-0.993, decorrelating only at its upper reach,
-s100-s400 sign − 0.75); per the frozen bar the fingerprint RETRACTS as a path-general
-claim — what remains is a TAVIREN-lineage fact under two live mechanisms (the
-instrument's name-certification vs the CONS CURRICULUM's specificity), with FORMATION
-AGE the free lead (the young transient coherent, the old reach decorrelated, the
-anneal's s125 panel young-AND-decorrelated — the varied menu's free point); the
-full-swap (e344) is the registered closer; support breadth and the in-room split do
-not separate.
+explanation of the fade is dead). AND THE FINGERPRINT RETRACTED AT ITS CROSSES
+(x45 → e343 → e344): the TAVIREN-side separation stands in x45's own data (the cons
+walk's matched states, consistency 0.78-0.83, vs the anneal), but the crosses closed
+every general form — e343 (the ZEPHYRA install path): NO decorrelated signature (sign
++ 0.57; the install's steep-transient rungs near-perfectly coherent at r 0.986-0.993,
+decorrelating only at its upper reach, s100-s400 sign − 0.75); e344 (ZEPHYRA through
+the cons curriculum from BASE, draws bit-identical to the canon's stream, curriculum
+the only delta): COHERENT-ABOVE (sign + 0.78/0.313 over 23 pairs; its young subset
+the most coherent segment the instrument has measured) — COLD FORMATION BUYS NO
+DECORRELATION UNDER EITHER CURRICULUM. The family's ONLY decorrelated arm is the
+TAVIREN walk, whose states are install-end REMODELING states: the fingerprint's home
+narrows to WARM RE-FORMATION (Law 3b's class; e343's upper segment the free
+ZEPHYRA-side candidate) or the instrument's certification (the bar's honored clause,
+not an established mechanism); N1 MIXED (age carries 4x menu, no bar cleared; both
+s125-class states hard residuals — a decorrelation EVENT class, the first candidate
+elementary unit); support breadth and the in-room split do not separate.
 
 *Scope (Law 8):* one organism, one wash protocol, one architecture at 2.74M (the scale
 clause is two legs at 10M); the recipe's protocol-scope clause (the cons band ~1.0 is
-the reference — no composed arm reached it); the TAVIREN-side separation is one
-lineage, one instrument — the cross (e343) retracted its path-general form, the closer
-(e344) in flight; the recovery gradient's cons
+the reference — no composed arm reached it); the TAVIREN walk is the only decorrelated
+arm — the crosses (e343 install; e344 cons-from-BASE) retracted the path-general and
+curriculum forms; the home (warm re-formation vs instrument) open at the segment
+level (P-T328a, x48); the recovery gradient's cons
 rung is the measured band [0.957, 1.088] on the cons legs.
 
 ## METHODS (the demoted instrument rules)
@@ -283,11 +287,12 @@ rung is the measured band [0.957, 1.088] on the cons legs.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 19-for-36
-   (refreshed at the e343 fold: the five cells since R80 went 1-for-5 — e342 hit; g1bS9,
-   x45, x47, and e343 missed, two of the misses (g1bS9, e343) with the executor's
-   counter-call hitting — two-sided p ~ 0.9, still coin-adjacent in kind; the lean
-   column carries no edge). THE
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 19-for-37
+   (refreshed at the e344 fold: the six cells since R80 went 1-for-6 — e342 hit; g1bS9,
+   x45, x47, e343, and e344 missed; the executor counter-column hit on ALL THREE of its
+   contested calls (g1bS9, e343, e344) — the lean column is statistically a coin and
+   the ordering hypothesis 'guess < lean < counter < instrument' is now directly
+   supported at the column level; two-sided p ~ 1.0; the lean column carries no edge). THE
    ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven
    straight cells and the first three post-R80 misses; e343's verdict NARROWED rather
    than resolved (both registered mechanisms live — the fork handed to e344)
