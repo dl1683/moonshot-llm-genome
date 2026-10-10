@@ -748,8 +748,11 @@ def main():
         assert cert["pass"], f"room cert failed: {cert}"
         rooms336 = torch.load(E336_DIR / "e336_rooms.pt", map_location="cpu",
                               weights_only=False)
-        D336 = rooms336["model"]["K10K"]["D_int8"].numpy().astype(np.float64)
-        S336 = rooms336["model"]["K10K"]["S"].numpy()
+
+        def _np(x):
+            return x.numpy() if hasattr(x, "numpy") else np.asarray(x)
+        D336 = _np(rooms336["model"]["K10K"]["D_int8"]).astype(np.float64)
+        S336 = _np(rooms336["model"]["K10K"]["S"])
         D_mine = rooms_here.rooms["K10K"].D
         S_mine = rooms_here.rooms["K10K"].S
         G_ROOMK10K = {
