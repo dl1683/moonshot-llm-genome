@@ -779,6 +779,12 @@ def phase_P2(theta0: dict) -> dict:
                   for n, p in net0.named_parameters())
     g_bitroot = {
         "R": net0.R, "expected_R": EVENT_R,
+        "R_abs_diff": abs(net0.R - EVENT_R),
+        "R_note": "anch__R is an fp32 buffer: fp32(0.7) = 0.699999988079071; "
+                  "the dial is 0.7 RAW L2 in the era's own storage precision "
+                  "(smoke-revealed: the inherited exact-== gate was an "
+                  "instrument bug, repaired with a 1e-6 tolerance — the "
+                  "era's own anch__R round-trip semantics unchanged)",
         "n_anchor_tensors": net0._n_anchor_tensors,
         "n_trainable": n_par,
         "body_max_abs_diff": md, "anchors_bit_equal": bool(anch_ok),
@@ -786,7 +792,7 @@ def phase_P2(theta0: dict) -> dict:
         "claim": "the armed net's body == the subject bit-exact and the "
                  "anchors bit-equal the parameters (the wall is inert "
                  "before the first forward; g1b's G_BITROOT verbatim)",
-        "pass": bool(net0.R == EVENT_R and md == 0.0 and anch_ok
+        "pass": bool(abs(net0.R - EVENT_R) <= 1e-6 and md == 0.0 and anch_ok
                      and net0.anchored),
     }
     assert g_bitroot["pass"], f"G_BITROOT FAILED: {g_bitroot}"
