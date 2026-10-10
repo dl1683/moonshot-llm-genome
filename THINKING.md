@@ -62,6 +62,37 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T308 — X37: provenance does not matter — the physics is the same; the sign flips with the living read (2026-10-10, datetime.now ~09:55Z)
+
+The root finally sat as the specimen, and the answer is the
+unifying one: a ladder-taught, half-finished, washable read behaves
+in the receptivity instruments exactly like a lab-taught one —
+written-band fragility, installed-class gating, bit-exact instrument
+reproductions on either side. PROVENANCE DOES NOT MATTER. T279's
+committee and T289's bearer-coupling are substrate-physics, not
+lineage-physics — the laws doc's confidence clauses generalize past
+the lab's own installs for the first time.
+
+TWO RIDERS WORTH SAVORING: (1) THE SIGN FLIPS WITH THE LIVING READ —
+the SAME K10K complement that lifts the base's dead Z-slot 54.6x
+COLLAPSES the root's living Z-read -71%. One displacement, opposite
+hands, decided entirely by whether the read is alive at the slot.
+This is the two-channel law's cleanest demonstration yet: the
+complement carries the name-push, and a living read ABSORBS it
+(suppression) where an empty slot COMPOSES it (lift) — T279's
+written-slot composition, now seen from the living side. (2) THE
+GAUSSIAN'S SILENCE AT SCALE: -0.07% on a living read at matched norm
+— pure energy does nothing even at 9 norms; only the aligned push
+moves a living memory.
+
+THE CONSOLIDATION QUESTION INHERITS SHARPLY: the ball (the only
+wash-proof object) vs the root (a washable read with full install
+physics) — consolidation is NOT about the read's presence (both
+have it), nor its fragility signature (both show it), but something
+the wash sees and the panel cannot. The next chamber's design writes
+itself: WHAT DOES THE BALL HAVE THAT THE ROOT LACKS — and the
+e335-era wash ladder (root -> cons-final -> ball) is the instrument.
+
 ## T307 — E335: the root is the ladder's half-finished product — warm re-formation is resumed formation, literally (2026-10-10, datetime.now ~09:30Z)
 
 The foundation question resolved in the lean's direction with the
