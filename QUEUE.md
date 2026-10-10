@@ -157,7 +157,19 @@ THE v3.1 STRUCTURAL PROGRAM (adopted at R78, the next draft's shape): promote re
 | x46 | THE REDUNDANCY PROFILE (the decorrelation channel to mechanism) | READY (CPU + one short GPU arm) | WASH-PROOFNESS REQUIRES REDUNDANCY: the cons's read carried by weakly-correlated elicitation families vs every recipe arm's r~0.97 monoculture; the partial-kill rider (kill the g0 family only, read the offsets) — if it fires, the protocol gap re-reads as a redundancy accumulator |
 | x36 | THE PAGE LADDER | PROMOTED (the formation-protocol era makes it the direct question) | swap the first K pages (4/16/64/all) of the canon: EARLY-BLOCK (the curated history is front-loaded — the protocol is cheap and transplantable) / LATE-BLOCK / DIFFUSED (the gap is irreducibly long) |
 
-THE SLOT-PROPERTY n=2 (the standing replicate debt): a second name's committed states through x44's per-context instrument — registered here; dispatch with the next CPU session.
+THE SLOT-PROPERTY n=2 (the standing replicate debt): a second name's committed states through x44's per-context instrument — dispatched as x47 (RUNNING since ~20:37Z Oct-10, CPU lane; re-keyed from the reserved x46, disclosed at birth; smoke passed 22/22 gates at 14098d7).
+
+## NOVELTY PASS (2026-10-10 ~20:55Z — the standalone ideator; folded from scratch/novelty_2026-10-10.md, 565bf64)
+
+Angles (ripening — no bars registered yet; the ideator's self-check greps dropped the standing overlaps and marked x46/W056/W053 as the sharpenings they are):
+
+| id | angle | status | one-liner |
+|---|---|---|---|
+| N1 | THE FORMATION CLOCK | ANGLE | the fingerprint may be a CHRONOMETER (decorrelation as path-age, not just path signature): regress the committed walk rungs on steps vs height vs write (x45's write-norm co-finding already killed cumulative write as the driver); the systems-consolidation 'transformation' import bridged to fresh r~0.97 (context-bound) vs cons 0.78-0.83 (decontextualized); lands => states become forensically datable and the protocol must BUY ticks (which would explain x43's 600-extra-steps null) |
+| N2 | THE MELODY, NOT THE CHORD | ANGLE | the fingerprint may live in the ORDER of elicitation-family arrivals (ecology's priority effects; varied-300 = simultaneous assembly vs the cons ladder's sequential — the exact contrast already measured): segment x45's per-step tables by the walk journal's family switches, then an order-shuffled re-formation via the certified CPU replays; lands => x43's ceiling becomes a structural impossibility theorem for every menu-based recipe |
+| N3 | THE OPEN-LOOP CEILING | ANGLE (e343-independent, all on disk) | the protocol gap may be the missing FEEDBACK LOOP (T268 proved dose-as-function-of-state for maintenance only; no controller cell ever ran during formation): x45's instrument on e339's committed controller-formed t400/t800 vs e341's open-loop arms, then GATE-AT-BIRTH; lands => the tuner program and the formation-protocol era merge |
+| N4 | THE PLASTICITY PRICE | ANGLE | g1bS9's recovery inversion (0.596 vs 0.383) may be LOSS-OF-PLASTICITY, not protocol: desk-read whether the annealed deficit exists at wash step 1, then a novel-fact formation probe on the committed 10M states (PLASTICITY-SPENT vs FACT-LOCAL); lands => the 2.74M ceiling and the 10M fade split into different laws and the scale protocol becomes a plasticity-management schedule |
+| W | THE ORACLE AFTERNOON | WILDCARD | ~25-40 formation variants at 2.74M (the angles as arms), wash + fingerprint everything, train a probe to predict wash retention from pre-wash statistics — either the regression names the missing protocol's sufficient statistics or the protocol provably lives in transitions, not states |
 
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
