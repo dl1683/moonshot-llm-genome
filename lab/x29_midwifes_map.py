@@ -152,11 +152,18 @@ clauses, they do not move the bars):
     UNSATISFIABLE as written — e293's committed NAME_BANK holds exactly 5
     members (ZEPHYRA/TAVIREN/QELVARO/BUVONDI/NYSTORA), every one already on
     the panel (x24's own disclosure: "no spare bank members exist"). MINTED
-    under e311's convention (the e293 family discipline): CORVANE (initial
-    C) and ARVENOL (initial A) — 7 letters, every char in the 65-char
+    under e311's convention (the e293 family discipline): JERANOL (initial
+    J) and ARVENOL (initial A) — 7 letters, every char in the 65-char
     vocab, count-0 in the train split (design-time verified), distinct
-    initials (Z T Q B N V M L K E F C A = 13 distinct), neither in the
-    bank, neither == G1.NAME. Disclosed deviation; gated at runtime.
+    initials (Z T Q B N V M L K E F J A = 13 distinct), neither in the
+    bank, neither == G1.NAME. SMOKE AMENDMENT (disclosed): the first mint
+    draw was CORVANE (C) + ARVENOL (A); CORVANE's host-g0 base prior
+    measured 0.0681 at the smoke prior gate ('C' is hot at the host site)
+    — above e311's 0.05 halt bar; swapped PRE-COMPUTE for JERANOL (prior
+    0.0029, inside the bank band; ARVENOL kept at 0.0231, a disclosed
+    straddle like x24's BUVONDI). NO displacement output was seen before
+    the swap (the halt fired at the prior gate); the bars and predictions
+    are untouched (the adjudicated Spearman uses the 11 x24 names).
   * 9. THE READING of "host contexts" on the virgin + foreign bases (the
     dispatch's own note): the host-g0 site = x24's context draws AS-IS —
     corpus windows where the fact WOULD be installed; no host fact exists
@@ -366,7 +373,13 @@ GAUSS_NORM = 9.1788432658723                     # the matched dose
 GAUSS_INROOM_NORM_BAND = (0.055, 0.066)          # x25's committed bands
 GAUSS_INROOM_ENERGY_BAND = (0.0034, 0.0039)
 E293_BANK = ("ZEPHYRA", "TAVIREN", "QELVARO", "BUVONDI", "NYSTORA")
-FRESH_NAMES = ("CORVANE", "ARVENOL")             # minted (op 8)
+FRESH_NAMES = ("JERANOL", "ARVENOL")             # minted (op 8; see the
+# SMOKE AMENDMENT: the first mint draw was CORVANE (C) + ARVENOL (A);
+# CORVANE's host-g0 base prior measured 0.0681 at the smoke prior gate —
+# 'C' is hot at the host site (every C-initial name reads ~0.068) — above
+# e311's 0.05 G_BASE halt bar; swapped PRE-COMPUTE for JERANOL (J, prior
+# 0.0029, inside the bank band). NO displacement output had been seen
+# (the halt fired at the prior gate); disclosed in DEVIATIONS.
 
 # ---- the panel (x24's 11 verbatim + the 2 minted; train counts frozen) -----
 PANEL = [
@@ -382,7 +395,7 @@ PANEL = [
     ("KING",      "corpus_common_token",       True,  556),
     ("ELIZABETH", "corpus_host_high",          True,  105),
     ("FLORIZEL",  "corpus_host_high",          True,  45),
-    ("CORVANE",   "synthetic_count0_minted",   False, 0),
+    ("JERANOL",   "synthetic_count0_minted",   False, 0),
     ("ARVENOL",   "synthetic_count0_minted",   False, 0),
 ]
 X24_NAMES = [nm for nm, _, shared, _ in PANEL if shared]
@@ -513,12 +526,16 @@ DEVIATIONS = [
     "CUDA_VISIBLE_DEVICES='' before torch import, torch threads 4, "
     "pocketfft workers 4, no GPU code path, no envelope-log writes, no "
     "other runs/ touched.",
-    "THE 2 FRESH NAMES are MINTED under e311's convention (CORVANE, "
+    "THE 2 FRESH NAMES are MINTED under e311's convention (JERANOL, "
     "ARVENOL), not drawn from e293's bank — the bank holds exactly 5 "
-    "members, all already on x24's panel (x24's own 'no spare bank members' "
-    "disclosure); the dispatch's '2 fresh from e293's bank' is "
+    "members, all already on x24's panel (x24's own 'no spare bank "
+    "members' disclosure); the dispatch's '2 fresh from e293's bank' is "
     "unsatisfiable as written; runtime-gated (count-0, 7 letters, vocab, "
-    "distinct initials, != G1.NAME, not in the bank).",
+    "distinct initials, != G1.NAME, not in the bank). SMOKE AMENDMENT: "
+    "the first draw's CORVANE (C) failed e311's 0.05 prior bar at the "
+    "smoke prior gate (0.0681 — 'C' hot at the host site); swapped "
+    "pre-compute for JERANOL (0.0029, in-band); no displacement output "
+    "seen before the swap; bars + predictions untouched.",
     "THE VIRGIN TABLE adjudicates on THE GAUSSIAN (the write-free second "
     "displacement): the K10K-complement columns on e001 are x24's own "
     "committed table (reproduced bit-exact as the instrument gate — a "
