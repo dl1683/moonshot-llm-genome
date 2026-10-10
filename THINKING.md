@@ -59,6 +59,23 @@ graduates from angle to registered rider; Law 8's fingerprint clause re-worded t
 fold — the retraction, disclosed in place, is the era's first falsification of its own
 freshest finding, one beat after minting it.
 
+THE TREE AFTER E344 (written ~21:25Z, BEFORE the verdict — the anti-retrofit ledger):
+- CURRICULUM-SIGNATURE lands => the fingerprint re-opens with CURRICULUM scope. The
+  next cell's argument writes itself: N2 THE MELODY (does ORDER within the cons
+  curriculum carry the signature? order-shuffled re-formation through the certified
+  CPU replays — the cheapest manipulation that is not a dose change) and x46 (the
+  meta-correlation test, now with a SECOND decorrelated lineage to anchor the
+  history-clock regression). The era's target list re-opens with its lead back.
+- NAME-ARTIFACT lands => the fingerprint closes as a TAVIREN-lineage fact. The era's
+  lead passes to W057's meta-correlation test anyway (x46 — it never needed the
+  fingerprint; it needs the lineage-relative quantities) and to N4 (the plasticity
+  price at 10M — the scale program's mechanism lead). Law 8's clause finalizes with
+  the artifact wording; the two-clocks pattern stands on six pillars.
+- EITHER WAY: the age-vs-menu regression (e344's desk half) settles N1's standing —
+  AGE-CLOCK promotes the chronometer to a standing instrument candidate; MENU-TYPE
+  hands the era its first causal lever (curricula, not clocks); MIXED means the
+  instrument needs a third axis before any of this composes.
+
 ## W057 — the two clocks: every object in this lab splits into a state-clock and a history-clock — and the history-clock may BE the decorrelation structure (2026-10-10, datetime.now ~21:10Z; the beat's thinking bulk, e343 mid-run)
 
 THE PATTERN, assembled across the corpus — seven objects, one binary:
