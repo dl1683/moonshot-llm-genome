@@ -7,6 +7,46 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T296 — E330: the map was always there — writing reveals, damps, and shifts; it does not create (2026-10-10, datetime.now ~01:30Z)
+
+The decisive cell returned the selection branch, and the noun's final
+form is stranger than either hypothesis sketched. A fresh name —
+NYSTORA, whose slot lifted 1.90x before anything touched it — was
+written at the host contexts, live, in-band, first try. Its slot's
+lift then COLLAPSED to 0.18x. WRITING DID NOT CREATE FRAGILITY; IT
+REMOVED IT. The keel reading (x25) is now causal: a formed read's
+anchored mass damps its own slot's receptivity.
+
+THE AUTHORSHIP TABLE — x24's only-written-names-lift pattern — IS NOW
+A MAP OF INNATE RECEPTIVITY THAT THE LAB'S INSTALL GATES WERE
+CENSUS-ING. TAVIREN (11.84x) and ZEPHYRA (54.6x) were born receptive;
+QELVARO-class names were born robust; and the writing that lands on a
+receptive slot LEAVES it less receptive than it found it. Formation is
+negotiation with a pre-existing disposition map — and e293's unborn
+distinct-name patients re-read one final time: their slots would not
+take.
+
+TWO RIDERS THAT KEEP THE MAP HONEST: (1) the contamination — the write
+shifted the whole never-written landscape (QELVARO x5.4 upward, TAVIREN
+down 0.65): the map is not static; every write redraws it slightly;
+(2) the third s1 texture — NYSTORA's install sat PRIOR-FLAT at step
+one (neither die nor survive): the fork's mode census (e327) measured
+the die/survive axis cleanly, but the first-step texture space has at
+least one more occupant at n=1. Both riders carry into the v3 scope
+blocks, not the invariant core.
+
+FOR THE V3 DRAFTING (x28 still pending for Law 7): Law 3's slot clause
+drafts as SELECTION-REVEALED — the noise floor is an innate-receptivity
+map, partially damped and shifted by writing; the METHODS note inherits
+the read-bar calibration rule. THE LEAN LEDGER: P-e330a HIT — coarse
+registered leans now 4-for-5 (the plausibility framing stands; no
+lesson-claim beyond it).
+
+THE SAVOR: the lab spent a day believing it was sculpting memory into
+passive wax; the instruments kept insisting the wax had opinions. The
+final noun of the night: THE ORGANISM'S HEAD COMES WITH A MAP, AND
+EVERY MEMORY IS A SETTLEMENT ON SOMEONE ELSE'S LAND.
+
 ## T295 — E327: the mode question closes — two modes, three orders of seed magnitude, and the canon alone in the rare one (2026-10-10, datetime.now ~00:45Z)
 
 The census did what censuses are for. Eight seeds spread as equal-bin

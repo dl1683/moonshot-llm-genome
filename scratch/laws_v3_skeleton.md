@@ -29,8 +29,10 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
   instrument-calibration rule, not a formation law — candidate demotion to a METHODS
   note at v3 drafting; x25 DONE [R74-corrected]: the MASS reading fell (the per-state displacement-push is CONSTANT across the mass ladder; only written slots compose upward under two pushes — the 'doubling' was a currency artifact, retired);
   the noun holds as NOT-THE-MASS, x26 DONE: the ROW is not the seat (forge inert, P-x26a hit);
-  causality narrows to e330 — contextual-writing-causes vs SELECTION
-  (slots born different; the authorship table as innate-receptivity map)]
+  e330 DONE (T296): SELECTION-REVEALED — writing DAMPS its own slot (causal keel);
+  the fragility predates the lab; the table is an innate-receptivity map, shifted
+  by every write (the contamination rider); the third s1 texture (prior-flat, n=1)
+  re-opens the fork's texture count. Law 3's slot clause drafts SELECTION-REVEALED.]
 - NEW CLAUSES (the bearer law, promoted from notes):
   - SUFFICIENCY: the room-overlap tail carries the read (e306 — truncation kills, r7 = 33.9% mass).
   - NECESSITY, DOSE-MATCHED: the out-of-room complement at 100% of the write's energy reads
