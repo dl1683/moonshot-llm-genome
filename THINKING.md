@@ -7,6 +7,44 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T326 — x47: the flip's death edge is slot-shared, its lift channel is lineage-coupled — the threshold was two objects all along (2026-10-10, datetime.now ~21:00Z)
+
+The replicate debt came due and paid in an unexpected currency: UNRESOLVABLE at the
+frozen bar (no pooled R* on ZEPHYRA — the constraint set contradicts), but the residue
+is sharper than a confirmation would have been. TWO EDGES: the collapse side begins at
+the same place on both slots (min_upper 0.0586-0.0594 vs TAVIREN's 0.0527, ~1.1-1.2x);
+the lift side does not terminate at all on ZEPHYRA — a LIVING context at read 0.1405
+lifts under the complement, on the native family. x38 called the flip a two-parameter
+object (sign + magnitude); x47 splits it once more: THE SIGN'S DEATH EDGE IS
+REPRESENTATION-LEVEL, THE SIGN'S BIRTH CHANNEL IS LINEAGE-RELATIVE.
+
+WHY THE LIFT SIDE RUNS LONG ON SLOT 2 — three readings: (H1) LINEAGE-COUPLED LIFT (the
+executor's): the empty-slot lift channel is a property of the name-lineage PAIR (which
+names the complement's construction room touches), so the lift bar inherits METHODS 1's
+authorship-relativity — the same relativity the read bars already carry; (H2) PHASE-
+MIXING: x42's mixed zone lives at context resolution on ZEPHYRA too (own_inst g-12 ran
+15L/27C with 32 violations) and the classifier's living-read rule may be reading a
+genuinely mixed band as contradiction — the 'unbounded lift' is mixed cells, not living
+lifts; (H3) REAL ASYMMETRY: the flip object is one shared edge plus one private channel
+per lineage — the honest physical reading, and the one Law 7 now carries.
+
+DISCRIMINATOR: e343 (in flight) carries the name-vs-instrument side of the confound;
+the H1-vs-H2 side is a desk read — x24's committed 22-cell panel already brackets
+living-read lifts across the name spectrum (on disk, |d| 0.0 gated): H1 predicts lift
+termination tracks the family relation to the carrier, H2 predicts the contradictions
+cluster in the mixed zone's read band regardless of name.
+
+REGISTERED PREDICTION (P-T326a, for whatever cell next touches the flip): a THIRD slot
+(a fresh bank name) shows collapse-onset in the 0.05-0.06 band BEFORE its lift
+structure resolves — the death edge replicates third-for-third; any slot whose lift
+side terminates cleanly while its collapse edge MOVES would kill H3 outright.
+
+CONNECTS: W056 (if durability is redundancy, the shared death edge reads as the
+redundancy floor — the level below which one displacement reaches every family at
+once); T321 (the variety decorrelation now has a threshold story: what decorrelates
+may be exactly the lift channel's lineage coupling); Law 7's clause re-worded this
+fold — the era's first law-level edit driven by a replicate's refusal to resolve.
+
 ## W056 — the same object? the variety channel's decorrelation and the cons's fingerprint may be one thing (2026-10-10, datetime.now ~20:50Z; the beat's thinking bulk, both compute lanes busy)
 
 Two instruments, a day apart, both mid-formation, both about INDEPENDENCE OF

@@ -184,10 +184,16 @@ THE FLIP IS A TWO-PARAMETER OBJECT (x38+x42): the SIGN flips below the lowest
 living read ever formed (DOWN by 0.114; the outer rungs total) while the MAGNITUDE
 RAMPS through mid-formation (move 0.6 -> 5.4x over reads 0.11-0.51, joining the
 living band 6.9-11.9x) — a sign-threshold plus a graded ramp, not a scalar R*; AND
-THE THRESHOLD IS A SLOT PROPERTY (x44, landed at R80): the two resolvable brackets
-agree 1.06x across a state AND a geometry change, pooling R*(TAVIREN) ~0.045-0.05
-[n=2-of-9 cells, one slot, one organism — the second-slot replicate is the standing
-debt; the verdict rode the secondary pooled comparison; the support tail is NOT
+THE FLIP'S DEATH EDGE IS SLOT-SHARED, ITS LIFT CHANNEL LINEAGE-COUPLED (x44, landed at
+R80; x47, the second slot): the two resolvable TAVIREN brackets agree 1.06x across a
+state AND a geometry change, pooling R*(TAVIREN) ~0.045-0.05 [n=2-of-9 cells, one slot,
+one organism; the second slot (x47, ZEPHYRA): the lift side does NOT pool — the
+constraint set contradicts (a living context lifts at 0.1405 while a 0.0586 context
+collapses) — but the COLLAPSE-ONSET EDGE AGREES within ~1.1-1.2x (0.0586-0.0594 vs
+0.0527): the flip is ASYMMETRIC — a shared death edge, a lineage-coupled lift channel
+(the name-vs-lineage confound registered, e343 the discriminator; T326; P-T326a: a
+third slot's death edge replicates before its lift structure resolves); the verdict
+rode the secondary pooled comparison; the support tail is NOT
 flip-margin (P(alive|R*) 0.69-0.87 varied-arm-only) and THE VARIETY CHANNEL IS
 ELICITATION DECORRELATION (fresh r~0.97 across geometries; varied 0.33-0.46 with the
 offsets mutually bound 0.88-0.92) — independence of response, not margin]; once living, the collapse is uniform (1.71x envelope) and host-gated; THE
@@ -270,13 +276,13 @@ rung is the measured band [0.957, 1.088] on the cons legs.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 19-for-34
-   (refreshed at the v3.1 pass: the e342/g1bS9/x45 folds had left this at 19-for-32;
-   the three cells since R80 went 1-for-3 — e342 hit, g1bS9 and x45 missed, in both
-   misses with the executor's counter-call or registered falsifier firing — two-sided
-   p ~ 0.6, still coin-adjacent in kind; the lean column carries no edge). THE
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 19-for-35
+   (refreshed at the x47 fold: the four cells since R80 went 1-for-4 — e342 hit; g1bS9,
+   x45, and x47 missed, all three misses with the executor's counter-call or registered
+   falsifier/risk firing — two-sided p ~ 0.7, still coin-adjacent in kind; the lean
+   column carries no edge). THE
    ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven
-   straight cells and both post-R80 misses (selection-conditioned: its verb stays
+   straight cells and all three post-R80 misses (selection-conditioned: its verb stays
    'resolved', never 'predicted'). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).
@@ -306,6 +312,8 @@ audit's repairs applied the same night. v3.1 (the R80 structural order, applied 
 2026-10-10 ~20:40Z beat, before R81): e326's resolution PROMOTED into Law 2b prose;
 e325's into Law 6; Law 3's scope split into labeled sub-blocks (3a the formation
 classes / 3b warm re-formation); the chamber, recipe, mechanism, ceiling, scale clause,
-and fingerprint RE-CUT as LAW 8 — THE GUARD AND ITS CEILING; METHODS 5 refreshed to
-19-for-34 (the e342/g1bS9/x45 folds had left it two cells stale). The document is
+and fingerprint RE-CUT as LAW 8 — THE GUARD AND ITS CEILING; METHODS 5 refreshed (the
+e342/g1bS9/x45 folds had left it two cells stale). Post-v3.1, at the x47 fold: Law 7's
+slot-property clause re-worded to the asymmetric form (death edge slot-shared, lift
+channel lineage-coupled — x47) and METHODS 5 ticked to 19-for-35. The document is
 complete and awaits the supervisor's review.*
