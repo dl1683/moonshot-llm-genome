@@ -1211,7 +1211,10 @@ def write_report(cut1: dict, wash: dict, adj: dict) -> None:
 # ======================================================================
 def main() -> None:
     log(f"E335 — THE ROOT'S PROVENANCE (smoke={SMOKE}) -> {RD}")
-    metrics["birth_commit"] = git_head()
+    # the bars commit (verified: bb790a3 carries the frozen-bars script,
+    # pushed BEFORE any compute); HEAD-at-run co-reported separately
+    metrics["birth_commit"] = "bb790a3" if not SMOKE else git_head()
+    metrics["head_at_run_start"] = git_head()
     write_partial("startup (bars + P-e335a registered, committed at "
                   "birth)")
     set_seed(33500)             # global init only; every RNG is its own
