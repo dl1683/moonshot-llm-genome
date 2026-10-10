@@ -303,7 +303,16 @@ open-loop varied arms sprawl (|W| ~18 at ~41%) and decorrelate: FEEDBACK AND
 DECORRELATION WERE ANTI-CORRELATED in the era's cleanest instance class (the
 controller series APART-ABOVE at shared phase, median |d| 0.515 — the co-movement is
 a property of OPEN-LOOP reshape trajectories, not warm formation per se; the tuner
-program does not merge with the formation-protocol era).
+program does not merge with the formation-protocol era). AND THE LIVE CLAUSE (x50):
+the knob's act FILMED — dense replay (74 rungs) watched decorrelation FORM: an
+oscillating emergence in [s10,s30] (the only multi-rung coherent state the opening
+s1-s10), then a SINGLE sharp consolidation [s50,s55] (C 0.910 -> -0.055, never
+re-cohering through s300); the committed grid's coherent interior was single-rung
+spikes (the 25-grain plateau an alias); the s125 tick a WIDE noisy raw-collapse patch
+(18 rungs — a regime, not an event); and the geometry carrier DEAD (in-room FLAT at
+chance 0.060 through the sprawling decorrelated write — COMPACTNESS-INDEPENDENT: the
+write's curriculum carries everything, its geometry nothing); WARMTH IS A
+MANIPULABLE PROTOCOL KNOB — the missing formation protocol's first observable act.
 
 *Scope (Law 8):* one organism, one wash protocol, one architecture at 2.74M (the scale
 clause is two legs at 10M); the recipe's protocol-scope clause (the cons band ~1.0 is
@@ -326,10 +335,10 @@ rung is the measured band [0.957, 1.088] on the cons legs.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 22-for-41
-   (refreshed at the x51 fold: the ten cells since R80 went 4-for-10 — e342, x48, x46,
-   x51 hit (x51's primary; its ANNEAL-ANCHORED rider missed, the split disclosed);
-   g1bS9, x45, x47, e343, e344, x49 missed; W058 closed — the lean column is
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 23-for-42
+   (refreshed at the x50 fold: the eleven cells since R80 went 5-for-11 — e342, x48,
+   x46, x51 (primary; rider missed, disclosed), x50 hit; g1bS9, x45, x47, e343, e344,
+   x49 missed; W058 closed — the lean column is
    NOISE, not bias; misses are priced, not spun; the executor counter-column hit on ALL THREE of its
    contested calls (g1bS9, e343, e344) — the lean column is statistically a coin
    (one-sided no-edge p ~ 0.98; two-sided exact binomial 0.22) and the ordering

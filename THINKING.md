@@ -7,6 +7,44 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T333 — x50: the knob exists — decorrelation watched forming: an oscillating emergence in the first thirty steps, one sharp five-step consolidation, and the geometry carrier dead (2026-10-10, datetime.now ~23:50Z)
+
+The era's biggest constructive result. The replay's 74 dense rungs watched the walk's
+decorrelation FORM: an early oscillating emergence ([s10,s30]; the only multi-rung
+coherent state is the opening s1-s10), then a single sharp consolidation ([s50,s55]:
+C 0.910 -> -0.055) that never re-coheres through s300. THE PROTOCOL KNOB EXISTS — the
+missing formation protocol has its first observable act, and x43's ceiling re-reads as
+never having watched the right phase.
+
+DENSE SAMPLING KILLED THREE ILLUSIONS: the committed grid's coherent interior was
+single-rung spikes (the 25-grain plateau does not survive); the 'gradual fall between
+s50 and s75' was one 5-step drop; the s125 tick is a wide noisy raw-collapse patch
+(18 rungs, oscillating at grain 2) — a REGIME, not an event. The elementary-unit
+search moves from point-ticks to the [s50,s55] consolidation — the sharpest, shortest
+act in the record.
+
+AND THE GEOMETRY CARRIER DIED: through the whole decorrelated write, in-room sits FLAT
+at chance (0.060) and |W| sprawls upward — COMPACTNESS-INDEPENDENT. T332's F2
+(geometry) is dead; F1/F3 (menu structure — one-channel gates vs varied menus) win by
+elimination. The write's WHERE carries nothing; the write's CURRICULUM carries
+everything.
+
+REGISTERED PREDICTION (P-T333a, frozen before e345 lands): if the TAVIREN warm walk
+decorrelates, its live shape repeats the TWO-ACT structure — an oscillating emergence
+within the first ~30 reshape steps and a sharp consolidation window of <= 10 steps —
+THE KNOB'S SHAPE IS THE PROTOCOL'S SIGNATURE, cross-name; the countervailing: the
+shape is substrate-specific (the install-end's own coherence history sets the
+emergence's grain; e345's TAVIREN substrate coheres differently at s0 and the two acts
+need not align). Note e345's committed rungs are sparser — its live-shape test is
+partial unless a dense rider rides (name it if so).
+
+CONNECTS: T332 (F1/F3 win by elimination — the menu, not the geometry); T331 (the
+tick demoted to a patch; the consolidation window [s50,s55] inherits the
+elementary-unit candidacy); T329 (the level's birth watched; the phase dynamics' birth
+still unseen — the patch oscillates at grain 2); W057 (the history-clock's writer
+typed and its act filmed: an open-loop varied curriculum writing decorrelation through
+a chance-in-room sprawling write); Law 8 (the live clause appended this fold).
+
 ## T332 — x51: the fourth topology, and the era's cleanest anti-correlation — feedback writes compact and coherent; open-loop menus write sprawling and decorrelating (2026-10-10, datetime.now ~23:35Z)
 
 The hub test returned the answer nobody's hypothesis had: APART-ABOVE. At the era's
