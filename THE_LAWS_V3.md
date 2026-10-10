@@ -108,10 +108,12 @@ overshot the same way at its battery ceiling; better-learned names do not tame i
 cross-family peace untested; re-read via Law 3's map: slots refusing); SUFFICIACY n=3 SUBSTRATES x 2 NAMES (e334 root-formed at its battery ceiling, 110x;
 e336 base-formed fresh-name at 281.9x — the record's largest contrast — with the
 founding sawtooth transplanted whole and the spend inside the founding lottery
-band); the ENDPOINT HEIGHT IS NAME-TUNED (e336: the landing settled outside the
-founding band [2.85 vs 3.11-3.62] and was still rising at t400 — the equilibrium is
-the slot's, not the gate's; the founding band was ZEPHYRA's slot, not the
-controller's); the HORIZON exposure remains — no run past the organism's own ~1,040-step
+band); the ENDPOINT HEIGHT IS NAME-TUNED AND SOFT (e336+e339: the landing rose INTO the
+founding band — peak 3.148 at t600 — then receded to settle at 3.055, slope flat:
+REACHABLE BUT NOT HOLDABLE; a genuine lower equilibrium with the even-longer-horizon
+disclosure; the sawtooth bifurcated into a 2-CYCLE from event 25 — the dose fully
+self-limits every other event; the 'equilibrium' is the limit-cycle's average, not
+a proportional settle); the HORIZON exposure remains — no run past the organism's own ~1,040-step
 death clock; the fresh-room draw untested; the maintained state is address-rich (e318:
 low-dose tolerance above the family's, high-dose collapse faster).
 

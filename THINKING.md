@@ -62,6 +62,37 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T310 — E339: reachable but not holdable — the genuine lower equilibrium, and the sawtooth's 2-cycle (2026-10-10, datetime.now ~12:05Z)
+
+The long landing's answer is the rarest kind: both predictions wrong
+in opposite directions and the truth more interesting than either.
+The curve ROSE INTO the founding band (peak 3.1485 at t600 — inside
+[3.112, 3.616]) and then RECEDED to settle at 3.055. THE BAND WAS
+REACHABLE BUT NOT HOLDABLE. The name-tuned equilibrium is real (the
+settle is genuine; the slope flat by the frozen bar) — but e336's
+'held outside the band' was premature in the strict sense: the read
+SPENT a hundred and forty steps inside before the slot's maintenance
+loop let it drift back down. The honest rider: THE EQUILIBRIUM IS
+NAME-TUNED AND SOFT — a slow settle, not a hard floor, with the
+disclosure that an even longer horizon might read lower.
+
+THE MECHANISM GIFT IS THE 2-CYCLE: from event 25 the sawtooth
+bifurcated — the dose fully self-limits every OTHER event (lr_m ->
+0 on the weak phase), the deficits alternate 0.5-0.68 / 0.0, and the
+post-event reads stall just under the ceiling. The gate discovered
+limit-cycle dynamics: it is not a proportional controller finding an
+equilibrium; it is a relay oscillating between two phases, and the
+'equilibrium' is the cycle's average. THE CALIBRATION DIAL QUESTION
+TURNS KINETIC: the height is not a dial setting but a limit-cycle
+amplitude — and W049's dial design inherits the 2-cycle as its
+expected signature.
+
+THE LEDGER: both reads missed (11-for-18 — the discriminator column
+again carried the cell: the registered lift-stalling clause fired
+exactly). THE MORNING'S CHAMBER-LADDER CLOSES CLEAN: the name-tuned
+rider confirms with the soft-equilibrium refinement; e338 opens the
+consolidation chamber next.
+
 ## T309 — E336: the controller holds everything — but the landing is name-tuned (2026-10-10, datetime.now ~10:40Z)
 
 The founding-class replicate denied the letter and granted the
