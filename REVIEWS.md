@@ -2350,3 +2350,61 @@ Trigger: review 2.5h stale (R74 01:10Z); the final wave complete (e330/x29/x28/e
 **IDEATOR — four cards:** x45 THE PATH DIFFERENCE (the formation-protocol question's first cell: diff the cons's formation PATH vs x43's anneal panels at matched reads — support breadth, decorrelation structure, wall-recovery along the path; PROTOCOL-SECRET-IN-THE-PATH = the first positive fingerprint of the missing piece / ENDPOINTS-ONLY = the gap is curriculum order, not trajectory shape); g1bS8 THE 10M DOSE CHECK (the cheapest scale probe: e341's anneal + commit + one-step wash on the existing 10M root — DOSE-TRANSFERS / DOSE-FADES; the receptivity panel rides); x36 PROMOTED (the page ladder — the only standing card that directly asks whether the curated history is front-loaded; EARLY-BLOCK would make the protocol cheap, DIFFUSED irreducible) with W053 riding; x46 THE REDUNDANCY PROFILE (the decorrelation channel to mechanism: WASH-PROOFNESS REQUIRES REDUNDANCY — the cons's read carried by weakly-correlated elicitation families vs every recipe arm's r~0.97 monoculture; the partial-kill rider — kill the g0 family only and read the offsets).
 
 **Queue after R80:** e342 computing (the phase audit); x45 minted (the era's first cell); the slot-property n=2 registered as the standing replicate debt. THE ERA NAMED: THE FORMATION PROTOCOL.
+
+## R81 (2026-10-10, folded ~22:40Z) — the retraction adjudicated; v3.1 ratified; the lineage label caught
+
+Panel: 3 parallel agents under the PRE-REGISTERED agenda (scratch/r81_agenda.md, 1990cd8);
+sections in scratch/r81_{auditor,critic,ideator}.md. Window: R80 -> ff30b1a (six cells:
+e342, g1bS9, x45, x47, e343, e344; the fingerprint's full arc).
+
+**AUDITOR — SOUND AT EVERY BAR-DECIDING NUMBER (with nicks).** All six cells verified
+end-to-end: birth chains pre-compute, headline numbers traced key-by-key. e343 failed on
+SIGN with no scorer-side rescue; e344's G_LANDING re-freeze verified BEFORE adjudication,
+touching no bar (the bar docstring byte-identical birth->final). V3.1 RATIFIED — every
+moved Law 8 sentence traced to source; both gate promotions with n-disclosures intact;
+the 3a/3b split and footer chain correct. COUNTER-COLUMN ARITHMETIC EXACT: lean 1-for-6,
+counter 3-for-3 on exactly the three contested calls, cumulative 19-for-37 (the full
+6-cell table in the auditor's file). Nicks: g1bS9's 13-vs-11 gate-count labeling; e344's
+'preserved failed pass' half-true (log truncation); two birth_commit pin nicks (x45 its
+own smoke; e343 the sibling's — harmless, both pre-compute; convention adopted: pin OWN
+birth). Repairs R1-R3 applied this fold; R4-R5 adopted as conventions.
+
+**CRITIC — the lineage label is the save-a-week item.** Four artifacts say the walk is
+ZEPHYRA-read at the install-end; the fold prose said 'the TAVIREN walk' — if the
+artifacts win (the identity pass rides x48), e344's swap was SAME name + curriculum +
+stream, differing ONLY in cold-vs-warm start: the warm home's BEST datum, filed under a
+verdict naming a held-constant axis. Applied at this fold: Law 8 + T328 re-worded to the
+artifact-backed lineage; the home re-ranked to the WARM x CONS-MENU INTERACTION (the
+anneal ruler is itself warm and coherent — warm alone cannot be it), AHEAD of the
+instrument artifact pending the TAVIREN warm walk (e343's originally-registered
+full-swap, never run — the arm-level closer and the named next compute cell). THE S125
+DEMOTED to candidate (n=2, permutation p=0.035; age 525 perfectly aliased with reshape
+step 125; post-hoc) — with the critic's stronger desk find added: the walk/anneal
+residuals CO-MOVE at all shared reshape steps (r=+0.667), matched-phase co-movement,
+the two-clocks prediction. N1's menu axis is NAME-ALIASED (varied=TAVIREN only). LEDGER:
+arithmetic verifies; 'directly supported' repaired to 'consistent on three contested
+cells (p=0.125, selection-conditioned)'; the p-wording fixed; NO counter-deference —
+lean/counter parity in dispatch prose is the standard (adopted, enforced from x48 on).
+ORDERING: x48 (upgraded birth: identity pass + class table + anneal segments) -> x46
+(registration frozen BEFORE x48 lands) -> N3 -> x36 (next GPU, need not wait) -> N4.
+FLEET: go multi-arm (certification per-session, arms marginal; two-arm default).
+Q1 named: still LIVE, ownerless.
+
+**IDEATOR — five cards + the era thesis.** x49 (the age-525 dossier — desk, the cold
+third arm unread in e344's own swap), x50 (the warm re-formation cell LIVE —
+construction, not biography; LIVE-DECORRELATION makes warmth a manipulable protocol
+knob), W058 (the counter-letters read — registered with prospective falsifier P-W058a,
+written this fold), N3 promoted (the open-loop ceiling — doubles as the s125
+alias-breaker), the oracle afternoon gated on x50's verdict. NOT promoted: N2 (dead per
+T327's tree; re-keys only if x50 lands), N4 (re-keys as a decorrelation-collapse test if
+x46 lands one-currency). THE ERA THESIS: after the retraction the real question is 'what
+does RE-FORMING an already-formed substrate buy that no cold formation can' — the
+missing protocol is a property of the SECOND formation, and its elementary unit may be
+an event at matched reshape phase, not a trend.
+
+**FOLD ACTIONS:** the lineage re-word (Law 8 + T328 banner); the s125 demotion +
+co-movement add; METHODS 5's three repairs (p-wording; 'consistent' not 'directly
+supported'; e344's narrowed-not-resolved append) + the parity standard; W057's
+alias/cluster append; Law 8's stream-identity wording (auditor R3); W058 written;
+QUEUE rebuilt at the critic's ordering; x48 (upgraded) + x46 (registration frozen)
+DISPATCHED this beat as parallel desk cells. Ledger: 19-for-37 stands.

@@ -255,16 +255,27 @@ walk's matched states, consistency 0.78-0.83, vs the anneal), but the crosses cl
 every general form — e343 (the ZEPHYRA install path): NO decorrelated signature (sign
 + 0.57; the install's steep-transient rungs near-perfectly coherent at r 0.986-0.993,
 decorrelating only at its upper reach, s100-s400 sign − 0.75); e344 (ZEPHYRA through
-the cons curriculum from BASE, draws bit-identical to the canon's stream, curriculum
-the only delta): COHERENT-ABOVE (sign + 0.78/0.313 over 23 pairs; its young subset
+the cons curriculum from BASE, stream identity proven by the root-own landing read
+|d| 0.0 — no draw-identity gate ran in the cell): COHERENT-ABOVE (sign + 0.78/0.313
+over 23 pairs; its young subset
 the most coherent segment the instrument has measured) — COLD FORMATION BUYS NO
 DECORRELATION UNDER EITHER CURRICULUM. The family's ONLY decorrelated arm is the
-TAVIREN walk, whose states are install-end REMODELING states: the fingerprint's home
-narrows to WARM RE-FORMATION (Law 3b's class; e343's upper segment the free
-ZEPHYRA-side candidate) or the instrument's certification (the bar's honored clause,
-not an established mechanism); N1 MIXED (age carries 4x menu, no bar cleared; both
-s125-class states hard residuals — a decorrelation EVENT class, the first candidate
-elementary unit); support breadth and the in-room split do not separate.
+WALK (ZEPHYRA-read at the install-end per the artifacts — e335's metrics, x45's
+committed install_traj, e343's registration, e344's n1_rider rows; the identity pass
+rides x48's birth), whose states are install-end REMODELING states: the swap shares
+its NAME, CURRICULUM, and STREAM with the walk — the START alone separates them (cold
+coheres, warm decorrelates), the warm home's best datum, filed under a verdict naming
+an axis the design held constant (R81's lineage repair). The surviving home is the
+WARM x CONS-MENU INTERACTION (the anneal ruler is itself warm and coherent — warm
+alone cannot be it; the 2x2's warm corner still confounds name), RANKED AHEAD of the
+instrument artifact pending the TAVIREN warm walk (e343's originally-registered
+full-swap, never run — the arm-level closer); e343's upper segment the free
+ZEPHYRA-side candidate (BASE-forming cold interior — a warm-class instance only if
+x48's class table says so); N1 MIXED (age carries 4x a name-aliased menu factor, no
+bar cleared; both s125-class states hard residuals — a CANDIDATE decorrelation event,
+n=2, permutation p=0.035, age perfectly aliased with reshape step; the stronger form:
+the walk/anneal residuals co-move at all shared reshape steps, r=+0.667); support
+breadth and the in-room split do not separate.
 
 *Scope (Law 8):* one organism, one wash protocol, one architecture at 2.74M (the scale
 clause is two legs at 10M); the recipe's protocol-scope clause (the cons band ~1.0 is
@@ -290,12 +301,17 @@ rung is the measured band [0.957, 1.088] on the cons legs.
    p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 19-for-37
    (refreshed at the e344 fold: the six cells since R80 went 1-for-6 — e342 hit; g1bS9,
    x45, x47, e343, and e344 missed; the executor counter-column hit on ALL THREE of its
-   contested calls (g1bS9, e343, e344) — the lean column is statistically a coin and
-   the ordering hypothesis 'guess < lean < counter < instrument' is now directly
-   supported at the column level; two-sided p ~ 1.0; the lean column carries no edge). THE
+   contested calls (g1bS9, e343, e344) — the lean column is statistically a coin
+   (one-sided no-edge p ~ 0.98; two-sided exact binomial 0.22) and the ordering
+   hypothesis 'guess < lean < counter < instrument' is CONSISTENT WITH the ordering on
+   three contested cells (counter 3-for-3, p=0.125 naked, selection-conditioned); no
+   counter-deference rule — lean/counter PARITY in every dispatch prose is the
+   enforced standard). THE
    ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven
    straight cells and the first three post-R80 misses; e343's verdict NARROWED rather
-   than resolved (both registered mechanisms live — the fork handed to e344)
+   than resolved (both registered mechanisms live — the fork handed to e344); e344's
+   bar-verdict closed the H-A/H-B fork while the mechanism home stayed two-live —
+   narrowed, not resolved (T328, and R81's lineage repair above)
    (selection-conditioned: its verb stays
    'resolved', never 'predicted'). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is

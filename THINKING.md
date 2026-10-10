@@ -7,7 +7,44 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W058 — the counter-letters read: what do the three winning counter-reads share that the 1-for-6 leans missed? (2026-10-10, datetime.now ~22:40Z; the R81 ideator's card, registered with a prospective falsifier)
+
+The lab lean went 1-for-6 since R80 while the executor counter-column hit all three
+of its contested calls (g1bS9, e343, e344 — the auditor's table is exact). QUESTION,
+as data: read the three winning counter-letters against the losing leans — do the
+counters share a property (candidates: LOCALITY — they stayed at the local evidence
+and priced the design's own arithmetic; the leans lost to NARRATIVE GRAVITY — the
+story the era wanted)? If locality-shared, the lean column has a CORRECTABLE bias,
+not noise — and the fix is procedural (the parity standard R81 adopted: every
+dispatch prints lean and counter side by side), not deference.
+
+REGISTERED PROSPECTIVE FALSIFIER (P-W058a, fixed now, before x48 and x50 adjudicate):
+if the lab lean hits at least 2 of the next 3 registered cells, the noise reading
+stands and this card closes; if the next 3 go 0-for-3 again, the locality-bias
+working model is adopted and dispatch prose hardens to require the counter's grounds
+re-stated in the lab's own words. [The critic's warning applies to this card too: a
+rule fitted to a 3-cell streak repeats the discriminator-column mistake — this card
+registers a FALSIFIER, not a deference rule.]
+
 ## T328 — e344: the fingerprint closes — and its home narrows to warm re-formation (or the instrument), with the s125 wrinkle promoted to an event class (2026-10-10, datetime.now ~22:15Z)
+
+[R81 CORRECTION (2026-10-10 ~22:40Z) — TWO PANEL REPAIRS ON THIS CARD. (1) THE LINEAGE
+LABEL: the artifacts (e335's metrics, x45's committed install_traj, e343's own
+registration 'ZEPHYRA-read install path vs TAVIREN-read anneal', e344's n1_rider rows)
+say the walk is ZEPHYRA-read at the install-end — 'the TAVIREN walk' in this card's
+prose is WRONG, and e344's swap was SAME name + SAME cons curriculum + SAME stream as
+the walk's cons segment, differing ONLY in net0 start: a controlled cold-vs-warm
+contrast INSIDE one name that came out coherent-vs-decorrelated — the warm home's
+BEST datum, filed under a verdict naming an axis the design held constant. The
+identity pass rides x48's birth; the surviving home is the WARM x CONS-MENU
+INTERACTION (the anneal ruler is itself warm and coherent — warm alone cannot be it).
+(2) THE S125 DEMOTION: 'IS NOW A CLASS' overclaims — a CANDIDATE event (n=2,
+permutation p=0.035; age 525 PERFECTLY ALIASED with reshape step 125 in this pool;
+post-hoc, known from e343 before the rider ran); the STRONGER form the critic's desk
+found: the walk and anneal residuals CO-MOVE at ALL shared reshape steps (r=+0.667,
+both positive early, both negative from s75, extreme at s125) — matched-phase
+co-movement, the two-clocks prediction at matched phase, inexplicable under the menu
+story and awkward for the instrument story.]
 
 The fork resolved against the lab's lean (the counter column's third contested hit —
 the ordering hypothesis 'guess < lean < counter < instrument' is now directly
@@ -179,6 +216,12 @@ the history-clock side. See T327.]
 [e344 NOTE (2026-10-10 ~22:15Z): pillar seven's final form — 'warm re-formation or
 instrument'; the two-clocks pattern GAINS from N1 (age carries 4x menu) and from the
 s125 event class (history-like, menu-independent). See T328.]
+
+[R81 APPEND (2026-10-10 ~22:40Z): N1's menu axis is NAME-ALIASED (varied = TAVIREN
+only; cons/install = ZEPHYRA only) and the 82 rows trajectory-cluster into ~6
+dependent series — 'age 4x menu' is 'age 4x name-x-menu', robust to series removal
+(drop-varied R2_age 0.583; overlap band 400-700: R2_age 0.316). The co-movement find
+(r=+0.667 across shared reshape steps) is the two-clocks card's strongest datum yet.]
 
 ## T326 — x47: the flip's death edge is slot-shared, its lift channel is lineage-coupled — the threshold was two objects all along (2026-10-10, datetime.now ~21:00Z)
 

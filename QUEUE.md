@@ -173,6 +173,26 @@ Angles (ripening — no bars registered yet; the ideator's self-check greps drop
 | N4 | THE PLASTICITY PRICE | ANGLE | g1bS9's recovery inversion (0.596 vs 0.383) may be LOSS-OF-PLASTICITY, not protocol: desk-read whether the annealed deficit exists at wash step 1, then a novel-fact formation probe on the committed 10M states (PLASTICITY-SPENT vs FACT-LOCAL); lands => the 2.74M ceiling and the 10M fade split into different laws and the scale protocol becomes a plasticity-management schedule |
 | W | THE ORACLE AFTERNOON | WILDCARD | ~25-40 formation variants at 2.74M (the angles as arms), wash + fingerprint everything, train a probe to predict wash retention from pre-wash statistics — either the regression names the missing protocol's sufficient statistics or the protocol provably lives in transitions, not states |
 
+## R81 SECTION (2026-10-10, folded ~22:40Z) — the era re-cut around the second formation
+
+The panel's ordering (information-per-cost; the desk wave first, the multi-arm compute era named):
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x48 | THE SEGMENT-LEVEL FOUR-ARM RE-READ, UPGRADED (the critic's birth upgrades: THE WALK-LINEAGE IDENTITY PASS first, then the pre-registered net0 class table per segment, the anneal's reshape-step segments as the warm-menu control, and the co-movement reproduction) | RUNNING (dispatched ~22:45Z Oct-10, CPU desk) | the identity fork: LINEAGE-ZEPHYRA (the artifacts' 4-0 reading wins — the warm home's best datum re-filed, e344's verdict re-labeled start-not-name) / LINEAGE-TAVIREN (the prose reading stands); then P-T328a: WARM-PHASE-SHARED (segment-level pooled scoring at the remodeling boundary lands sign - consistency >= 0.70) / SEGMENTS-DISSENT (the net0 classes differ; the home stays at the arm level) |
+| x46 | THE META-CORRELATION TEST (W057's discriminator; REGISTRATION FROZEN AT THIS DISPATCH — before x48 lands, verdict-independence by design) | RUNNING (dispatched ~22:45Z Oct-10, CPU desk) | the four on-disk pairs regressed: (i) x24 receptivity lifts vs elicitation consistency; (ii) x47 lift-termination vs rung family structure; (iii) e341 gm12 vs cross-geometry r (free anchor); (iv) wash-proofness vs consistency (x43's stalled arms vs the walk — free anchor): ONE-OBJECT (shared sign + rough scale — the history-clock IS the decorrelation structure) / SEPARATE-OBJECTS (the lineage-relative facts refuse to correlate) / UNPOWERED (the honest gap) |
+| N3 | THE OPEN-LOOP CEILING (promoted R81; the s125 alias-breaker) | READY (desk wave 2) | e339's controller-formed t400/t800 (warm + FEEDBACK) vs e341's open-loop arms through x45's instrument — the third instance class: FEEDBACK-DECORRELATES merges the tuner and formation-protocol eras |
+| x49 | THE AGE-525 DOSSIER (the ideator's card; the cold third arm unread in e344's own swap) | READY (desk wave 2) | the two s125 states' full dossier vs committed neighbors + the swap's own s125: EVENT-WARM-ONLY (ties the candidate class to the warm home — W057's first tick) / EVENT-ANY-FORMATION (the age-event clock revives) / NO-EVENT |
+| e345 | THE TAVIREN WARM WALK (the arm-level closer; e343's ORIGINALLY-REGISTERED full-swap, never run; the multi-arm era's first compute cell) | NAMED (behind the desk wave; next GPU/desk-compute slot) | {warm, cold} x {ZEPHYRA, TAVIREN} at cons-menu completed in one session: the only-decorrelated-arm's n=2 + the instrument's own-side control + the warm home's arm-level closer |
+| x50 | THE WARM RE-FORMATION CELL, LIVE (the ideator's card — construction, not biography) | GATED on x48's identity pass + class table | re-form ZEPHYRA's install end through the cons curriculum sampling every ~10-25 steps: LIVE-DECORRELATION (warmth becomes a manipulable protocol knob) / COHERENT-THROUGHOUT (the artifact wording finalizes on evidence) |
+| W058 | the counter-letters read (the ideator's card; P-W058a registered) | REGISTERED (THINKING.md) | the desk read of the three winning counter-letters vs the 1-for-6 leans — locality vs narrative gravity; the prospective falsifier runs on x48/x46/x49's leans |
+| x36 | THE PAGE LADDER | READY (next GPU slot; orthogonal, need not wait) | unchanged from R80's promotion |
+| N4 | THE PLASTICITY PRICE | PARKED (re-keys if x46 lands ONE-OBJECT) | the recovery inversion as loss-of-plasticity |
+| hook v5 | the commit-msg rule-a inertness repair | MAINTENANCE SLOT | rides any beat with a spare 10 min |
+
+Q1 (the supervisor's doc review of THE LAWS): STILL LIVE AND OWNERLESS — named by the
+critic; the standing ask in every droid brief since ed.23.
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),
