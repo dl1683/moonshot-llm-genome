@@ -7,6 +7,54 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T329 — x48: the lineage confirmed 7-0, and the decorrelation splits into two objects — a level the warm walk owns, and a phase dynamics the anneal hubs (2026-10-10, datetime.now ~22:50Z)
+
+The identity pass settled it 7-0: arm 4 is the ZEPHYRA cons walk — the artifacts never
+disagreed, only labels did. e344's NAME-ARTIFACT verdict names an axis the design held
+constant; the record now carries the controlled contrast it actually ran: same name,
+same curriculum, same stream, cold-vs-warm start, coherent-vs-decorrelated. THE WARM
+HOME'S BEST DATUM IS RE-FILED — and the lab lean HIT (the first in seven cells;
+W058's falsifier counter moves 1-of-1 toward 'the noise reading stands').
+
+THE CELL'S DEEPER GIFT IS THE SPLIT: P-T328a hit as a SIGN FACT (the pooled segments
+sit below the anneal ruler together, 0.75-0.81 consistency) while the class table
+DISSENTS (the install's upper segment is cold interior, not warm re-formation) — and
+the co-movement extension flipped the topology: the SWAP (cold) tracks the ANNEAL at
++0.723 (p=0.004), STRONGER than the walk does (+0.667), while missing on the walk side
+(+0.486, p=0.064). THE ANNEAL IS THE HUB — a star, not a universal clock.
+
+READ TOGETHER — TWO OBJECTS: (1) THE LEVEL: whether an arm separates decorrelated in
+mean is the warm x cons-menu story's alone (only the warm cons walk separates);
+(2) THE PHASE DYNAMICS: the residual decorrelation wiggle co-moves across arms through
+the anneal — warm and cold alike. The s125 events ride the dynamics, not the level.
+
+THREE HYPOTHESES FOR THE HUB: (H1) ANNEAL-DRIVER — the anneal arm's reshape dynamics
+drive the common factor; (H2) UNDERPOWERED-UNIVERSAL — the phase clock is universal and
+the swap-walk pair misses on n=11 power; (H3) RULER-ARTIFACT — the anneal panels ARE
+the instrument's ruler, so the common factor is measurement-side (weakened by the
+lineage repair but alive: every correlation in the pool has the ruler as one endpoint).
+
+DISCRIMINATORS (both dispatched this beat): N3 — the controller-formed states are a
+DIFFERENTLY-PHASED warm series: join the hub at matched phase (H2), stay anneal-anchored
+(H1), or stand apart (H3). x49 — the s125 dossier with the swap's own s125: the swap
+started from BASE at age 0, so its step-125 sits at AGE 125, not 525 — the PERFECT
+age-vs-phase alias-breaker (a tick there means PHASE; silence there means AGE).
+
+REGISTERED PREDICTION (P-T329a, on N3+x49, frozen before they land): the controller
+states' reshape residuals correlate with the anneal's at matched phase MORE strongly
+than with any non-anneal arm (the star persists — H1/H3) versus equally with all arms
+(H2); and x49's swap-s125 residual is nonzero and negative if the tick is phase-locked
+(H2), absent if age-locked. The lab lean: H1/H3, weakly (the ruler is one endpoint of
+every measured correlation — the star may be the instrument's own shape); the counter,
+stated plainly: H2 — the co-movement's p-values are strongest exactly where the design
+put the shared phase, and the walk-side miss is the only warm-specific whisper.
+
+CONNECTS: W057 (the two clocks now have measured hands — the LEVEL is the state-clock-
+adjacent mean property, the PHASE DYNAMICS the history-clock's tick source candidate);
+W056 (the surviving variety anchor IS the hub — the anneal is the varied menu arm;
+hypothesis (a)'s anchor may be driving the common factor rather than marking it); Law 8
+(the clause carries the split; R82 compresses).
+
 ## W058 — the counter-letters read: what do the three winning counter-reads share that the 1-for-6 leans missed? (2026-10-10, datetime.now ~22:40Z; the R81 ideator's card, registered with a prospective falsifier)
 
 The lab lean went 1-for-6 since R80 while the executor counter-column hit all three
@@ -45,6 +93,8 @@ found: the walk and anneal residuals CO-MOVE at ALL shared reshape steps (r=+0.6
 both positive early, both negative from s75, extreme at s125) — matched-phase
 co-movement, the two-clocks prediction at matched phase, inexplicable under the menu
 story and awkward for the instrument story.]
+
+[x48 CONFIRMATION (2026-10-10 ~22:50Z): the identity pass settled it 7-0 — LINEAGE-ZEPHYRA; arm 4 re-labeled; e344's verdict re-filed. See T329.]
 
 The fork resolved against the lab's lean (the counter column's third contested hit —
 the ordering hypothesis 'guess < lean < counter < instrument' is now directly
