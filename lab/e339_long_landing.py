@@ -687,8 +687,11 @@ def main():
         "windows + the eval banks) — e336's P0 mirror PASS")
 
     # ================= P1: the room + the parents (e336's mirror) ======
-    base_sd = torch.load(E336.CKPT_DIR / E336.BASE_CK,
-                         map_location="cpu", weights_only=False)["model"]
+    _base_art = torch.load(E336.CKPT_DIR / E336.BASE_CK,
+                           map_location="cpu", weights_only=False)
+    base_sd = (_base_art["model"] if "model" in _base_art
+               else _base_art)      # e001.pt is a RAW state dict
+    del _base_art
     base_net = G1.evl_load(base_sd)
     n_par = sum(p.numel() for p in base_net.parameters())
     assert n_par == 2739072, f"param drift {n_par}"
