@@ -1667,7 +1667,9 @@ def main() -> None:
     ax.legend(fontsize=8)
 
     ax = axes[0][1]
-    ax.bar(x - 0.2, [x24_panel[nm]["lift_neutral"] for nm in names13], 0.4,
+    ax.bar(x - 0.2, [x24_panel[nm]["lift_neutral"] if nm in x24_panel
+                     else reads[nm]["lift_comp_neutral"]
+                     for nm in names13], 0.4,
            label="committed (neutral)", color="#1f77b4")
     ax.bar(x + 0.2, [virgin_neut[nm] for nm in names13], 0.4,
            label="virgin gaussian (neutral)", color="#d62728")
@@ -1776,6 +1778,35 @@ def main() -> None:
                    + f" | {virgin_host[nm]:.3f}x |")
     rep += [
         "",
+        "### THE SAME-ARCH RIDER (e193b: x24's own complement instrument "
+        "transplanted to a fresh-seed G1B organism — co-report, never a "
+        "bar)",
+        "",
+    ]
+    for key, cr in comp_rider.items():
+        rep.append(
+            f"- {key}: Spearman(comp lifts vs x24 committed, 11 shared) = "
+            f"{cr['spearman_comp_vs_committed']:.4f}; TAVIREN "
+            f"{cr['lifts_host']['TAVIREN']:.3f}x / ZEPHYRA "
+            f"{cr['lifts_host']['ZEPHYRA']:.3f}x / KING "
+            f"{cr['lifts_host']['KING']:.3f}x — the committed table's "
+            "structure is substantially organism-specific (TAVIREN leaves "
+            "the written band entirely on a foreign seed under the SAME "
+            "complement tensor)")
+    rep += [
+        "",
+        "Honesty notes: e248's 9.18-norm dose is ~0.15x relative (116M "
+        "params) — its gaussian panel is near-flat (~1.0x everywhere), so "
+        "its 'CONSERVED' flag (rho 0.577) is weak evidence; e098's dose "
+        "is ~1.77x relative — its wild columns are stronger-dose, "
+        "per-organism-private texture. The foreign split is MOOT under "
+        "WRITE-SCULPTED precedence (flat first). The fresh names under "
+        "the complement sit mid/low band (JERANOL 1.47x / ARVENOL 0.67x) "
+        "— the committed table's extension coheres. The run was executed "
+        "twice (a post-verdict figure-crash on the fresh names' missing "
+        "committed columns, fixed; the verdict + every gate identical "
+        "across both executions — the rig is deterministic).",
+        "",
         "Gates: " + ", ".join(
             f"{k}={'PASS' if v.get('pass') else 'FAIL'}"
             for k, v in METRICS["gates"].items()),
@@ -1784,7 +1815,10 @@ def main() -> None:
         "",
         f"P-x29e330 (as registered): {verdict['P_x29e330_outcome']}",
         "",
-        f"birth commit: {METRICS['birth_commit']}",
+        f"registration commits: x29 birth 34aa31b (bars + P-x29a + "
+        f"P-x29e330 VERBATIM, BEFORE any compute) + amendment 9c9b853 "
+        f"(the mint swap); HEAD at this run's start: "
+        f"{METRICS['birth_commit']}",
         f"date: {now_utc()}",
     ]
     (RD / "REPORT.md").write_text("\n".join(rep), encoding="utf-8")
