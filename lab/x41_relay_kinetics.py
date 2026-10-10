@@ -246,7 +246,11 @@ E339_METRICS = E339_DIR / "metrics.json"
 # git head c9e5c6f); a drift FAILS the resume gate.
 E339_REA_RESUME_MD5 = "134034c5b53a39edfe36ee8710e2381a"
 E339_REA_POST_MD5 = "e54df68360c2540d825fc0fb12806bc7"
-E339_METRICS_MD5 = "00e5f9822b6555ede2ab0ee9987c5121"
+# [pre-compute repair, disclosed] the birth commit froze a mistranscribed
+# metrics md5 (2b6555ede... for 2b6559ede...); repaired at the first smoke
+# launch BEFORE any compute; the on-disk artifact verified unmodified vs
+# git HEAD (the resume + post literals were correct at birth)
+E339_METRICS_MD5 = "00e5f9822b6559ede2ab0ee9987c5121"
 
 # e339's committed t800 literals (the repro targets + the cycle's
 # committed signature; read from the md5-bound record at runtime and
@@ -478,7 +482,14 @@ REGISTERED = {
 }
 G_NAMEWIN_KEYSET = None  # retired (inlined into the operationalizations)
 
-deviations: list[str] = []
+deviations: list[str] = [
+    "PRE-COMPUTE REPAIR (before any compute, disclosed): the birth "
+    "commit's E339_METRICS_MD5 literal was mistranscribed "
+    "(2b6555ede... vs the true 2b6559ede...); caught by the md5 gate "
+    "at the first smoke launch; the artifact itself verified "
+    "UNMODIFIED vs git HEAD; the resume + post literals were correct "
+    "at birth",
+]
 builds_on = [
     "R78's ideator card (the dispatch: 'THE RELAY'S KINETICS + THE R* "
     "INTERIOR (resume e339's t800 with one gate parameter perturbed: "
