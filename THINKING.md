@@ -84,6 +84,13 @@ is now itself 2-for-2: REGISTER THE LEAN, NOT THE GUESS — the lab's
 calibrated uncertainty outperforms its intuitions, exactly as
 pre-registration is supposed to work.
 
+> [R74 CORRECTION 2026-10-10]: THE LEAN LESSON IS A PLAUSIBILITY, NOT A MEASUREMENT — 3-for-3
+> is p=0.125 naked; the class boundary drifted (T293 booked e322a a fork-guess, this card
+> re-classed it a lean; e322b's miss uncounted makes it 3-for-4 under this card's classes);
+> the contrast with 0-for-9 assumes exchangeable difficulty, which is false. The standing
+> honest form: mechanism-seat claims 0-for-9 — permanently down-weighted; calibrated coarse
+> leans 3-for-4 on a sample too small and class-entangled to quantify.
+
 ## T293 — E322: the shrinking neighborhood, the state-carried height, and the sand (2026-10-09, datetime.now ~23:05Z)
 
 The squatter's deed settles in three movements. FIRST, THE GHOST
@@ -119,6 +126,13 @@ streak narrative retires; from here the record is the per-prediction
 table (seat-guesses 0-for-9; fork-guesses 1-for-2 with P-e322a hit,
 P-e322b fell). The class distinction — WHERE the lab bets — remains
 the finding.
+
+> [R74 CORRECTION 2026-10-10]: THE STATE-CARRIED WORDING OVERCLAIMS — the recruit mass IS
+> in-room by construction, so "state not room" is unseparated; and the E25 arm points AWAY
+> from the recruit-mass mechanism (2.7x LESS mass lands HIGHER: 0.4421 vs 0.4123). The
+> honest form: the height advantage travels with WHATEVER THE ERASE LEFT — freed softmax
+> vacancy and recruit content are confounded; the component is unresolved (e331 wash-first
+> + x28's mass-matched ghost both attack it).
 
 ## T292 — X25: the scalpel passed and the noun survived — but the causality door opened (2026-10-09, datetime.now ~22:55Z)
 
@@ -162,6 +176,16 @@ the strongest same-evening prior) also fell. The instruments are now
 advance-registered counters. The lesson sharpens: REGISTER THE
 COUNTER, NOT THE GUESS.
 
+> [R74 CORRECTION 2026-10-10]: THE DOUBLING IS A CURRENCY ARTIFACT — every scalpeled-state
+> number is (the scalpel's own prior-shift) x (the per-state push), verified to 0.2%
+> (1.80 x 13.10 = 23.58 vs 23.62 reported); the "keel/damping" story retires. THE VERDICT
+> SURVIVES STRENGTHENED: the per-state displacement-push on TAVIREN is CONSTANT across the
+> entire mass ladder (11.84 / 13.10 / 10.21) — the lift is insensitive to the write's
+> room-overlap mass — and only WRITTEN slots compose upward under two pushes (never-written
+> slots suppress per-state: QELVARO 0.53x, VIRETAN 0.46x) — the 29x written-vs-never
+> spread is real. The control (an unrelated in-room displacement at scalpel norm, then the
+> panel) rides x25's successor.
+
 ## T291 — E324: the bimodal wheel — formation has two modes, the fork lands at step one, and the canon is the rare one (2026-10-09, datetime.now ~22:05Z)
 
 The census answers the monoculture question with the sharpest possible
@@ -200,6 +224,12 @@ wide, the wheel was bimodal); the executor's counter hit the verdict
 and missed its texture clause. Both disclosed. The instrument's edge
 over intuition now stands at seven straight, and the shape of every
 miss is the same: I bet distributions, the organism deals in modes.
+
+> [R74 CORRECTION 2026-10-10]: THE POOLING — "0 of 13" merges heterogeneous protocols
+> (8 clean spread-seed held-room draws + the 4-draw consecutive block it superseded + 1
+> different-room different-corpus draw). The honest statement: 0/8 CLEAN [0%, 36.9%] CP,
+> corroborated 0/5 under variant protocols; pooled upper ~25% under an independence
+> assumption the consecutive block strains. Directionally licensed; the rhetoric trimmed.
 
 > [R73 CORRECTIONS 2026-10-09]: (1) THE "RARE" WORD IS PULLED BACK — the trust band
 > that selected the canon ADMITS die-mode draws (0.2646) and EXCLUDES survive-mode

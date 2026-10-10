@@ -74,6 +74,20 @@ Standing from R73: the two-removals map's dose-matched-anti leg rides e325's des
 drafting holds until e327 + x25; the pre-registered-scorers rule adopted at R72 now applies
 to every bar; the ledger is scoped (0-for-8 on mechanism-seat guesses).
 
+
+## R74 SECTION (2026-10-10, folded ~01:05Z) — the prose caught; the drafting protocol forced
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x28 | THE MASS-MATCHED GHOST (the cascade pick; before any drafting) | DISPATCHED ~01:05Z Oct-10 | CPU: seed QELVARO with the same 43.7%-energy r1000 in-room tail the parasite had, replay e321's erase verbatim, read the mass-matched ghost against its renorm line: GHOST-PEAKS = mass-generic vacancy-filling ("content-selective" falls; Law 7's vacancy clause re-words BEFORE drafting) / GHOST-FLAT-AT-MASS = content-selectivity survives its sternest control |
+| x29 | THE MIDWIFE'S MAP (e330's pre-registered predictor — time-critical) | DISPATCHED ~01:05Z Oct-10 | CPU: the x24 panel on PRE-WRITE virgin bases + 2-3 foreign base organisms (e098/e193b/e248 on disk): a structured virgin table that PREDICTS x24's committed table = INNATE GEOGRAPHY / FLAT = the disposition needs write history; registered BEFORE e330's adjudication |
+| e331 | WASH THE WOMB FIRST (the height's causal leg) | READY | the 100-step unbiased wash on the vacant state BEFORE the 25-step cons: ADVANTAGE-ERASED (the recruit mass was the height) / SCAR-SURVIVES (a non-mass residue) |
+| x30 | THE MODE'S NOISE FLOOR | READY (CPU) | the x24 panel on a survive-mode census organism vs the canon: mode-blind fragility vs write-geometry-tracked |
+| x31 | THE DESIGNED PUSH (is the family fader linear?) | READY (CPU) | a novel fragment mix at constant mass/delivery, PREDICT the five lifts from the linear model, measure: LINEAR-FADER / STRUCTURE-BEYOND-MASS |
+| x32 | THE FIRST-STEP ATLAS (one hammer or three deaths?) | READY (CPU desk) | the sign-ray dose of each committed first step projected onto the victims' room bases: ONE-HAMMER (Law 1's mechanism noun) / THREE-DEATHS; REGISTERS e328's branch prediction BEFORE e328 computes |
+| e332 | THE NAMELESS ORGANISM | READY (GPU, 2 bursts) | a name-scrubbed corpus base + the standard install + the panel: ARCHITECTURAL vs ECOLOGICAL fragility |
+| A2 | span-decomposition | DEMOTED at R74 | day-ten fossil; substantially answered by e273/e278; x32 re-asks the residue free |
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),

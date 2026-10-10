@@ -27,7 +27,7 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
 - The (1k,2k] edge under Adam (e272), dose acquitted at matched rank, the 73.5% fill (x6/x10).
 - [R73 FLAG: the necessity clause's final form (authorship-relative bars) is an
   instrument-calibration rule, not a formation law — candidate demotion to a METHODS
-  note at v3 drafting; x25 DONE: the MASS reading fell (the lift survives and doubles under the scalpel);
+  note at v3 drafting; x25 DONE [R74-corrected]: the MASS reading fell (the per-state displacement-push is CONSTANT across the mass ladder; only written slots compose upward under two pushes — the 'doubling' was a currency artifact, retired);
   the noun holds as NOT-THE-MASS, x26 DONE: the ROW is not the seat (forge inert, P-x26a hit);
   causality narrows to e330 — contextual-writing-causes vs SELECTION
   (slots born different; the authorship table as innate-receptivity map)]
@@ -62,6 +62,18 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
   passive bracket (e294/e312 twin); defended 24x — but attribution open: defense-intrinsic
   vs sibling-membrane premium is e317's question. e309's TWO-MEMORIES (revival vs
   replacement) rides here.
+
+## THE V3 DRAFTING PROTOCOL (adopted at R74, before the first sentence)
+- The DEMOTION VOTE IS TAKEN: Law 3's necessity/instrument clause ("every read bar is
+  authorship-relative") moves to a METHODS note — it survived five rounds as an
+  instrument-calibration rule and its noun is e330-pending.
+- TWO-LAYER DOCUMENT: each law states only the invariant core (true across all observed
+  modes/branches/rooms); every n=1 / one-branch / one-mode / pending-gate condition lives
+  in a per-law SCOPE BLOCK, never inline.
+- ONE PENDING GATE PER CLAUSE, named in its scope block (Law 2b: e326; Law 3: e330+x28).
+- Drafting begins when e330 + x28 land.
+- W052's clause (from e323/e327): LOCALIZATION IS THE DIE MODE'S SCAR — the pruned,
+  localized write is the rare branch's recovery signature; sprawl is the default.
 
 ## LAW 6 — THE MEMBRANE (new; the unlearning chapter)
 - A shared representation is a redundant fabric: collateral death (e294), resurrection under
