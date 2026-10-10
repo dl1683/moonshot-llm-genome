@@ -390,7 +390,7 @@ REPL300_RET_TOL = 0.05
 # the birth commit (frozen; pinned post-birth so reruns/finalizations from
 # resume checkpoints keep the true provenance): bars + P-x43a committed +
 # pushed BEFORE any compute
-BIRTH_COMMIT_PINNED = "PENDING-BIRTH"
+BIRTH_COMMIT_PINNED = "55a8bb1"
 
 # ---- the port's exact source lines (quoted; substring-gated at runtime) --
 PORT_QUOTES = [
