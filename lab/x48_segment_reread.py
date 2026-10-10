@@ -334,7 +334,7 @@ def main():
 
     # ---------------- load + md5-bind ----------------
     raw = {k: open(os.path.join(REPO, p), "r", encoding="utf-8").read() for k, p in FILES.items()}
-    data = {k: json.loads(v) for k, v in raw.items()}
+    data = {k: json.loads(v) for k, v in raw.items() if k.endswith("_metrics")}
     prose = {k: open(os.path.join(REPO, p), "r", encoding="utf-8").read() for k, p in PROSE_FILES.items()}
     binds = {}
     for k, p in FILES.items():
@@ -345,25 +345,27 @@ def main():
     x45, e343, e344, e335, g1c = data["x45_metrics"], data["e343_metrics"], data["e344_metrics"], data["e335_metrics"], data["g1c_metrics"]
 
     # ---------------- HALF 1: THE IDENTITY PASS ----------------
-    sites = []  # each: {site, kind(artifact/prose), carrier, check, says}
+    sites = []  # each: {site, kind(artifact/prose), carrier, check, says, tally}
 
-    def check_str(name, hay, needle, says, kind, carrier):
+    def check_str(name, hay, needle, says, kind, carrier, tally=None):
         ok = needle in hay
         sites.append({"site": name, "kind": kind, "carrier": carrier, "needle": needle,
-                      "says": says, "verified": bool(ok)})
+                      "says": says, "tally": tally, "verified": bool(ok)})
         return ok
 
     # site 1 — e335's metrics + the walk's construction (g1c channel)
     s1 = True
     s1 &= check_str("e335.operationalization: THE READ = g0 mean_pz (p(Z))",
                     e335["registered"]["operationalization"], "mean_pz (p(Z) at the last position",
-                    "ZEPHYRA-read (the walk's ruler channel is p(Z))", "artifact", "runs/e335/metrics.json")
+                    "ZEPHYRA-read (the walk's ruler channel is p(Z))", "artifact", "runs/e335/metrics.json",
+                    tally="ZEPHYRA")
     s1 &= check_str("e335.deviations: the chain e001 -> g1c_install_resume -> g1c_cons_resume",
                     " ".join(e335["deviations"]), "the chain is e001 -> g1c_install_resume -> g1c_cons_resume == g1c_root",
                     "start=install-end (the cons leg resumes the install end)", "artifact", "runs/e335/metrics.json")
     s1 &= check_str("e335.builds_on: x34 names ZEPHYRA's base prior as the walk's floor",
                     " ".join(e335["builds_on"]), "ZEPHYRA's committed base prior 1.3384e-05",
-                    "the walk's read-subject is ZEPHYRA (the p(Z) census tie)", "artifact", "runs/e335/metrics.json")
+                    "the walk's read-subject is ZEPHYRA (the p(Z) census tie)", "artifact", "runs/e335/metrics.json",
+                    tally="ZEPHYRA")
     # g1c's own committed construction: the traj channel is g0_pz, values == x45's committed traj
     inst_traj_g1c = {r["step"]: r["g0_pz"] for r in g1c["root_build"]["install"]["traj"]}
     cons_traj_g1c = {r["step"]: r["g0_pz"] for r in g1c["root_build"]["consolidation"]["traj"]}
@@ -374,7 +376,8 @@ def main():
     sites.append({"site": "g1c.root_build: install/cons traj on the g0_pz channel == x45's committed "
                           "install_traj/cons_traj (values bit-equal)", "kind": "artifact",
                   "carrier": "runs/g1c_root/metrics.json", "needle": "g0_pz channel, values equal",
-                  "says": "ZEPHYRA-read at the install-end (the walk's own birth record)", "verified": bool(traj_match)})
+                  "says": "ZEPHYRA-read at the install-end (the walk's own birth record)", "tally": "ZEPHYRA",
+                  "verified": bool(traj_match)})
     s1 &= traj_match
     subgate_count += 4
 
@@ -382,16 +385,20 @@ def main():
     s2 = True
     s2 &= check_str("x45.deviations CHANNEL NOTE: the walk reads p(Z) (ZEPHYRA), the anneal p(T)",
                     " ".join(x45["deviations"]), "the walk reads p(Z) (ZEPHYRA), the anneal reads p(T) (TAVIREN)",
-                    "ZEPHYRA-read (walk) vs TAVIREN-read (anneal)", "artifact", "runs/x45/metrics.json")
+                    "ZEPHYRA-read (walk) vs TAVIREN-read (anneal)", "artifact", "runs/x45/metrics.json",
+                    tally="ZEPHYRA")
     s2 &= check_str("x45.deviations replay: cons from the committed g1c_install_resume model",
                     " ".join(x45["deviations"]), "cons from the committed g1c_install_resume model",
                     "the cons (walk) leg's net0 = install-end (WARM)", "artifact", "runs/x45/metrics.json")
     walk_rungs = x45["walk"]["rungs"]
     cons_rungs = [t for t in walk_rungs if t.startswith("walk_cons_") or t == "walk_s700"]
-    warm_labels_ok = all(walk_rungs[t].get("net0_class", "").startswith("ROOT-forming") for t in cons_rungs)
-    sites.append({"site": "x45.walk.rungs: every cons-leg rung net0_class == ROOT-forming (warm, "
-                          "from install-end)", "kind": "artifact", "carrier": "runs/x45/metrics.json",
-                  "needle": "net0_class startswith ROOT-forming on 13 rungs",
+    # committed labels: 'ROOT-forming' on the 12 reshape rungs, 'ROOT' on the s700 anchor (the
+    # finished root) — both the warm/install-end class; asserted, not presumed
+    warm_labels_ok = all(walk_rungs[t].get("net0_class", "").startswith("ROOT") for t in cons_rungs)
+    sites.append({"site": "x45.walk.rungs: every cons-leg rung net0_class startswith ROOT "
+                          "('ROOT-forming' x12 + 'ROOT' on the s700 anchor — warm, from install-end)",
+                  "kind": "artifact", "carrier": "runs/x45/metrics.json",
+                  "needle": "net0_class startswith ROOT on 13 rungs",
                   "says": "start=install-end (warm) on every walk cons state", "verified": bool(warm_labels_ok)})
     s2 &= warm_labels_ok
     subgate_count += 3
@@ -400,12 +407,13 @@ def main():
     s3 = True
     s3 &= check_str("e343.phase: the root's own install trajectory (the ZEPHYRA-class formation path)",
                     e343["phase"], "the ZEPHYRA-class formation path",
-                    "the walk's install leg is the ZEPHYRA-read side (the cross names it)", "artifact", "runs/e343/metrics.json")
+                    "the walk's install leg is the ZEPHYRA-read side (the cross names it)", "artifact",
+                    "runs/e343/metrics.json", tally="ZEPHYRA")
     s3 &= check_str("e343.registered.background: THE CROSS ... the OTHER name's formation path",
                     e343["registered"]["background_verbatim"], "THE CROSS: run the same instrument on the OTHER name's formation path",
-                    "the fingerprinted path (the walk) and the cross differ in name — the walk is "
-                    "TAVIREN-name? NO: the OTHER name's path = ZEPHYRA install; the anneal (ruler) is "
-                    "the TAVIREN-read side — registration splits ZEPHYRA-path vs TAVIREN-anneal", "artifact", "runs/e343/metrics.json")
+                    "the registration splits ZEPHYRA-read path (the walk family: install + cons legs) "
+                    "vs TAVIREN-read anneal (the ruler) — the walk is the ZEPHYRA side",
+                    "artifact", "runs/e343/metrics.json", tally="ZEPHYRA")
     s3 &= check_str("e343.adjudication.read_span.note: the anneal spans 0.286-0.803 on p(T)",
                     e343["adjudication"]["read_span"]["note"], "spans 0.286-0.803 on p(T)",
                     "the anneal (not the walk) is the p(T)=TAVIREN side", "artifact", "runs/e343/metrics.json")
@@ -420,7 +428,8 @@ def main():
     sites.append({"site": f"e344.n1_rider rows: all {len(walk_rows)} walk rows name=ZEPHYRA "
                           "start=install-end", "kind": "artifact", "carrier": "runs/e344/metrics.json",
                   "needle": "name=='ZEPHYRA' and start=='install-end' on every walk row",
-                  "says": "ZEPHYRA-read, install-end warm (row by row)", "verified": bool(walk_rows_ok)})
+                  "says": "ZEPHYRA-read, install-end warm (row by row)", "tally": "ZEPHYRA",
+                  "verified": bool(walk_rows_ok)})
     sites.append({"site": f"e344.n1_rider rows: all {len(swap_rows)} swap rows name=ZEPHYRA "
                           "start=BASE (the cold twin of the walk's cons segment: same name, same "
                           "curriculum, same stream, net0 alone differs)", "kind": "artifact",
@@ -442,8 +451,8 @@ def main():
     subgate_count += 4
 
     artifact_sites = [s for s in sites if s["kind"] == "artifact"]
-    n_zeph = sum(1 for s in artifact_sites if "ZEPHYRA" in s["says"] and s["verified"])
-    n_tav = sum(1 for s in artifact_sites if "TAVIREN" in s["says"] and s["verified"] and "LABEL" not in s["says"])
+    n_zeph = sum(1 for s in artifact_sites if s.get("tally") == "ZEPHYRA" and s["verified"])
+    n_tav = sum(1 for s in artifact_sites if s.get("tally") == "TAVIREN" and s["verified"])
     all_artifact_ok = all(s["verified"] for s in artifact_sites)
     if all_artifact_ok and n_zeph >= 4 and n_tav == 0:
         identity_verdict = "LINEAGE-ZEPHYRA"
@@ -547,6 +556,7 @@ def main():
         x45_pairs_s, e343_pairs_s, e344_pairs_s = x45_pairs, e343_pairs, e344_pairs
 
     def repro_gate(name, scored, committed, keys=("dominant_sign", "sign_consistency", "mean_abs_d")):
+        nonlocal subgate_count
         ok = True
         detail = {}
         for prof, c in committed.items():
