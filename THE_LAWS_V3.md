@@ -73,10 +73,14 @@ lineage installs from the base (prior-level start); the census lineage installs 
 the g1c root (standing read 0.745). AT STEP ONE NOTHING HAPPENS in either class
 (read-indifferent to the first gradient's sign pattern; no ray crosses a transition).
 VOID: the stochastic fork, the die-share, "rare", the empty band as a mode gap (it is
-the prior-to-standing gap). REAL, RE-WORDED: BASE-FORMED writes (slow formation, norm
-~9.2, ~94% in-room; the canon and every lab-installed fresh name) vs ROOT-FORMED
-writes (from the warm root, norm ~27, ~63% in-room, reads 0.44-0.56; the census
-class) — the start-state contrast is the real variable. e326's cross-class bracket
+the prior-to-standing gap). REAL, MEASURED (x35 LICENSES: one gen through both starts at matched everything —
+pruned from the base, bulky from the root; the gen moves the write 0.4%, the start
+~90% — THE START IS THE WHEEL, THE GEN A TREMOR): BASE-FORMED writes (slow cold
+formation, norm ~9.2, ~94% in-room; the canon and every lab-installed fresh name)
+vs ROOT-FORMED writes (warm-start formation atop the substrate's standing memory;
+~17.5 norms FROM ITS OWN START at ~98% IN-ROOM — 'diffuse' was the substrate shadow
+on a vs-base denominator, retired; reads 0.44-0.56 vs base). COLD FORMATION vs WARM
+RE-FORMATION — the same distinction e333 drew from the revival side. e326's cross-class bracket
 re-words to the root-formed class (still conservative-direction); e334's controller
 re-words to a root-formed substrate (still a genuine second-substrate sufficiency
 test). LOCALIZATION IS THE COLD-START'S SIGNATURE (W052, re-worded). STANDING RULE:

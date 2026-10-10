@@ -62,6 +62,36 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T306 — X35: the start is the wheel, the gen a tremor — and 'diffuse' was the substrate's shadow (2026-10-10, datetime.now ~09:10Z)
+
+The causal cross closes the confound's arc at its strongest form. One
+gen, both starts, everything else matched to bit-identity: pruned
+from the base, bulky from the root. THE CLASS VOCABULARY IS
+MEASUREMENT — and it refines one final time in the resolving: the
+root-formed write measured from its OWN start is 17.5 norms at 97.8%
+IN-ROOM — both classes write room-localized; the census's celebrated
+"63% in-room / diffuse sprawl" was the 21.56-norm substrate shadow
+diluting a vs-base denominator nobody should have been using. BULKY is
+real (1.9x from its own start); DIFFUSE never was.
+
+THE WHEEL/TREMOR QUANTIFICATION is the card's keeper: swapping the
+entire gen moves the base-start's write 0.4%; swapping the start moves
+it ~90%. Formation's texture is almost entirely WHERE YOU START —
+which throws the frontier's weight fully onto the question x35 cannot
+answer: WHAT IS THE ROOT? The substrate's own biography (e335 — the
+ladder's checkpoints; the wash discriminator) is now not just the
+leading candidate but the load-bearing question: if the root's 0.745
+standing read is a consolidated memory, then every "root-formed"
+write is formation ATOP an existing memory — and the lab's two
+classes are really COLD formation versus WARM re-formation, the same
+distinction e333 drew from the other side (the womb is for first
+births only; every subsequent birth is a whole-state event).
+
+THE LEDGER: the lean hit (9-for-14). The standing rule's first
+enactment worked (both arms' net0 classes gate-recorded). THE DOC:
+Law 3's scope upgrades from "registered hypothesis" to "licensed by
+x35", with the shadow correction folded.
+
 ## T305 — E328: the first page is inert — formation texture lives in the gen's later batches (2026-10-10, datetime.now ~08:05Z)
 
 The swap closes the formation frontier's causal arm cleanly: replace
