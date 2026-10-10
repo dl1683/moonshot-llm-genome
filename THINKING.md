@@ -62,6 +62,40 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T318 — X41: the relay is entrainable — and the 'equilibrium' was the upper rail wearing a milestone costume (2026-10-10, datetime.now ~15:55Z)
+
+The kinetics cell closed both its questions cleanly. THE CYCLE IS
+TUNABLE: spacing the events re-locks the relay to the new cadence
+(the read cannot hold 50 steps, so every event doses); halving the
+cap halves the amplitude and pushes toward period-1 weak dosing —
+the tuner's dial has a period knob, an amplitude knob, and a named
+intermediate regime. W049's calibration program is now a relay-tuner
+design with measured knobs.
+
+AND THE VERIFICATION RIDER'S GIFT: the 'equilibrium is the cycle's
+average' claim — mine, in T310 — was WRONG, and the pre-registered
+prediction that it was wrong hit the exact number: the milestones
+(every 4th event) sample only the DOSE phase (the plateau 0.8732 vs
+the dose-phase mean 0.8800 at |d| 0.007); the cycle's true average
+is 0.415-0.420. THE 'EQUILIBRIUM' WAS THE UPPER RAIL WEARING A
+MILESTONE COSTUME — the read oscillates far more than the committed
+sampling showed. A measurement-cadence lesson in the R65/W054
+family: the sampler was locked to the phenomenon's phase and we did
+not know it. Every committed controller curve's 'plateau' now
+carries the question: rail or average?
+
+THE CONSTRUCTIVE ARC'S FULL CLOSE: the recipe measured (T316),
+explained (T317), and its maintenance dynamics now have a tuner
+(T318). THREE LAWS-DOC NOTES: the relay clause joins Law 4 (the
+gate is a relay; its 'plateaus' are dose-phase samples); the
+milestone-sampling disclosure joins METHODS (cadence must be
+phase-declared); W049's dial question graduates to a design.
+
+THE LEDGER: the lean hit (17-for-27). THE INSTRUMENTS: the phase-
+lock discovery came from the verification rider — the cell's
+cheapest leg carried its sharpest finding, the day's recurring
+shape.
+
 ## T317 — X40: directional armor — the annealed read is armored along the wash's own direction (2026-10-10, datetime.now ~15:40Z)
 
 The mechanism leg resolved as MIXED with the two channels the lean
@@ -275,6 +309,12 @@ are orthogonal; the wall is a runtime guard; the commit event's role
 (e338, computing) is now the load-bearing question.
 
 ## T310 — E339: reachable but not holdable — the genuine lower equilibrium, and the sawtooth's 2-cycle (2026-10-10, datetime.now ~12:05Z)
+
+> [T318 CORRECTION]: 'the equilibrium is the limit-cycle's average' is WRONG — the milestone
+> cadence (every 4th event) samples only the DOSE phase: the plateau 0.8732 == the dose-phase
+> post-event mean 0.8800 (|d| 0.007); the cycle's true time-average is 0.415-0.420. The
+> 'equilibrium' was the upper rail wearing a milestone costume (x41's verification rider,
+> pre-registered).
 
 The long landing's answer is the rarest kind: both predictions wrong
 in opposite directions and the truth more interesting than either.

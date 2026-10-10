@@ -126,8 +126,10 @@ band); the ENDPOINT HEIGHT IS NAME-TUNED AND SOFT (e336+e339: the landing rose I
 founding band — peak 3.148 at t600 — then receded to settle at 3.055, slope flat:
 REACHABLE BUT NOT HOLDABLE; a genuine lower equilibrium with the even-longer-horizon
 disclosure; the sawtooth bifurcated into a 2-CYCLE from event 25 — the dose fully
-self-limits every other event; the 'equilibrium' is the limit-cycle's average, not
-a proportional settle); the HORIZON exposure remains — no run past the organism's own ~1,040-step
+self-limits every other event; THE CYCLE IS ENTRAINABLE (x41: period re-locks to the
+event spacing; amplitude tracks the lr cap) and the 'equilibrium' was THE UPPER RAIL
+SAMPLING-LOCKED (the milestones sample only the dose phase: plateau 0.873 == dose-phase
+mean 0.880; the cycle's true average 0.42) — 'plateau' readings carry the phase question); the HORIZON exposure remains — no run past the organism's own ~1,040-step
 death clock; the fresh-room draw untested; the maintained state is address-rich (e318:
 low-dose tolerance above the family's, high-dose collapse faster).
 
@@ -210,7 +212,10 @@ all five).
    raw p/p-base lifts compose with prior shifts and manufacture doublings (the R74
    artifact).
 3. PRE-REGISTER THE SCORER, not just the threshold (x20's near-miss lesson).
-4. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
+4. MEASUREMENT CADENCE MUST BE PHASE-DECLARED (x41): a sampler locked to the
+   phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
+   were dose-phase samples. [Added at R79-era, T318]
+5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
    p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 13-for-22 (R78 refresh; 59%, p~0.26 — coin-adjacent, unchanged in kind; the e-series 0-for-3, the x-series 2-for-2 this afternoon); THE EARNED EDGE IS THE DISCRIMINATOR COLUMN: registered discriminating bars resolved all three afternoon e-cell misses (five-plus cells running) — the only calibration claim the data supports
    (NOT distinguishable from a fair coin, p ~ 0.25). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
