@@ -122,6 +122,18 @@ to every bar; the ledger is scoped (0-for-8 on mechanism-seat guesses).
 | e340 | THE UNSHELLED HIGH-READ COMMIT | DONE ~13:05Z Oct-10 (c95455f) | MIXED — THE PARTIAL-MARGIN CELL: height buys RECOVERY (9x), shaping buys SURVIVAL (the s1 annihilation is height-blind; the shaped roots never die); the three-class gradient 0.013 < 0.114 < 0.92 — T314; the chamber CLOSES with the ball decomposed into wall/height/shaping | commit(0.7) on a high-read UNSHELLED install (e339's t800 state or a cons-shaped fresh install): READ-HOLDS = the margin is HEIGHT (the wall + an annealed read is the recipe — the build lane's wash-proof tool complete) / READ-DIES = the margin is the cons SHAPING (the ladder's own 300 steps; the recipe decomposes further) |
 | x38 | THE FLIP THRESHOLD | DONE ~12:45Z Oct-10 (8eb6c3b) | SHARP-FLIP (P-x38a HIT — 13-for-21): R* bracketed (prior, lowest-living], zero ambiguous rungs; the collapse uniform and host-gated once living; THE NOISE FLOOR IS A DOSE (~2x the write's norm; 4x = general destruction) — T313 | the fixed complement across the read-level ladder (1.3e-5 -> 0.556 -> 0.530 -> 0.745 -> 0.704): SHARP-FLIP (the two-channel law gains its control parameter) / GRADED-CROSSOVER; the gaussian-at-2x/4x rider — does pure energy EVER move a living memory |
 
+
+## R78 SECTION (2026-10-10, folded ~13:20Z) — the v3.1 program adopted; the confound's controls
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x39 | THE STEP-DOSE RUNG (the gradient's cheapest control) | READY (GPU, one burst; can ride e341's session) | commit(0.7) + the wash on e336's t400 checkpoint (read 0.815, 400 anneal steps): retention ~0.13 = steps beyond 400 buy nothing (the height clause stands) / ~0.045 at a 0.815 read = the recovery is step-bought (the gradient's 'height' clause re-labels) |
+| x40 | THE FIRST-STEP SURVIVAL MECHANISM (desk/CPU) | READY (CPU, committed states) | WHY do the shaped roots survive the s1 annihilation: BROAD-SUPPORT (varied contexts spread the read) / VACCINATION (the cons's jitter = repeated sub-noise-floor doses — check its step norms vs x38's 2x floor) / BASIN-WIDTH; the per-context distribution at s1 is the discriminator |
+| x41 | THE RELAY'S KINETICS (W049's sharpened dial) | READY (GPU, short legs) | resume e339's t800 with ONE gate parameter perturbed (event period / lr_m cap): ENTRAINABLE (the cycle tracks the dial — W049 designs a relay tuner) / STRUCTURAL (the 2-cycle is the slot's); + verify 'the equilibrium is the cycle's average' from the committed trace |
+| x42 | THE R* INTERIOR (x38's bracket refinement) | READY (CPU, panel-only) | mid-level reads (partially-formed installs / mid-formation checkpoints) inside the (1.3e-5, 0.53] bracket: sharpen dead-or-alive or reveal grading |
+
+THE v3.1 STRUCTURAL PROGRAM (adopted at R78, the next draft's shape): promote resolved gates into law prose (e326 -> Law 2b; e325 -> Law 6); the chamber + provenance -> A CANDIDATE LAW 8 — THE GUARD; split Law 3's scope into labeled sub-blocks; the doc's edits footer current.
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),

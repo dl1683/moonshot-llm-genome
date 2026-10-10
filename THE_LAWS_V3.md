@@ -92,7 +92,7 @@ while CE_R barely notices): WARM RE-FORMATION IS RESUMED FORMATION, LITERALLY.
 RESOLVED (e337/e338/e340 — the chamber): the ball decomposes into THREE separable
 contributions — THE WALL (a runtime displacement veto, not a memory guard: it held
 the organism while fresh reads died), THE HEIGHT (recovery capacity: the s100
-gradient install-fresh 0.013 < controller-annealed 0.114 < cons-shaped 0.92), and
+gradient install-fresh 0.013 < controller-annealed 0.114 < cons-shaped ~0.92 [derived: band-legs' height x retention; carries an unstated STEPS-VS-TYPE confound (R78) — e341's matched arms + the t400 rung are the controls]), and
 THE SHAPING (first-step survival: the cons's varied-context annealing — the s1
 annihilation is height-blind but the shaped roots never die). SURVIVAL IS THE
 SHAPING'S; RECOVERY IS THE HEIGHT'S; THE WALL IS THE ORGANISM'S. The build lane's
@@ -171,7 +171,7 @@ block RE-FORMATION itself; formation-time bearer-unsharing stands as the only ro
 CONTENT LIVES IN THE ROOM-OVERLAP TAIL; OUT-OF-ROOM DISPLACEMENT IS ADDITIVE PUSH — a
 mass-proportional committee, seatable in no single organ (x22: 28 fragments superpose
 to 0.992; the lm_head name-row carries 99.8% of its fragment and delivers 0.8%), gated
-~36x at its target's own contexts, surgical off-target (x16), bearer-coupled;
+~36x at its target's own contexts, surgical off-target (x16), bearer-coupled (x19: dead states amplify at 72% of live while their mass stands);
 THE FLIP IS A STATE PROPERTY (x38): R* — the read level where the same displacement
 switches from LIFT to COLLAPSE — is bracketed (prior, lowest-living], ZERO ambiguous
 rungs; once living, the collapse is uniform (1.71x envelope) and host-gated; THE
@@ -204,7 +204,7 @@ all five).
    artifact).
 3. PRE-REGISTER THE SCORER, not just the threshold (x20's near-miss lesson).
 4. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 11-for-17 (R77 refresh; p~0.17 — still coin-adjacent, unchanged in kind); THE EARNED EDGE IS THE DISCRIMINATOR COLUMN: registered discriminating bars have out-called the leans four-plus times (e336 the latest — both leans wrong, the discriminator right)
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 13-for-22 (R78 refresh; 59%, p~0.26 — coin-adjacent, unchanged in kind; the e-series 0-for-3, the x-series 2-for-2 this afternoon); THE EARNED EDGE IS THE DISCRIMINATOR COLUMN: registered discriminating bars resolved all three afternoon e-cell misses (five-plus cells running) — the only calibration claim the data supports
    (NOT distinguishable from a fair coin, p ~ 0.25). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).
@@ -224,7 +224,7 @@ The lab's oldest question — "why do memories die?" — keeps its measured answ
 newest — "whose memories are they?" — now has one too: the organism's, in the sense
 that the land was theirs before the lab ever wrote a name on it.
 
-*Edited at R75/R76/R77 (the residue wording; the net0 re-scope; the x35 license; the e335 resolution; Law 4's name-tuned rider). All named gates resolved: e326 (EITHER-MOVES — the conservative class; Law
+*Edited at R75/R76/R77/R78 (the residue wording; the net0 re-scope; the x35 license; the e335 resolution; Law 4's riders; Law 7's flip parameter; the chamber decomposition — the 0.92 rung derived, dated R78). All named gates resolved: e326 (EITHER-MOVES — the conservative class; Law
 2b's scope) and e325 (READ-RETURNS — the doubled revival price; Law 6's scope). The
 audit's repairs applied the same night. The document is complete and awaits the
 supervisor's review.*
