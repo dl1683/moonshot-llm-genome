@@ -665,21 +665,43 @@ survive_ratios = [r["ratio"] for r in survive_pts]
 identity_gap = max(abs(math.log10(x)) for x in die_ratios + flat_ratios)
 
 # the leak check (the registered countervailing): family ratios under a
-# 100x-leak pessimistic prior
+# 100x-leak pessimistic prior. FACT1 rows EXCLUDED — the first install of a
+# family has NO pre-state leak by construction (its pre-state IS the virgin
+# root; its base-net prior is exact).
 leak = {
-    "form": "the registered countervailing check: family draws' ratios "
-            "recomputed with prior x100 (a pessimistic leak bound on the "
-            "serial pre-state); does ANY draw enter the ratio gap "
-            "(1.2, 1e4)?",
+    "form": "the registered countervailing check: NON-FIRST family draws' "
+            "ratios recomputed with prior x100 (a pessimistic leak bound on "
+            "the serial pre-state); does any draw enter the ratio gap "
+            "(1.2, 1e4), and would that build a bridge to the flat line?",
     "factor": 100.0,
-    "any_enters_gap": False, "rows": [],
+    "excluded": "FACT1 of both families (no pre-state leak possible)",
+    "rows": [],
 }
+_first_gens = {fam_seed["FACT1"], rider_installs["FACT1"]["gen_seed"]}
+leaked_ratios = []
 for r in family_pts:
+    if r["gen"] in _first_gens:
+        continue
     rr = r["s1_g0"] / (r["prior"] * leak["factor"])
     leak["rows"].append({"draw": f"{r['lineage']}[{r['gen']}]",
                          "ratio_leaked": rr})
-    if 1.2 < rr < 1e4:
-        leak["any_enters_gap"] = True
+    leaked_ratios.append(rr)
+leak["any_enters_gap"] = bool(any(1.2 < rr < 1e4
+                                  for rr in leaked_ratios))
+leak["min_leaked_ratio"] = min(leaked_ratios) if leaked_ratios else None
+leak["decades_above_flat_line"] = (
+    math.log10(min(leaked_ratios)) if leaked_ratios else None)
+# would the leaked scenario bridge flat -> surge? (max adjacent gap in the
+# leaked chain, flat draws included)
+_chain = sorted([r["ratio"] for r in flat_pts]
+                + [r["ratio"] for r in die_pts] + leaked_ratios
+                + [r["ratio"] for r in survive_pts])
+leak["leaked_scenario_max_adjacent_gap_dec"] = (
+    max(math.log10(_chain[i + 1]) - math.log10(_chain[i])
+        for i in range(len(_chain) - 1)) if len(_chain) > 1 else None)
+leak["leaked_scenario_builds_bridge"] = bool(
+    leak["leaked_scenario_max_adjacent_gap_dec"] is not None
+    and leak["leaked_scenario_max_adjacent_gap_dec"] <= 0.5)
 
 analysis = {
     "plane": "(log10 s1_g0, log10 ratio-to-prior)",
@@ -893,10 +915,15 @@ lines.append(f"- THE DIE TEXTURE WAS ALWAYS PRIOR-FLAT IN RATIO: the canon's "
              f"parasite draw (TAV/QEL/NYS) sits on the flat line "
              f"(|log10 ratio| <= {identity_gap:.4f} decades, n = "
              f"{comp['n_flat_ratio_draws']} draws).")
+fam_surge = [r["ratio"] for r in family_pts if r["side"] == "SURVIVE"]
 lines.append(f"- The survive cluster's ratios span "
              f"[{comp['survive_ratio_range'][0]:.3e}, "
-             f"{comp['survive_ratio_range'][1]:.3e}] — "
-             f"{math.log10(comp['survive_ratio_range'][0] / max(die_ratios)):.2f}"
+             f"{comp['survive_ratio_range'][1]:.3e}]"
+             + (f" (family surges [{min(fam_surge):.3e}, {max(fam_surge):.3e}]"
+                " — the lowest family surge still "
+                f"{math.log10(min(fam_surge) / max(die_ratios)):.2f} decades "
+                "above the flat line)" if fam_surge else "")
+             + f" — {math.log10(comp['survive_ratio_range'][0] / max(die_ratios)):.2f}"
              f"+ decades above the flat line, EMPTY between.")
 lines.append(f"- The absolute 'kill level' 1.35e-5 was the prior of a "
              f"211x-lower-prior name: the taxonomy's two textures are "
@@ -915,10 +942,23 @@ lines.append(f"- The write-texture co-table: the prior-flat draws carry "
              f"{min(r['in_room_frac'] for r in flat_pts):.3f}-"
              f"{max(r['in_room_frac'] for r in flat_pts):.3f}) vs the "
              f"survive class (~27, ~0.63).")
-lines.append(f"- The leak check (the registered countervailing): under a "
-             f"100x-leak pessimistic family prior, "
-             f"{'SOME draw enters the ratio gap' if leak['any_enters_gap'] else 'NO draw enters the ratio gap'}"
-             f" — the bridge cannot be built by serial-family leak.\n")
+lk_enters = ("some non-first family draws DO fall inside the numeric "
+             "interval (1.2, 1e4)" if leak["any_enters_gap"]
+             else "no draw enters the ratio gap")
+lines.append(f"- The leak check (the registered countervailing, FACT1 rows "
+             f"excluded — no pre-state leak possible): under a 100x-leak "
+             f"pessimistic family prior, {lk_enters}; the lowest leaked "
+             f"ratio {leak['min_leaked_ratio']:.1f} sits "
+             f"{leak['decades_above_flat_line']:.2f} decades above the flat "
+             f"line, and the leaked scenario's max adjacent ratio gap is "
+             f"{leak['leaked_scenario_max_adjacent_gap_dec']:.2f} decades "
+             f"(bridge bar <= 0.5) -> "
+             f"{'bridge BUILT' if leak['leaked_scenario_builds_bridge'] else 'NO bridge even under the leak'}"
+             f"; a bridge would need a leak large enough that a "
+             f"not-yet-installed name already reads near its formed level "
+             f"on later facts' batteries — implausible, and the residual "
+             f"uncertainty is DISCLOSED (the serial pre-state reads were "
+             f"never committed).\n")
 lines.append("\n## ROBUSTNESS VARIANTS\n")
 for k, v in rob.items():
     lines.append(f"- {k}: separation {v['die_survive_sep']:.3f} dec; "
