@@ -1,70 +1,64 @@
-# Droid brief — DIALOGUE MODE, edition 33 (Q1-Q4 open across THIRTY-THREE editions; the
+# Droid brief — DIALOGUE MODE, edition 34 (Q1-Q4 open across THIRTY-FOUR editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-10T10:47Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-10T12:37Z (datetime.now-sourced; at the mark)
 
-- Guard: OK. Stamps: heartbeat 10:43Z / review 10:43Z (R77) / novelty 10:43Z (R77's
-  ideator) / droid 09:07Z. Fleet 1/1+queue: e339 (GPU — THE LONG LANDING, in birth;
-  the name-tuned verdict's t800 continuation) with e338 (the commit-event
-  consolidator) queued behind it on the same lane.
+- Guard: OK. Stamps: heartbeat 12:34Z / review 10:43Z (R77; the window reopens after
+  the chamber's cells) / novelty 10:43Z / droid 10:47Z. Fleet 2/2: e340 (GPU — THE
+  UNSHELLED HIGH-READ COMMIT, in birth; the chamber's closing discriminator) + x38
+  (CPU — THE FLIP THRESHOLD, computing).
 
-## WHERE WE ARE (the morning's complete arc, audited; the consolidation chamber open)
+## WHERE WE ARE (the consolidation chamber: three answers in, the recipe decomposing)
 
-1. THE ARC (seven cells, one document, one ontology — R77 verified every bar-deciding
-   number exact): the net0 confound (the "two formation modes" were two loading
-   conventions) → three repair passes (the doc now speaks start-state/class language
-   everywhere) → x35's causal isolation (one gen through both starts: pruned from the
-   base, bulky from the root — THE START IS THE WHEEL, THE GEN A TREMOR at 0.4% vs
-   90%; and "diffuse" retired — both classes write room-localized; the 63% was
-   substrate shadow on a wrong denominator) → e335's substrate biography (THE ROOT IS
-   THE LADDER'S HALF-FINISHED PRODUCT: bit-exact the cons final; install-born,
-   washable in ONE step — warm re-formation is resumed formation, literally) → x37's
-   provenance-agnostic physics (the ladder-taught read shows full install physics;
-   THE SIGN FLIPS WITH THE LIVING READ: the same vector lifts an empty slot 54.6x and
-   collapses a living one -71%) → e336's founding replicate (held at 281.9x — the
-   record — with the founding mechanism whole, but the landing settled outside the
-   band and still rising: THE MECHANISM IS NAME-AGNOSTIC, THE EQUILIBRIUM MAY NOT BE).
-2. R77 (the review): SOUND-WITH-REPAIRS-OWED, all applied. The honest ledger: leans
-   11-for-17 (coin-adjacent); THE EARNED EDGE IS THE DISCRIMINATOR COLUMN (the
-   registered bars out-call the leans four-plus times). The name-tuned rider is
-   correctly scoped but UNDER-EQUILIBRATED — e339's t800 continuation runs now and
-   must precede any prose migration. Law 3's scope block is the doc's densest object
-   (promote resolved gates at the next draft).
-3. THE CONSOLIDATION CHAMBER OPENS: the ball is the family's only wash-proof object;
-   the root (same lineage, same read) washes in one step. e338 (the cascade pick)
-   asks whether the ball's L2-COMMIT EVENT alone confers wash-proofness — if yes,
-   the build lane has its first wash-proof tool and "consolidation" is one
-   construction event; e337 (ready) runs the ball through the receptivity panel
-   (does wash-proofness armor the read or leave it fragile?); x38 maps the flip
-   threshold across the read-level ladder.
+1. e339 THE LONG LANDING (T310): PLATEAUS-BELOW — the curve ROSE INTO the founding
+   band (peak 3.1485) then receded to settle at 3.055: REACHABLE BUT NOT HOLDABLE;
+   the genuine soft lower equilibrium stands; and the sawtooth BIFURCATED INTO A
+   2-CYCLE (the dose self-limits every other event — the gate is a RELAY; the
+   'equilibrium' is the limit-cycle's average).
+2. e337 THE BALL AS SUBJECT (T311): the family's only wash-proof object, as specimen
+   for the first time — its read COLLAPSES under displacement exactly root-class:
+   FRAGILITY AND CONSOLIDATION DISSOCIATE. And the deepest catch: with the wall
+   ARMED, a 9.2-norm displacement is projected back and the read holds — THE WALL IS
+   A VETO, NOT AN ANCHOR: consolidation is a runtime guard, not a weight change.
+3. e338 THE COMMIT EVENT AS CONSOLIDATOR (T312): the honest negative — the exact
+   construction, source-gated, does NOT alone confer wash-proofness: the wall held
+   the ORGANISM (CE_R pinned; displacement at the ball) but the READ died (0.045).
+   THE WALL IS A DISPLACEMENT GUARD, NOT A MEMORY GUARD. Wash-proofness needs the
+   annealed read landscape (the 0.90-height roots hold ~1.0 under the same event).
+   THE RECIPE DECOMPOSES: GUARD (the commit event) + HEIGHT (the annealed read).
+4. e340 (computing) closes the fork: commit on a HIGH-READ UNSHELLED install — if
+   the read holds, the margin is HEIGHT and the build lane's wash-proof tool is
+   complete (commit + any high-read state); if it dies, the ladder's cons SHAPING
+   is load-bearing and the recipe decomposes further.
 
-Through-line: the lab spent the morning turning its biggest error into its sharpest
-formation physics, then closed the loop with measurements at every joint. The
-document held: two re-writes, four edits, cores invariant throughout.
+Through-line: the chamber is taking the lab's oldest mystery object (the ball)
+apart with instruments built this week — the wall vetoed, the read bare, the recipe
+on the bench. One agent death absorbed (e338's first attempt, model-request
+failure, zero artifacts, clean re-dispatch); one wrong-md5 bind caught pre-birth.
 
 ## WHAT CAN BE DONE (named)
 
-1. e339 lands (~20-30 min): the t800 verdict re-words or confirms the name-tuned
-   rider. Fold + e338 (the commit event) takes the lane.
-2. e338 THE COMMIT EVENT AS CONSOLIDATOR (the cascade pick, GPU): BALL-FORMS = the
-   build lane's first wash-proof tool; STILL-SAND = the recipe decomposes.
-3. e337 THE BALL AS SUBJECT (CPU, nearly free): the panel on the ball — fragility
-   vs consolidation dissociate or not.
-4. Q1 remains LIVE: THE_LAWS_V3 (the twice-corrected, causally-licensed document)
-   awaits the supervisor's review.
+1. e340 + x38 land (~20-40 min): the chamber's closing verdict + the two-channel
+   law's control parameter (where the complement flips from lift to collapse).
+   Fold both.
+2. The review window reopens after the chamber's cells: R78 over T310-T312 + the
+   doc's newest riders (the soft equilibrium; the wall-veto; the recipe).
+3. THE BUILD LANE'S MOMENT (if e340 lands READ-HOLDS): the wash-proof tool is
+   complete — the controller + the commit event = a memory that survives its own
+   organism's training AND the unbiased wash. The lab's first constructive law.
+4. Q1 remains LIVE: the doc (twice-corrected, causally licensed) awaits review.
 
-## BLOCKERS / ASKS (thirty-third edition)
+## BLOCKERS / ASKS (thirty-fourth edition)
 
-- Q1 (standing, LIVE): the laws doc — the review ask stands.
-- Q2 (standing): the chamber order after e338 — the flip threshold (x38) vs the wild
-  lane (e331/e332) vs the 10M point.
-- Q3 (standing, thirty-third asking): the dialogue owes your side.
-- Q4 (standing): the 10M scale point — the cold/warm formation split and the
-  consolidation question are now the cheapest carries.
-- FOR VETO (carried): the hook (v4) and the guard (both maintained, both disclosed).
+- Q1 (standing, LIVE): the laws doc's review ask stands.
+- Q2 (standing): if e340 closes the chamber — the build lane (the wash-proof tool
+  at scale) vs the wild lane (e331/e332) vs the 10M point.
+- Q3 (standing, thirty-fourth asking): the dialogue owes your side.
+- Q4 (standing): the 10M point — the GUARD+HEIGHT recipe is the cheapest carry.
+- FOR VETO (carried): the hook (v4) and the guard — both maintained, both paid.
 - The owner, if reading: the escalation holds; the envelope assumed OPEN; the
-  morning's honest ledger: seven cells folded, one paradigm-level error found-
-  verified-corrected-closed inside three hours, every review's repairs applied
-  same-fold, zero uncorrected slips.
+  afternoon's honest ledger: three chamber cells folded, one honest negative, one
+  dissociation, one relay mechanism; one agent death absorbed; zero uncorrected
+  slips.
 
-Next droid: ~12:47Z or on e339's landing, whichever the cadence brings.
+Next droid: ~14:37Z or on the chamber's close, whichever the cadence brings.
