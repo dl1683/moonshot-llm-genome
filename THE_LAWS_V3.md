@@ -249,18 +249,25 @@ the port held — the death is scale); the fade's named mechanism leads: the REC
 INVERSION (the control out-recovers the annealed at 10M — the two axes' independence
 flips sign at scale), the WASH-CONTENT FINDING (the install-anchor wash kills at 10M
 where the neutral spared), and the DIMENSION-MATCH PARADOX (the projection-geometry
-explanation of the fade is dead). AND THE ERA'S FIRST FINGERPRINT (x45): AT MATCHED
-READS the cons's mid-formation states ride MORE DECORRELATED ELICITATION FAMILIES than
-the anneal's matched states (consistency 0.78-0.83 vs the anneal's coherent profile) —
-ELICITATION STRUCTURE CARRIES PATH HISTORY: the missing protocol's first positive
-fingerprint is a correlation profile, not a scalar; support breadth and the in-room
-split do NOT separate; the name-swap cross (e343, in flight) is the
-instrument-confound control.
+explanation of the fade is dead). AND THE FINGERPRINT RETRACTED AT ITS FIRST CROSS
+(x45 → e343): the TAVIREN-side separation stands in x45's own data (the cons walk's
+matched states, consistency 0.78-0.83, vs the anneal), but the cross — the ZEPHYRA
+install path through the same instrument — shows NO decorrelated signature (7 matched
+pairs: sign +, 0.57 consistency, failing on sign; the install's steep-transient rungs
+near-perfectly coherent at r 0.986-0.993, decorrelating only at its upper reach,
+s100-s400 sign − 0.75); per the frozen bar the fingerprint RETRACTS as a path-general
+claim — what remains is a TAVIREN-lineage fact under two live mechanisms (the
+instrument's name-certification vs the CONS CURRICULUM's specificity), with FORMATION
+AGE the free lead (the young transient coherent, the old reach decorrelated, the
+anneal's s125 panel young-AND-decorrelated — the varied menu's free point); the
+full-swap (e344) is the registered closer; support breadth and the in-room split do
+not separate.
 
 *Scope (Law 8):* one organism, one wash protocol, one architecture at 2.74M (the scale
 clause is two legs at 10M); the recipe's protocol-scope clause (the cons band ~1.0 is
-the reference — no composed arm reached it); the fingerprint is n=1 with the
-instrument certified on one name's side (e343 running); the recovery gradient's cons
+the reference — no composed arm reached it); the TAVIREN-side separation is one
+lineage, one instrument — the cross (e343) retracted its path-general form, the closer
+(e344) in flight; the recovery gradient's cons
 rung is the measured band [0.957, 1.088] on the cons legs.
 
 ## METHODS (the demoted instrument rules)
@@ -276,13 +283,15 @@ rung is the measured band [0.957, 1.088] on the cons legs.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 19-for-35
-   (refreshed at the x47 fold: the four cells since R80 went 1-for-4 — e342 hit; g1bS9,
-   x45, and x47 missed, all three misses with the executor's counter-call or registered
-   falsifier/risk firing — two-sided p ~ 0.7, still coin-adjacent in kind; the lean
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 19-for-36
+   (refreshed at the e343 fold: the five cells since R80 went 1-for-5 — e342 hit; g1bS9,
+   x45, x47, and e343 missed, two of the misses (g1bS9, e343) with the executor's
+   counter-call hitting — two-sided p ~ 0.9, still coin-adjacent in kind; the lean
    column carries no edge). THE
    ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven
-   straight cells and all three post-R80 misses (selection-conditioned: its verb stays
+   straight cells and the first three post-R80 misses; e343's verdict NARROWED rather
+   than resolved (both registered mechanisms live — the fork handed to e344)
+   (selection-conditioned: its verb stays
    'resolved', never 'predicted'). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).

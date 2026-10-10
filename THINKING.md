@@ -7,6 +7,58 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T327 — e343: the fingerprint retracts at its first cross — and the retraction's shape points at the curriculum (with formation age the free second) (2026-10-10, datetime.now ~21:20Z)
+
+The era's first positive finding lasted one beat. The cross — the ZEPHYRA install
+path through x45's instrument — shows NO decorrelated signature at matched reads:
+sign + at 0.57 consistency, failing on sign, not magnitude. Honest scorecard: x45's
+TAVIREN-side data stand (its own comparison was real); what died is the PATH-GENERAL
+claim — that formation through a curriculum builds decorrelated families for any name.
+The lab lean (HOLDS, weakly) missed; the executor's counter hit; the lean ledger is
+1-for-5 since R80 — the counter column remains the only edge with a direction.
+
+THE RETRACTION HAS A SHAPE: the install's YOUNG steep-transient rungs are the most
+coherent objects the instrument has ever measured (r 0.986-0.993), while the install's
+OLD upper reach decorrelates (s100-s400: 0.34-0.85, segment sign - 0.75) — and x45's
+cons-walk states (old, mid-formation of a long life) sat decorrelated. And the wrinkle:
+the anneal's own s125 panel is YOUNG AND DECORRELATED (r 0.124) — the varied menu
+bought it cheap and early where the install's transient did not. Read together: the
+currency is real but nothing simple owns it — the VARIED MENU buys decorrelation young
+(free point for the curriculum reading); LONG PATHS accrue it at their upper reach
+(free point for the age reading).
+
+THREE HYPOTHESES: (H-A) NAME-INSTRUMENT ARTIFACT — the instrument is TAVIREN-certified
+and manufactures the separation only on TAVIREN-lineage states; predicts the full-swap
+(ZEPHYRA through the CONS curriculum) stays coherent. (H-B) CURRICULUM-SPECIFIC — the
+decorrelation is the cons/varied curriculum's own signature (an install curriculum
+never buys it, any name); predicts the full-swap goes decorrelated at matched mid-
+formation reads. (H-C) FORMATION AGE — a slow clock any long path buys; predicts the
+full-swap decorrelates AND the pooled committed record orders by age at matched read.
+
+DISCRIMINATOR: e344 THE FULL-SWAP (minted this fold) — the same name (ZEPHYRA, whose
+install path is now measured coherent) driven through the CONS curriculum, x45's
+instrument at matched reads; the N1 age-regression rides as the desk half (r vs
+formation age vs menu type across x42's rungs + x45's walk + e341's panels + e343's
+rows, read-matched). H-A vs H-B is the swap's clean fork; the regression splits H-B
+from H-C either way.
+
+REGISTERED PREDICTION (P-T327a, on e344): the full-swap's mid-formation matched states
+land DECORRELATED (sign -, consistency >= 0.75) — the lab's lean, moderately (the
+anneal-s125 wrinkle: the varied menu is the cons curriculum's weakest form and it
+already bought early decorrelation); countervailing stated plainly: the instrument's
+TAVIREN-side certification gap was real, and x45's separation could be battery
+geometry end-to-end. [The lean column's honesty: this lab has missed four of five;
+the lean is priced as a hypothesis, not held as a belief.]
+
+CONNECTS: W057's seventh pillar narrows to TAVIREN-lineage (six pillars untouched —
+the two-clocks pattern survives its first stress test with a bruise, not a break; and
+the retraction's own young-coherent/old-decorrelated shape FEEDS the history-clock
+side); W056's hypothesis (a) keeps its variety-side anchor (x44's r 0.33-0.46,
+untouched) and loses its cons-side one pending e344; N1 (the formation clock)
+graduates from angle to registered rider; Law 8's fingerprint clause re-worded this
+fold — the retraction, disclosed in place, is the era's first falsification of its own
+freshest finding, one beat after minting it.
+
 ## W057 — the two clocks: every object in this lab splits into a state-clock and a history-clock — and the history-clock may BE the decorrelation structure (2026-10-10, datetime.now ~21:10Z; the beat's thinking bulk, e343 mid-run)
 
 THE PATTERN, assembled across the corpus — seven objects, one binary:
@@ -56,6 +108,11 @@ null; N1's clock reading). An instrument that reads or writes THE DECORRELATION 
 directly (the oracle's probe, N1's chronometer) would be the era's first tool that
 touches the missing half — and 'protocol' stops being a metaphor: it is the name of
 whatever writes the second clock.
+
+[e343 NOTE (2026-10-10 ~21:20Z): pillar seven (the fingerprint) narrows to
+TAVIREN-lineage — the cross retracted its path-general form; six of seven pillars
+untouched, and the retraction's own shape (young-coherent, old-decorrelated) feeds
+the history-clock side. See T327.]
 
 ## T326 — x47: the flip's death edge is slot-shared, its lift channel is lineage-coupled — the threshold was two objects all along (2026-10-10, datetime.now ~21:00Z)
 
@@ -141,6 +198,10 @@ LUCK: decorrelation is cheap at 2.74M (a 300-step menu suffices) and expensive a
 (the graded fade). The deepest cut: the cons never 'learned more' — it learned
 INDEPENDENTLY, and the lab's whole dose vocabulary has been measuring the wrong axis.
 
+[e343 NOTE (2026-10-10 ~21:20Z): the fingerprint retracted at the cross — hypothesis
+(a)'s cons-side anchor is TAVIREN-lineage-only until the full-swap (e344) lands; the
+variety-side anchor (x44's r 0.33-0.46) is untouched. See T327.]
+
 ## W053 — the map's dynamics: does the receptivity table drift along the lineage? (2026-10-10, datetime.now ~01:57Z; the guard's owed thinking bulk)
 
 The interaction form (T297) leaves the map with a dynamics question it
@@ -197,6 +258,12 @@ telling you it has fallen behind the lab it guards.
 doing its job even when wrong: forcing thinking onto the record.)
 
 ## T325 — X45: the fingerprint found — the cons's path bought decorrelated families, and history is now a measurable (2026-10-10, datetime.now ~20:40Z)
+
+[E343 CORRECTION (2026-10-10 ~21:20Z): the fingerprint RETRACTED at the name-swap
+cross — the ZEPHYRA install path shows sign + at 0.57 consistency vs the frozen
+decorrelated bar. This card's TAVIREN-side data stand; the path-general wording does
+not. See T327 + Law 8's re-worded clause; e344 (the full-swap) is the registered
+closer.]
 
 The era's first cell returned the positive answer at the primary
 observable: AT MATCHED READS, the cons's mid-formation states answer
