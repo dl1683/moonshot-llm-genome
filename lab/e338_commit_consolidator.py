@@ -346,6 +346,10 @@ DISPATCH_BAND = (0.957, 1.088)           # the dispatch's quoted band
 BAND_HUG = 0.05                          # the e322 hug-band precedent
 SAND_OPS_CAP = 0.01                      # SAND-CLASS retention cap (frozen)
 SAND_STRICT = (0.0017, 0.0049)           # e322's taught legs raw
+# the birth commit (frozen; pinned so reruns/finalizations from resume
+# checkpoints keep the true provenance instead of recording the current
+# head): bars + P-e338a were committed + pushed BEFORE any compute
+BIRTH_COMMIT_PINNED = "b329eb4"
 
 # ---- the event's source rigs (md5-bound; THE PORT's parents) -------------
 ERA_RIGS = {
@@ -1431,7 +1435,7 @@ def write_report(adj: dict, comm_s: dict, twin_s: dict, band: dict,
 def main() -> None:
     log(f"E338 — THE COMMIT EVENT AS CONSOLIDATOR (smoke={SMOKE}) "
         f"-> {RD}")
-    metrics["birth_commit"] = git_head()
+    metrics["birth_commit"] = BIRTH_COMMIT_PINNED
     write_partial("startup (bars registered, committed at birth)")
     set_seed(33801)              # global init only; every RNG is its own
 
@@ -1468,7 +1472,10 @@ def main() -> None:
                          else f"DONE: {adj['verdict']}")
     metrics["git_head_final"] = git_head()
     metrics["completed_utc"] = utcnow()
-    write_partial("complete" if not SMOKE else "complete (SMOKE)")
+    save_json(RD / "metrics.json", metrics)   # direct save (NOT write_partial
+    # — the inherited completion path routed through write_partial, whose
+    # PARTIAL: prefix overwrote the DONE status; repaired post-run 1 with a
+    # disclosed surgical status fix, and here for every future rerun)
 
     make_png(adj, comm_s, twin_s, p3["band"], p3["sand"])
     write_report(adj, comm_s, twin_s, p3["band"], p3["sand"],
