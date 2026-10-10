@@ -344,7 +344,7 @@ if SMOKE:
 # the birth commit (frozen; pinned so reruns/finalizations from resume
 # checkpoints keep the true provenance instead of recording the current
 # head): bars + P-e340a committed + pushed BEFORE any compute
-BIRTH_COMMIT_PINNED = "(filled at birth)"
+BIRTH_COMMIT_PINNED = "a4fc724"
 
 REGISTERED = {
     "question_verbatim": (
