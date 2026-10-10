@@ -62,6 +62,36 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T312 — E338: the wall held the organism but not the read — protection is displacement-level (2026-10-10, datetime.now ~12:40Z)
+
+The consolidation chamber's cascade pick resolved with the honest
+negative and a mechanism sharper than a positive would have been.
+The commit event — the exact construction, unmodified, source-gated —
+held the ORGANISM through the wash (CE_R never shocked; the
+displacement pinned at the 0.70 ball) but the READ died anyway
+(retention 0.045: 12x better than the twin's sand, 21x short of the
+ball's band). THE WALL IS A DISPLACEMENT GUARD, NOT A MEMORY GUARD —
+T311's veto finding, now from the construction side: the projection
+keeps the parameters inside the ball, but an install-fresh
+0.286-height read does not survive AT the ball's interior; the
+cons-shaped 0.90-height roots DO hold ~1.0 under the same event.
+
+THE REFINEMENT: wash-proofness needs the ANNEALED READ LANDSCAPE —
+the high, cons-shaped read coexists with the wall; the fresh install
+does not. The chamber's next discriminator is named: commit(0.7) on
+a high-read UNSHELLED install — is the margin the read's height
+(e336's equilibrium) or the cons shaping (the ladder's own 300
+steps)? Either answer closes the recipe: wall + annealed read, or
+wall alone at height.
+
+THE LEDGER: P-e338a missed (the executor's counter-guess; the lab's
+lean directionally right — 12-for-20 with the direction credit). The
+chamber stands at two answers: consolidation and fragility are
+orthogonal (e337); the wall is displacement-level protection (e338).
+The ball's recipe decomposes: GUARD (the commit event) + HEIGHT (the
+annealed read). THE DOC's Law 3 scope inherits one line; the
+formation frontier's cold/warm split gains its constructive leg.
+
 ## T311 — E337: the wall is a veto, not an anchor — consolidation is a runtime projection (2026-10-10, datetime.now ~12:30Z)
 
 The chamber's panel leg resolved cleanly and then went one layer
