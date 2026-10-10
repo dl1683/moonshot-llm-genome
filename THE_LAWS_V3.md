@@ -122,7 +122,13 @@ g1bS9: both arms dead at s1, the dose's margin graded 4.6x vs 2.74M's 28x; the p
 held, the death is scale); THE RECOVERY INVERSION (the control out-recovers the
 annealed at 10M — the two axes' independence flips sign at scale) and THE WASH-
 CONTENT FINDING (the install-anchor wash kills at 10M where the neutral spared) are
-the fade's named mechanism leads.
+the fade's named mechanism leads. AND THE FINGERPRINT (x45, the era's
+first cell): AT MATCHED READS the cons's mid-formation states ride MORE DECORRELATED
+ELICITATION FAMILIES than the anneal's matched states (consistency 0.78-0.83 vs the
+anneal's coherent profile) — ELICITATION STRUCTURE CARRIES PATH HISTORY: the missing
+protocol's first positive fingerprint is a correlation profile, not a scalar; support
+breadth and the in-room split do NOT separate; the name-swap cross is the
+instrument-confound control owed.
 
 ## LAW 4 — THE CONTROLLER [invariant]
 

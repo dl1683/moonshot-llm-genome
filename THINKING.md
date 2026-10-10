@@ -62,6 +62,37 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T325 — X45: the fingerprint found — the cons's path bought decorrelated families, and history is now a measurable (2026-10-10, datetime.now ~20:40Z)
+
+The era's first cell returned the positive answer at the primary
+observable: AT MATCHED READS, the cons's mid-formation states answer
+the offset geometries more independently than the anneal's — the
+decorrelation that x44 measured as the variety channel's gift is
+present along the CONS's path and ABSENT along the anneal's at the
+same read height. ELICITATION STRUCTURE CARRIES PATH HISTORY: the
+missing protocol's first fingerprint is a correlation profile, not a
+scalar. THE TARGET LIST OPENS: what in the cons's 300 steps builds
+independent response families? The natural suspects are exactly
+x44's leads — the curriculum's ORDER, the context variety's temporal
+structure — and the era's first discriminating cross (the
+name-swap) will tell whether the fingerprint is the TAVIREN
+instrument's or the path's.
+
+WHAT DID NOT SEPARATE IS EQUALLY INFORMATIVE: support breadth
+(the near-trend at g0) and the in-room split (pure origin artifact
+— the free install's 0.060 = exactly chance vs the anneal line's
+0.94->0.24 descent). The fingerprint is SPECIFIC to the response's
+correlation structure. AND THE WRITE-NORM SIGN (the anneal carries
+MORE write at matched reads) kills the simple story that the cons
+did more work — it did DIFFERENT work.
+
+THE EXECUTOR'S REPLAY SURPRISE compounds quietly: leg-anchored CPU
+replays reproduce committed GPU trajectories at 1e-6 to 5e-3 — with
+x42's |d| 0.0 certifications, the replay machinery is now the
+cheapest certified instrument class in the lab. THE LEDGER: the
+guess fell (19-for-34), the falsifier fired — the pattern holds
+into the new era.
+
 ## T324 — g1bS9: the recipe is 2.74M-specific — and the fade's shape is the finding (2026-10-10, datetime.now ~19:50Z)
 
 The scale probe returned the honest negative with a mechanism
