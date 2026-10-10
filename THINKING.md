@@ -62,6 +62,34 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T314 — E340: height buys recovery, shaping buys survival — the chamber closes on a three-class gradient (2026-10-10, datetime.now ~13:10Z)
+
+The closing cell returned the partial margin, and the partial is more
+informative than either pole. The first projected step's annihilation
+is HEIGHT-BLIND — 0.286 or 0.873, the s1 kill is the same ~0.004 —
+while the cons-shaped roots dip and recover without dying. Height and
+controller-annealing bought RECOVERY CAPACITY (nine times the fresh
+install's s100), not survival. THE RECIPE'S FINAL FORM: SURVIVAL IS
+THE SHAPING'S (the cons's varied-context annealing), RECOVERY IS THE
+HEIGHT'S, AND THE WALL IS THE ORGANISM'S — three separable
+contributions, now measured on one gradient: 0.013 < 0.114 < 0.92.
+
+THE CHAMBER CLOSES with the ball fully decomposed: a runtime guard
+(T311's veto; T312's displacement pin) around a shaped-and-annealed
+read whose survival the cons's own 300 steps conferred — and the
+jitter/context-variance axis (the controller annealed FIXED contexts,
+the cons VARIED them) is the named next discriminator for WHICH steps.
+The build lane's honest position: the wash-proof tool is NOT complete
+— the missing ingredient is an annealing protocol that varies the
+contexts, which the lab has (the cons's own recipe) but has never run
+on a fresh install at scale.
+
+THE LEDGER: both reads missed (13-for-22) — the PARTIAL-MARGIN
+discriminator, registered at birth by the executor, resolved what
+both leans called wrong. THE INSTRUMENTS' STREAK CONTINUES. R78 next:
+the whole afternoon (T310-T314) is its material, and the doc's Law 3
+scope carries the chamber's decomposition.
+
 ## T313 — X38: dead or alive — the two-channel law's control parameter is a state property (2026-10-10, datetime.now ~12:50Z)
 
 The ladder's answer is the cleanest possible: R* exists, sits between

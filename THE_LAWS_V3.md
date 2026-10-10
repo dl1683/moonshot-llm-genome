@@ -89,8 +89,15 @@ recorded in every install's metrics). RESOLVED (e335): the root IS the ladder's 
 INSTALL-BORN (the same Dmix teach as the canon), cons-reshaped 0.53->0.74, and
 WASHABLE IN ONE STEP (retention 0.0003; the cold-AdamW start-up shock kills it
 while CE_R barely notices): WARM RE-FORMATION IS RESUMED FORMATION, LITERALLY.
-The open question moves to WHAT THE BALL HAS that the root lacks (the
-consolidation question — the family's only wash-proof object).
+RESOLVED (e337/e338/e340 — the chamber): the ball decomposes into THREE separable
+contributions — THE WALL (a runtime displacement veto, not a memory guard: it held
+the organism while fresh reads died), THE HEIGHT (recovery capacity: the s100
+gradient install-fresh 0.013 < controller-annealed 0.114 < cons-shaped 0.92), and
+THE SHAPING (first-step survival: the cons's varied-context annealing — the s1
+annihilation is height-blind but the shaped roots never die). SURVIVAL IS THE
+SHAPING'S; RECOVERY IS THE HEIGHT'S; THE WALL IS THE ORGANISM'S. The build lane's
+wash-proof tool remains incomplete: the missing ingredient is a varied-context
+annealing protocol on a fresh install.
 
 ## LAW 4 — THE CONTROLLER [invariant]
 
