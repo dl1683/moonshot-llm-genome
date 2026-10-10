@@ -818,9 +818,14 @@ def main():
         zid, resume_ctrl, dev)
     E261.burst_cooldown("post-control")
     ctrl_traj = out_ctrl["traj"]
-    ctrl_s1 = next(t for t in ctrl_traj if t["step"] == 1)["g0_pz"]
-    ctrl_s100 = next(t for t in ctrl_traj if t["step"] == 100)["g0_pz"]
-    ctrl_s400 = next(t for t in ctrl_traj if t["step"] == 400)["g0_pz"]
+
+    def traj_get(traj, step):
+        row = next((t for t in traj if t["step"] == step), None)
+        return row["g0_pz"] if row is not None else None
+
+    ctrl_s1 = traj_get(ctrl_traj, 1)
+    ctrl_s100 = traj_get(ctrl_traj, 100)
+    ctrl_s400 = traj_get(ctrl_traj, 400 if not SMOKE else E261.INST_STEPS)
     ctrl_net = G1.evl_load(out_ctrl["sd"])
     ctrl_g0 = G1.battery_cell(ctrl_net, g0_ids, zid)["mean_pz"]
     ctrl_gm12 = G1.battery_cell(ctrl_net, gm12_ids, zid)["mean_pz"]
@@ -846,9 +851,19 @@ def main():
         "post_g0_committed": float(canon_post_g0_committed),
         "post_g0_rel_diff": float(abs(ctrl_g0 / canon_post_g0_committed
                                       - 1.0)),
-        "pass": bool(abs(ctrl_s1 / canon_s1_committed - 1.0) <= 1e-6
-                     and (SMOKE or abs(ctrl_g0 / canon_post_g0_committed
-                                       - 1.0) <= 2e-2)),
+        "smoke_step1_ce": float(next(t for t in ctrl_traj
+                                     if t["step"] == 1)["ce_batch"]),
+        "smoke_step1_ce_committed": 1.0701713562011719,  # typed at birth
+        # from e264's committed ledger row (cross-checked vs the runtime
+        # read below); SMOKE gates the CE fingerprint (the k=512 smoke
+        # room's step-1 read is NOT comparable to the k=10k committed
+        # record — disclosed)
+        "pass": bool(
+            (abs(ctrl_s1 / canon_s1_committed - 1.0) <= 1e-6
+             and abs(ctrl_g0 / canon_post_g0_committed - 1.0) <= 2e-2)
+            if not SMOKE else
+            abs(float(next(t for t in ctrl_traj if t["step"] == 1)
+                      ["ce_batch"]) - 1.0701713562011719) <= 1e-4),
     }
     assert G_CANONCTRL["pass"], f"G_CANONCTRL FAILED: {G_CANONCTRL}"
     metrics["gates"]["G_CANONCTRL"] = G_CANONCTRL
@@ -949,9 +964,9 @@ def main():
         zid, resume_swap, dev)
     E261.burst_cooldown("post-swap")
     swap_traj = out_swap["traj"]
-    swap_s1 = next(t for t in swap_traj if t["step"] == 1)["g0_pz"]
-    swap_s100 = next(t for t in swap_traj if t["step"] == 100)["g0_pz"]
-    swap_s400 = next(t for t in swap_traj if t["step"] == 400)["g0_pz"]
+    swap_s1 = traj_get(swap_traj, 1)
+    swap_s100 = traj_get(swap_traj, 100)
+    swap_s400 = traj_get(swap_traj, 400 if not SMOKE else E261.INST_STEPS)
     swap_net = G1.evl_load(out_swap["sd"])
     swap_g0 = G1.battery_cell(swap_net, g0_ids, zid)["mean_pz"]
     swap_gm12 = G1.battery_cell(swap_net, gm12_ids, zid)["mean_pz"]
@@ -1005,8 +1020,9 @@ def main():
     log(f"P6 SWAP G_FACTLOAD + G_PROTOIDENT PASS; the streams CONVERGED "
         f"(both arms' final gen_state md5 "
         f"{swap_G_PI['gen_state_md5'][:10]}...)")
-    log(f"P6 ARM C SWAP: s1 {swap_s1:.6e}; s100 {swap_s100:.4f}; post "
-        f"g0 {swap_g0:.6f}; norm {swap_norm:.4f}; in-room "
+    log(f"P6 ARM C SWAP: s1 {swap_s1:.6e}; s100 "
+        f"{'-' if swap_s100 is None else format(swap_s100, '.4f')}; "
+        f"post g0 {swap_g0:.6f}; norm {swap_norm:.4f}; in-room "
         f"{swap_loads['in_own_room']:.4f}; ||swap-ctrl|| "
         f"{swap_d_to_ctrl:.4f}")
     write_partial("ARM C the swap run landed")
@@ -1035,12 +1051,16 @@ def main():
         "P_e328x32": {"call": "STAYS-NO-SURGE (x32 THREE-DEATHS mapping)",
                       "hit": bool(P_e328x32_hit)},
         "the_formation_axes_no_bar": {
-            "control": {"s100": float(ctrl_s100), "post_g0": float(ctrl_g0),
+            "control": {"s100": (float(ctrl_s100)
+                                 if ctrl_s100 is not None else None),
+                        "post_g0": float(ctrl_g0),
                         "write_norm": ctrl_norm,
                         "in_own_room": ctrl_loads["in_own_room"],
                         "gm12": float(ctrl_gm12), "gp12": float(ctrl_gp12),
                         "ce_r": float(ctrl_ce_r)},
-            "swap": {"s100": float(swap_s100), "post_g0": float(swap_g0),
+            "swap": {"s100": (float(swap_s100)
+                              if swap_s100 is not None else None),
+                     "post_g0": float(swap_g0),
                      "write_norm": swap_norm,
                      "in_own_room": swap_loads["in_own_room"],
                      "gm12": float(swap_gm12), "gp12": float(swap_gp12),
@@ -1124,8 +1144,10 @@ def main():
                  "gm12 | gp12 | CE_R |")
     lines.append("|---|---|---|---|---|---|---|---|")
     fa = adjudication["the_formation_axes_no_bar"]
+    def _f4(v):
+        return "-" if v is None else f"{v:.4f}"
     for nm, a in (("CONTROL", fa["control"]), ("SWAP", fa["swap"])):
-        lines.append(f"| {nm} | {a['s100']:.4f} | {a['post_g0']:.6f} | "
+        lines.append(f"| {nm} | {_f4(a['s100'])} | {a['post_g0']:.6f} | "
                      f"{a['write_norm']:.4f} | {a['in_own_room']:.4f} | "
                      f"{a['gm12']:.4f} | {a['gp12']:.4f} | "
                      f"{a['ce_r']:.4f} |")
