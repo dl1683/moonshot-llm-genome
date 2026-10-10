@@ -283,7 +283,14 @@ and the co-movement resolved to THE ANNEAL HUB (walk-anneal +0.667; swap-anneal 
 STRONGER, a cold arm joining; swap-walk +0.486 n.s.) — the decorrelation SPLITS into a
 LEVEL the warm cons walk owns alone and a PHASE DYNAMICS every arm shares through the
 anneal (the ruler-side artifact reading alive: every correlation in the pool has the
-ruler as one endpoint; N3/x49 the hub tests).
+ruler as one endpoint; N3/x49 the hub tests). AND THE META-LAYER (x46, methods-grade):
+the lineage-relative family — receptivity, lift-termination, generalization,
+wash-proofness — shares ONE measurable (elicitation decorrelation: four oriented
+primaries +0.93/+0.36/+0.76/+0.92, both free anchors >= 0.5, wash-proofness
+individually exact p=0.011; power disclosed — 25 rows, ~6 formations, pairs not
+independent): THE HISTORY-CLOCK IS THE DECORRELATION STRUCTURE, with the hand-off
+caveat (the state-clock terminates lifts on coherent rungs — pair (ii) +0.86 without
+the coherent interior).
 
 *Scope (Law 8):* one organism, one wash protocol, one architecture at 2.74M (the scale
 clause is two legs at 10M); the recipe's protocol-scope clause (the cons band ~1.0 is
@@ -306,10 +313,10 @@ rung is the measured band [0.957, 1.088] on the cons legs.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 20-for-38
-   (refreshed at the x48 fold: the seven cells since R80 went 2-for-7 — e342 and x48
-   hit; g1bS9, x45, x47, e343, e344 missed; W058's P-W058a counter 1-of-1 toward
-   noise-stands; the executor counter-column hit on ALL THREE of its
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 21-for-39
+   (refreshed at the x46 fold: the eight cells since R80 went 3-for-8 — e342, x48, and
+   x46 hit; g1bS9, x45, x47, e343, e344 missed; W058's P-W058a RESOLVED at 2-of-3 —
+   the lean column is NOISE, not bias; the card closed; the executor counter-column hit on ALL THREE of its
    contested calls (g1bS9, e343, e344) — the lean column is statistically a coin
    (one-sided no-edge p ~ 0.98; two-sided exact binomial 0.22) and the ordering
    hypothesis 'guess < lean < counter < instrument' is CONSISTENT WITH the ordering on

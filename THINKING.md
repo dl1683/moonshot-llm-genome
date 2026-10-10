@@ -7,6 +7,38 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T330 — x46: the history-clock lands — the lineage-relative facts share one measurable, and the weak leg teaches the hand-off (2026-10-10, datetime.now ~23:00Z)
+
+W057's hypothesis (a) is no longer a wonder: ONE-OBJECT at the birth-frozen rule — the
+four oriented primaries +0.93/+0.36/+0.76/+0.92, both free anchors >= 0.5, wash-
+proofness vs consistency individually significant at exact p=0.011. THE HISTORY-CLOCK
+IS THE DECORRELATION STRUCTURE, methods-grade: receptivity, lift-termination,
+generalization, and wash-proofness — the whole lineage-relative family — ride one
+measurable. And the lab lean hit again: TWO in a row (x48, x46), which resolves
+W058's falsifier at 2-of-3 — THE LEAN COLUMN IS NOISE, NOT BIAS; the card closes with
+the noise reading standing.
+
+THE WEAK LEG IS THE TEACHER: pair (ii) — x47's lift-termination vs the rungs' family
+structure — Spearman -0.07 pooled, +0.86 WITHOUT the interior install rungs. The
+executor's sentence is the braid's tightest yet: THE STATE-CLOCK TERMINATES LIFTS ON
+COHERENT RUNGS TOO. T326 called the lift channel lineage-coupled; x46 says the coupling
+runs through the decorrelation structure EXCEPT where the rungs are still coherent —
+coherence (state-clock territory) absorbs the lift before the history-clock can carry
+it. The two clocks are not parallel dimensions; they HAND OFF.
+
+WHAT THE LANDING BUYS: the era's hunt for the formation protocol now has its
+INSTRUMENT — elicitation decorrelation measures what the protocol must write (x50's
+live re-formation reads it mid-phase; e345's warm walk tests it in a second name; N3
+asks whether FEEDBACK writes it). W057's meta-layer enters the record: any future
+lineage-relative claim can be priced against the shared measurable.
+
+CONNECTS: W057 (the card closes as LANDED — its wilder tail, 'the protocol is the name
+of whatever writes the second clock,' now has an operational reading: whatever writes
+DECORRELATION); W056 (the surviving variety anchor was the anneal hub — the same arm
+now anchors the meta-layer); T329 (the level/phase split inherits: the LEVEL is what
+the meta-layer measures; the PHASE DYNAMICS is how it gets written); Law 8 (the
+methods-grade clause appended this fold).
+
 ## T329 — x48: the lineage confirmed 7-0, and the decorrelation splits into two objects — a level the warm walk owns, and a phase dynamics the anneal hubs (2026-10-10, datetime.now ~22:50Z)
 
 The identity pass settled it 7-0: arm 4 is the ZEPHYRA cons walk — the artifacts never
@@ -73,6 +105,10 @@ working model is adopted and dispatch prose hardens to require the counter's gro
 re-stated in the lab's own words. [The critic's warning applies to this card too: a
 rule fitted to a 3-cell streak repeats the discriminator-column mistake — this card
 registers a FALSIFIER, not a deference rule.]
+
+[CLOSED (2026-10-10 ~23:00Z): the falsifier resolved at 2-of-3 — x48 HIT, x46 HIT —
+THE NOISE READING STANDS; the locality-bias model closes; the lean column is noise,
+not bias. The parity standard stays (it was right regardless).]
 
 ## T328 — e344: the fingerprint closes — and its home narrows to warm re-formation (or the instrument), with the s125 wrinkle promoted to an event class (2026-10-10, datetime.now ~22:15Z)
 
@@ -272,6 +308,11 @@ only; cons/install = ZEPHYRA only) and the 82 rows trajectory-cluster into ~6
 dependent series — 'age 4x menu' is 'age 4x name-x-menu', robust to series removal
 (drop-varied R2_age 0.583; overlap band 400-700: R2_age 0.316). The co-movement find
 (r=+0.667 across shared reshape steps) is the two-clocks card's strongest datum yet.]
+
+[x46 LANDING (2026-10-10 ~23:00Z): THE CARD CLOSES AS LANDED — ONE-OBJECT at the
+birth-frozen rule (both free anchors >= 0.5; wash-proofness exact p=0.011; the weak
+leg teaching the hand-off: the state-clock terminates lifts on coherent rungs). See
+T330.]
 
 ## T326 — x47: the flip's death edge is slot-shared, its lift channel is lineage-coupled — the threshold was two objects all along (2026-10-10, datetime.now ~21:00Z)
 
