@@ -127,8 +127,11 @@ x1.272 — not haunting; the trigger control is mandatory for every revival clai
 *Scope (Law 6):* one family, one organism, one architecture; the fresh-family replicate
 never ran (both redraws TEXTURED out of band — the membrane law's cross-lineage
 replication rides the mode question); the alpha-1.5 rung straddles the bar at n=2
-([0.0245, 0.0930] — undetermined). GATE (pending, named): **e325** — the double kill
-(anti then scalpel then restore): the composition that would remove both.
+([0.0245, 0.0930] — undetermined). RESOLVED GATE (e325): READ-RETURNS — the composition (anti then scalpel
+then restore) DOUBLED the revival price (0.165 -> 0.275/0.312) without preventing it;
+the address rebuilds from nothing (paraphrases tracking — content); re-formation is
+maintenance-class (~0.3 norm), not install-class (~9.2). Selective unlearning must
+block RE-FORMATION itself; formation-time bearer-unsharing stands as the only road.
 
 ## LAW 7 — THE TWO CHANNELS AND THE VACANCY [invariant]
 
@@ -181,7 +184,7 @@ The lab's oldest question — "why do memories die?" — keeps its measured answ
 newest — "whose memories are they?" — now has one too: the organism's, in the sense
 that the land was theirs before the lab ever wrote a name on it.
 
-*Pending gates at press time: e326 RESOLVED (EITHER-MOVES, the conservative branch —
-see Law 2b's scope); e325 (Law 6's double kill — queued). The audit's repairs applied
-the same night: x14 qualified with e299's completing split, the dangling x32 cite fixed,
-the map's n carried.*
+*All gates resolved at press time: e326 (EITHER-MOVES — the conservative branch; Law
+2b's scope) and e325 (READ-RETURNS — the doubled revival price; Law 6's scope). The
+audit's repairs applied the same night. The document is complete and awaits the
+supervisor's review.*

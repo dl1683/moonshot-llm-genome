@@ -39,6 +39,41 @@ then be a misreading of accumulated history — which is the
 interaction form's deepest form: THERE MAY BE NO INNATE LEVEL AT ALL,
 only history all the way down.
 
+## T300 — E325: the membrane chapter's last line — the address rebuilds from nothing, and the price is the story (2026-10-10, datetime.now ~03:30Z)
+
+The composition the two-removals map forced has run, and the answer
+is the lean's: READ-RETURNS. Remove the address (the anti) AND the
+authorship (the host's own tail, mass-accounted) — and the restore
+still re-lights the read to baseline at both rungs, with paraphrases
+tracking. THE ADDRESS REBUILDS FROM NOTHING. Law 6 stands as drafted:
+within any representation, a fact's read can always be re-lit by
+teaching; SELECTIVE UNLEARNING MUST BLOCK RE-FORMATION ITSELF — the
+chapter's demand (bearer-unsharing at formation) is now the only road
+on the table, and the composition experiment closes the instrument
+road.
+
+THE DOSE LADDER IS THE REAL FINDING: the double kill DOUBLED the
+revival price (0.165 -> 0.275/0.312 directed norm at first return)
+without preventing it. Re-formation is NOT install-class (~9.2 norm);
+it is maintenance-class (~0.3). The restore never pays the womb's
+price — it pays the midwife's. THE ECONOMICS OF FORGETTING, COMPLETE:
+you can make them pay to remember (2x), but you cannot make them
+forget.
+
+AND THE HONEST GATE READING: the scalpel damped the corpse's
+amplification gate (35 -> 20/13) without killing it — because the
+TAVIREN seed's ~5.9-norm room mass survived the host-tail scalpel and
+ROSE under the restore. The gate follows whatever mass is in the
+room, not the fact's name — one more confirmation that the authorship
+the gate reads is occupancy, not identity.
+
+THE CHAPTER CLOSES: three roads measured and closed (composition,
+sequencing, geometry); the composition of the closes also closed; the
+demand (formation-time bearer-unsharing) stands alone. THE LEDGER:
+coarse leans 6-for-9. The night ends with the instruments having won
+every adjudication and the price ladder having told the only story
+that matters: memory is cheap to rebuild and expensive to bury.
+
 ## T299 — E326: the bracket is branch-dependent — and the canon was the fragile branch (2026-10-10, datetime.now ~02:30Z)
 
 The cascade guard's long-deferred question finally has its answer, and
