@@ -7,6 +7,48 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T332 — x51: the fourth topology, and the era's cleanest anti-correlation — feedback writes compact and coherent; open-loop menus write sprawling and decorrelating (2026-10-10, datetime.now ~23:35Z)
+
+The hub test returned the answer nobody's hypothesis had: APART-ABOVE. At the era's
+cleanest alignment (both series warm from the identical e311 subject, shared reshape
+steps), the controller's residuals sit 0.515 outside every arm's band — not
+anneal-anchored, not universal. THE CO-MOVEMENT IS A PROPERTY OF OPEN-LOOP RESHAPE
+TRAJECTORIES. And the primary: the controller's states are coherent-ABOVE — feedback
+formation does not write decorrelation; the open-loop ceiling stands; the tuner
+program does not merge with the formation-protocol era.
+
+THE ANTI-CORRELATION IS THE FINDING: the controller bought its read with a COMPACT
+IN-ROOM write (|W| ~9 at 93% in-room) that TIGHTENS elicitation coherence above the
+fresh subject itself (0.972 -> 0.993), while the open-loop varied arms bought theirs
+with SPRawling writes (|W| ~18 at ~41% in-room) that decorrelate. Feedback and
+decorrelation moved OPPOSITELY in the cleanest instance class the era has. The
+era's composite now reads: DECORRELATION IS WHAT VARIED OPEN-LOOP MENUS WRITE, AND
+FEEDBACK WRITES ITS OPPOSITE.
+
+WHY FEEDBACK TIGHTENS — three readings: (F1) THE GATE CHANNEL: every dose responds
+to ONE read state (the gate's own channel) — a menu of one, aligned dose after dose,
+so the writes stack coherently; (F2) THE GEOMETRY: compact in-room writes can only
+touch the elicitation families the room already owns — coherence is mechanical;
+(F3) THE CADENCE: the error-gated dosing samples only deficit states — a maximally
+BIASED menu, the exact opposite of varied.
+
+REGISTERED PREDICTION (P-T332a, frozen before e345/x50 land): across the committed
+arms, elicitation coherence tracks WRITE COMPACTNESS (|W|-per-read and in-room
+fraction) — the controller at the compact-coherent corner, the open-loop varied arms
+at the sprawling-decorrelated corner; the COUNTER carried plainly: the warm cons
+walk is root-forming-class (Law 3a's ~98% in-room compact writes) yet decorrelated —
+if it holds that corner, GEOMETRY IS NOT THE CARRIER and F1/F3 (menu structure) win
+over F2. The walk's committed |W|/in-room row decides this at desk.
+
+CONNECTS: T329 (the hub keeps its open-loop scope; H1/H3 both narrowed — the ruler
+reading survives in the narrowest form: the co-movement lives among arms that share
+the anneal as ruler); T330 (the history-clock's WRITER is now typed: open-loop varied
+menus, not feedback — W057's operational reading sharpens: 'the protocol is the name
+of whatever writes decorrelation' = an open-loop varied curriculum, and e345/x50 are
+its tests); Law 4 (the controller's tightening echoes its calibration-hot
+one-name-step-lifts-wholesale behavior — compactness as the controller's signature);
+Law 8 (the open-loop clause appended this fold).
+
 ## T331 — x49: the tick is warm-exclusive and age-timed — and the star survives without it (2026-10-10, datetime.now ~23:15Z)
 
 The natural experiment broke the alias toward AGE: the swap's own s125 (age 125, cold)
