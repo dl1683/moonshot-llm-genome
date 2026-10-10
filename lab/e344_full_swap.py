@@ -2313,13 +2313,13 @@ def write_report(p4: dict, rows: dict, p0: dict, rider: dict) -> None:
     A("### THE FOUR-ARM TABLE (each arm vs the anneal, the same frozen "
       "rule)")
     A("")
-    A("| arm | r_g-12|g0 sign/cons/mean|d| | verdict | r_g0|g+12 "
-      "sign/cons/mean|d| | verdict |")
-    A("|---|---|---|---|---|")
+    A("| arm | r_g-12|g0 (sign / consistency / mean\\|d\\| verdict) | "
+      "r_g0|g+12 (sign / consistency / mean\\|d\\| verdict) |")
+    A("|---|---|---|")
     fa = adj["four_arm_table"]
     for lab, key in (("1 cons-curriculum-ZEPHYRA from BASE (MINE; this "
                       "cell)", "arm1_swap_cons_from_BASE"),
-                     ("2 install-ZEPHYRA (e343 committed)", 
+                     ("2 install-ZEPHYRA (e343 committed)",
                       "arm2_install_ZEPHYRA_e343_committed"),
                      ("4 the TAVIREN cons walk (x45 committed; the "
                       "reference fingerprint)",
@@ -2331,7 +2331,7 @@ def write_report(p4: dict, rows: dict, p0: dict, rider: dict) -> None:
                    if "separates_decorrelated" in c else c.get("separates"))
             cells.append(f"{c.get('dominant_sign')} / "
                          f"{c.get('sign_consistency')} / "
-                         f"{c.get('mean_abs_d'):.4f} "
+                         f"{c.get('mean_abs_d'):.4f} — "
                          + ("**DECORRELATED**" if dec else "no"))
         A(f"| {lab} | {cells[0]} | {cells[1]} |")
     A("| 3 the anneal panels (x45 committed 40) | THE RULER | THE RULER |")
@@ -2426,9 +2426,16 @@ def write_report(p4: dict, rows: dict, p0: dict, rider: dict) -> None:
 # ======================================================================
 # MAIN
 # ======================================================================
+BIRTH_COMMIT = "86ab9d2"   # the commit where the bars + P-e344a were
+                           # frozen BEFORE any compute (the runtime head
+                           # at later passes includes the disclosed
+                           # shakedown/repair commits; the adjudication
+                           # form is the birth-commit form)
+
+
 def main() -> None:
     log(f"E344 — THE FULL-SWAP (smoke={SMOKE}) -> {RD}")
-    metrics["birth_commit"] = git_head()
+    metrics["birth_commit"] = BIRTH_COMMIT
     write_partial("startup (bars + P-e344a registered, committed at "
                   "birth)")
     set_seed(34400)             # global init only; every RNG is its own
