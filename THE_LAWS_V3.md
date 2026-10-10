@@ -37,16 +37,17 @@ is consistent with survival ~ 1/drift; PASSIVE BUYS TIME, NEVER PERMANENCE (the 
 step geometric clock, e290).
 
 *Scope (Law 2b):* the coupling bracket — budgets [0.0008, 0.004] of write norm, realized
-drift [0.00071, 0.00323] — is TWO RUNGS, n=1, measured on ONE BRANCH of a bimodal
-formation wheel (the die-mode canon; see Law 3's scope). "Constant" language is banned:
-it is a bracket. RESOLVED GATE (e326): EITHER-MOVES — the bracket is BRANCH-DEPENDENT
-and the canon is the CONSERVATIVE branch (the survive-mode kill edge sits ABOVE 0.004x:
+drift [0.00071, 0.00323] — is TWO RUNGS, n=1, measured on ONE CLASS of a two-convention
+formation split (the base-formed canon; see Law 3's scope — the 'wheel' was the net0 confound). "Constant" language is banned:
+it is a bracket. RESOLVED GATE (e326): EITHER-MOVES — the bracket is CLASS-DEPENDENT
+and the canon is the CONSERVATIVE class (the root-formed kill edge sits ABOVE 0.004x:
 0.6066 at the canon's kill budget vs its 0.3194; the drift realizations replicate, so
 the move is the read's response; the absolute floor ruled out). The margin's riders
 point in the safe direction. RIG-SPECIFICITY: the out-of-room death account holds for
 orthogonalized-rig kills; free-stream kills carry in-room components (e299's two kinds
 of death). Law 4's necessity consequence, Law 5's passive pricing, T277's premise, and
-the e311 dose scale inherit the one-branch clause.
+the e311 dose scale inherit the one-class clause (net0: the canon is base-formed;
+e326's substrate root-formed — the cross-class comparison stands; x35 isolates).
 
 ## LAW 3 — THE FLOOR AND THE BEARER (formation) [invariant]
 
@@ -92,14 +93,15 @@ read-gated geometry transplant with no teaching signal is a no-op (e296) — the
 out-of-room brush is the instrument that reaches where the death is. The controller is
 the peace-keeper within a same-name family (e291) and runs calibration-hot (~1.8-2.6x
 T-lens; e304) BY CONSTRUCTION — the gate doses on the washed pre-state's deficit and
-one name-step lifts wholesale (e334's trace; mode-robust: the survive branch overshot
-the same way at its battery ceiling; better-learned names do not tame it).
+one name-step lifts wholesale (e334's trace; class-robust: the root-formed substrate
+overshot the same way at its battery ceiling; better-learned names do not tame it).
 
 *Scope (Law 4):* family-scoped peace (e293's distinct-name patients were never born —
-cross-family peace untested; re-read via Law 3's map: slots refusing); SUFFICIACY NOW
-n=2 MODES (e334: the survive branch held AT the battery ceiling, 110x over its dead
-twin, spend within the lottery band of the canon class — mode-robust in sufficiency,
-not cheaper); the HORIZON exposure remains — no run past the organism's own ~1,040-step
+cross-family peace untested; re-read via Law 3's map: slots refusing); SUFFICIENCY NOW n=2 SUBSTRATES (e334: a root-formed census draw held AT the
+battery ceiling, 110x over its dead twin, spend within the lottery band of the canon
+class — class-robust in sufficiency, not cheaper; the canon is base-formed, e334's
+substrate root-formed — one draw each; a base-formed fresh-NAME replicate remains
+the missing founding-class second instance); the HORIZON exposure remains — no run past the organism's own ~1,040-step
 death clock; the fresh-room draw untested; the maintained state is address-rich (e318:
 low-dose tolerance above the family's, high-dose collapse faster).
 
@@ -115,7 +117,7 @@ vs sibling-attribution open, e317 demoted). CHEAP FORMATION BUYS NOTHING DURABLE
 any room (e322, retentions 0.002-0.005).
 
 *Scope (Law 5):* the erasure pricing inherits Law 2b's one-branch bracket; the wash
-result is at cons scale and die-mode lineage.
+result is at cons scale and the canon's base-formed lineage.
 
 ## LAW 6 — THE MEMBRANE (unlearning) [invariant]
 
@@ -134,7 +136,7 @@ x1.272 — not haunting; the trigger control is mandatory for every revival clai
 
 *Scope (Law 6):* one family, one organism, one architecture; the fresh-family replicate
 never ran (both redraws TEXTURED out of band — the membrane law's cross-lineage
-replication rides the mode question); the alpha-1.5 rung straddles the bar at n=2
+replication rides the class question); the alpha-1.5 rung straddles the bar at n=2
 ([0.0245, 0.0930] — undetermined). RESOLVED GATE (e325): READ-RETURNS — the composition (anti then scalpel
 then restore) DOUBLED the revival price (0.165 -> 0.275/0.312) without preventing it;
 the address REBUILDS FROM NOTHING — LICENSED VERBATIM BY e333 (the vacuumed road:
@@ -178,7 +180,7 @@ all five).
    artifact).
 3. PRE-REGISTER THE SCORER, not just the threshold (x20's near-miss lesson).
 4. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 7-for-10
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 8-for-13 (membership frozen at R76: the ten through e333 + e334a + x34a + e328a + the x32 NONE lean — the drift R73 caught, closed)
    (NOT distinguishable from a fair coin, p ~ 0.25). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).
@@ -198,7 +200,7 @@ The lab's oldest question — "why do memories die?" — keeps its measured answ
 newest — "whose memories are they?" — now has one too: the organism's, in the sense
 that the land was theirs before the lab ever wrote a name on it.
 
-*All gates resolved at press time: e326 (EITHER-MOVES — the conservative branch; Law
+*All gates resolved at press time: e326 (EITHER-MOVES — the conservative class; Law
 2b's scope) and e325 (READ-RETURNS — the doubled revival price; Law 6's scope). The
 audit's repairs applied the same night. The document is complete and awaits the
 supervisor's review.*

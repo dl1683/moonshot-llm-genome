@@ -167,6 +167,8 @@ the instruments' answers coming better than the thinking lane does.
 
 ## T302 — E334: the controller answers on the second branch — sufficiency extended, the overshoot unmasked as the gate's own mechanics (2026-10-10, datetime.now ~05:15Z)
 
+> [T304/R76 BANNER]: the mode/branch ontology here is superseded by the net0 confound (T304); the class-robust findings survive re-worded.
+
 The monoculture clause's cheapest cut has landed, and the document's
 central positive claim survives its first scope test in emphatic
 form: on the survive branch — 3x the write mass, 63% localized, a
@@ -735,6 +737,8 @@ have now won six straight; the standing correction is itself becoming
 the lab's most reliable predictor.
 
 ## T288 — E323: the formation lottery's hierarchy — the install draw outranks the room draw, and the committed canon is one biography (2026-10-09, datetime.now ~21:05Z)
+
+> [T304/R76 BANNER]: the mode/branch ontology here is superseded by the net0 confound (T304); the class-robust findings survive re-worded.
 
 The cascade guard was sent to bound the retention bracket's draw
 uncertainty and found the draw structure living one floor down. The

@@ -98,6 +98,17 @@ to every bar; the ledger is scoped (0-for-8 on mechanism-seat guesses).
 | x33 | THE MODE-BY-SLOT CROSS (the full-census coupling) | READY (CPU) | the x24 panel on ALL census organisms, mode crossed against slot lift: MODE-COUPLED (receptive slots predict the die branch — the map and the wheel merge; the canon's die reads as TAVIREN-slot fate) / ORTHOGONAL (the fork is optimizer-internal; Law 3's scope blocks stay separate axes) |
 | x34 | THE S1 TEXTURE CENSUS (the taxonomy; x32's desk companion) | DONE ~05:50Z Oct-10 (5a9f85a) | DIE-IDENTITY (neither bar; the executor's read hit every clause): THE KILL DISSOLVES INTO NO-SURGE (the canon's s1 = 1.006x prior; no draw ever read below prior); two textures re-worded; EVERY LAB-INSTALLED FRESH NAME TOOK THE NO-SURGE BRANCH — the surge is the anomaly — T303 | fingerprint step one of every committed install on disk (x32's axes + the read-delta/prior ratio): THIRD-MODE (prior-flat clusters apart — the texture count re-opens) / SURVIVE-EDGE (prior-flat sits at the survive cluster's edge — two modes, continuous texture) |
 
+
+## R76 SECTION (2026-10-10, folded ~08:30Z) — one ontology; the causal cross named
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x35 | THE START-STATE CROSS (R76's cascade pick; the confound's causal leg) | DISPATCHED ~08:30Z Oct-10 | GPU: ONE gen through BOTH starts (matched room/name/gen/steps; net0 = base vs net0 = g1c root): START-SHAPES (the root start reproduces the bulky/diffuse class with the same gen that lands pruned from the base — the re-wording becomes measurement) / GEN-SHAPES (same texture from both — the class differences were gen-carried; the vocabulary re-writes again) |
+| e335 | THE ROOT'S PROVENANCE (the substrate-provenance pass, with bars) | READY | longitudinal along the g1c ladder's checkpoints (when was the 0.745 installed?) + the wash discriminator on the bare root: WASHES-OUT (a mid-formation snapshot; 'standing' a misnomer) / WASH-PROOF (consolidated — a different construction class; 'history all the way down' gains its first datum) |
+| x36 | THE PAGE LADDER | READY (GPU) | swap the first K pages (4/16/64/all) of the canon for 32401's: EARLY-BLOCK / LATE-BLOCK / DIFFUSED — where in the stream the landing height is set |
+| x37 | THE ROOT AS SUBJECT | READY (CPU) | the x24 panel + x16 battery on the bare g1c root: ROOT-READS-LIKE-AN-INSTALL / ROOT-READS-LIKE-CORPUS — the confound's accidental gift: the first natural taught-vs-installed contrast |
+| e336 | THE FOUNDING-CLASS SECOND INSTANCE (Law 4's named gap) | READY (GPU) | a base-formed fresh-NAME organism (TAVIREN-class) under e288's controller verbatim: the sufficiency claim's missing replicate |
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),
