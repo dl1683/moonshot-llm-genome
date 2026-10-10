@@ -62,6 +62,36 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T313 — X38: dead or alive — the two-channel law's control parameter is a state property (2026-10-10, datetime.now ~12:50Z)
+
+The ladder's answer is the cleanest possible: R* exists, sits between
+the prior and the LOWEST living read ever installed, and NO rung is
+ambiguous — the flip is not a dial inside the living band but a
+dead-or-alive property of the slot. Once living, the collapse is
+uniform (the 1.71x envelope) and host-gated (the neutral-site
+attenuation). THE TWO-CHANNEL LAW CLOSES ITS LAST OPEN PARAMETER: the
+complement lifts empty slots and collapses living reads, and the
+boundary is read-level, sharp, and below every memory the lab has
+ever built.
+
+THE GAUSSIAN RIDER'S SHARP DATUM: at 2x the write's norm, pure random
+energy moves a living read EXACTLY to the never-written band's edge —
+the noise floor is a DOSE, quantized between 2x and 4x, and the 4x
+break is general destruction (CE_R 2.4), not a selective move. THE
+NOISE FLOOR OF A LIVING MEMORY IS ITS OWN WRITE'S NORM TIMES TWO —
+a number for the doc's METHODS.
+
+THE AFTERNOON'S SHAPE: the chamber (e340 computing) + this control
+parameter + the 2-cycle relay — the constructive era's instruments
+are all arriving together. If e340 lands READ-HOLDS, the build lane
+holds: controller (height) + commit (guard) = a wash-proof memory;
+and x38's threshold says the guard's job is binary — keep the read
+alive at all, and the displacement physics does the rest uniformly.
+
+THE LEDGER: the lean hit (13-for-21). THE INSTRUMENTS: 242 bit-exact
+committed cells reproduced across three parent cells — the afternoon's
+provenance fabric as strong as the morning's.
+
 ## T312 — E338: the wall held the organism but not the read — protection is displacement-level (2026-10-10, datetime.now ~12:40Z)
 
 The consolidation chamber's cascade pick resolved with the honest

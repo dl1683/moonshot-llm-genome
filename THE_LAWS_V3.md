@@ -164,7 +164,12 @@ block RE-FORMATION itself; formation-time bearer-unsharing stands as the only ro
 CONTENT LIVES IN THE ROOM-OVERLAP TAIL; OUT-OF-ROOM DISPLACEMENT IS ADDITIVE PUSH — a
 mass-proportional committee, seatable in no single organ (x22: 28 fragments superpose
 to 0.992; the lm_head name-row carries 99.8% of its fragment and delivers 0.8%), gated
-~36x at its target's own contexts, surgical off-target (x16), bearer-coupled (x19: the
+~36x at its target's own contexts, surgical off-target (x16), bearer-coupled;
+THE FLIP IS A STATE PROPERTY (x38): R* — the read level where the same displacement
+switches from LIFT to COLLAPSE — is bracketed (prior, lowest-living], ZERO ambiguous
+rungs; once living, the collapse is uniform (1.71x envelope) and host-gated; THE
+NOISE FLOOR OF A LIVING READ IS A DOSE: ~2x its own write's norm in a random
+direction (4x is general destruction) (x19: the
 gate rides the write's mass, not the read's value — dead states amplify at 72% of live
 while their mass stands). THE VACANCY'S TWO HALVES (x28): the RISE under a kill is
 CONTENT-SPECIFIC (a mass-matched ghost falls below its renorm line — not even passive
