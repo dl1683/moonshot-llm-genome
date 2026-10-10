@@ -7,6 +7,56 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## W057 — the two clocks: every object in this lab splits into a state-clock and a history-clock — and the history-clock may BE the decorrelation structure (2026-10-10, datetime.now ~21:10Z; the beat's thinking bulk, e343 mid-run)
+
+THE PATTERN, assembled across the corpus — seven objects, one binary:
+- the two channels (T279): content rides the room-overlap tail (geometry) while the
+  push is a name-coupled committee (x22) on an authorship-structured floor (x24);
+- the two removals (T289): the anti kills the ADDRESS, the scalpel kills the AUTHORSHIP;
+- the flip, as of last beat (T326): the death edge is slot-shared (representation-
+  level), the lift channel lineage-coupled;
+- the formation classes (T304): the start (history) is the wheel; the gen (content)
+  a tremor;
+- the receptivity map (T297/W053): the 'innate' geography is accumulated history;
+- the chamber (Law 8): the wall is the organism's (history-bound runtime machinery),
+  the height the read's, the dose the shaping's;
+- the fingerprint (T325): read height is a state property; elicitation structure
+  carries path history.
+
+In every case one pole travels with the read's CURRENT GEOMETRY (level, room,
+direction — shared across names, slots, lineages) and the other with HOW IT GOT THERE
+(authorship, path, lineage — lineage-specific). The lab's repeated discovery is that
+the second pole is load-bearing exactly where the first looked sufficient.
+
+QUESTION: is the binary itself ONE object — is the history-clock literally THE
+DECORRELATION STRUCTURE (W056's measurable)? Then: death edges, rooms, and collapse
+onsets are STATE-CLOCK facts (predictable from the read's geometry alone, name-blind —
+T326's 1.1-1.2x cross-slot agreement is the state-clock showing through), while lift
+channels, receptivity, flip-sign in the empty regime, wash-proofness, and the recipe's
+ceiling are HISTORY-CLOCK facts — all reducing to where a state sits on the
+decorrelation ladder (fresh r~0.97 at the bottom, the cons's 0.78-0.83 higher; W056's
+hypothesis (a) supplies the mechanism).
+
+THE CHEAP DISCRIMINATOR (all on disk, one CPU session, zero new formation): the
+META-CORRELATION TEST — every previously-measured lineage-relative quantity regressed
+against a decorrelation measurement on the SAME states: (i) x24's receptivity panel
+lifts vs elicitation consistency; (ii) x47's lift-termination pattern vs the ZEPHYRA
+rungs' family structure; (iii) e341's arms' gm12 generalization vs their cross-geometry
+r — already measured, the first FREE point; (iv) the cons band's wash-proofness vs its
+0.78-0.83 (x43's stalled arms vs x45's walk — the second FREE point). ONE-OBJECT: the
+regressions share a sign and a rough scale, and the two free points anchor it.
+SEPARATE-OBJECTS: the lineage-relative facts refuse to correlate with each other.
+
+THE WILDER TAIL (curiosity only): if one object, the lab's two hardest problems were
+always the same problem — selective unlearning failed because it removed state-clock
+mass while the history-clock regrew the read (e325/e333: the address rebuilds from
+nothing), and the assembly stalled because it dosed the state-clock while the
+history-clock's decorrelation cannot be bought by steps alone (x43's 600-extra-steps
+null; N1's clock reading). An instrument that reads or writes THE DECORRELATION LADDER
+directly (the oracle's probe, N1's chronometer) would be the era's first tool that
+touches the missing half — and 'protocol' stops being a metaphor: it is the name of
+whatever writes the second clock.
+
 ## T326 — x47: the flip's death edge is slot-shared, its lift channel is lineage-coupled — the threshold was two objects all along (2026-10-10, datetime.now ~21:00Z)
 
 The replicate debt came due and paid in an unexpected currency: UNRESOLVABLE at the
