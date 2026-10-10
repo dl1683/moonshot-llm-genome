@@ -39,6 +39,36 @@ then be a misreading of accumulated history — which is the
 interaction form's deepest form: THERE MAY BE NO INNATE LEVEL AT ALL,
 only history all the way down.
 
+## T298 — X28: the vacancy's two halves — it fills with content and rents to anyone (2026-10-10, datetime.now ~02:10Z)
+
+The cascade pick returned the cleanest possible split. Give the ghost
+everything the parasite had except TAVIREN's structure — the same
+r1000-magnitude in-room tail, energy-matched inside the frozen band,
+its own live install — and replay the identical erase: the ghost falls
+BELOW its renorm line (0.053x by e25), not even collecting the passive
+redistribution, while the parasite's committed curve peaked 2.3x above
+its own. THE RISE IS CONTENT-SPECIFIC: e321's recruitment was
+TAVIREN's half-shaped structure all along, and R74's trimmed
+"content-selective" returns with its sternest control behind it.
+
+And the rider closes R74's attack-4 from the other side: teach
+QELVARO in the same vacated state and its landing (0.4348) is 0.983x
+the parasite's geometry-matched arm — THE LANDING IS STATE-GENERIC.
+The vacancy rents to anyone; what the vacancy cannot give you is the
+rise. LAW 7'S VACANCY CLAUSE DRAFTS IN BOTH HALVES: the noise-floor
+rise during a kill belongs to the room's structured occupant; the
+formation discount after the kill belongs to the vacancy itself.
+
+THE LAST DRAFTING GATE HAS FALLEN. THE V3 DRAFTING OPENS (e326 still
+computing — Law 2b's gate rides its scope block per the protocol, one
+pending gate per clause, named). THE LEDGER: coarse leans now 5-for-7
+— the plausibility framing holds, and the two misses were the price
+of registering at all.
+
+THE SAVOR: a night that began asking "whose memory is it?" ends with
+the organism answering "depends which half you mean" — the rise was
+always the occupant's; the room only ever rented the landing.
+
 ## T297 — X29+E330: both simple nouns fell in one night — the map is sculpted name by name (2026-10-10, datetime.now ~01:45Z)
 
 The two cells landed an hour apart and kill each other's simple

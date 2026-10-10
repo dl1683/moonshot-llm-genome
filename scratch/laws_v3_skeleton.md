@@ -106,8 +106,11 @@ Storage is perfect (e283's 0.0 drift control). No rider needed. The oldest law; 
   x20 DONE (T290: the family clause — confidence is family-global, a near-master
   fader, direction-blind coupling; W049-Q3's dial is the membrane's, not the fact's).
   structured write; anti kills address, scalpel kills authorship; e325 the double
-  kill registered). REMAINING: e322 (the womb-rent economics) for the vacancy
-  clause.
+  kill registered). x28 DONE (T298): THE VACANCY'S TWO HALVES — the rise is CONTENT-SPECIFIC
+  (the mass-matched ghost fell below its line; TAVIREN's structure was load-bearing);
+  the landing is STATE-GENERIC (0.983x the parasite's geometry-matched vacant arm).
+  Law 7's vacancy clause drafts in both halves. THE DRAFTING'S GATES ARE ALL RESOLVED
+  (e326 pending for Law 2b, named in its scope block).
 
 ## DELIBERATELY OUT (until their cells land)
 The gain-knob's nature (x16), womb-rent economics (e322), wound-ward medicine (e315),
