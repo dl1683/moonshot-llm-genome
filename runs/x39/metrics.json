@@ -1,0 +1,689 @@
+{
+  "experiment": "x39_step_dose",
+  "phase": "THE STEP-DOSE RUNG \u2014 e336's committed t400 ERROR-GATED state (TAVIREN 0.815, controller-annealed at HALF the t800 dose: 16 vs 32 events, 400 vs 800 steps, one organism on one path) under commit(0.7) then e322's 100-step unbiased wash on the t800 cell's own bitstream \u2014 the retention read vs the fresh/controller-800/cons-300/cons classes: does the recovery axis track read-height or step-dose",
+  "date": "2026-10-10T14:19:45Z",
+  "status": "DONE: HEIGHT-CLAUSE-STANDS",
+  "registration": "background + design + bars + lab lean + P-x39a VERBATIM from the dispatch letter; every convention picked + frozen HERE at birth BEFORE compute; this script committed at birth; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "background_verbatim": "the recovery gradient after e341: fresh 0.045 < controller-annealed(800 steps) 0.130 < varied-annealed(300) 0.244 < fixed-annealed(300) 0.320 << cons ~1.0. The HEIGHT AXis is the named remainder \u2014 but the rungs confound read height with step count. THE CHEAPEST CONTROL (on disk): e336's committed t400 checkpoint (read 0.815 at t400, controller-annealed 400 steps \u2014 HALF the t800 steps at a HIGH read). If its retention matches e340's t800 (0.130) at matched read height, steps beyond 400 buy nothing and the HEIGHT clause stands; if it lands at e338's class (0.045) despite the 0.815 read, the recovery is step-bought and the gradient's 'height' clause re-labels to steps.",
+    "design_verbatim": {
+      "1_THE_SUBJECT": "e336's committed t400 ERROR-GATED checkpoint (md5-bound; read 0.815).",
+      "2_THE_EVENT_TEST": "commit(0.7) then e322's 100-step unbiased wash \u2014 e341's harness by import (the rebind set + the commit-placement convention it froze); retention + the s1 panel.",
+      "3_THE_CLASSES": "Classes as references (runtime-read, md5-bound): e338's 0.045 (fresh), e340's 0.130 (800 steps), e341's 0.244/0.320 (300 steps), the cons's ~1.0."
+    },
+    "bars_verbatim": {
+      "HEIGHT-CLAUSE-STANDS": "retention ~0.13 (matching e340's 800-step value at matched read) \u2014 steps beyond 400 buy nothing; the recovery axis is read-height.",
+      "STEPS-BOUGHT": "retention ~0.045 (e338's class despite the 0.815 read) \u2014 the recovery is step-dose; the gradient re-labels.",
+      "INTERMEDIATE": "between the classes \u2014 the dose-response curve has room between 400 and 800 steps; name the interpolation."
+    },
+    "lab_lean_verbatim": "HEIGHT-CLAUSE-STANDS, weakly \u2014 the controller's dose self-limits (e339's 2-cycle: the marginal steps may be near-zero dose) so extra steps should buy little; the countervailing: the 2-cycle's alternating events still touch the read. State your own read.",
+    "P-x39a": {
+      "my_guess": "INTERMEDIATE, WEAKLY (diverging from the lab lean; HEIGHT-CLAUSE-STANDS the registered runner-up)",
+      "registered": "GROUNDS: (1) THE LINEAR-DOSE MIDPOINT \u2014 t400 and t800 are ONE organism on ONE controller path (e339's REA resumed e336's t400 state model+buffers+generators; the same driver), and the dose split is exactly even (16 of 32 events, 400 of 800 steps in the segment), so any linear-in-dose response lands at (0.0448+0.1303)/2 = 0.0876 \u2014 inside the INTERMEDIATE window. (2) HEIGHT-PREDICTS-INVARIANCE (the runner-up's own argument \u2014 the read moved only +7% across the segment) but e341 just falsified height-monotonicity across protocols (300-step arms at LOWER reads out-recover the controller's t800 2-2.5x), discounting the height axis below INTERMEDIATE on my card. (3) THE DOSE-IS-REAL REBUTTAL \u2014 the lean's 'near-zero marginal dose' premise is falsified by the record: 16 more events fired in the segment and the read moved 0.815 -> ~0.900(t600 peak) -> 0.873. COUNTERVAILING (equal force): (a) the recovery capacity may be purchased entirely during the initial climb (t0-t400) with the segment only holding station -> HEIGHT; (b) the s1 annihilation killed t800 to 0.0037 DESPITE all 32 restore cycles \u2014 the cycles do not protect the first step and may not purchase recovery either; (c) retention@100 is a noisy single-seed statistic (the s25-s100 decay drift can move a rung +-0.03, enough to cross a thirds boundary).",
+      "predicted_shape": "s1 ANNIHILATES (0.002-0.010, the controller family's signature \u2014 dead at s1, unlike e341's annealed arms at 0.10-0.12); recovery fast by s5 (0.15-0.25 absolute) then the slow decay; retention@s100 in [0.07, 0.11] straddling the 0.0876 midpoint; gm12 tracks g0 within ~0.02 (the controller's geometry-tight pairing).",
+      "falsifier": "retention <= 0.0733 (STEPS-BOUGHT); retention >= 0.1018 (HEIGHT-CLAUSE-STANDS); retention > 0.1588 (the residual SUPER-800 cell \u2014 t400 out-recovering t800).",
+      "scored": "TRUE iff the verdict == INTERMEDIATE"
+    },
+    "registration": "background + design + bars + lab lean + P-x39a VERBATIM from the dispatch letter; every convention picked + frozen HERE at birth BEFORE compute; this script committed at birth; adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "GPU (e322's envelope form via the harness) for the wash; CPU park if no CUDA (loudly recorded)",
+    "bursts": "<= 175s (inside the <=180s dispatch window), per-step thermal polls at a 78.0C margin, 40s cooldowns (the 30-60s window), the 84.0C never-past line (inside the 85C dispatch line)",
+    "poll_log": "runs/_envelope_log.jsonl tagged x39:* (the retag wrapper: the harness's hardcoded e338: tag prefix stripped, tags only)",
+    "timestamps": "datetime.now(UTC) only"
+  },
+  "deviations": [
+    "THE BAR OPERATIONALIZATION (the load-bearing birth decision): the dispatch's '~0.13'/'~0.045' are class-match regions and the two named classes are NEIGHBORS on the retention line, so a midpoint partition would leave INTERMEDIATE no territory \u2014 THE THIRDS RULE frozen instead: each class owns the third of the inter-class gap nearest it, the middle third is INTERMEDIATE, and the residual above the t800 match region is the named SUPER-800 cell (t400 out-recovering t800; the controller's own dose curve non-monotonic; the table verbatim, the e311 convention). Boundaries frozen as literals + re-derived at run time from the runtime-read classes (G_BARS, 1e-9).",
+    "THE ALIVENESS CLAUSE DOES NOT GATE (frozen at birth): the dispatch's bars are RETENTION-ONLY; the s1 panel is a co-read stamped into the clause + report (the family's 0.05 bar), never re-routed \u2014 unlike e340's READ-HOLDS aliveness gate, which belonged to ITS bars.",
+    "ONE ARM (the dispatch's design): T400-COMMIT alone is washed; the harness's returned twin0 is run NOWHERE (the twin classes ride free, md5-bound: e338's twin 0.0036 SAND-STRICT; e340's twin 0.0018 SAND-STRICT). The harness's two-arm phase_P5 therefore CANNOT execute verbatim \u2014 this cell's own P5 keeps its gate semantics (draws/inputs/t0/pin/guard/net0) with the bit-identity reference swapped from 'the other arm' to e340's committed-arm wash bitstream (the BITSTREAM GATE below).",
+    "THE BITSTREAM GATE (G_DRAWS/G_INPUTS, frozen): the arm's wash draws + input-batch md5s must be BIT-IDENTICAL to e340's committed arm's recorded bitstream (runtime-read from runs/e340/wash_committed_resume.pt, md5-bound) \u2014 the t400 subject faces the EXACT wash the t800 subject faced; the rung comparison is wash-matched. Smoke: prefix comparison over the smoke horizon.",
+    "THE HARNESS IS e338 BY IMPORT under e341's convention (the dispatch's mandate 'e341's harness by import' \u2014 e341's harness WAS e338 by import): phase_P0 (the protocol rebuild), phase_P2 (the event + its 8/8 source quotes + era-rig md5s + G_BITROOT), phase_P3 (the bands + sand), wash_arm (e322's wash arithmetic) and arm_summary execute VERBATIM; the touched knobs are exactly THE REBIND SET (the cell context, the subject literals, the e261 envelope context, the smoke horizon, the envelope-tag wrapper \u2014 tags only).",
+    "THE SUBJECT IS NOT THE HARNESS'S OWN (e340's precedent): phase_P1 is this cell's own phase_P1_x39 \u2014 the harness's phase_P1 loads e311's install, this cell's subject is e336's t400 state; the subject literals (SUBJ_READ_T et al.) are rebound into the harness's namespace so its G_T0 semantics read the t400 read.",
+    "THE FILENAME WART (disclosed, inherited): the harness hardcodes its final wash-state names, so the wash final lands as runs/x39/e338_wash_T400-COMMIT_s100.pt (INSIDE this cell's run dir; the artifact meta's experiment field = x39, the rebind).",
+    "IMPORT SIDE EFFECTS (disclosed, inherited): importing the harness opens runs/e338/run.log in append and importing e261 opens runs/e261/run.log + asserts CUDA \u2014 ZERO bytes written to either by this cell (the logs are rebound before any use); g1b_continuity's module-level G1.G1_CFG rebind IS the intended mechanism (the 2.74M family).",
+    "THE WASH RESUME + FINAL STATES live under runs/x39/ (this cell writes ONLY lab/x39_* and runs/x39/* \u2014 no new files in runs/checkpoints/; e335/e340's convention).",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat folds).",
+    "Smoke mode (X39_SMOKE=1): 5-step wash, panels {0,1,5}, the harness rebound to its own smoke horizon \u2014 NOTHING adjudicated (SMOKE stamp on every read; the classes runtime-read but the bars VACUOUS at the smoke horizon, disclosed)."
+  ],
+  "builds_on": [
+    "e336 (THE SUBJECT + THE DOSE LEDGER: its committed t400 ERROR-GATED end state \u2014 read 0.815, 16 maintenance events, HALF the t800 dose; its t400 milestone literals md5-bound + re-asserted)",
+    "e339 (THE CONTINUATION RECORD: its REA arm resumed e336's t400 state model+buffers+generators and ran the same driver t401-t800 \u2014 the rung cleanliness evidence: t400 and t800 are one organism on one path at two dose points)",
+    "e340 (THE DIRECT CLASS + THE DESIGN TEMPLATE: its committed t800 arm (retention 0.1303) is the height-matched 800-step class AND its wash bitstream is this cell's G_DRAWS reference; this cell is e340's design with the subject swapped to the half-dose rung)",
+    "e341 (THE GRADIENT + THE CONVENTION: its 300-step arms (0.244/0.320) complete the class ladder its verdict named; its rebind set + commit-placement convention are this cell's harness convention, md5-bound)",
+    "e338 (THE HARNESS: its commit(0.7) port, wash convention, bands construction and match-gate semantics execute verbatim by import; its COMMIT arm (retention 0.0448) is the fresh class)",
+    "e311 (the TAVIREN organism underneath: the install lineage + the parasite battery read channel)",
+    "g1_anchored_ball / g1b / g1c (the event's own code + the W1 dial + the ball's birth cell \u2014 inherited through the harness)",
+    "e322 (THE SQUATTER'S DEED: the wash convention + the sand class)",
+    "R78 / T315 (the review + thinking card that sharpened this discriminator; the recovery gradient's height-vs-steps fork)"
+  ],
+  "whats_new": [
+    "THE FIRST INTERIOR POINT ON THE CONTROLLER'S OWN DOSE AXIS: every prior rung of the recovery gradient sat at an endpoint (fresh 0 steps / t800 800 steps / cons-protocol 300 steps on a different protocol); t400 is the first HALF-dose rung of the SAME organism under the SAME event + wash bitstream",
+    "THE HEIGHT-VS-STEPS DECOMPOSITION AT MATCHED EVENT: the read heights 0.815 vs 0.873 sit 7% apart while the dose halves \u2014 the cheapest on-disk control the gradient admits",
+    "THE WASH-MATCHED RUNG COMPARISON: the t400 subject consumes the bit-identical wash bitstream e340's t800 subject consumed (G_DRAWS against the md5-bound resume record)"
+  ],
+  "gates": {
+    "G_NAMEFREE": {
+      "corpus_counts": {
+        "TAVIREN": 0,
+        "QELVARO": 0,
+        "ZEPHYRA": 0
+      },
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g+0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "expected": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "pass": true
+    },
+    "G_BANK": {
+      "tav_base_prior_mine": 0.0023042955435812473,
+      "tav_base_prior_committed": 0.0023042955435812473,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    "G_E336RECORD": {
+      "path": "runs/e336/metrics.json",
+      "md5": "f90b439a0a4eff55e7f115901af469d6",
+      "bound_md5": "f90b439a0a4eff55e7f115901af469d6",
+      "t400_row": {
+        "step": 400,
+        "g0_pz": 0.8147322535514832,
+        "gm12_pz": 0.7971041202545166,
+        "ce_r": 1.6229653358459473,
+        "disp_norm": 1.1536193280751479,
+        "n_maint_so_far": 16
+      },
+      "subject_provenance": "e311 install -> e336 ERROR-GATED controller (t400); DIVERGES verdict ratio_400 2.8502x",
+      "claim": "the subject's committed record md5-bound; its t400 milestone literals are the read gate's parents",
+      "pass": true
+    },
+    "G_HARNESS": {
+      "path": "lab/e338_commit_consolidator.py",
+      "md5": "5ddc8754cb358c09278ddd926059d050",
+      "bound_md5": "5ddc8754cb358c09278ddd926059d050",
+      "convention_parent": {
+        "path": "lab/e341_varied_annealing.py",
+        "md5": "18039ab39d1b04d1adef2a22b9b3a350",
+        "bound_md5": "18039ab39d1b04d1adef2a22b9b3a350"
+      },
+      "rebind_set": [
+        "log",
+        "RD",
+        "metrics",
+        "NAME",
+        "T0",
+        "SUBJ_READ_T",
+        "NET0_CLASS",
+        "SMOKE (smoke-only horizon)",
+        "WASH_STEPS/WASH_PANELS (smoke only)",
+        "E261.{log,NAME,SMOKE,T0,thermal_log,device_events}",
+        "E261._open_burst (the tag wrapper)"
+      ],
+      "claim": "the harness this cell imports is the committed birth-bind (e340/e341's own unchanged bind) and e341's convention parent is md5-bound; the rebind set is exactly the frozen set",
+      "pass": true
+    },
+    "G_SUBJECT": {
+      "path": "runs/e336/ERROR-GATED_post.pt",
+      "md5": "6c42e8131994122fcdb9ef56c0314e0a",
+      "bound_md5": "6c42e8131994122fcdb9ef56c0314e0a",
+      "size": 10977183,
+      "bound_size": 10977183,
+      "pass": true,
+      "meta": {
+        "experiment": "e336",
+        "desc": "e336 ARM-ERROR-GATED post-phase state: e311's fresh TAVIREN install organism + 400 budgeted orthogonal SGD-M corpus steps over B_C (separate buffers, corpus stream 33601) + 16 NAME-ONLY maintenance steps through opt_F at THE ERROR-GATED lr (lr_m_t = 0.021942464013242388 x deficit_t, capped at the B_M share; install stream 33602) \u2014 NO cons",
+        "arm": "ERROR-GATED",
+        "corpus_gen_seed": 33601,
+        "inst_gen_seed": 33602,
+        "lr_m_max": 0.021942464013242388,
+        "maint_every": 25,
+        "budget_norm": 4.47481453007862,
+        "budget_c": 2.6848887180471723,
+        "budget_m": 1.7899258120314483,
+        "S_corpus": 2.684888718649745,
+        "S_maint": 1.0470825023949146,
+        "substrate": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\checkpoints\\e311_TAVINST_post.pt (md5 9886b25242c90dd669c6363c39a2a3bf)",
+        "rooms": "runs/e336/e336_rooms.pt"
+      },
+      "read_g0_t": {
+        "mine": 0.8147322535514832,
+        "committed": 0.8147322535514832,
+        "abs_diff": 0.0
+      },
+      "read_gm12_t": {
+        "mine": 0.7971041202545166,
+        "committed": 0.7971041202545166,
+        "abs_diff": 0.0
+      },
+      "ce_r": {
+        "mine": 1.6229653358459473,
+        "committed": 1.6229653358459473,
+        "abs_diff": 0.0
+      },
+      "net0_class": "BASE-formed lineage (e311 TAVIREN install) + e336 ERROR-GATED controller-annealed to t400 (read 0.815, 16 maintenance events \u2014 HALF the t800 dose) \u2014 THE STEP-DOSE RUNG",
+      "height_note": "near-cons-class height (0.815 vs t800's 0.873 \u2014 7% apart; the fresh class was 0.286) at HALF the t800 dose \u2014 the rung's own point"
+    },
+    "G_EVENTQUOTES": {
+      "quotes": [
+        {
+          "source": "lab/g1_anchored_ball.py",
+          "fragment": "def commit(self, R: float) -> None:",
+          "why": "the event's signature (the class method, verbatim)",
+          "verified_substring": true
+        },
+        {
+          "source": "lab/g1_anchored_ball.py",
+          "fragment": "Snapshot every trainable tensor into registered non-trainable",
+          "why": "the event's own docstring line 1 (the anchor snapshot)",
+          "verified_substring": true
+        },
+        {
+          "source": "lab/g1_anchored_ball.py",
+          "fragment": "hard in-place L2 projection onto the ball",
+          "why": "THE WALL's construction (the projection step's own words)",
+          "verified_substring": true
+        },
+        {
+          "source": "lab/g1_anchored_ball.py",
+          "fragment": "d > self.R:",
+          "why": "the projection's exact condition (outside-the-ball test)",
+          "verified_substring": true
+        },
+        {
+          "source": "lab/g1_anchored_ball.py",
+          "fragment": "p.copy_(a + (p - a) * s)",
+          "why": "the projection's exact rescale (onto the surface)",
+          "verified_substring": true
+        },
+        {
+          "source": "lab/g1b_continuity.py",
+          "fragment": "R_LADDER = (0.7, 1.4, 4.2)",
+          "why": "the R dial, frozen in the firing cell (W1 = 0.7)",
+          "verified_substring": true
+        },
+        {
+          "source": "lab/g1b_continuity.py",
+          "fragment": "net0.commit(R)",
+          "why": "the firing line itself (the event as the era ran it)",
+          "verified_substring": true
+        },
+        {
+          "source": "lab/g1c_root_redraw.py",
+          "fragment": "R=0.7 RAW L2",
+          "why": "the ball's birth cell: the 2.74M convention verbatim",
+          "verified_substring": true
+        }
+      ],
+      "claim": "every event-quote is a verbatim substring of its committed source rig",
+      "pass": true
+    },
+    "G_ERARIGS": {
+      "rigs": {
+        "g1_anchored_ball.py": "f4b6997b6a66013ee25da67f2b4faf01",
+        "g1b_continuity.py": "66966621e162b6bd33cf0023b0aa485a",
+        "g1c_root_redraw.py": "b094295fd1d3a9e796de602d3b628344",
+        "e322_squatters_deed.py": "326fcf2f08a802e5b76b18bca222b23f",
+        "e335_root_provenance.py": "8d0dd515f322313d01a3385fa094e97b"
+      },
+      "claim": "the event's source rigs + the wash convention's rigs md5-bound at run time (the port's parents)",
+      "pass": true
+    },
+    "G_BITROOT": {
+      "R": 0.699999988079071,
+      "expected_R": 0.7,
+      "R_abs_diff": 1.1920928910669204e-08,
+      "R_note": "anch__R is an fp32 buffer: fp32(0.7) = 0.699999988079071; the dial is 0.7 RAW L2 in the era's own storage precision (smoke-revealed: the inherited exact-== gate was an instrument bug, repaired with a 1e-6 tolerance \u2014 the era's own anch__R round-trip semantics unchanged)",
+      "n_anchor_tensors": 65,
+      "n_trainable": 65,
+      "body_max_abs_diff": 0.0,
+      "anchors_bit_equal": true,
+      "anchored": true,
+      "claim": "the armed net's body == the subject bit-exact and the anchors bit-equal the parameters (the wall is inert before the first forward; g1b's G_BITROOT verbatim)",
+      "pass": true
+    },
+    "G_PARENTS": {
+      "parents": {
+        "g1b": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\g1b\\metrics.json",
+          "md5": "833e2bd35602ebcc24108002bda4c1f0",
+          "bound_md5": "833e2bd35602ebcc24108002bda4c1f0",
+          "pass": true
+        },
+        "g1bR": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\g1bR\\metrics.json",
+          "md5": "8f46c904e81acea3fd866a3ab836af8a",
+          "bound_md5": "8f46c904e81acea3fd866a3ab836af8a",
+          "pass": true
+        },
+        "g1c": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\g1c_root\\metrics.json",
+          "md5": "05a33ada81e022b61a437db29afe38dd",
+          "bound_md5": "05a33ada81e022b61a437db29afe38dd",
+          "pass": true
+        },
+        "e322": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e322\\metrics.json",
+          "md5": "88765a53b21bdc310687c23ab00aa546",
+          "bound_md5": "88765a53b21bdc310687c23ab00aa546",
+          "pass": true
+        },
+        "e311": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e311\\metrics.json",
+          "md5": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+          "bound_md5": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+          "pass": true
+        }
+      },
+      "claim": "every band-parent's metrics md5-bound",
+      "pass": true
+    },
+    "G_BANDS": {
+      "band": {
+        "hug": 0.05,
+        "lo": 0.9572087618609404,
+        "hi": 1.087891435414073,
+        "raw": [
+          1.0072087618609404,
+          1.037891435414073
+        ],
+        "dispatch_band": [
+          0.957,
+          1.088
+        ],
+        "note": "the committed wall-W1 +100 retentions (the installed-fact class at the wash's own horizon), runtime-read; hugged by +-0.05 (e322's precedent)"
+      },
+      "legs": [
+        {
+          "leg": "g1b W1 (locked root, wash 10902)",
+          "root_gm12": 0.9155886769294739,
+          "g100": 0.922188937664032,
+          "retention_100": 1.0072087618609404
+        },
+        {
+          "leg": "g1bR W1_10907 (locked root)",
+          "root_gm12": 0.9155886769294739,
+          "g100": 0.9368636012077332,
+          "retention_100": 1.0232363339721577
+        },
+        {
+          "leg": "g1bR W1_10908 (locked root)",
+          "root_gm12": 0.9155886769294739,
+          "g100": 0.9462632536888123,
+          "retention_100": 1.0335025732976613
+        },
+        {
+          "leg": "g1c W1 (the ball's own leg; the subject lineage's sibling)",
+          "root_gm12": 0.9026340246200562,
+          "g100": 0.9368361234664917,
+          "retention_100": 1.037891435414073
+        }
+      ],
+      "claim": "the runtime-read band == the dispatch's [0.957, 1.088] within 1e-3",
+      "pass": true
+    },
+    "G_BARS": {
+      "rule": "THE THIRDS RULE (frozen at birth): each named class owns the third of the inter-class gap nearest it; the middle third is INTERMEDIATE; above the t800 match region is the named residual SUPER-800 cell",
+      "gap": 0.08549147627931547,
+      "third": 0.028497158759771823,
+      "frozen": {
+        "gap": 0.08549147627931547,
+        "third": 0.028497158759771823,
+        "steps_cap": 0.07333542629877296,
+        "height_lo": 0.10183258505854478,
+        "height_hi": 0.15882690257808843
+      },
+      "derived": {
+        "gap": 0.08549147627931547,
+        "third": 0.028497158759771823,
+        "steps_cap": 0.07333542629877296,
+        "height_lo": 0.10183258505854478,
+        "height_hi": 0.15882690257808843
+      },
+      "claim": "the runtime-derived boundaries == the frozen literals (1e-9); the partition is total on the retention line",
+      "pass": true
+    },
+    "G_CLASSES": {
+      "claim": "every class reference runtime-read from its md5-bound committed record (e338/e340/e341 + e339's continuation lineage + the harness-bound g1b/g1bR/g1c/e322/e311)",
+      "pass": true
+    },
+    "G_DRAWS": {
+      "reference": {
+        "path": "runs/e340/wash_committed_resume.pt",
+        "md5": "409e82c133c5e1d047e682a9ae478999",
+        "bound_md5": "409e82c133c5e1d047e682a9ae478999",
+        "n_draws_recorded": 100
+      },
+      "n_steps": 100,
+      "compared": 100,
+      "bit_identical": true,
+      "smoke_prefix": false,
+      "claim": "the arm's wash consumed the IDENTICAL aj/rj sequence as e340's committed t800 arm (e322's seed 10902 bitstream) \u2014 the rung comparison is wash-matched",
+      "pass": true
+    },
+    "G_INPUTS": {
+      "n_steps": 100,
+      "compared": 100,
+      "bit_identical": true,
+      "claim": "the arm's input batches bit-identical to e340's committed arm's (per-step x md5; g1's G-INPUTS convention)",
+      "pass": true
+    },
+    "G_T0": {
+      "arm_t0": 0.8147322535514832,
+      "bound": 0.8147322535514832,
+      "abs_diff": 0.0,
+      "claim": "the arm starts at the committed t400 subject read (the rung's own height)",
+      "pass": true
+    },
+    "G_PIN": {
+      "R": 0.7,
+      "bound": 2.2,
+      "max_raw_disp_at_panels": 1.6542342901229858,
+      "per_panel": {
+        "0": 0.0,
+        "1": 1.6542342901229858,
+        "5": 1.1553130149841309,
+        "10": 1.0278902053833008,
+        "25": 0.9995046854019165,
+        "50": 0.9940117597579956,
+        "100": 0.9816938042640686
+      },
+      "claim": "the committed arm never leaves R + the licensed fuzz between forwards (g1b's G-PIN verbatim)",
+      "pass": true
+    },
+    "G_GUARD": {
+      "zeph_hits": 0,
+      "claim": "the name-free guard never fired on the wash",
+      "pass": true
+    },
+    "G_NET0": {
+      "subject": "BASE-formed lineage (e311 TAVIREN install) + e336 ERROR-GATED controller-annealed to t400 (read 0.815, 16 maintenance events \u2014 HALF the t800 dose) \u2014 THE STEP-DOSE RUNG",
+      "arm": "BASE-formed lineage (e311 TAVIREN install) + e336 ERROR-GATED controller-annealed to t400 (read 0.815, 16 maintenance events \u2014 HALF the t800 dose) \u2014 THE STEP-DOSE RUNG + COMMIT(0.7) armed + e322's 100-step unbiased wash (e340's own bitstream)",
+      "reference_classes": {
+        "e338 COMMIT": "install-fresh (0 steps, read 0.286) + COMMIT(0.7) \u2014 the fresh class",
+        "e340 COMMIT": "controller t800 (32 events, read 0.873) + COMMIT(0.7) \u2014 the 800-step class",
+        "e341 VARIED/FIXED COMMIT": "cons-protocol t300 (read 0.752/0.756) + COMMIT(0.7) \u2014 the 300-step classes",
+        "the W1 legs": "cons-shaped + COMMIT(0.7) \u2014 the survival class (~1.0)"
+      },
+      "claim": "every state classed (x32's standing rule)",
+      "pass": true
+    }
+  },
+  "birth_commit": "0089ed7",
+  "arm": {
+    "t0": 0.8147322535514832,
+    "s_end": 0.09584183245897293,
+    "end_step": 100,
+    "retention": 0.11763598659705775,
+    "first_below_005": 1,
+    "all_panels_ge_005": false,
+    "in_installed_band": false,
+    "sand_class": false,
+    "sand_strict_band": false,
+    "sand_stamp": "NOT-SAND",
+    "min_panel_read": 0.009946090169250965,
+    "traj": [
+      {
+        "step": 0,
+        "read_g0_pT": 0.8147322535514832,
+        "read_frac_ge_05": 0.8500000238418579,
+        "read_frac_argmax_t": 0.9833333333333333,
+        "gm12_pT": 0.7971041202545166,
+        "host_g0_pZ": 1.318660088145407e-05,
+        "ce_r": 1.6229653358459473,
+        "disp_raw": 0.0,
+        "disp_proj": 0.0,
+        "R": 0.699999988079071,
+        "elapsed_s": 18.2
+      },
+      {
+        "step": 1,
+        "read_g0_pT": 0.009946090169250965,
+        "read_frac_ge_05": 0.0,
+        "read_frac_argmax_t": 0.0,
+        "gm12_pT": 0.010722959414124489,
+        "host_g0_pZ": 0.005135759245604277,
+        "ce_r": 2.1687633991241455,
+        "disp_raw": 1.6542342901229858,
+        "disp_proj": 0.699999988079071,
+        "R": 0.699999988079071,
+        "elapsed_s": 21.4
+      },
+      {
+        "step": 5,
+        "read_g0_pT": 0.077888123691082,
+        "read_frac_ge_05": 0.0,
+        "read_frac_argmax_t": 0.0,
+        "gm12_pT": 0.08057178556919098,
+        "host_g0_pZ": 3.317438313388266e-05,
+        "ce_r": 1.6499874591827393,
+        "disp_raw": 1.1553130149841309,
+        "disp_proj": 0.699999988079071,
+        "R": 0.699999988079071,
+        "elapsed_s": 23.9
+      },
+      {
+        "step": 10,
+        "read_g0_pT": 0.09329620003700256,
+        "read_frac_ge_05": 0.0,
+        "read_frac_argmax_t": 0.0,
+        "gm12_pT": 0.10123557597398758,
+        "host_g0_pZ": 2.825232149916701e-05,
+        "ce_r": 1.6716728210449219,
+        "disp_raw": 1.0278902053833008,
+        "disp_proj": 0.699999988079071,
+        "R": 0.699999988079071,
+        "elapsed_s": 26.6
+      },
+      {
+        "step": 25,
+        "read_g0_pT": 0.0871298685669899,
+        "read_frac_ge_05": 0.0,
+        "read_frac_argmax_t": 0.0,
+        "gm12_pT": 0.103483647108078,
+        "host_g0_pZ": 3.240870137233287e-05,
+        "ce_r": 1.6679091453552246,
+        "disp_raw": 0.9995046854019165,
+        "disp_proj": 0.699999988079071,
+        "R": 0.699999988079071,
+        "elapsed_s": 30.3
+      },
+      {
+        "step": 50,
+        "read_g0_pT": 0.09628477692604065,
+        "read_frac_ge_05": 0.0,
+        "read_frac_argmax_t": 0.0,
+        "gm12_pT": 0.1157987117767334,
+        "host_g0_pZ": 3.835203096969053e-05,
+        "ce_r": 1.6740031242370605,
+        "disp_raw": 0.9940117597579956,
+        "disp_proj": 0.699999988079071,
+        "R": 0.699999988079071,
+        "elapsed_s": 35.3
+      },
+      {
+        "step": 100,
+        "read_g0_pT": 0.09584183245897293,
+        "read_frac_ge_05": 0.0,
+        "read_frac_argmax_t": 0.0,
+        "gm12_pT": 0.11245936900377274,
+        "host_g0_pZ": 3.269693479523994e-05,
+        "ce_r": 1.671351671218872,
+        "disp_raw": 0.9816938042640686,
+        "disp_proj": 0.699999988079071,
+        "R": 0.699999988079071,
+        "elapsed_s": 43.4
+      }
+    ]
+  },
+  "adjudication": {
+    "verdict": "HEIGHT-CLAUSE-STANDS",
+    "clause": "retention 0.1176 matches e340's t800 value 0.1303 at matched read (0.815 vs 0.873 \u2014 the t800 match region [0.1018, 0.1588]) \u2014 STEPS BEYOND 400 BUY NOTHING: the recovery axis is read-HEIGHT (the purchase completed by t400; the controller's t400-t800 segment is station-keeping) [s1 co-read: 0.009946 \u2014 dead at s1 (the controller family's annihilation signature, shared with t800's 0.0037 and the fresh class's 0.0041)] [gm12@s100 0.1125 \u2014 the geometry co-read]",
+    "reads": {
+      "retention": 0.11763598659705775,
+      "s1": 0.009946090169250965,
+      "s1_alive": false,
+      "min_panel_read": 0.009946090169250965,
+      "all_panels_ge_005": false,
+      "first_below_005": 1,
+      "bars": {
+        "steps_cap": 0.07333542629877296,
+        "height_lo": 0.10183258505854478,
+        "height_hi": 0.15882690257808843,
+        "rule": "the thirds rule (frozen at birth; G_BARS re-derived)"
+      }
+    },
+    "P-x39a": {
+      "guess": "INTERMEDIATE, WEAKLY (diverging from the lab lean; HEIGHT-CLAUSE-STANDS the registered runner-up)",
+      "lab_lean": "HEIGHT-CLAUSE-STANDS, weakly \u2014 the controller's dose self-limits (e339's 2-cycle: the marginal steps may be near-zero dose) so extra steps should buy little; the countervailing: the 2-cycle's alternating events still touch the read. State your own read.",
+      "hit": false,
+      "scored": "TRUE iff the verdict == INTERMEDIATE"
+    },
+    "arm": {
+      "t0": 0.8147322535514832,
+      "s_end": 0.09584183245897293,
+      "end_step": 100,
+      "retention": 0.11763598659705775,
+      "first_below_005": 1,
+      "all_panels_ge_005": false,
+      "in_installed_band": false,
+      "sand_class": false,
+      "sand_strict_band": false,
+      "sand_stamp": "NOT-SAND",
+      "min_panel_read": 0.009946090169250965,
+      "traj": [
+        {
+          "step": 0,
+          "read_g0_pT": 0.8147322535514832,
+          "read_frac_ge_05": 0.8500000238418579,
+          "read_frac_argmax_t": 0.9833333333333333,
+          "gm12_pT": 0.7971041202545166,
+          "host_g0_pZ": 1.318660088145407e-05,
+          "ce_r": 1.6229653358459473,
+          "disp_raw": 0.0,
+          "disp_proj": 0.0,
+          "R": 0.699999988079071,
+          "elapsed_s": 18.2
+        },
+        {
+          "step": 1,
+          "read_g0_pT": 0.009946090169250965,
+          "read_frac_ge_05": 0.0,
+          "read_frac_argmax_t": 0.0,
+          "gm12_pT": 0.010722959414124489,
+          "host_g0_pZ": 0.005135759245604277,
+          "ce_r": 2.1687633991241455,
+          "disp_raw": 1.6542342901229858,
+          "disp_proj": 0.699999988079071,
+          "R": 0.699999988079071,
+          "elapsed_s": 21.4
+        },
+        {
+          "step": 5,
+          "read_g0_pT": 0.077888123691082,
+          "read_frac_ge_05": 0.0,
+          "read_frac_argmax_t": 0.0,
+          "gm12_pT": 0.08057178556919098,
+          "host_g0_pZ": 3.317438313388266e-05,
+          "ce_r": 1.6499874591827393,
+          "disp_raw": 1.1553130149841309,
+          "disp_proj": 0.699999988079071,
+          "R": 0.699999988079071,
+          "elapsed_s": 23.9
+        },
+        {
+          "step": 10,
+          "read_g0_pT": 0.09329620003700256,
+          "read_frac_ge_05": 0.0,
+          "read_frac_argmax_t": 0.0,
+          "gm12_pT": 0.10123557597398758,
+          "host_g0_pZ": 2.825232149916701e-05,
+          "ce_r": 1.6716728210449219,
+          "disp_raw": 1.0278902053833008,
+          "disp_proj": 0.699999988079071,
+          "R": 0.699999988079071,
+          "elapsed_s": 26.6
+        },
+        {
+          "step": 25,
+          "read_g0_pT": 0.0871298685669899,
+          "read_frac_ge_05": 0.0,
+          "read_frac_argmax_t": 0.0,
+          "gm12_pT": 0.103483647108078,
+          "host_g0_pZ": 3.240870137233287e-05,
+          "ce_r": 1.6679091453552246,
+          "disp_raw": 0.9995046854019165,
+          "disp_proj": 0.699999988079071,
+          "R": 0.699999988079071,
+          "elapsed_s": 30.3
+        },
+        {
+          "step": 50,
+          "read_g0_pT": 0.09628477692604065,
+          "read_frac_ge_05": 0.0,
+          "read_frac_argmax_t": 0.0,
+          "gm12_pT": 0.1157987117767334,
+          "host_g0_pZ": 3.835203096969053e-05,
+          "ce_r": 1.6740031242370605,
+          "disp_raw": 0.9940117597579956,
+          "disp_proj": 0.699999988079071,
+          "R": 0.699999988079071,
+          "elapsed_s": 35.3
+        },
+        {
+          "step": 100,
+          "read_g0_pT": 0.09584183245897293,
+          "read_frac_ge_05": 0.0,
+          "read_frac_argmax_t": 0.0,
+          "gm12_pT": 0.11245936900377274,
+          "host_g0_pZ": 3.269693479523994e-05,
+          "ce_r": 1.671351671218872,
+          "disp_raw": 0.9816938042640686,
+          "disp_proj": 0.699999988079071,
+          "R": 0.699999988079071,
+          "elapsed_s": 43.4
+        }
+      ]
+    }
+  },
+  "thermal": {
+    "max_temp": 71.0,
+    "polls": 100,
+    "device_events": []
+  },
+  "git_head_final": "fc0d48b1f1f9bb37ff5660daa71abcb834ad7ed0",
+  "completed_utc": "2026-10-10T14:21:09.032951+00:00"
+}
