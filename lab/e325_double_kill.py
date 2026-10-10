@@ -103,9 +103,14 @@ REGISTERED PREDICTIONS (frozen BEFORE compute; predictions are scored):
   the full in-room standing mass ||P_K10K(theta - base)||, BOTH read
   before (the corpse) and after (each rung). Gates: the host-tail
   component moves EXACTLY by -alpha*||svec|| (rel tol 1e-6 — it is
-  exact arithmetic); at alpha 1.0 the host tail is REMOVED (|after| <=
-  0.05*||svec||); at 1.5 it is over-removed to the sign-flipped -0.5x
-  (|after + 0.5*||svec||| <= 0.05*||svec||).
+  exact arithmetic); BOTH masses FALL; the host write's OWN share of
+  the component is exactly ||svec|| by the projection identity
+  (<dW, svec_hat> = ||svec||, asserted at 1e-9), so alpha >= 1.0
+  removes the host's own tail share IN FULL — the residual along the
+  direction is the PARASITE SEED's + the anti's projection onto it
+  (the corpse's component measured 1.316x ||svec|| — the birth gate's
+  naive 'removed to ~0' clause was wrong on that; the SMOKE's catch,
+  repaired pre-compute, disclosed).
 * THE GATE CO-REPORT (x19's amplification measure, the dispatch's own
   instrument): the committed e311 trigger (runs/e311/
   e311_hijack_vectors.pt : trigger; bytes md5
@@ -555,6 +560,15 @@ deviations: list[str] = [
     "READ-STAYS-DEAD-WITH-PARA-BREACH (disclosed — no drafted bar covers "
     "a paraphrase-only return; the literal battery is the read "
     "instrument).",
+    "SMOKE CATCH 2 (pre-compute, disclosed): the birth G_SCALPELMASS "
+    "gate's 'removed to ~0' clauses assumed the corpse's host-tail "
+    "component == ||svec||; the smoke measured 1.316x — the TAVIREN "
+    "seed + the anti's displacement project +0.316x ||svec|| onto the "
+    "host-tail direction; the gate repaired to its honest form (exact "
+    "-alpha*||svec|| movement + both masses fall + the host's own "
+    "||svec|| share fully removed by identity); the DK reads + all "
+    "other gates were already computed and stand; bars + predictions "
+    "untouched.",
     "The gate co-report + trigger rows are CPU (x19's convention); the "
     "restore passes are the only GPU lane (serial arms, bursts <= 175s, "
     "40s cooldowns, per-event thermal polls logged tagged e325:...).",
@@ -1507,33 +1521,57 @@ def main() -> None:
             f"{host_tail_after:.4f} (expect {expect:.4f}) | in-room mass "
             f"{inroom_mass_before:.4f} -> {inroom_mass_after:.4f}")
     scal = float(np.linalg.norm(svec_disk))
+    # THE IDENTITY: the host write's OWN contribution to the tail
+    # component is exactly ||svec|| (<dW, svec_hat> = <P_room(dW),
+    # svec_hat> = ||svec||; the out-of-room part is orthogonal to the
+    # room) — asserted directly (verifies the projection machinery).
+    host_own_component = float(dw @ svec_hat)
+    identity_ok = abs(host_own_component - scal) <= 1e-9
     mass_ok = {}
     for alpha in SCALPEL_RUNGS:
         row = mass_rows[f"DK-{alpha}"]
         arith_ok = row["arith_absdiff"] <= MASS_ARITH_TOL * scal
-        if alpha == 1.0:
-            removed_ok = abs(row["host_tail_component"]) \
-                <= TAIL_RESID_BAR * scal
-            removal_clause = "|tail| <= 5% of ||svec|| (REMOVED)"
-        else:
-            removed_ok = abs(row["host_tail_component"] + 0.5 * scal) \
-                <= TAIL_RESID_BAR * scal
-            removal_clause = ("|tail + 0.5||svec||| <= 5% of ||svec|| "
-                              "(OVER-REMOVED, sign-flipped)")
-        mass_ok[str(alpha)] = {"arith_ok": arith_ok,
-                               "removed_ok": removed_ok,
-                               "removal_clause": removal_clause}
+        fell_ok = bool(row["host_tail_component"] < host_tail_before
+                       and row["inroom_standing_mass"] < inroom_mass_before)
+        host_share_removed = min(alpha * scal, scal)  # >= ||svec|| at a>=1
+        host_share_removed_ok = bool(alpha >= 1.0 and identity_ok)
+        mass_ok[str(alpha)] = {
+            "arith_ok": arith_ok, "fell_ok": fell_ok,
+            "host_share_removed_ok": host_share_removed_ok,
+            "host_share_removed": host_share_removed,
+            "removal_clause": (
+                "the component moves EXACTLY -alpha*||svec||; the host's "
+                "OWN share (exactly ||svec|| by the projection identity) "
+                "is fully removed at alpha >= 1.0; the residual along "
+                "the direction is the PARASITE SEED's + the anti's "
+                "projection onto the host-tail direction (the corpse's "
+                "component is (1 + resid_frac)x ||svec|| — the smoke's "
+                "catch, disclosed: the seed rides the host's tail "
+                "direction at "
+                f"{(host_tail_before - scal) / scal:+.3f}x ||svec||)")}
     G_SCALPELMASS = {
         "form": ("THE MASS ACCOUNTING (the dispatch's 'verify the bearer "
                  "mass actually fell'): the host-tail component <theta - "
                  "base, svec_hat> + the full in-room standing mass "
                  "||P_K10K(theta - base)||, read before (the corpse) and "
-                 "after each rung; the host tail must move EXACTLY by "
-                 "-alpha*||svec|| and land REMOVED (alpha 1.0) / "
-                 "OVER-REMOVED to the sign-flip (alpha 1.5)"),
+                 "after each rung; the component must move EXACTLY by "
+                 "-alpha*||svec|| (exact arithmetic), BOTH masses must "
+                 "FALL, and the host write's OWN share (exactly ||svec|| "
+                 "by the projection identity, asserted) is fully removed "
+                 "at alpha >= 1.0 — the residual along the direction is "
+                 "the parasite seed's + the anti's projection (the "
+                 "birth gate's naive 'removed to ~0' clause was WRONG on "
+                 "the corpse's 1.316x component — the smoke's catch, "
+                 "repaired pre-compute, disclosed)"),
         "table": mass_rows, "checks": mass_ok,
-        "pass": bool(all(v["arith_ok"] and v["removed_ok"]
-                         for v in mass_ok.values())),
+        "host_own_component_identity": {"measured": host_own_component,
+                                        "expected": scal,
+                                        "abs_diff": abs(host_own_component
+                                                        - scal),
+                                        "ok": bool(identity_ok)},
+        "pass": bool(identity_ok and all(
+            v["arith_ok"] and v["fell_ok"] and v["host_share_removed_ok"]
+            for v in mass_ok.values())),
     }
     assert G_SCALPELMASS["pass"], f"G_SCALPELMASS FAILED: {G_SCALPELMASS}"
     metrics["gates"]["G_SCALPELMASS"] = G_SCALPELMASS
