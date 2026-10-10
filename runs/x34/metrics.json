@@ -1,0 +1,848 @@
+{
+ "experiment": "x34_s1_census",
+ "phase": "COMPLETE",
+ "date": "2026-10-10T05:48:32.656620+00:00",
+ "smoke": false,
+ "cpu_only_by_construction": true,
+ "torch_threads": 4,
+ "gates": {
+  "G_PARENTS": {
+   "form": "every artifact this census reads, md5-bound at runtime (files never modified; values read at runtime, never retyped)",
+   "md5": {
+    "runs/e264/metrics.json": "a42ff4786784b04cb9819a69b545e343",
+    "runs/e272/metrics.json": "eb9f624708bcb6576c4115161dfd7042",
+    "runs/e290/metrics.json": "4ca36a46b04d0045faa833f4f9a49d1f",
+    "runs/e291/metrics.json": "fc9cb859f2ef2603397c971dbcf5c618",
+    "runs/e311/metrics.json": "4efbb2242c8e2e3abab1a2cb63e3e35a",
+    "runs/e323/metrics.json": "fabcf1af3174aeda661962bcf5c45bcc",
+    "runs/e324/metrics.json": "269baa13d6562b533fadbc5d4e55eacd",
+    "runs/e327/metrics.json": "5f99d0ab32f4b81e1e5923b1f5f903da",
+    "runs/e330/metrics.json": "c5d519373bb27ef6c6f278af7674404c",
+    "runs/x24/metrics.json": "7f1a91cc1d42a202c8fb23c4f8fb3e7e",
+    "runs/e322/metrics.json": "88765a53b21bdc310687c23ab00aa546",
+    "runs/x28/metrics.json": "4081c5ff751a535624bdd7095c84a70b",
+    "runs/checkpoints/e311_TAVINST_resume.pt": "c6526334f66e956b8fff4b66dd4ff9c9",
+    "runs/checkpoints/x28_QELINST_resume.pt": "4df254f1622f9f4b9239a879d12bd8b9",
+    "runs/checkpoints/e291_install_F1_resume.pt": "fc31425fb7cbd2cee213fe7503669aff",
+    "runs/checkpoints/e323_inst_resume.pt": "d9bcf4c1eb6feab87c3b2b270c2a1d67"
+   },
+   "pass": true
+  },
+  "G_ZPRIOR": {
+   "form": "ZEPHYRA prior on e001 at host g0 \u2014 three independent committed artifacts, banded [0.99, 1.01]",
+   "primary": {
+    "value": 1.3383960322244093e-05,
+    "source": "runs/x24/metrics.json panel_reads.ZEPHYRA.base_host_g0.mean_pz"
+   },
+   "cross_x15_literal": {
+    "value": 1.3383959412749391e-05,
+    "source": "runs/x24/metrics.json gates.G_ENDPOINTS.literal_crosscheck.x15_base_g0_z.frozen"
+   },
+   "cross_e330": {
+    "value": 1.3383960322244093e-05,
+    "source": "runs/e330/metrics.json gates.G_BASEPRIOR.anchor_prior_host.mine"
+   },
+   "pass": true
+  },
+  "G_TPRIOR": {
+   "form": "TAVIREN prior \u2014 e311 primary, x24 + e330 cross, [0.99, 1.01]",
+   "primary": {
+    "value": 0.0023042955435812473,
+    "source": "runs/e311/metrics.json gates.G_BASE.base_prior_parasite_g0"
+   },
+   "cross_x24": {
+    "value": 0.002304295776411891,
+    "source": "runs/x24/metrics.json gates.G_PANELPRIOR.priors_host_g0.TAVIREN"
+   },
+   "cross_e330": {
+    "value": 0.002304295776411891,
+    "source": "runs/e330/metrics.json gates.G_BASEPRIOR.taviren_prior_host.mine"
+   },
+   "pass": true
+  },
+  "G_QPRIOR": {
+   "form": "QELVARO prior \u2014 x24 primary, e322 cross, [0.99, 1.01]",
+   "primary": {
+    "value": 0.0025905624497681856,
+    "source": "runs/x24/metrics.json gates.G_PANELPRIOR.priors_host_g0.QELVARO"
+   },
+   "cross_e322": {
+    "value": 0.0025905624497681856,
+    "source": "runs/e322/metrics.json gates.G_BANK.base_prior_live"
+   },
+   "pass": true
+  },
+  "G_NPRIOR": {
+   "form": "NYSTORA prior \u2014 e330 primary, x24 cross, [0.99, 1.01]",
+   "primary": {
+    "value": 0.0028261500410735607,
+    "source": "runs/e330/metrics.json before_panel.NYSTORA.base_host_g0_mean_pz"
+   },
+   "cross_x24": {
+    "value": 0.0028261500410735607,
+    "source": "runs/x24/metrics.json gates.G_PANELPRIOR.priors_host_g0.NYSTORA"
+   },
+   "pass": true
+  },
+  "G_CANONX": {
+   "form": "the canon's s1 from >= 2 independent artifacts (e264 primary, e272's second room, e324's census row), banded [0.999, 1.001]",
+   "e264_K10K": 1.3466433301800862e-05,
+   "e272_K10KR": 1.3466953532770276e-05,
+   "e324_census_row": 1.3466433301800862e-05,
+   "rel_diff_e272": 3.863168203155354e-05,
+   "rel_diff_e324": 0.0,
+   "pass": true
+  },
+  "G_PROTOID_AGG": {
+   "form": "the parents' own protocol-identity gates, read at runtime (e324 per-draw 4/4, e327 per-draw 8/8, e330 1/1 \u2014 every census draw ran e261's committed rig); the step-one parameter-delta decomposition is not committed in any optimizer artifact",
+   "e324_per_draw": {
+    "GEN32401": true,
+    "GEN32402": true,
+    "GEN32403": true,
+    "GEN32404": true
+   },
+   "e327_per_draw": {
+    "GEN268435456": true,
+    "GEN805306368": true,
+    "GEN1342177280": true,
+    "GEN1879048192": true,
+    "GEN2415919104": true,
+    "GEN2952790016": true,
+    "GEN3489660928": true,
+    "GEN4026531840": true
+   },
+   "e330": true,
+   "pass": true
+  }
+ },
+ "analysis": {
+  "plane": "(log10 s1_g0, log10 ratio-to-prior)",
+  "fork_band_from_e324_bars": {
+   "die": 0.01,
+   "gap_hi": 0.15
+  },
+  "die_centroid": [
+   -4.870747415595566,
+   0.002667943946807937
+  ],
+  "survive_centroid": [
+   -0.12777816651306514,
+   4.745637193029308
+  ],
+  "survive_radius_max": 0.00017384620884984577,
+  "die_survive_separation": 6.707571437971007,
+  "half_separation_bar": 3.3537857189855034,
+  "prior_flat_distances": [
+   {
+    "draw": "e311/TAVIREN",
+    "gen": 31102,
+    "log10_s1": -2.6366252702391093,
+    "log10_ratio": 0.0008365498382662444,
+    "d_to_die_centroid": 2.234122895987711,
+    "d_to_survive_centroid": 5.36725692821768,
+    "d_to_nearest_cluster": 2.234122895987711,
+    "within_3x_survive_radius": false
+   },
+   {
+    "draw": "x28/QELVARO",
+    "gen": 32801,
+    "log10_s1": -2.5857311522767077,
+    "log10_ratio": 0.0008747815912502128,
+    "d_to_die_centroid": 2.2850169669091978,
+    "d_to_survive_centroid": 5.343622668304706,
+    "d_to_nearest_cluster": 2.2850169669091978,
+    "within_3x_survive_radius": false
+   },
+   {
+    "draw": "e330/NYSTORA",
+    "gen": 33002,
+    "log10_s1": -2.547779708486721,
+    "log10_ratio": 0.0010250765766269107,
+    "d_to_die_centroid": 2.32296828804952,
+    "d_to_survive_centroid": 5.326138526056608,
+    "d_to_nearest_cluster": 2.32296828804952,
+    "within_3x_survive_radius": false
+   }
+  ],
+  "adjacent_ratio_gaps": [
+   {
+    "from": "e311/TAVIREN[31102]",
+    "to": "x28/QELVARO[32801]",
+    "gap_decades": 3.823175298396837e-05
+   },
+   {
+    "from": "x28/QELVARO[32801]",
+    "to": "e330/NYSTORA[33002]",
+    "gap_decades": 0.00015029498537669792
+   },
+   {
+    "from": "e330/NYSTORA[33002]",
+    "to": "e291-family/ZEPHYRA[29121]",
+    "gap_decades": 0.0005726597801852765
+   },
+   {
+    "from": "e291-family/ZEPHYRA[29121]",
+    "to": "canon/ZEPHYRA[24314]",
+    "gap_decades": 0.0010702075899957498
+   },
+   {
+    "from": "canon/ZEPHYRA[24314]",
+    "to": "canon-replicate/ZEPHYRA[24314]",
+    "gap_decades": 1.6777202269202627e-05
+   },
+   {
+    "from": "canon-replicate/ZEPHYRA[24314]",
+    "to": "canon-replicate/ZEPHYRA[24314]",
+    "gap_decades": 0.002400629545626821
+   },
+   {
+    "from": "canon-replicate/ZEPHYRA[24314]",
+    "to": "canon-replicate/ZEPHYRA[24314]",
+    "gap_decades": 0.003733548876887053
+   },
+   {
+    "from": "canon-replicate/ZEPHYRA[24314]",
+    "to": "canon-replicate/ZEPHYRA[24314]",
+    "gap_decades": 0.045980273354276444
+   },
+   {
+    "from": "canon-replicate/ZEPHYRA[24314]",
+    "to": "e291-family/ZEPHYRA[29123]",
+    "gap_decades": 4.022752559838974
+   },
+   {
+    "from": "e291-family/ZEPHYRA[29123]",
+    "to": "e291-family/ZEPHYRA[29122]",
+    "gap_decades": 0.16371760389572287
+   },
+   {
+    "from": "e291-family/ZEPHYRA[29122]",
+    "to": "e323-rider/ZEPHYRA[32321]",
+    "gap_decades": 0.023186064711770094
+   },
+   {
+    "from": "e323-rider/ZEPHYRA[32321]",
+    "to": "e291-family/ZEPHYRA[29124]",
+    "gap_decades": 0.03140046797618812
+   },
+   {
+    "from": "e291-family/ZEPHYRA[29124]",
+    "to": "e291-family/ZEPHYRA[29125]",
+    "gap_decades": 0.0025573807624708067
+   },
+   {
+    "from": "e291-family/ZEPHYRA[29125]",
+    "to": "e323-rider/ZEPHYRA[32325]",
+    "gap_decades": 0.12024969338249392
+   },
+   {
+    "from": "e323-rider/ZEPHYRA[32325]",
+    "to": "e323-rider/ZEPHYRA[32323]",
+    "gap_decades": 0.1312546852970291
+   },
+   {
+    "from": "e323-rider/ZEPHYRA[32323]",
+    "to": "e323-rider/ZEPHYRA[32324]",
+    "gap_decades": 0.02158200007299893
+   },
+   {
+    "from": "e323-rider/ZEPHYRA[32324]",
+    "to": "e323-rider/ZEPHYRA[32322]",
+    "gap_decades": 0.0019156148065562206
+   },
+   {
+    "from": "e323-rider/ZEPHYRA[32322]",
+    "to": "e324/ZEPHYRA[32401]",
+    "gap_decades": 0.17209902152607537
+   },
+   {
+    "from": "e324/ZEPHYRA[32401]",
+    "to": "e327/ZEPHYRA[1342177280]",
+    "gap_decades": 2.390793101003652e-05
+   },
+   {
+    "from": "e327/ZEPHYRA[1342177280]",
+    "to": "e324/ZEPHYRA[32404]",
+    "gap_decades": 2.9327117875510567e-05
+   },
+   {
+    "from": "e324/ZEPHYRA[32404]",
+    "to": "e327/ZEPHYRA[1879048192]",
+    "gap_decades": 5.837389030816098e-06
+   },
+   {
+    "from": "e327/ZEPHYRA[1879048192]",
+    "to": "e327/ZEPHYRA[2415919104]",
+    "gap_decades": 2.8491732946278603e-06
+   },
+   {
+    "from": "e327/ZEPHYRA[2415919104]",
+    "to": "e323/ZEPHYRA[32302]",
+    "gap_decades": 5.9446169330179544e-05
+   },
+   {
+    "from": "e323/ZEPHYRA[32302]",
+    "to": "e327/ZEPHYRA[805306368]",
+    "gap_decades": 1.757866417495535e-05
+   },
+   {
+    "from": "e327/ZEPHYRA[805306368]",
+    "to": "e324/ZEPHYRA[32402]",
+    "gap_decades": 2.713088944172881e-05
+   },
+   {
+    "from": "e324/ZEPHYRA[32402]",
+    "to": "e327/ZEPHYRA[3489660928]",
+    "gap_decades": 6.044295083107443e-06
+   },
+   {
+    "from": "e327/ZEPHYRA[3489660928]",
+    "to": "e327/ZEPHYRA[2952790016]",
+    "gap_decades": 7.398936363145481e-06
+   },
+   {
+    "from": "e327/ZEPHYRA[2952790016]",
+    "to": "e327/ZEPHYRA[4026531840]",
+    "gap_decades": 8.545093590939246e-06
+   },
+   {
+    "from": "e327/ZEPHYRA[4026531840]",
+    "to": "e324/ZEPHYRA[32403]",
+    "gap_decades": 1.962528982879519e-05
+   },
+   {
+    "from": "e324/ZEPHYRA[32403]",
+    "to": "e327/ZEPHYRA[268435456]",
+    "gap_decades": 1.8443490572117582e-05
+   }
+  ],
+  "max_adjacent_gap_decades": 4.022752559838974,
+  "bridge_exists_le_0.5dec": false,
+  "bars": {
+   "THIRD_MODE": {
+    "fires": false,
+    "rule": "every prior-flat draw: d(nearest cluster) >= 0.5 x die-survive separation"
+   },
+   "SURVIVE_EDGE": {
+    "fires": false,
+    "rule": "all prior-flat within 3x survive radius OR a <=0.5-decade bridge exists"
+   }
+  },
+  "verdict": "NEITHER",
+  "robustness_variants": {
+   "die+e291F1": {
+    "die_survive_sep": 6.696508809575446,
+    "third_mode_would_fire": false
+   },
+   "survive+family": {
+    "die_survive_sep": 6.486337313992234,
+    "third_mode_would_fire": false
+   },
+   "both": {
+    "die_survive_sep": 6.47527761524152,
+    "third_mode_would_fire": false
+   }
+  },
+  "die_identity_composite": {
+   "form": "the executor's pre-registered composite: the die texture was already prior-flat in ratio",
+   "die_side_ratio_range": [
+    1.0036856994646859,
+    1.1344860836840895
+   ],
+   "prior_flat_ratio_range": [
+    1.0019280835544637,
+    1.002363113806948
+   ],
+   "survive_ratio_range": [
+    55656.29152843674,
+    55685.27895992204
+   ],
+   "flat_line_max_abs_log10_ratio": 0.05479917292586746,
+   "canon_ratio": 1.0061620759155794,
+   "n_flat_ratio_draws": 9,
+   "leak_check": {
+    "form": "the registered countervailing check: NON-FIRST family draws' ratios recomputed with prior x100 (a pessimistic leak bound on the serial pre-state); does any draw enter the ratio gap (1.2, 1e4), and would that build a bridge to the flat line?",
+    "factor": 100.0,
+    "excluded": "FACT1 of both families (no pre-state leak possible)",
+    "rows": [
+     {
+      "draw": "e291-family[29122]",
+      "ratio_leaked": 174.28874257986305
+     },
+     {
+      "draw": "e291-family[29123]",
+      "ratio_leaked": 119.55059247739312
+     },
+     {
+      "draw": "e291-family[29124]",
+      "ratio_leaked": 197.63136459489047
+     },
+     {
+      "draw": "e291-family[29125]",
+      "ratio_leaked": 198.7985672581542
+     },
+     {
+      "draw": "e323-rider[32322]",
+      "ratio_leaked": 374.4684591410812
+     },
+     {
+      "draw": "e323-rider[32323]",
+      "ratio_leaked": 354.7460993236947
+     },
+     {
+      "draw": "e323-rider[32324]",
+      "ratio_leaked": 372.82036634047586
+     },
+     {
+      "draw": "e323-rider[32325]",
+      "ratio_leaked": 262.2182674117089
+     }
+    ],
+    "any_enters_gap": true,
+    "min_leaked_ratio": 119.55059247739312,
+    "decades_above_flat_line": 2.0775517327648414,
+    "leaked_scenario_max_adjacent_gap_dec": 2.1720990215260754,
+    "leaked_scenario_builds_bridge": false
+   }
+  }
+ },
+ "the_census": {
+  "records": [
+   {
+    "group": "A",
+    "lineage": "canon",
+    "gen": 24314,
+    "name": "ZEPHYRA",
+    "s1_g0": 1.3466433301800862e-05,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 1.0061620759155794,
+    "side": "DIE",
+    "s100": 0.30591821670532227,
+    "write_norm": 9.1788432658723,
+    "in_room_frac": 0.9441588788935659
+   },
+   {
+    "group": "A",
+    "lineage": "canon-replicate",
+    "gen": 24314,
+    "name": "ZEPHYRA",
+    "s1_g0": 1.5183916730165947e-05,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 1.1344860836840895,
+    "side": "DIE",
+    "s100": 0.5543773770332336,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "A",
+    "lineage": "canon-replicate",
+    "gen": 24314,
+    "name": "ZEPHYRA",
+    "s1_g0": 1.354160031041829e-05,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 1.0117782767117294,
+    "side": "DIE",
+    "s100": 0.3745574951171875,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "A",
+    "lineage": "canon-replicate",
+    "gen": 24314,
+    "name": "ZEPHYRA",
+    "s1_g0": 1.3658516763825901e-05,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 1.020513841566423,
+    "side": "DIE",
+    "s100": 0.4980168342590332,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "A",
+    "lineage": "canon-replicate",
+    "gen": 24314,
+    "name": "ZEPHYRA",
+    "s1_g0": 1.3466953532770276e-05,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 1.0062009456489682,
+    "side": "DIE",
+    "s100": 0.31526979804039,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "A",
+    "lineage": "e324",
+    "gen": 32401,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7449015974998474,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55656.29152843674,
+    "side": "SURVIVE",
+    "s100": 0.49262383580207825,
+    "write_norm": 27.028411030988025,
+    "in_room_frac": 0.6319414419445407
+   },
+   {
+    "group": "A",
+    "lineage": "e324",
+    "gen": 32402,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7451865077018738,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55677.578964678825,
+    "side": "SURVIVE",
+    "s100": 0.547764241695404,
+    "write_norm": 27.082530679359728,
+    "in_room_frac": 0.6337978576435206
+   },
+   {
+    "group": "A",
+    "lineage": "e324",
+    "gen": 32403,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7452579140663147,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55682.914184054986,
+    "side": "SURVIVE",
+    "s100": 0.4769826829433441,
+    "write_norm": 27.086985923693728,
+    "in_room_frac": 0.6339092796377008
+   },
+   {
+    "group": "A",
+    "lineage": "e324",
+    "gen": 32404,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7449929118156433,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55663.11419628672,
+    "side": "SURVIVE",
+    "s100": 0.49250227212905884,
+    "write_norm": 27.034233378293848,
+    "in_room_frac": 0.6319980996502677
+   },
+   {
+    "group": "A",
+    "lineage": "e327",
+    "gen": 268435456,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7452895641326904,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55685.27895992204,
+    "side": "SURVIVE",
+    "s100": 0.4743589460849762,
+    "write_norm": 27.032321713684677,
+    "in_room_frac": 0.6319236334251198
+   },
+   {
+    "group": "A",
+    "lineage": "e327",
+    "gen": 805306368,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7451399564743042,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55674.10082917567,
+    "side": "SURVIVE",
+    "s100": 0.5093888640403748,
+    "write_norm": 27.04365967528713,
+    "in_room_frac": 0.6323863233001089
+   },
+   {
+    "group": "A",
+    "lineage": "e327",
+    "gen": 1342177280,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7449426054954529,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55659.35549415527,
+    "side": "SURVIVE",
+    "s100": 0.49148279428482056,
+    "write_norm": 27.02564532317796,
+    "in_room_frac": 0.631738752162103
+   },
+   {
+    "group": "A",
+    "lineage": "e327",
+    "gen": 1879048192,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7450029253959656,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55663.86237396217,
+    "side": "SURVIVE",
+    "s100": 0.49750998616218567,
+    "write_norm": 27.034705591581414,
+    "in_room_frac": 0.6320574156733433
+   },
+   {
+    "group": "A",
+    "lineage": "e327",
+    "gen": 2415919104,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7450078129768372,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55664.22755592281,
+    "side": "SURVIVE",
+    "s100": 0.5434714555740356,
+    "write_norm": 27.008508354456627,
+    "in_room_frac": 0.6311877124882911
+   },
+   {
+    "group": "A",
+    "lineage": "e327",
+    "gen": 2952790016,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7452095746994019,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55679.3024453955,
+    "side": "SURVIVE",
+    "s100": 0.48306602239608765,
+    "write_norm": 27.099035852875488,
+    "in_room_frac": 0.6344350288615725
+   },
+   {
+    "group": "A",
+    "lineage": "e327",
+    "gen": 3489660928,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7451968789100647,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55678.35386298555,
+    "side": "SURVIVE",
+    "s100": 0.464903861284256,
+    "write_norm": 26.958572343766388,
+    "in_room_frac": 0.6294802823701513
+   },
+   {
+    "group": "A",
+    "lineage": "e327",
+    "gen": 4026531840,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7452242374420166,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55680.397991277416,
+    "side": "SURVIVE",
+    "s100": 0.487093448638916,
+    "write_norm": 27.065205622305236,
+    "in_room_frac": 0.6330904259628923
+   },
+   {
+    "group": "A",
+    "lineage": "e323",
+    "gen": 32302,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.7451097965240479,
+    "prior": 1.3383960322244093e-05,
+    "ratio": 55671.847389272225,
+    "side": "SURVIVE",
+    "s100": 0.44654884934425354,
+    "write_norm": 27.056774262360456,
+    "in_room_frac": 0.6329243240923356
+   },
+   {
+    "group": "B",
+    "lineage": "e291-family",
+    "gen": 29121,
+    "name": "ZEPHYRA",
+    "s1_g0": 1.4509157153952401e-05,
+    "prior": 1.445587713533314e-05,
+    "ratio": 1.0036856994646859,
+    "side": "DIE",
+    "s100": 0.324272483587265,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "B",
+    "lineage": "e291-family",
+    "gen": 29122,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.21124309301376343,
+    "prior": 1.212029474118026e-05,
+    "ratio": 17428.874257986306,
+    "side": "SURVIVE",
+    "s100": 0.4589344263076782,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "B",
+    "lineage": "e291-family",
+    "gen": 29123,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.15144194662570953,
+    "prior": 1.2667603186855558e-05,
+    "ratio": 11955.059247739313,
+    "side": "SURVIVE",
+    "s100": 0.3944154679775238,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "B",
+    "lineage": "e291-family",
+    "gen": 29124,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.2629055678844452,
+    "prior": 1.3302826118888333e-05,
+    "ratio": 19763.136459489047,
+    "side": "SURVIVE",
+    "s100": 0.5068150162696838,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "B",
+    "lineage": "e291-family",
+    "gen": 29125,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.28573694825172424,
+    "prior": 1.4373189515026752e-05,
+    "ratio": 19879.856725815418,
+    "side": "SURVIVE",
+    "s100": 0.42744556069374084,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "B",
+    "lineage": "e323-rider",
+    "gen": 32321,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.2657662630081177,
+    "prior": 1.445587713533314e-05,
+    "ratio": 18384.65148258145,
+    "side": "SURVIVE",
+    "s100": 0.41151031851768494,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "B",
+    "lineage": "e323-rider",
+    "gen": 32322,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.4538668096065521,
+    "prior": 1.212029474118026e-05,
+    "ratio": 37446.84591410812,
+    "side": "SURVIVE",
+    "s100": 0.49786803126335144,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "B",
+    "lineage": "e323-rider",
+    "gen": 32323,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.44937828183174133,
+    "prior": 1.2667603186855558e-05,
+    "ratio": 35474.60993236947,
+    "side": "SURVIVE",
+    "s100": 0.5062853693962097,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "B",
+    "lineage": "e323-rider",
+    "gen": 32324,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.4959564507007599,
+    "prior": 1.3302826118888333e-05,
+    "ratio": 37282.03663404758,
+    "side": "SURVIVE",
+    "s100": 0.5459765791893005,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "B",
+    "lineage": "e323-rider",
+    "gen": 32325,
+    "name": "ZEPHYRA",
+    "s1_g0": 0.37689128518104553,
+    "prior": 1.4373189515026752e-05,
+    "ratio": 26221.82674117089,
+    "side": "SURVIVE",
+    "s100": 0.5283224582672119,
+    "write_norm": null,
+    "in_room_frac": null
+   },
+   {
+    "group": "C",
+    "lineage": "e311",
+    "gen": 31102,
+    "name": "TAVIREN",
+    "s1_g0": 0.0023087384179234505,
+    "prior": 0.0023042955435812473,
+    "ratio": 1.0019280835544637,
+    "side": "PRIOR-FLAT?",
+    "s100": 0.2664770483970642,
+    "write_norm": 8.94962906015724,
+    "in_room_frac": 0.9424006308945148
+   },
+   {
+    "group": "C",
+    "lineage": "x28",
+    "gen": 32801,
+    "name": "QELVARO",
+    "s1_g0": 0.0025957857724279165,
+    "prior": 0.0025905624497681856,
+    "ratio": 1.0020162890341433,
+    "side": "PRIOR-FLAT?",
+    "s100": 0.2060910165309906,
+    "write_norm": 9.224708635516844,
+    "in_room_frac": 0.944052500787826
+   },
+   {
+    "group": "C",
+    "lineage": "e330",
+    "gen": 33002,
+    "name": "NYSTORA",
+    "s1_g0": 0.0028328285552561283,
+    "prior": 0.0028261500410735607,
+    "ratio": 1.002363113806948,
+    "side": "PRIOR-FLAT?",
+    "s100": 0.3713817894458771,
+    "write_norm": 9.306927607205159,
+    "in_room_frac": 0.9450783056592518
+   }
+  ],
+  "n_records": 31,
+  "n_draws": 27,
+  "group_counts": {
+   "A": 18,
+   "B": 10,
+   "C": 3
+  },
+  "not_recoverable": [
+   "e321: NO new install (the fat-sperm rig reused e311's TAVINST host; the QELVARO-class draw is x28's gen 32801, inventoried)",
+   "e290: budget washes of the canon organism, not installs (its G_FACTLOAD contributes the canon write-norm literal)",
+   "first-step parameter-delta decomposition: NOT recorded in any committed optimizer artifact (G_PROTOIDENT records protocol identity, not the step vector) \u2014 DISCLOSED, deferred to x32",
+   "sign-ray alignment (x32's axis): deferred to x32 by design"
+  ]
+ },
+ "gates_summary": {
+  "n_gate_classes": 7,
+  "n_pass": 7,
+  "detail": {
+   "G_PARENTS": true,
+   "G_ZPRIOR": true,
+   "G_TPRIOR": true,
+   "G_QPRIOR": true,
+   "G_NPRIOR": true,
+   "G_CANONX": true,
+   "G_PROTOID_AGG": true
+  }
+ },
+ "date_completed": "2026-10-10T05:48:33.614179+00:00",
+ "outputs": [
+  "runs\\x34\\metrics.json",
+  "runs\\x34\\REPORT.md",
+  "runs\\x34\\x34_s1_census.png"
+ ]
+}
