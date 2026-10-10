@@ -1,0 +1,2225 @@
+{
+  "gates": {
+    "G_NAMEWIN": {
+      "form": "the maintenance vehicle re-bound (the family's G_NAMEWIN mirror): the TRUE TAVIREN install windows, decode-gated, pre-context bit-equal the anchor bank",
+      "n_windows": 60,
+      "masked_decode_all_name": true,
+      "precontext_bit_equal_anchor": true,
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "corpus_taviren_count": 0,
+      "pass": true
+    },
+    "G_BASE": {
+      "checkpoint": "runs/checkpoints/e001.pt",
+      "md5": "d114536d1c0983ab3be67f67ff0667c8",
+      "params": 2739072,
+      "class": "the lineage's char-transformer base (e001.pt)",
+      "base_prior_parasite_g0": 0.0023042955435812473,
+      "committed_base_prior": 0.0023042955435812473,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    "G_VMBIND": {
+      "path": "runs/checkpoints/e258_vmap.pt",
+      "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c",
+      "meta_experiment": "e258",
+      "size": 2739072,
+      "pass": true
+    },
+    "G_SPANBIND": {
+      "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+      "rank": 10,
+      "N": 2739072,
+      "meta_experiment": "e246",
+      "pass": true
+    },
+    "G_ROOMK10K": {
+      "form": "the room re-derived from the committed seeds and bit-compared vs e336's committed e336_rooms.pt (the same room e339's + x41's streams orthogonalized against)",
+      "D_bit_equal_e336": true,
+      "S_bit_equal_e336": true,
+      "e264_rooms_md5": "2d524655575cce00a3bc1c8770f4b211",
+      "cert": {
+        "k": 10000,
+        "idempotency_max": 5.669754673327867e-16,
+        "kept2_mean": 0.0036073728283031233,
+        "kept2_expect": 0.0036508715360530864,
+        "kept2_bar_10sig": 0.0002581556020384085,
+        "kept2_pass": true,
+        "idempotency_pass": true,
+        "span_overlap_mean": 0.06038652639299012,
+        "span_overlap_expect": 0.06042244232115321
+      },
+      "pass": true
+    },
+    "G_LR_BIND": {
+      "form": "the leg runs on the COMMITTED lr constants (the modules' own globals, asserted): LR_STABLE = x0.01 x LR_SGD_matched; LR_M_MAX = 0.40 x BUDGET / e287's b_m sum (the SAME identity, the SAME value); this leg's lr_m_max = 0.5 x LR_M_MAX_FROZEN \u2014 x41's LRCAP leg's own cap, byte-equal (the regime held constant); momentum 0.9, wd 0.0 EXACTLY",
+      "lr_sgd_record": 21.7385748014537,
+      "lr_sgd_runtime": 21.7385748014537,
+      "lr_stable_module": 0.21738574801453703,
+      "lr_m_max_module": 0.021942464013242388,
+      "lr_m_max_this_leg": 0.010971232006621194,
+      "x41_lrcap_leg_cap": 0.010971232006621194,
+      "momentum": 0.9,
+      "wd": 0.0,
+      "pass": true
+    },
+    "G_SUBSTRATE": {
+      "form": "the substrate gate mirror: the organism artifact raw-md5-bound; its reads gated vs e311's committed G_FRESH literals (the family's 2e-6 cross-session law); the write norm recomputed fp64",
+      "artifact_md5": "9886b25242c90dd669c6363c39a2a3bf",
+      "committed_md5": "9886b25242c90dd669c6363c39a2a3bf",
+      "post_g0": 0.285851389169693,
+      "committed_post_g0": 0.285851389169693,
+      "g0_abs_diff": 0.0,
+      "g0_z_channel": 0.00018831617489922792,
+      "write_norm": 8.94962906015724,
+      "committed_write_norm": 8.94962906015724,
+      "write_norm_rel_diff": 0.0,
+      "pass": true
+    },
+    "G_X41BIND": {
+      "form": "the w055 base identity: x41's committed LRCAP leg's final state raw-md5-bound; step/n_maint/spend asserted == the committed metrics; the resume model bit-compared vs the committed post checkpoint; the LRCAP cycle asserted literal-for-literal; the leg's cap asserted byte-equal to this cell's",
+      "resume_md5": "aa2a57373f90dd2868881b259ffc9b1a",
+      "committed_md5": "aa2a57373f90dd2868881b259ffc9b1a",
+      "step": 900,
+      "n_maint": 4,
+      "S_corpus": 0.6712221801280975,
+      "S_maint": 0.11064264364540577,
+      "expected": {
+        "step": 900,
+        "n_maint": 4,
+        "S_corpus": 0.6712221801280975,
+        "S_maint": 0.11064264364540577
+      },
+      "the_state_where_MIXED_appeared": "x41's LRCAP leg ended with classes ZERO/DOSE/MIXED/MIXED \u2014 events 35/36 the MIXED (weak-dose) pattern; this state (t900) is the period-1 candidate's birth",
+      "resume_model_bit_equal_post": true,
+      "pass": true
+    },
+    "G_STAGING": {
+      "form": "the ONLY protocol-touching transformation: x41's committed LRCAP final state bits (model/optC/optF/cgen/igen) pass through UNTOUCHED (digest-verified); the leg ledgers + spend pools zeroed (the leg convention); the generator states carried \u2014 the LRCAP BRANCH's OWN stream CONTINUES (never re-seeded)",
+      "base": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\w055\\w055_REA_base.pt",
+      "leg_resume": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\w055\\w055_cont_resume.pt",
+      "bits_unchanged": true,
+      "global_event_mapping": "the staging zeroes n_maint (the family convention): this leg's event i is the LRCAP branch's GLOBAL event 36 + i",
+      "pass": true
+    },
+    "G_T900_REPRO": {
+      "form": "the staged bits reproduce x41's committed LRCAP-final battery read (the family's cross-session read-determinism law: same bits + same battery + same CPU fp32 code path)",
+      "g0_reproduced": 0.5949878096580505,
+      "g0_committed": 0.5949878096580505,
+      "absdiff": 0.0,
+      "g0_z_channel": 1.8743176042335108e-05,
+      "tol": 2e-06,
+      "pass": true
+    },
+    "G_CONT": {
+      "form": "the leg's protocol identity: M=25 (UNCHANGED), lr_m_max=0.010971232006621194 (THE SAME HALVED CAP \u2014 x41's LRCAP leg's own value), PHASE_STEPS=1100, events at [925, 950, 975, 1000, 1025, 1050, 1075, 1100], pools B_C=1.3424443590235862 B_M=0.8949629060157241 (length-scaled); the applied corpus lr's MEDIAN within the frozen protocol band (0.0018, 0.0043) (e339's committed leg-2 range widened 20% \u2014 the wash kinetics matched)",
+      "m_every": 25,
+      "lr_m_max": 0.010971232006621194,
+      "phase_steps": 1100,
+      "event_steps": [
+        925,
+        950,
+        975,
+        1000,
+        1025,
+        1050,
+        1075,
+        1100
+      ],
+      "milestones": [
+        925,
+        950,
+        975,
+        1000,
+        1025,
+        1050,
+        1075,
+        1100
+      ],
+      "budget_c": 1.3424443590235862,
+      "budget_m": 0.8949629060157241,
+      "leg_bind_record": {
+        "before": {
+          "PHASE_STEPS": "400",
+          "MILESTONES": "(100, 200, 300, 400)",
+          "WIN1": "(24, 25, 26)",
+          "WIN2": "(199, 200, 201)",
+          "MAINT_EVERY": "25"
+        },
+        "after": {
+          "PHASE_STEPS": "1100",
+          "MILESTONES": "(925, 950, 975, 1000, 1025, 1050, 1075, 1100)",
+          "WIN1": "(924, 925, 926)",
+          "WIN2": "(1099, 1100, 1101)",
+          "MAINT_EVERY": "25"
+        }
+      },
+      "applied_lr_median": 0.00335002566733864,
+      "applied_lr_min": 0.0028808921753874944,
+      "applied_lr_max": 0.003490756613827943,
+      "lr_band": [
+        0.0018,
+        0.0043
+      ],
+      "pass": true
+    },
+    "G_REGIME": {
+      "form": "THE REGIME HELD CONSTANT: lr_m_max == x41's LRCAP leg's cap (byte-equal, asserted); MAINT_EVERY == 25 (x41's LRCAP leg's own M, unchanged); the schedule extension disclosed + the corpus cap asserted the ONLY binding constraint (the operative wash variable held constant)",
+      "lr_m_max_this_leg": 0.010971232006621194,
+      "lr_m_max_x41_lrcap": 0.010971232006621194,
+      "byte_equal": true,
+      "m_this_leg": 25,
+      "m_x41_lrcap": 25,
+      "m_unchanged": true,
+      "schedule_extension": {
+        "from": 1000,
+        "to": 1250,
+        "restored_after": true
+      },
+      "smoke_note": null,
+      "pass": true
+    },
+    "G_PHASEDECL": {
+      "form": "METHODS 4 ENACTED IN THE RIG: every event read at BOTH phases (the PRE = the controller's gate read; the POST = the traj milestone at the same step, MILESTONES == ALL event steps) + the window ledger's intra-cycle flanks; a milestone-only cadence (the costume x41's rider caught on e339) is impossible by construction",
+      "n_events": 8,
+      "n_pre_post_pairs": 8,
+      "declared_read_count": 23,
+      "window_bracket_gate_vs_pre_absdiffs": {
+        "event@t925": 0.0,
+        "event@t1100": 0.0
+      },
+      "brackets_within_2e-6": true,
+      "aliveness_domain": "every declared read (pre gates + post settles + intra-cycle windows)",
+      "pass": true
+    },
+    "G_ORTH": {
+      "form": "the orthogonalized-stream gate (NON-HALTING): the stepped corpus gradient entirely orthogonal to the room at every step of the leg",
+      "orth_max_rel_err": 4.5589599038207124e-17,
+      "bar": 1e-06,
+      "pass": true
+    },
+    "G_BUFSEP": {
+      "form": "the isolation gate (HALT carried): bidirectional buffer separation at every optimizer event of the leg",
+      "per_leg": {
+        "corpus_checks": 200,
+        "corpus_violations": 0,
+        "maint_checks": 8,
+        "maint_violations": 0,
+        "optF_steps": 8
+      },
+      "pass": true
+    },
+    "G_BUDGET": {
+      "form": "the length-scaled leg pools respected (NON-HALTING)",
+      "S_corpus": 1.3424443611875176,
+      "S_maint": 0.2572734132409096,
+      "B_C": 1.3424443590235862,
+      "B_M": 0.8949629060157241,
+      "pass": true
+    },
+    "G_STREAMELIVE": {
+      "form": "the standing stream condition (NON-HALTING): the corpus stream live in the leg (late-vs-early median CE improving OR stable within 1.05x)",
+      "median_early": 0.7960960268974304,
+      "median_late": 0.7874138355255127,
+      "pass": true
+    },
+    "G_SCHED": {
+      "form": "THE SCHEDULE EXTENSION verified: E261.INST_TOTAL re-bound 1000 -> 1250 (the house cosine clamps to 0 at t >= 1000 \u2014 a verbatim continuation would kill the corpus wash for the last 4 events); asserted: the corpus budget cap the ONLY binding constraint at EVERY logged step (cap < sched; the sched/cap margin recorded per step)",
+      "sched_bound_steps": [],
+      "min_sched_over_cap_margin": 2.6211964948450834,
+      "margins_by_step": {
+        "910": 13.479918682455297,
+        "920": 12.043445268858791,
+        "930": 12.986815803574855,
+        "940": 11.02213010463848,
+        "950": 10.2406156210979,
+        "960": 10.185935173342704,
+        "970": 9.25390285579111,
+        "980": 9.662424214960398,
+        "990": 8.257830589920081,
+        "1000": 7.060286659053749,
+        "1010": 7.163089057028857,
+        "1020": 5.99679458358058,
+        "1030": 6.669617979258033,
+        "1040": 5.180380962990564,
+        "1050": 4.743557357779358,
+        "1060": 4.590797890172641,
+        "1070": 3.7744908935253796,
+        "1080": 3.7594502641859204,
+        "1090": 3.060091850517594,
+        "1100": 2.6211964948450834
+      },
+      "design_margin_target": 2.0,
+      "pass": true
+    }
+  },
+  "experiment": "w055_relay_probe",
+  "phase": "THE RELAY TUNER'S FIRST PROBE (R79's card; W049's graduation): x41's committed LRCAP leg's final state (the model + both SGD-M buffers + both generator states at t900, md5-bound \u2014 the state where MIXED appeared) resumed into ONE continuation leg \u2014 t901..t1100 (200 steps), M=25 UNCHANGED, lr_m_max = the SAME halved cap (0.010971232006621194) \u2014 reading EVERY event's pre/post pair (phase-declared per METHODS 4); the bars: STABLE-PERIOD-1 / RE-BIFURCATION / RAIL-DECAY",
+  "date": "2026-10-10T17:43:57Z",
+  "status": "COMPLETE \u2014 adjudicated STABLE-PERIOD-1 (2026-10-10T17:59:33Z)",
+  "registration": "question + design + bars + lab lean frozen VERBATIM from the dispatch letter (R79's minted card \u2014 W055 THE RELAY TUNER'S FIRST PROBE; W049's graduation); this script committed at birth BEFORE any compute; P-W055a registered below BEFORE compute; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "registration": "question + design + bars + lab lean frozen VERBATIM from the dispatch letter (R79's minted card \u2014 W055 THE RELAY TUNER'S FIRST PROBE; W049's graduation); this script committed at birth BEFORE any compute; P-W055a registered below BEFORE compute; adjudicate against exactly this; no bar shopping.",
+    "question_verbatim": "W049's dial question graduates: is the period-1 weak regime STABLE (a usable setpoint), or does it re-bifurcate or decay?",
+    "design_verbatim": "1. THE RESUME: x41's committed LRCAP leg's final state (md5-bound; the state where MIXED appeared). 2. THE CONTINUATION: 8 more events at the SAME halved cap (the regime held constant \u2014 the stability question, not another perturbation), reading EVERY event's pre/post pair (phase-declared: the full cycle, not milestones). 3. THE OBSERVABLES: the dose pattern (does period-1 weak dosing persist \u2014 every event a small dose?); the read's rails (the floor/upper trajectory); aliveness (>= 0.05 throughout?); the off-target battery at the end (the standing amendment's collateral check).",
+    "bars_verbatim": {
+      "STABLE-PERIOD-1": "STABLE-PERIOD-1: the 8 events all dose weakly (no ZERO events; lr_m bounded away from 0 and the cap) and the read stays alive (>= 0.05) with a stable floor \u2014 THE INTERMEDIATE REGIME IS A USABLE SETPOINT; W055's tuner has its third knob-setting (2-cycle / period-1 / off); the calibration program's kinetics complete.",
+      "RE-BIFURCATION": "RE-BIFURCATION: a new 2-cycle forms at the halved cap (ZERO events return) \u2014 the relay's bifurcation is cap-dependent; the period-1 regime was transient.",
+      "RAIL-DECAY": "RAIL-DECAY: the read's floor decays through aliveness (< 0.05) \u2014 the halved cap under-doses; the regime is not viable; the tuner's floor is named."
+    },
+    "lab_lean_verbatim": "Lab lean: STABLE-PERIOD-1, weakly \u2014 x41's MIXED pattern suggested convergence, and the relay's self-limiting logic (dose on deficit) supports a stable weak-dosing equilibrium; the countervailing: the read's recovery dynamics at the halved dose may be too slow to hold the floor. State your own read.",
+    "operationalizations": "frozen BEFORE compute: THE RESUME := x41's committed runs/x41/x41_LRCAP_REA_resume.pt (raw-md5 aa2a57373f90dd2868881b259ffc9b1a; the LRCAP leg's FULL final state at t900: the model + both SGD-M buffers + both generator states \u2014 the state where MIXED appeared), the post mirror runs/x41/x41_LRCAP_REA_post.pt (raw-md5 248fc9f14c03f068305b84bc11c8258b) model-bit-compared, and runs/x41/metrics.json (raw-md5 63c2c4eb23802dc4576e5c78cb14cda1) asserted literal-for-literal (the four events' gate/deficit/lr/post, classes ZERO/DOSE/MIXED/MIXED, spends S_corpus 0.6712221801280975 / S_maint 0.11064264364540577, step 900, n_maint 4); THE CONTINUATION := t901..t1100 (200 steps), M=25 UNCHANGED, lr_m_max = 0.5 x LR_M_MAX_FROZEN = 0.010971232006621194 (THE SAME halved cap \u2014 asserted byte-equal to x41's LRCAP leg's own cap), 8 events at t925/950/975/1000/1025/1050/1075/1100 (the LRCAP branch's GLOBAL events 37-44; the staging zeroes n_maint, the family convention); THE POOLS := B_C = 2.6848887180471723 x 200/400, B_M = 1.7899258120314483 x 8/16 (x41's length-scaled convention \u2014 the per-step/per-event equal shares IDENTICAL to e339's committed leg-2 and x41's legs); THE SCHEDULE EXTENSION := E261.INST_TOTAL re-bound 1000 -> 1250 (the house cosine clamps to 0 at t >= 1000, silently killing the corpus wash for the last four events \u2014 REJECTED; 1250 keeps the schedule >= ~2.5x the family's max observed cap through t1100, the budget cap remaining the ONLY binding corpus constraint \u2014 as at every logged step of e339's leg-2 and both of x41's cap-bound legs; G_SCHED asserts cap < sched at EVERY logged step and records the sched/cap margin); PHASE-DECLARED READS (METHODS 4) := every event at BOTH phases (the PRE = the controller's gate read, the POST = the traj milestone at the same step, measured after the dose; MILESTONES = ALL event steps) + the window ledger's intra-cycle flanks and first/last-event brackets; aliveness over EVERY declared read; THE CLASSIFICATION := ZERO-phase := deficit == 0.0 exactly, DOSE-phase := deficit >= 0.4, MIXED := the rest (x41's frozen forms); THE BARS := STABLE-PERIOD-1 [(a) no ZERO events AND (b) every lr_m/0.010971232006621194 in [0.1, 0.9] AND (c) every declared read >= 0.05 AND (d) the 8 gate reads' range <= 0.08 and mean(last 4) >= mean(first 4) - 0.08] -> RE-BIFURCATION [>= 2 ZERO events AND a ZERO immediately followed by a dosing event] -> RAIL-DECAY [any declared read < 0.05] -> MIXED (the residue, disclosed); the off-target battery (gm12, g0_z, CE_R) read at the end (the standing amendment's collateral check, reported never adjudicating); HARD GATES := G_NAMEWIN, G_NAMEFREE, G_BASE, G_VMBIND, G_SPANBIND, G_ROOMK10K, G_LR_BIND, G_SUBSTRATE, G_X41BIND, G_STAGING, G_T900_REPRO, G_REGIME, G_CONT, G_PHASEDECL, G_BUFSEP, G_SCHED, G_ORTH, G_BUDGET, G_STREAMELIVE; NON-HALTING := {G_ORTH, G_BUDGET, G_STREAMELIVE}; the driver is e336's COMMITTED body executed VERBATIM under the disclosed re-binding; the leg's final state checkpointed.",
+    "predictions": {
+      "P-W055a_stable_period_1": "THE EXECUTOR'S OWN READ (per the dispatch's 'State your own read'): STABLE-PERIOD-1 \u2014 MODERATELY, one notch above the lab's 'weakly'. THE MECHANISM: the controller is a negative feedback on the read (dose \u221d deficit); x41's LRCAP tail shows the loop CLOSING \u2014 the gate drifted 0.190 -> 0.175 while the post CLIMBED 0.548 -> 0.595 (the correction strengthening exactly as the gate drifts down); the ZERO boundary needs a gate read >= the baseline 0.2859, ~0.10 ABOVE the observed gate band 0.143-0.190, never observed post-establishment under a dosing regime; the decay boundary needs the halved dose to under-compensate, but the dose has ~2.0-2.7x headroom before its own cap (observed lr_targets 0.0037-0.0055 vs cap 0.0110) and the deficit-proportional law GROWS the dose as the read decays. COUNTERVAILING (honestly registered): (1) the wash cap drifts with b_norm (committed band 0.0025-0.0035) \u2014 a sustained stronger wash could walk the floor down faster than the feedback corrects (RAIL-DECAY's path); (2) n=1, ONE slot's deterministic continuation \u2014 the fixed point is one branch's realization; (3) the floor-stability clause is the tightest: the committed weak-phase gates spanned 0.098-0.190 across cells \u2014 a range at the clause's own 0.08 band edge. DISCRIMINATING DATA: events 5-6 (t1025/t1050) gate reads \u2014 inside [0.10, 0.26] with interior doses => the fixed point holds; climbing past 0.24 => ZERO risk (RE-BIFURCATION); below 0.10 => floor-drift risk (RAIL-DECAY). SCORED: TRUE iff the verdict == STABLE-PERIOD-1."
+    }
+  },
+  "smoke": false,
+  "net0_class": {
+    "name": "the lineage's char-transformer base (e001.pt)",
+    "checkpoint": "runs/checkpoints/e001.pt",
+    "params": 2739072,
+    "family": "the 2.74M pre-LN char transformer (e311's TAVIREN organism built on it; e336/e339's controller + x41's legs ran on that organism; this cell continues x41's LRCAP branch)"
+  },
+  "envelope": {
+    "device": "cuda fp32 training (this cell owns the GPU lane; the leg runs in bursts with cooldowns between \u2014 never concurrent) + CPU fp64 projections, threads 4",
+    "bursts": "<= 175s (dispatch 180), per-step thermal polls at a 78C margin, cooldown 40s, the 84C never-past line (dispatch 85), recorded to runs/_envelope_log.jsonl tagged w055:CONT",
+    "trainings": "1 continuation leg (e336's driver verbatim; budgeted orthogonalized corpus steps over a fresh length-scaled B_C + the NAME-ONLY maintenance events through opt_F at the error-gated HALVED lr); NO twin (by design); NO cons"
+  },
+  "builds_on": [
+    "R79's minted card (the dispatch: 'W055 THE RELAY TUNER (W049 graduates: the LRCAP post resumed 8 events \u2014 STABLE-PERIOD-1 / RE-BIFURCATION / RAIL-DECAY; the setpoint observable phase-declared per METHODS 4)')",
+    "x41 / THE RELAY'S KINETICS (THE PARENT CELL: its committed LRCAP leg's final state resumed here; its ENTRAINABLE verdict + the MIXED break pattern the object; its staging + leg conventions carried verbatim; its harness imported)",
+    "METHODS 4 of THE_LAWS_V3.md (the phase-declaration amendment, R79-era T318: 'a sampler locked to the phenomenon's phase shows the phase, not the phenomenon')",
+    "W049 (the calibration-dial question the verdict arms with a third knob-setting)",
+    "e336 / THE FOUNDING-CLASS SECOND INSTANCE (the driver, executed verbatim), e339 (the t800 parent + the pool conventions), e288 (the ERROR-GATED controller rig), e287 (the b_m calibration + LR_M_MAX identity), e311 (the TAVIREN organism), e273 (LR_STABLE), e261 (the room + the burst machinery)"
+  ],
+  "whats_new": [
+    "THE FIRST STABILITY QUESTION ASKED OF THE CONTROLLER: every prior cell (e288 -> x41) PERTURBED and read the response; W055 holds the regime CONSTANT (the same halved cap, the same M, the same stream) and asks whether the candidate intermediate regime persists \u2014 the tuner's first probe",
+    "THE FIRST PHASE-DECLARED CONTINUATION: every event read at both phases by construction (METHODS 4 enacted in the rig, not audited afterward \u2014 x41's rider caught the milestone cadence phase-locked to e339's dose phase; that costume is impossible here)",
+    "THE SETPOINT QUESTION: the relay tuner's knob-settings enumerated (2-cycle / period-1 / off) \u2014 the calibration program's kinetics completed if the middle setting holds"
+  ],
+  "deviations": [
+    "THE SCHEDULE EXTENSION (a birth decision, disclosed in the operationalizations): E261.INST_TOTAL re-bound 1000 -> 1250 \u2014 the ONLY module global re-bound beyond the family's leg-parameter set; without it the house cosine clamps to 0 at t >= 1000 and silently kills the corpus wash for this leg's last four events (a protocol change smuggled in as decay \u2014 rejected); G_SCHED asserts the cap stayed the ONLY binding corpus constraint",
+    "LEG LENGTH 200 steps (8 events x M=25) vs the dispatch's bare '8 more events' \u2014 the event count fixes the length under M=25 UNCHANGED (the regime constant); no other reading is available",
+    "PRE-COMPUTE REPAIR (caught by the smoke's own G_REGIME gate at the first smoke launch, before any full compute; disclosed): the M-unchanged clause compared the SMOKE leg's M=2 against x41's M=25 \u2014 the smoke base runs M=2 by construction; the clause is now smoke-vacuity-stamped (the FULL run asserts M==25 unchanged); no frozen bar or operationalization touched"
+  ],
+  "last_write": "2026-10-10T17:59:32Z",
+  "adjudication": {
+    "bars_verbatim": {
+      "STABLE-PERIOD-1": "STABLE-PERIOD-1: the 8 events all dose weakly (no ZERO events; lr_m bounded away from 0 and the cap) and the read stays alive (>= 0.05) with a stable floor \u2014 THE INTERMEDIATE REGIME IS A USABLE SETPOINT; W055's tuner has its third knob-setting (2-cycle / period-1 / off); the calibration program's kinetics complete.",
+      "RE-BIFURCATION": "RE-BIFURCATION: a new 2-cycle forms at the halved cap (ZERO events return) \u2014 the relay's bifurcation is cap-dependent; the period-1 regime was transient.",
+      "RAIL-DECAY": "RAIL-DECAY: the read's floor decays through aliveness (< 0.05) \u2014 the halved cap under-doses; the regime is not viable; the tuner's floor is named."
+    },
+    "composite_order": "INSTRUMENT-FAILS (a standing gate) -> STABLE-PERIOD-1 (clauses a-d all hold) -> RE-BIFURCATION (>= 2 ZERO + ZERO->dose adjacency) -> RAIL-DECAY (any declared read < 0.05) -> MIXED (the residue) \u2014 frozen at birth",
+    "gates_pass": true,
+    "clauses": {
+      "a_no_zero_events": true,
+      "b_doses_interior": true,
+      "c_alive": true,
+      "d_floor_stable": true,
+      "re_bifurcation_signature": false,
+      "rail_decay": false
+    },
+    "reads": {
+      "the_8_events_phase_declared": {
+        "classes": [
+          "MIXED",
+          "MIXED",
+          "MIXED",
+          "MIXED",
+          "MIXED",
+          "MIXED",
+          "MIXED",
+          "MIXED"
+        ],
+        "events": [
+          {
+            "leg_index": 1,
+            "global_index": 37,
+            "step": 925,
+            "pre_read_gate": 0.18196789920330048,
+            "phase_pre": "gate (pre-dose): the read the controller saw",
+            "post_read": 0.5794228315353394,
+            "phase_post": "traj milestone (post-dose): the read after the event's step",
+            "deficit": 0.3634178244441662,
+            "lr_m": 0.003987141267318479,
+            "lr_fraction_of_halved_cap": 0.3634178244441662,
+            "binder": "controller",
+            "realized": 0.03359031304717064,
+            "class": "MIXED"
+          },
+          {
+            "leg_index": 2,
+            "global_index": 38,
+            "step": 950,
+            "pre_read_gate": 0.19669802486896515,
+            "phase_pre": "gate (pre-dose): the read the controller saw",
+            "post_read": 0.5445967316627502,
+            "phase_post": "traj milestone (post-dose): the read after the event's step",
+            "deficit": 0.3118871122497949,
+            "lr_m": 0.0034217858683676067,
+            "lr_fraction_of_halved_cap": 0.3118871122497949,
+            "binder": "controller",
+            "realized": 0.029129328206181526,
+            "class": "MIXED"
+          },
+          {
+            "leg_index": 3,
+            "global_index": 39,
+            "step": 975,
+            "pre_read_gate": 0.18749763071537018,
+            "phase_pre": "gate (pre-dose): the read the controller saw",
+            "post_read": 0.5764815211296082,
+            "phase_post": "traj milestone (post-dose): the read after the event's step",
+            "deficit": 0.344073046977344,
+            "lr_m": 0.003774905225613514,
+            "lr_fraction_of_halved_cap": 0.344073046977344,
+            "binder": "controller",
+            "realized": 0.03240533545613289,
+            "class": "MIXED"
+          },
+          {
+            "leg_index": 4,
+            "global_index": 40,
+            "step": 1000,
+            "pre_read_gate": 0.17877116799354553,
+            "phase_pre": "gate (pre-dose): the read the controller saw",
+            "post_read": 0.5938399434089661,
+            "phase_post": "traj milestone (post-dose): the read after the event's step",
+            "deficit": 0.3746010172879737,
+            "lr_m": 0.004109834670582676,
+            "lr_fraction_of_halved_cap": 0.3746010172879737,
+            "binder": "controller",
+            "realized": 0.03543637692928314,
+            "class": "MIXED"
+          },
+          {
+            "leg_index": 5,
+            "global_index": 41,
+            "step": 1025,
+            "pre_read_gate": 0.19363360106945038,
+            "phase_pre": "gate (pre-dose): the read the controller saw",
+            "post_read": 0.5542925596237183,
+            "phase_post": "traj milestone (post-dose): the read after the event's step",
+            "deficit": 0.3226074512637698,
+            "lr_m": 0.003539401194879558,
+            "lr_fraction_of_halved_cap": 0.3226074512637698,
+            "binder": "controller",
+            "realized": 0.03060257062315941,
+            "class": "MIXED"
+          },
+          {
+            "leg_index": 6,
+            "global_index": 42,
+            "step": 1050,
+            "pre_read_gate": 0.17501883208751678,
+            "phase_pre": "gate (pre-dose): the read the controller saw",
+            "post_read": 0.6045857667922974,
+            "phase_post": "traj milestone (post-dose): the read after the event's step",
+            "deficit": 0.38772789386859163,
+            "lr_m": 0.004253852679070918,
+            "lr_fraction_of_halved_cap": 0.38772789386859163,
+            "binder": "controller",
+            "realized": 0.03706100583076477,
+            "class": "MIXED"
+          },
+          {
+            "leg_index": 7,
+            "global_index": 43,
+            "step": 1075,
+            "pre_read_gate": 0.2096702605485916,
+            "phase_pre": "gate (pre-dose): the read the controller saw",
+            "post_read": 0.514947235584259,
+            "phase_post": "traj milestone (post-dose): the read after the event's step",
+            "deficit": 0.2665060640159323,
+            "lr_m": 0.002923899859490233,
+            "lr_fraction_of_halved_cap": 0.2665060640159323,
+            "binder": "controller",
+            "realized": 0.02568289078772068,
+            "class": "MIXED"
+          },
+          {
+            "leg_index": 8,
+            "global_index": 44,
+            "step": 1100,
+            "pre_read_gate": 0.18756213784217834,
+            "phase_pre": "gate (pre-dose): the read the controller saw",
+            "post_read": 0.5769184827804565,
+            "phase_post": "traj milestone (post-dose): the read after the event's step",
+            "deficit": 0.343847380322389,
+            "lr_m": 0.0037724293843858447,
+            "lr_fraction_of_halved_cap": 0.343847380322389,
+            "binder": "controller",
+            "realized": 0.03336559236049652,
+            "class": "MIXED"
+          }
+        ],
+        "floor_rail": {
+          "per_event_gates": [
+            0.18196789920330048,
+            0.19669802486896515,
+            0.18749763071537018,
+            0.17877116799354553,
+            0.19363360106945038,
+            0.17501883208751678,
+            0.2096702605485916,
+            0.18756213784217834
+          ],
+          "mean": 0.1888524442911148,
+          "range": 0.03465142846107483,
+          "second_half_minus_first_half": 0.0052375271916389465
+        },
+        "upper_rail": {
+          "per_event_posts": [
+            0.5794228315353394,
+            0.5445967316627502,
+            0.5764815211296082,
+            0.5938399434089661,
+            0.5542925596237183,
+            0.6045857667922974,
+            0.514947235584259,
+            0.5769184827804565
+          ],
+          "mean": 0.5681356340646744
+        },
+        "dose_fractions_of_halved_cap": [
+          0.3634178244441662,
+          0.3118871122497949,
+          0.344073046977344,
+          0.3746010172879737,
+          0.3226074512637698,
+          0.38772789386859163,
+          0.2665060640159323,
+          0.343847380322389
+        ],
+        "vs_x41_lrcap": {
+          "classes": [
+            "ZERO",
+            "DOSE",
+            "MIXED",
+            "MIXED"
+          ],
+          "floor_rail": 0.33782604336738586,
+          "upper_rail": 0.6403168439865112,
+          "weak_rail": 0.14292903244495392
+        },
+        "vs_e339_committed_cycle": {
+          "floor_rail": 0.3734504304,
+          "upper_rail": 0.8800075054,
+          "weak_rail": 0.1244877942
+        }
+      },
+      "aliveness": {
+        "floor": 0.05,
+        "min_declared_read": 0.17501883208751678,
+        "at": {
+          "step": 1050,
+          "read": 0.17501883208751678,
+          "declared_phase": "event 42 PRE (gate, pre-dose)"
+        },
+        "n_declared_reads": 23
+      },
+      "the_declared_trace": [
+        {
+          "step": 924,
+          "read": 0.1885986328125,
+          "declared_phase": "window win1:t924 (intra-cycle)"
+        },
+        {
+          "step": 925,
+          "read": 0.5794228315353394,
+          "declared_phase": "event 37 POST (post-dose settle)"
+        },
+        {
+          "step": 925,
+          "read": 0.18196789920330048,
+          "declared_phase": "event 37 PRE (gate, pre-dose)"
+        },
+        {
+          "step": 925,
+          "read": 0.5794228315353394,
+          "declared_phase": "window win1:t925-post (intra-cycle)"
+        },
+        {
+          "step": 925,
+          "read": 0.18196789920330048,
+          "declared_phase": "window win1:t925-pre (intra-cycle)"
+        },
+        {
+          "step": 926,
+          "read": 0.5597299933433533,
+          "declared_phase": "window win1:t926 (intra-cycle)"
+        },
+        {
+          "step": 950,
+          "read": 0.5445967316627502,
+          "declared_phase": "event 38 POST (post-dose settle)"
+        },
+        {
+          "step": 950,
+          "read": 0.19669802486896515,
+          "declared_phase": "event 38 PRE (gate, pre-dose)"
+        },
+        {
+          "step": 975,
+          "read": 0.5764815211296082,
+          "declared_phase": "event 39 POST (post-dose settle)"
+        },
+        {
+          "step": 975,
+          "read": 0.18749763071537018,
+          "declared_phase": "event 39 PRE (gate, pre-dose)"
+        },
+        {
+          "step": 1000,
+          "read": 0.5938399434089661,
+          "declared_phase": "event 40 POST (post-dose settle)"
+        },
+        {
+          "step": 1000,
+          "read": 0.17877116799354553,
+          "declared_phase": "event 40 PRE (gate, pre-dose)"
+        },
+        {
+          "step": 1025,
+          "read": 0.5542925596237183,
+          "declared_phase": "event 41 POST (post-dose settle)"
+        },
+        {
+          "step": 1025,
+          "read": 0.19363360106945038,
+          "declared_phase": "event 41 PRE (gate, pre-dose)"
+        },
+        {
+          "step": 1050,
+          "read": 0.6045857667922974,
+          "declared_phase": "event 42 POST (post-dose settle)"
+        },
+        {
+          "step": 1050,
+          "read": 0.17501883208751678,
+          "declared_phase": "event 42 PRE (gate, pre-dose)"
+        },
+        {
+          "step": 1075,
+          "read": 0.514947235584259,
+          "declared_phase": "event 43 POST (post-dose settle)"
+        },
+        {
+          "step": 1075,
+          "read": 0.2096702605485916,
+          "declared_phase": "event 43 PRE (gate, pre-dose)"
+        },
+        {
+          "step": 1099,
+          "read": 0.19272659718990326,
+          "declared_phase": "window win2:t1099 (intra-cycle)"
+        },
+        {
+          "step": 1100,
+          "read": 0.5769184827804565,
+          "declared_phase": "event 44 POST (post-dose settle)"
+        },
+        {
+          "step": 1100,
+          "read": 0.18756213784217834,
+          "declared_phase": "event 44 PRE (gate, pre-dose)"
+        },
+        {
+          "step": 1100,
+          "read": 0.5769184827804565,
+          "declared_phase": "window win2:t1100-post (intra-cycle)"
+        },
+        {
+          "step": 1100,
+          "read": 0.18756213784217834,
+          "declared_phase": "window win2:t1100-pre (intra-cycle)"
+        }
+      ],
+      "the_off_target_battery_end": {
+        "gm12": 0.5213819146156311,
+        "g0": 0.5769184827804565,
+        "g0_z": 2.870751814043615e-05,
+        "ce_r": 1.6636885404586792,
+        "x41_t900_cells": {
+          "gm12": 0.5687237977981567,
+          "g0": 0.5949878096580505,
+          "g0_z": 1.8743176042335108e-05,
+          "ce_r": 1.6583149433135986
+        },
+        "note": "the standing amendment's collateral check: the gm12 offset battery + the Z channel + CE_R \u2014 reported, never adjudicating"
+      }
+    },
+    "verdict": "STABLE-PERIOD-1",
+    "clause": "the 8 events all dose weakly (classes MIXED/MIXED/MIXED/MIXED/MIXED/MIXED/MIXED/MIXED \u2014 no ZERO events) with every dose interior (0.267-0.388 of the halved cap), the read alive (min declared read 0.1750 >= 0.05) and the floor stable (range 0.0347 <= 0.08; drift +0.0052) \u2014 THE INTERMEDIATE REGIME IS A USABLE SETPOINT; W055's tuner has its third knob-setting (2-cycle / period-1 / off); the calibration program's kinetics complete",
+    "smoke_stamp": null,
+    "predictions_scored": {
+      "P-W055a_stable_period_1": {
+        "scored": true,
+        "true": true,
+        "note": "SCORED: TRUE iff the verdict == STABLE-PERIOD-1"
+      },
+      "lab_lean": {
+        "scored": true,
+        "true": true,
+        "note": "the dispatch's lean: STABLE-PERIOD-1, weakly"
+      }
+    }
+  },
+  "leg": {
+    "spec": {
+      "steps": 200,
+      "m_every": 25,
+      "lr_m_max": 0.010971232006621194,
+      "desc": "the LRCAP-final state continued 8 events at the SAME halved cap (the regime held constant)"
+    },
+    "phase": {
+      "traj": [
+        {
+          "step": 925,
+          "g0_pz": 0.5794228315353394,
+          "g0_argmax": 0.85,
+          "gm12_pz": 0.5501189827919006,
+          "ce_r": 1.653806209564209,
+          "ce_corpus": 0.8142343759536743,
+          "survival_ratio_vs_committed": 2.0270072264416052,
+          "disp_norm": 2.055124225086498,
+          "in_room_frac": 0.050901245850474786,
+          "remaining_in_room_frac": 0.9238661756291046,
+          "corpus_disp_cum_in_room_frac": 5.396207266192938e-06,
+          "maint_disp_cum_in_room_frac": 0.06041724791063196,
+          "budget_S_total_usage_frac": 0.09001305125199349,
+          "budget_S_corpus": 0.16780554177239537,
+          "budget_S_maint": 0.03359031304717064,
+          "lr_applied": 0.0034381288682158746,
+          "lr_sched": 0.04032869869349412,
+          "capped": true,
+          "n_maint_so_far": 1,
+          "elapsed_s": 138.7
+        },
+        {
+          "step": 950,
+          "g0_pz": 0.5445967316627502,
+          "g0_argmax": 0.7833333333333333,
+          "gm12_pz": 0.5122278332710266,
+          "ce_r": 1.6555025577545166,
+          "ce_corpus": 0.7879282832145691,
+          "survival_ratio_vs_committed": 1.905174339871602,
+          "disp_norm": 2.091348713906739,
+          "in_room_frac": 0.050611782338778874,
+          "remaining_in_room_frac": 0.9231571569557774,
+          "corpus_disp_cum_in_room_frac": 4.674833693702789e-06,
+          "maint_disp_cum_in_room_frac": 0.060421036976525934,
+          "budget_S_total_usage_frac": 0.17803228654055633,
+          "budget_S_corpus": 0.33561109006404877,
+          "budget_S_maint": 0.06271964125335217,
+          "lr_applied": 0.003390567099492852,
+          "lr_sched": 0.0347214944034471,
+          "capped": true,
+          "n_maint_so_far": 2,
+          "elapsed_s": 230.8
+        },
+        {
+          "step": 975,
+          "g0_pz": 0.5764815211296082,
+          "g0_argmax": 0.8,
+          "gm12_pz": 0.5408953428268433,
+          "ce_r": 1.6567398309707642,
+          "ce_corpus": 0.7688027620315552,
+          "survival_ratio_vs_committed": 2.016717577633969,
+          "disp_norm": 2.1272111406149494,
+          "in_room_frac": 0.05040642015049518,
+          "remaining_in_room_frac": 0.9224467258668908,
+          "corpus_disp_cum_in_room_frac": 4.308964542319118e-06,
+          "maint_disp_cum_in_room_frac": 0.060420201683393675,
+          "budget_S_total_usage_frac": 0.2675157219136338,
+          "budget_S_corpus": 0.503416643012315,
+          "budget_S_maint": 0.09512497670948505,
+          "lr_applied": 0.003543545249733173,
+          "lr_sched": 0.02945917883170159,
+          "capped": true,
+          "n_maint_so_far": 3,
+          "elapsed_s": 368.7
+        },
+        {
+          "step": 1000,
+          "g0_pz": 0.5938399434089661,
+          "g0_argmax": 0.8333333333333334,
+          "gm12_pz": 0.5501700639724731,
+          "ce_r": 1.663562297821045,
+          "ce_corpus": 0.7651799321174622,
+          "survival_ratio_vs_committed": 2.0774429158237835,
+          "disp_norm": 2.1617870053163983,
+          "in_room_frac": 0.0503041850733408,
+          "remaining_in_room_frac": 0.9217519540126751,
+          "corpus_disp_cum_in_room_frac": 4.050632366394646e-06,
+          "maint_disp_cum_in_room_frac": 0.060418634224549655,
+          "budget_S_total_usage_frac": 0.35835386551079335,
+          "budget_S_corpus": 0.6712221885100007,
+          "budget_S_maint": 0.1305613536387682,
+          "lr_applied": 0.003479502817514486,
+          "lr_sched": 0.024566287322637458,
+          "capped": true,
+          "n_maint_so_far": 4,
+          "elapsed_s": 464.8
+        },
+        {
+          "step": 1025,
+          "g0_pz": 0.5542925596237183,
+          "g0_argmax": 0.8166666666666667,
+          "gm12_pz": 0.5093939900398254,
+          "ce_r": 1.6623916625976562,
+          "ce_corpus": 0.7755511999130249,
+          "survival_ratio_vs_committed": 1.9390934612343889,
+          "disp_norm": 2.1958747150291944,
+          "in_room_frac": 0.05012174331317617,
+          "remaining_in_room_frac": 0.9210533139700459,
+          "corpus_disp_cum_in_room_frac": 3.77645752722436e-06,
+          "maint_disp_cum_in_room_frac": 0.06041319309992284,
+          "budget_S_total_usage_frac": 0.4470315627442476,
+          "budget_S_corpus": 0.8390277419239283,
+          "budget_S_maint": 0.1611639242619276,
+          "lr_applied": 0.003422582649195043,
+          "lr_sched": 0.020065632795121316,
+          "capped": true,
+          "n_maint_so_far": 5,
+          "elapsed_s": 601.4
+        },
+        {
+          "step": 1050,
+          "g0_pz": 0.6045857667922974,
+          "g0_argmax": 0.8666666666666667,
+          "gm12_pz": 0.5498601794242859,
+          "ce_r": 1.6669466495513916,
+          "ce_corpus": 0.7906811833381653,
+          "survival_ratio_vs_committed": 2.115035258525159,
+          "disp_norm": 2.229983504936923,
+          "in_room_frac": 0.05007455667772559,
+          "remaining_in_room_frac": 0.9203431998826316,
+          "corpus_disp_cum_in_room_frac": 3.537124600084146e-06,
+          "maint_disp_cum_in_room_frac": 0.06041574246996827,
+          "budget_S_total_usage_frac": 0.5385958250677256,
+          "budget_S_corpus": 1.0068332818336785,
+          "budget_S_maint": 0.19822493009269238,
+          "lr_applied": 0.0033684001632116266,
+          "lr_sched": 0.015978199378147703,
+          "capped": true,
+          "n_maint_so_far": 6,
+          "elapsed_s": 693.7
+        },
+        {
+          "step": 1075,
+          "g0_pz": 0.514947235584259,
+          "g0_argmax": 0.7166666666666667,
+          "gm12_pz": 0.46398356556892395,
+          "ce_r": 1.6621733903884888,
+          "ce_corpus": 0.7942183613777161,
+          "survival_ratio_vs_committed": 1.8014508765551789,
+          "disp_norm": 2.2633317502231733,
+          "in_room_frac": 0.049831709155734434,
+          "remaining_in_room_frac": 0.9196397951758519,
+          "corpus_disp_cum_in_room_frac": 3.373054821902787e-06,
+          "maint_disp_cum_in_room_frac": 0.060420146171454234,
+          "budget_S_total_usage_frac": 0.6250746869988817,
+          "budget_S_corpus": 1.1746388250030577,
+          "budget_S_maint": 0.22390782088041306,
+          "lr_applied": 0.0033460975018939835,
+          "lr_sched": 0.01232304457314319,
+          "capped": true,
+          "n_maint_so_far": 7,
+          "elapsed_s": 835.6
+        },
+        {
+          "step": 1100,
+          "g0_pz": 0.5769184827804565,
+          "g0_argmax": 0.8333333333333334,
+          "gm12_pz": 0.5213819146156311,
+          "ce_r": 1.6636885404586792,
+          "ce_corpus": 0.7950597405433655,
+          "survival_ratio_vs_committed": 2.018246209879268,
+          "disp_norm": 2.296933746893468,
+          "in_room_frac": 0.049742183752705615,
+          "remaining_in_room_frac": 0.9189149699876468,
+          "corpus_disp_cum_in_room_frac": 3.216452278449507e-06,
+          "maint_disp_cum_in_room_frac": 0.060427416773136615,
+          "budget_S_total_usage_frac": 0.7149872977641918,
+          "budget_S_corpus": 1.3424443611875176,
+          "budget_S_maint": 0.2572734132409096,
+          "lr_applied": 0.003478262853253247,
+          "lr_sched": 0.00911721039909727,
+          "capped": true,
+          "n_maint_so_far": 8,
+          "elapsed_s": 931.6
+        }
+      ],
+      "corpus_ledger": {
+        "910": {
+          "ce": 0.7793678045272827,
+          "gn_clipped": 0.9086863398551941,
+          "g_in_room_frac": 0.06075767469300586
+        },
+        "920": {
+          "ce": 0.7960960268974304,
+          "gn_clipped": 0.881376326084137,
+          "g_in_room_frac": 0.060334098312892215
+        },
+        "930": {
+          "ce": 0.7826839089393616,
+          "gn_clipped": 0.8877617716789246,
+          "g_in_room_frac": 0.060392421236379216
+        },
+        "940": {
+          "ce": 0.8146665692329407,
+          "gn_clipped": 0.8958662152290344,
+          "g_in_room_frac": 0.0601193828671622
+        },
+        "950": {
+          "ce": 0.7879282832145691,
+          "gn_clipped": 0.9088691473007202,
+          "g_in_room_frac": 0.06063472020415713
+        },
+        "960": {
+          "ce": 0.7820090651512146,
+          "gn_clipped": 0.8326902985572815,
+          "g_in_room_frac": 0.06091030287748208
+        },
+        "970": {
+          "ce": 0.8132832050323486,
+          "gn_clipped": 0.8776296377182007,
+          "g_in_room_frac": 0.06062118893130955
+        },
+        "980": {
+          "ce": 0.8054981231689453,
+          "gn_clipped": 0.8927653431892395,
+          "g_in_room_frac": 0.06111377915113996
+        },
+        "990": {
+          "ce": 0.7812502384185791,
+          "gn_clipped": 0.8425615429878235,
+          "g_in_room_frac": 0.06044757040334423
+        },
+        "1000": {
+          "ce": 0.7651799321174622,
+          "gn_clipped": 0.8669736385345459,
+          "g_in_room_frac": 0.06044210355089552
+        },
+        "1010": {
+          "ce": 0.7441958785057068,
+          "gn_clipped": 0.8699617385864258,
+          "g_in_room_frac": 0.06108004165697459
+        },
+        "1020": {
+          "ce": 0.7737370133399963,
+          "gn_clipped": 0.8789579272270203,
+          "g_in_room_frac": 0.06041270826141548
+        },
+        "1030": {
+          "ce": 0.7769941687583923,
+          "gn_clipped": 0.8760797381401062,
+          "g_in_room_frac": 0.061243393151261726
+        },
+        "1040": {
+          "ce": 0.7842288017272949,
+          "gn_clipped": 0.8837822675704956,
+          "g_in_room_frac": 0.06045635784716384
+        },
+        "1050": {
+          "ce": 0.7906811833381653,
+          "gn_clipped": 0.9000262022018433,
+          "g_in_room_frac": 0.06089181120624136
+        },
+        "1060": {
+          "ce": 0.7740063071250916,
+          "gn_clipped": 0.8953441381454468,
+          "g_in_room_frac": 0.06100181577377083
+        },
+        "1070": {
+          "ce": 0.7897034883499146,
+          "gn_clipped": 0.9337673783302307,
+          "g_in_room_frac": 0.06027445432999791
+        },
+        "1080": {
+          "ce": 0.7874138355255127,
+          "gn_clipped": 0.9998928904533386,
+          "g_in_room_frac": 0.05993870964002877
+        },
+        "1090": {
+          "ce": 0.7615014910697937,
+          "gn_clipped": 0.8972985148429871,
+          "g_in_room_frac": 0.060698415518899644
+        },
+        "1100": {
+          "ce": 0.7950597405433655,
+          "gn_clipped": 0.9275726079940796,
+          "g_in_room_frac": 0.06113385848335447
+        }
+      },
+      "lr_ledger": {
+        "910": {
+          "lr_sched": 0.04384775550136874,
+          "cap": 0.003252820475722788,
+          "lr_applied": 0.003252820475722788,
+          "capped": true,
+          "b_norm": 2.063508220814292,
+          "share": 0.006712221792487029,
+          "realized_step_norm": 0.006712224800139666,
+          "rem_corpus": 191,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.06712222145870328
+        },
+        "920": {
+          "lr_sched": 0.04148925253326302,
+          "cap": 0.0034449654236851485,
+          "lr_applied": 0.0034449654236851485,
+          "capped": true,
+          "b_norm": 1.948414852741841,
+          "share": 0.006712221798690233,
+          "realized_step_norm": 0.006712222471833229,
+          "rem_corpus": 181,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.13424443593248725
+        },
+        "930": {
+          "lr_sched": 0.03918089942603609,
+          "cap": 0.003016975062913485,
+          "lr_applied": 0.003016975062913485,
+          "capped": true,
+          "b_norm": 2.2248184601520964,
+          "share": 0.006712221813788454,
+          "realized_step_norm": 0.006712222006171942,
+          "rem_corpus": 171,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.2013666508719325
+        },
+        "940": {
+          "lr_sched": 0.03692441875928484,
+          "cap": 0.00335002566733864,
+          "lr_applied": 0.00335002566733864,
+          "capped": true,
+          "b_norm": 2.0036329413933758,
+          "share": 0.0067122217815930255,
+          "realized_step_norm": 0.006712222006171942,
+          "rem_corpus": 161,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.26848887419328094
+        },
+        "950": {
+          "lr_sched": 0.0347214944034471,
+          "cap": 0.003390567099492852,
+          "lr_applied": 0.003390567099492852,
+          "capped": true,
+          "b_norm": 1.9796752543924985,
+          "share": 0.006712221785223347,
+          "realized_step_norm": 0.00671222060918808,
+          "rem_corpus": 151,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.33561109006404877
+        },
+        "960": {
+          "lr_sched": 0.032573770263234415,
+          "cap": 0.003197916510256439,
+          "lr_applied": 0.003197916510256439,
+          "capped": true,
+          "b_norm": 2.0989358930752853,
+          "share": 0.006712221746435298,
+          "realized_step_norm": 0.006712218280881643,
+          "rem_corpus": 141,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.40273331105709076
+        },
+        "970": {
+          "lr_sched": 0.030482849050888598,
+          "cap": 0.003294053279564349,
+          "lr_applied": 0.003294053279564349,
+          "capped": true,
+          "b_norm": 2.0376785668133213,
+          "share": 0.006712221765709403,
+          "realized_step_norm": 0.0067122201435267925,
+          "rem_corpus": 131,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.46985552785918117
+        },
+        "980": {
+          "lr_sched": 0.02845029109017817,
+          "cap": 0.0029444257939046383,
+          "lr_applied": 0.0029444257939046383,
+          "capped": true,
+          "b_norm": 2.279636910121014,
+          "share": 0.0067122217188973834,
+          "realized_step_norm": 0.006712217349559069,
+          "rem_corpus": 121,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.5369777483865619
+        },
+        "990": {
+          "lr_sched": 0.02647761315202581,
+          "cap": 0.0032063642943154706,
+          "lr_applied": 0.0032063642943154706,
+          "capped": true,
+          "b_norm": 2.093405851861485,
+          "share": 0.006712221776919727,
+          "realized_step_norm": 0.0067122201435267925,
+          "rem_corpus": 111,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.6040999619290233
+        },
+        "1000": {
+          "lr_sched": 0.024566287322637458,
+          "cap": 0.003479502817514486,
+          "lr_applied": 0.003479502817514486,
+          "capped": true,
+          "b_norm": 1.929074950815296,
+          "share": 0.006712221726558441,
+          "realized_step_norm": 0.006712223868817091,
+          "rem_corpus": 101,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.6712221885100007
+        },
+        "1010": {
+          "lr_sched": 0.022717739904976157,
+          "cap": 0.003171500413314579,
+          "lr_applied": 0.003171500413314579,
+          "capped": true,
+          "b_norm": 2.116418339838058,
+          "share": 0.006712221639542956,
+          "realized_step_norm": 0.006712222006171942,
+          "rem_corpus": 91,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.7383444118313491
+        },
+        "1020": {
+          "lr_sched": 0.020933350354401494,
+          "cap": 0.003490756613827943,
+          "lr_applied": 0.003490756613827943,
+          "capped": true,
+          "b_norm": 1.9228557782298885,
+          "share": 0.00671222152529326,
+          "realized_step_norm": 0.006712222006171942,
+          "rem_corpus": 81,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.805466637481004
+        },
+        "1030": {
+          "lr_sched": 0.019214450249268218,
+          "cap": 0.0028808921753874944,
+          "lr_applied": 0.0028808921753874944,
+          "capped": true,
+          "b_norm": 2.3299107199660454,
+          "share": 0.006712221562501623,
+          "realized_step_norm": 0.0067122215405106544,
+          "rem_corpus": 71,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.8725888496264815
+        },
+        "1040": {
+          "lr_sched": 0.017562322297252533,
+          "cap": 0.0033901603806207412,
+          "lr_applied": 0.0033901603806207412,
+          "capped": true,
+          "b_norm": 1.9799126741630302,
+          "share": 0.006712221505036368,
+          "realized_step_norm": 0.006712218746542931,
+          "rem_corpus": 61,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 0.9397110659629107
+        },
+        "1050": {
+          "lr_sched": 0.015978199378147703,
+          "cap": 0.0033684001632116266,
+          "lr_applied": 0.0033684001632116266,
+          "capped": true,
+          "b_norm": 1.9927031205051462,
+          "share": 0.006712221516341852,
+          "realized_step_norm": 0.0067122201435267925,
+          "rem_corpus": 51,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 1.0068332818336785
+        },
+        "1060": {
+          "lr_sched": 0.014463263623842837,
+          "cap": 0.0031504901696508656,
+          "lr_applied": 0.0031504901696508656,
+          "capped": true,
+          "b_norm": 2.1305324118278794,
+          "share": 0.006712221419586283,
+          "realized_step_norm": 0.00671222060918808,
+          "rem_corpus": 41,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 1.0739555014297366
+        },
+        "1070": {
+          "lr_sched": 0.01301864553617181,
+          "cap": 0.003449112980641577,
+          "lr_applied": 0.003449112980641577,
+          "capped": true,
+          "b_norm": 1.9460717982918965,
+          "share": 0.006712221500749077,
+          "realized_step_norm": 0.006712219677865505,
+          "rem_corpus": 31,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 1.1410777121782303
+        },
+        "1080": {
+          "lr_sched": 0.011645423143290411,
+          "cap": 0.0030976399007667512,
+          "lr_applied": 0.0030976399007667512,
+          "capped": true,
+          "b_norm": 2.1668823819492715,
+          "share": 0.006712221326594563,
+          "realized_step_norm": 0.0067122201435267925,
+          "rem_corpus": 21,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 1.2081999313086271
+        },
+        "1090": {
+          "lr_sched": 0.010344621195211335,
+          "cap": 0.003380493691214403,
+          "lr_applied": 0.003380493691214403,
+          "capped": true,
+          "b_norm": 1.9855741347010745,
+          "share": 0.006712220835795479,
+          "realized_step_norm": 0.006712217349559069,
+          "rem_corpus": 11,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 1.275322147179395
+        },
+        "1100": {
+          "lr_sched": 0.00911721039909727,
+          "cap": 0.003478262853253247,
+          "lr_applied": 0.003478262853253247,
+          "capped": true,
+          "b_norm": 1.9297615685707374,
+          "share": 0.006712217979595314,
+          "realized_step_norm": 0.0067122201435267925,
+          "rem_corpus": 1,
+          "budget_c": 1.3424443590235862,
+          "S_corpus": 1.3424443611875176
+        }
+      },
+      "maint_ledger": [
+        {
+          "step": 925,
+          "maint_index": 1,
+          "name_ce": 0.25234246253967285,
+          "n_name_tokens": 112,
+          "gn_clipped": 0.9999998807907104,
+          "g_in_room_frac": 0.060991549428081174,
+          "read_at_gate": 0.18196789920330048,
+          "deficit_t": 0.3634178244441662,
+          "gate_vs_pre_absdiff": 0.0,
+          "lr_m_max": 0.010971232006621194,
+          "lr_target": 0.003987141267318479,
+          "cap_m": 0.013278916269136841,
+          "lr_maint": 0.003987141267318479,
+          "capped_m": false,
+          "binder": "controller",
+          "b_m_norm": 8.424660641318837,
+          "share_m": 0.11187036325196552,
+          "realized_step_norm": 0.03359031304717064,
+          "realized_vs_share": 0.3002610528001523,
+          "bufF_inroom_frac": 0.06041723970088927,
+          "bufF_norm": 8.424661357694724,
+          "S_maint": 0.03359031304717064,
+          "S_total": 0.201395854819566,
+          "budget_m": 0.8949629060157241,
+          "elapsed_s": 126.6
+        },
+        {
+          "step": 950,
+          "maint_index": 2,
+          "name_ce": 0.24182690680027008,
+          "n_name_tokens": 112,
+          "gn_clipped": 0.9999998807907104,
+          "g_in_room_frac": 0.06056359232258897,
+          "read_at_gate": 0.19669802486896515,
+          "deficit_t": 0.3118871122497949,
+          "gate_vs_pre_absdiff": null,
+          "lr_m_max": 0.010971232006621194,
+          "lr_target": 0.0034217858683676067,
+          "cap_m": 0.014454909727370832,
+          "lr_maint": 0.0034217858683676067,
+          "capped_m": false,
+          "binder": "controller",
+          "b_m_norm": 8.512901836663222,
+          "share_m": 0.12305322756693622,
+          "realized_step_norm": 0.029129328206181526,
+          "realized_vs_share": 0.23672136669748295,
+          "bufF_inroom_frac": 0.06042605704070202,
+          "bufF_norm": 8.512901952303185,
+          "S_maint": 0.06271964125335217,
+          "S_total": 0.39833073131740093,
+          "budget_m": 0.8949629060157241,
+          "elapsed_s": 219.7
+        },
+        {
+          "step": 975,
+          "maint_index": 3,
+          "name_ce": 0.2531089186668396,
+          "n_name_tokens": 112,
+          "gn_clipped": 0.9999998807907104,
+          "g_in_room_frac": 0.06047611951971936,
+          "read_at_gate": 0.18749763071537018,
+          "deficit_t": 0.344073046977344,
+          "gate_vs_pre_absdiff": null,
+          "lr_m_max": 0.010971232006621194,
+          "lr_target": 0.003774905225613514,
+          "cap_m": 0.01615803681552849,
+          "lr_maint": 0.003774905225613514,
+          "capped_m": false,
+          "binder": "controller",
+          "b_m_norm": 8.584409874622006,
+          "share_m": 0.13870721079372866,
+          "realized_step_norm": 0.03240533545613289,
+          "realized_vs_share": 0.23362401471919744,
+          "bufF_inroom_frac": 0.06041986656303607,
+          "bufF_norm": 8.584410214257192,
+          "S_maint": 0.09512497670948505,
+          "S_total": 0.5985416197218001,
+          "budget_m": 0.8949629060157241,
+          "elapsed_s": 356.2
+        },
+        {
+          "step": 1000,
+          "maint_index": 4,
+          "name_ce": 0.2771262526512146,
+          "n_name_tokens": 112,
+          "gn_clipped": 0.9999998211860657,
+          "g_in_room_frac": 0.060425176649857235,
+          "read_at_gate": 0.17877116799354553,
+          "deficit_t": 0.3746010172879737,
+          "gate_vs_pre_absdiff": null,
+          "lr_m_max": 0.010971232006621194,
+          "lr_target": 0.004109834670582676,
+          "cap_m": 0.018552699360394727,
+          "lr_maint": 0.004109834670582676,
+          "capped_m": false,
+          "binder": "controller",
+          "b_m_norm": 8.6223348286847,
+          "share_m": 0.15996758586124782,
+          "realized_step_norm": 0.03543637692928314,
+          "realized_vs_share": 0.22152223363563062,
+          "bufF_inroom_frac": 0.06041645644778077,
+          "bufF_norm": 8.622336026901808,
+          "S_maint": 0.1305613536387682,
+          "S_total": 0.8017835421487689,
+          "budget_m": 0.8949629060157241,
+          "elapsed_s": 453.5
+        },
+        {
+          "step": 1025,
+          "maint_index": 5,
+          "name_ce": 0.2754240930080414,
+          "n_name_tokens": 112,
+          "gn_clipped": 0.9999998211860657,
+          "g_in_room_frac": 0.06052320367951312,
+          "read_at_gate": 0.19363360106945038,
+          "deficit_t": 0.3226074512637698,
+          "gate_vs_pre_absdiff": null,
+          "lr_m_max": 0.010971232006621194,
+          "lr_target": 0.003539401194879558,
+          "cap_m": 0.022102094512409007,
+          "lr_maint": 0.003539401194879558,
+          "capped_m": false,
+          "binder": "controller",
+          "b_m_norm": 8.646256941257198,
+          "share_m": 0.191100388094239,
+          "realized_step_norm": 0.03060257062315941,
+          "realized_vs_share": 0.16013871519752276,
+          "bufF_inroom_frac": 0.06039752809069024,
+          "bufF_norm": 8.646256727963294,
+          "S_maint": 0.1611639242619276,
+          "S_total": 1.0001916661858559,
+          "budget_m": 0.8949629060157241,
+          "elapsed_s": 590.3
+        },
+        {
+          "step": 1050,
+          "maint_index": 6,
+          "name_ce": 0.25449711084365845,
+          "n_name_tokens": 112,
+          "gn_clipped": 0.9999998211860657,
+          "g_in_room_frac": 0.06077903960537813,
+          "read_at_gate": 0.17501883208751678,
+          "deficit_t": 0.38772789386859163,
+          "gate_vs_pre_absdiff": null,
+          "lr_m_max": 0.010971232006621194,
+          "lr_target": 0.004253852679070918,
+          "cap_m": 0.028075084750427293,
+          "lr_maint": 0.004253852679070918,
+          "capped_m": false,
+          "binder": "controller",
+          "b_m_norm": 8.712339170441012,
+          "share_m": 0.24459966058459884,
+          "realized_step_norm": 0.03706100583076477,
+          "realized_vs_share": 0.15151699614867867,
+          "bufF_inroom_frac": 0.06043400977154093,
+          "bufF_norm": 8.712338937168777,
+          "S_maint": 0.19822493009269238,
+          "S_total": 1.2050582119263709,
+          "budget_m": 0.8949629060157241,
+          "elapsed_s": 682.5
+        },
+        {
+          "step": 1075,
+          "maint_index": 7,
+          "name_ce": 0.23494915664196014,
+          "n_name_tokens": 112,
+          "gn_clipped": 0.9999998807907104,
+          "g_in_room_frac": 0.06069141040593567,
+          "read_at_gate": 0.2096702605485916,
+          "deficit_t": 0.2665060640159323,
+          "gate_vs_pre_absdiff": null,
+          "lr_m_max": 0.010971232006621194,
+          "lr_target": 0.002923899859490233,
+          "cap_m": 0.03966048996878728,
+          "lr_maint": 0.002923899859490233,
+          "capped_m": false,
+          "binder": "controller",
+          "b_m_norm": 8.78377922803479,
+          "share_m": 0.3483689879615159,
+          "realized_step_norm": 0.02568289078772068,
+          "realized_vs_share": 0.07372324080281754,
+          "bufF_inroom_frac": 0.06046261887928286,
+          "bufF_norm": 8.78377936389348,
+          "S_maint": 0.22390782088041306,
+          "S_total": 1.3985466458834708,
+          "budget_m": 0.8949629060157241,
+          "elapsed_s": 824.3
+        },
+        {
+          "step": 1100,
+          "maint_index": 8,
+          "name_ce": 0.2351948767900467,
+          "n_name_tokens": 112,
+          "gn_clipped": 0.9999998807907104,
+          "g_in_room_frac": 0.06066169285231203,
+          "read_at_gate": 0.18756213784217834,
+          "deficit_t": 0.343847380322389,
+          "gate_vs_pre_absdiff": 0.0,
+          "lr_m_max": 0.010971232006621194,
+          "lr_target": 0.0037724293843858447,
+          "cap_m": 0.07587180817619359,
+          "lr_maint": 0.0037724293843858447,
+          "capped_m": false,
+          "binder": "controller",
+          "b_m_norm": 8.844590649229698,
+          "share_m": 0.6710550851353111,
+          "realized_step_norm": 0.03336559236049652,
+          "realized_vs_share": 0.049721093095909864,
+          "bufF_inroom_frac": 0.06048632313865162,
+          "bufF_norm": 8.844589968648938,
+          "S_maint": 0.2572734132409096,
+          "S_total": 1.5997177744284272,
+          "budget_m": 0.8949629060157241,
+          "elapsed_s": 918.8
+        }
+      ],
+      "window_ledger": [
+        {
+          "window_phase": "win1:t924",
+          "step": 924,
+          "g0_pz": 0.1885986328125,
+          "g0_argmax": 0.016666666666666666,
+          "survival_ratio_vs_committed": 0.6597786120974217,
+          "drift_from_fact_norm": 2.054268103169867,
+          "n_maint_so_far": 0,
+          "S_corpus": 0.16109331883490086,
+          "S_maint": 0.0,
+          "elapsed_s": 119.5
+        },
+        {
+          "window_phase": "win1:t925-pre",
+          "step": 925,
+          "g0_pz": 0.18196789920330048,
+          "g0_argmax": 0.016666666666666666,
+          "survival_ratio_vs_committed": 0.6365821755558339,
+          "drift_from_fact_norm": 2.05581192085329,
+          "n_maint_so_far": 0,
+          "S_corpus": 0.16780554177239537,
+          "S_maint": 0.0,
+          "elapsed_s": 123.0
+        },
+        {
+          "window_phase": "win1:t925-post",
+          "step": 925,
+          "g0_pz": 0.5794228315353394,
+          "g0_argmax": 0.85,
+          "survival_ratio_vs_committed": 2.0270072264416052,
+          "drift_from_fact_norm": 2.055124225086498,
+          "n_maint_so_far": 1,
+          "S_corpus": 0.16780554177239537,
+          "S_maint": 0.03359031304717064,
+          "elapsed_s": 127.3
+        },
+        {
+          "window_phase": "win1:t926",
+          "step": 926,
+          "g0_pz": 0.5597299933433533,
+          "g0_argmax": 0.8333333333333334,
+          "survival_ratio_vs_committed": 1.9581153513690808,
+          "drift_from_fact_norm": 2.056606052554737,
+          "n_maint_so_far": 1,
+          "S_corpus": 0.17451776331290603,
+          "S_maint": 0.03359031304717064,
+          "elapsed_s": 142.1
+        },
+        {
+          "window_phase": "win2:t1099",
+          "step": 1099,
+          "g0_pz": 0.19272659718990326,
+          "g0_argmax": 0.0,
+          "survival_ratio_vs_committed": 0.6742195577559111,
+          "drift_from_fact_norm": 2.2962364137009246,
+          "n_maint_so_far": 7,
+          "S_corpus": 1.3357321410439909,
+          "S_maint": 0.22390782088041306,
+          "elapsed_s": 909.7
+        },
+        {
+          "window_phase": "win2:t1100-pre",
+          "step": 1100,
+          "g0_pz": 0.18756213784217834,
+          "g0_argmax": 0.0,
+          "survival_ratio_vs_committed": 0.6561526196776111,
+          "drift_from_fact_norm": 2.297684057339163,
+          "n_maint_so_far": 7,
+          "S_corpus": 1.3424443611875176,
+          "S_maint": 0.22390782088041306,
+          "elapsed_s": 915.0
+        },
+        {
+          "window_phase": "win2:t1100-post",
+          "step": 1100,
+          "g0_pz": 0.5769184827804565,
+          "g0_argmax": 0.8333333333333334,
+          "survival_ratio_vs_committed": 2.018246209879268,
+          "drift_from_fact_norm": 2.296933746893468,
+          "n_maint_so_far": 8,
+          "S_corpus": 1.3424443611875176,
+          "S_maint": 0.2572734132409096,
+          "elapsed_s": 919.5
+        }
+      ],
+      "bufsep": {
+        "corpus_checks": 200,
+        "corpus_violations": 0,
+        "maint_checks": 8,
+        "maint_violations": 0,
+        "optF_steps": 8
+      },
+      "chunk_table": [
+        {
+          "chunk": 1,
+          "device": "cuda",
+          "t_start": 46.0,
+          "seconds": 186.9,
+          "steps_done": 950,
+          "capped": true,
+          "max_temp_c": 60.0
+        },
+        {
+          "chunk": 2,
+          "device": "cuda",
+          "t_start": 276.2,
+          "seconds": 188.7,
+          "steps_done": 1000,
+          "capped": true,
+          "max_temp_c": 61.0
+        },
+        {
+          "chunk": 3,
+          "device": "cuda",
+          "t_start": 510.2,
+          "seconds": 183.5,
+          "steps_done": 1050,
+          "capped": true,
+          "max_temp_c": 59.0
+        },
+        {
+          "chunk": 4,
+          "device": "cuda",
+          "t_start": 739.2,
+          "seconds": 192.4,
+          "steps_done": 1100,
+          "capped": true,
+          "max_temp_c": 60.0
+        }
+      ],
+      "steps_ran": 1100,
+      "budget_ledger": [
+        {
+          "step": 925,
+          "S_corpus": 0.16780554177239537,
+          "S_maint": 0.03359031304717064,
+          "S_total": 0.201395854819566,
+          "S_total_usage_frac": 0.09001305125199349,
+          "cum_corpus_norm": 0.10557214331388394,
+          "cum_maint_norm": 0.0335903140399026,
+          "cum_total_norm": 0.09974944738443267,
+          "cum_total_usage_frac": 0.04458260636901978,
+          "n_capped_so_far": 25,
+          "n_maint_so_far": 1,
+          "lr_sched": 0.04032869869349412,
+          "cap": 0.0034381288682158746,
+          "lr_applied": 0.0034381288682158746,
+          "capped": true
+        },
+        {
+          "step": 950,
+          "S_corpus": 0.33561109006404877,
+          "S_maint": 0.06271964125335217,
+          "S_total": 0.39833073131740093,
+          "S_total_usage_frac": 0.17803228654055633,
+          "cum_corpus_norm": 0.17030555564312808,
+          "cum_maint_norm": 0.0627034723515019,
+          "cum_total_norm": 0.15722002305752622,
+          "cum_total_usage_frac": 0.07026884444069414,
+          "n_capped_so_far": 50,
+          "n_maint_so_far": 2,
+          "lr_sched": 0.0347214944034471,
+          "cap": 0.003390567099492852,
+          "lr_applied": 0.003390567099492852,
+          "capped": true
+        },
+        {
+          "step": 975,
+          "S_corpus": 0.503416643012315,
+          "S_maint": 0.09512497670948505,
+          "S_total": 0.5985416197218001,
+          "S_total_usage_frac": 0.2675157219136338,
+          "cum_corpus_norm": 0.22762478117504736,
+          "cum_maint_norm": 0.09507178192477903,
+          "cum_total_norm": 0.20665501487006688,
+          "cum_total_usage_frac": 0.09236361126521865,
+          "n_capped_so_far": 75,
+          "n_maint_so_far": 3,
+          "lr_sched": 0.02945917883170159,
+          "cap": 0.003543545249733173,
+          "lr_applied": 0.003543545249733173,
+          "capped": true
+        },
+        {
+          "step": 1000,
+          "S_corpus": 0.6712221885100007,
+          "S_maint": 0.1305613536387682,
+          "S_total": 0.8017835421487689,
+          "S_total_usage_frac": 0.35835386551079335,
+          "cum_corpus_norm": 0.2816743702443864,
+          "cum_maint_norm": 0.13042169386003263,
+          "cum_total_norm": 0.250773249961056,
+          "cum_total_usage_frac": 0.11208207548063451,
+          "n_capped_so_far": 100,
+          "n_maint_so_far": 4,
+          "lr_sched": 0.024566287322637458,
+          "cap": 0.003479502817514486,
+          "lr_applied": 0.003479502817514486,
+          "capped": true
+        },
+        {
+          "step": 1025,
+          "S_corpus": 0.8390277419239283,
+          "S_maint": 0.1611639242619276,
+          "S_total": 1.0001916661858559,
+          "S_total_usage_frac": 0.4470315627442476,
+          "cum_corpus_norm": 0.33523611441837603,
+          "cum_maint_norm": 0.16089271413527365,
+          "cum_total_norm": 0.2940593702907783,
+          "cum_total_usage_frac": 0.13142862941656347,
+          "n_capped_so_far": 125,
+          "n_maint_so_far": 5,
+          "lr_sched": 0.020065632795121316,
+          "cap": 0.003422582649195043,
+          "lr_applied": 0.003422582649195043,
+          "capped": true
+        },
+        {
+          "step": 1050,
+          "S_corpus": 1.0068332818336785,
+          "S_maint": 0.19822493009269238,
+          "S_total": 1.2050582119263709,
+          "S_total_usage_frac": 0.5385958250677256,
+          "cum_corpus_norm": 0.38874067882772206,
+          "cum_maint_norm": 0.1977972064879392,
+          "cum_total_norm": 0.3373751690358173,
+          "cum_total_usage_frac": 0.15078844799848712,
+          "n_capped_so_far": 150,
+          "n_maint_so_far": 6,
+          "lr_sched": 0.015978199378147703,
+          "cap": 0.0033684001632116266,
+          "lr_applied": 0.0033684001632116266,
+          "capped": true
+        },
+        {
+          "step": 1075,
+          "S_corpus": 1.1746388250030577,
+          "S_maint": 0.22390782088041306,
+          "S_total": 1.3985466458834708,
+          "S_total_usage_frac": 0.6250746869988817,
+          "cum_corpus_norm": 0.4418782726660148,
+          "cum_maint_norm": 0.22335191459404613,
+          "cum_total_norm": 0.37997516912533325,
+          "cum_total_usage_frac": 0.16982834330729557,
+          "n_capped_so_far": 175,
+          "n_maint_so_far": 7,
+          "lr_sched": 0.01232304457314319,
+          "cap": 0.0033460975018939835,
+          "lr_applied": 0.0033460975018939835,
+          "capped": true
+        },
+        {
+          "step": 1100,
+          "S_corpus": 1.3424443611875176,
+          "S_maint": 0.2572734132409096,
+          "S_total": 1.5997177744284272,
+          "S_total_usage_frac": 0.7149872977641918,
+          "cum_corpus_norm": 0.4927692625095103,
+          "cum_maint_norm": 0.25651255172420345,
+          "cum_total_norm": 0.4229649066196295,
+          "cum_total_usage_frac": 0.18904243015059585,
+          "n_capped_so_far": 200,
+          "n_maint_so_far": 8,
+          "lr_sched": 0.00911721039909727,
+          "cap": 0.003478262853253247,
+          "lr_applied": 0.003478262853253247,
+          "capped": true
+        }
+      ],
+      "orth_ledger": {
+        "910": {
+          "gn_clipped": 0.9086863398551941,
+          "gperp_norm": 0.9070075975096907,
+          "norm_ratio": 0.9981525459396934,
+          "in_room_frac": 0.0607576746930655,
+          "orth_rel_err": 4.35046999639561e-17
+        },
+        "920": {
+          "gn_clipped": 0.881376326084137,
+          "gperp_norm": 0.8797706523918963,
+          "norm_ratio": 0.9981782388835988,
+          "in_room_frac": 0.06033409831295409,
+          "orth_rel_err": 4.448901838826259e-17
+        },
+        "930": {
+          "gn_clipped": 0.8877617716789246,
+          "gperp_norm": 0.8861413628647082,
+          "norm_ratio": 0.9981747118902583,
+          "in_room_frac": 0.06039242123644111,
+          "orth_rel_err": 4.40549870570264e-17
+        },
+        "940": {
+          "gn_clipped": 0.8958662152290344,
+          "gperp_norm": 0.8942457699771329,
+          "norm_ratio": 0.9981911940122811,
+          "in_room_frac": 0.0601193828672297,
+          "orth_rel_err": 4.409431127185099e-17
+        },
+        "950": {
+          "gn_clipped": 0.9088691473007202,
+          "gperp_norm": 0.9071968512582191,
+          "norm_ratio": 0.9981600225944515,
+          "in_room_frac": 0.06063472020422039,
+          "orth_rel_err": 4.4680361583450644e-17
+        },
+        "960": {
+          "gn_clipped": 0.8326902985572815,
+          "gperp_norm": 0.8311441895447087,
+          "norm_ratio": 0.9981432437297595,
+          "in_room_frac": 0.06091030287754153,
+          "orth_rel_err": 4.467479264386646e-17
+        },
+        "970": {
+          "gn_clipped": 0.8776296377182007,
+          "gperp_norm": 0.8760155548044055,
+          "norm_ratio": 0.9981608444797597,
+          "in_room_frac": 0.06062118893137113,
+          "orth_rel_err": 4.4616263818939903e-17
+        },
+        "980": {
+          "gn_clipped": 0.8927653431892395,
+          "gperp_norm": 0.8910966105477243,
+          "norm_ratio": 0.9981308060559289,
+          "in_room_frac": 0.061113779151201045,
+          "orth_rel_err": 4.468381890195061e-17
+        },
+        "990": {
+          "gn_clipped": 0.8425615429878235,
+          "gperp_norm": 0.8410207970948713,
+          "norm_ratio": 0.998171373679052,
+          "in_room_frac": 0.06044757040340383,
+          "orth_rel_err": 4.4441663517981873e-17
+        },
+        "1000": {
+          "gn_clipped": 0.8669736385345459,
+          "gperp_norm": 0.8653885722770629,
+          "norm_ratio": 0.9981717047273656,
+          "in_room_frac": 0.06044210355095831,
+          "orth_rel_err": 4.4111693538028897e-17
+        },
+        "1010": {
+          "gn_clipped": 0.8699617385864258,
+          "gperp_norm": 0.8683374311979974,
+          "norm_ratio": 0.9981328711705546,
+          "in_room_frac": 0.0610800416570344,
+          "orth_rel_err": 4.421429997763305e-17
+        },
+        "1020": {
+          "gn_clipped": 0.8789579272270203,
+          "gperp_norm": 0.8773524775162044,
+          "norm_ratio": 0.9981734842603835,
+          "in_room_frac": 0.06041270826147243,
+          "orth_rel_err": 4.521212427734338e-17
+        },
+        "1030": {
+          "gn_clipped": 0.8760797381401062,
+          "gperp_norm": 0.8744352156800261,
+          "norm_ratio": 0.9981228615733198,
+          "in_room_frac": 0.06124339315132319,
+          "orth_rel_err": 4.4301424259461635e-17
+        },
+        "1040": {
+          "gn_clipped": 0.8837822675704956,
+          "gperp_norm": 0.8821657193984052,
+          "norm_ratio": 0.9981708414874921,
+          "in_room_frac": 0.06045635784722666,
+          "orth_rel_err": 4.435823236837825e-17
+        },
+        "1050": {
+          "gn_clipped": 0.9000262022018433,
+          "gperp_norm": 0.8983561192620122,
+          "norm_ratio": 0.9981443719863456,
+          "in_room_frac": 0.060891811206300335,
+          "orth_rel_err": 4.4498311826970664e-17
+        },
+        "1060": {
+          "gn_clipped": 0.8953441381454468,
+          "gperp_norm": 0.8936767231933611,
+          "norm_ratio": 0.998137655071832,
+          "in_room_frac": 0.061001815773830674,
+          "orth_rel_err": 4.4863693941733565e-17
+        },
+        "1070": {
+          "gn_clipped": 0.9337673783302307,
+          "gperp_norm": 0.9320696194248879,
+          "norm_ratio": 0.9981818422287663,
+          "in_room_frac": 0.0602744543300595,
+          "orth_rel_err": 4.458584511062733e-17
+        },
+        "1080": {
+          "gn_clipped": 0.9998928904533386,
+          "gperp_norm": 0.9980951449258819,
+          "norm_ratio": 0.9982020592478665,
+          "in_room_frac": 0.059938709640087136,
+          "orth_rel_err": 4.3998329166243004e-17
+        },
+        "1090": {
+          "gn_clipped": 0.8972985148429871,
+          "gperp_norm": 0.895644041773944,
+          "norm_ratio": 0.998156151287707,
+          "in_room_frac": 0.060698415518960186,
+          "orth_rel_err": 4.476097985011889e-17
+        },
+        "1100": {
+          "gn_clipped": 0.9275726079940796,
+          "gperp_norm": 0.9258376411748306,
+          "norm_ratio": 0.9981295764313018,
+          "in_room_frac": 0.06113385848341294,
+          "orth_rel_err": 4.4399289520074783e-17
+        }
+      },
+      "disp_ledger": [
+        {
+          "step": 925,
+          "drift_from_fact_norm": 2.055124225086498,
+          "drift_from_fact_in_room_frac": 0.050901245850474786,
+          "remaining_from_base_norm": 9.14152048102511,
+          "remaining_from_base_in_room_frac": 0.9238661756291046,
+          "corpus_disp_cum_norm": 0.10557214331388394,
+          "corpus_disp_cum_in_room_frac": 5.396207266192938e-06,
+          "maint_disp_cum_norm": 0.0335903140399026,
+          "maint_disp_cum_in_room_frac": 0.06041724791063196,
+          "total_disp_interval_norm": 0.09974944738443267,
+          "total_disp_interval_in_room_frac": 0.02034537180499932,
+          "total_disp_cum_norm": 0.09974944738443267
+        },
+        {
+          "step": 950,
+          "drift_from_fact_norm": 2.091348713906739,
+          "drift_from_fact_in_room_frac": 0.050611782338778874,
+          "remaining_from_base_norm": 9.148642283746774,
+          "remaining_from_base_in_room_frac": 0.9231571569557774,
+          "corpus_disp_cum_norm": 0.17030555564312808,
+          "corpus_disp_cum_in_room_frac": 4.674833693702789e-06,
+          "maint_disp_cum_norm": 0.0627034723515019,
+          "maint_disp_cum_in_room_frac": 0.060421036976525934,
+          "total_disp_interval_norm": 0.09881272422117555,
+          "total_disp_interval_in_room_frac": 0.01781308222173673,
+          "total_disp_cum_norm": 0.15722002305752622
+        },
+        {
+          "step": 975,
+          "drift_from_fact_norm": 2.1272111406149494,
+          "drift_from_fact_in_room_frac": 0.05040642015049518,
+          "remaining_from_base_norm": 9.155800114516339,
+          "remaining_from_base_in_room_frac": 0.9224467258668908,
+          "corpus_disp_cum_norm": 0.22762478117504736,
+          "corpus_disp_cum_in_room_frac": 4.308964542319118e-06,
+          "maint_disp_cum_norm": 0.09507178192477903,
+          "maint_disp_cum_in_room_frac": 0.060420201683393675,
+          "total_disp_interval_norm": 0.09995477615103335,
+          "total_disp_interval_in_room_frac": 0.019588270014124155,
+          "total_disp_cum_norm": 0.20665501487006688
+        },
+        {
+          "step": 1000,
+          "drift_from_fact_norm": 2.1617870053163983,
+          "drift_from_fact_in_room_frac": 0.0503041850733408,
+          "remaining_from_base_norm": 9.16282804033749,
+          "remaining_from_base_in_room_frac": 0.9217519540126751,
+          "corpus_disp_cum_norm": 0.2816743702443864,
+          "corpus_disp_cum_in_room_frac": 4.050632366394646e-06,
+          "maint_disp_cum_norm": 0.13042169386003263,
+          "maint_disp_cum_in_room_frac": 0.060418634224549655,
+          "total_disp_interval_norm": 0.09819862847603081,
+          "total_disp_interval_in_room_frac": 0.021802158580322403,
+          "total_disp_cum_norm": 0.250773249961056
+        },
+        {
+          "step": 1025,
+          "drift_from_fact_norm": 2.1958747150291944,
+          "drift_from_fact_in_room_frac": 0.05012174331317617,
+          "remaining_from_base_norm": 9.169886060584696,
+          "remaining_from_base_in_room_frac": 0.9210533139700459,
+          "corpus_disp_cum_norm": 0.33523611441837603,
+          "corpus_disp_cum_in_room_frac": 3.77645752722436e-06,
+          "maint_disp_cum_norm": 0.16089271413527365,
+          "maint_disp_cum_in_room_frac": 0.06041319309992284,
+          "total_disp_interval_norm": 0.09833572238796871,
+          "total_disp_interval_in_room_frac": 0.018796009077539626,
+          "total_disp_cum_norm": 0.2940593702907783
+        },
+        {
+          "step": 1050,
+          "drift_from_fact_norm": 2.229983504936923,
+          "drift_from_fact_in_room_frac": 0.05007455667772559,
+          "remaining_from_base_norm": 9.177092374754832,
+          "remaining_from_base_in_room_frac": 0.9203431998826316,
+          "corpus_disp_cum_norm": 0.38874067882772206,
+          "corpus_disp_cum_in_room_frac": 3.537124600084146e-06,
+          "maint_disp_cum_norm": 0.1977972064879392,
+          "maint_disp_cum_in_room_frac": 0.06041574246996827,
+          "total_disp_interval_norm": 0.09849788971236895,
+          "total_disp_interval_in_room_frac": 0.022739011913027084,
+          "total_disp_cum_norm": 0.3373751690358173
+        },
+        {
+          "step": 1075,
+          "drift_from_fact_norm": 2.2633317502231733,
+          "drift_from_fact_in_room_frac": 0.049831709155734434,
+          "remaining_from_base_norm": 9.184201916892368,
+          "remaining_from_base_in_room_frac": 0.9196397951758519,
+          "corpus_disp_cum_norm": 0.4418782726660148,
+          "corpus_disp_cum_in_room_frac": 3.373054821902787e-06,
+          "maint_disp_cum_norm": 0.22335191459404613,
+          "maint_disp_cum_in_room_frac": 0.060420146171454234,
+          "total_disp_interval_norm": 0.09689669523275424,
+          "total_disp_interval_in_room_frac": 0.016025807896779383,
+          "total_disp_cum_norm": 0.37997516912533325
+        },
+        {
+          "step": 1100,
+          "drift_from_fact_norm": 2.296933746893468,
+          "drift_from_fact_in_room_frac": 0.049742183752705615,
+          "remaining_from_base_norm": 9.191565624797217,
+          "remaining_from_base_in_room_frac": 0.9189149699876468,
+          "corpus_disp_cum_norm": 0.4927692625095103,
+          "corpus_disp_cum_in_room_frac": 3.216452278449507e-06,
+          "maint_disp_cum_norm": 0.25651255172420345,
+          "maint_disp_cum_in_room_frac": 0.060427416773136615,
+          "total_disp_interval_norm": 0.09823554430978168,
+          "total_disp_interval_in_room_frac": 0.02054410124069497,
+          "total_disp_cum_norm": 0.4229649066196295
+        }
+      ],
+      "buf_ledger": [
+        {
+          "step": 925,
+          "bufC_inroom_frac": 5.240698968904074e-09,
+          "bufC_norm": 1.9522892804506538,
+          "bufF_inroom_frac": 0.06041723970088927,
+          "bufF_norm": 8.424661357694724,
+          "optF_steps": 1
+        },
+        {
+          "step": 950,
+          "bufC_inroom_frac": 5.190600518173705e-09,
+          "bufC_norm": 1.9796752474590105,
+          "bufF_inroom_frac": 0.06042605704070202,
+          "bufF_norm": 8.512901952303185,
+          "optF_steps": 2
+        },
+        {
+          "step": 975,
+          "bufC_inroom_frac": 5.246165306519177e-09,
+          "bufC_norm": 1.8942110139073893,
+          "bufF_inroom_frac": 0.06041986656303607,
+          "bufF_norm": 8.584410214257192,
+          "optF_steps": 3
+        },
+        {
+          "step": 1000,
+          "bufC_inroom_frac": 5.2670721074654505e-09,
+          "bufC_norm": 1.9290749815146109,
+          "bufF_inroom_frac": 0.06041645644778077,
+          "bufF_norm": 8.622336026901808,
+          "optF_steps": 4
+        },
+        {
+          "step": 1025,
+          "bufC_inroom_frac": 5.203603533250195e-09,
+          "bufC_norm": 1.9611568108820652,
+          "bufF_inroom_frac": 0.06039752809069024,
+          "bufF_norm": 8.646256727963294,
+          "optF_steps": 5
+        },
+        {
+          "step": 1050,
+          "bufC_inroom_frac": 5.187288276939775e-09,
+          "bufC_norm": 1.992703371746768,
+          "bufF_inroom_frac": 0.06043400977154093,
+          "bufF_norm": 8.712338937168777,
+          "optF_steps": 6
+        },
+        {
+          "step": 1075,
+          "bufC_inroom_frac": 5.1507301754198576e-09,
+          "bufC_norm": 2.0059850530278487,
+          "bufF_inroom_frac": 0.06046261887928286,
+          "bufF_norm": 8.78377936389348,
+          "optF_steps": 7
+        },
+        {
+          "step": 1100,
+          "bufC_inroom_frac": 5.294260308902698e-09,
+          "bufC_norm": 1.9297616144293437,
+          "bufF_inroom_frac": 0.06048632313865162,
+          "bufF_norm": 8.844589968648938,
+          "optF_steps": 8
+        }
+      ]
+    },
+    "cycle": {
+      "events": [
+        {
+          "leg_index": 1,
+          "global_index": 37,
+          "step": 925,
+          "pre_read_gate": 0.18196789920330048,
+          "phase_pre": "gate (pre-dose): the read the controller saw",
+          "post_read": 0.5794228315353394,
+          "phase_post": "traj milestone (post-dose): the read after the event's step",
+          "deficit": 0.3634178244441662,
+          "lr_m": 0.003987141267318479,
+          "lr_fraction_of_halved_cap": 0.3634178244441662,
+          "binder": "controller",
+          "realized": 0.03359031304717064,
+          "class": "MIXED"
+        },
+        {
+          "leg_index": 2,
+          "global_index": 38,
+          "step": 950,
+          "pre_read_gate": 0.19669802486896515,
+          "phase_pre": "gate (pre-dose): the read the controller saw",
+          "post_read": 0.5445967316627502,
+          "phase_post": "traj milestone (post-dose): the read after the event's step",
+          "deficit": 0.3118871122497949,
+          "lr_m": 0.0034217858683676067,
+          "lr_fraction_of_halved_cap": 0.3118871122497949,
+          "binder": "controller",
+          "realized": 0.029129328206181526,
+          "class": "MIXED"
+        },
+        {
+          "leg_index": 3,
+          "global_index": 39,
+          "step": 975,
+          "pre_read_gate": 0.18749763071537018,
+          "phase_pre": "gate (pre-dose): the read the controller saw",
+          "post_read": 0.5764815211296082,
+          "phase_post": "traj milestone (post-dose): the read after the event's step",
+          "deficit": 0.344073046977344,
+          "lr_m": 0.003774905225613514,
+          "lr_fraction_of_halved_cap": 0.344073046977344,
+          "binder": "controller",
+          "realized": 0.03240533545613289,
+          "class": "MIXED"
+        },
+        {
+          "leg_index": 4,
+          "global_index": 40,
+          "step": 1000,
+          "pre_read_gate": 0.17877116799354553,
+          "phase_pre": "gate (pre-dose): the read the controller saw",
+          "post_read": 0.5938399434089661,
+          "phase_post": "traj milestone (post-dose): the read after the event's step",
+          "deficit": 0.3746010172879737,
+          "lr_m": 0.004109834670582676,
+          "lr_fraction_of_halved_cap": 0.3746010172879737,
+          "binder": "controller",
+          "realized": 0.03543637692928314,
+          "class": "MIXED"
+        },
+        {
+          "leg_index": 5,
+          "global_index": 41,
+          "step": 1025,
+          "pre_read_gate": 0.19363360106945038,
+          "phase_pre": "gate (pre-dose): the read the controller saw",
+          "post_read": 0.5542925596237183,
+          "phase_post": "traj milestone (post-dose): the read after the event's step",
+          "deficit": 0.3226074512637698,
+          "lr_m": 0.003539401194879558,
+          "lr_fraction_of_halved_cap": 0.3226074512637698,
+          "binder": "controller",
+          "realized": 0.03060257062315941,
+          "class": "MIXED"
+        },
+        {
+          "leg_index": 6,
+          "global_index": 42,
+          "step": 1050,
+          "pre_read_gate": 0.17501883208751678,
+          "phase_pre": "gate (pre-dose): the read the controller saw",
+          "post_read": 0.6045857667922974,
+          "phase_post": "traj milestone (post-dose): the read after the event's step",
+          "deficit": 0.38772789386859163,
+          "lr_m": 0.004253852679070918,
+          "lr_fraction_of_halved_cap": 0.38772789386859163,
+          "binder": "controller",
+          "realized": 0.03706100583076477,
+          "class": "MIXED"
+        },
+        {
+          "leg_index": 7,
+          "global_index": 43,
+          "step": 1075,
+          "pre_read_gate": 0.2096702605485916,
+          "phase_pre": "gate (pre-dose): the read the controller saw",
+          "post_read": 0.514947235584259,
+          "phase_post": "traj milestone (post-dose): the read after the event's step",
+          "deficit": 0.2665060640159323,
+          "lr_m": 0.002923899859490233,
+          "lr_fraction_of_halved_cap": 0.2665060640159323,
+          "binder": "controller",
+          "realized": 0.02568289078772068,
+          "class": "MIXED"
+        },
+        {
+          "leg_index": 8,
+          "global_index": 44,
+          "step": 1100,
+          "pre_read_gate": 0.18756213784217834,
+          "phase_pre": "gate (pre-dose): the read the controller saw",
+          "post_read": 0.5769184827804565,
+          "phase_post": "traj milestone (post-dose): the read after the event's step",
+          "deficit": 0.343847380322389,
+          "lr_m": 0.0037724293843858447,
+          "lr_fraction_of_halved_cap": 0.343847380322389,
+          "binder": "controller",
+          "realized": 0.03336559236049652,
+          "class": "MIXED"
+        }
+      ],
+      "classes": [
+        "MIXED",
+        "MIXED",
+        "MIXED",
+        "MIXED",
+        "MIXED",
+        "MIXED",
+        "MIXED",
+        "MIXED"
+      ],
+      "n_zero": 0,
+      "n_dose": 0,
+      "n_mixed": 8,
+      "zero_then_dose_signature": false,
+      "floor_rail_mean": 0.1888524442911148,
+      "floor_rail_range": 0.03465142846107483,
+      "floor_rail_second_half_minus_first_half": 0.0052375271916389465,
+      "upper_rail_mean": 0.5681356340646744,
+      "dosing_gate_reads": [
+        0.18196789920330048,
+        0.19669802486896515,
+        0.18749763071537018,
+        0.17877116799354553,
+        0.19363360106945038,
+        0.17501883208751678,
+        0.2096702605485916,
+        0.18756213784217834
+      ]
+    },
+    "post_cells": {
+      "gm12": 0.5213819146156311,
+      "g0": 0.5769184827804565,
+      "g0_z": 2.870751814043615e-05,
+      "ce_r": 1.6636885404586792
+    },
+    "S_corpus": 1.3424443611875176,
+    "S_maint": 0.2572734132409096,
+    "budget_c": 1.3424443590235862,
+    "budget_m": 0.8949629060157241,
+    "orth_max": 4.5589599038207124e-17,
+    "checkpoint": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\w055\\w055_CONT_REA_post.pt"
+  },
+  "honesty": {
+    "intervention_not_logits": "the leg resumes x41's committed LRCAP final state (md5 + repro gated) and continues that branch's own stream (bit-identical draws); the ONLY deltas are the length-scaled pools' horizon and the disclosed schedule extension \u2014 the regime's own constants (the halved cap, M) are byte-equal UNCHANGED",
+    "the_phase_declaration": "every event read at BOTH phases (the controller's gate + the post-dose milestone); aliveness over every declared read \u2014 the milestone-costume failure mode impossible by construction",
+    "n_and_scope": "n=1, ONE organism, one lineage, one branch; the continuation is deterministic (the branch's own generator states resumed, never re-seeded)",
+    "loads_measured_not_nominal": "every read measured: per-event gate reads, doses, realized displacements, post-event reads, thermal polls"
+  },
+  "provenance": {
+    "git_head_at_start": "e70141716fc5b95481c4e3f54586fbad1a028fbd",
+    "script": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\lab\\w055_relay_probe.py",
+    "machinery_imported_from": [
+      "lab/e336_founding_replicate.py (the committed driver, executed verbatim under the disclosed leg re-binding + the schedule extension)",
+      "lab/e261_rank_ladder.py (the burst machinery + rooms)"
+    ],
+    "machinery": {
+      "leg_driver": "e336's chunked_errorgated_phase EXECUTED VERBATIM under the disclosed re-binding (PHASE_STEPS/MILESTONES/WIN1/WIN2/MAINT_EVERY + E261.INST_TOTAL 1000->1250 restored after) + the lr_m_max argument == x41's LRCAP cap",
+      "staging": "THIS file's staged_leg_state (the only protocol-touching transformation; digest-verified)",
+      "cons": "NONE (the bars read the dose pattern + rails only)",
+      "twin": "NONE (by design \u2014 disclosed)"
+    },
+    "checkpoints": {
+      "resumed_from": [
+        "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x41\\x41_LRCAP_REA_resume.pt"
+      ],
+      "x41_metrics": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x41\\metrics.json",
+      "leg_resume": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\w055\\w055_cont_resume.pt",
+      "base": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\w055\\w055_REA_base.pt"
+    },
+    "thermal_envelope": {
+      "polls": 208,
+      "max_temp_c": 61.0,
+      "temp_early_end_margin_c": 78.0,
+      "temp_hard_line_c": 84.0,
+      "cooldown_s": 40.0,
+      "burst_cap_s": 175.0,
+      "concurrent_gpu_jobs": 0,
+      "note": "every burst logged to runs/_envelope_log.jsonl tagged w055:CONT"
+    },
+    "versions": {
+      "torch": "2.12.0.dev20260408+cu128",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.6"
+    }
+  },
+  "outputs": [
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\w055\\w055_relay_probe.png",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\w055\\REPORT.md",
+    "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\w055\\metrics.json"
+  ]
+}
