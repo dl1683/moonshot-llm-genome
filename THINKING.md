@@ -62,6 +62,31 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T305 — E328: the first page is inert — formation texture lives in the gen's later batches (2026-10-10, datetime.now ~08:05Z)
+
+The swap closes the formation frontier's causal arm cleanly: replace
+the canon's entire first minibatch with a different draw's, and the
+formation that follows is the canon's to three decimals — a 1.9%
+parameter footprint, no fork, no texture change. THE FIRST PAGE
+CARRIES NOTHING. Whatever distinguishes one install draw's formation
+from another's, it is not the opening batch — it is the gen's later
+batches (or the gen's non-batch randomness, which the census could
+never separate and this cell now names as the remaining suspect).
+
+THE FRONTIER'S STATE AFTER THE CORRECTION: there is no step-one
+event (x32); the first page is inert (e328); the "two modes" were two
+starting states (T304). What remains genuinely open in formation:
+(1) the START-STATE contrast itself — base-formed vs root-formed
+writes are real and large (norm 9 vs 27, localization 94% vs 63%) and
+nobody has varied it deliberately; (2) the LATER-BATCH texture — what
+in the gen's stream makes one base-start land at 0.21 and another at
+0.55; (3) the substrate's own memory — where the root's standing read
+came from. All three are better questions than the fork ever was.
+
+THE LEDGER: both predictions hit (the weak lean + the atlas's mapping)
+— the registered-lean column keeps edging up (8-for-13 by the loose
+count). The instruments remain undefeated.
+
 ## T304 — X32: the net0 confound — the fork was two loading conventions, and nothing ever happened at step one (2026-10-10, datetime.now ~07:35Z)
 
 The atlas went hunting for the surge's geometry and found instead that
