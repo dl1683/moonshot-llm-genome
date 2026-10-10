@@ -144,7 +144,7 @@ STABLE SETPOINT (W055: no re-bifurcation over 8 phase-declared events; the floor
 flat; the controller resting at ~1/3 of its own ceiling — the three regimes a clean
 knob map: 2-cycle 0.37/0.88 rails / period-1 0.19/0.57 / the transient between) and the 'equilibrium' was THE UPPER RAIL
 SAMPLING-LOCKED (the milestones sample only the dose phase: plateau 0.873 == dose-phase
-mean 0.880; the cycle's true average 0.42) — 'plateau' readings carry the phase question); the HORIZON exposure remains — no run past the organism's own ~1,040-step
+mean 0.880; the cycle's true average 0.42) — 'plateau' readings carry the phase question — CONFIRMED AT SCALE by e342/the phase audit: the FOUNDING heights sag 48% mean intra-period (convex, dose-stratified; the mid at 34-75% of the boundaries; the founding trace's own gates sat 6-38x below its own milestones — the endpoint band 3.16-3.62x is an UPPER-RAIL band; the cycle amplitude 3.2-5.4x); the HORIZON exposure remains — no run past the organism's own ~1,040-step
 death clock; the fresh-room draw untested; the maintained state is address-rich (e318:
 low-dose tolerance above the family's, high-dose collapse faster).
 
@@ -239,7 +239,7 @@ all five).
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 18-for-31 (R80 refresh; two-sided p=0.473 — FIRMER coin-adjacency: the lean column went 1-for-4 on the day and has NO real edge; the 'finishing run' was the either-column, lean-only 4-of-7). THE ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven straight cells (selection-conditioned: its verb stays 'resolved', never 'predicted')
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 19-for-32 (post-R80 refresh; the day closed with both calls hitting its last two cells — still coin-adjacent in kind; the discriminator column the only accumulating edge). THE ACCUMULATING EDGE IS THE DISCRIMINATOR COLUMN — it RESOLVED every miss for seven straight cells (selection-conditioned: its verb stays 'resolved', never 'predicted')
    (NOT distinguishable from a fair coin, p ~ 0.25). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).

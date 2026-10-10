@@ -62,6 +62,40 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T323 — E342: the founding heights are rails — the whole controller record re-read at its true amplitude (2026-10-10, datetime.now ~19:15Z)
+
+The costume lesson's last residual resolved in the lesson's
+direction, at triple the bar: the read SAGS 48% on average within
+the founding 25-step period, convex and dose-stratified — the
+big-dose periods hold briefly, the small-dose periods fall from
+step one. THE FOUNDING MILESTONES WERE ALWAYS RAIL SAMPLES: the
+mid-period state at 34-75% of the boundary reads, the floors at
+18-31%, and the founding trace's own gates sat 6.2-38.2x below its
+own milestones — the phase gap was in the committed record all
+along, unread because the cadence never sampled it.
+
+THE RE-READ'S BLAST RADIUS (now measured, not feared): the endpoint
+band 3.16-3.62x is an UPPER-RAIL band (the cycle's true mean sits
+near half); the founding class's amplitude (3.2-5.4x peak/floor)
+was never visible. Every cross-cell height comparison that mixed
+cadences inherits a phase caveat. AND THE DOSE-STRATIFIED SHAPE
+gives the tuner program a new observable: the sag profile per dose
+size is a fingerprint of the controller's efficiency — the W055
+setpoint's shallow rails (0.19/0.57, sag unknown) vs the founding
+class's deep ones. THE COSTUME LESSON CLOSES COMPLETE: a sampler
+locked to the phenomenon's phase shows the phase, not the
+phenomenon — and now every phase in the record has been read.
+
+THE DAY'S FINAL TOTAL: eighteen cells, one arc, one era opened. The
+lean ledger finishes 19-for-32 (the day's best close: both calls
+hit on the last two cells). THE INSTRUMENTS: undefeated across
+every adjudication. THE MAP: a recipe measured, explained, tunable,
+assembled to its ceiling; a flip located as a two-parameter slot
+property; a controller re-read as a relay with rails; and the
+formation protocol named as the next era's question. THE LAB'S
+MEMORY OF ITSELF is exactly as long as its runs directory — and
+tonight that is a long memory.
+
 ## T322 — W055: the tuner has its setpoint — the relay settles at a third of its own ceiling (2026-10-10, datetime.now ~18:15Z)
 
 The tuner program's first probe returned the stable answer: the
