@@ -1446,7 +1446,8 @@ def main() -> None:
             and E43.CORP_BS == 48 and E43.MIX_RANDOM == 32
             and G1.NAME_BS == 16
             and int(inst["steps_ran"]) == E261.INST_STEPS
-            and pg["betas"] == [0.9, 0.95] and pg["weight_decay"] == 0.1
+            and list(pg["betas"]) == [0.9, 0.95]
+            and float(pg["weight_decay"]) == 0.1
             and abs(float(pg["lr"]) - lr_final_expected) <= 1e-12),
     }
     if not gpi["pass"]:
