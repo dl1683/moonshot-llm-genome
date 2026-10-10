@@ -62,6 +62,37 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T319 — X42: dead-or-alive in sign, graded in magnitude — the flip is a two-parameter object (2026-10-10, datetime.now ~16:45Z)
+
+The interior cell returned the rarest shape: both bars wrong and
+the truth a refinement neither offered. The flip's SIGN is
+dead-or-alive — by read 0.114 the response is already DOWN
+everywhere, no saturation-up anywhere in the interior. But its
+MAGNITUDE ramps through mid-formation: the collapse grows 0.61 ->
+5.35x across reads 0.11-0.51, joining the living band's 6.9-11.9x
+only near the top. THE TWO-CHANNEL LAW'S CONTROL PARAMETER IS NOT A
+SCALAR R* BUT A PAIR: a sign-threshold (early, sharp, below the
+lowest read the lab ever called living) + a magnitude ramp (broad,
+graded, ~0.6 orders). The empty outer bracket was honest — the outer
+rungs ARE total — but the interior holds the transition's actual
+shape.
+
+THE CONSTRUCTION'S PRIZE deserves its own line: the interior rungs
+were built by re-running the committed formation trajectory on CPU
+and it reproduced the committed cells to |d| 0.0 at s1 and ~1e-6
+through s300 — the strongest deterministic-replay certification the
+lab has produced, and a template for every future interior
+construction.
+
+FOR THE DOC: Law 7's flip clause upgrades from 'R* bracketed' to
+'the SIGN flips below the lowest living read; the MAGNITUDE ramps
+through mid-formation (move 0.6->5.4x over reads 0.11-0.51)'. THE
+LEDGER: both reads missed (17-for-28) — the discriminator column
+inherited the resolution again. THE DAY'S SHAPE: every coarse edge
+the reviews named has now been refined — R*, the gradient, the
+equilibrium, the recipe — and every refinement found more structure
+than the coarse version held.
+
 ## T318 — X41: the relay is entrainable — and the 'equilibrium' was the upper rail wearing a milestone costume (2026-10-10, datetime.now ~15:55Z)
 
 The kinetics cell closed both its questions cleanly. THE CYCLE IS

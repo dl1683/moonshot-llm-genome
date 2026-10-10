@@ -188,9 +188,10 @@ CONTENT LIVES IN THE ROOM-OVERLAP TAIL; OUT-OF-ROOM DISPLACEMENT IS ADDITIVE PUS
 mass-proportional committee, seatable in no single organ (x22: 28 fragments superpose
 to 0.992; the lm_head name-row carries 99.8% of its fragment and delivers 0.8%), gated
 ~36x at its target's own contexts, surgical off-target (x16), bearer-coupled (x19: dead states amplify at 72% of live while their mass stands);
-THE FLIP IS A STATE PROPERTY (x38): R* — the read level where the same displacement
-switches from LIFT to COLLAPSE — is bracketed (prior, lowest-living], ZERO ambiguous
-rungs; once living, the collapse is uniform (1.71x envelope) and host-gated; THE
+THE FLIP IS A TWO-PARAMETER OBJECT (x38+x42): the SIGN flips below the lowest
+living read ever formed (DOWN by 0.114; the outer rungs total) while the MAGNITUDE
+RAMPS through mid-formation (move 0.6 -> 5.4x over reads 0.11-0.51, joining the
+living band 6.9-11.9x) — a sign-threshold plus a graded ramp, not a scalar R*; once living, the collapse is uniform (1.71x envelope) and host-gated; THE
 NOISE FLOOR OF A LIVING READ IS A DOSE: ~2x its own write's norm in a random
 direction (4x is general destruction) (x19: the
 gate rides the write's mass, not the read's value — dead states amplify at 72% of live
