@@ -447,7 +447,7 @@ REPL_RET_CAP = 0.10                        # the replication class cap
 # the birth commit (frozen; pinned so reruns/finalizations from resume
 # checkpoints keep the true provenance instead of recording the current
 # head): bars + P-e341a committed + pushed BEFORE any compute
-BIRTH_COMMIT_PINNED = "TO_PIN_AT_BIRTH"
+BIRTH_COMMIT_PINNED = "3b19023"
 
 REGISTERED = {
     "question_verbatim": (
