@@ -380,10 +380,9 @@ READ_BAR = 0.05                             # the family's frozen 0.05 bar
 # the birth commit (frozen; pinned so reruns/finalizations from resume
 # checkpoints keep the true provenance instead of recording the current
 # head): bars + P-x39a committed + pushed BEFORE any compute
-BIRTH_COMMIT_PINNED = "PIN-AT-BIRTH-STEP2"   # set by the pin commit
-                                             # immediately after the birth
-                                             # commit (e341's 1abf259
-                                             # convention)
+BIRTH_COMMIT_PINNED = "0089ed7"               # the birth commit (bars
+                                             # + P-x39a live there); pinned
+                                             # per e341's 1abf259 convention
 
 REGISTERED = {
     "background_verbatim": (
