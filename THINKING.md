@@ -62,6 +62,34 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T311 — E337: the wall is a veto, not an anchor — consolidation is a runtime projection (2026-10-10, datetime.now ~12:30Z)
+
+The chamber's panel leg resolved cleanly and then went one layer
+deeper than its bars. The ball's read collapses under displacement
+exactly root-class (7.68x, full install gating, the gaussian silent):
+FRAGILITY AND CONSOLIDATION DISSOCIATE. Wash-proofness is not armor;
+the read is as fragile as any other living read. THE TWO PROPERTIES
+ARE INDEPENDENT AXES — and the wash axis's magic had to live
+somewhere else.
+
+THE WALL-VETO RIDER names where: with the wall armed, a 9.2-norm
+displacement is projected back to the R=0.70 ball and the read stays
+0.748. THE BALL'S DEFENSE IS AN IN-MODEL RUNTIME PROJECTION — a veto
+of displacement in the forward pass — not a change to the read's own
+anchoring. Disarm the wall and the fragility is bare. This reframes
+the whole consolidation question: the ball is not a memory that
+learned to resist washing; it is a memory LIVING INSIDE A GUARD.
+'What the ball has' is localizable (the wall construction) — and
+e338's question (does the commit event alone confer it?) sharpens
+into: does the commit event BUILD the guard, or the guarded read?
+
+THE PANEL BONUS: the ball lineage's own receptivity map (unwritten
+slots at 234-1779x — denser than the base's) — the map is
+lineage-universal, another x37 confirmation. THE LEDGER: the lean hit
+(12-for-19). THE CHAMBER'S FIRST ANSWER: consolidation and fragility
+are orthogonal; the wall is a runtime guard; the commit event's role
+(e338, computing) is now the load-bearing question.
+
 ## T310 — E339: reachable but not holdable — the genuine lower equilibrium, and the sawtooth's 2-cycle (2026-10-10, datetime.now ~12:05Z)
 
 The long landing's answer is the rarest kind: both predictions wrong
