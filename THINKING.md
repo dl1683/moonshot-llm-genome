@@ -62,6 +62,41 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T320 — X43: the ceiling — dose buys armor without limit, recovery has a cap, and the missing piece is a formation protocol (2026-10-10, datetime.now ~17:20Z)
+
+The capstone returned the honest negative the arc's trajectory
+foreshadowed: the composed retention stalls at 0.26-0.33, ~4x under
+the ball's band, and the anneal itself cannot climb — 600 extra
+steps of the cons's own protocol on a fresh install bought nothing
+(the read bounces in e341's band; the cons's 0.90 was its SUBJECT's
+height, not its protocol's promise). THE PROTOCOL GAP IS REAL: what
+separates the ball from the recipe is not a fourth ingredient but
+the cons's own formation history — the ladder's whole curated path,
+which cannot be transplanted as a 300-step recipe.
+
+THE MECHANISM PICTURE COMPLETED: dose buys first-step armor without
+limit (s1 climbing 0.115 -> 0.286 -> 0.427 — x40's directional
+practice deepening) while the wall-interior recovery caps — the two
+axes are independent (as e339/x40 argued) and the second has its
+ceiling under any annealing protocol tried. THE BALL'S LAST MYSTERY
+REDUCES TO: what formation history makes a read recover inside the
+wall? — a question about FORMATION, returning the lab to Law 3's
+deepest chamber with the sharpest instrument set it has ever had.
+
+THE CONSTRUCTIVE ARC'S FINAL LEDGER: eleven cells (e339 -> x43); a
+recipe decomposed (wall/height/anneal), explained (directional
+armor; the support split), made tunable (the relay), its assembly
+run honestly (the ceiling), and its boundary located exactly (a
+formation protocol, not an ingredient). THE HONEST WORD FOR THE
+DOC: the build lane's tool is BAND-ADJACENT (retention 0.26-0.33,
+sand-proof, first-step-proof) but NOT WASH-PROOF — and the gap is
+now a named, mechanistically-bounded question. That is what a real
+research program looks like at day's end: not a tool, a map.
+
+THE LEDGER: the executor's against-the-lean call hit (17-for-29).
+The discriminator column's streak stands. The day closes with the
+instruments undefeated and the questions better than the morning's.
+
 ## T319 — X42: dead-or-alive in sign, graded in magnitude — the flip is a two-parameter object (2026-10-10, datetime.now ~16:45Z)
 
 The interior cell returned the rarest shape: both bars wrong and

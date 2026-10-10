@@ -109,9 +109,14 @@ control bought the s1 survival with EITHER context menu, varied or fixed; the s1
 annihilation is height-blind but ANY 300-step annealed read survives; CONTEXT VARIETY
 buys a different channel — GEOMETRY-GENERALIZATION: the varied arm's read survives
 displacement at other offsets, gm12 0.688 vs the fixed arm's 0.131). SURVIVAL IS THE
-SHAPING'S; RECOVERY IS THE HEIGHT'S; THE WALL IS THE ORGANISM'S. The build lane's position (R79's honest re-word): NO INGREDIENT UNNAMED, THE ASSEMBLY
-UNBUILT — the legs were isolated on non-composable instruments; the composition cell
-(x43: anneal + height + wall on ONE organism) is the capstone.
+SHAPING'S; RECOVERY IS THE HEIGHT'S; THE WALL IS THE ORGANISM'S. THE ASSEMBLY RUN (x43, the capstone): CEILING — the composed retention stalls at
+0.26-0.33 (~4x under the band) and the anneal itself cannot climb (600 extra steps
+of the cons's own protocol bought nothing); DOSE BUYS FIRST-STEP ARMOR WITHOUT LIMIT
+(s1 0.115 -> 0.427) WHILE THE WALL-INTERIOR RECOVERY CAPS — the two axes independent,
+the second ceilinged. THE PROTOCOL GAP IS REAL AND MECHANISTICALLY BOUNDED: the
+missing piece is a FORMATION PROTOCOL (the cons's own curated history), not an
+ingredient. THE BUILD LANE'S TOOL IS BAND-ADJACENT (sand-proof, first-step-proof)
+BUT NOT WASH-PROOF — and the gap is a named question.
 
 ## LAW 4 — THE CONTROLLER [invariant]
 
