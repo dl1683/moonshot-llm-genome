@@ -62,7 +62,55 @@ telling you it has fallen behind the lab it guards.
 (And the small grace: the false fire produced this card — the guard
 doing its job even when wrong: forcing thinking onto the record.)
 
+## T304 — X32: the net0 confound — the fork was two loading conventions, and nothing ever happened at step one (2026-10-10, datetime.now ~07:35Z)
+
+The atlas went hunting for the surge's geometry and found instead that
+the surge never existed. The canon lineage installs from THE BASE; the
+census lineage installs from the g1c ROOT — a root whose standing read
+is 0.745. The "surge" is a standing read staying; the "no-surge" is a
+prior staying. At step one, in both conventions, NOTHING HAPPENS — no
+ray crosses any transition, and the read is indifferent to the first
+gradient's sign pattern. The bimodal wheel was a tale of two loaders.
+
+THE HONEST LEDGER OF WHAT THIS MEANS: the lab spent a night and a
+morning measuring "two formation modes" that were two starting states.
+The correction is sharp but not nihilistic — everything measured is
+still real, re-worded: BASE-FORMED writes (slow, pruned, localized,
+norm ~9) versus ROOT-FORMED writes (from a warm start, bulky,
+diffuse, norm ~27) are genuinely different formation OUTCOMES from
+different starting states — a legitimate and interesting comparison
+(W052's float survives as the start-state contrast). What dies: the
+claim that ONE protocol stochastically forks (gen-tracked); the die-
+share; "rare"; the empty band as a mode gap (it is the prior-to-
+standing gap). What re-words: e326's cross-class bracket (the root-
+formed write's transport — STILL conservative-direction and still
+valid), e334's controller (held a root-formed fact — still a genuine
+second substrate), the doc's Law 3 scope block (fully re-written
+below).
+
+THE META-LESSON (the third of its kind this week): the lab's eras
+carry silent convention drift — the anti's misbind (R68), the
+stamp discipline (R65+), and now the loaders. The monoculture clause
+was the right scent: the "second branch" smelled like a new
+instrument because it WAS one. W054's law holds: instruments age —
+and so do the conventions between them. The new standing rule: ANY
+cross-era comparison gate-checks the STARTING STATE first (net0's
+class boundary recorded in every install's metrics from now on).
+
+THE FORMATION FRONTIER RE-AIMED: the live question is no longer "why
+does the fork fork" but "what does the start-state buy" — the root's
+warm start yields bulky diffuse writes at 3x the norm; the base's
+cold start yields pruned localized ones. e328's swap (running, with
+its prediction registered) now reads on the formation axes. And the
+deepest open: WHERE did the root's standing read come from — the
+root is itself an artifact of the g1c ladder's history. The lab's
+oldest substrate has a memory, and the census was reading it.
+
 ## T303 — X34: the kill that never was — the die texture dissolves into no-surge, and the surge is the anomaly (2026-10-10, datetime.now ~05:55Z)
+
+> [T304 CORRECTION 2026-10-10]: one step further than this card knew — the no-surge/surge
+> axis was itself the net0 confound (base-start vs root-start). The card's prior-ratio
+> arithmetic survives and was the thread that led x32 to the confound.
 
 The census's central finding rewrites the formation story's oldest
 sentence. The canon's first step never killed anything: its read sat
@@ -345,6 +393,10 @@ EVERY MEMORY IS A SETTLEMENT ON SOMEONE ELSE'S LAND.
 
 ## T295 — E327: the mode question closes — two modes, three orders of seed magnitude, and the canon alone in the rare one (2026-10-10, datetime.now ~00:45Z)
 
+> [T304 CORRECTION 2026-10-10]: BIMODAL-CONFIRMED is void-as-worded — the census compared
+> root-started draws against a base-started canon; the s1 gap is the starting-state gap.
+> The 12.2% within-class spread and the formation textures remain real within each class.
+
 The census did what censuses are for. Eight seeds spread as equal-bin
 midpoints across the entire 32-bit range — no seed family can hide a
 conspiracy at that spacing — and every fresh draw survived step one
@@ -523,6 +575,11 @@ COUNTER, NOT THE GUESS.
 > panel) rides x25's successor.
 
 ## T291 — E324: the bimodal wheel — formation has two modes, the fork lands at step one, and the canon is the rare one (2026-10-09, datetime.now ~22:05Z)
+
+> [T304 CORRECTION 2026-10-10]: THE WHEEL IS A CONFOUND — the 'two modes' were two loading
+> conventions (base-start vs root-start; verified in the rigs' code by x32's fold). The
+> formation-outcome measurements survive re-worded (base-formed vs root-formed writes);
+> the stochastic-fork, die-share, and 'rare' claims are VOID.
 
 The census answers the monoculture question with the sharpest possible
 shape: NOT a wide lottery but a BIMODAL one. Four fresh gens at the

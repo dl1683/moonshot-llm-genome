@@ -84,7 +84,7 @@ to every bar; the ledger is scoped (0-for-8 on mechanism-seat guesses).
 | e331 | WASH THE WOMB FIRST (the height's causal leg) | READY | the 100-step unbiased wash on the vacant state BEFORE the 25-step cons: ADVANTAGE-ERASED (the recruit mass was the height) / SCAR-SURVIVES (a non-mass residue) |
 | x30 | THE MODE'S NOISE FLOOR | READY (CPU) | the x24 panel on a survive-mode census organism vs the canon: mode-blind fragility vs write-geometry-tracked |
 | x31 | THE DESIGNED PUSH (is the family fader linear?) | READY (CPU) | a novel fragment mix at constant mass/delivery, PREDICT the five lifts from the linear model, measure: LINEAR-FADER / STRUCTURE-BEYOND-MASS |
-| x32 | THE FIRST-STEP ATLAS (one hammer or three deaths?) | READY (CPU desk) | the sign-ray dose of each committed first step projected onto the victims' room bases: ONE-HAMMER (Law 1's mechanism noun) / THREE-DEATHS; REGISTERS e328's branch prediction BEFORE e328 computes |
+| x32 | THE FIRST-STEP ATLAS | DONE ~07:20Z Oct-10 (7bcd060) | THREE-DEATHS + THE NET0 CONFOUND (verified): the fork was two loading conventions; at step one nothing happens; the wheel void-as-worded, everything re-worded to base-formed vs root-formed — T304 | the sign-ray dose of each committed first step projected onto the victims' room bases: ONE-HAMMER (Law 1's mechanism noun) / THREE-DEATHS; REGISTERS e328's branch prediction BEFORE e328 computes |
 | e332 | THE NAMELESS ORGANISM | READY (GPU, 2 bursts) | a name-scrubbed corpus base + the standard install + the panel: ARCHITECTURAL vs ECOLOGICAL fragility |
 | A2 | span-decomposition | DEMOTED at R74 | day-ten fossil; substantially answered by e273/e278; x32 re-asks the residue free |
 

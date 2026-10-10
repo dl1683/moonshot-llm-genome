@@ -66,19 +66,22 @@ slot receptive (TAVIREN), another damped its own (NYSTORA, 1.90x -> 0.18x); ever
 shifts its neighbors; the map is invisible to generic probes at virgin state and
 substantially specific to the write lineage that produced it.
 
-*Scope (Law 3):* the canon — the source of the edge, the fill, and every committed
-formation number — is a DIE-MODE draw of a BIMODAL wheel (e323/e324/e327: the fork lands at optimizer step one, gen-tracked, and (x34) RE-WORDS ON THE RATIO AXIS:
-NO-SURGE (~1.0x the name's prior — there was never a kill; the canon's s1 = 1.006x prior) vs
-SURGE (>= 1e4x); every lab-installed fresh name took the no-surge branch — the surge
-belongs to canonical-fact reinstalls; within-mode spread 12.2%; die share 0/8 clean
-[0%, 36.9%] CP, corroborated 0/5 under variant protocols; typical fresh draws read ~2x
-the canon at ~3x its norm, 63% localized). LOCALIZATION IS THE DIE MODE'S SCAR (W052).
-A THIRD first-step texture (prior-flat) exists at n=1 (e330): the texture count is open.
-Gates: resolved (e327, e330, x28); the mode census and the texture question are open
-instruments, not gates. The map's causal evidence base: e330 is n=1 install, n=1 name;
-TAVIREN's committed lift is the sole other written-name datum. Law 2a's 2.3e-7 buffer
-separation is a single-session single-draw SEP-arm number (the shared-arm share
-replicated: 0.4553/0.4503 across e280/e284).
+*Scope (Law 3):* [RE-WRITTEN AT T304 — the net0 confound]: the "bimodal formation wheel"
+(e323/e324/e327) was TWO LOADING CONVENTIONS, not two stochastic modes — the canon
+lineage installs from the base (prior-level start); the census lineage installs from
+the g1c root (standing read 0.745). AT STEP ONE NOTHING HAPPENS in either class
+(read-indifferent to the first gradient's sign pattern; no ray crosses a transition).
+VOID: the stochastic fork, the die-share, "rare", the empty band as a mode gap (it is
+the prior-to-standing gap). REAL, RE-WORDED: BASE-FORMED writes (slow formation, norm
+~9.2, ~94% in-room; the canon and every lab-installed fresh name) vs ROOT-FORMED
+writes (from the warm root, norm ~27, ~63% in-room, reads 0.44-0.56; the census
+class) — the start-state contrast is the real variable. e326's cross-class bracket
+re-words to the root-formed class (still conservative-direction); e334's controller
+re-words to a root-formed substrate (still a genuine second-substrate sufficiency
+test). LOCALIZATION IS THE COLD-START'S SIGNATURE (W052, re-worded). STANDING RULE:
+any cross-era install comparison gate-checks the STARTING STATE (the net0 class
+recorded in every install's metrics). Open: where the root's standing read itself
+came from (the g1c ladder's history — the substrate has a memory).
 
 ## LAW 4 — THE CONTROLLER [invariant]
 
