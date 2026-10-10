@@ -631,7 +631,8 @@ def main() -> None:
               "jitters": list(G1.JITTERS),
               "n_install_occ": len(install_occ),
               "name_in_place_all": bool(all(
-                  torch.equal(w[G1.PRE: G1.PRE + len(G1.NAME)], name_ids)
+                  torch.equal(w[G1.PRE + j: G1.PRE + j + len(G1.NAME)],
+                              name_ids)
                   for j in G1.JITTERS for w in jit_x[j])),
               "pass": bool(pool_a_x.shape == (300, G1.BLOCK)
                            and pool_a_mask.shape == (300, G1.BLOCK - 1))}
@@ -784,11 +785,11 @@ def main() -> None:
         "e341:jitters": "(-8,-4,0,4,8)",
     }
     G_ANNEAL_ARITH = {"quotes": {k: {"quote": q,
-                                     "present": q in src}
-                                 for k, src in
-                                 [(k, g1bs5_src) if k.startswith("g1bS5")
-                                  else (k, e341_src) for k, q in
-                                  QUOTES.items()]},
+                                     "present": q in (g1bs5_src
+                                                      if k.startswith(
+                                                          "g1bS5")
+                                                      else e341_src)}
+                                 for k, q in QUOTES.items()},
                       "rederivations": [
                           "lr 4e-4 (g1bS3's 10M license) for e341's 1e-3 "
                           "(the 10M formation casualty — the dispatch's "
@@ -849,7 +850,13 @@ def main() -> None:
         "gated (max|d| "
         f"{max(v['abs_d'] for v in G_REFS['checks'].values()):.1e}): PASS")
 
-    # the total-movement origin (formation-curve x-axis placement)
+    # the total-movement origin (formation-curve x-axis placement).
+    # CURRENCY NOTE (the smoke's catch, wording fixed pre-run; the design
+    # arithmetic unchanged): the g1bS lineage's "movement_rms" is the
+    # ADAM-CLOCK dose (steps x lr, T139 — g1bS5: 500 x 4e-4 = 0.20; e113:
+    # 300 x 1e-3 = 0.30), NOT the weight-space per-coordinate rms. This
+    # cell reports BOTH: adam-clock (the formation curve's x-axis) and the
+    # measured weight-space rms (norm/sqrt(P), e185's currency).
     istate = torch.load(CKPT_DIR / SRC_INSTALL_CK, map_location="cpu",
                         weights_only=False)
     theta_install = {k: v.detach().clone()
@@ -859,8 +866,15 @@ def main() -> None:
         torch.cat([ (a[k].float() - b[k].float()).reshape(-1)
                     for k in a]))) / SQRT_P          # noqa: E731
     root_movement = rms_to(theta_install, theta_root)
-    log(f"movement check: root sits {root_movement:.4f} rms from the "
-        f"install (committed 0.20)")
+    ROOT_ADAM_CLOCK = G1BS5_PEAK_ROOT["steps"] * G1BS5_PEAK_ROOT["lr"]  # 0.20
+    log(f"movement check (weight-space rms, e185's currency): root sits "
+        f"{root_movement:.5f} from the install; ADAM-CLOCK (the curve's "
+        f"x-axis, T139): the root's committed dose "
+        f"{ROOT_ADAM_CLOCK:.2f} (= s{G1BS5_PEAK_ROOT['steps']} x "
+        f"{G1BS5_PEAK_ROOT['lr']:g}); THIS anneal adds "
+        f"{ANNEAL_STEPS * ANNEAL_LR:.2f} -> total "
+        f"{ROOT_ADAM_CLOCK + ANNEAL_STEPS * ANNEAL_LR:.2f} (the curve: "
+        f"0.20 -> 0.7677 peak; 0.30 -> 0.2523 collapse)")
 
     # =====================================================================
     # THE ANNEAL (e341's protocol at 10M: a fresh 300-step seed-10901 walk
@@ -885,11 +899,12 @@ def main() -> None:
     theta_annealed = anneal["sd"]
     anneal_movement_from_root = rms_to(theta_root, theta_annealed)
     anneal_total_from_install = rms_to(theta_install, theta_annealed)
-    log(f"ANNEAL DONE: {anneal['steps_ran']} steps, movement "
-        f"{anneal_movement_from_root:.4f} rms from the root; TOTAL "
-        f"{anneal_total_from_install:.4f} rms from the install "
-        f"(the formation curve's 0.30 collapse point = 0.2523; the peak "
-        f"0.20 = 0.7677)")
+    anneal_total_adam_clock = ROOT_ADAM_CLOCK + anneal["steps_ran"] * ANNEAL_LR
+    log(f"ANNEAL DONE: {anneal['steps_ran']} steps; ADAM-CLOCK dose "
+        f"{anneal['steps_ran'] * ANNEAL_LR:.2f} (curve total "
+        f"{anneal_total_adam_clock:.2f} — the 0.30 collapse point read "
+        f"0.2523, the 0.20 peak 0.7677); weight-space rms {anneal_movement_from_root:.5f} "
+        f"from the root, {anneal_total_from_install:.5f} from the install")
     anneal_dial = lean_dial(theta_annealed, "ANNEALED")
     save_ckpt(RD / ("g1bS9_annealed_s%d.pt" % anneal["steps_ran"]),
               theta_annealed,
@@ -897,15 +912,19 @@ def main() -> None:
                        "varied-context protocol at 10M, from the peak root)",
                "steps": anneal["steps_ran"], "lr": ANNEAL_LR,
                "seed": ANNEAL_SEED,
-               "movement_rms_from_root": anneal_movement_from_root,
-               "total_rms_from_install": anneal_total_from_install,
+               "adam_clock_dose": anneal["steps_ran"] * ANNEAL_LR,
+               "adam_clock_total_from_install": anneal_total_adam_clock,
+               "weight_rms_from_root": anneal_movement_from_root,
                "base": f"runs/checkpoints/{SRC_ROOT_CK}"})
     write_partial("anneal-done", {
         "anneal": {"traj": anneal["traj"], "lr": ANNEAL_LR,
                    "steps": anneal["steps_ran"], "seed": ANNEAL_SEED,
-                   "movement_rms_from_root": anneal_movement_from_root,
-                   "total_rms_from_install": anneal_total_from_install,
-                   "root_movement_check": root_movement,
+                   "adam_clock_dose": anneal["steps_ran"] * ANNEAL_LR,
+                   "adam_clock_total_from_install": anneal_total_adam_clock,
+                   "weight_rms_from_root": anneal_movement_from_root,
+                   "weight_rms_total_from_install": anneal_total_from_install,
+                   "root_weight_rms_check": root_movement,
+                   "root_adam_clock": ROOT_ADAM_CLOCK,
                    "chunk_table": anneal["chunk_table"]},
         "anneal_dial": anneal_dial, "G_REFS": G_REFS})
 
@@ -1196,9 +1215,10 @@ def main() -> None:
         f"({'ALIVE' if k_alive else 'DEAD'}); t0 {k_t0:.4f}; retention "
         f"{adjudication['retention']['K']:.3f}",
         f"- the anneal: {anneal['steps_ran']} steps @ {ANNEAL_LR} from the "
-        f"root; movement {anneal_movement_from_root:.4f} rms (total "
-        f"{anneal_total_from_install:.4f} from the install — the formation "
-        f"curve's 0.30 point read 0.2523); the read's delta "
+        f"root; ADAM-CLOCK dose {anneal['steps_ran'] * ANNEAL_LR:.2f} "
+        f"(curve total {anneal_total_adam_clock:.2f} — the 0.30 point read "
+        f"0.2523, the 0.20 peak 0.7677); weight-space rms "
+        f"{anneal_movement_from_root:.5f}; the read's delta "
         f"{adjudication['t0_axis']['anneal_read_delta']:+.4f}",
         f"- P-g1bS8a (mine, registered at birth): DOSE-FADES weakly — "
         f"{'HIT' if P_hit else 'MISSED'}; the lab lean DOSE-TRANSFERS "
@@ -1259,10 +1279,14 @@ def main() -> None:
                   for t in arms},
         "anneal": {"traj": anneal["traj"], "lr": ANNEAL_LR,
                    "steps": anneal["steps_ran"], "seed": ANNEAL_SEED,
-                   "movement_rms_from_root": anneal_movement_from_root,
-                   "total_rms_from_install": anneal_total_from_install,
+                   "adam_clock_dose": anneal["steps_ran"] * ANNEAL_LR,
+                   "adam_clock_total_from_install": anneal_total_adam_clock,
+                   "weight_rms_from_root": anneal_movement_from_root,
+                   "weight_rms_total_from_install": anneal_total_from_install,
                    "dial": anneal_dial},
-        "root": {"dial": root_dial, "movement_from_install": root_movement},
+        "root": {"dial": root_dial,
+                 "weight_rms_from_install": root_movement,
+                 "adam_clock_dose": ROOT_ADAM_CLOCK},
         "references": REFERENCES,
         "adjudication": adjudication,
         "envelope": {"bursts": envelope_bursts,
