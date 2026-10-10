@@ -88,6 +88,16 @@ to every bar; the ledger is scoped (0-for-8 on mechanism-seat guesses).
 | e332 | THE NAMELESS ORGANISM | READY (GPU, 2 bursts) | a name-scrubbed corpus base + the standard install + the panel: ARCHITECTURAL vs ECOLOGICAL fragility |
 | A2 | span-decomposition | DEMOTED at R74 | day-ten fossil; substantially answered by e273/e278; x32 re-asks the residue free |
 
+
+## R75 SECTION (2026-10-10, folded ~03:40Z) — the document's next test is scope
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| e333 | THE VACUUMED RESTORE (R75's cascade pick; Law 6's "from nothing" licenser) | DISPATCHED ~03:40Z Oct-10 | GPU: load e325's committed DK-1.0 state, project out the residual in-room TAVIREN seed mass (~5.57 norms, x28/e325's mass-accounting math; the room vacuumed at 1e-9), then e313's restore verbatim: READ-RETURNS-AT-MAINTENANCE-CLASS = "from nothing" licensed verbatim / INSTALL-CLASS-OR-NEVER = the residue was the road; Law 6 re-words "from residue" and a third unlearning road re-opens |
+| e334 | THE SURVIVE-MODE CONTROLLER (Law 4's named unqueued scope hole) | READY — NEXT GPU SLOT | e288's ERROR-GATED-HOLDS verbatim on a census survive organism (budgets fractioned per e326): HOLDS-SAME (the controller's sufficiency at n=2 modes) / HOLDS-CHEAPER (T299's "a survive fact may need less defending" becomes measurement; the necessity consequence re-priced) / FAILS (the controller is die-mode-parasitic — the doc's central positive re-words) |
+| x33 | THE MODE-BY-SLOT CROSS (the full-census coupling) | READY (CPU) | the x24 panel on ALL census organisms, mode crossed against slot lift: MODE-COUPLED (receptive slots predict the die branch — the map and the wheel merge; the canon's die reads as TAVIREN-slot fate) / ORTHOGONAL (the fork is optimizer-internal; Law 3's scope blocks stay separate axes) |
+| x34 | THE S1 TEXTURE CENSUS (the taxonomy; x32's desk companion) | READY (CPU, registerable before e328/x32) | fingerprint step one of every committed install on disk (x32's axes + the read-delta/prior ratio): THIRD-MODE (prior-flat clusters apart — the texture count re-opens) / SURVIVE-EDGE (prior-flat sits at the survive cluster's edge — two modes, continuous texture) |
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),
