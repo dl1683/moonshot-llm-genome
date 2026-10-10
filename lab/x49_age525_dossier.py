@@ -586,9 +586,13 @@ def main():
         f"raw collapses r1<=0.15: {[(k, v['raw_collapses_r1_le_0.15']) for k, v in collapse.items()]}")
 
     # ---------------- THE DOSSIER: profiles + grades ----------------
-    def profile_from(row, resid_val):
+    def profile_from(row, resid_val, age=None):
+        # x45's walk/anneal rows carry step but no age field; warm rows sit at age
+        # 400+step (e344's n1 convention); e344's swap rows carry age natively (age==step, cold).
+        if age is None:
+            age = row["age"] if "age" in row else 400 + row["step"]
         return {
-            "tag": row["tag"], "age": row["age"], "read": round(row["read"], 4),
+            "tag": row["tag"], "age": age, "read": round(row["read"], 4),
             "r1_g-12|g0": round(row["corrs"]["g-12|g0"], 4),
             "r2_g0|g+12": round(row["corrs"]["g0|g+12"], 4),
             "support_alive_g0": round(row["alive"]["g0"], 4),
@@ -610,7 +614,7 @@ def main():
         "walk_cons": [profile_from(walk_rungs[f"walk_cons_s{s}"], resid.get(f"walk_cons_s{s}")) for s in dossier_steps],
         "swap": [profile_from(swap_rows[f"swap_s{s}"], resid.get(f"swap_s{s}")) for s in dossier_steps],
         "anchors": {
-            "walk_s700": profile_from(walk_rungs["walk_s700"], resid.get("walk_s700")),
+            "walk_s700": profile_from(walk_rungs["walk_s700"], resid.get("walk_s700"), age=700),
             "anneal_s725_note": "the anneal's second raw collapse (r1 -0.010 at age 1125) — the warm phenomenon REPEATS off the 125 grid; in the pool, not the shared window",
             "e341_VARIED_t0": {"g0": e341["annealed_t0"]["VARIED"]["g0"], "gm12": e341["annealed_t0"]["VARIED"]["gm12"],
                                 "ce_r": e341["annealed_t0"]["VARIED"]["ce_r"], "role": "the anneal menu's formation protocol origin (the substrate the anneal reshaped)"},
@@ -984,13 +988,16 @@ def main():
     rep.append("")
     rep.append("## 3. THE DOSSIER — event vs anomaly")
     rep.append("")
+    def _f4(v):
+        return "n/a" if v is None else f"{v:+.4f}"
+
     for k in ["anneal_s125", "walk_cons_s125"]:
         d = dossier[k]
         rep.append(f"* **{k}** ({net0_recorded.get(k)}): {d['grade']} — 2x discontinuity bar "
                    f"{d['discontinuity_2x_bar']['pass']} (tick {d['tick_resid']:+.4f} vs 2x arm max "
-                   f"{d['discontinuity_2x_bar']['threshold']:.4f}); before {d['before_mean_s25_s100']:+.4f} -> "
-                   f"after {d['after_mean_s150_s275']:+.4f} (down-step >= 0.15: {d['down_step_ge_0.15']}); "
-                   f"last2 {d['last2_mean_s250_s275']:+.4f} (healed: {d['healed']}).")
+                   f"{d['discontinuity_2x_bar']['threshold']:.4f}); before {_f4(d['before_mean_s25_s100'])} -> "
+                   f"after {_f4(d['after_mean_s150_s275'])} (down-step >= 0.15: {d['down_step_ge_0.15']}); "
+                   f"last2 {_f4(d['last2_mean_s250_s275'])} (healed: {d['healed']}).")
     rep.append(f"* neighborhood dips vs s100/s150: {json.dumps(dips)}")
     rep.append(f"* **COMPOSITE: {composite}**")
     rep.append("")
@@ -1011,14 +1018,19 @@ def main():
     rep.append("|---|---|---|---|---|")
     for k in ["walk_anneal", "swap_anneal", "swap_walk"]:
         e = exclusion[k]
-        rep.append(f"| {e['edge']} | {e['r_full']:.4f} | {e['r_excl_s125']:.4f} | {e['delta']:+.4f} | {e['carried_by_non_s125']} |")
+        rf = "n/a" if e["r_full"] is None else f"{e['r_full']:.4f}"
+        re_ = "n/a" if e["r_excl_s125"] is None else f"{e['r_excl_s125']:.4f}"
+        dl = "n/a" if e["delta"] is None else f"{e['delta']:+.4f}"
+        rep.append(f"| {e['edge']} | {rf} | {re_} | {dl} | {e['carried_by_non_s125']} |")
     rep.append("")
     edge_deltas = {k: exclusion[k]["delta"] for k in ["walk_anneal", "swap_anneal", "swap_walk"]
                    if exclusion[k]["delta"] is not None}
     biggest = max(edge_deltas, key=edge_deltas.get) if edge_deltas else "n/a"
+    big_name = exclusion[biggest]["edge"] if biggest in exclusion else biggest
+    big_delta = edge_deltas.get(biggest)
+    big_txt = "n/a" if big_delta is None else f"{big_delta:+.4f}"
     rep.append(f"* where the tick sits in the star: s125's largest single-edge drop-one contribution is to "
-               f"{exclusion[biggest]['edge'] if biggest in exclusion else biggest} "
-               f"(delta {edge_deltas.get(biggest, float('nan')):+.4f}); every edge's r excl s125 is co-reported "
+               f"{big_name} (delta {big_txt}); every edge's r excl s125 is co-reported "
                f"against the 0.50 carried-by-non-s125 line.")
     rep.append("")
     rep.append("## 6. Gates")
