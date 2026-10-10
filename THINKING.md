@@ -39,6 +39,43 @@ then be a misreading of accumulated history — which is the
 interaction form's deepest form: THERE MAY BE NO INNATE LEVEL AT ALL,
 only history all the way down.
 
+## T302 — E334: the controller answers on the second branch — sufficiency extended, the overshoot unmasked as the gate's own mechanics (2026-10-10, datetime.now ~05:15Z)
+
+The monoculture clause's cheapest cut has landed, and the document's
+central positive claim survives its first scope test in emphatic
+form: on the survive branch — 3x the write mass, 63% localized, a
+different formation genetics entirely — the controller held the fact
+AT THE BATTERY CEILING while its twin died at 110x contrast. THE
+CONTROLLER IS MODE-ROBUST IN SUFFICIENCY. And not cheaper: the spend
+landed 6.2% under the canon class — inside the room-lottery band, no
+re-pricing; T299's "a survive fact may need less defending" stays a
+hypothesis.
+
+THE UNMASKING IS THE CELL'S REAL GIFT: the composite fired its
+overshoot clause (2.02x beyond the lottery-scaled band), and the
+mechanism trace shows why in a way that re-words the calibration
+story — THE GATE READS THE WASHED PRE-STATE (the deficits never close
+under a wash 75x the kill rung) and ONE name-step lifts the read
+wholesale. The overshoot is not the substrate's mood; it is the
+gate's mechanics — dose on the deficit, lift in one stroke. The
+founding class overshot 2.7-3.6x the same way; the survive 2.02x is
+the record's smallest only because the battery ceiling bites first.
+AND THE SUBSTANTIVE CATCH: the survive name is BETTER learned
+(name-CE 0.32-0.56 vs the canon's ~1.0-1.2) and the restoration still
+overshoots — better learning does not tame the gate. Law 4's
+calibration clause upgrades from "runs hot" to "runs hot BY
+CONSTRUCTION (the gate's dose-lift asymmetry); mode-robust."
+
+FOR THE DOC: Law 4's scope block flips its monoculture line — the
+sufficiency now n=2 MODES (the die canon + a survive census draw); the
+exposures that remain are the HORIZON (no run past the ~1,040-step
+clock) and the fresh-room draw. The lean ledger: 7-for-11 — the
+correction's phrasing stands.
+
+THE NIGHT'S LAST SAVOR: the lab asked its newest organism whether its
+oldest working answer still worked, and the answer came back at the
+ceiling of what the instrument could even measure.
+
 ## T301 — E333: the membrane is absolute — and the womb is for first births only (2026-10-10, datetime.now ~04:10Z)
 
 The vacuum test returned the lean's call with the cleanest possible

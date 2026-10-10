@@ -86,14 +86,17 @@ PRESERVATION SIGNAL (e288 ERROR-GATED-HOLDS; five same-class endpoints 3.16-3.62
 read-gated geometry transplant with no teaching signal is a no-op (e296) — the signal's
 out-of-room brush is the instrument that reaches where the death is. The controller is
 the peace-keeper within a same-name family (e291) and runs calibration-hot (~1.8-2.6x
-T-lens; e304).
+T-lens; e304) BY CONSTRUCTION — the gate doses on the washed pre-state's deficit and
+one name-step lifts wholesale (e334's trace; mode-robust: the survive branch overshot
+the same way at its battery ceiling; better-learned names do not tame it).
 
 *Scope (Law 4):* family-scoped peace (e293's distinct-name patients were never born —
-cross-family peace untested; re-read via Law 3's map: slots refusing); ONE base
-organism, one room frame, one write lineage (the die-mode canon); the HORIZON exposure —
-no run past the organism's own ~1,040-step death clock; mode-blindness of maintenance
-untested (the survive-mode controller spare); the maintained state is address-rich
-(e318: low-dose tolerance above the family's, high-dose collapse faster).
+cross-family peace untested; re-read via Law 3's map: slots refusing); SUFFICIACY NOW
+n=2 MODES (e334: the survive branch held AT the battery ceiling, 110x over its dead
+twin, spend within the lottery band of the canon class — mode-robust in sufficiency,
+not cheaper); the HORIZON exposure remains — no run past the organism's own ~1,040-step
+death clock; the fresh-room draw untested; the maintained state is address-rich (e318:
+low-dose tolerance above the family's, high-dose collapse faster).
 
 ## LAW 5 — THE ECONOMICS [invariant]
 
