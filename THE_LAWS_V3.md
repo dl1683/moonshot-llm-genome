@@ -129,9 +129,10 @@ never ran (both redraws TEXTURED out of band — the membrane law's cross-lineag
 replication rides the mode question); the alpha-1.5 rung straddles the bar at n=2
 ([0.0245, 0.0930] — undetermined). RESOLVED GATE (e325): READ-RETURNS — the composition (anti then scalpel
 then restore) DOUBLED the revival price (0.165 -> 0.275/0.312) without preventing it;
-the address REBUILDS CHEAPLY FROM RESIDUE (R75's correction: the room kept half its
-TAVIREN-structured mass and the gate stayed damped-not-dead — 'from nothing' is
-licensed only by e333, the vacuumed restore, PENDING); re-formation is
+the address REBUILDS FROM NOTHING — LICENSED VERBATIM BY e333 (the vacuumed road:
+the room emptied to 2.4e-15 ran AHEAD of the residue road at every panel and spent
+less; the restore repopulated 0.27% of the removed mass — THE RE-FORMED READ LIVES
+OUT-OF-ROOM; the womb is for first births only); re-formation is
 maintenance-class (~0.3 norm), not install-class (~9.2). Selective unlearning must
 block RE-FORMATION itself; formation-time bearer-unsharing stands as the only road
 (e333 may re-open one).
@@ -169,7 +170,7 @@ all five).
    artifact).
 3. PRE-REGISTER THE SCORER, not just the threshold (x20's near-miss lesson).
 4. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 6-for-9
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 7-for-10
    (NOT distinguishable from a fair coin, p ~ 0.25). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).

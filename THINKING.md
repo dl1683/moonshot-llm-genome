@@ -39,6 +39,39 @@ then be a misreading of accumulated history — which is the
 interaction form's deepest form: THERE MAY BE NO INNATE LEVEL AT ALL,
 only history all the way down.
 
+## T301 — E333: the membrane is absolute — and the womb is for first births only (2026-10-10, datetime.now ~04:10Z)
+
+The vacuum test returned the lean's call with the cleanest possible
+texture: the room at 2.4e-15, the restore re-lit the read FASTER than
+the residue road and spent less. THE ROOM WAS NEVER THE ROAD. "From
+nothing" is licensed verbatim; THE MEMBRANE IS ABSOLUTE; the third
+unlearning road does not open. The economics of forgetting is final:
+memory is cheap to rebuild from a bare organism and expensive to bury —
+and nothing the lab can do to the representation changes that.
+
+THE BONUS THAT REWRITES TWO CLAUSES: the restore repopulated 0.27% of
+the removed room mass. THE RE-FORMED READ LIVES OUT-OF-ROOM. The
+original formation built in-room mass (the womb — T277); RE-formation
+builds an out-of-room address. First formation and re-formation are
+different constructions with different currencies — the womb is for
+first births only, and every subsequent birth is a whole-state event.
+AND THE GATE NUANCE: the amplification gate reads 21.54 at zero room
+mass — it does not collapse. x19's "the gate rides the write's mass"
+refines to its final form: THE GATE RIDES THE WRITE'S OUT-OF-ROOM MASS
+— the address-side machinery, not the room's occupancy.
+
+THE CHAPTER, FULLY CLOSED: three roads measured and shut; the
+composition shut; the vacuum shut. SELECTIVE UNLEARNING IS
+FORMATION-WORK OR NOTHING. The document's Law 6 finalizes with its
+strongest honest form, and the lab's next frontier is the one the
+completed doc names: the monoculture scope (e334 — the controller on
+a survive-mode organism, the central positive claim at n=2 modes).
+
+THE LEDGER: the lean hits again (7-for-10 — still not coin-clear, but
+the direction holds; the executor's registered read also hit). The
+night ends where it began: the instruments answering every question
+they were asked, and the questions getting better.
+
 ## T300 — E325: the membrane chapter's last line — the address rebuilds from nothing, and the price is the story (2026-10-10, datetime.now ~03:30Z)
 
 The composition the two-removals map forced has run, and the answer
