@@ -638,6 +638,36 @@ deviations: list[str] = [
     "operationalization; (4) x60's inst_a/inst_b resume artifacts are "
     "gitignored-but-on-disk committed products (x60 DONE, never "
     "re-run); md5-bound here as repro targets.",
+    "THE TWO MID-RUN BACKGROUND KILLS + THE THREE-PROOF RESTARTS "
+    "(R83/R84's standard; appended post-adjudication, check-side "
+    "only — no bar-deciding logic touched, the docstring untouched): "
+    "the desk's background task was killed twice (~58 min in, mid "
+    "low_k7; ~61 min in, mid refb — the environment's ~1h background "
+    "window, x60's own two-kill class). RESTART 1: low_k7 had no "
+    "saved resume yet and re-executed from step 0 — its re-executed "
+    "s1..s25 rows BIT-IDENTICAL to the pre-kill log (s1 0.449500/"
+    "0.043354 .. s25 0.400598/0.321036); every completed leg "
+    "(cert_a, inst_a2, probez, low_k0) resumed no-op with draws and "
+    "rows bit-conserved. RESTART 2: refb re-executed from step 0 — "
+    "rows s1..s225 BIT-IDENTICAL to the pre-kill log (s50 "
+    "0.435256/0.000156 .. s225 0.542380/0.000081); all other legs "
+    "no-op resumes. PROOF 3 (metrics re-derived from the resumed "
+    "state): the final execution re-derived every gate from the "
+    "resumed artifacts — G_X60REPRO re-bound the low skeleton to "
+    "x60's committed rows, G_INSTCERT/G_INSTB_BIND re-derived, all "
+    "22 PASS. VERDICTS UNAFFECTED (deterministic re-execution).",
+    "POST-ADJUDICATION DISCLOSURES (read-side honesty, appended with "
+    "the restart record; no bar touched): (1) refa2's COHERENT is a "
+    "KNIFE-EDGE miss — its primary r1 carries sign - 0.8125 (PASSES "
+    "the 0.75 sign bar) with mean|d| 0.144955 vs the 0.15 floor, a "
+    "0.005 miss (3.4%); the pooled side separates (r1 - 0.875/0.336) "
+    "— flagged class-carried per T335; the BREAKS verdict is the "
+    "frozen composite's honest output and the knife-edge is named "
+    "here. (2) the TRACKS-INVERTED arch diff (-1.17) sits at the "
+    "-1.0 band's edge; the high_k12-s125 cell lost co-occupancy "
+    "(guest 0.075 < 0.10) — had it counted, peak_HIGH would read "
+    "+3.29 at that cell (below k7-s300's +4.20, so the peak cell is "
+    "unchanged) — the inversion is real but modest and single-pair.",
 ]
 
 metrics: dict = {
