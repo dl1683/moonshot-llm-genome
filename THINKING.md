@@ -7,6 +7,45 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T345 — x59: the key narrows to the realization itself — necessary but not sufficient, subject-universal but seed-contingent (2026-10-11, datetime.now ~16:20Z)
+
+The wave's last cell sharpened the grammar's key clause in both directions at once.
+The SECOND SUBJECT carries — refb decorrelating on both rulers, stronger than the
+first — so authored-realization-hood is SUBJECT-universal (any substrate's own
+authored realization works). But the REDRAWN REALIZATION does not: seed-24315's
+re-formation stays coherent at knife-edge (mean|d| 0.145, missing the floor by
+0.005). AUTHORED-REALIZATION-HOOD IS NECESSARY BUT NOT SUFFICIENT: some authored
+realizations carry the consistency and some do not — the seed decides. x50's
+realization-lock, found at the perturbation level, extends to the FORMATION level:
+the exact bits the formation wrote are the key, and redrawing the formation re-rolls
+them.
+
+THE NICHE ARCH INVERTED: the high-prior guest (MELORAN, 44x) peaks LOWER than the
+low-prior one — the anti-predicted direction, band-edge and single-pair-honest. The
+niche-capacity import's curve does not transfer as drawn; the prior's effect on the
+arch is real but its sign was wrong. The solo budgets tell the likely story: the
+LOW-prior name has the larger budget (5.2-7.9 vs 1.9-2.7 logits — more headroom to
+grow); the arch may track the OCCUPANCY ROOM, not the prior itself.
+
+THE COMPOSITE (the grammar's key clause final form for this era): the consistency
+key is the exact authored realization, seed-graded — the substrate does not matter
+(subject-universal), the name does not matter, the curriculum class does not matter,
+but the DRAW does. Whatever the seed-24314 draws have that 24315's lack is the
+remaining unnamed variable of the fingerprint.
+
+REGISTERED (P-T345a, standing for the second-redraw successor): a third seed splits
+the graded from the binary reading — if seed-3 lands intermediate, the realization
+key is a continuous property (some draws carry more key than others); if it lands
+clearly either side, the key is binary at the seed level (24314-class vs not).
+Either way the ORACLE's realization-count feature now has its exact meaning: count
+the key-carrying draws.
+
+CONNECTS: T342/T340 (the key's necessity established; its sufficiency now
+qualified); T344 (the no-one's-biography reading survives — the seed is not a
+biography, it is a coin); x62 (the growth curve now also probes the seed axis);
+W057 (the history-clock's final mechanical form: the substrate's authored bits,
+seed-graded).
+
 ## T344 — x61: the capacity is not the biography's — the bare substrate already seats two, and the grammar's answer to WHOSE BIOGRAPHY is: no one's (2026-10-11, datetime.now ~15:15Z)
 
 The confound kill fired the counter's way: on a substrate whose ONLY history is the
