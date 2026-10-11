@@ -266,8 +266,10 @@ min convention — and the mid-band resolved it (x55): the protection edge lands
 (7,12], GRADED and non-monotone (k=14 exceeding the full dose at s125; the armor
 edge distinct at (7,9]); THE LEDGER (x56, logit currency): THE SEAT GROWS — at
 partial dose both names occupy it ABOVE the solo budget (11 cells, best +5.29)
-before the full-dose collapse below solo (~99% real competition; the guest corner
-GUEST-DEAD): CAPACITY-TWO, the anti-motion real but non-conserving; the write
+before the full-dose RE-CONCENTRATION (R84's repair: the LIFT collapses ~99% real
+while OCCUPANCY holds — the raw sums exceed solo at 2-of-3 fate steps, the lift-only
+clause disclosed; the guest corner GUEST-DEAD): CAPACITY-TWO, the anti-motion real
+but non-conserving; the write
 name-blind throughout: the host dies unmaintained under ANY non-host key) is the cell's causal
 border — READ SURVIVAL, NOT DECORRELATION: the decorrelation datum remains the walk,
 n=1, now isolated as THE OWN-KEY PHENOMENON. The
@@ -325,7 +327,7 @@ protocol, one architecture at 2.74M.
    (refreshed at the x55/x56 folds: the eighteen cells since R80 went 9-for-18 — e342, x48,
    x46, x51 (primary; rider missed, disclosed), x50, x52, x36, x55 hit; g1bS9, x45,
    x47, e343, e344, x49, e345, e346 (SHARP head missed, ZxT rider hit, disclosed),
-   x53 (cell half hit, adoptive half missed — the counter won the fork), x56
+   x53 (split, counted hit under the head convention — R84's wording), x56
    (CAPACITY-TWO against both calls) missed-or-split; W058 closed — the lean column is
    NOISE, not bias; misses are priced, not spun; the executor counter-column hit on ALL THREE of its
    contested calls (g1bS9, e343, e344) — the lean column is statistically a coin

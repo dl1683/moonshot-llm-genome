@@ -219,6 +219,20 @@ critic; the standing ask in every droid brief since ed.23.
 Standing: x36 (next GPU slot after x53), x54 (unblocked), oracle (behind x53), N4
 (last), Q1 STILL LIVE AND OWNERLESS, hook v5 (maintenance slot).
 
+## R84 SECTION (2026-10-11, folded ~08:10Z) — the capacity-schedule era; the ordering fixed
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x57 | THE KEY'S CHANNEL (the target-vs-context window split at matched counts) | RUNNING (dispatched ~08:10Z, desk) | TARGET-ONLY vs CONTEXT-ONLY at full dose: target -> G1-adjacent / context -> G2-adjacent / neither -> the window structure is the unit (the R83 card, now the ordering's head) |
+| x58 | THE NON-FRONT SWAP + THE MATCHED-JITTER RIDER (P-T338a + the critic's content-vs-change control) | RUNNING (dispatched ~08:10Z) | AT-STRENGTH (the front specifically carries the consistency — front-concentration) / DESTROYED-EQUALLY (any perturbation); RIDER: front-reshuffle / front-re-jitter arms (content vs mere change at matched positions) |
+| G2-a | THE VIRGIN-SLOT CENSUS (P-T339a; ledger-armed) | READY (behind x57/x58) | the grown-seat test: a fresh name's first formation on the root occupies a GROWN seat (the install's history grew it) vs starts at solo capacity (the k=0 null) |
+| x59 | THE SECOND PAIR (ANY-NAME n=2 + the arch-vs-guest-prior discriminator — the niche-capacity prediction) | READY | a second adoption pair: does the arch's peak track the second occupant's base prior? |
+| G2-b/c | the cold-geometry cell; the slot's per-organ anatomy | READY (behind G2-a) | the pre-registered program |
+| oracle | THE ORACLE (feature list +KEY-IDENTITY/+KEY-MASS) | LAST | ~30 variants, wash + fingerprint, regress retention — the Hopfield load-curve prediction rides (interpolation barriers mid-band, vanishing at k16) |
+
+Standing: Q1 LIVE AND OWNERLESS; hook v5; N4; the v3.3 compression = the next fold's
+first item (the draft committed at cde73a0).
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),

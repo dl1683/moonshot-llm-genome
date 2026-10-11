@@ -2524,3 +2524,42 @@ maintenance core stands); x53 DISPATCHED with the critic's dose-matched adoptive
 x55/x56/x57 minted; phase-2 thermal standing adopted; the envelope-record disclosure
 carried (runs/ artifacts not edited post-hoc); both cadence stamps current; droid
 ed.42 lands this beat. Ledger: 24-for-45 stands.
+
+## R84 (2026-10-11, folded ~08:10Z) — the six-cell post-fork arc audited; the collapse clause repaired; v3.3 drafted
+
+Panel: ONE combined agent (auditor/critic/ideator + the novelty discharge); the file
+scratch/r84_panel.md (cde73a0). Window: R83 -> 127f828 (x52, e346, x53, x36, x55, x56).
+
+**AUDITOR — SOUND-WITH-REPAIRS-OWED; every bar-deciding number exact at source.** All
+six cells traced key-by-key (the strata; the k-curve + the thermal envelope with the
+dropped zxt record confirmed absent-but-evidenced; the adoptive both-sides numbers +
+the bit-equal dose gates; the K-table; the mid-band; the ledger). Registration
+docstrings byte-identical birth->HEAD; parity verbatim; the ledger re-derives to
+27-for-49 with the split conventions consistent. Nicks: two birth_commit pins (x53 a
+heartbeat's; x36 its smoke — the own-birth convention), METHODS' x53 wording (applied).
+
+**CRITIC — the seat survives; the collapse clause did not.** The logits-vs-probs
+sensitivity check (desk, on committed metrics): CAPACITY-TWO survives 10-of-11 cells
+in raw sums, but 'falls below solo' is LIFT-ONLY — re-worded to RE-CONCENTRATION
+(applied in Law 8: the lift collapses ~99% real while occupancy holds). The non-front
+swap under-designed for content-vs-change: the matched-jitter rider added (x58). Five
+unmeasured quadruple interiors named. THE v3.3 DRAFT: three core groups (the
+fingerprint; THE SEAT GRAMMAR with the currency qualifier; the read-side border) with
+all numbers to scope — DEFERRED one beat with the draft committed (the one deferred
+repair this cycle; reason: structural-edit risk under a very long session; the first
+item of the next fold). ORDERING: x57 -> x58 (non-front+jitter) -> G2-a (virgin
+census) -> x59 (the second pair) -> G2-b/c -> oracle last.
+
+**IDEATOR (+NOVELTY) — four cards + the thesis + two imports.** x58 (the jitter-
+matched non-front swap); G2-a (the virgin-slot census, ledger-armed, P-T339a riding);
+x59 (the second adoption pair — ANY-NAME n=2 + the arch-vs-guest-prior discriminator);
+the oracle timing card (the feature-list amendment). ERA THESIS: THE SEAT IS A GROWING
+CAPACITY — consistency authored (front-loaded, knife-edge), occupancy dosed; THE
+MISSING PROTOCOL IS A CAPACITY SCHEDULE. NOVELTY (both grepped 0-hit): the HOPFIELD
+LOAD CURVE (mid-band = sub-capacity co-storage; full dose = load catastrophe;
+predicts interpolation barriers vanishing at k16) and NICHE CAPACITY CURVES (the
+arch's peak tracks the second occupant's base prior — x59's test).
+
+**FOLD ACTIONS:** the re-concentration re-word + METHODS' x53 wording applied; the
+v3.3 compression deferred-and-disclosed (the draft committed); the ordering adopted;
+x57 + x58 DISPATCHED; both cadence stamps reset. Ledger: 27-for-49 stands.
