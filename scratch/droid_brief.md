@@ -1,59 +1,64 @@
-# Droid brief — DIALOGUE MODE, edition 40 (Q1-Q4 open across FORTY editions; the
+# Droid brief — DIALOGUE MODE, edition 41 (Q1-Q4 open across FORTY-ONE editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-10T23:50Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-11T01:47Z (datetime.now-sourced; at the mark)
 
-- Guard: OK at every beat (5 folds / 8-11 thinking commits in the 6h window).
-- Fleet 1/1: e345 THE TAVIREN WARM WALK (GPU lane, in design — the 4x4 grid's closer).
-  x50 just folded (see below); the desk wave (x48/x46/x49/x51) all folded this window.
-- Cadence ages at the mark: droid: this brief; review 94 min (R81 at 22:24Z; R82's
-  window ~00:40Z, >60 min from the 23:40Z dispatches); novelty 2h55m — DUE at R82.
+- Guard: OK at every beat. Fleet 1/1: x52 THE RULER-SYMMETRY RE-SCORE (CPU desk; the
+  run's REPORT is forming, the agent finalizing gates).
+- Cadence ages at the mark: droid: this brief; review 46 min (R82 at 01:01Z); novelty
+  46 min (discharged with R82's ideator).
 
-## WHERE WE ARE — the retraction's autopsy paid out: the knob exists
+## WHERE WE ARE — the era re-cut around one question: IS THE MISSING PROTOCOL A KEY?
 
-1. THE RETRACTION ARC closed at R81 (see ed.39): the era's first fingerprint retracted
-   at its crosses; R81 caught THE LINEAGE LABEL (the walk is ZEPHYRA-read, 7-0 by
-   x48's identity pass — e344's 'NAME-ARTIFACT' verdict had named an axis the design
-   held constant; the warm home's best datum correctly re-filed).
-2. THE HISTORY-CLOCK LANDED (x46): ONE-OBJECT at the birth-frozen rule — receptivity,
-   lift-termination, generalization, and wash-proofness all correlate with elicitation
-   decorrelation on the same states (both free anchors >= 0.5; wash-proofness exact
-   p=0.011). Methods-grade in Law 8. The era's instrument exists.
-3. THE FOURTH TOPOLOGY + THE ANTI-CORRELATION (x51): feedback formation COHERES — the
-   controller's compact in-room write (93%) TIGHTENS coherence (0.972 -> 0.993) while
-   open-loop varied arms sprawl and decorrelate; the controller sits APART-ABOVE every
-   co-movement band. THE CO-MOVEMENT IS OPEN-LOOP-ONLY; the tuner program does not
-   merge with the formation-protocol era.
-4. THE KNOB EXISTS (x50, minutes ago): dense replay WATCHED decorrelation form — an
-   oscillating emergence in [s10,s30], then ONE sharp 5-step consolidation [s50,s55]
-   that never re-coheres. The 25-grain 'plateau' was single-rung spikes; the s125 tick
-   is a wide noisy patch; in-room FLAT at chance through the whole sprawling write
-   (the geometry carrier dead — the curriculum carries everything). x43's ceiling
-   re-reads as never having watched the right phase.
-5. THE LEDGER: 23-for-42; the lean column verified NOISE not bias (W058 closed on a
-   registered falsifier); the counter column 3-for-3 but selection-conditioned; the
-   parity standard enforced on every dispatch since R81.
+1. THE ONE-CELL FINDING (e345, T334): the {warm,cold}x{ZEPHYRA,TAVIREN} cons grid
+   closed — the decorrelation lives in EXACTLY ONE CELL ({warm x ZEPHYRA-lineage}):
+   the TAVIREN-warm-cons cell turned out to BE the anneal ruler itself (the
+   menu-aliasing fact: e341's VARIED is the cons protocol keyed TAVIREN), and the
+   closer's own arm was a CONTENTION formation (the ZEPHYRA-keyed stream executed the
+   TAVIREN read at s1). The grid's border is a causal knife: 7 name tokens the only
+   delta between the read surviving and the read dying — at NAME-BLIND writes
+   (|W| 11.52 vs 11.40; in-room 0.722/0.730). The census is stream arithmetic; THE
+   READ'S FATE IS THE NAME KEY'S ALONE.
+2. THE HONESTY LAYER (R82, all repairs same-fold): the cross-name-interference
+   reading is live (the stream taught the guest fast while the host went unmaintained
+   into the cold-AdamW shock — the neutral-key control named); READ SURVIVAL IS NOT
+   DECORRELATION (the walk's read survived while decorrelating; the decorrelation
+   datum is n=1); semantic own-name (G1) unlicensed over mechanical (the substrate's
+   write history) — x53's adoptive-self leg owns that fork.
+3. LAW 8 COMPRESSED TO v3.2 (~110 -> 35 invariant lines): three cores — external
+   consolidation, the ceiling, and THE SECOND FORMATION (the merged clause: open-loop
+   varied menus write decorrelation, feedback writes its opposite, name-blind, two
+   acts, one cell); the arc + tick + star + N1 + the scale clause re-homed to scope;
+   x46's meta-layer promoted to METHODS 6 (THE SHARED MEASURABLE — every
+   lineage-relative claim priced against elicitation decorrelation). Nothing deleted;
+   the 'AND THE...' chain ends. Q1's review is now a one-sitting read.
+4. THE SESSION'S FULL ARC (since ed.40): x48 confirmed the lineage 7-0 and found THE
+   ANNEAL HUB; x46 landed the history-clock (ONE-OBJECT) and closed W058 (the lean
+   column is noise, not bias); x49 broke the age-phase alias (the tick warm-exclusive);
+   x51 found the FOURTH TOPOLOGY + the anti-correlation (feedback tightens coherence);
+   x50 FILMED THE KNOB (emergence [s10,s30], consolidation [s50,s55]); e345 closed the
+   grid; R82 compressed the law. Ledger 23-for-43, every miss priced.
+5. IN FLIGHT: x52 — the ruler-symmetry gate (PRESERVE hardens the one-cell into
+   biology and the G-program proceeds; AMBIGUOUS pauses it for a neutral-ruler
+   control), with the dense ruler replay riding (the ruler-internal coherence
+   control + P-T333a's re-keyed clause).
 
 ## WHAT CAN BE DONE (top next actions, named)
 
-1. FOLD E345 when it lands (free; imminent) — the {warm,cold}x{ZEPHYRA,TAVIREN} grid's
-   closer: does the warm cons walk decorrelate in a second name? P-T331a (the tick
-   cross-name) + P-T333a (the two-act live shape) ride. The arm-level answer to the
-   warm home.
-2. R82 PANEL (~00:40Z window; novelty rides it — 2h55m due): the era's ledger is
-   ready — five folds since R81, the live clause, the fourth topology; the panel
-   should compress Law 8 (it has grown long) and order the post-knob program.
-3. THE POST-KNOB QUESTION (cheap, next desk wave): now that the knob's act is filmed
-   ([s10,s30] + [s50,s55]), the constructive program opens — does a SECOND application
-   of the knob (re-re-formation) deepen decorrelation? does the consolidation window
-   move under a changed curriculum? The oracle wildcard (25-40 variants, regress
-   pre-wash statistics on retention) is now un-gated by x50's verdict.
-4. x36 THE PAGE LADDER (GPU slot after e345): the only protocol-manipulating cell
-   standing; orthogonal to the fingerprint fight.
+1. FOLD X52 (free, imminent) — the gate verdict; then e346+ZxT (the name-key ladder:
+   k in {1,2,4,7} tokens — threshold/graded/inoculating — plus the execution-symmetry
+   arm; one rig, GPU+desk) if PRESERVE.
+2. x53 THE OWN-NAME PROGRAM (behind e346) — the G1-vs-G2 fork's only formation-class
+   discriminator, with the adoptive-self extension (a guest consolidated onto the
+   root, then re-formed).
+3. x36 THE PAGE LADDER (next GPU slot, orthogonal) — doubly motivated by 'the menu
+   carries everything': WHERE in the stream the decorrelation-writing content lives.
+4. Q1 — the supervisor's LAWS review: v3.2 is the one-sitting read it was drafted to
+   be; Law 8 and METHODS 5-6 are the pages.
 
 ## BLOCKERS / ASKS
 
-- Q1 (the supervisor's doc review of THE LAWS) STILL LIVE AND OWNERLESS — v3.1 + this
-  window's five clause additions await your reading; Law 8 is the one to read first.
-- The lean ledger is honestly coin (23-for-42) — no owner action, disclosed.
-- The dialogue still owes droid's side (standing since ed.23).
+- Q1 STILL LIVE AND OWNERLESS — the standing ask since ed.23; v3.2 makes it cheap.
+- The oracle wildcard is timed (behind x53) — its feature list pre-registered with
+  +KEY-IDENTITY/+KEY-MASS; no owner action needed.
+- The dialogue still owes droid's side.
