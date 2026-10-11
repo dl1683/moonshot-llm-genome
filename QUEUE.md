@@ -273,6 +273,19 @@ Standing: Q1 LIVE AND OWNERLESS; hook v5; Repair 2 (x61 metrics append); the
 word-scope repair + METHODS' counter clause at the next law touch; the prion-strain
 passage test and the sloppy-models discriminant registered as angles.
 
+## R88 SECTION (2026-10-11, folded ~23:25Z) — the exception's era: every non-carrier fails in its own way
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| oracle | THE ORACLE CALIBRATED (the free 9-record trajectory prelude riding; measured-K as the target; the no-biography ablation; the k16 interpolation-barrier rider) | RUNNING (dispatched ~23:25Z) | ~30 formation variants, wash + fingerprint, regress retention with honest features — the era's first sweep-scale cell |
+| x65 | THE EXCEPTION'S ANATOMY (R88's insertion: the s5-on-B cross + stage-II nucleation + the multi-context depth read) | READY (behind the oracle) | what makes a non-carrier: the knife class's plasticity rule (epistasis: carrier-stable +4% vs shallow-plastic +23%); cryptic variation (24315's depth on B) |
+| x62 | THE CAPACITY-GROWTH CURVE (seed-armed) | READY | the architectural-default vs first-install fork |
+| G2-b/c | cold-geometry; per-organ anatomy | READY | unchanged |
+| N4 | the plasticity price | LAST | unchanged |
+
+Standing: Q1 LIVE AND OWNERLESS; hook v5; Repair 2 (x61 append); the seed-s4 literal
+logged; P-NARROWS-TO-S200 registered.
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),

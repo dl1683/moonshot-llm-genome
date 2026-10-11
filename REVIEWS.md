@@ -2684,3 +2684,45 @@ keys drift) and SLOPPY MODELS (the anatomy silence as a possible basis artifact;
 **FOLD ACTIONS:** the ordering adopted; the SEED BATCH DISPATCHED; the word-scope
 repair + METHODS' counter clause queued for the next Law-8/methods touch; both
 cadence stamps reset. Ledger: 29-for-56 stands.
+
+## R88 (2026-10-11, folded ~23:25Z) — the pricing audited SOUND; the counter streak breaks; the exception's era named
+
+Panel: ONE combined agent (auditor/critic/ideator + the novelty discharge); scratch/
+r88_panel.md (85fb3c6). Window: R87 -> 9edf999 (x64).
+
+**AUDITOR — SOUND; FOUR NICKS.** Every bar-deciding number recomputed exact (the
+batch table; the CP95 weighting-invariant; the riders' features vs thresholds; the
+seed-twin gates; the three-proof restarts). NICKS: (1) seed s4's literal a digit
+transposition of its stated derivation (no property affected — logged); (2) rider
+C's 'clean early' clause vs 2-of-3 fires at the landing axis (softened per the
+critic's desk recon below); (3) a deviation field absent from the delivered metrics
+(run.log holds it — noted); (4) THE TWO R87-QUEUED WORD-REPAIRS NOT APPLIED at a
+fold touching both texts — applied THIS fold instead (the 'invisible' scope; the
+counter clause — which is now ALSO factually stale: THE COUNTER'S CONTESTED STREAK
+BREAKS AT x64, 1-of-4).
+
+**CRITIC.** (a) The half-weight honest AND immaterial (every weighting lands
+MAJORITY; a fair coin still lives in the interval — 'the norm' stays welded to its
+CP95). (b) THE EARLY-CONFOUND RESOLVED BY DESK: extended to the nine records, the
+s300/s400 fires DISSOLVE (deep-carry s1 landing 0.615 breaks the contrast) and only
+the S200 MID-FORMATION DIP survives — knife-edge 0.2502 vs the 0.25 bar; P-NARROWS-
+TO-S200 registered; Law 8's '3/20' clause softened this fold. (c) Open after
+pricing: the assembly gap re-read, the exception's anatomy, the knife class's
+plasticity rule, stage ii, the untried sloppy-models combinations, the oracle's
+depth target, x62's fork. (d) ORDERING: THE ORACLE (with the free 9-record
+trajectory prelude riding) -> THE EXCEPTION'S ANATOMY (new insertion) -> x62 ->
+G2-b/c -> N4.
+
+**IDEATOR (+NOVELTY discharged).** Three cards (the oracle calibrated with
+measured-K as target; the exception's anatomy — the s5-on-B cross + stage-II
+nucleation + the multi-context depth read; x62 seed-armed). ERA THESIS: THE
+EXCEPTION'S ERA — carriers are all alike; every non-carrier fails in its own way.
+FRESH IMPORTS (grepped 0-hit): EPISTASIS (the grid's carrier-stable +4% vs
+shallow-plastic +23% depth) and CRYPTIC GENETIC VARIATION (24315's depth cryptic
+on A, partially expressed on B).
+
+**FOLD ACTIONS:** the two queued word-repairs APPLIED (the scope + the counter
+clause with its flipped datum); rider C's clause softened per the desk recon; the
+ordering adopted (the oracle first with the prelude, the exception's anatomy
+inserted); the oracle DISPATCHING; both cadence stamps reset. Ledger: 29-for-57
+stands.

@@ -268,8 +268,9 @@ carries STRONGER than the first, but the redrawn seed-24315 realization stays
 coherent at knife-edge: subject-universal, realization-contingent; x63: THE KEY COIN
 MAJORITY (R 6.5/8, CP95 [0.349,0.968] — the fresh non-consecutive seeds carrying
 DEEPER, K 0.215-0.320) — the key per-seed, INVARIANT to the name, INVISIBLE in the
-draw statistics (the powered re-screen confirming), PARTIALLY VISIBLE in the late
-formation trajectory (3/20 cells on read), and CONTEXTUAL at the margin (the lone
+draw statistics (the powered re-screen confirming), PARTIALLY VISIBLE at the s200
+mid-formation dip alone (the 9-record desk recon dissolving the later fires —
+R88's softening), and CONTEXTUAL at the margin (the lone
 non-carrier moving toward depth on the second subject: seed-main-with-interaction)
 (the anatomy read silent at 0.40x of every threshold: the key lives in the weights'
 response to the draws, not the draws' marginals); the Hopfield datum: the
@@ -336,8 +337,8 @@ riders) hit; x62a (BOTH-ALONE-KILL, both guesses outside), x61 (PRE-GROWN-SUBSTR
    x53 (split, counted hit under the head convention — R84's wording), x56
    (CAPACITY-TWO against both calls), x58 (AT-STRENGTH/CONTENT fell to
    DESTROYED-EQUALLY/CHANGE — the executor 4-for-4) missed-or-split; W058 closed — the lean column is
-   NOISE, not bias; misses are priced, not spun; the executor counter-column hit on ALL THREE of its
-   contested calls (g1bS9, e343, e344) — the lean column is statistically a coin
+   NOISE, not bias; misses are priced, not spun; the executor counter-column hit on its first three contested calls then broke (1-of-4 at x64 —
+   R88's datum flip) — the lean column is statistically a coin
    (one-sided no-edge p ~ 0.98; two-sided exact binomial 0.22) and the ordering
    hypothesis 'guess < lean < counter < instrument' is CONSISTENT WITH the ordering on
    three contested cells (counter 3-for-3, p=0.125 naked, selection-conditioned); no
