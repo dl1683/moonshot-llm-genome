@@ -262,9 +262,12 @@ lands in capacity-two — all twelve mid-band cells qualifying on the ROOT and 5
 on the BARE no-history base at deltas at/above the reference band's top: THE
 BIOGRAPHY'S SPECIFIC CONTENT NOT LOAD-BEARING — the capacity architectural-default
 or self-grown by the first install, the residual fork x62's) and the key is
-UNIVERSAL-AUTHORSHIP (any authored realization carries the consistency — the fresh
-re-formation decorrelating on both rulers, pooled-Z r2 -1.0; the Hopfield datum:
-the consolidated seat grows capacity further with age). THE GRAMMAR IS COMPLETE
+AUTHORED-REALIZATION-HOOD — necessary but NOT sufficient (x59: the second subject
+carries STRONGER than the first, but the redrawn seed-24315 realization stays
+coherent at knife-edge: subject-universal, realization-contingent — x50's
+realization-lock extended to the formation level; the Hopfield datum: the
+consolidated seat grows capacity further with age; the niche import's arch
+prediction INVERTED — the high-prior guest peaking lower). THE GRAMMAR IS COMPLETE
 AND CLOSED; the numbers live in the scope block.
 
 *Scope (Law 8):* the fingerprint arc — x45's separation (0.78/0.83, sign -); e343's
@@ -315,11 +318,12 @@ ladder (tail4/reshuffle/re-jitter all COHERENT at 0.53-0.60 with geo_mad
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 29-for-54
-   (refreshed at the x61 fold: the twenty-three cells since R80 went 11-for23 — e342, x48,
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 29-for-55
+   (refreshed at the x59 fold: the twenty-four cells since R80 went 11-for24 — e342, x48,
    x46, x51 (primary; rider missed, disclosed), x50, x52, x36, x55, x57, x60 (both
 riders) hit; x62a (BOTH-ALONE-KILL, both guesses outside), x61 (PRE-GROWN-SUBSTRATE — the
-   counter's silent-synapse bar) missed; g1bS9, x45,
+   counter's silent-synapse bar), x59 (both bars falling — the counter's
+   BREAKS-at-the-redraw half hitting) missed; g1bS9, x45,
    x47, e343, e344, x49, e345, e346 (SHARP head missed, ZxT rider hit, disclosed),
    x53 (split, counted hit under the head convention — R84's wording), x56
    (CAPACITY-TWO against both calls), x58 (AT-STRENGTH/CONTENT fell to
