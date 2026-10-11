@@ -608,6 +608,25 @@ PORT_QUOTES = [
 ]
 
 deviations: list[str] = [
+    "THE THREE KILLS + RELAUNCHES (the three-proof standard, R83/R84's "
+    "form; appended check-side AFTER the run — no bar-deciding logic "
+    "touched, the docstring untouched birth->HEAD): the environment's "
+    "~1h background window killed the desk three times (kill 1 ~59.8 "
+    "min mid refa_s2; kill 2 ~59.4 min mid refa_s4; kill 3 ~59 min mid "
+    "refb2 — x59/x60/x63's own class). RESTART 1 (refa_s2): inst_s2's "
+    "resume conserved 400/400 draws + the 5 rung rows (PROOF 1, "
+    "verified from the resume artifact); refa_s2 re-executed from step "
+    "0 with its pre-kill rows BIT-IDENTICAL (verified from the "
+    "relaunch log: s25 0.519673 / s50 0.399590 / s75 0.641776 / s100 "
+    "0.656942 — PROOF 2); every gate re-derived on relaunch (PROOF 3). "
+    "RESTART 2 (refa_s4): same form — inst_s4's resume conserved; "
+    "refa_s4's pre-kill s150 row 0.393584 reproduced bit-identically. "
+    "RESTART 3 (refb2): the automated reexec_proof recorder (added at "
+    "birth) recorded 11 rows bit-identical in "
+    "metrics.restart_proofs.refb2. VERDICTS UNAFFECTED (deterministic "
+    "re-execution); the in-memory proof records for restarts 1-2 died "
+    "with their kills and are quoted here from the logs verified at "
+    "relaunch time.",
     "BIRTH-TIME DISCLOSURES (frozen here, before any compute): (1) the "
     "slice cap LOWERED to 900s from x63's 1800s (the environment's ~1h "
     "background-kill window; checkpoint frequency only — no bar-deciding "
