@@ -259,6 +259,20 @@ Standing: Q1 LIVE AND OWNERLESS; hook v5; METHODS 5's stale clause at the next f
 Standing: Q1 LIVE AND OWNERLESS; hook v5; Repair 2 (x61's metrics append) at the next
 x61-touching session; METHODS' stale clause noted.
 
+## R87 SECTION (2026-10-11, folded ~19:15Z) — the emergent-key era: how common, and where
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x64 | THE SEED BATCH (the base-rate cell; 5 non-consecutive seeds) + RIDERS: the anatomy re-screen (the untried classes — cross-stream joints, order statistics, block-drift), the 24315-on-B cross (the grid's off-diagonal), the FREE coarse-trajectory read (stage i: does the key show before the read?) | RUNNING (dispatched ~19:15Z) | the coin's base rate priced (5 fresh K-labels); the anatomy's power question; the emergent claim's first stage; lean: ~half carry (the 2-for-3 midpoint) — counter: the consecutive-seed artifact (all three may share a locality) |
+| oracle | THE ORACLE ADJUSTED (the measured-K column replacing realization-count; the no-biography ablation; the k16 interpolation-barrier rider) | READY (behind the batch) | the sweep with honest features |
+| x62 | THE CAPACITY-GROWTH CURVE (seed-armed) | READY | the architectural-default vs first-install fork |
+| G2-b/c | cold-geometry; per-organ anatomy | READY | unchanged |
+| N4 | the plasticity price | LAST | unchanged |
+
+Standing: Q1 LIVE AND OWNERLESS; hook v5; Repair 2 (x61 metrics append); the
+word-scope repair + METHODS' counter clause at the next law touch; the prion-strain
+passage test and the sloppy-models discriminant registered as angles.
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),

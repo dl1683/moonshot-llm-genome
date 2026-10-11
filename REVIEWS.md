@@ -2640,3 +2640,47 @@ different packing per seed; predicts the seed variable visible at nucleation, by
 
 **FOLD ACTIONS:** Repair 1 applied; Repair 2 disclosed-standing; the ordering adopted;
 the seed-variable wave DISPATCHING; both cadence stamps reset. Ledger: 29-for-55.
+
+## R87 (2026-10-11, folded ~19:15Z) — x63 audited SOUND; the oracle unseated; the emergent-key era named
+
+Panel: ONE combined agent (auditor/critic/ideator + the novelty discharge); scratch/
+r87_panel.md (a2e0daa). Window: R86 -> 70d165b (x63).
+
+**AUDITOR — SOUND.** Every bar-deciding number recomputed exact; the K-axis bands
+birth-frozen 26 min before compute with the anchors runtime-read and honestly
+bracketing (the 0.145 boundary hugging the 24315 anchor by 4.5e-5, disclosed at
+birth; the verdict 0.089 from the nearest boundary); the docstring byte-identical;
+G_SEEDTWIN14 grounded; the three proofs verified. NICKS: the 'invisible in the draw
+statistics' word-scope repair owed at the next Law-8 touch; METHODS' counter clause
+stale twice over (the counter now 4-for-4 contested).
+
+**CRITIC.** (a) THE COIN UNPRICED at 2-for-3 (CP CI [0.09, 0.99]; the cheapest
+pricing a 5-seed batch at non-consecutive seeds — the current three are consecutive
+integers, e327's own convention — ~45-50 min marginal per seed; + the 24315-on-B
+cross filling the seed-by-subject grid's off-diagonal; + the 24315 knife-edge
+caveat: the lone non-carrier is itself borderline). (b) ANATOMY-SILENT a low-power
+null; the untried classes named (cross-stream joints; order statistics beyond
+lag-1/coupon-96; block-drift). (c) THE EMERGENT CLAIM placement-by-elimination
+until the staged trajectory read: stage (i) FREE (the coarse rung logs exist for
+all four formations — does the key show before the read?); stage (ii) the s1-s8
+nucleation re-instrumentation; stage (iii) any separating joint/order/combination
+is the falsifier. (d) Still open: the base rate, the seed-by-subject grid, the
+key's home, x62's fork, the arch confound, scale. (e) THE ORACLE UNSEATED — x63's
+own finding (realization-count not computable from draw statistics; only 3
+K-labels exist) demotes it behind the seed batch. ORDERING: the SEED BATCH (+ the
+anatomy re-screen rider, the 24315-B cross, the FREE coarse-trajectory read) ->
+the ORACLE ADJUSTED (the measured-K column, the no-biography ablation, the k16
+rider) -> x62 seed-armed -> G2-b/c -> N4.
+
+**IDEATOR (+NOVELTY discharged).** Four cards (the seed batch / the response-space
+read / the oracle adjusted / x62). ERA THESIS: THE EMERGENT-KEY ERA — how common is
+the key, and where does it live. FRESH IMPORTS (grepped 0-hit): PRION STRAINS +
+SERIAL PASSAGE (the key defined by behavior not composition; the warm re-formation
+as templated propagation; the passage test — strain-like keys persist, bit-lucky
+keys drift) and SLOPPY MODELS (the anatomy silence as a possible basis artifact; a
+2-3-component discriminant on batch records separating where marginals were silent
+— or strengthening the response claim through combinations).
+
+**FOLD ACTIONS:** the ordering adopted; the SEED BATCH DISPATCHED; the word-scope
+repair + METHODS' counter clause queued for the next Law-8/methods touch; both
+cadence stamps reset. Ledger: 29-for-56 stands.
