@@ -574,6 +574,13 @@ deviations: list[str] = [
     "live (G_STREAMIDENT at the full 25 CPU steps; G_K7CLASS at s8 vs the "
     "committed k7_s8 row); the adjudication SMOKE-stamped (nothing "
     "scored) — every code path exercised.",
+    "THE SMOKE-CAUGHT PNG REPAIR (pre-adjudication, disclosed): the "
+    "first smoke pass crashed in make_png panel 3 AFTER P4 — a str step "
+    "key compared against an int window bound (e346's own post-P4 PNG "
+    "crash class, the family's named repeat). Repaired to int(s). No "
+    "bar, arm, stream, gate criterion or registration byte touched — "
+    "presentation only; every gate had already PASSed in the crashed "
+    "pass (15/15).",
 ]
 
 metrics: dict = {
@@ -1863,7 +1870,7 @@ def make_png(adj: dict, arms: dict, p0: dict) -> None:
     ax3 = fig.add_subplot(gs[0, 2])
     d7 = adj["dense_coreport"]["mine"]["k7r"]
     pts = sorted((int(s), v) for s, v in d7.items()
-                 if v is not None and 90 <= s <= 300)
+                 if v is not None and 90 <= int(s) <= 300)
     ax3.plot([a for a, _ in pts], [b for _, b in pts], "o-", ms=5,
              color="tab:brown", lw=1.2, label="k7r (CPU re-realization)")
     comp = adj["k7_control"]["committed_gpu_fates"]
