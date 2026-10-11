@@ -403,7 +403,7 @@ MD5_BINDS = {
     "e335_metrics": ("runs/e335/metrics.json",
                      "5d92359bc9b2e943c01bf521487cf177"),
     "e322_metrics": ("runs/e322/metrics.json",
-                     "88765a53b21ddc310687c23ab00aa546"),
+                     "88765a53b21bdc310687c23ab00aa546"),
     "e001": ("runs/checkpoints/e001.pt",
              "d114536d1c0983ab3be67f67ff0667c8"),
     "own_install": ("runs/checkpoints/g1c_install_resume.pt",
@@ -511,7 +511,20 @@ PORT_QUOTES = [
      "the room's exact projector (the write-control ruler)"),
 ]
 
-deviations: list[str] = []
+deviations: list[str] = [
+    "THE SMOKE-CAUGHT BIND-LITERAL REPAIR (pre-adjudication, disclosed; "
+    "x57's own catch class): one md5 literal in MD5_BINDS was mistyped "
+    "at birth (e322_metrics: b21dd for the file's true b21bd) — G_MD5 "
+    "caught it on the first smoke pass (its exact job); repaired to the "
+    "file's true md5. No bar, arm, stream, mask or gate criterion "
+    "touched — the bind now binds what it always claimed.",
+    "THE SMOKE-CAUGHT REPORT-GUARD REPAIR (pre-adjudication, disclosed; "
+    "x60's own display-layer KeyError class): make_report's ledger + "
+    "reference joins iterated FATE_STEPS unconditionally — in smoke no "
+    "fate rungs exist and the join raised; guarded with a "
+    "steps-present check (display-side only; no bar, arm, stream, mask "
+    "or gate criterion touched).",
+]
 
 metrics: dict = {
     "experiment": "x61_bareroot_control",
@@ -2016,6 +2029,11 @@ def make_report(p0: dict, p2: dict) -> None:
 
     def f2(v):
         return "\u2014" if v is None else f"{v:+.2f}"
+
+    # the fate rungs present in THIS run's ledger (smoke runs stop at 8
+    # steps — x60's own display-layer KeyError class, guarded here)
+    steps_ok = [s for s in FATE_STEPS
+                if str(s) in led["table"]["0"].get("host", {})]
     A("# X61 — THE BARE-ROOT CONTROL (R85's confound kill)")
     A("")
     A(f"**VERDICT: {cv['verdict']}**")
@@ -2041,6 +2059,9 @@ def make_report(p0: dict, p2: dict) -> None:
     A("")
     A("## The ledger")
     A("")
+    if not steps_ok:
+        A("(smoke: no fate rungs at the 8-step horizon — the ledger "
+          "table is empty by construction; the full run carries it)")
     A("| arm | host p(Q) s25/s125/s300 | guest p(N) s25/s125/s300 | "
       "delta s25/s125/s300 | both-occupied |")
     A("|---|---|---|---|---|")
@@ -2057,32 +2078,37 @@ def make_report(p0: dict, p2: dict) -> None:
                      FATE_STEPS)
           + " |")
     A("")
-    A(f"The solo budget B(s): "
-      + ", ".join(f"s{s}={led['budget'][str(s)]:.2f}" for s in FATE_STEPS)
-      + ".")
+    if steps_ok:
+        A(f"The solo budget B(s): "
+          + ", ".join(f"s{s}={led['budget'][str(s)]:.2f}" for s in steps_ok)
+          + ".")
     A("")
     A("## The references side by side (the biography gradient)")
     A("")
-    x56k7 = C["x56_table"]["7"]["delta"]
-    x60k7 = C["x60_ledger_a"]["table"]["7"]["delta"]
-    A(f"- x56's TAVIREN subject (carries e261's K10K 10,000-direction "
-      f"fact write — NOT bare): k7 deltas "
-      + "/".join(f2(x56k7[str(s)]) for s in FATE_STEPS)
-      + "; k12 "
-      + "/".join(f2(C['x56_table']['12']['delta'][str(s)])
-                 for s in FATE_STEPS) + ".")
-    A(f"- x60's root subject-a (carries ZEPHYRA's full 700-step "
-      f"biography — NOT bare): k7 deltas "
-      + "/".join(f2(x60k7[str(s)]) for s in FATE_STEPS)
-      + "; k12 "
-      + "/".join(f2(C['x60_ledger_a']['table']['12']['delta'][str(s)])
-                 for s in FATE_STEPS) + ".")
-    A(f"- MINE (NO history but the subject's own install): k7 "
-      + "/".join(f2(led['table']['7']['delta'].get(str(s)))
-                 for s in FATE_STEPS)
-      + "; k12 "
-      + "/".join(f2(led['table']['12']['delta'].get(str(s)))
-                 for s in FATE_STEPS) + ".")
+    if steps_ok:
+        x56k7 = C["x56_table"]["7"]["delta"]
+        x60k7 = C["x60_ledger_a"]["table"]["7"]["delta"]
+        A(f"- x56's TAVIREN subject (carries e261's K10K 10,000-direction "
+          f"fact write — NOT bare): k7 deltas "
+          + "/".join(f2(x56k7[str(s)]) for s in steps_ok)
+          + "; k12 "
+          + "/".join(f2(C['x56_table']['12']['delta'][str(s)])
+                     for s in steps_ok) + ".")
+        A(f"- x60's root subject-a (carries ZEPHYRA's full 700-step "
+          f"biography — NOT bare): k7 deltas "
+          + "/".join(f2(x60k7[str(s)]) for s in steps_ok)
+          + "; k12 "
+          + "/".join(f2(C['x60_ledger_a']['table']['12']['delta'][str(s)])
+                     for s in steps_ok) + ".")
+        A(f"- MINE (NO history but the subject's own install): k7 "
+          + "/".join(f2(led['table']['7']['delta'].get(str(s)))
+                     for s in steps_ok)
+          + "; k12 "
+          + "/".join(f2(led['table']['12']['delta'].get(str(s)))
+                     for s in steps_ok) + ".")
+    else:
+        A("(smoke: the references live in "
+          "metrics.census_verdict.reference_tables)")
     A("")
     A(f"The landing class: the bare-root install-end p(Q) "
       f"{metrics['install_end_row']['read']:.4f} (the native's own "
