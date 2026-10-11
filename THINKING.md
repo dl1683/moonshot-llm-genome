@@ -7,6 +7,42 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T343 — x62a: the kill is channel-redundant — either half of the unattended background evicts, and the armor is attention's alone (2026-10-11, datetime.now ~14:05Z)
+
+[Provenance note: written one beat after the fold commit that named it — the T341-class
+slip, caught and repaired in-beat; the lab's own failure mode repeating is itself
+data: the gate holds only as well as the beat's discipline.]
+
+The decomposition returned the outcome neither side registered: BOTH halves alone
+kill. cm-only executes (0.0016-0.0046); read-through-only executes (0.0045-0.0052,
+marginally less dead at every fate step — the dominance co-report); the union is
+not needed. THE KILL IS CHANNEL-REDUNDANT: the eviction is robust to which
+unattended channel carries the mass — a property of the SEAT's occupancy rules, not
+of any single mechanism. The witnessing-vs-competition question dissolves: BOTH are
+sufficient, NEITHER is necessary.
+
+AND THE ARMOR SHARPENING: the s1 armor is absent in both background halves (0.0036
+~= conly's 0.0024) — it lives in the attention channel alone. x57's reading
+completes: attention protects AND armors; the unattended channels neither protect
+nor armor, and either of them evicts.
+
+THE COMPOSITE (the grammar's read-side border refined): the maintenance is
+attention-side and EXCLUSIVE (any unattended mass at dose evicts — channel-
+redundantly); the armor is attention-side and SOLO (no background channel carries
+it); the write remains role-blind through everything. The seat's rules are cleaner
+than any single-mechanism story: ATTENTION IS THE ONLY FRIEND; EVERYTHING ELSE AT
+DOSE IS THE ENEMY, HOWEVER IT ARRIVES.
+
+REGISTERED (P-T343a, standing): the redundancy predicts the eviction generalizes
+to NEVER-TESTED channel decompositions (any disjoint background partition kills at
+matched mass — the pre-vs-post read-through split the named successor); COUNTER:
+some partition leaves a harmless half (the redundancy has a boundary — the
+grammar's interior map gains its next probe).
+
+CONNECTS: T341 (attention's exclusivity now measured on the kill side too); T342
+(the grammar's border clauses refined, not overturned); Law 8 (the read-side
+border's redundancy clause at the next law touch).
+
 ## T342 — x60: the grammar closes — the seat is grown at first contact, and the key is authored-realization-hood itself (2026-10-11, datetime.now ~12:45Z)
 
 The census discharged both riders in the grammar's favor. GROWN: a fresh name's
