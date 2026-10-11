@@ -238,7 +238,7 @@ first item (the draft committed at cde73a0).
 | id | experiment | status | one-liner |
 |---|---|---|---|
 | x59 | THE SECOND PAIR (ANY-NAME n=2 + the niche-capacity prediction — the arch's peak tracks the second occupant's base prior; the certified virgin recipe) | RUNNING (dispatched ~13:05Z) | refa-on-inst_b + a redrawn realization: UNIVERSAL-AUTHORSHIP n=2 (two subjects, two realizations) + ARCH-TRACKS-PRIOR vs ARCH-FLAT (the niche prediction) |
-| conly+x61 | THE CONLY DECOMPOSITION + THE BARE-ROOT CONTROL (one desk wave) | RUNNING (dispatched ~13:05Z) | conly: cm-only 4080 vs read-through-only 3968 (witnessing vs resource competition); x61: a virgin install on a no-name-history base, k-skeleton verbatim — PRE-GROWN-SUBSTRATE vs BARE-SOLO (the confound kill) |
+| conly+x61 | THE CONLY DECOMPOSITION + THE BARE-ROOT CONTROL (one desk wave) | conly DONE ~13:55Z Oct-11 as x62a (7a2244c); x61 RUNNING | BOTH-ALONE-KILL (P-conlya missed — both guesses outside; 29-for-53): each background half ALONE executes at the fate trio (the union not needed) — THE KILL IS CHANNEL-REDUNDANT; the s1 armor the attention channel's alone (x57 sharpened); the write role-blind — T343; x61 (the bare-root control) still computing |
 | G2-b/c | the cold-geometry cell; the slot's per-organ anatomy | READY (behind the wave) | the pre-registered program |
 | oracle | THE ORACLE — PROMOTED (un-gated, doubly motivated; +seat-occupancy/+realization-count features; the k16 interpolation-barrier prediction registered) | READY (after the wave) | ~30 formation variants, wash + fingerprint, regress retention |
 | x62 | THE CAPACITY-GROWTH CURVE (the Hopfield axis controlled) | READY | the same name installed at successive root checkpoints + the interpolation-barrier rider |
