@@ -379,7 +379,7 @@ ARM_BY_TAG = {a["tag"]: a for a in ARMS}
 # ---- the md5 binds (frozen at birth; Rule 12) -----------------------------
 MD5_BINDS = {
     "rig_e346": ("lab/e346_name_key_ladder.py",
-                 "808f89c94347d3d194cc268555dc2f"),
+                 "808f89c94347d3d9d194cc268555dc2f"),
     "rig_x55": ("lab/x55_midband_ladder.py",
                 "84ac54933bfb8b7c9b59d243d10d9733"),
     "rig_e345": ("lab/e345_taviren_warm_walk.py",
@@ -417,7 +417,7 @@ MD5_BINDS = {
     "rig_x45": ("lab/x45_path_difference.py",
                 "88a22f2d8b2832538c93ba3d49570c23"),
     "rig_x44": ("lab/x44_rstar_offsets.py",
-                "f67fde47c3a6d60c2f3834395f57a034"),
+                "f67fde47c3a6d60c2f3814395f57a034"),
     "rig_x40": ("lab/x40_first_step_mechanism.py",
                 "d1f8874a06c43b828eb8de334b20b896"),
     "rig_g1": ("lab/g1_anchored_ball.py",
@@ -673,6 +673,12 @@ deviations: list[str] = [
     "at the full 25 CPU steps; G_ROLEMASK/G_MASKUNION over all 8 draws; "
     "G_DRAWS vs the k7 resume's first 8 records), the adjudication "
     "SMOKE-stamped (nothing scored) — every code path exercised.",
+    "THE SMOKE-CAUGHT BIND-LITERAL REPAIRS (pre-adjudication, "
+    "disclosed): two md5 literals in MD5_BINDS were mistyped at birth "
+    "(rig_e346 dropped a hex char; rig_x44 transcribed 1 as 3) — G_MD5 "
+    "caught both on the first smoke pass (its exact job); repaired to "
+    "the files' true md5s. No bar, arm, stream, mask or gate criterion "
+    "touched — the binds now bind what they always claimed.",
 ]
 
 metrics: dict = {
@@ -1766,11 +1772,14 @@ def phase_P4(p0: dict, arms: dict) -> dict:
                         for s in FATE_STEPS if s in rows
                         and "in_room" in rows.get(s, {})},
         }
-        log(f"  [{tag}] fate reads "
-            + " ".join(f"s{s}={reads[str(s)]:.6f}({fates[str(s)]})"
-                       for s in FATE_STEPS)
-            + f" | s1 {table[tag]['s1']:.6f} | verdict "
-            f"{table[tag]['verdict']}")
+        fate_txt = " ".join(
+            f"s{s}=" + ("-" if reads[str(s)] is None
+                        else format(reads[str(s)], ".6f"))
+            + f"({fates[str(s)]})" for s in FATE_STEPS)
+        s1_txt = "-" if table[tag]["s1"] is None \
+            else format(table[tag]["s1"], ".6f")
+        log(f"  [{tag}] fate reads {fate_txt} | s1 {s1_txt} | "
+            f"verdict {table[tag]['verdict']}")
 
     # ---- the composite (frozen order) -----------------------------------
     vt = table["tonly"]["verdict"]
