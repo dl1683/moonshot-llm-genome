@@ -2024,10 +2024,22 @@ def phase_P4(p0: dict, rows: dict) -> dict:
     elif monotone and s7_ <= DEAD_CUT:
         shape = "NEVER-PROTECTS"
         shape_clause = (
-            f"monotone with score(7) {s7_:.4f} still DEAD — no dispatch "
-            "bar fires (an honest shape outside the three named): even "
-            "43.75% TAVIREN windows do not re-form the host read at the "
-            "fate steps")
+            f"monotone with score(7) {s7_:.6f} still DEAD — no dispatch "
+            "bar fires (an honest shape outside the three named). THE "
+            f"KNIFE-EDGE DISCLOSED: score(7) sits {DEAD_CUT - s7_:.6f} "
+            f"({100 * (DEAD_CUT - s7_) / DEAD_CUT:.1f}%) under the 0.10 "
+            "DEAD cut, and k=7's PER-RUNG fates are ALIVE/DEAD/ALIVE "
+            f"(s25 {ladder['7']['reads']['25']:.4f} and s300 "
+            f"{ladder['7']['reads']['300']:.4f} BOTH above the 0.2859 "
+            f"ALIVE cut; the s125 dip {ladder['7']['reads']['125']:.6f} "
+            "alone carries the min — the ruler's own s125-dip signature "
+            "at partial dose). THE RAW CURVE IS STRICTLY MONOTONE ACROSS "
+            "THREE ORDERS ("
+            + " -> ".join(f"k{k}:{ladder[k]['score']:.6f}"
+                          for k in ("0", "1", "2", "4", "7", "16"))
+            + ") — dose-like in the raw numbers; under the frozen "
+              "min-based score no rung clears MID, and protection at "
+              "the fate steps belongs to the full dose alone (k=16)")
     elif monotone and ladder["1"]["fate"] == "ALIVE":
         shape = "ALWAYS-PROTECTS"
         shape_clause = (
@@ -2319,9 +2331,9 @@ def make_png(adj: dict, arms: dict, p0: dict) -> None:
                      alpha=0.6)
             ax2.plot(kx[k], vals.get("125"), ".", color="tab:olive",
                      alpha=0.6)
-    zz = adj["zxt"]["guest_pt"]
+    zz = adj["zxt"]["guest_pt"]        # int-step keys (FATE_STEPS)
     if any(v is not None for v in zz.values()):
-        ax2.plot(16, zz.get("300"), "v", color="tab:purple", ms=10,
+        ax2.plot(16, zz.get(300), "v", color="tab:purple", ms=10,
                  label="ZxT guest p(T) (T-keyed on Z-subj)")
         ax2.legend(fontsize=7)
     ax2.set_xlabel("k")
@@ -2336,9 +2348,12 @@ def make_png(adj: dict, arms: dict, p0: dict) -> None:
     zr = adj["zxt"]["reads"]
     nr = adj["neutral"]["reads"]
     def fmt3(rs):
-        return "/".join("-" if rs.get(s) is None
-                        else f"{rs[s]:.2e}" if rs[s] < 0.01
-                        else f"{rs[s]:.3f}" for s in FATE_STEPS)
+        return "/".join(
+            "-" if rs.get(s, rs.get(str(s))) is None else
+            (f"{rs.get(s, rs.get(str(s))):.2e}"
+             if rs.get(s, rs.get(str(s))) < 0.01
+             else f"{rs.get(s, rs.get(str(s))):.3f}")
+            for s in FATE_STEPS)
     tbl.append(["LADDER (k-curve)", adj["ladder_shape"],
                 " ".join(f"k{k}:{fmt3(ladder[k]['reads'])}"
                          for k in ("1", "2", "4", "7"))])
@@ -2551,7 +2566,7 @@ def write_report(adj: dict, arms: dict, p0: dict) -> None:
     A("")
     A("## THE ZxT RIDE (the {substrate}x{stream-key} grid's last cell)")
     A("")
-    zr = adj["zxt"]["reads"]
+    zr = {str(s): v for s, v in adj["zxt"]["reads"].items()}
     A(f"* the ZEPHYRA install end (age 400) through the ruler's own "
       f"T-stream: p(Z) {fmt(zr.get('25'))} / {fmt(zr.get('125'))} / "
       f"{fmt(zr.get('300'))} at s25/s125/s300 (ALIVE cut "
@@ -2564,7 +2579,7 @@ def write_report(adj: dict, arms: dict, p0: dict) -> None:
     A("")
     A("## THE NEUTRAL KEY (QORVATH — the critic's named control)")
     A("")
-    nr = adj["neutral"]["reads"]
+    nr = {str(s): v for s, v in adj["neutral"]["reads"].items()}
     A(f"* the TAVIREN subject through the never-seen key: p(T) "
       f"{fmt(nr.get('25'))} / {fmt(nr.get('125'))} / "
       f"{fmt(nr.get('300'))}; guest p(Q) rise: "
