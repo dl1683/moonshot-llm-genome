@@ -256,11 +256,12 @@ READ-SIDE BORDER: survival is MAINTAINED-VS-NOT (any non-host key executes; part
 rehearsal protects only past the (7,12] edge; the armor edge distinct at (7,9]); in
 the closed {warm,cold} x {ZEPHYRA,TAVIREN} cons grid the decorrelation was observed
 in one cell — re-read as the one accidental quadruple fill. The G1/G2/G3 vocabulary
-is superseded by the grammar. THE CLOSING SENTENCE (x60, the census; wording repaired
-at R85): the seat is PRE-GROWN for newcomers (a fresh name's first formation lands
-in capacity-two — all twelve mid-band cells qualifying; the deltas RISING through
-the rung, the s300 rungs at/above the reference band's top, the s25 cells below its
-floor — the shape replicating, the level subject-relative) and the key is
+is superseded by the grammar. THE CLOSING SENTENCE (x60, the census; repaired at R85;
+AMENDED at x61): the seat is PRE-GROWN for newcomers (a fresh name's first formation
+lands in capacity-two — all twelve mid-band cells qualifying on the ROOT and 5-of-6
+on the BARE no-history base at deltas at/above the reference band's top: THE
+BIOGRAPHY'S SPECIFIC CONTENT NOT LOAD-BEARING — the capacity architectural-default
+or self-grown by the first install, the residual fork x62's) and the key is
 UNIVERSAL-AUTHORSHIP (any authored realization carries the consistency — the fresh
 re-formation decorrelating on both rulers, pooled-Z r2 -1.0; the Hopfield datum:
 the consolidated seat grows capacity further with age). THE GRAMMAR IS COMPLETE
@@ -314,10 +315,11 @@ ladder (tail4/reshuffle/re-jitter all COHERENT at 0.53-0.60 with geo_mad
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 29-for-53
-   (refreshed at the x62a fold: the twenty-two cells since R80 went 11-for22 — e342, x48,
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 29-for-54
+   (refreshed at the x61 fold: the twenty-three cells since R80 went 11-for23 — e342, x48,
    x46, x51 (primary; rider missed, disclosed), x50, x52, x36, x55, x57, x60 (both
-riders) hit; x62a (BOTH-ALONE-KILL, both guesses outside) missed; g1bS9, x45,
+riders) hit; x62a (BOTH-ALONE-KILL, both guesses outside), x61 (PRE-GROWN-SUBSTRATE — the
+   counter's silent-synapse bar) missed; g1bS9, x45,
    x47, e343, e344, x49, e345, e346 (SHARP head missed, ZxT rider hit, disclosed),
    x53 (split, counted hit under the head convention — R84's wording), x56
    (CAPACITY-TWO against both calls), x58 (AT-STRENGTH/CONTENT fell to
