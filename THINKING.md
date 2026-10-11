@@ -7,6 +7,39 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T346 — x63: the key is a per-seed coin, name-invariant, and invisible from outside — it lives in the weights' response to the draws (2026-10-11, datetime.now ~19:00Z)
+
+The third seed resolved the coin's character and hid its face in the same stroke.
+Seed 24316 DECORRELATES — at the deepest K yet (0.259, past both committed anchors) —
+so the key is BINARY at the seed level and the coin reads 2-for-3 (24314 + 24316
+carry; 24315 alone lacks). The penetrance import's graded face fell; the
+polymorphism's binary face fired. And G_SEEDTWIN14's free fact: the seed-24314 index
+sequence carried the key on TWO NAMES — the coin's side is the seed, not the name.
+
+BUT THE ANATOMY IS SILENT: none of the six frozen features separates the
+key-carrying record from the key-lacking one (max 0.40x of threshold). The
+polymorphism import's visible-packing prediction is refuted — THE KEY LIVES IN THE
+WEIGHTS' RESPONSE TO THE DRAWS, NOT THE DRAWS' MARGINALS. Whatever distinguishes a
+key-carrying seed is not in the draw statistics; it is in how the optimizer's
+trajectory interacts with them — visible only by running the formation and reading
+the state, i.e., the key is EMERGENT, not statistical.
+
+THE ERA'S CLOSING PICTURE (pending R87): the grammar complete; the key's character
+known (binary, per-seed, name-invariant, emergent); and the practical consequence —
+the oracle's realization-count feature cannot be computed from draw statistics; it
+must be measured per-formation (run and read). The sweep's feature list adjusts at
+its dispatch.
+
+THE LEDGER: a split (29-for-56); the imports each took one face and lost one —
+penetrance (binary right, graded wrong), polymorphism (binary right, visible wrong).
+The honest frame: the cross-disciplinary lane generates the right SHAPES but not the
+right MECHANISMS; the lab's own instruments remain the ground truth.
+
+CONNECTS: T345 (the coin's existence established; its character now resolved);
+T342/T340 (the key clause's final form); the oracle (the feature-list adjustment);
+W057 (the history-clock's deepest layer: the weights' response to noise — the
+biography is written in the interaction, not the ink).
+
 ## T345 — x59: the key narrows to the realization itself — necessary but not sufficient, subject-universal but seed-contingent (2026-10-11, datetime.now ~16:20Z)
 
 The wave's last cell sharpened the grammar's key clause in both directions at once.
