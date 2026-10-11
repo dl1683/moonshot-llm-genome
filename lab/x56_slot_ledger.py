@@ -501,6 +501,20 @@ deviations: list[str] = [
     "— no committed 8-step panel; G_STREAMIDENT at the full 25 CPU "
     "steps); the adjudication SMOKE-stamped (nothing scored) — every "
     "code path exercised.",
+    "THE SMOKE-CAUGHT WIRING REPAIR (pre-adjudication, disclosed): the "
+    "first smoke pass crashed in run_arm.row_of — the instrument call "
+    "dropped the base_flat64 argument (a transcription slip in the "
+    "port; the instrument's signature is the inherited one). Repaired "
+    "by computing e001_flat64 in run_arm and passing it (x55's exact "
+    "pattern). No bar, arm, stream, gate criterion or registration "
+    "byte touched — the parameter is unused by this cell's row form "
+    "(no census rider), presentation-class only.",
+    "THE SMOKE-CAUGHT LEDGERMATH KEY REPAIR (pre-adjudication, "
+    "disclosed): the second smoke pass crashed inside G_LEDGERMATH — "
+    "the wiring probe's table lookup used the probe name's 'k0' prefix "
+    "where the table keys are bare ('0'). Repaired to strip the "
+    "prefix. No bar, arm, stream, gate criterion or registration byte "
+    "touched — the gate's arithmetic unchanged.",
 ]
 
 metrics: dict = {
@@ -1071,6 +1085,8 @@ def run_arm(p0: dict, arm: dict, start_path: Path) -> dict:
         opt.load_state_dict(state["opt"])
         gen.set_state(state["gen_state"])
 
+    e001_flat64 = flat_params_cpu(
+        G1.evl_load(load_model_sd(CKPT_DIR / "e001.pt"))).double().numpy()
     draw = make_draw(p0, arm["slot_keys"])
     rows: dict = state["rows"]
     step = state["step"]
@@ -1078,7 +1094,7 @@ def run_arm(p0: dict, arm: dict, start_path: Path) -> dict:
 
     def row_of(sd) -> dict:
         if step in full_rungs:
-            r = instrument(p0, sd, f"{tag}_s{step}", host_id,
+            r = instrument(p0, sd, f"{tag}_s{step}", host_id, e001_flat64,
                            dual_id=guest_id)
         else:
             r = light_row(p0, sd, f"{tag}_s{step}", host_id, guest_id)
@@ -1507,7 +1523,7 @@ def phase_P2(p0: dict, arms: dict) -> dict:
         if h is not None and g is not None:
             v = lift(h, LOGIT_BASE_T) + lift(g, LOGIT_BASE_Z)
             lit_L[nm] = round(v, 6)
-            ok_math &= abs(v - table[nm.split("_")[0]]["L"]["300"]) \
+            ok_math &= abs(v - table[nm.split("_")[0][1:]]["L"]["300"]) \
                 < 1e-9
     g_lm = {"logit_identity": "logit(0.5) == 0",
             "recomputed": lit_L,
