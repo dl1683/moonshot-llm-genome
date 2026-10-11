@@ -1,53 +1,49 @@
-# Droid brief — DIALOGUE MODE, edition 50 (Q1-Q4 open across FIFTY editions; the
+# Droid brief — DIALOGUE MODE, edition 51 (Q1-Q4 open across FIFTY-ONE editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-11T19:47Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-11T21:57Z (datetime.now-sourced; at the mark)
 
-- Guard: OK at every beat. Fleet 1/1: x64 THE SEED BATCH + riders (desk; smoke
-  17/17 green, three check-side repairs; the full run computing — the base rate
-  plus the emergent claim's stage i).
-- Cadence ages: droid: this brief; review 40 min (R87 at ~19:08Z); novelty 40 min.
+- Guard: OK at every beat. Fleet 1/1: x64 THE SEED BATCH (desk, ~2.5h in — the
+  heaviest desk cell of the era; MAJORITY-CARRY already arithmetically locked at
+  5-for-6; the final two seeds + the three riders completing).
+- Cadence ages: droid: this brief; review 2h49m (R87 at ~19:08Z — R88 opens behind
+  x64's landing); novelty 2h49m (rides R88).
 
-## WHERE WE ARE — the emergent-key era: how common is the key, and where does it live
+## WHERE WE ARE — the coin is being priced: MAJORITY-CARRY locked
 
-1. THE KEY'S CHARACTER (x63, T346): a PER-SEED COIN — binary, name-invariant (the
-   seed-24314 sequence carried it on two names), and EMERGENT: invisible in the
-   draw statistics (the anatomy read silent at 0.40x of every threshold) — the key
-   lives in the weights' RESPONSE to the draws, not the draws' marginals.
-2. THE COIN UNPRICED (R87): 2-for-3 at consecutive seeds (CI [0.09, 0.99]); the
-   ORACLE UNSEATED (realization-count not computable from draw statistics — only 3
-   K-labels exist). The ordering: the seed batch -> the adjusted oracle -> x62 ->
-   G2-b/c -> N4.
-3. THE IMPORTS' LEDGER: penetrance (binary right, graded wrong); polymorphism
-   (binary right, visible wrong); plus the two newest riding — PRION STRAINS +
-   serial passage (the key defined by behavior not composition; the passage test
-   the registered angle) and SLOPPY MODELS (the silence as a possible basis
-   artifact; the discriminant angle). The cross-disciplinary lane takes the right
-   SHAPES, not the mechanisms — the lab's instruments remain the ground truth.
-4. IN FLIGHT: x64 — 5 non-consecutive seeds through the K-axis (the base rate at
-   n=8); the anatomy re-screen on the untried classes (cross-stream joints, order
-   statistics, block-drift); the 24315-on-B cross (the grid's off-diagonal); and
-   the FREE coarse-trajectory read (does the key show before the re-formation
-   read?).
-5. THE GRAMMAR STANDING (Law 8 v3.3 through the seed clause): the seat a growing
-   pre-grown capacity; the maintenance attention-side; the consistency carried by
-   the exact authored realization — binary per seed, emergent. THE MISSING PROTOCOL
-   IS A CAPACITY SCHEDULE, and the schedule's last variable is the draw.
+1. THE BATCH'S PROGRESSIVE STORY: three fresh non-consecutive seeds, three deep
+   carries (K 0.269 / 0.246 / 0.215 — every fresh draw past or near the committed
+   anchors' depth); the coin 5-for-6; MAJORITY-CARRY arithmetically locked whatever
+   the final two read. THE CONSECUTIVE-SEED LOCALITY ARTIFACT IS DEAD — the
+   non-consecutive draws carry just as deep. The lean's MINORITY-CARRY has fallen;
+   the base rate lands with the final count and its interval.
+2. THE KEY'S CHARACTER STANDING (through x63/x64-progressive): per-seed binary,
+   name-invariant, emergent (invisible in the draw statistics) — and now MAJOR: most
+   authored realizations carry. The lone non-carrier (24315) remains the exception
+   that names the question: what does it lack?
+3. STILL IN THE RUN: seeds 4-5 (the final K-labels); the anatomy re-screen (the
+   untried classes — with five-plus records per class the power question resolves);
+   the 24315-on-B cross (seed-main vs subject-interaction); the FREE trajectory
+   read (the emergent claim's stage i — does the key show before the
+   re-formation read?).
+4. THE GRAMMAR STANDING (Law 8 v3.3 through the seed clause): the seat a growing
+   pre-grown capacity; maintenance attention-side; consistency carried by the exact
+   authored realization — binary per seed, emergent, MAJOR. THE MISSING PROTOCOL IS
+   A CAPACITY SCHEDULE; the schedule's last variable is the draw; and most draws
+   carry the key.
 
 ## WHAT CAN BE DONE (top next actions, named)
 
-1. FOLD X64 (free, when it lands) — the base rate + the stage-i answer; R88's
-   window opens behind.
-2. THE ORACLE ADJUSTED (the measured-K column replacing realization-count; the
-   no-biography ablation; the k16 interpolation-barrier rider).
+1. FOLD X64 (free, imminent) — the base rate + all three riders; R88's window
+   (with the novelty) opens behind it.
+2. THE ORACLE ADJUSTED (the measured-K column; the no-biography ablation; the k16
+   interpolation-barrier rider) — now with a base rate to calibrate against.
 3. x62 (the capacity-growth curve, seed-armed) — the architectural-default vs
    first-install fork.
-4. Q1 — the supervisor's LAWS review: the standing ask since ed.23; the doc
-   complete through the seed clause.
+4. Q1 — the supervisor's LAWS review: the standing ask since ed.23.
 
 ## BLOCKERS / ASKS
 
-- Q1 STILL LIVE AND OWNERLESS — fifty editions of the same ask; the document is
-  ready whenever the supervisor is.
+- Q1 STILL LIVE AND OWNERLESS.
 - The dialogue still owes droid's side.
 - The envelope quiet (all-desk; phase-2 standing unused).
