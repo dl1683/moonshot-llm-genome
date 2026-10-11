@@ -259,8 +259,9 @@ in one cell — re-read as the one accidental quadruple fill. The G1/G2/G3 vocab
 is superseded by the grammar. THE CLOSING SENTENCE (x60, the census; repaired at R85;
 AMENDED at x61): the seat is PRE-GROWN for newcomers (a fresh name's first formation
 lands in capacity-two — all twelve mid-band cells qualifying on the ROOT and 5-of-6
-on the BARE no-history base at deltas at/above the reference band's top: THE
-BIOGRAPHY'S SPECIFIC CONTENT NOT LOAD-BEARING — the capacity architectural-default
+on the BARE no-history base (the deltas rising through the rung — the s300 rungs
+at/above the reference band's top, the s25 cells below its floor; R86's restore
+of R85's qualifier): THE BIOGRAPHY'S SPECIFIC CONTENT NOT LOAD-BEARING — the capacity architectural-default
 or self-grown by the first install, the residual fork x62's) and the key is
 AUTHORED-REALIZATION-HOOD — necessary but NOT sufficient (x59: the second subject
 carries STRONGER than the first, but the redrawn seed-24315 realization stays

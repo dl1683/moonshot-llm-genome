@@ -2602,3 +2602,41 @@ rider).
 **FOLD ACTIONS:** the band-claim repair applied (Law 8 + T342's note); the ordering
 adopted; x59 + the conly/x61 desk session DISPATCHED; both cadence stamps reset.
 Ledger: 29-for-52 stands.
+
+## R86 (2026-10-11, folded ~16:45Z) — the completed wave audited; the seed named as the last variable
+
+Panel: ONE combined agent (auditor/critic/ideator + the novelty discharge); scratch/
+r86_panel.md (rode heartbeat commit e9f8cc6 in the shared-index race — disclosed,
+intact, push-verified). Window: R85 -> 1ec1341 (x62a, x61, x59).
+
+**AUDITOR — SOUND-WITH-TWO-REPAIRS.** Every bar-deciding number traced exact (the
+decomposition arms; the 5-of-6 ledger cell-by-cell; the n=2 table with the
+knife-edge and the bit-identity). REPAIR 1 APPLIED THIS FOLD: the x61 amendment had
+re-lost R85's band qualifier — '5-of-6 at/above the top' was false for the two s25
+cells (+2.42/+2.47); the qualifier restored in Law 8. REPAIR 2 OWED CHECK-SIDE: x61's
+three-proof restart record missing from its metrics deviations (the x59 append
+precedent; the next x61-touching session appends it — noted here as the standing
+disclosure). The ledger re-derives to 29-for-55.
+
+**CRITIC.** (a) BREAKS licensed by the frozen rule but a FLOOR-ADJACENT COIN at
+n=1-redraw (3-of-4 sub-tests separate; the landing control kills the bad-formation
+alternative; the third seed the only clean confidence builder). (b) THE INVERTED ARCH
+OCCUPANCY-CONFOUNDED: prior anti-correlates with the solo budget (5.2-7.9 vs
+1.9-2.7) — the -1.17 supports TRACKS-THE-ROOM over TRACKS-THE-PRIOR; the
+prior-interior map the test. (c) 'Attention is the only friend' survives; the
+dominance co-report grades the enemy (read-through 28x less dead at s125) — the
+kinetics to the scope block. (d) THE SEED VARIABLE'S CHEAPEST PROBE: the draw-anatomy
+desk read (zero compute; the draw records bit-certified on-disk; name features before
+looking). (e) ORDERING: the third seed -> the oracle (biophony-ablated) -> x62 ->
+G2-b/c -> N4.
+
+**IDEATOR (+NOVELTY discharged).** Four cards: the third seed (P-T345a, seed 24316);
+the draw-anatomy desk read; the oracle with the no-biography-terms ablation (T344's
+regression form); x62 seed-armed. ERA THESIS: THE DRAW IS THE LAST VARIABLE — the
+grammar's final unnamed term. FRESH IMPORTS (grepped 0-hit): GENETIC PENETRANCE
+(necessary-not-sufficient genotype + modifier; predicts the third seed lands graded;
+the anatomy read IS the modifier hunt) and CONFORMATIONAL POLYMORPHISM (same molecule,
+different packing per seed; predicts the seed variable visible at nucleation, by s8).
+
+**FOLD ACTIONS:** Repair 1 applied; Repair 2 disclosed-standing; the ordering adopted;
+the seed-variable wave DISPATCHING; both cadence stamps reset. Ledger: 29-for-55.

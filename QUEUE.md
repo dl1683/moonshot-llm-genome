@@ -246,6 +246,19 @@ first item (the draft committed at cde73a0).
 
 Standing: Q1 LIVE AND OWNERLESS; hook v5; METHODS 5's stale clause at the next fold.
 
+## R86 SECTION (2026-10-11, folded ~16:45Z) — the seed-variable era: the draw is the last variable
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x63 | THE THIRD SEED (P-T345a; seed 24316 unused) + THE DRAW-ANATOMY DESK READ (one session) | RUNNING (dispatched ~16:45Z) | GRADED (seed-3 lands intermediate — the realization key is continuous: some draws carry more key than others; the penetrance import) / BINARY (clearly either side — 24314-class vs not) / rider: the anatomy read (what distinguishes 24314's draws — win-rate/mass/structure of the name windows; name features before looking; zero compute, the records bit-certified on disk) |
+| oracle | THE ORACLE (biophony-ablated: the no-biography-terms regression — T344's form; +seat-occupancy/+realization-count with realization-count's exact meaning) | READY (behind x63) | ~30 formation variants, wash + fingerprint, regress retention WITHOUT biography terms — a strong test of the no-one's-biography reading |
+| x62 | THE CAPACITY-GROWTH CURVE (seed-armed) | READY | flat-from-e001 = architectural default; rising-across-checkpoints = first-install-grown; the seed axis riding |
+| G2-b/c | the cold-geometry cell; the slot's per-organ anatomy | READY (behind the oracle) | unchanged |
+| N4 | the plasticity price | LAST | unchanged |
+
+Standing: Q1 LIVE AND OWNERLESS; hook v5; Repair 2 (x61's metrics append) at the next
+x61-touching session; METHODS' stale clause noted.
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),
