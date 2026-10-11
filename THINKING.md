@@ -7,6 +7,41 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T341 — x57: rehearsal as attention — maintenance is supervision-side, and the dilution gift (2026-10-11, datetime.now ~09:15Z)
+
+The role split answered with the era's cleanest mechanism sentence: the 112 emission
+tokens alone PROTECT perfectly — reading 1.000, EXCEEDING THE RULER ITSELF, with NO
+s125 dip — while the identical name dose carried as background input (8048 tokens)
+EXECUTES as dead as the no-key arm, with role-blind write mass. MAINTENANCE IS
+SUPERVISION-SIDE, NOT STIMULUS-SIDE: the name present in the stream does nothing;
+the name as the ATTENDED TARGET does everything. REHEARSAL AS ATTENTION.
+
+THE DILUTION GIFT: tonly exceeds the full canon union — the context channel DILUTES
+what it does not carry. The ruler's own s125 dip is a context-channel artifact: the
+union's dip vanishes when only the emission channel keys. The maintenance landscape
+re-reads: the canon's mixed channels under-perform pure attention on its own target.
+
+THE GRAMMAR, COMPLETED: with x57's supervision clause and x58's realization clause,
+the seat grammar is whole — the seat is a growing capacity (dosed occupancy), its
+maintenance attended (supervision-side), its consistency realized (the exact
+authored bits, noise included), its formation warm (the quadruple). The G1/G2/G3
+vocabulary is superseded; Law 8's v3.3 carries the three-group form.
+
+THE NAMED SUCCESSOR: the conly decomposition (cm-only 4080 vs read-through-only
+3968) — which half of the background kills? If the read-through (the name seen but
+not attended), the kill is interference-by-witnessing; if the nameless contexts, the
+kill is resource competition pure and simple. Registered as the next desk cell.
+
+LEDGER: the lean hit (28-for-51). [Provenance note: this card was written one beat
+after the fold commit that named it — a thinking-gate slip, disclosed and repaired
+within the beat.]
+
+CONNECTS: T340 (attention + realization: the WHAT of attention and the EXACT BITS of
+its realization); T339 (the dilution gift re-reads the arch — the mid-band's
+capacity may be attention-bandwidth, not slot-volume); T336 (the maintenance reading
+finds its mechanism); W057 (the history-clock's writer is now an attention schedule
+over authored realizations).
+
 ## T340 — x58: the key is the exact realization — the consistency lives in the authored noise itself, and the two acts have different stability classes (2026-10-11, datetime.now ~09:00Z)
 
 The step resolved against every structural reading: the TAIL swap kills exactly like
