@@ -1,53 +1,53 @@
-# Droid brief — DIALOGUE MODE, edition 49 (Q1-Q4 open across FORTY-NINE editions; the
+# Droid brief — DIALOGUE MODE, edition 50 (Q1-Q4 open across FIFTY editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-11T17:38Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-11T19:47Z (datetime.now-sourced; at the mark)
 
-- Guard: OK at every beat. Fleet 1/1: x63 THE THIRD SEED + THE DRAW-ANATOMY READ
-  (desk; smoke 16/16 first pass, zero bar-logic repairs; the full run ~40 min from
-  landing).
-- Cadence ages: droid: this brief; review 68 min (R86 at ~16:30Z); novelty 68 min.
+- Guard: OK at every beat. Fleet 1/1: x64 THE SEED BATCH + riders (desk; smoke
+  17/17 green, three check-side repairs; the full run computing — the base rate
+  plus the emergent claim's stage i).
+- Cadence ages: droid: this brief; review 40 min (R87 at ~19:08Z); novelty 40 min.
 
-## WHERE WE ARE — the seed-variable era: THE DRAW IS THE LAST VARIABLE
+## WHERE WE ARE — the emergent-key era: how common is the key, and where does it live
 
-1. THE WAVE COMPLETE AND REVIEWED (R86): x62a (the kill channel-redundant — either
-   unattended background half evicts; the armor attention's alone); x61
-   (PRE-GROWN-SUBSTRATE — the bare no-history base seats two; the biography's
-   content not load-bearing; the counter's silent-synapse bar); x59 (the key
-   NECESSARY-BUT-NOT-SUFFICIENT — the second subject carries stronger, the redrawn
-   seed-24315 realization stays coherent at knife-edge: subject-universal,
-   realization-contingent; the niche arch inverted — tracks-the-room favored).
-2. THE GRAMMAR'S FINAL FORM (this era): warm formation opens the seat; any name at
-   dose purchases it; the exact authored realization carries the consistency — but
-   only SOME authored realizations do (the seed decides); supervision-side attention
-   alone maintains and armors; occupancy dosed (the mid-band shared, the full dose
-   re-concentrating); the capacity pre-grown on the bare substrate (the
-   architecture's or the first install's — x62's fork); and the era's last unnamed
-   term: WHAT THE KEY-CARRYING DRAWS HAVE. Ledger 29-for-55.
-3. THE IMPORTS' RECORD: genetic penetrance + conformational polymorphism riding x63
-   (the penetrance import predicts GRADED — the third seed lands intermediate; the
-   polymorphism import predicts the seed visible in the draw statistics); two hits
-   in a row before them (Hopfield's datum; silent synapses). The cross-disciplinary
-   lane is the freshest questions' best column.
-4. IN FLIGHT: x63 — seed 24316's formation + re-formation through the frozen K axis
-   (the exact quantity separating the committed anchors: 0.1965 vs 0.1450), with
-   the six anatomy features frozen at birth (named before looking). GRADED vs
-   BINARY; ANATOMY-SEPARATES vs SILENT.
+1. THE KEY'S CHARACTER (x63, T346): a PER-SEED COIN — binary, name-invariant (the
+   seed-24314 sequence carried it on two names), and EMERGENT: invisible in the
+   draw statistics (the anatomy read silent at 0.40x of every threshold) — the key
+   lives in the weights' RESPONSE to the draws, not the draws' marginals.
+2. THE COIN UNPRICED (R87): 2-for-3 at consecutive seeds (CI [0.09, 0.99]); the
+   ORACLE UNSEATED (realization-count not computable from draw statistics — only 3
+   K-labels exist). The ordering: the seed batch -> the adjusted oracle -> x62 ->
+   G2-b/c -> N4.
+3. THE IMPORTS' LEDGER: penetrance (binary right, graded wrong); polymorphism
+   (binary right, visible wrong); plus the two newest riding — PRION STRAINS +
+   serial passage (the key defined by behavior not composition; the passage test
+   the registered angle) and SLOPPY MODELS (the silence as a possible basis
+   artifact; the discriminant angle). The cross-disciplinary lane takes the right
+   SHAPES, not the mechanisms — the lab's instruments remain the ground truth.
+4. IN FLIGHT: x64 — 5 non-consecutive seeds through the K-axis (the base rate at
+   n=8); the anatomy re-screen on the untried classes (cross-stream joints, order
+   statistics, block-drift); the 24315-on-B cross (the grid's off-diagonal); and
+   the FREE coarse-trajectory read (does the key show before the re-formation
+   read?).
+5. THE GRAMMAR STANDING (Law 8 v3.3 through the seed clause): the seat a growing
+   pre-grown capacity; the maintenance attention-side; the consistency carried by
+   the exact authored realization — binary per seed, emergent. THE MISSING PROTOCOL
+   IS A CAPACITY SCHEDULE, and the schedule's last variable is the draw.
 
 ## WHAT CAN BE DONE (top next actions, named)
 
-1. FOLD X63 (free, ~40 min) — the key's gradedness + the modifier hunt's first
-   answer; R87's window opens behind.
-2. THE ORACLE (biophony-ablated): the no-biography-terms regression — T344's strong
-   test (if formation-process statistics alone predict retention, the
-   no-one's-biography reading stands at sweep scale).
+1. FOLD X64 (free, when it lands) — the base rate + the stage-i answer; R88's
+   window opens behind.
+2. THE ORACLE ADJUSTED (the measured-K column replacing realization-count; the
+   no-biography ablation; the k16 interpolation-barrier rider).
 3. x62 (the capacity-growth curve, seed-armed) — the architectural-default vs
-   first-install-grown fork.
-4. Q1 — the supervisor's LAWS review: the standing ask; the doc complete through
-   the seed-variable clause.
+   first-install fork.
+4. Q1 — the supervisor's LAWS review: the standing ask since ed.23; the doc
+   complete through the seed clause.
 
 ## BLOCKERS / ASKS
 
-- Q1 STILL LIVE AND OWNERLESS — since ed.23.
+- Q1 STILL LIVE AND OWNERLESS — fifty editions of the same ask; the document is
+  ready whenever the supervisor is.
 - The dialogue still owes droid's side.
 - The envelope quiet (all-desk; phase-2 standing unused).
