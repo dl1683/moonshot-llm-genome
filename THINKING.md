@@ -7,6 +7,45 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T340 — x58: the key is the exact realization — the consistency lives in the authored noise itself, and the two acts have different stability classes (2026-10-11, datetime.now ~09:00Z)
+
+The step resolved against every structural reading: the TAIL swap kills exactly like
+the front (location-free); the RESHUFFLE kills with the content multiset intact
+(content-free); and the RE-JITTER kills with the same hosts, same order, only the
+noise draws redrawn. THE CONSISTENCY IS CARRIED BY THE EXACT AUTHORED REALIZATION —
+jitter draws included. The seat's key contains the noise. Four arms, one shared
+substrate and draw stream, all coin-flip consistencies at walk-strength magnitudes:
+the knife-edge is not WHERE or WHAT but THE VERY BITS.
+
+THE BIMODALITY'S DEEPENING: every perturbed arm keeps the walk-like LATE negative
+separation (the consolidation face — robust to everything tested) while the EARLY
+rungs flip (the emergence face — what re-rolls). THE TWO ACTS HAVE DIFFERENT
+STABILITY CLASSES: the emergence act is realization-locked; the consolidation act is
+perturbation-robust. The walk's biography wrote both, but they answer to different
+physics.
+
+THE LEDGER: the lab's weak AT-STRENGTH/CONTENT lean fell (27-for-50; the executor
+4-for-4). The 'authored contexts' phrase of the quadruple sharpens to AUTHORED
+REALIZATIONS: what the curriculum must rehearse is not merely its contexts but their
+exact instantiations — which explains e341's varied-menu finding (each varied redraw
+is a new realization) and x53's random-context collapse (the neutral pool's
+realizations are not the authored ones) in one stroke.
+
+REGISTERED (P-T340a, for G2-a the virgin census): if the key is the realization, any
+freshly-authored realization should carry its own consistency — the census's fresh
+formations decorrelate under their OWN authored menus regardless of the canon's
+specific bits; COUNTER: the canon's realization is privileged (the root's long
+history selected stable bits — the census's fresh formations stay coherent). The lab
+leans the fresh-carries-it-own, weakly (the adoptive arm already showed
+content-independence at dose-match; realization-independence is its natural
+completion); the counter, stated plainly: selection — the root's bits survived
+BECAUSE they were stable, and fresh realizations have not been selected.
+
+CONNECTS: T338 (the early-block reading falls — re-worded in Law 8 this fold);
+T339 (the two currencies now rest on the realization key); T333 (the emergence act's
+realization-lock is x50's oscillation being draw-carried); Law 8 (the
+realization-carried clause applied).
+
 ## T339 — x55+x56: the edge and the ledger — the maintenance curve completes, and the seat GROWS (2026-10-11, datetime.now ~07:55Z)
 
 The desk session closed e346's account in full. THE EDGE: protection lands in (7,12] —
