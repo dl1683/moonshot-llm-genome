@@ -1158,12 +1158,7 @@ def phase_P0() -> dict:
                 fshuf_px[FRONT_ROWS:], pool_z_x[FRONT_ROWS:])),
             "mask_bit_equal_canon": bool(torch.equal(fshuf_pm,
                                                      pool_z_mask)),
-            "name_token_count": int(fshuf_pm.sum()),
-            "content_multiset_exactly_canon": bool(
-                torch.equal(fshuf_px[:FRONT_ROWS],
-                            pool_z_x[sorted(FRONT_PERM)])
-                and torch.equal(fshuf_px[FRONT_ROWS:],
-                                pool_z_x[FRONT_ROWS:]))},
+            "name_token_count": int(fshuf_pm.sum())},
         "frjit": {
             "seed": REJIT_SEED, "choices": list(REJIT_CHOICES),
             "realized_jitters": rejit_draws,
@@ -1173,13 +1168,19 @@ def phase_P0() -> dict:
             "row_differs_from_canon": [bool(not torch.equal(
                 frjit_px[i], pool_z_x[i])) for i in range(FRONT_ROWS)],
             "front_masks_match_new_jitter": [bool(torch.equal(
-                frjit_pm[i], pool_z_mask[d["duplicated_canon_row"]]))
+                frjit_pm[d["page"]],
+                pool_z_mask[d["duplicated_canon_row"]]))
                 for d in rejit_dup],
             "duplication_map": rejit_dup,
             "tail_bit_equal_canon": bool(torch.equal(
                 frjit_px[FRONT_ROWS:], pool_z_x[FRONT_ROWS:])),
             "name_token_count": int(frjit_pm.sum())},
     }
+    # derived: the content multiset proof (rows == canon[[3,2,1,0]] and
+    # [3,2,1,0] a bijection over 0..3 => multiset EXACTLY canon)
+    arm_checks["fshuf"]["content_multiset_exactly_canon"] = bool(
+        arm_checks["fshuf"]["front_rows_bit_equal_canon_perm"]
+        and arm_checks["fshuf"]["front_is_perm_of_canon_front"])
     # the name sits right after the first mask column in every sampled
     # row of every pool (jitter-matched column per row)
     def name_in_place(px, pm, idxs) -> bool:
