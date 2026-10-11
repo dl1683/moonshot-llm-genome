@@ -1,64 +1,62 @@
-# Droid brief — DIALOGUE MODE, edition 41 (Q1-Q4 open across FORTY-ONE editions; the
+# Droid brief — DIALOGUE MODE, edition 42 (Q1-Q4 open across FORTY-TWO editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-11T01:47Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-11T03:50Z (datetime.now-sourced; at the mark)
 
-- Guard: OK at every beat. Fleet 1/1: x52 THE RULER-SYMMETRY RE-SCORE (CPU desk; the
-  run's REPORT is forming, the agent finalizing gates).
-- Cadence ages at the mark: droid: this brief; review 46 min (R82 at 01:01Z); novelty
-  46 min (discharged with R82's ideator).
+- Guard: OK at every beat. Fleet 1/1: x53 THE OWN-NAME PROGRAM (GPU+desk, the era's
+  fork discriminator, just dispatched with R83's dose-matched adoptive arm).
+- Cadence ages at the mark: droid: this brief; review 8 min (R83 at 03:42Z); novelty
+  50 min (fresh with R82's ideator — R83's rode the same window).
 
-## WHERE WE ARE — the era re-cut around one question: IS THE MISSING PROTOCOL A KEY?
+## WHERE WE ARE — survival is a generic one-slot economy; the missing protocol is a SEAT, not a KEY
 
-1. THE ONE-CELL FINDING (e345, T334): the {warm,cold}x{ZEPHYRA,TAVIREN} cons grid
-   closed — the decorrelation lives in EXACTLY ONE CELL ({warm x ZEPHYRA-lineage}):
-   the TAVIREN-warm-cons cell turned out to BE the anneal ruler itself (the
-   menu-aliasing fact: e341's VARIED is the cons protocol keyed TAVIREN), and the
-   closer's own arm was a CONTENTION formation (the ZEPHYRA-keyed stream executed the
-   TAVIREN read at s1). The grid's border is a causal knife: 7 name tokens the only
-   delta between the read surviving and the read dying — at NAME-BLIND writes
-   (|W| 11.52 vs 11.40; in-room 0.722/0.730). The census is stream arithmetic; THE
-   READ'S FATE IS THE NAME KEY'S ALONE.
-2. THE HONESTY LAYER (R82, all repairs same-fold): the cross-name-interference
-   reading is live (the stream taught the guest fast while the host went unmaintained
-   into the cold-AdamW shock — the neutral-key control named); READ SURVIVAL IS NOT
-   DECORRELATION (the walk's read survived while decorrelating; the decorrelation
-   datum is n=1); semantic own-name (G1) unlicensed over mechanical (the substrate's
-   write history) — x53's adoptive-self leg owns that fork.
-3. LAW 8 COMPRESSED TO v3.2 (~110 -> 35 invariant lines): three cores — external
-   consolidation, the ceiling, and THE SECOND FORMATION (the merged clause: open-loop
-   varied menus write decorrelation, feedback writes its opposite, name-blind, two
-   acts, one cell); the arc + tick + star + N1 + the scale clause re-homed to scope;
-   x46's meta-layer promoted to METHODS 6 (THE SHARED MEASURABLE — every
-   lineage-relative claim priced against elicitation decorrelation). Nothing deleted;
-   the 'AND THE...' chain ends. Q1's review is now a one-sitting read.
-4. THE SESSION'S FULL ARC (since ed.40): x48 confirmed the lineage 7-0 and found THE
-   ANNEAL HUB; x46 landed the history-clock (ONE-OBJECT) and closed W058 (the lean
-   column is noise, not bias); x49 broke the age-phase alias (the tick warm-exclusive);
-   x51 found the FOURTH TOPOLOGY + the anti-correlation (feedback tightens coherence);
-   x50 FILMED THE KNOB (emergence [s10,s30], consolidation [s50,s55]); e345 closed the
-   grid; R82 compressed the law. Ledger 23-for-43, every miss priced.
-5. IN FLIGHT: x52 — the ruler-symmetry gate (PRESERVE hardens the one-cell into
-   biology and the G-program proceeds; AMBIGUOUS pauses it for a neutral-ruler
-   control), with the dense ruler replay riding (the ruler-internal coherence
-   control + P-T333a's re-keyed clause).
+1. THE MAINTENANCE READING WON (e346): the neutral key (a never-seen name, QORVATH)
+   kills the host read exactly as dead as ZEPHYRA did; the 2x2 closed (execution
+   symmetric, survival own-key-only); partial rehearsal NEVER protects at the fate
+   level; and the write stayed name-blind throughout. The curriculum's rehearsal
+   ALONE carries the host read through the start-up shock — ZEPHYRA was never special.
+2. THE HONESTY LAYER (R83, all applied same-fold): NEVER-PROTECTS is
+   min-convention-carried at k=7 (median-scored the ladder is the registered
+   THRESHOLD family — x55's dense replay + the median co-report owed); the
+   'slot-split' noun repaired to the currency rule (x56's logit ledger); FIRST-STEP
+   ARMOR IS ALL-OR-NOTHING while fate-step re-formation is dose-graded (k7 dies at s1
+   then re-forms by s25 — both k7's s300 and the ruler's s125 sit in e325's
+   re-formation band). The maintenance CORE (the kills, the symmetry, the neutral
+   key, name-blindness) stands convention-independent.
+3. THE FORK'S LAST CELL IS RUNNING (x53): the walk's decorrelation — the family's
+   only one — is now isolated as THE OWN-KEY PHENOMENON. Is it AUTHORSHIP (the
+   substrate's write history of the name) or GEOMETRY (the lineage's slot)? x53's
+   formation cell (three menus on the warm own-key substrate) + the dose-matched
+   adoptive-self leg (a guest consolidated onto the root at matched depth, then
+   re-formed) splits them outright. The post-fork program is pre-registered for BOTH
+   branches (the x46 precedent, verdict-independent).
+4. THE THERMAL EVENT, HANDLED AND RATIFIED (R83): the 86/87C breach mid-e346 was
+   stopped, cooled, and re-fenced; phase-2 is now the STANDING default (10-step polls
+   provably cannot enforce any line at soak rates) + the three-proof restart
+   disclosure standard. One envelope record was silently dropped by a tag-collision
+   dedupe (auditor-caught; the evidence survives in run.log; disclosed, artifacts
+   never edited post-hoc).
+5. THE SESSION ARC (since ed.41): x52 killed G3 at the gate (the one-cell is
+   biology; the two-act shape the walk's alone); e346 re-worded the knife to
+   MAINTAINED-VS-NOT; R83 caught the convention, repaired the nouns, minted x55/x56/
+   x57 (the mid-band ladder; the slot ledger; the key's channel — target-vs-context).
+   Ledger 24-for-45, every split disclosed.
 
 ## WHAT CAN BE DONE (top next actions, named)
 
-1. FOLD X52 (free, imminent) — the gate verdict; then e346+ZxT (the name-key ladder:
-   k in {1,2,4,7} tokens — threshold/graded/inoculating — plus the execution-symmetry
-   arm; one rig, GPU+desk) if PRESERVE.
-2. x53 THE OWN-NAME PROGRAM (behind e346) — the G1-vs-G2 fork's only formation-class
-   discriminator, with the adoptive-self extension (a guest consolidated onto the
-   root, then re-formed).
-3. x36 THE PAGE LADDER (next GPU slot, orthogonal) — doubly motivated by 'the menu
-   carries everything': WHERE in the stream the decorrelation-writing content lives.
-4. Q1 — the supervisor's LAWS review: v3.2 is the one-sitting read it was drafted to
-   be; Law 8 and METHODS 5-6 are the pages.
+1. FOLD X53 when it lands (free) — the G1/G2 fork's answer; the post-fork program is
+   already registered for either branch; the oracle un-gates on its verdict.
+2. THE DESK SESSION (x55 + x56, one session, CPU): the mid-band fate-resolved ladder
+   (the never-sampled k in (7,16]) + the logit slot ledger — completes e346's story
+   honestly (the median co-report rides).
+3. x36 THE PAGE LADDER (next GPU slot): where in the stream the decorrelation-writing
+   content lives — doubly motivated by 'the menu carries everything'.
+4. Q1 — the supervisor's LAWS review: v3.2 is the one-sitting read; Law 8 + METHODS
+   5-6 are the pages.
 
 ## BLOCKERS / ASKS
 
-- Q1 STILL LIVE AND OWNERLESS — the standing ask since ed.23; v3.2 makes it cheap.
-- The oracle wildcard is timed (behind x53) — its feature list pre-registered with
-  +KEY-IDENTITY/+KEY-MASS; no owner action needed.
+- Q1 STILL LIVE AND OWNERLESS — the standing ask since ed.23.
+- The thermal envelope's phase-2 standing is self-imposed; if the owner prefers the
+  full 2026-10-02 fallback after any breach, say so and it reverts.
 - The dialogue still owes droid's side.
