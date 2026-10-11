@@ -424,7 +424,7 @@ MD5_BINDS = {
     "e341_metrics": ("runs/e341/metrics.json",
                      "279bd235e43da13dc78998fe9da7b63d"),
     "x43_metrics": ("runs/x43/metrics.json",
-                    "b772f84ca1ce586dbc5a501d60c0c239"),
+                    "b772f84ca1ce586dbc5a501d6010c239"),
     "e335_metrics": ("runs/e335/metrics.json",
                      "5d92359bc9b2e943c01bf521487cf177"),
     "e345_metrics": ("runs/e345/metrics.json",
@@ -653,6 +653,34 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE-CAUGHT G_DRAWS WIRING REPAIR (pre-adjudication, "
+    "disclosed): the first smoke pass failed G_DRAWS' shape_ok — the "
+    "expression took len() of the per-step draw DICTS (4 keys) instead "
+    "of the draw LIST. The substance had already held "
+    "(cross_arm_bit_equal True; first_ix == e345's committed). Repaired "
+    "to len(refs[0]) == n_expected + per-draw shape checks. No bar, "
+    "arm, stream or gate criterion touched — bookkeeping only.",
+    "THE SMOKE-CAUGHT RIDER SUBSTRATE REPAIR (pre-adjudication, "
+    "disclosed): the name-blindness rider's cross-arm |W| spread as "
+    "first frozen included the ZxT arm — a DIFFERENT substrate "
+    "(own_install sits at |W| ~14.2 / in_room ~0.060 BY SUBSTRATE "
+    "CLASS: x51's committed walk_s400 14.1/0.060, reproduced by my s1 "
+    "row), so a six-arm spread would mislabel substrate-class as "
+    "KEY-SEEPING. Repaired BEFORE the full compute: the spread is "
+    "computed over the FIVE same-substrate arms (k1/k2/k4/k7/neu — "
+    "only the keying varies); the ZxT arm is instead checked against "
+    "ITS OWN substrate's committed class (the walk's band). The "
+    "registration's rider wording stays verbatim; the scored "
+    "operationalization is the repaired one (NAME-BLIND iff the "
+    "five-arm spreads pass AND zxt sits in its own class).",
+    "THE SMOKE-CAUGHT BIND-TYPO REPAIR (pre-adjudication, disclosed): "
+    "the first smoke pass failed G_MD5 on x43_metrics — a transcription "
+    "typo in the bind table (b772f84ca1ce586dbc5a501d60c0c239 for "
+    "e345's certified b772f84ca1ce586dbc5a501d6010c239, a dropped '10'). "
+    "Repaired to the parent's literal (the on-disk file's own md5, "
+    "verified against e345's passing bind). No bar, arm, stream or gate "
+    "touched — the gate did exactly its job; the failed pass preserved "
+    "in runs/e346_smoke's run log.",
     "THE LADDER'S UNIT (disclosed): k counts the 16 name-bearing pool "
     "SLOTS per step whose window is re-keyed ZEPHYRA->TAVIREN (each "
     "flipped slot re-keys its full 7-token name; the dispatch's 'k "
@@ -1776,10 +1804,10 @@ def phase_P3(p0: dict, arms: dict, rows: dict) -> None:
     # ---- G_DRAWS (six arms' draw records bit-equal + e345's first_ix) --
     refs = [arms[a["tag"]]["draws"] for a in ARMS]
     n_expected = CONS_STEPS
-    shape_ok = all(len(d) == n_expected and len(d["ix"]) == 16
-                   and len(d["aj"]) == 8 and len(d["rj"]) == 8
-                   for d in refs[0]) and all(
-        len(d) == n_expected for d in refs)
+    shape_ok = (len(refs[0]) == n_expected
+                and all(len(d["ix"]) == 16 and len(d["aj"]) == 8
+                        and len(d["rj"]) == 8 for d in refs[0])
+                and all(len(d) == n_expected for d in refs))
     cross_equal = all(d == refs[0] for d in refs)
     first_ix_ok = refs[0][0]["ix"] == p0["committed_e345"]["first_ix"]
     g_draws = {
@@ -2027,15 +2055,26 @@ def phase_P4(p0: dict, rows: dict) -> dict:
                 + ") — neither named bar fires; the honest name")
 
     # ---- the free rider (|W| / in_room name-blindness) ------------------
-    rider = {"per_step": {}, "verdict": "SMOKE" if SMOKE else None}
+    # THE SMOKE-CAUGHT REPAIR (disclosed in deviations): the cross-arm
+    # spread is computed over the FIVE SAME-SUBSTRATE arms (k1/k2/k4/k7/
+    # neu — all tav_subject starts; only the keying varies); the ZxT arm
+    # sits on a DIFFERENT substrate (own_install, |W| ~14/in_room ~0.06
+    # by substrate class — x51's committed walk_s400 14.1/0.060) and is
+    # compared against ITS OWN substrate's class instead (a cross-
+    # substrate spread would mislabel substrate-class as key-seep).
+    rider = {"per_step": {}, "zxt_substrate_class": {}, "verdict":
+             "SMOKE" if SMOKE else None}
+    zxt_own = {"walk_s400_committed": {"w": 14.1, "room": 0.060},
+               "zxt_rows": {}}
     if not SMOKE:
         spreads = []
+        same_sub = [a for a in ARMS if a["start"] == "tav_subject"]
         for s in CAPTURE_STEPS:
             if s not in FATE_STEPS and s != 1:
                 continue
-            ws_ = [rows[f"{a['tag']}_s{s}"]["write_norm"] for a in ARMS
+            ws_ = [rows[f"{a['tag']}_s{s}"]["write_norm"] for a in same_sub
                    if f"{a['tag']}_s{s}" in rows]
-            rs_ = [rows[f"{a['tag']}_s{s}"]["in_room"] for a in ARMS
+            rs_ = [rows[f"{a['tag']}_s{s}"]["in_room"] for a in same_sub
                    if f"{a['tag']}_s{s}" in rows]
             if not ws_:
                 continue
@@ -2045,24 +2084,41 @@ def phase_P4(p0: dict, rows: dict) -> dict:
                    "room_spread": round(max(rs_) - min(rs_), 6)}
             rider["per_step"][str(s)] = rec
             spreads.append((rec["w_spread"], rec["room_spread"]))
+            zr = rows.get(f"zxt_s{s}")
+            if zr is not None:
+                zxt_own["zxt_rows"][str(s)] = {
+                    "w": round(zr["write_norm"], 3),
+                    "room": round(zr["in_room"], 4)}
         name_blind = bool(spreads and all(
             w <= W_SPREAD_MAX and r <= ROOM_SPREAD_MAX
             for w, r in spreads))
-        rider["verdict"] = "NAME-BLIND" if name_blind else "KEY-SEEPING"
+        # the ZxT-vs-own-class check: within the walk's committed class
+        # band (|W| 14-22, in_room <= 0.30 — the walk rungs' own range)
+        zxt_in_class = bool(zxt_own["zxt_rows"] and all(
+            12.0 <= v["w"] <= 24.0 and v["room"] <= 0.35
+            for v in zxt_own["zxt_rows"].values()))
+        rider["zxt_substrate_class"] = zxt_own
+        rider["zxt_in_own_class"] = zxt_in_class
+        rider["verdict"] = ("NAME-BLIND" if (name_blind and zxt_in_class)
+                            else "KEY-SEEPING")
         rider["claim"] = (
-            "the write's census geometry is key-blind across all six "
-            "arms at matched captures (spread <= 1.0 |W| / <= 0.05 "
-            "in_room) — e345's two-key coincidence extended to the "
-            "whole ladder + the never-seen key + the ZxT mirror"
-            if name_blind else
+            "the write's census geometry is key-blind across the five "
+            "same-substrate arms at matched captures (spread <= 1.0 |W| "
+            "/ <= 0.05 in_room) AND the ZxT arm sits in its own "
+            "substrate's committed class (the walk's 14-22 / <= 0.35 "
+            "band) — e345's two-key coincidence extended to the whole "
+            "ladder + the never-seen key + the ZxT mirror"
+            if name_blind and zxt_in_class else
             "the key SEEPS into the write's census geometry (a spread "
-            "beyond the frozen cuts at >= 1 matched capture) — "
-            "disclosed; the e345 name-blindness claim does not extend "
-            "to this cell's arms")
+            "beyond the frozen cuts at >= 1 matched capture, or the ZxT "
+            "arm outside its substrate's class) — disclosed; the e345 "
+            "name-blindness claim does not extend to this cell's arms")
         rider["committed_coincidence_beside"] = {
             "e345_s25": "|W| 11.52 vs the ruler 11.40; in_room 0.722 "
                         "vs 0.730",
-            "e345_s125": "|W| 14.78 vs 14.64; in_room 0.537 vs 0.542"}
+            "e345_s125": "|W| 14.78 vs 14.64; in_room 0.537 vs 0.542",
+            "x51_walk_s400": "|W| 14.1 / in_room 0.060 (the ZxT arm's "
+                             "own substrate class)"}
 
     # ---- the grids -------------------------------------------------------
     grids = {
