@@ -261,9 +261,14 @@ TAVIREN-warm cell's 'coherence' is the instrument's ZERO-POINT, not an independe
 measured datum — the ruler-internal dense panel owed). The NAME-KEY CONTRAST
 (RE-WORDed at e346 to MAINTAINED-VS-NOT: the neutral key QORVATH and the ZxT arm both
 EXECUTE the host read exactly as the own-guest key did — the 2x2 closes with
-EXECUTION SYMMETRIC and SURVIVAL OWN-KEY-ONLY; partial rehearsal NEVER protects —
-the k-ladder strictly monotone, every rung DEAD — and the write name-blind
-throughout: the host dies unmaintained under ANY non-host key) is the cell's causal
+EXECUTION SYMMETRIC and SURVIVAL OWN-KEY-ONLY; partial rehearsal NEVER protects under the
+min convention — and the mid-band resolved it (x55): the protection edge lands in
+(7,12], GRADED and non-monotone (k=14 exceeding the full dose at s125; the armor
+edge distinct at (7,9]); THE LEDGER (x56, logit currency): THE SEAT GROWS — at
+partial dose both names occupy it ABOVE the solo budget (11 cells, best +5.29)
+before the full-dose collapse below solo (~99% real competition; the guest corner
+GUEST-DEAD): CAPACITY-TWO, the anti-motion real but non-conserving; the write
+name-blind throughout: the host dies unmaintained under ANY non-host key) is the cell's causal
 border — READ SURVIVAL, NOT DECORRELATION: the decorrelation datum remains the walk,
 n=1, now isolated as THE OWN-KEY PHENOMENON. The
 decorrelation splits: a LEVEL the one cell owns and a PHASE DYNAMICS every arm shares
@@ -316,12 +321,12 @@ protocol, one architecture at 2.74M.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 26-for-47
-   (refreshed at the x36 fold: the sixteen cells since R80 went 8-for-16 — e342, x48,
-   x46, x51 (primary; rider missed, disclosed), x50, x52, x36 hit; g1bS9, x45, x47,
-   e343, e344, x49, e345, e346 (SHARP head missed, ZxT rider hit, disclosed), x53
-   (cell half hit via CONS-ONLY, adoptive half missed — the counter won the fork)
-   missed-or-split; W058 closed — the lean column is
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 27-for-49
+   (refreshed at the x55/x56 folds: the eighteen cells since R80 went 9-for-18 — e342, x48,
+   x46, x51 (primary; rider missed, disclosed), x50, x52, x36, x55 hit; g1bS9, x45,
+   x47, e343, e344, x49, e345, e346 (SHARP head missed, ZxT rider hit, disclosed),
+   x53 (cell half hit, adoptive half missed — the counter won the fork), x56
+   (CAPACITY-TWO against both calls) missed-or-split; W058 closed — the lean column is
    NOISE, not bias; misses are priced, not spun; the executor counter-column hit on ALL THREE of its
    contested calls (g1bS9, e343, e344) — the lean column is statistically a coin
    (one-sided no-edge p ~ 0.98; two-sided exact binomial 0.22) and the ordering

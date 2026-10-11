@@ -7,6 +7,46 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T339 — x55+x56: the edge and the ledger — the maintenance curve completes, and the seat GROWS (2026-10-11, datetime.now ~07:55Z)
+
+The desk session closed e346's account in full. THE EDGE: protection lands in (7,12] —
+DEAD→MID at k=9, MID→ALIVE at k=12, with k=14 EXCEEDING the full dose itself (the
+ruler dips harder at s125 than 14-of-16 does) — a graded, non-monotone landscape, no
+longer NEVER-PROTECTS and not quite THRESHOLD: a band with interior structure. The
+median lane crosses ~3 k-steps earlier than the min lane (both standing side by side
+now). And the s1 surprise: the ARMOR edge flips in (7,9] non-monotonically — R83's
+all-or-nothing sharpening amended; the armor edge and the fate edge are close but
+DISTINCT objects.
+
+THE LEDGER IS THE HEADLINE: CAPACITY-TWO, against both registered calls. In the logit
+currency the seat is NOT zero-sum at partial dose — eleven double-occupancy cells
+above the solo budget (best +5.29) before the collapse below solo at the full dose
+(~99% real competition at k14→k16). THE SLOT-SPLIT NOUN RE-WORDS TO A GROWING SEAT:
+partial rehearsal doesn't merely fail to protect — it EXPANDS the seat enough for two
+names to occupy it, and only saturation collapses it. And the 2x2's unmeasured corner
+is GUEST-DEAD: at full dose the guest on the ruler's own throne dies like every host
+under a foreign key.
+
+THE COMPOSITE (the seat grammar v2): ONE SEAT, GROWING WITH DOSE — at low dose any
+single name owns it; in the mid-band two can share it (the ledger above solo); at
+full dose saturation collapses it below solo (real competition). The maintenance
+curve is a landscape with TWO edges (armor in (7,9], fate in (9,12]) and a shared
+regime between. The authored contexts buy the CONSISTENCY (x36's currency); the dose
+buys the CAPACITY (x56's).
+
+REGISTERED (P-T339a, standing for the G2-branch cells): the growing-seat reading
+predicts the virgin-slot census finds capacity, not vacancy — a fresh name's first
+formation on the root occupies a GROWN seat, not an empty one (the install's write
+history grew it); COUNTER: virgin slots start at solo capacity and grow only under
+their own rehearsal. The lab leans the grown reading, weakly; the counter, stated
+plainly: e346's k=0 solo budget is itself the null — the seat was measured solo
+throughout, and growth may need the mid-band's specific split regimen.
+
+CONNECTS: T338 (the two currencies now three objects: consistency — authored;
+capacity — dosed; armor — its own edge); T337 (the quadruple's dose term now has a
+capacity reading); T336 (the maintenance reading completes: maintenance = capacity
+management); Law 8 (the seat grammar amended this fold).
+
 ## T338 — x36: the early block — 1.3% of the authored pages carry the seat's consistency, and the authored-context term has two currencies (2026-10-11, datetime.now ~07:15Z)
 
 Swapping four pages — 1.3% of the authored stream, at bit-matched name-token dose on
