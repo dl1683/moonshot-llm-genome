@@ -56,6 +56,20 @@ grid-closer clause appended; the home re-words from 'warm x cons' to 'the own-na
 cell' with G1-G3 open); W057 (the history-clock's writer now has a NAME variable:
 whose name the curriculum rehearses).
 
+[R82 AMENDMENTS (2026-10-11 ~01:05Z), the critic's wordings adopted: (1) 'the guest
+coheres under every menu' overclaims — the honest form: THE GUEST READ FORMS WHEREVER
+TAUGHT (p(Z) 0.6352 at s300); a guest curriculum EXECUTED the host read —
+maintenance-vs-competition unresolved (the neutral-key control named; the
+cross-name-interference reading live: the stream taught the guest fast — Law 2a's
+collision regime — while the host went unmaintained into the cold-AdamW shock).
+(2) THE OBSERVABLE MISMATCH: the causal contrast is about READ SURVIVAL; the walk's
+read SURVIVED while decorrelating — the decorrelation datum remains the walk, n=1.
+(3) Semantic G1 is unlicensed over mechanical G1 ('the substrate's write history of
+this name' — x53's adoptive-self leg owns the fork; the ZxT cell rides e346).
+(4) P-T333a (the two-act shape cross-name) marked OPEN-UNTESTABLE — e345's arm died
+at s1; re-keyed to the dense ruler replay riding x52. The era thesis (the ideator's):
+IS THE MISSING PROTOCOL A KEY?]
+
 ## T333 — x50: the knob exists — decorrelation watched forming: an oscillating emergence in the first thirty steps, one sharp five-step consolidation, and the geometry carrier dead (2026-10-10, datetime.now ~23:50Z)
 
 The era's biggest constructive result. The replay's 74 dense rungs watched the walk's

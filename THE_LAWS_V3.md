@@ -216,120 +216,74 @@ dependence is registered, not resolved); the calibration dial (W049-Q3) is bound
 standing amendment (off-target battery + read floor at every rung; on a family it moves
 all five).
 
-## LAW 8 — THE GUARD AND ITS CEILING [invariant; added at v3.1, the R80 re-cut]
+## LAW 8 — THE GUARD AND ITS CEILING [invariant; v3.1 re-cut; COMPRESSED v3.2 at R82]
 
 CONSOLIDATION IS EXTERNAL: the wash-proof object (the 'ball') decomposes into THREE
-separable contributions (e337/e338/e340, re-cut from Law 3's scope at v3.1) — THE WALL
-(a runtime displacement veto around the organism, not a memory guard: it held the
-organism while fresh reads died 0.045); THE HEIGHT (recovery capacity, graded: s100
-gradient fresh 0.045 < controller-400 0.118 < controller-800 0.130 << varied-300 0.244
-< fixed-300 0.320 << cons [0.957, 1.088]; x39: THE HEIGHT CLAUSE STANDS — t400 keeps
-90.2% of t800's retention at half the dose, the controller's dose axis flat 400-800);
-and THE ANNEALING (first-step survival — A DOSE, NOT A TYPE: e341's matched-steps
-control bought the s1 survival with EITHER context menu; the s1 annihilation is
-height-blind but any 300-step annealed read survives; context variety buys a different
-channel — GEOMETRY-GENERALIZATION: gm12 0.688 vs the fixed arm's 0.131). THE RECIPE:
-ANNEAL-DOSE + HEIGHT + WALL — SURVIVAL IS THE SHAPING'S, RECOVERY IS THE HEIGHT'S,
-THE WALL IS THE ORGANISM'S. THE MECHANISM (x40): THE ARMOR IS DIRECTIONAL — the
-gaussian control is flat at 1R for all states while the kill-ray separates hugely; the
-annealed read is armored EXACTLY along the wash's direction (per-step far sub-floor,
-the path 5.7x the floor — the path is the carrier, the endpoints alone ~6% below,
+separable contributions (e337/e338/e340) — THE WALL (a runtime displacement veto
+around the organism, not a memory guard: it held the organism while fresh reads died
+0.045); THE HEIGHT (recovery capacity, graded — the ladder's endpoint band
+[0.957, 1.088]; x39's clause standing: t400 keeps 90.2% of t800's retention at half
+the dose); and THE ANNEALING (first-step survival — A DOSE, NOT A TYPE, e341;
+context variety buys a different channel — GEOMETRY-GENERALIZATION, gm12 0.688 vs
+0.131). THE RECIPE: ANNEAL-DOSE + HEIGHT + WALL — survival is the shaping's,
+recovery the height's, the wall the organism's. THE MECHANISM (x40): THE ARMOR IS
+DIRECTIONAL — the gaussian flat at 1R for all states while the kill-ray separates
+hugely; the annealed read is armored EXACTLY along the wash's direction (per-step far
+sub-floor, the path 5.7x the floor — the path the carrier, the endpoints ~6% below,
 disclosed); the battery tail is the dose's, the offset tail the variety's.
 
-AND THE CEILING (x43, the capstone): the composed retention stalls at 0.26-0.33 (~4x
-under the band) and the anneal itself cannot climb (600 extra steps of the cons's own
-protocol bought nothing); DOSE BUYS FIRST-STEP ARMOR WITHOUT LIMIT (s1 0.115 → 0.427)
-WHILE WALL-INTERIOR RECOVERY CAPS — the two axes independent, the second ceilinged;
-the build lane's tool is band-adjacent (sand-proof, first-step-proof) but not
-wash-proof. THE PROTOCOL GAP IS REAL AND MECHANISTICALLY BOUNDED: the missing piece
-is a FORMATION PROTOCOL (the cons's own curated history), not an ingredient. THE
-SCALE CLAUSE (g1bS9): THE RECIPE IS 2.74M-SPECIFIC — both legs fade at 10M (the wall
-g1bS6; the dose g1bS9: both arms dead at s1, the margin graded 4.6x vs 2.74M's 28x;
-the port held — the death is scale); the fade's named mechanism leads: the RECOVERY
-INVERSION (the control out-recovers the annealed at 10M — the two axes' independence
-flips sign at scale), the WASH-CONTENT FINDING (the install-anchor wash kills at 10M
-where the neutral spared), and the DIMENSION-MATCH PARADOX (the projection-geometry
-explanation of the fade is dead). AND THE FINGERPRINT RETRACTED AT ITS CROSSES
-(x45 → e343 → e344): the TAVIREN-side separation stands in x45's own data (the cons
-walk's matched states, consistency 0.78-0.83, vs the anneal), but the crosses closed
-every general form — e343 (the ZEPHYRA install path): NO decorrelated signature (sign
-+ 0.57; the install's steep-transient rungs near-perfectly coherent at r 0.986-0.993,
-decorrelating only at its upper reach, s100-s400 sign − 0.75); e344 (ZEPHYRA through
-the cons curriculum from BASE, stream identity proven by the root-own landing read
-|d| 0.0 — no draw-identity gate ran in the cell): COHERENT-ABOVE (sign + 0.78/0.313
-over 23 pairs; its young subset
-the most coherent segment the instrument has measured) — COLD FORMATION BUYS NO
-DECORRELATION UNDER EITHER CURRICULUM. The family's ONLY decorrelated arm is the
-WALK (ZEPHYRA-read at the install-end — CONFIRMED 7-0 by x48's identity pass; arm 4
-re-labeled; e344's NAME-ARTIFACT verdict names a held-constant axis — the controlled
-contrast it actually ran: same name, same curriculum, same stream, cold-vs-warm start,
-coherent-vs-decorrelated), whose states are install-end REMODELING states: the swap shares
-its NAME, CURRICULUM, and STREAM with the walk — the START alone separates them (cold
-coheres, warm decorrelates), the warm home's best datum, filed under a verdict naming
-an axis the design held constant (R81's lineage repair). The surviving home is the
-WARM x CONS-MENU INTERACTION (the anneal ruler is itself warm and coherent — warm
-alone cannot be it; the 2x2's warm corner still confounds name), RANKED AHEAD of the
-instrument artifact pending the TAVIREN warm walk (e343's originally-registered
-full-swap, never run — the arm-level closer); e343's upper segment the free
-ZEPHYRA-side candidate (BASE-forming cold interior — a warm-class instance only if
-x48's class table says so); N1 MIXED (age carries 4x a name-aliased menu factor, no
-bar cleared; both s125-class states hard residuals — a CANDIDATE decorrelation event,
-n=2, permutation p=0.035, RESOLVED BY x49: WARM-EXCLUSIVE and age-timed (the cold
-swap's own s125 silent at -0.222 vs the fire line 0.288; the raw-collapse census
-warm-only; a LEVEL-SHIFT band's extreme, not a discontinuity — the elementary-unit
-claim demoted; warm-age-125 and cold-age-525 cells unsampled by design, disclosed);
-the stronger form:
-the walk/anneal residuals co-move at all shared reshape steps, r=+0.667, and THE STAR
-SURVIVES WITHOUT THE TICK (swap-anneal 0.674 excluding s125; the swap-walk edge
-tick-carried at 0.351)); support
-breadth and the in-room split do not separate. THE RE-READ (x48): P-T328a hit as a
-SIGN FACT (16 pooled pairs sign − 0.75/0.81 — the segments sit below the anneal ruler
-together, their net0 classes dissenting: the install's upper segment is cold interior);
-and the co-movement resolved to THE ANNEAL HUB (walk-anneal +0.667; swap-anneal +0.723
-STRONGER, a cold arm joining; swap-walk +0.486 n.s.) — the decorrelation SPLITS into a
-LEVEL the warm cons walk owns alone and a PHASE DYNAMICS every arm shares through the
-anneal (the ruler-side artifact reading alive: every correlation in the pool has the
-ruler as one endpoint; N3/x49 the hub tests). AND THE META-LAYER (x46, methods-grade):
-the lineage-relative family — receptivity, lift-termination, generalization,
-wash-proofness — shares ONE measurable (elicitation decorrelation: four oriented
-primaries +0.93/+0.36/+0.76/+0.92, both free anchors >= 0.5, wash-proofness
-individually exact p=0.011; power disclosed — 25 rows, ~6 formations, pairs not
-independent): THE HISTORY-CLOCK IS THE DECORRELATION STRUCTURE, with the hand-off
-caveat (the state-clock terminates lifts on coherent rungs — pair (ii) +0.86 without
-the coherent interior). AND THE OPEN-LOOP CLAUSE (x51): formation-phase FEEDBACK does
-not write decorrelation — the controller-formed states sit coherent-ABOVE (compact
-in-room writes, |W| ~9 at 93% in-room, TIGHTENING coherence 0.972 -> 0.993) while the
-open-loop varied arms sprawl (|W| ~18 at ~41%) and decorrelate: FEEDBACK AND
-DECORRELATION WERE ANTI-CORRELATED in the era's cleanest instance class (the
-controller series APART-ABOVE at shared phase, median |d| 0.515 — the co-movement is
-a property of OPEN-LOOP reshape trajectories, not warm formation per se; the tuner
-program does not merge with the formation-protocol era). AND THE LIVE CLAUSE (x50):
-the knob's act FILMED — dense replay (74 rungs) watched decorrelation FORM: an
-oscillating emergence in [s10,s30] (the only multi-rung coherent state the opening
-s1-s10), then a SINGLE sharp consolidation [s50,s55] (C 0.910 -> -0.055, never
-re-cohering through s300); the committed grid's coherent interior was single-rung
-spikes (the 25-grain plateau an alias); the s125 tick a WIDE noisy raw-collapse patch
-(18 rungs — a regime, not an event); and the geometry carrier DEAD (in-room FLAT at
-chance 0.060 through the sprawling decorrelated write — COMPACTNESS-INDEPENDENT: the
-write's curriculum carries everything, its geometry nothing); WARMTH IS A
-MANIPULABLE PROTOCOL KNOB — the missing formation protocol's first observable act.
-AND THE GRID CLOSED (e345): the decorrelation lives in EXACTLY ONE CELL — {warm x
-ZEPHYRA-lineage x cons}: the warm x cons x TAVIREN cell already existed as the anneal
-ruler (coherent — the menu-aliasing fact: e341's VARIED IS the cons protocol keyed
-TAVIREN); THE NAME-KEY CAUSAL CONTRAST: identical substrate/seed/draws with seven
-name tokens the only delta — the TAVIREN key's read survives, the ZEPHYRA key
-EXECUTES it, at NAME-BLIND writes (|W| 11.52 vs 11.40; in-room 0.722/0.730): census
-geometry is stream+substrate arithmetic, THE READ'S FATE IS THE NAME KEY'S ALONE
-(the own-name vs guest-name reading and the ruler-symmetry discriminator P-T334a
-registered; T334).
+THE CEILING (x43): the composed retention stalls at 0.26-0.33 (~4x under the band)
+and the anneal itself cannot climb (600 extra steps of the cons's own protocol bought
+nothing); DOSE BUYS FIRST-STEP ARMOR WITHOUT LIMIT (s1 0.115 -> 0.427) WHILE
+WALL-INTERIOR RECOVERY CAPS — the two axes independent, the second ceilinged; the
+missing piece is a FORMATION PROTOCOL, not an ingredient.
 
-*Scope (Law 8):* one organism, one wash protocol, one architecture at 2.74M (the scale
-clause is two legs at 10M); the recipe's protocol-scope clause (the cons band ~1.0 is
-the reference — no composed arm reached it); the TAVIREN walk is the only decorrelated
-arm — the crosses (e343 install; e344 cons-from-BASE) retracted the path-general and
-curriculum forms; the home (warm re-formation vs instrument) open at the segment
-level (P-T328a, x48); the recovery gradient's cons
-rung is the measured band [0.957, 1.088] on the cons legs.
+THE SECOND FORMATION (v3.2, the merged clause): the protocol's fingerprint is
+ELICITATION DECORRELATION. It is written only by OPEN-LOOP VARIED MENUS — feedback
+writes its opposite (compact in-room writes that TIGHTEN coherence). It is written
+NAME-BLIND — write geometry is stream+substrate arithmetic and carries nothing. It
+forms in TWO ACTS — an oscillating emergence ([s10,s30]) and a single sharp
+consolidation ([s50,s55]) that never re-coheres. In the closed {warm,cold} x
+{ZEPHYRA,TAVIREN} cons grid it is observed in exactly ONE cell — {warm x
+ZEPHYRA-lineage} (one draw per cell; the TAVIREN-cold cell is UNRUN, not excluded —
+constructible as a TAVIREN install from BASE through the T-keyed cons stream; and the
+TAVIREN-warm cell's 'coherence' is the instrument's ZERO-POINT, not an independently
+measured datum — the ruler-internal dense panel owed). The NAME-KEY CAUSAL CONTRAST
+(seven tokens flip READ SURVIVAL at name-blind writes) is the cell's causal border —
+READ SURVIVAL, NOT DECORRELATION: the decorrelation datum remains the walk, n=1; the
+guest read forms wherever taught; a guest curriculum executed the host read —
+maintenance-vs-competition unresolved (the neutral-key control named). The
+decorrelation splits: a LEVEL the one cell owns and a PHASE DYNAMICS every arm shares
+through the anneal (the ruler-artifact reading alive — every correlation in the pool
+has the ruler as one endpoint). G1/G2/G3 open (own-name authorship / lineage
+geometry / ruler symmetry); P-T334a the registered discriminator.
+
+*Scope (Law 8):* the fingerprint arc — x45's separation (0.78/0.83, sign -); e343's
+cross (+0.57; the install's steep-transient rungs near-perfectly coherent
+0.986-0.993; the upper reach s100-s400 sign - 0.75); e344's swap (coherent-above
++0.78/0.313 over 23 pairs; the young subset the most coherent segment measured); x48's
+identity pass (the walk is ZEPHYRA-read, 7-0 — the 'TAVIREN walk' prose label
+retired); P-T328a's sign fact (16 pooled pairs sign - 0.75/0.81 with the class
+dissent: the install's upper segment is cold interior); the co-movement star
+(swap-anneal +0.723 > walk-anneal +0.667; swap-walk +0.486 n.s.; survives the tick's
+removal at 0.674, the swap-walk edge tick-carried at 0.351); N1's MIXED (age carries
+4x the NAME KEY — the menu axis was name-aliased all along per e345's menu-aliasing
+disclosure; R2_menu is a name-key factor; 82 rows, ~6 dependent trajectories); the
+tick dossier (warm-exclusive, age-timed-within-warm, a level-shift band's extreme;
+at dense grain a wide noisy raw-collapse patch, 18 rungs); x51's APART-ABOVE (the
+controller's residuals 0.515 outside every arm's band at the cleanest alignment; the
+co-movement open-loop-only; the controller's compact write — 93% in-room, |W| ~9 —
+tightening coherence 0.972 -> 0.993; the open-loop arms sprawling at ~18/41%); x50's
+dense replay (74 rungs; the 25-grain plateau was single-rung spikes; the final fall
+one 5-step interval [s50,s55], C 0.910 -> -0.055; in-room FLAT at chance through the
+sprawling write). THE SCALE CLAUSE (g1bS9): THE RECIPE IS 2.74M-SPECIFIC — both legs
+fade at 10M (the wall g1bS6; the dose g1bS9: both arms dead at s1, the margin graded
+4.6x vs 2.74M's 28x; the port held — the death is scale); the fade's leads: the
+RECOVERY INVERSION (the control out-recovers the annealed at 10M), the WASH-CONTENT
+FINDING (the install-anchor wash kills at 10M where the neutral spared), the
+DIMENSION-MATCH PARADOX (the projection-geometry explanation of the fade dead). All
+n=1-per-cell, net0-class, and power disclosures stand; one organism, one wash
+protocol, one architecture at 2.74M.
 
 ## METHODS (the demoted instrument rules)
 
@@ -364,6 +318,16 @@ rung is the measured band [0.957, 1.088] on the cons legs.
    'resolved', never 'predicted'). Down-weight seats; register leans
    as hypotheses, not findings. "The ordering guess < lean < counter < instrument" is
    THE HYPOTHESIS, not a measurement (R74's + R75's corrections).
+
+
+6. THE SHARED MEASURABLE (x46, methods-grade): every lineage-relative claim is priced
+   against ELICITATION DECORRELATION — the four oriented primaries +0.93/+0.36/
+   +0.76/+0.92 with both free anchors >= 0.5 (wash-proofness individually exact
+   p=0.011; power disclosed: 25 rows, ~6 formations, pairs not independent): THE
+   HISTORY-CLOCK IS THE DECORRELATION STRUCTURE, with the hand-off caveat (the
+   state-clock terminates lifts on coherent rungs — +0.86 without the coherent
+   interior). Measurement doctrine, not a law of memory death. [Promoted from Law 8's
+   prose at R82.]
 
 ## THE EPITAPH, v3
 

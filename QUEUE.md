@@ -193,6 +193,18 @@ The panel's ordering (information-per-cost; the desk wave first, the multi-arm c
 Q1 (the supervisor's doc review of THE LAWS): STILL LIVE AND OWNERLESS — named by the
 critic; the standing ask in every droid brief since ed.23.
 
+## R82 SECTION (2026-10-11, folded ~01:05Z) — the key question era; the ordering fixed
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x52 | THE RULER-SYMMETRY RE-SCORE (P-T334a, the critic's repaired registration: the POOLED Z-side reference — x42's 14 interior + e343's zeph battery rows + e344's swap rungs, each stratum co-reported; the ONE-SIDED clause — PRESERVE decisive, FLIP ambiguous-without-a-neutral-ruler; the circularity disclosed: no warm Z-side ruler exists but the walk) + RIDER: THE DENSE RULER REPLAY (the anneal leg at x50's 74-rung grain — the ruler-internal coherence control + P-T333a's re-keyed cross-name clause) | RUNNING (dispatched ~01:05Z Oct-11, CPU desk) | RULER-SYMMETRIC (the walk's decorrelation PRESERVES against the pooled own-side ruler: sign -, consistency >= 0.75 — G3 dies, the one-cell hardens into biology) / ASYMMETRY-AMBIGUOUS (a flip is NOT G3-wins without the neutral-ruler control) / RIDER: RULER-INTERNALLY-COHERENT vs the reference has internal structure (the one-cell re-bases) |
+| e346 | THE NAME-KEY LADDER + THE ZxT RIDE (the era's cheapest causal curve; one rig, one dispatch) | READY (behind x52) | k in {1,2,4,7} name tokens re-keyed at matched steps: THRESHOLD (a k-of-n key, secret-sharing-shaped — joins R* as the era's second control parameter) / GRADED / NON-MONOTONE (inoculation-shaped); RIDE: the ZxT cell (the root through the T-keyed stream — execution SYMMETRY: guest-on-ZEPHYRA vs guest-on-TAVIREN splits competition vs receptivity); the neutral-key control named (a never-seen 7-char bank name on the TAVIREN subject) |
+| x53 | THE OWN-NAME PROGRAM (T334's G1 formation cell; the braid's missing joint) | READY (behind e346) | desk prelude (own-key vs guest-key x decorrelates-vs-coheres, Fisher exact, power disclosed) + the formation cell (ZEPHYRA install-end under varied-keyed-ZEPHYRA / cons / single-channel): OWN-NAME-MENU-INVARIANT (G1; the cell re-words to {warm x OWN-KEY x open-loop}) / CONS-ONLY (triple interaction; G2 rises) / COHERENT-EVERYWHERE (biography) + THE ADOPTIVE-SELF extension (a guest consolidated onto the root, re-formed warm: adoptive decorrelates = G2; only ladder-authored ZEPHYRA = G1) |
+| x36 | THE PAGE LADDER (the only protocol-manipulating cell standing; doubly motivated by 'the menu carries everything' — WHERE in the stream the decorrelation-writing content lives) | READY (next GPU slot; orthogonal, need not wait) | swap the first K pages (4/16/64/all): EARLY-BLOCK / LATE-BLOCK / DIFFUSED |
+| x54 | THE SENSITIVE-WINDOW TEST (post-knob; the imprinting angle rides) | GATED (post-x52; richer post-x36) | continue from x50's s55 rung under varied / controller-feedback / cons: WINDOW-CLOSED (the first irreversibility datum — consolidation = a closed state) / MENU-REVERSIBLE / FEEDBACK-REVERSIBLE-ONLY (the anti-correlation run backwards — the tuner gains a re-cohere tool) |
+| W | THE ORACLE WILDCARD | TIMED (behind x53; the feature list pre-registered +KEY-IDENTITY/+KEY-MASS) | ~30 formation variants, wash + fingerprint everything, regress pre-wash statistics on retention — blind to key authorship until x53 lands |
+| N4 | THE PLASTICITY PRICE | LAST | the 10M recovery inversion's mechanism lead; nothing depends on it this era |
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),

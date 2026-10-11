@@ -2408,3 +2408,68 @@ supported'; e344's narrowed-not-resolved append) + the parity standard; W057's
 alias/cluster append; Law 8's stream-identity wording (auditor R3); W058 written;
 QUEUE rebuilt at the critic's ordering; x48 (upgraded) + x46 (registration frozen)
 DISPATCHED this beat as parallel desk cells. Ledger: 19-for-37 stands.
+
+## R82 (2026-10-11, folded ~01:05Z) — the one-cell window reviewed; Law 8 compressed to v3.2
+
+Panel: 3 parallel agents (auditor / critic / ideator, the novelty discharge riding
+the ideator — last_novelty was 3h49m stale); sections in scratch/r82_{auditor,critic,
+ideator}.md. Window: R81 -> 119e675 (six cells: x48, x46, x49, x51, x50, e345).
+
+**AUDITOR — SOUND-WITH-REPAIRS; the ledger EXACT.** All six cells verified end-to-end
+(birth chains pre-compute — birth commits carry script only, artifacts first at
+COMPLETE; parity blocks verbatim in every metrics.registered; no bar shopping). The
+one-cell composite SOUND at the artifacts (all four fills verified at source). Repairs
+applied this fold: R1 the stale 'TAVIREN walk' label in Law 8's SCOPE block (the exact
+miss of R81's prose fix — now retired in the compressed scope); R2 x51's '163
+sub-gates' figure is UNTRACEABLE (metrics hold 15/15 families, 0 false among 96
+boolean leaves — the figure corrected here; NOTES carries it as history); R3 the
+grid-closer's dropped qualifiers (restored in the merged clause: one-draw-per-cell,
+unrun-not-excluded, read-survival-not-decorrelation). Nick: e345's registered 'never
+past 84C' vs 85.0C max on 2 bursts, disclosed.
+
+**CRITIC — all four attacks SURVIVES-WITH-WORDING; the compression drafted and
+APPLIED.** (1) The ruler equivalence is CODE-GROUNDED (e341's VARIED bound the cons
+generator itself, lab/e341:360 = G1.CONS_SEED; no hidden delta) — but the T/warm
+cell's 'coherent' is the instrument's zero-point (R6 applied) and the fourth cell is
+unrun-by-artifact (R1 applied). (2) The name-blind contrast is clean (both names
+7 chars, G_STREAMIDENT |d| 0.0, name-blind census) but the executed read carries the
+CROSS-NAME INTERFERENCE reading (the stream taught the guest fast — Law 2a's
+collision regime — while the host went unmaintained into the cold-AdamW shock): the
+contrast is MAINTAINED-vs-COMPETED until the neutral-key control runs (R2 applied to
+T334 + Law 8); AND THE OBSERVABLE MISMATCH named: read survival is not decorrelation
+— the walk's read SURVIVED while decorrelating; the decorrelation datum remains n=1.
+(3) Mechanical G1 survives x50 (written, not inherited); semantic G1 unlicensed —
+x53's adoptive-self leg owns the fork; the ZxT cell added (execution symmetry:
+guest-on-ZEPHYRA vs guest-on-TAVIREN). (4) P-T334a as registered imported asymmetry
+(x42's panels cold-install, capped 0.505, two-variable swap): x52's birth freezes the
+POOLED Z-side reference, the one-sided PRESERVE-decisive clause, and the
+circularity disclosure. THE LAW 8 COMPRESSION (~110 -> ~35 invariant lines): three
+cores (external consolidation; the ceiling; THE SECOND FORMATION merged clause), the
+arc + tick + star + N1 + SCALE CLAUSE to scope, x46's meta-layer promoted to METHODS 6
+— nothing deleted, everything re-homed; the 'AND THE...' chain ends. ORDERING: x52
+(+the dense ruler replay, discharging the hanging P-T333a cross-name clause) ->
+e346+ZxT -> x53 -> x36 -> x54 (post-x52) -> oracle (behind x53) -> N4. Q1 named again:
+LIVE, ownerless — v3.2 is drafted to make the review readable in one sitting.
+
+**IDEATOR (+NOVELTY DISCHARGED) — five cards + the era thesis.** x52 (the
+ruler-symmetry re-score, gating everything); e346 (the name-key ladder — k in
+{1,2,4,7}, threshold/graded/inoculating, the era's cheapest causal curve); x53 (the
+own-name program — own-key-vs-guest-key contingency at desk + the formation cell +
+the adoptive-self extension); x54 (the sensitive-window test — window-closed /
+menu-reversible / feedback-reversible-only); the oracle weighed and TIMED behind x53
+(a sweep today would be blind to key authorship — the era's largest causal variable;
+the amended feature list +KEY-IDENTITY/+KEY-MASS pre-registered). NOVELTY: two fresh
+imports (both grepped clean vs the standing set): immunological SELF/NON-SELF
+(central tolerance, acquired selfhood — rides x53) and FILIAL IMPRINTING /
+sensitive-period windows (rides x54). ERA THESIS: 'IS THE MISSING PROTOCOL A KEY —
+does the organism write decorrelation only when the curriculum rehearses its own
+name, and is own authorship (G1), lineage-geometry (G2), or the ruler's own name
+(G3)?'
+
+**FOLD ACTIONS:** Law 8 compressed to the v3.2 shape (the critic's draft applied with
+the auditor's R1/R3 and the critic's R1/R2/R3/R5/R6 wordings); METHODS 6 seated (the
+shared measurable); T334 amended (the braid's re-wording + P-T333a marked
+OPEN-UNTESTABLE, re-keyed to the dense ruler replay); x51's gate figure corrected
+here (15/15 families, 96 boolean leaves); QUEUE rebuilt at the ordering; x52
+DISPATCHED with the repaired registration; both cadence stamps reset. Ledger:
+23-for-43 stands (no new cells).
