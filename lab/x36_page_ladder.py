@@ -375,7 +375,7 @@ MD5_BINDS = {
 # the port's exact source lines (quoted; substring-gated at runtime)
 PORT_QUOTES = [
     ("lab/g1c_root_redraw.py",
-     "pool_a_x = torch.cat([jit_x[j] for j in JITTERS])",
+     "pool_a_x = torch.cat([jit_x[j] for j in G1.JITTERS])",
      "the canon cons pool's committed construction order (jitter-major)"),
     ("lab/g1_anchored_ball.py",
      "ix = torch.randint(n_pool, (16,), generator=gen)",
@@ -1038,10 +1038,12 @@ def phase_P0() -> dict:
             "mask_bit_equal_canon": bool(torch.equal(pm, pool_z_mask)),
             "name_token_count": int(pm.sum()),
         }
-    # the name sits at the same column in every window (jitter-matched)
+    # the name sits at the same column in every window (jitter-matched);
+    # the mask marks x-positions whose NEXT element is a name char, so
+    # the name block starts one column past the first mask column
     name_in_place = all(
-        bool(torch.equal(px[i, int(pm[i].nonzero()[0]):
-                            int(pm[i].nonzero()[0]) + 7],
+        bool(torch.equal(px[i, int(pm[i].nonzero()[0]) + 1:
+                            int(pm[i].nonzero()[0]) + 8],
                          name_ids_z))
         for px, pm in [(pool_z_x, pool_z_mask), (pool_v_x, pool_v_mask)]
         for i in (0, 60, 120, 180, 240, 299))
@@ -1255,8 +1257,14 @@ def phase_P1(p0: dict) -> dict:
     x53_resume = torch.load(REPO / "runs" / "x53" / "arm_varied_resume.pt",
                             map_location="cpu", weights_only=False)
     x53_draws = x53_resume["draws"]
+    # x53's saved records carry an extra 'step' field; compare the draw
+    # fields (ix/aj/rj) only — the structural delta is presentational
+    def draw_fields_eq(a: dict, b: dict) -> bool:
+        return all(a[k] == b[k] for k in ("ix", "aj", "rj"))
     draws_eq = (len(x53_draws) == 300
-                and all(a == b for a, b in zip(my_draws, x53_draws)))
+                and len(my_draws) == 300
+                and all(draw_fields_eq(a, b)
+                        for a, b in zip(my_draws, x53_draws)))
     # (ii) the 8-step weight-level bit proof on pool_v
     net = G1.evl_load(sub_sd).to(CPU)
     net.train()
@@ -1555,12 +1563,12 @@ def phase_P3(p0: dict, p1: dict, p2: dict) -> dict:
             "verdict": sc["verdict"], "state": st["state"],
             "geo_mad": st["geo_mad"], "rho_vs_walk": st["rho_vs_walk"],
             "n_in_window_anneal": sc["sides"]["anneal"]["n_in_window"],
-            "r1": {k: st["r1"][k] for k in ("sign_consistency",
-                                            "mean_abs_d",
-                                            "dominant_sign")},
-            "r2": {k: st["r2"][k] for k in ("sign_consistency",
-                                            "mean_abs_d",
-                                            "dominant_sign")},
+            "r1": {k: st["r1"].get(k) for k in ("sign_consistency",
+                                               "mean_abs_d",
+                                               "dominant_sign")},
+            "r2": {k: st["r2"].get(k) for k in ("sign_consistency",
+                                               "mean_abs_d",
+                                               "dominant_sign")},
             "pooled_side_decorrelates":
                 sc["sides"]["pooled_Z"]["decorrelates"],
             "class_carried_cold_side": sc["class_carried_cold_side"],
@@ -1722,8 +1730,8 @@ def make_report(ktable, states, verdict, p_score, writes_k_blind,
             f"| {row['geo_mad'] if row['geo_mad'] is None else round(row['geo_mad'], 4)} "
             f"| {row['rho_vs_walk'] if row['rho_vs_walk'] is None else round(row['rho_vs_walk'], 3)} "
             f"| {row['n_in_window_anneal']} "
-            f"| {row['r1']['sign_consistency']}/{row['r1']['mean_abs_d']} "
-            f"| {row['r2']['sign_consistency']}/{row['r2']['mean_abs_d']} "
+            f"| {row['r1'].get('sign_consistency')}/{row['r1'].get('mean_abs_d')} "
+            f"| {row['r2'].get('sign_consistency')}/{row['r2'].get('mean_abs_d')} "
             f"| {'SEP' if row['pooled_side_decorrelates'] else '-'}"
             + (" (CLASS-CARRIED)" if row["class_carried_cold_side"]
                else "") + " |")
