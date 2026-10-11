@@ -7,6 +7,40 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T344 — x61: the capacity is not the biography's — the bare substrate already seats two, and the grammar's answer to WHOSE BIOGRAPHY is: no one's (2026-10-11, datetime.now ~15:15Z)
+
+The confound kill fired the counter's way: on a substrate whose ONLY history is the
+subject's own single 400-step install, five of six mid-band cells qualify at deltas
+at/above the reference band's top. THE ZEPHYRA BIOGRAPHY WAS NOT THE LOAD-BEARING
+PRIOR — capacity-two does not need the long curated history. The grammar's closing
+clause re-words: the seat is pre-grown by something cheaper than biography — either
+an ARCHITECTURAL DEFAULT (the network ships with capacity-two seats) or the FIRST
+INSTALL's own writing (400 steps suffice to grow it). The residual fork is x62
+proper's (the capacity-growth curve across the root's checkpoints).
+
+AND THE EDGE TRANSFERRED: the (7,12] protection edge appeared on the bare formation
+— the dose grammar replicates on a substrate that never saw the canon. The whole
+read-side border — the solo budget, the edge, the dips, the armor — is a property of
+the FORMATION PROCESS, not of any particular history formed.
+
+THE ERA'S QUESTION ANSWERED (provisionally): WHOSE BIOGRAPHY DOES THE SCHEDULE
+ENCODE — no one's specifically; the schedule is the architecture's own grammar,
+expressed through whatever formation runs. The silent-synapse import (occupy-not-
+build) captured it exactly: the seats exist before the names arrive; the biography
+only ever chose WHO sat.
+
+THE LEDGER: the lean missed (29-for-54) — the counter's import-bar won, the second
+import hit in a row (Hopfield's datum, now silent synapses). The cross-disciplinary
+lane is outperforming both the lean and the executor columns on the freshest
+questions; noted honestly in METHODS' frame.
+
+CONNECTS: T342 (the grammar stands with its substrate clause generalized); T343
+(the border rules process-properties); x62 proper (the residual fork: the growth
+curve — if capacity rises across the root's checkpoints, the first-install reading;
+if flat from e001, the architectural default); the oracle (the capacity-schedule
+regression now means MORE: the features may predict from formation-process
+statistics alone).
+
 ## T343 — x62a: the kill is channel-redundant — either half of the unattended background evicts, and the armor is attention's alone (2026-10-11, datetime.now ~14:05Z)
 
 [Provenance note: written one beat after the fold commit that named it — the T341-class
