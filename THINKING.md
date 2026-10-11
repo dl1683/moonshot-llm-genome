@@ -7,6 +7,53 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T337 — x53: G2 wins the fork — the seat is dose-purchasable by any name, and the menu must rehearse AUTHORED contexts (2026-10-11, datetime.now ~06:00Z)
+
+The adoptive leg settled the era's last open question: a guest consolidated onto the
+root at the native's OWN exposure (dose-matched at the bit level — the 78,400-token
+ledger mirrored at the native's seeds) DECORRELATES on re-formation, on both rulers,
+at the strongest both-sides separation the family has measured (r -0.93/-0.86) —
+while the root's native read executes under the foreign stream. G1-IDENTITY IS DEAD:
+the biography's WHO is not the axis. THE SEAT CARRIES IT — and the seat is
+PURCHASABLE.
+
+AND THE CELL SHARPENED THE MENU SIDE: the own-key random-context varied menu
+COLLAPSED the host read (0/16) — the own key without the authored contexts cannot
+even maintain; the menu-of-one held the read but missed the decorrelation bar at
+knife-edge. The menu must rehearse the substrate's AUTHORED contexts — the cons
+curriculum's contexts are the install's authored ones. THE TRIPLE IS NOW A QUADRUPLE:
+{warm x re-formed-seat x authored-context menu x dose}.
+
+THE UNIFIED SENTENCE (the executor's, adopted): decorrelation is a DOSE-PURCHASABLE
+property of the re-formed substrate's seat — any name adopted at the native's
+authored exposure acquires it; the menu must rehearse authored contexts; the
+biography's identity is not the axis. A SEAT NOT A KEY, now at the deepest cut the
+era can make.
+
+WHAT THIS UNLOCKS: the constructive program — the missing formation protocol's
+ingredients are NAMED (warm re-formation + authored-context rehearsal + dose); the
+G2 branch of the pre-registered post-fork program is the lane (the virgin-slot
+census, the cold-geometry cell, the slot's per-organ anatomy); the oracle's
+KEY-IDENTITY/KEY-MASS features are interpretable; and x36 (the page ladder) is now
+THE question — WHERE in the authored stream the seat-purchasing content lives.
+
+THE HONEST LEDGER: the lab lean's adoptive half missed — the counter won the fork
+(x50's thirty-steps line vindicated: whatever writes decorrelation writes it fast
+and does not need the long biography); the cell half hit via CONS-ONLY's second
+disjunct. 25-for-46, split disclosed, the lean column still noise.
+
+REGISTERED PREDICTION (P-T337a, for x36): the page ladder lands EARLY-BLOCK — the
+seat-purchasing content is front-loaded in the authored stream (the install's early
+pages authored the contexts the cons menu rehearses); COUNTER: DIFFUSED (the
+exposure integral matters, not its location).
+
+CONNECTS: T336 (the fork resolved to its counter); T334/T335 (the one-cell re-words:
+not lineage-specific biology but the ONE INSTANCE where the quadruple was filled by
+accident); T333 (the knob's grammar now complete: warmth opens the seat, authored
+rehearsal fills it, dose deepens it); Law 8's THE SECOND FORMATION (updated in place
+this fold); W057 (the history-clock's writer identified: the authored-context
+rehearsal — the second clock is written by re-hearsing the first clock's own ticks).
+
 ## T336 — e346: ZEPHYRA was never special — the maintenance reading wins completely, and the fork narrows to authorship vs geometry alone (2026-10-11, datetime.now ~03:30Z)
 
 The triple verdict re-words the era's knife. The NEUTRAL key (QORVATH, never-seen,
