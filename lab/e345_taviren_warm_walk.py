@@ -760,6 +760,24 @@ deviations: list[str] = [
     "root rows had already matched |d| 0.0 on the Z channel. No bar, "
     "arm, stream or scoring touched; the failed pass is preserved in "
     "runs/e345_smoke's progressive metrics + run log.",
+    "THE POST-ADJUDICATION REPORT-HONESTY PATCH + THE RESUME-DRAWS "
+    "REPAIR (disclosed; no bar, arm, stream, scoring or gate "
+    "touched): (1) the first full pass (preserved in runs/e345's run "
+    "log) printed P-e345a 'FELL' under the empty-window TEXTURE "
+    "verdict — the registered falsifier's own clause says TEXTURE is "
+    "UNSCORED, and the report now says exactly that (with the coarse "
+    "reading disclosed beside: the WARM-WALK-DECORRELATES bar is dead "
+    "in this cell's coordinates); the P-T332a hit line now splits the "
+    "GEOMETRY half (scored) from the CROSS half (vacuous under a "
+    "TEXTURE primary); the EMPTY WINDOW reading section added. The "
+    "frozen code paths are unchanged — metrics fields carry the "
+    "frozen computations verbatim; only the report's words were "
+    "aligned with the registration. (2) the first rerun crashed at "
+    "G_DRAWS: the resume-skip path of the arm replay omitted the "
+    "draws key from its return (the first pass trained the arm live "
+    "and returned it; a resumed-finished pass did not) — repaired "
+    "with state.get('draws', []); the crash is preserved in "
+    "runs/e345's run.log (the third pass is the committed one).",
     "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat "
     "folds).",
     "Smoke mode (E345_SMOKE=1): 8-step GPU arm replay, captures "
@@ -1400,7 +1418,63 @@ def phase_P1b(p0: dict) -> dict:
     if int(state.get("step", 0)) >= CONS_STEPS:
         log(f"  [arm] resume ckpt already finished at s{state['step']} "
             "— training skipped")
-        return {"traj": state["traj"], "captured": state["captured"]}
+        # THE ENVELOPE BACKFILL (disclosed): a resumed-finished pass ran
+        # no bursts, but the ARM'S OWN training-pass burst record is the
+        # authoritative in-run log (this cell's run.log, append-mode).
+        # Reconstruct it from the logged burst-ender + thermal-guard +
+        # launch-poll lines so the committed metrics carry the envelope
+        # of the pass that actually trained (provenance-marked).
+        if not metrics["envelope"]["bursts"]:
+            import re as _re
+            txt = LOG_PATH.read_text(encoding="utf-8", errors="replace")
+            enders = _re.findall(
+                r"\[arm\] burst (\d+) ended \(([^)]*)\) at s(\d+) — "
+                r"cooldown (\d+(?:\.\d+)?)s \(temp (\d+)C\)", txt)
+            guards = [float(t) for t in _re.findall(
+                r"THERMAL GUARD (\d+)C", txt)]
+            launches = _re.findall(
+                r"\[envelope:arm\.b(\d+)\] launch polls: (\{.*?\}) / "
+                r"(\{.*\}) -> (OK|HOLD)", txt)
+            prev = 0
+            for i, (bn, reason, send, cd, temp) in enumerate(
+                    enders[-8:]):
+                send_i = int(send)
+                lp = next((l for l in launches
+                           if int(l[0]) == int(bn) - 1), None)
+                gt = guards[i] if i < len(guards) else None
+                metrics["envelope"]["bursts"].append({
+                    "tag": f"arm.burst{bn}",
+                    "steps": [prev, send_i],
+                    "end_reason": reason,
+                    "cooldown_s": float(cd),
+                    "max_temp": max(float(temp), gt or 0.0),
+                    "launch_polls": ({"first": lp[1], "second": lp[2]}
+                                     if lp else None),
+                    "provenance": ("reconstructed from run.log's training "
+                                   "pass (the authoritative in-run record; "
+                                   "this metrics pass resumed the finished "
+                                   "arm and ran no bursts)")})
+                prev = send_i
+            # the tail burst: the final loop exit logs no ender — recover
+            # it from the "replay finished" line (total bursts + max temp)
+            fin = _re.search(r"\[arm\] replay finished: (\d+) steps, "
+                             r"\d+ captures, (\d+) burst\(s\), max temp "
+                             r"(\d+)C", txt)
+            if fin and int(fin.group(2)) > len(metrics["envelope"]["bursts"]) \
+                    and prev < int(fin.group(1)):
+                metrics["envelope"]["bursts"].append({
+                    "tag": f"arm.burst{len(metrics['envelope']['bursts']) + 1}",
+                    "steps": [prev, int(fin.group(1))],
+                    "end_reason": "run end (loop exit; no ender logged)",
+                    "max_temp": float(fin.group(3)),
+                    "provenance": ("reconstructed from run.log's "
+                                   "'replay finished' line (the tail burst "
+                                   "exits the loop without an ender)")})
+            if metrics["envelope"]["bursts"]:
+                log(f"  [arm] envelope backfill: {len(metrics['envelope']['bursts'])} "
+                    "training-pass bursts reconstructed from run.log")
+        return {"traj": state["traj"], "captured": state["captured"],
+                "draws": state.get("draws", [])}
 
     dev = GPU
     net = copy.deepcopy(net0).to(dev)
@@ -2553,13 +2627,21 @@ def phase_P5(p0: dict, rows: dict, p4: dict) -> dict:
             "COMPACT-DECORRELATED kills the write-compactness carrier "
             "(geometry is not what carries coherence; T332's F1/F3 menu "
             "structure wins over F2)" if corner == "COMPACT-DECORRELATED"
-            else ("COMPACT-COHERENT: coherence tracks write compactness "
-                  "at n+1 (T332's F2 geometry reading supported)" if
-                  corner == "COMPACT-COHERENT" else
-                  f"the {corner} corner (outside the two dispatch-named "
-                  "corners — named honestly; the named-bar readings "
-                  "vacuous this cell, the trajectory table is the "
-                  "report)")),
+            else ("COMPACT-COHERENT (the primary TEXTURE disclosure): the "
+                  "GEOMETRY half stands — the arm's write sits in the "
+                  "COMPACT half (the subject's own corner, the anneal's "
+                  "own descent path) — but the CROSS half is VACUOUS "
+                  "(no matched reads; neither named corner's reading "
+                  "clause applies; the trajectory table is the report)"
+                  if corner == "COMPACT-COHERENT" and p4["adj"]["verdict"]
+                  == "TEXTURE" else
+                  ("COMPACT-COHERENT: coherence tracks write compactness "
+                   "at n+1 (T332's F2 geometry reading supported)" if
+                   corner == "COMPACT-COHERENT" else
+                   f"the {corner} corner (outside the two dispatch-named "
+                   "corners — named honestly; the named-bar readings "
+                   "vacuous this cell, the trajectory table is the "
+                   "report)"))),
     }
 
     metrics["rider_T331a_tick"] = tick_rider
@@ -2824,11 +2906,25 @@ def write_report(p4: dict, rows: dict, p0: dict, riders: dict,
       f"{riders['compact']['median_write_norm']}, median in_room "
       f"{riders['compact']['median_in_room']}; "
       f"{riders['compact']['decisive_reading']})")
-    A(f"* P-e345a (my registered read): "
-      f"{'HIT' if adj['P_e345a']['hit'] else 'FELL'} (guess: "
-      f"{adj['P_e345a']['guess']}; the dispatch's lab lean: "
-      "WARM-WALK-DECORRELATES, weakly — the parity block in "
-      "metrics.registered carries both verbatim)")
+    if adj["verdict"] == "TEXTURE":
+        A(f"* P-e345a (my registered read): **UNSCORED** (verdict "
+          "TEXTURE — nothing adjudicated; the registered falsifier's "
+          "own clause; guess was: "
+          f"{adj['P_e345a']['guess']}; the dispatch's lab lean: "
+          "WARM-WALK-DECORRELATES, weakly — the parity block in "
+          "metrics.registered carries both verbatim). THE COARSE "
+          "READING, disclosed beside the frozen scorecard: the "
+          "WARM-WALK-DECORRELATES bar is DEAD in this cell's "
+          "coordinates — the arm never visits the ruler's read band, "
+          "so no matched-read separation of either sign exists to fire "
+          "it; the WARM-WALK-COHERES bar's 'stays coherent' clause is "
+          "equally unaskable (nothing in-band to compare)")
+    else:
+        A(f"* P-e345a (my registered read): "
+          f"{'HIT' if adj['P_e345a']['hit'] else 'FELL'} (guess: "
+          f"{adj['P_e345a']['guess']}; the dispatch's lab lean: "
+          "WARM-WALK-DECORRELATES, weakly — the parity block in "
+          "metrics.registered carries both verbatim)")
     n_pass = sum(1 for g in metrics["gates"].values() if g.get("pass"))
     n_all = len(metrics["gates"])
     A(f"* gates: {n_pass}/{n_all} PASS"
@@ -2836,6 +2932,58 @@ def write_report(p4: dict, rows: dict, p0: dict, riders: dict,
          + ", ".join(k for k, g in metrics["gates"].items()
                      if not g.get("pass"))))
     A("")
+    if adj["verdict"] == "TEXTURE" and adj["n_in_window"] == 0:
+        A("## THE EMPTY WINDOW — the honest reading (prose; the bars "
+          "are the frozen ones above)")
+        A("")
+        A("* THE COMPETITOR-STREAM EXECUTION: the canon cons stream on "
+          "the TAVIREN subject kills the p(T) read AT THE FIRST STEP "
+          "(0.2859 -> 0.0068 at s1 — the cold-AdamW start-up shock on "
+          "a fresh optimizer, e335's own class) and it NEVER returns: "
+          "the arm's 24 captured reads span 1.2e-4..2.2e-2, every one "
+          "far below the ruler's floor panel 0.286 — the TAVIREN fact "
+          "is not re-formed, not remodeled, EXECUTED by a curriculum "
+          "that teaches the other name. The matched-read question the "
+          "bars froze is unaskable in these coordinates, and that is "
+          "itself the datum: THE SECOND NAME'S WARM CONS WALK THROUGH "
+          "THE CANON STREAM NEVER VISITS THE INSTRUMENT'S READ BAND.")
+        A("* THE NAME-KEY CAUSAL CONTRAST (the cell's cleanest "
+          "finding, free): this arm and x45's anneal ruler share the "
+          "IDENTICAL substrate, seed, draw indices, batch composition "
+          "and optimizer — the ONLY delta is 7 name tokens in 16 of "
+          "32 windows per step. The TAVIREN key recovers the read to "
+          "0.68-0.80 (the ruler's coherent band); the ZEPHYRA key "
+          "executes it (1e-4..2e-2 forever). AND THE WRITE IS "
+          "NAME-BLIND: my |W|/in_room trajectory coincides with the "
+          "anneal's own (|W| 11.52 vs 11.40 at s25; 14.78 vs 14.64 at "
+          "s125; 18.48 at s300 vs the anneal's ~16-18; in_room 0.722 "
+          "vs 0.730 at s25, 0.537 vs 0.542 at s125) — the census "
+          "rider's geometry is a property of the stream+substrate "
+          "arithmetic; THE READ'S SURVIVAL IS THE NAME KEY'S ALONE.")
+        A("* THE GRID CLOSES DIFFERENTLY THAN THE DISPATCH DREW IT "
+          "(the menu-aliasing consequence, stated for the fold): the "
+          "{warm,cold}x{ZEPHYRA,TAVIREN} at-cons-menu grid's "
+          "TAVIREN-warm cell ALREADY EXISTS — it IS the anneal ruler "
+          "(the 'varied menu' is the cons arithmetic keyed TAVIREN, "
+          "verified at birth) — and it is COHERENT. So the n=2 "
+          "question 'does the warm cons walk decorrelate in a second "
+          "name' has the record's answer: NO — the TAVIREN instance "
+          "of the warm cons walk is the ruler itself, coherent by "
+          "construction of the comparison, and the only decorrelated "
+          "instance remains the ZEPHYRA walk (lineage-specific in the "
+          "strongest sense the record supports). The own-side "
+          "instrument control never received a formation path to "
+          "read — the artifact readings neither die nor survive on "
+          "this cell; the burden passes to whichever cell next "
+          "builds a same-side TAVIREN formation path that VISITS the "
+          "band.")
+        A("* e281's 'the cons teaches from anything' license "
+          "free-tested on a warm foreign substrate (co-report): the "
+          "p(Z) co-read lands 0.6352 at s300, just under the canon "
+          "landing band [0.6508 (e281 NO-INSTALL), 0.7448 (the g1c "
+          "root)] — the stream builds its own fact on the executed "
+          "substrate essentially as well as from BASE.")
+        A("")
     A("## The arm (the load-bearing birth decision, disclosed)")
     A("")
     A("* THE CANON'S CONS STREAM (the literal ZEPHYRA-keyed curriculum, "
@@ -3012,7 +3160,13 @@ def write_report(p4: dict, rows: dict, p0: dict, riders: dict,
       f"{c['committed_literals_beside']['walk_s700_w']:.2f} / "
       f"{c['committed_literals_beside']['walk_s700_room']:.3f}")
     A(f"* my registered read: {c['P_T332a_mine']} -> "
-      f"{'HIT' if c['P_T332a_mine_hit'] else 'FELL'}")
+      + ("the GEOMETRY half HIT (COMPACT, as registered); the CROSS "
+         "half VACUOUS (the primary is TEXTURE — the corner label "
+         "'COMPACT-COHERENT' is the frozen code's computation of "
+         "'not decorrelated', its F2-geometry READING clause "
+         "inapplicable this cell)" if c.get("P_T332a_mine_hit")
+         and p4["adj"]["verdict"] == "TEXTURE" else
+         ('HIT' if c['P_T332a_mine_hit'] else 'FELL')))
     A("* the per-rung |W| / |W|-per-read / in_room trajectory: see "
       "metrics.rider_T332a_compactness.per_rung")
     A("")
