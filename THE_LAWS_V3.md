@@ -313,6 +313,15 @@ spikes (the 25-grain plateau an alias); the s125 tick a WIDE noisy raw-collapse 
 chance 0.060 through the sprawling decorrelated write — COMPACTNESS-INDEPENDENT: the
 write's curriculum carries everything, its geometry nothing); WARMTH IS A
 MANIPULABLE PROTOCOL KNOB — the missing formation protocol's first observable act.
+AND THE GRID CLOSED (e345): the decorrelation lives in EXACTLY ONE CELL — {warm x
+ZEPHYRA-lineage x cons}: the warm x cons x TAVIREN cell already existed as the anneal
+ruler (coherent — the menu-aliasing fact: e341's VARIED IS the cons protocol keyed
+TAVIREN); THE NAME-KEY CAUSAL CONTRAST: identical substrate/seed/draws with seven
+name tokens the only delta — the TAVIREN key's read survives, the ZEPHYRA key
+EXECUTES it, at NAME-BLIND writes (|W| 11.52 vs 11.40; in-room 0.722/0.730): census
+geometry is stream+substrate arithmetic, THE READ'S FATE IS THE NAME KEY'S ALONE
+(the own-name vs guest-name reading and the ruler-symmetry discriminator P-T334a
+registered; T334).
 
 *Scope (Law 8):* one organism, one wash protocol, one architecture at 2.74M (the scale
 clause is two legs at 10M); the recipe's protocol-scope clause (the cons band ~1.0 is
@@ -335,10 +344,10 @@ rung is the measured band [0.957, 1.088] on the cons legs.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 23-for-42
-   (refreshed at the x50 fold: the eleven cells since R80 went 5-for-11 — e342, x48,
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 23-for-43
+   (refreshed at the e345 fold: the twelve cells since R80 went 5-for-12 — e342, x48,
    x46, x51 (primary; rider missed, disclosed), x50 hit; g1bS9, x45, x47, e343, e344,
-   x49 missed; W058 closed — the lean column is
+   x49, e345 missed (e345's TEXTURE left both bars unasked); W058 closed — the lean column is
    NOISE, not bias; misses are priced, not spun; the executor counter-column hit on ALL THREE of its
    contested calls (g1bS9, e343, e344) — the lean column is statistically a coin
    (one-sided no-edge p ~ 0.98; two-sided exact binomial 0.22) and the ordering

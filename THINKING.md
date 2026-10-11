@@ -7,6 +7,55 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T334 — e345: the grid's one cell, and the name-blind write — the organism's own name is the only name that decorrelates (2026-10-11, datetime.now ~00:55Z)
+
+The grid closed with a paradox-shaped answer: the TAVIREN-warm-cons cell the closer
+was built to fill ALREADY EXISTED — it is the anneal ruler (e341's VARIED arm IS the
+cons protocol keyed TAVIREN: the menu-aliasing fact). So the full picture: warm x cons
+x TAVIREN = coherent (the ruler itself); warm x cons x ZEPHYRA = DECORRELATED (the
+walk); cold x cons x ZEPHYRA = coherent (the swap); cold x cons x TAVIREN = empty by
+construction. THE DECORRELATION LIVES IN EXACTLY ONE CELL — lineage-specific in the
+strongest sense the record supports.
+
+AND THE CELL'S BORDER IS A CAUSAL KNIFE: identical substrate, seed, draws, batch,
+optimizer — seven name tokens in sixteen of thirty-two windows the ONLY delta — the
+TAVIREN key's read survives (0.68-0.80) while the ZEPHYRA key EXECUTES it (dead at
+s1), at NAME-BLIND writes (|W| 11.52 vs 11.40; in-room 0.722/0.730). The write's
+geometry is stream+substrate arithmetic; THE READ'S FATE IS THE NAME KEY'S ALONE.
+Composited with x50's within-arm null: geometry carries nothing — not between arms at
+matched writes, not within the writing act. The menu's CONTENT (which name it
+rehearses) is the entire effect.
+
+THE READING THAT BRAIDS EVERYTHING — OWN-NAME vs GUEST-NAME: ZEPHYRA is the
+organism's OWN name (the root's, the cons ladder's native identity); TAVIREN is the
+lab's guest, written onto the base. The one decorrelated cell is the organism
+re-forming its own name. The guest coheres under every menu; the native name's
+re-formation decorrelates. T330's history-clock, x19's bearer-coupling, x24's
+authorship-structured floor, and the receptivity map all point the same way: the
+substrate's AUTHORSHIP of the name being re-formed is the axis.
+
+THREE HYPOTHESES: (G1) OWN-NAME (the braided reading above); (G2) LINEAGE-GEOMETRY
+(the ZEPHYRA lineage's slot/room specifics, independent of authorship semantics);
+(G3) INSTRUMENT-SYMMETRY (the ruler is TAVIREN-side; a cross-name measurement
+asymmetry manufactures the separation — the walk measured against a guest-name ruler).
+
+DISCRIMINATOR (cheapest, pure desk): THE RULER-SYMMETRY RE-SCORE — re-score the four
+arms against a ZEPHYRA-side ruler (x42's battery panels as the reference grid).
+REGISTERED PREDICTION (P-T334a): the walk's decorrelation PRESERVES against its own
+side's ruler (sign -, consistency >= 0.75) — the level is ruler-symmetric, G3 dies,
+and the one-cell claim stands as biology; COUNTER: the separation flips or dies
+against the own-side ruler — the measurement asymmetry IS the effect, G3 wins, and
+the era's level collapses to an instrument story. G1-vs-G2 needs a new formation
+(the root re-formed through a NON-cons varied menu — does the own name decorrelate
+under a different open-loop curriculum? x50's knob under a new menu).
+
+CONNECTS: T333 (the knob exists — but only the own name can turn it); T332 (the
+anti-correlation gains its sharpest edge: same write, opposite read fates); T331
+(the tick ZEPHYRA-warm-only — one more property of the one cell); Law 8 (the
+grid-closer clause appended; the home re-words from 'warm x cons' to 'the own-name
+cell' with G1-G3 open); W057 (the history-clock's writer now has a NAME variable:
+whose name the curriculum rehearses).
+
 ## T333 — x50: the knob exists — decorrelation watched forming: an oscillating emergence in the first thirty steps, one sharp five-step consolidation, and the geometry carrier dead (2026-10-10, datetime.now ~23:50Z)
 
 The era's biggest constructive result. The replay's 74 dense rungs watched the walk's
