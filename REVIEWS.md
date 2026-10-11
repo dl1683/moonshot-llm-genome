@@ -2563,3 +2563,42 @@ arch's peak tracks the second occupant's base prior — x59's test).
 **FOLD ACTIONS:** the re-concentration re-word + METHODS' x53 wording applied; the
 v3.3 compression deferred-and-disclosed (the draft committed); the ordering adopted;
 x57 + x58 DISPATCHED; both cadence stamps reset. Ledger: 27-for-49 stands.
+
+## R85 (2026-10-11, folded ~13:05Z) — the closing arc audited; the band claim repaired; the oracle promoted
+
+Panel: ONE combined agent (auditor/critic/ideator + the novelty discharge); scratch/
+r85_panel.md (203af6f). Window: R84 -> e70e75d (x57, x58, x60-as-G2-a).
+
+**AUDITOR — SOUND-WITH-ONE-REPAIR.** All three cells traced end-to-end (the
+docstrings byte-identical; every bar-deciding number exact; the three-proof
+restarts verified). THE ONE REAL FINDING: the fold's 'at/above the reference band'
+was FALSE for the four s25 cells (2.26-2.90 vs the floor 3.43) and imprecise at
+s125; only the s300 rungs sit at/above the band's top — Law 8's closing sentence
+REPAIRED this fold (the deltas rising through the rung, the shape replicating, the
+level subject-relative); T342 carries the correction note. Nicks: the birth-commit
+pins, one stale METHODS clause, one truncation.
+
+**CRITIC — the grammar's six clauses stand; three stamps and one control owed.**
+UNIVERSAL-AUTHORSHIP at n=1-realization-on-n=1-subject (the second subject + a
+redrawn realization named); the pre-grown seat's SUBSTRATE CONFOUND uncontrolled
+(x61 THE BARE-ROOT CONTROL the cheapest kill — a virgin install on a no-name-history
+base); the Hopfield datum one confounded cross-subject comparison (it licenses the
+capacity-growth-curve PREDICTION, not a grows-with-age claim); 'CLOSED' overstates
+(the interior map open: conly, the edge interiors, G2-b/c, k>16, the dip mechanism,
+scale); the v3.3 discipline HELD (Law 8 at 26 lines). ORDERING: x59 -> conly (+x61
+riding the same desk wave) -> G2-b/c -> THE ORACLE PROMOTED (un-gated, doubly
+motivated: the capacity-schedule regression + the registered k16
+interpolation-barrier prediction) -> N4.
+
+**IDEATOR (+NOVELTY discharged) — four cards + two imports.** x61 (the bare-root
+control); x62 (the capacity-growth curve — the Hopfield axis CONTROLLED: the same
+name at successive root checkpoints + the interpolation-barrier rider); x59
+re-affirmed (the certified virgin recipe); the oracle timed NOW (+seat-occupancy/
++realization-count features). ERA THESIS NEXT: WHOSE BIOGRAPHY DOES THE SCHEDULE
+ENCODE. FRESH IMPORTS (both grepped 0-hit): TRAINED IMMUNITY (heterologous
+capacity, the waning rider) and SILENT SYNAPSES (occupy-not-build, the sub-dose
+rider).
+
+**FOLD ACTIONS:** the band-claim repair applied (Law 8 + T342's note); the ordering
+adopted; x59 + the conly/x61 desk session DISPATCHED; both cadence stamps reset.
+Ledger: 29-for-52 stands.

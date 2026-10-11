@@ -233,6 +233,19 @@ Standing: x36 (next GPU slot after x53), x54 (unblocked), oracle (behind x53), N
 Standing: Q1 LIVE AND OWNERLESS; hook v5; N4; the v3.3 compression = the next fold's
 first item (the draft committed at cde73a0).
 
+## R85 SECTION (2026-10-11, folded ~13:05Z) — the post-grammar era: whose biography does the schedule encode
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x59 | THE SECOND PAIR (ANY-NAME n=2 + the niche-capacity prediction — the arch's peak tracks the second occupant's base prior; the certified virgin recipe) | RUNNING (dispatched ~13:05Z) | refa-on-inst_b + a redrawn realization: UNIVERSAL-AUTHORSHIP n=2 (two subjects, two realizations) + ARCH-TRACKS-PRIOR vs ARCH-FLAT (the niche prediction) |
+| conly+x61 | THE CONLY DECOMPOSITION + THE BARE-ROOT CONTROL (one desk wave) | RUNNING (dispatched ~13:05Z) | conly: cm-only 4080 vs read-through-only 3968 (witnessing vs resource competition); x61: a virgin install on a no-name-history base, k-skeleton verbatim — PRE-GROWN-SUBSTRATE vs BARE-SOLO (the confound kill) |
+| G2-b/c | the cold-geometry cell; the slot's per-organ anatomy | READY (behind the wave) | the pre-registered program |
+| oracle | THE ORACLE — PROMOTED (un-gated, doubly motivated; +seat-occupancy/+realization-count features; the k16 interpolation-barrier prediction registered) | READY (after the wave) | ~30 formation variants, wash + fingerprint, regress retention |
+| x62 | THE CAPACITY-GROWTH CURVE (the Hopfield axis controlled) | READY | the same name installed at successive root checkpoints + the interpolation-barrier rider |
+| N4 | the plasticity price | LAST | unchanged |
+
+Standing: Q1 LIVE AND OWNERLESS; hook v5; METHODS 5's stale clause at the next fold.
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),

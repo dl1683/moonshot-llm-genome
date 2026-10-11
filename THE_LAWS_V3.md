@@ -256,9 +256,11 @@ READ-SIDE BORDER: survival is MAINTAINED-VS-NOT (any non-host key executes; part
 rehearsal protects only past the (7,12] edge; the armor edge distinct at (7,9]); in
 the closed {warm,cold} x {ZEPHYRA,TAVIREN} cons grid the decorrelation was observed
 in one cell — re-read as the one accidental quadruple fill. The G1/G2/G3 vocabulary
-is superseded by the grammar. THE CLOSING SENTENCE (x60, the census): the seat is
-PRE-GROWN for newcomers (a fresh name's first formation lands in capacity-two —
-all twelve mid-band cells qualifying at/above the reference band) and the key is
+is superseded by the grammar. THE CLOSING SENTENCE (x60, the census; wording repaired
+at R85): the seat is PRE-GROWN for newcomers (a fresh name's first formation lands
+in capacity-two — all twelve mid-band cells qualifying; the deltas RISING through
+the rung, the s300 rungs at/above the reference band's top, the s25 cells below its
+floor — the shape replicating, the level subject-relative) and the key is
 UNIVERSAL-AUTHORSHIP (any authored realization carries the consistency — the fresh
 re-formation decorrelating on both rulers, pooled-Z r2 -1.0; the Hopfield datum:
 the consolidated seat grows capacity further with age). THE GRAMMAR IS COMPLETE
