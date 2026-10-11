@@ -7,6 +7,49 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T336 — e346: ZEPHYRA was never special — the maintenance reading wins completely, and the fork narrows to authorship vs geometry alone (2026-10-11, datetime.now ~03:30Z)
+
+The triple verdict re-words the era's knife. The NEUTRAL key (QORVATH, never-seen,
+priors gated, parity bit-proven) kills the host read exactly as dead as ZEPHYRA did —
+the host dies unmaintained under ANY non-host key. The ZxT arm executes symmetrically
+(the 2x2 closes: ZxZ walk survives, TxT ruler survives, TxZ executed, ZxT executed) —
+EXECUTION IS GENERIC COMPETITION; SURVIVAL IS OWN-KEY-ONLY. THE INTERFERENCE READING
+WINS: the name-key contrast was never about ZEPHYRA's slot; it is MAINTAINED-VS-NOT —
+the curriculum's rehearsal alone keeps the host read alive through the start-up shock.
+
+AND THE LADDER'S GIFT: NEVER-PROTECTS. Partial rehearsal never saves the read at the
+fate level — the curve is strictly monotone across three orders (dose-like in
+substance) but every rung sits DEAD, and k=7's near-miss (0.6%) carries the ruler's
+own s125-dip signature: maintenance is ALL-OR-NOTHING at the fate steps, and the
+slot-split at k=7 (guest dropping to 0.41 exactly when the host's s25/s300 recover)
+is the two names dividing one resource. The write stayed name-blind throughout.
+
+THE COMPOSITE: read survival is GENERIC (any non-host key kills, writes identical) —
+so the walk's decorrelation (its read SURVIVING while decorrelating, under its OWN
+key, warm, cons-menu) is now THE OWN-KEY PHENOMENON, isolated like never before. The
+G-fork is G1-vs-G2 alone: does the organism decorrelate when re-formed under its own
+key because of AUTHORSHIP (the substrate's write history of that name) or GEOMETRY
+(the lineage's slot structure)? x53 is the only discriminator standing — and its
+adoptive-self leg (a guest consolidated onto the root, then re-formed warm) splits
+them outright.
+
+REGISTERED PREDICTION (P-T336a, on x53): the formation cell lands OWN-NAME-MENU-
+INVARIANT or CONS-ONLY, and specifically the ADOPTIVE-SELF leg does NOT decorrelate
+(if G1: only ladder-authored ZEPHYRA decorrelates — the guest's authored history on
+the root is too short to carry the key); COUNTER: adoptive decorrelates (if G2: the
+substrate's slot geometry carries it regardless of who authored it). The lab lean:
+adoptive-NOT-decorrelating, weakly (the cons ladder's authorship is a long biography;
+a consolidated guest's is a footnote — if authorship is the axis, depth should
+matter); the counter, stated plainly: x50 showed the decorrelation is WRITTEN in
+thirty steps — whatever writes it that fast may not need a long biography at all.
+
+CONNECTS: T334/T335 (the knife fully re-worded; the fork narrowed to its final
+form); Law 2a (the collision regime — the guest's fast rise is the competing write);
+the receptivity map (x23's cross-name structure — pair-specific receptivity is dead
+for SURVIVAL; whether it lives for DECORRELATION is exactly x53's desk prelude);
+Law 8's THE SECOND FORMATION (the contrast clause re-words to maintained-vs-not this
+fold).
+
 ## T335 — x52: G3 dies at the gate — the one-cell is biology, the reference stands, and the two-act shape belongs to the walk alone (2026-10-11, datetime.now ~02:00Z)
 
 The gate verdict: RULER-SYMMETRIC, decisively (the one-sided clause discharged —

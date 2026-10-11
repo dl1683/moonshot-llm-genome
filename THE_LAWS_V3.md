@@ -248,11 +248,14 @@ consolidation ([s50,s55]) that never re-coheres. In the closed {warm,cold} x
 ZEPHYRA-lineage} (one draw per cell; the TAVIREN-cold cell is UNRUN, not excluded —
 constructible as a TAVIREN install from BASE through the T-keyed cons stream; and the
 TAVIREN-warm cell's 'coherence' is the instrument's ZERO-POINT, not an independently
-measured datum — the ruler-internal dense panel owed). The NAME-KEY CAUSAL CONTRAST
-(seven tokens flip READ SURVIVAL at name-blind writes) is the cell's causal border —
-READ SURVIVAL, NOT DECORRELATION: the decorrelation datum remains the walk, n=1; the
-guest read forms wherever taught; a guest curriculum executed the host read —
-maintenance-vs-competition unresolved (the neutral-key control named). The
+measured datum — the ruler-internal dense panel owed). The NAME-KEY CONTRAST
+(RE-WORDed at e346 to MAINTAINED-VS-NOT: the neutral key QORVATH and the ZxT arm both
+EXECUTE the host read exactly as the own-guest key did — the 2x2 closes with
+EXECUTION SYMMETRIC and SURVIVAL OWN-KEY-ONLY; partial rehearsal NEVER protects —
+the k-ladder strictly monotone, every rung DEAD — and the write name-blind
+throughout: the host dies unmaintained under ANY non-host key) is the cell's causal
+border — READ SURVIVAL, NOT DECORRELATION: the decorrelation datum remains the walk,
+n=1, now isolated as THE OWN-KEY PHENOMENON. The
 decorrelation splits: a LEVEL the one cell owns and a PHASE DYNAMICS every arm shares
 through the anneal (the ruler-artifact reading alive — every correlation in the pool
 has the ruler as one endpoint). G3 DEAD (x52: the walk's decorrelation PRESERVES
@@ -303,10 +306,10 @@ protocol, one architecture at 2.74M.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 24-for-44
-   (refreshed at the x52 fold: the thirteen cells since R80 went 6-for-13 — e342, x48,
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 24-for-45
+   (refreshed at the e346 fold: the fourteen cells since R80 went 6-for-14 — e342, x48,
    x46, x51 (primary; rider missed, disclosed), x50, x52 hit; g1bS9, x45, x47, e343,
-   e344, x49, e345 missed; W058 closed — the lean column is
+   e344, x49, e345, e346 (its SHARP head missed, the ZxT rider hit, disclosed) missed; W058 closed — the lean column is
    NOISE, not bias; misses are priced, not spun; the executor counter-column hit on ALL THREE of its
    contested calls (g1bS9, e343, e344) — the lean column is statistically a coin
    (one-sided no-edge p ~ 0.98; two-sided exact binomial 0.22) and the ordering
