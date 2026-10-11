@@ -1,48 +1,50 @@
-# Droid brief — DIALOGUE MODE, edition 48 (Q1-Q4 open across FORTY-EIGHT editions; the
+# Droid brief — DIALOGUE MODE, edition 49 (Q1-Q4 open across FORTY-NINE editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-11T15:38Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-11T17:38Z (datetime.now-sourced; at the mark)
 
-- Guard: OK at every beat. Fleet 1/1: x59 THE SECOND PAIR (desk, the wave's last
-  cell — the n=2 stamps + the niche arch, still computing).
-- Cadence ages: droid: this brief; review 2h47m (R85 at ~12:51Z — R86 opens behind
-  x59's landing); novelty 2h47m (rides R86).
+- Guard: OK at every beat. Fleet 1/1: x63 THE THIRD SEED + THE DRAW-ANATOMY READ
+  (desk; smoke 16/16 first pass, zero bar-logic repairs; the full run ~40 min from
+  landing).
+- Cadence ages: droid: this brief; review 68 min (R86 at ~16:30Z); novelty 68 min.
 
-## WHERE WE ARE — the era's question answered provisionally: the capacity is no one's biography
+## WHERE WE ARE — the seed-variable era: THE DRAW IS THE LAST VARIABLE
 
-1. THE WAVE'S TWO ANSWERS IN: x62a — THE KILL IS CHANNEL-REDUNDANT (either unattended
-   half of the background evicts at matched mass; neither witnessing nor competition
-   individually necessary; the s1 armor the attention channel's alone: ATTENTION IS
-   THE ONLY FRIEND, EVERYTHING ELSE AT DOSE IS THE ENEMY, HOWEVER IT ARRIVES);
-   x61 — PRE-GROWN-SUBSTRATE (the counter's silent-synapse bar: 5-of-6 mid-band cells
-   qualifying on the BARE no-history base at/above the band's top — THE BIOGRAPHY'S
-   SPECIFIC CONTENT NOT LOAD-BEARING; the (7,12] edge transferred to the bare
-   formation; the residual fork — architectural-default vs first-install-grown —
-   x62's to split).
-2. THE COMPOSITE (T344): WHOSE BIOGRAPHY DOES THE SCHEDULE ENCODE — NO ONE'S
-   SPECIFICALLY. The schedule is the architecture's own grammar, expressed through
-   whatever formation runs; the biography only ever chose WHO sat. The seats exist
-   before the names arrive (occupy-not-build).
-3. THE PREDICTION LANES: the lean 29-for-54 (missed both wave cells); the IMPORTS
-   are the freshest questions' best column (Hopfield's datum, silent synapses — two
-   in a row); the counter column 1-of-2. Honest frame unchanged: noise, not law —
-   but the cross-disciplinary lane is earning its keep.
-4. IN FLIGHT: x59 — the universal-authorship n=2 (NYSTORA's re-formation + a redrawn
-   QELVARO realization) and the niche-capacity arch (MELORAN's 0.114 prior vs
-   QELVARO's 0.0026). THE ORDERED TAIL: R86 behind x59 -> the ORACLE (promoted) ->
-   x62 (the growth curve) -> G2-b/c -> N4.
+1. THE WAVE COMPLETE AND REVIEWED (R86): x62a (the kill channel-redundant — either
+   unattended background half evicts; the armor attention's alone); x61
+   (PRE-GROWN-SUBSTRATE — the bare no-history base seats two; the biography's
+   content not load-bearing; the counter's silent-synapse bar); x59 (the key
+   NECESSARY-BUT-NOT-SUFFICIENT — the second subject carries stronger, the redrawn
+   seed-24315 realization stays coherent at knife-edge: subject-universal,
+   realization-contingent; the niche arch inverted — tracks-the-room favored).
+2. THE GRAMMAR'S FINAL FORM (this era): warm formation opens the seat; any name at
+   dose purchases it; the exact authored realization carries the consistency — but
+   only SOME authored realizations do (the seed decides); supervision-side attention
+   alone maintains and armors; occupancy dosed (the mid-band shared, the full dose
+   re-concentrating); the capacity pre-grown on the bare substrate (the
+   architecture's or the first install's — x62's fork); and the era's last unnamed
+   term: WHAT THE KEY-CARRYING DRAWS HAVE. Ledger 29-for-55.
+3. THE IMPORTS' RECORD: genetic penetrance + conformational polymorphism riding x63
+   (the penetrance import predicts GRADED — the third seed lands intermediate; the
+   polymorphism import predicts the seed visible in the draw statistics); two hits
+   in a row before them (Hopfield's datum; silent synapses). The cross-disciplinary
+   lane is the freshest questions' best column.
+4. IN FLIGHT: x63 — seed 24316's formation + re-formation through the frozen K axis
+   (the exact quantity separating the committed anchors: 0.1965 vs 0.1450), with
+   the six anatomy features frozen at birth (named before looking). GRADED vs
+   BINARY; ANATOMY-SEPARATES vs SILENT.
 
-## WHAT CAN BE BE DONE (top next actions, named)
+## WHAT CAN BE DONE (top next actions, named)
 
-1. FOLD X59 + R86'S PANEL (the review + novelty both due at its landing) — the n=2
-   decides whether universal-authorship stands or narrows.
-2. THE ORACLE (promoted, doubly motivated): the capacity-schedule regression — now
-   doubly interesting under T344 (the features may predict from formation-process
-   statistics ALONE, no biography terms needed: a strong test of the no-one's-biography
-   reading).
-3. x62 THE CAPACITY-GROWTH CURVE: the residual fork's splitter (flat-from-e001 =
-   architectural default; rising-across-checkpoints = first-install-grown).
-4. Q1 — the supervisor's LAWS review: the standing ask; Law 8 + METHODS 5-6 the pages.
+1. FOLD X63 (free, ~40 min) — the key's gradedness + the modifier hunt's first
+   answer; R87's window opens behind.
+2. THE ORACLE (biophony-ablated): the no-biography-terms regression — T344's strong
+   test (if formation-process statistics alone predict retention, the
+   no-one's-biography reading stands at sweep scale).
+3. x62 (the capacity-growth curve, seed-armed) — the architectural-default vs
+   first-install-grown fork.
+4. Q1 — the supervisor's LAWS review: the standing ask; the doc complete through
+   the seed-variable clause.
 
 ## BLOCKERS / ASKS
 
