@@ -263,7 +263,7 @@ x61-touching session; METHODS' stale clause noted.
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
-| x64 | THE SEED BATCH (the base-rate cell; 5 non-consecutive seeds) + RIDERS: the anatomy re-screen (the untried classes — cross-stream joints, order statistics, block-drift), the 24315-on-B cross (the grid's off-diagonal), the FREE coarse-trajectory read (stage i: does the key show before the read?) | RUNNING (dispatched ~19:15Z) | the coin's base rate priced (5 fresh K-labels); the anatomy's power question; the emergent claim's first stage; lean: ~half carry (the 2-for-3 midpoint) — counter: the consecutive-seed artifact (all three may share a locality) |
+| x64 | THE SEED BATCH + RIDERS | DONE ~22:55Z Oct-11 (9ac7950) | MAJORITY-CARRY (R 6.5/8, CP95 [0.349,0.968]; the locality artifact dead — fresh seeds deeper K 0.215-0.320) + ALL-SILENT (powered; max 0.16x) + KNIFE-ON-B (the non-carrier moving 0.145->0.178 on B without crossing: seed-main-with-interaction) + KEY-SHOWS-EARLY (3/20 cells on read, s200-s400: stage i PARTIAL) — T347 |
 | oracle | THE ORACLE ADJUSTED (the measured-K column replacing realization-count; the no-biography ablation; the k16 interpolation-barrier rider) | READY (behind the batch) | the sweep with honest features |
 | x62 | THE CAPACITY-GROWTH CURVE (seed-armed) | READY | the architectural-default vs first-install fork |
 | G2-b/c | cold-geometry; per-organ anatomy | READY | unchanged |
