@@ -256,8 +256,13 @@ READ-SIDE BORDER: survival is MAINTAINED-VS-NOT (any non-host key executes; part
 rehearsal protects only past the (7,12] edge; the armor edge distinct at (7,9]); in
 the closed {warm,cold} x {ZEPHYRA,TAVIREN} cons grid the decorrelation was observed
 in one cell — re-read as the one accidental quadruple fill. The G1/G2/G3 vocabulary
-is superseded by the grammar; the unmeasured interiors and all numbers live in the
-scope block.
+is superseded by the grammar. THE CLOSING SENTENCE (x60, the census): the seat is
+PRE-GROWN for newcomers (a fresh name's first formation lands in capacity-two —
+all twelve mid-band cells qualifying at/above the reference band) and the key is
+UNIVERSAL-AUTHORSHIP (any authored realization carries the consistency — the fresh
+re-formation decorrelating on both rulers, pooled-Z r2 -1.0; the Hopfield datum:
+the consolidated seat grows capacity further with age). THE GRAMMAR IS COMPLETE
+AND CLOSED; the numbers live in the scope block.
 
 *Scope (Law 8):* the fingerprint arc — x45's separation (0.78/0.83, sign -); e343's
 cross (+0.57; the install's steep-transient rungs near-perfectly coherent
@@ -307,9 +312,10 @@ ladder (tail4/reshuffle/re-jitter all COHERENT at 0.53-0.60 with geo_mad
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 28-for-51
-   (refreshed at the x57 fold: the twenty cells since R80 went 10-for20 — e342, x48,
-   x46, x51 (primary; rider missed, disclosed), x50, x52, x36, x55, x57 hit; g1bS9, x45,
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 29-for-52
+   (refreshed at the x60 fold: the twenty-one cells since R80 went 11-for21 — e342, x48,
+   x46, x51 (primary; rider missed, disclosed), x50, x52, x36, x55, x57, x60 (both
+riders) hit; g1bS9, x45,
    x47, e343, e344, x49, e345, e346 (SHARP head missed, ZxT rider hit, disclosed),
    x53 (split, counted hit under the head convention — R84's wording), x56
    (CAPACITY-TWO against both calls), x58 (AT-STRENGTH/CONTENT fell to

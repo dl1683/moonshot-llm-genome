@@ -7,6 +7,43 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T342 — x60: the grammar closes — the seat is grown at first contact, and the key is authored-realization-hood itself (2026-10-11, datetime.now ~12:45Z)
+
+The census discharged both riders in the grammar's favor. GROWN: a fresh name's
+first formation on the root lands in a seat already at capacity-two — all twelve
+mid-band cells qualify, the fresh pair's deltas at or above the reference band, the
+whole TAVIREN texture replicating (the solo shape, the s125 dips, the armor rows).
+The seat was never a vacancy; the root's history grew it for whoever arrives.
+
+FRESH-CARRIES: the QELVARO re-formation under its OWN curriculum decorrelates on
+both rulers — pooled-Z r2 at -1.0, the cleanest separation the family has measured.
+The consistency key is AUTHORED-REALIZATION-HOOD: any curriculum's exact bits work,
+even an install-class one with no jitter variety. The canon was never privileged;
+what matters is that the realization was authored ON THIS SUBSTRATE — the re-formation
+rehearses what the formation wrote, whoever's it was.
+
+THE GRAMMAR IS COMPLETE AND CLOSED — every clause tested: warm formation opens the
+seat; any name at dose purchases it; the exact authored realization carries the
+consistency; supervision-side attention maintains it; the dose grows occupancy; and
+now: the seat is PRE-GROWN for newcomers (the capacity is the substrate's, not the
+name's) and the key is UNIVERSAL-AUTHORSHIP (any authored realization works).
+
+THE HOPFIELD DATUM: the fresh pair's s300 deltas EXCEED the reference — the root's
+consolidated seat grows capacity further with age. The load-curve import's first
+number points the same way as everything else: the older the substrate, the more it
+can hold.
+
+LEDGER: the lean hit both (29-for-52); the executor's contested streak breaks at
+rider-2 (disclosed — the counter column was never a law, and the lean column's
+noise reading continues to be the honest frame).
+
+CONNECTS: T341/T340/T339 (the grammar's closing clauses each trace to their cells);
+W057 (the history-clock's full mechanism: the substrate's authored history IS the
+capacity — the second clock is the substrate's biography, name-blind at the write,
+name-blind at the key); Law 8 (the closing sentence added this fold); the era
+thesis final form: THE MISSING PROTOCOL IS A CAPACITY SCHEDULE — and the schedule
+is the substrate's own biography, rehearsed.
+
 ## T341 — x57: rehearsal as attention — maintenance is supervision-side, and the dilution gift (2026-10-11, datetime.now ~09:15Z)
 
 The role split answered with the era's cleanest mechanism sentence: the 112 emission
