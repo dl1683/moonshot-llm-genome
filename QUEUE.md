@@ -205,6 +205,20 @@ critic; the standing ask in every droid brief since ed.23.
 | W | THE ORACLE WILDCARD | TIMED (behind x53; the feature list pre-registered +KEY-IDENTITY/+KEY-MASS) | ~30 formation variants, wash + fingerprint everything, regress pre-wash statistics on retention — blind to key authorship until x53 lands |
 | N4 | THE PLASTICITY PRICE | LAST | the 10M recovery inversion's mechanism lead; nothing depends on it this era |
 
+## R83 SECTION (2026-10-11, folded ~03:50Z) — a seat, not a key; the fork's last cell running
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| x53 | THE OWN-NAME PROGRAM (T336's G1-vs-G2 discriminator; UPGRADED with the critic's DOSE-MATCHED adoptive arm) | RUNNING (dispatched ~03:50Z Oct-11) | the formation cell (ZEPHYRA install-end under varied-keyed-Z / cons / single-channel menus): OWN-NAME-MENU-INVARIANT (G1) / CONS-ONLY (G2 rises) / COHERENT-EVERYWHERE (biography) + THE ADOPTIVE-SELF leg dose-matched (a guest consolidated onto the root at matched rehearsal depth, then re-formed warm: adoptive decorrelates = G2 substrate-carried; only ladder-authored ZEPHYRA = G1) — P-T336a riding |
+| x55 | THE MID-BAND LADDER, FATE-RESOLVED (the critic's control + the ideator's card; e346's rig verbatim + x50's dense grain over the never-sampled k in (7,16]) | READY (desk session with x56) | EDGE-EARLY (the fate edge in (7,12] — k=7's 0.6% near-miss + the factor-1.6 read gap) / EDGE-LATE-OR-NEVER / RECOVERY-ONLY (partial dose buys transient alives, not protection — the s1 micro-ladder's dose-insensitivity already hints) |
+| x56 | THE SLOT LEDGER (the currency-corrected slot-split; rides x55's session) | READY | L(k) = p_host + p_guest at every rung (logit-lift re-read per METHODS 2): ZERO-SUM-CLEAN / SUM-DIPS / CAPACITY-TWO; free rider: the k=16 guest read (the 2x2's unmeasured corner) |
+| x57 | THE KEY'S CHANNEL (the target-vs-context window split at matched counts) | READY (desk) | TARGET-ONLY vs CONTEXT-ONLY at full dose: target -> G1-adjacent / context -> G2-adjacent / neither -> the window structure is the unit |
+| post-fork | THE PRE-REGISTRATION (G1-a/b/c + G2-a/b/c, fixed before x53 lands) | REGISTERED (scratch/r83_ideator.md) | verdict-independent per the x46 precedent; the oracle unlocks either way |
+| — | PHASE-2 THERMAL STANDING (the critic's process ruling) | ADOPTED | first breach -> phase-2 immediately (poll-every-step, abort 82C, cap 90s, launch <=70C) + the rise-rate abort + the three-proof restart disclosure standard; the fallback envelope stays armed for a second breach |
+
+Standing: x36 (next GPU slot after x53), x54 (unblocked), oracle (behind x53), N4
+(last), Q1 STILL LIVE AND OWNERLESS, hook v5 (maintenance slot).
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),

@@ -50,6 +50,18 @@ for SURVIVAL; whether it lives for DECORRELATION is exactly x53's desk prelude);
 Law 8's THE SECOND FORMATION (the contrast clause re-words to maintained-vs-not this
 fold).
 
+[R83 AMENDMENTS (2026-10-11 ~03:50Z): (1) NEVER-PROTECTS is MIN-CONVENTION-CARRIED at
+k=7 — median-scored the ladder crosses DEAD -> MID -> ALIVE (0.070/0.115/0.299), the
+registered THRESHOLD family; the sole DEAD rung is the s125 dip 0.6% under the cut
+(the same dip x50 re-classed as a wide noisy patch); the median co-report + the dense
+k7 replay are owed (x55). (2) The slot-split NOUN is unearned under METHODS 2's
+currency rule (raw softmax probabilities; the logit-lift re-read owed — x56's
+ledger); the anti-motion itself is real. (3) THE MAINTENANCE CORE STANDS
+CONVENTION-INDEPENDENT: the kills, the symmetry, the neutral key, the name-blind
+writes, and first-step armor's all-or-nothing (k16's s1 0.749 vs 0.006-0.014 at every
+partial k). The era thesis (the ideator's): SURVIVAL IS A GENERIC ONE-SLOT ECONOMY —
+the missing protocol is a SEAT, not a KEY.]
+
 ## T335 — x52: G3 dies at the gate — the one-cell is biology, the reference stands, and the two-act shape belongs to the walk alone (2026-10-11, datetime.now ~02:00Z)
 
 The gate verdict: RULER-SYMMETRIC, decisively (the one-sided clause discharged —

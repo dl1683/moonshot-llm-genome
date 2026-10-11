@@ -2473,3 +2473,54 @@ OPEN-UNTESTABLE, re-keyed to the dense ruler replay); x51's gate figure correcte
 here (15/15 families, 96 boolean leaves); QUEUE rebuilt at the ordering; x52
 DISPATCHED with the repaired registration; both cadence stamps reset. Ledger:
 23-for-43 stands (no new cells).
+
+## R83 (2026-10-11, folded ~03:50Z) — the two-cell window; the maintenance reading held, the convention caught
+
+Panel: 3 agents (the auditor+ideator pair re-dispatched once after a simultaneous
+model-request failure, absorbed); sections in scratch/r83_{auditor,critic,ideator}.md.
+Window: R82 -> 1b71d4c (x52, e346).
+
+**AUDITOR — SOUND-WITH-REPAIRS.** Both cells verified end-to-end: REGISTERED dicts
+byte-identical birth->final (ast-compared), bars honored, every headline number exact
+at source (the k-curve, the ZxT/neutral executions, the name-blind spreads, x52's
+strata). LEDGER 24-for-45 re-derived; the SHARP-head/ZxT-rider split consistent with
+the x51 head-convention (e346 is its mirror). ONE REAL FINDING: the thermal restart's
+zxt-remainder phase-2 burst record was silently DROPPED by the multi-pass
+reconciliation's tag-collision dedupe (zxt.burst1 colliding with the prior pass's
+[0,50] record) — the committed envelope carries 12 phase-1 + neu only; the evidence
+survives in run.log (max 68.0C); the repair text delivered, the disclosure is the fix
+(post-hoc artifact edits barred). Nicks: x52's birth_commit pins its smoke; the
+57C/71C cooling narrative; phase-1 records lacking the envelope_phase field.
+
+**CRITIC — the maintenance core SURVIVES; two nouns repaired.** (1) NEVER-PROTECTS is
+MIN-CONVENTION-CARRIED at k=7: median-scored the ladder crosses DEAD->MID->ALIVE
+(0.070/0.115/0.299) — the registered THRESHOLD family; the sole DEAD rung is the s125
+dip 0.6% under the cut (the dip x50 re-classed as a wide patch). The free controls:
+the dense k7 replay (CPU) + the median co-report — minted as x55. ALSO SHARPENED:
+k7 dies at s1 then RE-FORMS to 0.4348 by s25, and both k7's s300 (0.2994) and the
+ruler's s125 sit inside e325's re-formation band [0.275, 0.312] — FIRST-STEP ARMOR IS
+ALL-OR-NOTHING, FATE-STEP RE-FORMATION IS DOSE-GRADED. (2) The slot-split noun
+unearned under METHODS 2's currency rule (raw softmax; denominator coupling) — the
+logit-lift re-read minted as x56's ledger. (3) x53's adoptive bar CONFOUNDED as
+registered (a failed adoptive cannot split authorship-identity from authorship-depth):
+the DOSE-MATCHED adoption arm added. (4) THERMAL PROCESS: phase-2 adopted as the
+standing default (10-step polls provably cannot enforce any line at ~3C/interval
+soak rates) + a rise-rate abort + the three-proof restart disclosure standard
+(resume-draws identity, per-row phase provenance, one-rung post-cooldown equivalence
+— e346 asserted, did not prove). (5) The target list stands.
+
+**IDEATOR — four cards + the thesis.** x55 (the mid-band ladder, fate-resolved: the
+edge lives in the never-sampled k in (7,16]; EDGE-EARLY / EDGE-LATE-OR-NEVER /
+RECOVERY-ONLY — with the sharpening that the k-curve's monotonicity is RECOVERY, not
+protection); x56 (the slot ledger: L(k) = p_host + p_guest per rung, ZERO-SUM-CLEAN /
+SUM-DIPS / CAPACITY-TWO, riding x55); x57 (the key's channel: TARGET-ONLY vs
+CONTEXT-ONLY window split at matched counts — mapping onto the G-fork); THE
+POST-FORK PRE-REGISTRATION (G1-a/b/c and G2-a/b/c fixed before x53 lands,
+verdict-independent per the x46 precedent). ERA THESIS: SURVIVAL IS A GENERIC
+ONE-SLOT ECONOMY — THE MISSING PROTOCOL IS A SEAT, NOT A KEY.
+
+**FOLD ACTIONS:** T336 amended (the min-convention + currency repairs; the
+maintenance core stands); x53 DISPATCHED with the critic's dose-matched adoptive arm;
+x55/x56/x57 minted; phase-2 thermal standing adopted; the envelope-record disclosure
+carried (runs/ artifacts not edited post-hoc); both cadence stamps current; droid
+ed.42 lands this beat. Ledger: 24-for-45 stands.
