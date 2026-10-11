@@ -255,8 +255,13 @@ guest read forms wherever taught; a guest curriculum executed the host read —
 maintenance-vs-competition unresolved (the neutral-key control named). The
 decorrelation splits: a LEVEL the one cell owns and a PHASE DYNAMICS every arm shares
 through the anneal (the ruler-artifact reading alive — every correlation in the pool
-has the ruler as one endpoint). G1/G2/G3 open (own-name authorship / lineage
-geometry / ruler symmetry); P-T334a the registered discriminator.
+has the ruler as one endpoint). G3 DEAD (x52: the walk's decorrelation PRESERVES
+against the pooled own-side Z-ruler — sign − 0.833 both primaries, 12/12 in-window,
+stratum-cleared; the reference internally coherent; the two-act shape the WALK's
+alone — the anneal's dense interior a 95-step oscillation); G1/G2 open (own-name
+authorship / lineage geometry), with the CLASS CAVEAT: the anneal-as-arm also sits
+below cold Z-pools — part of the separation rides the warm-vs-cold axis, and the
+fork must be decided on the walk-specific residue.
 
 *Scope (Law 8):* the fingerprint arc — x45's separation (0.78/0.83, sign -); e343's
 cross (+0.57; the install's steep-transient rungs near-perfectly coherent
@@ -298,10 +303,10 @@ protocol, one architecture at 2.74M.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 23-for-43
-   (refreshed at the e345 fold: the twelve cells since R80 went 5-for-12 — e342, x48,
-   x46, x51 (primary; rider missed, disclosed), x50 hit; g1bS9, x45, x47, e343, e344,
-   x49, e345 missed (e345's TEXTURE left both bars unasked); W058 closed — the lean column is
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 24-for-44
+   (refreshed at the x52 fold: the thirteen cells since R80 went 6-for-13 — e342, x48,
+   x46, x51 (primary; rider missed, disclosed), x50, x52 hit; g1bS9, x45, x47, e343,
+   e344, x49, e345 missed; W058 closed — the lean column is
    NOISE, not bias; misses are priced, not spun; the executor counter-column hit on ALL THREE of its
    contested calls (g1bS9, e343, e344) — the lean column is statistically a coin
    (one-sided no-edge p ~ 0.98; two-sided exact binomial 0.22) and the ordering

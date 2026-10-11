@@ -7,6 +7,51 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T335 — x52: G3 dies at the gate — the one-cell is biology, the reference stands, and the two-act shape belongs to the walk alone (2026-10-11, datetime.now ~02:00Z)
+
+The gate verdict: RULER-SYMMETRIC, decisively (the one-sided clause discharged —
+sign - 0.833 on both primaries, 12/12 in-window, stratum C clearing individually at
+0.889; both floors cleared besides). The walk's decorrelation measured against its
+OWN side's pooled ruler is the same object it was against the T-ruler. THE
+MEASUREMENT DOES NOT CARRY THE EFFECT — the one-cell claim hardens into biology, and
+the G-program proceeds to the fork that matters: own-name authorship (G1) vs lineage
+geometry (G2).
+
+TWO RIDER GIFTS: (1) THE REFERENCE STANDS — the anneal does not separate from itself
+(dense 60 pairs, neither profile at the line): the ruler has no internal structure,
+and the one-cell need not re-base. (2) THE TWO-ACT SHAPE IS THE WALK'S, NOT THE WARM
+CLASS'S — the anneal's own dense interior shows a 95-step oscillation with no sharp
+consolidation; the [s50,s55] drop is the walk's signature, not the knob's universal
+form. P-T333a's cross-name clause now has its ruler-side datum: the shape does not
+transfer.
+
+AND THE CLASS CAVEAT, HONESTLY: the anneal-as-arm ALSO sits below the cold Z-pool
+(0.85/0.825 consistency — similar to the walk's 0.833, with smaller mean|d|). Part of
+the walk-vs-Z separation rides the WARM-VS-COLD class axis. The composite: the
+walk's decorrelation is ruler-symmetric AND partially class-carried — the level
+decomposes into a warm-class component (any warm arm reads low against cold pools)
+and a walk-specific residue (the larger mean|d|, the two-act shape, the tick). The
+G1/G2 fork inherits this: whatever discriminates authorship from geometry must do it
+on the residue, not the class component.
+
+REGISTERED PREDICTION (P-T335a, for e346's name-key ladder): the read-execution
+threshold in k (tokens re-keyed) is SHARP — a binomial-like step between k=2 and k=7
+(if the key is all-or-nothing, the curriculum's name-content gates as a unit) — and
+the ZxT symmetry arm EXECUTES (guest-on-ZEPHYRA kills p(Z) as guest-on-TAVIREN killed
+p(T): generic competition, not receptivity); COUNTER: a graded k-curve (dose-like)
+and ZxT NON-EXECUTING (name-pair-specific receptivity — x23's cross-name structure
+revives). The lab lean: sharp + executes, weakly (the 7-token knife looked binary at
+e345; interference is the cheaper mechanism); the counter, stated plainly: the lab's
+knifes have twice turned out to be patches (x50, x52's own dip), and the receptivity
+map's cross-name findings (x23) are the standing counter-structure.
+
+CONNECTS: T334 (the gate resolved in the composite's favor; the fork narrows to
+G1-vs-G2 with the class-residue decomposition); T333 (the two-act shape demoted from
+the knob's form to the walk's form — the knob's universal grammar is now unknown);
+Law 8's THE SECOND FORMATION (updated in place: G3 dead, the class caveat carried);
+METHODS 6 (the shared measurable survived its own symmetry test — the instrument is
+now two-sided).
+
 ## T334 — e345: the grid's one cell, and the name-blind write — the organism's own name is the only name that decorrelates (2026-10-11, datetime.now ~00:55Z)
 
 The grid closed with a paradox-shaped answer: the TAVIREN-warm-cons cell the closer
