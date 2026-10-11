@@ -458,7 +458,7 @@ MD5_BINDS = {
     "rig_g1": ("lab/g1_anchored_ball.py",
                "f4b6997b6a66013ee25da67f2b4faf01"),
     "rig_g1b": ("lab/g1b_continuity.py",
-                "66966621e162b6bd33cf0023b0aa481a"),
+                "66966621e162b6bd33cf0023b0aa485a"),
     "rig_e043": ("lab/e043_install.py",
                  "f82806b369452b05b8d89ca6cebe70fa"),
 }
@@ -653,6 +653,13 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE SMOKE-CAUGHT BIND-TYPO REPAIR (pre-adjudication, disclosed; "
+    "the e346 precedent class): the first smoke pass failed G_MD5 on "
+    "rig_g1b — a transcription typo (…481a for the parents' certified "
+    "…485a, the on-disk file's own md5, verified against e346's and "
+    "x45's passing binds). Repaired to the parent literal. No bar, arm, "
+    "stream or gate criterion touched — the gate did exactly its job; "
+    "the failed pass preserved in runs/x53_smoke's run log.",
     "COMPUTE ROUTE (chosen + disclosed per the dispatch's 'choose and "
     "disclose'): THE CERTIFIED CPU-REPLAY ROUTE — CPU desk ONLY, threads "
     "4, ZERO CUDA calls. The bit-identity gates (G_STREAMIDENT_CONS, "
@@ -680,6 +687,15 @@ deviations: list[str] = [
     "separation inside its own pairing machinery (G_WALKREPRO) — the "
     "COHERENT-EVERYWHERE (b)-clause is adjudicated on that re-derivation, "
     "never on a re-run.",
+    "THE SMOKE-CAUGHT DISPLAY REPAIRS (pre-adjudication, disclosed; "
+    "the e346 precedent classes): (i) the PNG crash post-verdict "
+    "(suptitle's fontsize passed positionally) — no bar/arm/stream/"
+    "scoring touched; (ii) dead-read arms are NAMED 'EXECUTED-DEAD' "
+    "instead of 'UNDERPOWERED' when every arm read <= 0.10 and no "
+    "window pair exists (a verdict-LABEL refinement; the separation "
+    "booleans and the composite order are byte-identical — an "
+    "EXECUTED-DEAD arm does not separate, exactly as an underpowered "
+    "one does not).",
     "The per-leg resumes live under runs/x53/ (*.pt gitignored by the "
     "house convention — regenerable deterministically); this cell writes "
     "ONLY lab/x53_own_name.py and runs/x53/*.",
@@ -977,9 +993,19 @@ def score_arm(arm_rows: list[dict], rulers: dict) -> dict:
                                for p in oow]
         sides[rname] = sc
     primary = sides.get("anneal")
-    verdict = ("UNDERPOWERED" if primary is None or
-               primary["power"] != "ok" else
-               ("DECORRELATED" if primary["decorrelates"] else "COHERENT"))
+    reads = [r["read"] for r in arm_rows]
+    dead_all = bool(reads) and max(reads) <= 0.10
+    if primary is None:
+        verdict = "UNDERPOWERED (no primary side)"
+    elif primary["power"] != "ok":
+        if primary["n_in_window"] == 0 and dead_all:
+            verdict = ("EXECUTED-DEAD (every arm read <= 0.10; no "
+                       "in-window pairs — the menu failed to even "
+                       "maintain the read; decorrelation vacuous)")
+        else:
+            verdict = primary["power"]
+    else:
+        verdict = "DECORRELATED" if primary["decorrelates"] else "COHERENT"
     cold_sep = any(s["decorrelates"] for k, s in sides.items()
                    if k.startswith("pooled"))
     return {"sides": sides, "verdict": verdict,
@@ -1233,8 +1259,7 @@ def phase_P0() -> dict:
         "x45_separations": x45m["adjudication"]["separations"],
         "x52_pool_rows": x52m["pool"]["rows"],
         "x52_rescore": x52m["rescore"],
-        "x52_rider_verdict": x52m["rider"]["verdict"]
-        if isinstance(x52m.get("rider"), dict) else None,
+        "x52_rider_verdict": x52m["rider"]["adjudication"],
         "e346_arm_rows": e346m["arm_rows"],
         "e345_arm_rows": e345m["arm"]["rows"],
         "e345_first_ix": e345m["gates"]["G_DRAWS"]["first_ix"],
@@ -1972,9 +1997,10 @@ def phase_P3(p0: dict, p2: dict) -> dict:
     for tag, ref in C["x45_walk_rungs"].items():
         if not tag.startswith("walk_install_s"):
             continue
-        if tag not in cert["rows"]:
+        mine_tag = tag.replace("walk_install_", "certinst_")
+        if mine_tag not in cert["rows"]:
             continue          # smoke: only the s1-class rung exists
-        c, okc = compare_row(cert["rows"][tag], ref)
+        c, okc = compare_row(cert["rows"][mine_tag], ref)
         cells[tag] = c
         ok &= okc
     g_ac = {"cells": cells, "n_bound": len(cells),
@@ -2159,9 +2185,11 @@ def phase_P4(p0: dict, prelude: dict, p2: dict, p3: dict) -> dict:
     elif not c_sep:
         cell_verdict = "CONS-ONLY"
         clause = ("only arm (b) decorrelates (the committed walk's "
-                  "separation reproduced; arms (a) and (c) coherent/"
-                  "underpowered) — the triple interaction (warm x own x "
-                  "cons); G2 rises")
+                  "separation reproduced; arm (a): "
+                  + scores["varied"]["verdict"] + "; arm (c): "
+                  + scores["single"]["verdict"]
+                  + ") — the triple interaction (warm x own x cons); "
+                  "G2 rises")
     else:
         cell_verdict = "SINGLE-CHANNEL-ONLY"
         clause = ("only arm (c) separates — a named leftover outside the "
@@ -2241,7 +2269,8 @@ def phase_P4(p0: dict, prelude: dict, p2: dict, p3: dict) -> dict:
 def make_png(prelude: dict, p2: dict, p3: dict, scores: dict,
              adj: dict) -> None:
     fig, axes = plt.subplots(2, 2, figsize=(13, 10))
-    fig.suptitle("x53 — THE OWN-NAME PROGRAM (the G1-vs-G2 fork)", 11)
+    fig.suptitle("x53 — THE OWN-NAME PROGRAM (the G1-vs-G2 fork)",
+                 fontsize=11)
 
     ax = axes[0][0]
     F = prelude["formations"]
@@ -2355,7 +2384,8 @@ def make_report(prelude: dict, p2: dict, p3: dict, scores: dict,
                  f"{s2.get('dominant_sign')} "
                  f"{s2.get('sign_consistency')} / {s2.get('mean_abs_d')} | "
                  f"{p1.get('dominant_sign')} {p1.get('sign_consistency')}"
-                 f" / {p1.get('mean_abs_d')} | {sc['n_in_window']} |")
+                 f" / {p1.get('mean_abs_d')} | "
+                 f"{sc['sides']['anneal']['n_in_window']} |")
     L.append("\n## THE CONTINGENCY (formation-level)\n")
     L.append("| formation | key | warmth | channel | n | verdict |")
     L.append("|---|---|---|---|---|---|")
