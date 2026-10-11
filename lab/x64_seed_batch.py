@@ -479,8 +479,8 @@ ROOM_SEED_S = 26114
 ANAT_T = {
     "J1_rho_ixaj": 0.05,
     "J2_rho_ixrj": 0.035,
-    "J3_overlap": 745,          # ceil(2.58*sqrt(2*lambda)); lambda runtime
-    "O1_median": 1.0,
+    "J3_overlap_pairs": 745,    # ceil(2.58*sqrt(2*lambda)); lambda runtime
+    "O1_median_ix": 1.0,
     "O2_range100": 10.0,
     "B1_ixdrift": 48.0,
     "B2_rjdrift": 15000.0,
@@ -740,9 +740,9 @@ REGISTERED = {
                        "(6400); separates iff |d| >= 0.05",
         "J2_rho_ixrj": "Pearson corr of within-step (ix x2, rj/M) pairs "
                        "(12800); separates iff |d| >= 0.035",
-        "J3_rj_overlap": "unordered overlapping window pairs (12800 "
-                         "spans); separates iff |d| >= 745 (analytic "
-                         "Poisson)",
+        "J3_overlap_pairs": "unordered overlapping window pairs (12800 "
+                            "spans); separates iff |d| >= 745 (analytic "
+                            "Poisson)",
         "O1_median_ix": "median of the 6400 ix draws; separates iff "
                         "|d| >= 1.0",
         "O2_range100": "range (max-min) of the 100 per-step ix means; "
@@ -2079,7 +2079,9 @@ def anatomy_features_v2(draws: list, p0: dict) -> dict:
         s = h1 + h2
         m = s > 0
         chi2_pairs.append(float(((h1[m] - h2[m]) ** 2 / s[m]).sum()))
-    drift_ix = float(max(chi2_pairs))
+    # (a degenerate <400-step record — smoke only — has a single block:
+    #  no adjacent pairs; the feature reads 0.0 by convention, disclosed)
+    drift_ix = float(max(chi2_pairs)) if chi2_pairs else 0.0
     # B2 — positional drift of rj (4 blocks; max |mean - M/2|)
     blocks_rj = (rj.reshape(4, -1) if n >= 400
                  else rj.reshape(1, -1))
@@ -2179,7 +2181,7 @@ def phase_P3(p0: dict, p1: dict, p2: dict) -> dict:
     else:
         for fid, key in fkeys:
             thr = ANAT_T[key]
-            gaps = [(abs(feats[c][key] - feats[l]), c, l)
+            gaps = [(abs(feats[c][key] - feats[l][key]), c, l)
                     for c in carriers for l in lacks]
             min_gap = min(gaps)[0] if gaps else None
             table[fid] = {
