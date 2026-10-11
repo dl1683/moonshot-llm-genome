@@ -7,6 +7,41 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T347 — x64: the key is the norm — majority-carry, powered-silent anatomy, and the exception that names the question (2026-10-11, datetime.now ~23:10Z)
+
+The pricing is done: R = 6.5/8 (CP95 [0.349, 0.968]) — MAJORITY-CARRY, with the
+fresh non-consecutive seeds carrying DEEPER than the committed anchors (K
+0.215-0.320). The locality artifact is dead; the consecutive-seed worry resolved
+the honest way. THE KEY IS THE NORM; the lone non-carrier (24315) is the exception —
+and the exception is now contextual: on subject B its depth moved 0.145 -> 0.178
+without crossing (seed-main-with-interaction). The non-carrier is not absolutely
+lacking but contextually shallow — a penetrance-flavored reading after all, at the
+margin.
+
+THE ANATOMY IS POWERED AND SILENT: the new-class features (cross-stream joints,
+order statistics, block-drift) all under 0.16x of threshold. With five-plus records
+per class the silence is no longer underpowered — the key genuinely lives in the
+weights' response, not in any draw statistic tried.
+
+AND STAGE i ANSWERED PARTIAL: the coarse-trajectory read shows the carriers'
+formations already reading differently at the LATE rungs (3/20 cells, all on read,
+s200-s400) — the key is partially visible before the re-formation, late in the
+formation itself. Not at nucleation (the polymorphism import's s8 prediction
+refuted); at maturation.
+
+THE COMPOSITE (the era's pricing complete): the key is per-seed, majority,
+name-invariant, emergent-but-late-visible, and contextual at the margin. The
+formation protocol question inverts one last time: if most seeds carry, the missing
+piece is not the key (it is nearly always there) but whatever the assembly did not
+provide — the protocol gap re-reads as an assembly gap with a rare-draw confound.
+
+LEDGER: 29-for-57 (the lean's MINORITY-CARRY fell with COIN-CLASS never close).
+
+CONNECTS: T346 (the coin's character complete); T345/T342 (the arc from the
+exception to the norm); the oracle (the measured-K column now has a base rate to
+calibrate against — and the finding that most variants carry simplifies its
+feature problem); x62 (the growth curve with the seed axis priced).
+
 ## T346 — x63: the key is a per-seed coin, name-invariant, and invisible from outside — it lives in the weights' response to the draws (2026-10-11, datetime.now ~19:00Z)
 
 The third seed resolved the coin's character and hid its face in the same stroke.
