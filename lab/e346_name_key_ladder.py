@@ -2504,9 +2504,12 @@ def write_report(adj: dict, arms: dict, p0: dict) -> None:
 # ======================================================================
 # MAIN
 # ======================================================================
-BIRTH_COMMIT = "PENDING-BIRTH"   # set at the birth commit (the runtime
-                                 # head at later passes includes the
-                                 # disclosed shakedown/repair commits)
+BIRTH_COMMIT = "b92f096"   # the commit where the bars + parity + P-e346a
+                           # + the flip scheme were frozen BEFORE any
+                           # compute (the hash backfilled pre-compute; the
+                           # runtime head at later passes includes the
+                           # disclosed shakedown/repair commits; the
+                           # adjudication form is the birth-commit form)
 
 
 def main() -> None:
