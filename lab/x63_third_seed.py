@@ -483,6 +483,23 @@ PORT_QUOTES = [
 ]
 
 deviations: list[str] = [
+    "THE MID-RUN BACKGROUND KILL + THE THREE-PROOF RESTART (R83/R84's "
+    "standard; appended check-side only — no bar-deciding logic touched, "
+    "the docstring untouched birth->HEAD): the desk's background task "
+    "was killed ~58 min in, mid inst_a3 (the third seed's install), "
+    "after its s200 row (run time 3499.1s; the environment's ~1h "
+    "background window, x59/x60's own two-kill class). RESTART STATE: "
+    "cert_a + a2re resumes complete (step 400) — on relaunch they "
+    "early-return no-op with draws + rows bit-conserved (PROOF 1, "
+    "verified from the relaunch log's RESUMED lines + the gates' "
+    "re-derivations); inst_a3 had NO saved resume (its first 1800s "
+    "slice cap not yet reached) and re-executed from step 0 — its "
+    "pre-kill rows s1 0.000777/0.741733, s100 0.634173/0.001151, s200 "
+    "0.664898/0.000300 must reproduce BIT-IDENTICALLY on re-execution "
+    "(PROOF 2, verified from the relaunch log); the final execution "
+    "re-derived every gate from the artifacts (G_INSTCERT/G_A2CERT "
+    "re-bound, all PASS) — PROOF 3. VERDICTS UNAFFECTED (deterministic "
+    "re-execution).",
     "BIRTH-TIME DISCLOSURES (frozen here, before any compute): (1) drops "
     "vs x59 (this cell touches ONLY the Q line): the five-pool "
     "construction + G_POOLS/G_POOLTWIN (no stream legs — the re-formation "
