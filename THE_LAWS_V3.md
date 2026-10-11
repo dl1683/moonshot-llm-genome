@@ -250,7 +250,12 @@ NAME (the adoptive leg decorrelating at the native's matched exposure, r −0.93
 sides — G2, the substrate's seat, not the biography's identity), the menu must
 rehearse AUTHORED contexts (the own-key random-context menu collapsing the host; the
 menu-of-one holding but not decorrelating) — THE QUADRUPLE: {warm x re-formed-seat x
-authored-context menu x dose} (one draw per cell; the TAVIREN-cold cell is UNRUN, not excluded —
+authored-context menu x dose}, AND THE AUTHORED CONTEXT IS FRONT-LOADED AND
+CONSISTENCY-DENOMINATED (x36: swapping 1.3% of the stream's opening pages destroys
+the separation's sign consistency at walk-strength magnitudes — the destruction
+bimodal, the early rungs flipping while the late phase survives; maintenance
+dose-like, consistency knife-edge — TWO CURRENCIES; the K-response a step, the
+front-concentration-vs-fragility fork named) (one draw per cell; the TAVIREN-cold cell is UNRUN, not excluded —
 constructible as a TAVIREN install from BASE through the T-keyed cons stream; and the
 TAVIREN-warm cell's 'coherence' is the instrument's ZERO-POINT, not an independently
 measured datum — the ruler-internal dense panel owed). The NAME-KEY CONTRAST
@@ -311,12 +316,12 @@ protocol, one architecture at 2.74M.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 25-for-46
-   (refreshed at the x53 fold: the fifteen cells since R80 went 7-for-15 — e342, x48,
-   x46, x51 (primary; rider missed, disclosed), x50, x52 hit; g1bS9, x45, x47, e343,
-   e344, x49, e345, e346 (its SHARP head missed, the ZxT rider hit, disclosed), x53
-   (its cell half hit via CONS-ONLY, its adoptive half missed — the counter won the
-   fork, disclosed) missed-or-split; W058 closed — the lean column is
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 26-for-47
+   (refreshed at the x36 fold: the sixteen cells since R80 went 8-for-16 — e342, x48,
+   x46, x51 (primary; rider missed, disclosed), x50, x52, x36 hit; g1bS9, x45, x47,
+   e343, e344, x49, e345, e346 (SHARP head missed, ZxT rider hit, disclosed), x53
+   (cell half hit via CONS-ONLY, adoptive half missed — the counter won the fork)
+   missed-or-split; W058 closed — the lean column is
    NOISE, not bias; misses are priced, not spun; the executor counter-column hit on ALL THREE of its
    contested calls (g1bS9, e343, e344) — the lean column is statistically a coin
    (one-sided no-edge p ~ 0.98; two-sided exact binomial 0.22) and the ordering

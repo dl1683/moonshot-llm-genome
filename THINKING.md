@@ -7,6 +7,37 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T338 — x36: the early block — 1.3% of the authored pages carry the seat's consistency, and the authored-context term has two currencies (2026-10-11, datetime.now ~07:15Z)
+
+Swapping four pages — 1.3% of the authored stream, at bit-matched name-token dose on
+an identical draw stream — destroys the decorrelation. The consistency clause dies
+(0.53-0.60 vs the walk's 0.78-0.83) while the magnitudes sit AT walk strength: the
+destruction is of the SIGN CONSISTENCY ONLY, and it is BIMODAL — every arm keeps the
+walk's late-phase negative separation while the early rungs flip positive. The
+authored content the seat needs lives in the FRONT of the stream, and what it buys is
+not strength but AGREEMENT.
+
+THE HONEST SHAPE: a STEP, not a ladder — k4/k16/k64 statistically indistinguishable.
+The cell cannot separate front-concentration from any-perturbation fragility; the
+NON-FRONT 4-page swap is the named successor (P-T338a: AT-STRENGTH = the front
+specifically carries it; DESTROYED-EQUALLY = any perturbation breaks the knife-edge;
+the lab leans AT-STRENGTH weakly, the counter notes the step shape already hints
+any-perturbation).
+
+AND THE TWO CURRENCIES, now unmissable: maintenance is DOSE-LIKE (the reads hold
+everywhere until 100% neutral) while consistency is KNIFE-EDGE (1.3% neutral breaks
+it) — the authored-context term of the quadruple trades in two denominations, and
+they move independently. The writes stayed K-blind throughout (page-content
+blindness extends name blindness): the stream's first pages are structurally special
+to the SEAT, not to the WRITE.
+
+CONNECTS: T337 (the quadruple's authored-context term now has internal structure:
+location = front, currency = consistency, fragility = knife-edge); T333 (the
+walk's two-act shape — the early block's flip is the emergence act dying; the
+late-phase separation surviving everywhere is the consolidation act standing);
+W057 (the history-clock's front-loading — the second clock is written in the
+stream's opening pages); Law 8 (the early-block clause appended).
+
 ## T337 — x53: G2 wins the fork — the seat is dose-purchasable by any name, and the menu must rehearse AUTHORED contexts (2026-10-11, datetime.now ~06:00Z)
 
 The adoptive leg settled the era's last open question: a guest consolidated onto the
