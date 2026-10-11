@@ -570,7 +570,7 @@ PORT_QUOTES = [
      "e346's generalized per-slot draw (this cell's census runner's "
      "ancestor)"),
     ("lab/e346_name_key_ladder.py",
-     "The generator consumption is IDENTICAL for every keying",
+     "IDENTICAL for every keying",
      "e346's draw-parity doctrine (G_DRAWS' parent)"),
     ("lab/e043_install.py",
      "NAME_BS, CORP_BS = 16, 48",
@@ -593,7 +593,21 @@ PORT_QUOTES = [
      "e346's committed k=7 flip scheme (inherited, not re-chosen)"),
 ]
 
-deviations: list[str] = []
+deviations: list[str] = [
+    "SMOKE REPAIRS (all caught at smoke, pre-adjudication; the family's "
+    "standard flow): (1) a G_QUOTES fragment that did not match e346's "
+    "line wrapping ('The generator consumption is IDENTICAL...' spans a "
+    "parenthetical — repaired to the verbatim 'IDENTICAL for every "
+    "keying'); (2) the G_POOLTWIN allowed-columns off-by-one (mask-space "
+    "PRE-1+j vs window-space PRE+j — check-side, the pools themselves "
+    "the certified construction); (3) G_INSTALLFLOOR conditioned on the "
+    "full dose (smoke's 8-step installs sit in the pre-formation "
+    "transient by construction — the certinst smoke row itself reads "
+    "0.0217 at s8; the floor is enforced only at the 400-step dose); "
+    "(4) the x56 reference table restructured to carry the full "
+    "committed k-rows (display-layer KeyError class); (5) the P-G2aa "
+    "smoke log line (UNSCORED, not MISSED, under the smoke clause).",
+]
 
 metrics: dict = {
     "experiment": "x60_virgin_census (cell G2-a, re-keyed; the R84-ordered "
@@ -1159,13 +1173,14 @@ def phase_P0() -> dict:
     # ---- G_POOLS + G_POOLTWIN -------------------------------------------
     def twin_check(pool_x):
         """the per-row difference positions vs pool_z must be a SUBSET of
-        the 7 name-emission columns of the row's jitter block."""
+        the 7 name columns of the row's jitter block (WINDOW-space: the
+        name occupies window positions PRE+j .. PRE+j+6; the mask's
+        PRE-1+j is y-space — smoke-caught off-by-one, repaired)."""
         subset_ok, n_diff_cols, shared = True, [], {}
         for i in range(pool_z_x.shape[0]):
             j = G1.JITTERS[i // 60]
             cols = (pool_x[i] != pool_z_x[i]).nonzero().flatten().tolist()
-            allowed = set(range(G1.PRE - 1 + j,
-                                G1.PRE - 1 + j + 7))
+            allowed = set(range(G1.PRE + j, G1.PRE + j + 7))
             if not set(cols) <= allowed:
                 subset_ok = False
                 break
@@ -1714,7 +1729,7 @@ def phase_P1(p0: dict) -> dict:
     log(f"G_INSTDOSE PASS: {len(inst_a['draws'])} draws bit-equal across "
         "the three installs; exposure 44,800 name tokens each")
 
-    # ---- G_INSTALLFLOOR (the install-lottery gate) ----------------------
+    # ---- G_INSTALLFLOOR (the install-lottery gate; FULL-DOSE ONLY) ------
     ra = metrics["install_end_rows"]["inst_a_end"]["read"]
     rb = metrics["install_end_rows"]["inst_b_end"]["read"]
     g_fl = {
@@ -1726,8 +1741,13 @@ def phase_P1(p0: dict) -> dict:
         "claim": ("both virgin formations landed above the occupancy cut "
                   "(the install-draw lottery's survive mode — e324's "
                   "bimodal wheel disclosed; a die-mode landing would "
-                  "hollow the census -> TEXTURE)"),
-        "pass": bool(ra >= INSTALL_FLOOR and rb >= INSTALL_FLOOR),
+                  "hollow the census -> TEXTURE). FULL-DOSE GATE: in "
+                  "smoke the 8-step installs sit in the pre-formation "
+                  "transient by construction (the certinst smoke row "
+                  "itself reads 0.0217 at s8) — the floor is enforced "
+                  "only at the 400-step dose"),
+        "pass": bool((ra >= INSTALL_FLOOR and rb >= INSTALL_FLOOR)
+                     or SMOKE),
     }
     assert g_fl["pass"], f"G_INSTALLFLOOR FAILED: {g_fl}"
     metrics["gates"]["G_INSTALLFLOOR"] = g_fl
@@ -2053,13 +2073,11 @@ def phase_P2(p0: dict, p1: dict) -> dict:
                             "AND delta >= +1.0) -> BORN-SOLO (zero "
                             "cells; sub-textures named)"),
         "reference_table_x56": {
-            "note": "the TAVIREN subject's committed deltas (the "
-                    "grown-seat reference), runtime-read from x56",
-            "k7": C["x56_table"]["7"]["delta"],
-            "k12": C["x56_table"]["12"]["delta"],
-            "k7_both_occupied": C["x56_table"]["7"]["both_occupied"],
-            "k12_host_guest": {"host": C["x56_table"]["12"]["host"],
-                               "guest": C["x56_table"]["12"]["guest"]},
+            "note": "the TAVIREN subject's committed k-rows (the "
+                    "grown-seat reference: host/guest reads, lifts, L, "
+                    "delta, both_occupied), runtime-read from x56",
+            "k7": C["x56_table"]["7"],
+            "k12": C["x56_table"]["12"],
         },
     }
     log(f"CENSUS VERDICT: {census_verdict}")
@@ -2114,7 +2132,7 @@ def phase_P3(p0: dict, p1: dict) -> dict:
     assert g_rd["pass"], f"G_REFDRAWS FAILED: {g_rd}"
     metrics["gates"]["G_REFDRAWS"] = g_rd
     log(f"G_REFDRAWS PASS: {len(ref_draws)} draws bit-equal to inst_a's "
-        "first 300 (the realization-identity proof)")
+        f"first {len(ref_draws)} (the realization-identity proof)")
 
     # ---- the rulers + G_WALKREPRO ----------------------------------------
     anneal_ruler = [norm_row(tag, r["read"], r["corrs"], r.get("alive"),
@@ -2270,9 +2288,13 @@ def phase_P4(p2: dict, p3: dict) -> dict:
     }
     metrics["P_G2aa"] = p_g2aa
     metrics["composite"] = composite
-    log(f"P-G2aa: rider1 {p_g2aa['rider1_guess']} -> "
-        f"{'HIT' if p_r1 else 'MISSED'}; rider2 "
-        f"{p_g2aa['rider2_guess']} -> {'HIT' if p_r2 else 'MISSED'}")
+    if scored:
+        log(f"P-G2aa: rider1 {p_g2aa['rider1_guess']} -> "
+            f"{'HIT' if p_r1 else 'MISSED'}; rider2 "
+            f"{p_g2aa['rider2_guess']} -> {'HIT' if p_r2 else 'MISSED'}")
+    else:
+        log(f"P-G2aa: UNSCORED (composite {composite}) — the smoke/"
+            "texture clause; both riders' guesses stand registered")
 
     # ---- the PNG ----------------------------------------------------------
     try:
@@ -2322,6 +2344,7 @@ def make_png(p2: dict, p3: dict) -> None:
               ref["k12"]["delta"].get(str(s), float("nan"))]
         ax.plot(xs, ys, style, color="gray", alpha=0.8,
                 label=f"x56 TAVIREN-subject ref s{s}")
+    del style, ys
     ax.axhline(TOL_LEDGER, color="k", lw=0.8, ls="-.",
                label=f"the +{TOL_LEDGER} GROWN bar")
     ax.axhline(0.0, color="k", lw=0.5)
@@ -2465,15 +2488,12 @@ def make_report(p2: dict, p3: dict) -> None:
              f"{ref['k7']['host']['300']:.3f}/{ref['k7']['guest']['300']:.3f}"
              f" | {ref['k7']['delta']['300']:+.2f} |")
     L.append(f"| x56 ref (TAVIREN subj) | 12 | "
-             f"{ref['k12_host_guest']['host']['25']:.3f}/"
-             f"{ref['k12_host_guest']['guest']['25']:.3f} | "
-             f"{ref['k12']['delta']['25']:+.2f} | "
-             f"{ref['k12_host_guest']['host']['125']:.3f}/"
-             f"{ref['k12_host_guest']['guest']['125']:.3f} | "
-             f"{ref['k12']['delta']['125']:+.2f} | "
-             f"{ref['k12_host_guest']['host']['300']:.3f}/"
-             f"{ref['k12_host_guest']['guest']['300']:.3f} | "
-             f"{ref['k12']['delta']['300']:+.2f} |")
+             f"{ref['k12']['host']['25']:.3f}/{ref['k12']['guest']['25']:.3f}"
+             f" | {ref['k12']['delta']['25']:+.2f} | "
+             f"{ref['k12']['host']['125']:.3f}/{ref['k12']['guest']['125']:.3f}"
+             f" | {ref['k12']['delta']['125']:+.2f} | "
+             f"{ref['k12']['host']['300']:.3f}/{ref['k12']['guest']['300']:.3f}"
+             f" | {ref['k12']['delta']['300']:+.2f} |")
     L.append("")
     L.append(f"The solo budgets: A {metrics['census_ledger']['a']['budget']}"
              f" | B {metrics['census_ledger']['b']['budget']} "
