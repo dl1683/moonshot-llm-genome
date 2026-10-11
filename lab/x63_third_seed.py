@@ -1457,8 +1457,13 @@ def phase_P1(p0: dict) -> dict:
     }
     assert g_fl["pass"], f"G_INSTALLFLOOR FAILED: {g_fl}"
     metrics["gates"]["G_INSTALLFLOOR"] = g_fl
-    log(f"G_INSTALLFLOOR PASS: inst_a3 {r3_:.4f} >= {INSTALL_FLOOR} "
-        "(the third seed's survive mode)")
+    if SMOKE:
+        log(f"G_INSTALLFLOOR PASS (SMOKE: full-dose gate; the 8-step "
+            f"read {r3_:.4f} sits in the pre-formation transient by "
+            "construction)")
+    else:
+        log(f"G_INSTALLFLOOR PASS: inst_a3 {r3_:.4f} >= "
+            f"{INSTALL_FLOOR} (the third seed's survive mode)")
 
     # ---- G_SEEDTWIN14 (the free fact: 24314's draws are name-invariant)
     n_st, d_st = differ_count(C["x60_inst_b_draws"],
@@ -2238,18 +2243,25 @@ def make_report(p2: dict, p3: dict) -> None:
     L.append("")
     sv = metrics["third_seed_verdict"]
     av = metrics["anatomy"]["verdict"]
+    k_s = ("n/a (unadjudicable)" if sv["K"] is None
+           else f"{sv['K']:.6f}")
     L.append(f"**THE THIRD SEED (GRADED / BINARY): {sv['verdict']}** — "
-             f"K (the key depth) = {sv['K']:.6f}. {sv['clause']}")
+             f"K (the key depth) = {k_s}. {sv['clause']}")
     L.append("")
     L.append(f"**THE RIDER (ANATOMY-SEPARATES / ANATOMY-SILENT): "
              f"{av['verdict']}** — {av['clause']}")
     L.append("")
-    L.append(f"Composite: {metrics['composite']} | P-x63a: read1 "
-             f"{'HIT' if metrics['P_x63a']['read1_hit'] else 'MISSED'} "
-             f"({metrics['P_x63a']['read1_guess']}), read2 "
-             f"{'HIT' if metrics['P_x63a']['read2_hit'] else 'MISSED'} "
-             f"({metrics['P_x63a']['read2_guess']}), read3 "
-             f"{'HIT' if metrics['P_x63a']['read3_hit'] else 'MISSED'}.")
+    if metrics["P_x63a"]["scored"]:
+        pxa = (f"read1 "
+               f"{'HIT' if metrics['P_x63a']['read1_hit'] else 'MISSED'} "
+               f"({metrics['P_x63a']['read1_guess']}), read2 "
+               f"{'HIT' if metrics['P_x63a']['read2_hit'] else 'MISSED'} "
+               f"({metrics['P_x63a']['read2_guess']}), read3 "
+               f"{'HIT' if metrics['P_x63a']['read3_hit'] else 'MISSED'}")
+    else:
+        pxa = ("UNSCORED (smoke/texture/unadjudicable — all guesses "
+               "stand registered)")
+    L.append(f"Composite: {metrics['composite']} | P-x63a: {pxa}.")
     if "cross_prediction" in metrics:
         L.append(f"- CROSS-PREDICTION: "
                  f"{metrics['cross_prediction']['reading']}")
@@ -2267,9 +2279,16 @@ def make_report(p2: dict, p3: dict) -> None:
                 "refa3 (x63, seed 24316 — THIS CELL)"):
         row = t[key]
         s1, s2 = row["subtests"]["r_g-12|g0"], row["subtests"]["r_g0|g+12"]
-        L.append(f"| {key} | {s1['sign']}/{s1['mad']} | "
-                 f"{s2['sign']}/{s2['mad']} | {row['verdict']} | "
-                 f"{row['K']:.6f} | {row['class']} |")
+
+        def sm(s: dict) -> str:
+            return (f"{s['sign']}/{s['mad']}"
+                    if s["sign"] is not None and s["mad"] is not None
+                    else "n/a")
+
+        k_s = ("n/a" if row["K"] is None else f"{row['K']:.6f}")
+        L.append(f"| {key} | {sm(s1)} | "
+                 f"{sm(s2)} | {row['verdict']} | "
+                 f"{k_s} | {row['class']} |")
     L.append("")
     L.append(f"- K := the anneal r1 mean|d| — the exact quantity that "
              f"separates the anchors (A 0.196489 vs B 0.144955); bands "
@@ -2353,12 +2372,17 @@ def make_report(p2: dict, p3: dict) -> None:
     L.append("")
     L.append("## P-x63a (the executor's own read, registered at birth)")
     L.append("")
-    L.append(f"- READ 1: {REGISTERED['P_x63a']['read1_guess']} -> "
-             f"{'HIT' if metrics['P_x63a']['read1_hit'] else 'MISSED'}")
-    L.append(f"- READ 2: {REGISTERED['P_x63a']['read2_guess']} -> "
-             f"{'HIT' if metrics['P_x63a']['read2_hit'] else 'MISSED'}")
-    L.append(f"- READ 3: {REGISTERED['P_x63a']['read3_guess']} -> "
-             f"{'HIT' if metrics['P_x63a']['read3_hit'] else 'MISSED'}")
+    if metrics["P_x63a"]["scored"]:
+        L.append(f"- READ 1: {REGISTERED['P_x63a']['read1_guess']} -> "
+                 f"{'HIT' if metrics['P_x63a']['read1_hit'] else 'MISSED'}")
+        L.append(f"- READ 2: {REGISTERED['P_x63a']['read2_guess']} -> "
+                 f"{'HIT' if metrics['P_x63a']['read2_hit'] else 'MISSED'}")
+        L.append(f"- READ 3: {REGISTERED['P_x63a']['read3_guess']} -> "
+                 f"{'HIT' if metrics['P_x63a']['read3_hit'] else 'MISSED'}")
+    else:
+        L.append("- READ 1/2/3: UNSCORED "
+                 f"({metrics['composite']}); all three guesses stand "
+                 "registered verbatim in metrics.registered")
     L.append(f"- scored: {metrics['P_x63a']['scored']}")
     L.append("")
     L.append("## CATCHES / DEVIATIONS")
