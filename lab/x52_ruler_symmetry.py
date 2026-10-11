@@ -690,6 +690,14 @@ metrics: dict = {
         "ruler-side half)",
     ],
     "gates": {},
+    "catches": [
+        "SMOKE-CAUGHT REPAIR 1 (pre-adjudication, disclosed): the "
+        "full-series desk test built pairs with the PRIMARY keys only "
+        "while the scorer walked the full observable set — KeyError at "
+        "the first smoke pass; repaired by a keys parameter on "
+        "score_pairs (the full-series test scores the primaries only, "
+        "as frozen); registration + bars byte-untouched.",
+    ],
 }
 
 
@@ -831,12 +839,14 @@ def floor_for(key: str, pairs_in_window: list[dict]):
     return FLOOR_CORR, "absolute 0.15 (1/sqrt(59))"
 
 
-def score_pairs(pairs: list[dict]) -> dict:
+def score_pairs(pairs: list[dict], keys=ALL_KEYS) -> dict:
     """x45's frozen separation scoring over IN-WINDOW pairs; P-T334a's
-    decorrelation form (sign - + consistency >= 0.75) co-scored per key."""
+    decorrelation form (sign - + consistency >= 0.75) co-scored per key.
+    `keys` restricts the scored set (the full-series desk test scores the
+    primaries only — smoke-caught repair, registration untouched)."""
     in_window = [p for p in pairs if p["in_window"]]
     out = {}
-    for key in ALL_KEYS:
+    for key in keys:
         ds = [p[key]["d"] for p in in_window if p[key]["d"] is not None]
         n_none = sum(1 for p in in_window if p[key]["d"] is None)
         if not ds:
@@ -1791,7 +1801,7 @@ def rider_internal_fullseries(x45m: dict) -> dict:
                          "d": (None if av is None or rv is None
                                else av - rv)}
         pairs.append(pair)
-    scored = score_pairs(pairs)
+    scored = score_pairs(pairs, keys=PRIMARY)
     return {"pairs": pairs, "scored": scored, "n_rows": len(rows),
             "n_in_window": sum(1 for p in pairs if p["in_window"]),
             "note": ("pure desk: every committed anneal ruler row paired "
