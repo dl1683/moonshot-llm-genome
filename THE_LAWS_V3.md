@@ -238,52 +238,26 @@ nothing); DOSE BUYS FIRST-STEP ARMOR WITHOUT LIMIT (s1 0.115 -> 0.427) WHILE
 WALL-INTERIOR RECOVERY CAPS — the two axes independent, the second ceilinged; the
 missing piece is a FORMATION PROTOCOL, not an ingredient.
 
-THE SECOND FORMATION (v3.2, the merged clause): the protocol's fingerprint is
-ELICITATION DECORRELATION. It is written only by OPEN-LOOP VARIED MENUS — feedback
-writes its opposite (compact in-room writes that TIGHTEN coherence). It is written
-NAME-BLIND — write geometry is stream+substrate arithmetic and carries nothing. It
-forms in TWO ACTS — an oscillating emergence ([s10,s30]) and a single sharp
-consolidation ([s50,s55]) that never re-coheres. In the closed {warm,cold} x
-{ZEPHYRA,TAVIREN} cons grid it is observed in exactly ONE cell — {warm x
-ZEPHYRA-lineage} — AND THE FORK CLOSED AT x53: THE SEAT IS DOSE-PURCHASABLE BY ANY
-NAME (the adoptive leg decorrelating at the native's matched exposure, r −0.93 both
-sides — G2, the substrate's seat, not the biography's identity), the menu must
-rehearse AUTHORED contexts (the own-key random-context menu collapsing the host; the
-menu-of-one holding but not decorrelating) — THE QUADRUPLE: {warm x re-formed-seat x
-authored-context menu x dose}, AND THE CONSISTENCY IS REALIZATION-CARRIED AND
-PERTURBATION-KNIFE-EDGED (x36+x58: swapping 1.3% of ANY pages kills it — the tail
-as the front; the RESHUFFLE kills with the content intact; even the RE-JITTER kills
-with only the noise redrawn — location-free, content-free: THE EXACT AUTHORED
-REALIZATION, JITTER DRAWS INCLUDED, IS THE KEY; the bimodal texture: the late
-consolidation face robust to every perturbation tested while the early emergence
-face re-rolls — THE TWO ACTS HAVE DIFFERENT STABILITY CLASSES; maintenance
-dose-like, consistency knife-edge — TWO CURRENCIES) (one draw per cell; the TAVIREN-cold cell is UNRUN, not excluded —
-constructible as a TAVIREN install from BASE through the T-keyed cons stream; and the
-TAVIREN-warm cell's 'coherence' is the instrument's ZERO-POINT, not an independently
-measured datum — the ruler-internal dense panel owed). The NAME-KEY CONTRAST
-(RE-WORDed at e346 to MAINTAINED-VS-NOT: the neutral key QORVATH and the ZxT arm both
-EXECUTE the host read exactly as the own-guest key did — the 2x2 closes with
-EXECUTION SYMMETRIC and SURVIVAL OWN-KEY-ONLY; partial rehearsal NEVER protects under the
-min convention — and the mid-band resolved it (x55): the protection edge lands in
-(7,12], GRADED and non-monotone (k=14 exceeding the full dose at s125; the armor
-edge distinct at (7,9]); THE LEDGER (x56, logit currency): THE SEAT GROWS — at
-partial dose both names occupy it ABOVE the solo budget (11 cells, best +5.29)
-before the full-dose RE-CONCENTRATION (R84's repair: the LIFT collapses ~99% real
-while OCCUPANCY holds — the raw sums exceed solo at 2-of-3 fate steps, the lift-only
-clause disclosed; the guest corner GUEST-DEAD): CAPACITY-TWO, the anti-motion real
-but non-conserving; the write
-name-blind throughout: the host dies unmaintained under ANY non-host key) is the cell's causal
-border — READ SURVIVAL, NOT DECORRELATION: the decorrelation datum remains the walk,
-n=1, now isolated as THE OWN-KEY PHENOMENON. The
-decorrelation splits: a LEVEL the one cell owns and a PHASE DYNAMICS every arm shares
-through the anneal (the ruler-artifact reading alive — every correlation in the pool
-has the ruler as one endpoint). G3 DEAD (x52: the walk's decorrelation PRESERVES
-against the pooled own-side Z-ruler — sign − 0.833 both primaries, 12/12 in-window,
-stratum-cleared; the reference internally coherent; the two-act shape the WALK's
-alone — the anneal's dense interior a 95-step oscillation); G1/G2 open (own-name
-authorship / lineage geometry), with the CLASS CAVEAT: the anneal-as-arm also sits
-below cold Z-pools — part of the separation rides the warm-vs-cold axis, and the
-fork must be decided on the walk-specific residue.
+THE SECOND FORMATION (v3.3, the compressed form; the R84 draft applied and
+updated through x57/x58): the protocol's fingerprint is ELICITATION DECORRELATION —
+written only by OPEN-LOOP VARIED MENUS (feedback writes its opposite: compact
+in-room writes that tighten coherence); written NAME-BLIND (geometry is
+stream+substrate arithmetic); formed in TWO ACTS OF DIFFERENT STABILITY CLASSES (an
+emergence face that re-rolls under any perturbation; a consolidation face robust to
+all tested). THE SEAT GRAMMAR: the seat is a GROWING CAPACITY — dose-purchasable by
+any name at matched exposure (the adoptive decorrelation; n=1 pair); its consistency
+carried by THE EXACT AUTHORED REALIZATION, jitter draws included (any swap,
+reshuffle, or re-jitter kills it — location-free, content-free); its maintenance
+SUPERVISION-SIDE (the name as the attended emission target protects, exceeding the
+ruler with no s125 dip; the identical dose as background input executes: REHEARSAL
+AS ATTENTION); its occupancy DOSED (the mid-band shared above solo; the full dose
+re-concentrating — the lift collapsing ~99% real while occupancy holds). THE
+READ-SIDE BORDER: survival is MAINTAINED-VS-NOT (any non-host key executes; partial
+rehearsal protects only past the (7,12] edge; the armor edge distinct at (7,9]); in
+the closed {warm,cold} x {ZEPHYRA,TAVIREN} cons grid the decorrelation was observed
+in one cell — re-read as the one accidental quadruple fill. The G1/G2/G3 vocabulary
+is superseded by the grammar; the unmeasured interiors and all numbers live in the
+scope block.
 
 *Scope (Law 8):* the fingerprint arc — x45's separation (0.78/0.83, sign -); e343's
 cross (+0.57; the install's steep-transient rungs near-perfectly coherent
@@ -312,6 +286,14 @@ DIMENSION-MATCH PARADOX (the projection-geometry explanation of the fade dead). 
 n=1-per-cell, net0-class, and power disclosures stand; one organism, one wash
 protocol, one architecture at 2.74M.
 
+ The window's numbers: x55's mid-band (0.2410/0.3371/0.6084 at
+k9/12/14; the median lane crossing ~3 steps early); x56's ledger (11 capacity cells,
+best +5.29; the k14->k16 lift collapse 98.6% real; the corner GUEST-DEAD); x57's
+role split (tonly 0.99996-1.00000 exceeding the ruler 0.684/0.309/0.716, no s125
+dip; conly 0.0035/0.0029/0.0008; |W| role-blind 19.6 vs 18.4); x58's perturbation
+ladder (tail4/reshuffle/re-jitter all COHERENT at 0.53-0.60 with geo_mad
+0.30-0.365; the writes perturbation-blind, spreads <= 0.036).
+
 ## METHODS (the demoted instrument rules)
 
 1. READ BARS ARE AUTHORSHIP-RELATIVE: a name's displacement-lift is read against its
@@ -325,9 +307,9 @@ protocol, one architecture at 2.74M.
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 27-for-50
-   (refreshed at the x58 fold: the nineteen cells since R80 went 9-for-19 — e342, x48,
-   x46, x51 (primary; rider missed, disclosed), x50, x52, x36, x55 hit; g1bS9, x45,
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 28-for-51
+   (refreshed at the x57 fold: the twenty cells since R80 went 10-for20 — e342, x48,
+   x46, x51 (primary; rider missed, disclosed), x50, x52, x36, x55, x57 hit; g1bS9, x45,
    x47, e343, e344, x49, e345, e346 (SHARP head missed, ZxT rider hit, disclosed),
    x53 (split, counted hit under the head convention — R84's wording), x56
    (CAPACITY-TWO against both calls), x58 (AT-STRENGTH/CONTENT fell to
