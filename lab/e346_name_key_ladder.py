@@ -347,8 +347,26 @@ THERM_NEVER_PAST = 83.5                   # burst abort line (inside 85C;
 THERM_LAUNCH_MAX = 80.0                   # the house launch gate
 POLL_EVERY = 10                           # in-burst thermal polls (e345: 20)
 
+# ---- THE POST-BREACH GUARD (phase 2, mid-run 2026-10-11 ~02:4xZ) --------
+# k7's third burst peaked 86.0C and zxt's second 87.0C — PAST the 85C
+# line between 10-step polls under heat-soak. The executor STOPPED the
+# run (GPU cooled 87 -> 71C idle), and re-tightened the guard for every
+# remaining burst (disclosed in metrics.deviations; the envelope record
+# keeps the breach verbatim):
+TRAIN_BURST_CAP_2 = 90.0                  # shorter bursts
+COOLDOWN_S_2 = 60.0                       # the top of the 30-60s window
+THERM_NEVER_PAST_2 = 82.0                 # abort earlier (inside 85C by
+                                          # a full step-rise margin)
+THERM_LAUNCH_MAX_2 = 70.0                 # stricter launches heat-soaked
+POLL_EVERY_2 = 1                          # poll EVERY step
+
 CAPTURE_STEPS = (1, 2, 4, 8) if SMOKE else (1, 2, 4, 8, 25, 125, 300)
 FATE_STEPS = (25, 125, 300)               # the dispatch's read captures
+
+# THE POST-BREACH ARM SET: zxt's remainder (from its s200 resume) and
+# the neu arm run under the phase-2 guard; k1/k2/k4/k7 finished under
+# phase 1 (their max temps recorded verbatim in the envelope).
+POST_BREACH_ARMS = ("zxt", "neu")
 
 # ---- the re-keying scheme (pre-registered; THE disclosure) ---------------
 LADDER_FLIPS = {1: (0,), 2: (0, 8), 4: (0, 4, 8, 12),
@@ -653,6 +671,26 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE THERMAL BREACH + THE STOP-COOL-RESUME + THE TWO-PHASE GUARD "
+    "(mid-run, 2026-10-11 ~02:45Z, disclosed): under heat-soak k7's "
+    "third burst peaked 86.0C and zxt's second 87.0C — PAST the 85C "
+    "line between the 10-step polls (the launch gate and abort line "
+    "were e345-class: launch <=80C, abort >=83.5C; the GPU's rise "
+    "out-ran the poll interval). THE EXECUTOR'S RESPONSE: the run "
+    "STOPPED at zxt s200 (the process killed; GPU observed cooling "
+    "87 -> 71C at idle), and every REMAINING burst (zxt's remainder "
+    "from its s200 resume + the whole neu arm) runs under the PHASE-2 "
+    "GUARD: burst cap 150 -> 90s, cooldown 40 -> 60s, abort 83.5 -> "
+    "82.0C, launch ceiling 80 -> 70C, polls every 1 step. No bar, arm, "
+    "stream or gate touched; the envelope records keep both phases' "
+    "bursts verbatim (envelope_phase field); k1/k2/k4 finished under "
+    "phase 1 at max 84.0C, k7 at 86.0C (the breach), zxt bursts 1-2 at "
+    "up to 87.0C (the breach); the training arithmetic is unaffected "
+    "(deterministic kernels per realization; each arm is its own "
+    "realization and carries its G_XDEVICE class probe). The restart "
+    "RECONCILES the prior pass's phase-1 burst records from the "
+    "on-disk PARTIAL metrics.json (main()'s reconciliation block), so "
+    "the committed envelope carries both phases verbatim.",
     "THE SMOKE-CAUGHT G_DRAWS WIRING REPAIR (pre-adjudication, "
     "disclosed): the first smoke pass failed G_DRAWS' shape_ok — the "
     "expression took len() of the per-step draw DICTS (4 keys) instead "
@@ -758,10 +796,15 @@ metrics: dict = {
     "registered": REGISTERED,
     "smoke": SMOKE,
     "envelope": {
-        "device": "GPU for the six arms (bursts <=150s, 40s cooldowns, "
-                  "gpu_ok double-poll, in-burst polls every 10 steps, "
-                  "abort >= 83.5C, never past 85C); CPU threads 4 for "
-                  "every read/cert/rider",
+        "device": ("GPU for the six arms, TWO PHASES (the thermal "
+                   "breach disclosed in deviations): phase 1 bursts "
+                   "<=150s / cooldowns 40s / abort >=83.5C / polls "
+                   "every 10 steps / launch <=80C; phase 2 (zxt "
+                   "remainder + neu, post-breach) bursts <=90s / "
+                   "cooldowns 60s / abort >=82.0C / polls every step / "
+                   "launch <=70C; never past 85C is the line — phase 2 "
+                   "exists because phase 1 breached it twice); CPU "
+                   "threads 4 for every read/cert/rider"),
         "threads": 4,
         "timestamps": "datetime.now(UTC) only",
         "bursts": [],
@@ -1403,17 +1446,22 @@ def phase_P1a(p0: dict) -> dict:
 # ======================================================================
 # P1b — THE SIX ARMS (GPU bursts; per-arm resume)
 # ======================================================================
-def gpu_launch_ok(tag: str) -> bool:
-    """The double-polled launch gate (e341's form)."""
+def gpu_launch_ok(tag: str, launch_max: float = THERM_LAUNCH_MAX) -> bool:
+    """The double-polled launch gate (e341's form), ceiling-parame
+    terized for the two-phase envelope."""
     s1 = common.gpu_status()
-    ok1 = (s1["util"] <= 85 and s1["temp"] <= THERM_LAUNCH_MAX)
+    ok1 = (s1["util"] <= 85 and s1["temp"] <= launch_max)
     time.sleep(2)
     s2 = common.gpu_status()
-    ok2 = (s2["util"] <= 85 and s2["temp"] <= THERM_LAUNCH_MAX)
+    ok2 = (s2["util"] <= 85 and s2["temp"] <= launch_max)
     ok = ok1 and ok2
     log(f"[envelope:{tag}] launch polls: {s1} / {s2} -> "
         f"{'OK' if ok else 'HOLD'}")
     return ok
+
+
+def gpu_launch_ok2(tag: str, launch_max: float) -> bool:
+    return gpu_launch_ok(tag, launch_max)
 
 
 def phase_P1b(p0: dict) -> dict:
@@ -1485,18 +1533,28 @@ def run_arm(p0: dict, arm: dict, start_path: Path) -> dict:
                     "draws": state["draws"]}, resume_ck)
 
     burst_n = 0
+    # THE POST-BREACH PHASE FLAG: arms tagged in POST_BREACH_ARMS run
+    # every burst under the phase-2 guard (the deviation discloses the
+    # two-phase envelope; finished arms keep their phase-1 records).
+    phase2 = tag in POST_BREACH_ARMS
+    b_cap = TRAIN_BURST_CAP_2 if phase2 else TRAIN_BURST_CAP
+    cd_s = COOLDOWN_S_2 if phase2 else COOLDOWN_S
+    t_abort = THERM_NEVER_PAST_2 if phase2 else THERM_NEVER_PAST
+    t_launch = THERM_LAUNCH_MAX_2 if phase2 else THERM_LAUNCH_MAX
+    poll_every = POLL_EVERY_2 if phase2 else POLL_EVERY
     while step < CONS_STEPS:
         # ---- the launch gate (double-polled) --------------------------
-        while not gpu_launch_ok(f"{tag}.b{burst_n}"):
+        while not gpu_launch_ok2(f"{tag}.b{burst_n}", t_launch):
             log(f"  [{tag}] launch HOLD (busy/hot) — waiting "
-                f"{COOLDOWN_S:.0f}s")
-            time.sleep(COOLDOWN_S)
+                f"{cd_s:.0f}s")
+            time.sleep(cd_s)
         burst_n += 1
         t_burst = time.time()
         burst_rec = {"tag": f"{tag}.burst{burst_n}",
                      "t_start": utcnow(), "steps": [step, None],
                      "max_temp": None, "dur_s": None,
-                     "end_reason": None, "cooldown_s": COOLDOWN_S}
+                     "end_reason": None, "cooldown_s": cd_s,
+                     "envelope_phase": 2 if phase2 else 1}
         aborted = False
         while step < CONS_STEPS:
             step += 1
@@ -1527,16 +1585,16 @@ def run_arm(p0: dict, arm: dict, start_path: Path) -> dict:
             state["captured"] = captured
             state["draws"] = draws
             # ---- the in-burst thermal + burst-cap guards -------------
-            if step % POLL_EVERY == 0:
+            if step % poll_every == 0:
                 gs = common.gpu_status()
                 max_temp_seen = max(max_temp_seen, gs["temp"])
-                if gs["temp"] >= THERM_NEVER_PAST:
+                if gs["temp"] >= t_abort:
                     log(f"  [{tag}] THERMAL GUARD {gs['temp']:.1f}C — "
                         f"burst ended, resume saved")
                     burst_rec["end_reason"] = \
                         f"thermal {gs['temp']:.1f}C"
                     aborted = True
-            if (time.time() - t_burst) > TRAIN_BURST_CAP:
+            if (time.time() - t_burst) > b_cap:
                 burst_rec["end_reason"] = "burst cap"
                 aborted = True
             if aborted:
@@ -1553,8 +1611,8 @@ def run_arm(p0: dict, arm: dict, start_path: Path) -> dict:
         if step < CONS_STEPS:
             log(f"  [{tag}] burst {burst_n} ended "
                 f"({burst_rec['end_reason']}) at s{step} — cooldown "
-                f"{COOLDOWN_S:.0f}s (temp {gs_end['temp']:.0f}C)")
-            time.sleep(COOLDOWN_S)
+                f"{cd_s:.0f}s (temp {gs_end['temp']:.0f}C)")
+            time.sleep(cd_s)
     save_resume()
     log(f"  [{tag}] replay finished: {CONS_STEPS} steps, "
         f"{len(captured)} captures, {burst_n} burst(s), max temp "
@@ -2572,6 +2630,24 @@ def main() -> None:
     log(f"E346 — THE NAME-KEY LADDER + THE ZxT RIDE + THE NEUTRAL KEY "
         f"(smoke={SMOKE}) -> {RD}")
     metrics["birth_commit"] = BIRTH_COMMIT
+    # THE POST-BREACH RECONCILIATION: a prior pass's phase-1 burst
+    # records are preserved from the on-disk PARTIAL metrics.json (the
+    # executor's stop-cool-resume; disclosed in deviations).
+    prior = RD / "metrics.json"
+    if prior.exists():
+        try:
+            old = json.loads(prior.read_text(encoding="utf-8"))
+            for b in old.get("envelope", {}).get("bursts", []):
+                if not any(r["tag"] == b["tag"]
+                           for r in metrics["envelope"]["bursts"]):
+                    metrics["envelope"]["bursts"].append(b)
+            if metrics["envelope"]["bursts"]:
+                log(f"  [envelope] reconciled {len(metrics['envelope']['bursts'])} "
+                    "prior-pass burst records from the on-disk PARTIAL "
+                    "metrics.json")
+        except Exception:                           # noqa: BLE001
+            log("  [envelope] prior metrics.json unreadable — starting "
+                "the burst record fresh (run.log keeps everything)")
     write_partial("startup (bars + parity + P-e346a registered, "
                   "committed at birth)")
     set_seed(34600)             # global init only; every RNG is its own
