@@ -575,7 +575,7 @@ MD5_BINDS = {
     "x64_inst_s4_end": ("runs/x64/inst_s4_end.pt",
                         "9ba3fe2bd0817e4006a02d0c5155576a"),
     "x64_inst_s4_resume": ("runs/x64/inst_s4_resume.pt",
-                           "b3ca54fa94f0e3fc93ac7a2291b119b"),
+                           "b3ca54faae4f0e3fc93ac7a2291b119b"),
     "x64_inst_s5_end": ("runs/x64/inst_s5_end.pt",
                         "8d8601f13a8c2f0291c3444a2009fb18"),
     "x64_inst_s5_resume": ("runs/x64/inst_s5_resume.pt",
@@ -1415,10 +1415,11 @@ def build_menus(p0: dict):
     menus["authored_n"] = authored_pool(name_ids_n, install_occ)
     menus["jittered_q"] = jittered_pool(name_ids_q)
     menus["random_q"] = random_pool(name_ids_q)
-    # half: 30 authored (first 30) + 30 random
+    # half: 30 authored (first 30) + 30 random (the first 30 draws)
     hx, hm = authored_pool(name_ids_q, install_occ[:30])
-    rx, rm = random_pool(name_ids_q)
-    menus["half_q"] = (torch.cat([hx, rx]), torch.cat([hm, rm]))
+    rx60, rm60 = random_pool(name_ids_q)
+    menus["half_q"] = (torch.cat([hx, rx60[:30]]),
+                       torch.cat([hm, rm60[:30]]))
     # co-occupant: 30 authored Q + 30 authored N
     cx_q, cm_q = authored_pool(name_ids_q, install_occ[:30])
     cx_n, cm_n = authored_pool(name_ids_n, install_occ[30:])
@@ -1565,7 +1566,7 @@ def phase_P0() -> dict:
     room = SRCT(GB.G1B_PARAMS, ROOM_K, ROOM_SEED_D, ROOM_SEED_S)
     rooms264 = torch.load(CKPT_DIR / "e264_rooms.pt", map_location="cpu",
                           weights_only=False)
-    D264 = np.asarray(rooms264["model"]["K10K"]["D"]).astype(np.float64)
+    D264 = np.asarray(rooms264["model"]["K10K"]["D_int8"]).astype(np.float64)
     S264 = np.asarray(rooms264["model"]["K10K"]["S"])
     x = np.random.default_rng(26115).standard_normal(GB.G1B_PARAMS)
     px = room.project(x)
@@ -1593,7 +1594,8 @@ def phase_P0() -> dict:
           "r_eval_xy": (r_eval_x, r_eval_y), "room": room,
           "install_occ": install_occ, "e001_flat64": e001_flat64,
           "base_means": base_means, "name_ids_q": name_ids_q,
-          "name_ids_n": name_ids_b, "name_ids_z": name_ids_z}
+          "name_ids_n": name_ids_b, "name_ids_z": name_ids_z,
+          "name_ids_t": name_ids_t}
 
     # ---- G_ENDPOINTS -----------------------------------------------------
     p0_mini = {"gm12_ids": bat_ids[-12], "g0_ids": bat_ids[0],
@@ -2086,11 +2088,9 @@ def phase_P2(p0: dict) -> dict:
     s1_end = load_model_sd(REPO / "runs" / "x64" / "inst_s1_end.pt")
     mine = instrument(p0, s1_end, "loadcert_s1", p0["qid"],
                       e001_flat64, dual_id=p0["zid"])
-    ref = x64m["_committed_rows_cache"]["inst_s1_end"] \
-        if "_committed_rows_cache" in x64m else None
+    ref = x64m.get("_committed_rows_cache", {}).get("inst_s1_end")
     if ref is None:
-        # fall back to the resume's own end-run row (the s400 rung +
-        # end read from the base-rate table)
+        # fall back to the base-rate table's committed end read
         ref_read = x64m["base_rate"]["table"]["429496730"].get(
             "inst_end_read")
         ok_load = ref_read is not None and \
@@ -2950,16 +2950,16 @@ def phase_P7() -> None:
             "lean": "REGRESSION-SPEAKS + ABLATION-HOLDS + "
                     "PRELUDE-SELECTS + BARRIERS-VANISH",
             "counter": "SILENT + DROPS + SILENT + PERSIST",
-            "hits_lean": sum(1 for k, v in {
-                "a": v_reg == "REGRESSION-SPEAKS",
-                "b": v_abl == "ABLATION-HOLDS",
-                "c": v_pre == "PRELUDE-SELECTS",
-                "d": v_rid == "BARRIERS-VANISH-AT-k16"}.values() if v),
-            "hits_counter": sum(1 for k, v in {
-                "a": v_reg == "REGRESSION-SILENT",
-                "b": v_abl == "ABLATION-DROPS",
-                "c": v_pre == "PRELUDE-SILENT",
-                "d": v_rid == "BARRIERS-PERSIST"}.values() if v)},
+            "hits_lean": sum(1 for v in (
+                v_reg == "REGRESSION-SPEAKS",
+                v_abl == "ABLATION-HOLDS",
+                v_pre == "PRELUDE-SELECTS",
+                v_rid == "BARRIERS-VANISH-AT-k16") if v),
+            "hits_counter": sum(1 for v in (
+                v_reg == "REGRESSION-SILENT",
+                v_abl == "ABLATION-DROPS",
+                v_pre == "PRELUDE-SILENT",
+                v_rid == "BARRIERS-PERSIST") if v)},
     }
     metrics["composite"] = composite
     metrics["P_x66a"] = scored
@@ -3027,7 +3027,7 @@ def make_png() -> None:
     ax = axes[1][1]
     rid = metrics.get("rider", {})
     if rid.get("grid"):
-        gs = [rid["grid"][k] for k in sorted(rid["grid"])]
+        gs = [rid["grid"][k] for k in sorted(rid["grid"], key=float)]
         ax.plot([g["alpha"] for g in gs], [g["host"] for g in gs],
                 marker="o", ms=3, label="host p(T)")
         ax.plot([g["alpha"] for g in gs], [g["guest"] for g in gs],
@@ -3119,10 +3119,10 @@ def write_report(composite: dict) -> None:
             f"{'powered' if r['powered'] else 'DIE-MODE'}")
     lines += ["", "## The rider grid"]
     if rid.get("grid"):
-        for a in sorted(rid["grid"]):
+        for a in sorted(rid["grid"], key=float):
             g = rid["grid"][a]
-            lines.append(f"- alpha {a:.3f}: host {g['host']:.6f} | "
-                         f"guest {g['guest']:.6f}")
+            lines.append(f"- alpha {float(a):.3f}: host "
+                         f"{g['host']:.6f} | guest {g['guest']:.6f}")
     lines += ["", "## The mid-band co-occupants (co-report)"]
     for a, r in rid.get("midband", {}).items():
         c = r.get("coords", {})
