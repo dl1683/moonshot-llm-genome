@@ -1,18 +1,18 @@
 {
   "experiment": "x66 \u2014 THE ORACLE, CALIBRATED (the free 9-record trajectory prelude + the formation sweep + the no-biography ablation + the k16 interpolation rider)",
-  "phase": "P0 (birth)",
-  "date": "2026-10-12T13:21:43.963964+00:00",
-  "status": "PARTIAL: P4 js_16 complete (K 0.552715, CARRY) (2026-10-12T14:15:09Z)",
+  "phase": "COMPLETE (adjudicated)",
+  "date": "2026-10-12T15:22:11.701482+00:00",
+  "status": "ADJUDICATED (2026-10-12T15:28:20.681234+00:00)",
   "smoke": false,
   "envelope": {
     "route": "certified CPU-replay (torch threads 4, CUDA banned)",
     "slice_cap_s": 900.0,
     "gpu_snapshot_at_start": {
       "util": 0.0,
-      "mem_used": 0.0,
+      "mem_used": 1750.0,
       "mem_total": 24463.0,
-      "temp": 48.0,
-      "power": 22.53
+      "temp": 70.0,
+      "power": 23.57
     },
     "slice_caps": [
       {
@@ -86,6 +86,14 @@
     },
     {
       "t": "2026-10-12T13:21:43.974218+00:00",
+      "note": "restart: progressive metrics merged; legs resume from their own checkpoints"
+    },
+    {
+      "t": "2026-10-12T14:22:04.185156+00:00",
+      "note": "restart: progressive metrics merged; legs resume from their own checkpoints"
+    },
+    {
+      "t": "2026-10-12T15:22:11.736581+00:00",
       "note": "restart: progressive metrics merged; legs resume from their own checkpoints"
     }
   ],
@@ -1293,9 +1301,80 @@
       "abs_diff": 0.0,
       "claim": "the wash's panel-0 read == the fresh install end read (2e-6; the wash-start provenance)",
       "pass": true
+    },
+    "G_FLOOR_jd_800": {
+      "end_read": 0.18333226442337036,
+      "floor": 0.1,
+      "class": "survive",
+      "pass": true
+    },
+    "G_REFDRAWS_jd_800": {
+      "n_records": 300,
+      "bit_equal_to_own_inst_first": true,
+      "claim": "the realization-identity proof: the fingerprint's draw records are bit-equal to the variant's own install's first 300 (its own curriculum)",
+      "pass": true
+    },
+    "G_WASHT0_jd_800": {
+      "mine_t0": 0.18333226442337036,
+      "end_read": 0.18333226442337036,
+      "abs_diff": 0.0,
+      "claim": "the wash's panel-0 read == the fresh install end read (2e-6; the wash-start provenance)",
+      "pass": true
+    },
+    "G_REGINPUTS": {
+      "n_variants": 21,
+      "n_powered": 19,
+      "powered_tags": [
+        "disk_a",
+        "disk_b",
+        "disk_a2",
+        "disk_a3",
+        "disk_s1",
+        "disk_s2",
+        "disk_s3",
+        "disk_s4",
+        "disk_s5",
+        "disk_b2",
+        "m_jit",
+        "m_half",
+        "m_coo",
+        "d_100",
+        "d_200",
+        "d_800",
+        "js_15",
+        "js_16",
+        "jd_800"
+      ],
+      "retention_iqr": 0.017841,
+      "degenerate": true,
+      "underpowered": false,
+      "winners_substituted": [],
+      "features_dropped_nonfinite": [],
+      "full_features": [
+        "dose_steps",
+        "menu_jit",
+        "menu_rnd",
+        "menu_other",
+        "read_t0",
+        "dip_ratio",
+        "write_growth",
+        "seed_K",
+        "name_prior"
+      ],
+      "ablation_features": [
+        "dose_steps",
+        "menu_jit",
+        "menu_rnd",
+        "menu_other",
+        "read_t0",
+        "dip_ratio",
+        "write_growth"
+      ],
+      "claim": "the regression inputs disclosed: the powered set (read_t0 >= 0.10), the degeneracy arithmetic, the feature lists (the prelude winners substituted per the frozen rule)",
+      "pass": true
     }
   },
-  "birth_commit": "f2b737592094463f61990b2e5f56ac3b9d66de72",
+  "birth_commit": "59b13d9cf983b5fcbbb106ba7aa267cb544c6a38",
   "registered": null,
   "anchor_rows": {
     "base": {
@@ -4184,6 +4263,207 @@
         }
       },
       "inst_class": "survive"
+    },
+    "V21": {
+      "vid": "V21",
+      "tag": "jd_800",
+      "host": "Q",
+      "seed": 24314,
+      "menu": "jittered",
+      "menu_key": "jittered_q",
+      "steps": 800,
+      "wash": {
+        "t0": 0.18333226442337036,
+        "end": 0.0011848249705508351,
+        "retention": 0.006462719337905036,
+        "panels": {
+          "0": 0.18333226442337036,
+          "1": 0.024848973378539085,
+          "5": 0.007624960970133543,
+          "10": 0.009722349233925343,
+          "25": 0.0012452093651518226,
+          "50": 0.009646669030189514,
+          "100": 0.0011848249705508351
+        },
+        "n_draws": 100
+      },
+      "traj": {
+        "reads": {
+          "1": 0.0007015491719357669,
+          "100": 0.054936740547418594,
+          "200": 0.1234867200255394,
+          "300": 0.2081025093793869,
+          "400": 0.14432209730148315,
+          "500": 0.13146023452281952,
+          "600": 0.10686702281236649,
+          "700": 0.1762341558933258,
+          "800": 0.18333226442337036
+        },
+        "write_s1": 21.559760454327755,
+        "write_end": 26.309159581084266
+      },
+      "features": {
+        "dose_steps": 800,
+        "menu_jit": 1.0,
+        "menu_rnd": 0.0,
+        "menu_other": 0.0,
+        "read_t0": 0.18333226442337036,
+        "dip_ratio": 0.26398884237990944,
+        "write_growth": 4.749399126756511,
+        "seed_K": 0.196489,
+        "name_prior": 0.0006719522643834352
+      },
+      "K": 0.44114,
+      "label": "CARRY",
+      "powered": true,
+      "rule_verdict": "DECORRELATED",
+      "refa_rows": {
+        "ref_jd_800_s1": {
+          "read": 0.18493197858333588,
+          "write_norm": 26.309101683106988,
+          "corrs": {
+            "g-12|g0": 0.3661199013373919,
+            "g0|g+12": 0.41363142719651924,
+            "g-12|g+12": 0.5087130297986565
+          }
+        },
+        "ref_jd_800_s2": {
+          "read": 0.1853351593017578,
+          "write_norm": 26.309009442035332,
+          "corrs": {
+            "g-12|g0": 0.30647362808043843,
+            "g0|g+12": 0.41657246357113953,
+            "g-12|g+12": 0.44848610615359163
+          }
+        },
+        "ref_jd_800_s4": {
+          "read": 0.17660477757453918,
+          "write_norm": 26.308778746251143,
+          "corrs": {
+            "g-12|g0": 0.25212158592724915,
+            "g0|g+12": 0.5942236253103319,
+            "g-12|g+12": 0.3898799363370945
+          }
+        },
+        "ref_jd_800_s8": {
+          "read": 0.12711597979068756,
+          "write_norm": 26.30863438588788,
+          "corrs": {
+            "g-12|g0": 0.3167001017432374,
+            "g0|g+12": 0.7044974167527506,
+            "g-12|g+12": 0.5266196743326594
+          }
+        },
+        "ref_jd_800_s25": {
+          "read": 0.13044574856758118,
+          "write_norm": 26.31812129442856,
+          "corrs": {
+            "g-12|g0": 0.7409917311557954,
+            "g0|g+12": 0.7694477206086461,
+            "g-12|g+12": 0.863233942678758
+          }
+        },
+        "ref_jd_800_s50": {
+          "read": 0.13534016907215118,
+          "write_norm": 26.397026437958125,
+          "corrs": {
+            "g-12|g0": 0.7300282380202717,
+            "g0|g+12": 0.7367131822614422,
+            "g-12|g+12": 0.867875087202752
+          }
+        },
+        "ref_jd_800_s75": {
+          "read": 0.0793849304318428,
+          "write_norm": 26.593300893214245,
+          "corrs": {
+            "g-12|g0": 0.6667938849280849,
+            "g0|g+12": 0.6582392658657016,
+            "g-12|g+12": 0.8613224783549627
+          }
+        },
+        "ref_jd_800_s100": {
+          "read": 0.09512294083833694,
+          "write_norm": 26.960037112188644,
+          "corrs": {
+            "g-12|g0": 0.5745493476702286,
+            "g0|g+12": 0.7376602101575616,
+            "g-12|g+12": 0.8344222267095545
+          }
+        },
+        "ref_jd_800_s125": {
+          "read": 0.15854771435260773,
+          "write_norm": 27.418833353626194,
+          "corrs": {
+            "g-12|g0": 0.36532097531116725,
+            "g0|g+12": 0.48209483533237096,
+            "g-12|g+12": 0.7387924079463032
+          }
+        },
+        "ref_jd_800_s150": {
+          "read": 0.2896919548511505,
+          "write_norm": 27.836404071384358,
+          "corrs": {
+            "g-12|g0": 0.6773401472598511,
+            "g0|g+12": 0.6616564975396491,
+            "g-12|g+12": 0.8823291864937886
+          }
+        },
+        "ref_jd_800_s175": {
+          "read": 0.3521058261394501,
+          "write_norm": 28.238382992779876,
+          "corrs": {
+            "g-12|g0": 0.09305358496536598,
+            "g0|g+12": 0.42107975219747545,
+            "g-12|g+12": 0.7026979306499385
+          }
+        },
+        "ref_jd_800_s200": {
+          "read": 0.12485901266336441,
+          "write_norm": 28.616485656531445,
+          "corrs": {
+            "g-12|g0": 0.5235891250565197,
+            "g0|g+12": 0.2937935936702167,
+            "g-12|g+12": 0.6467044009704439
+          }
+        },
+        "ref_jd_800_s225": {
+          "read": 0.31304964423179626,
+          "write_norm": 28.98782892970017,
+          "corrs": {
+            "g-12|g0": 0.8249878439277079,
+            "g0|g+12": 0.8537384995426185,
+            "g-12|g+12": 0.9520879335316349
+          }
+        },
+        "ref_jd_800_s250": {
+          "read": 0.20737598836421967,
+          "write_norm": 29.345867526997996,
+          "corrs": {
+            "g-12|g0": 0.44876868773511597,
+            "g0|g+12": 0.63576423039857,
+            "g-12|g+12": 0.7348856425443056
+          }
+        },
+        "ref_jd_800_s275": {
+          "read": 0.1255602091550827,
+          "write_norm": 29.687889597100558,
+          "corrs": {
+            "g-12|g0": 0.7328924009849067,
+            "g0|g+12": 0.6440559554734921,
+            "g-12|g+12": 0.6503063655864054
+          }
+        },
+        "ref_jd_800_s300": {
+          "read": 0.22707931697368622,
+          "write_norm": 30.004883607166317,
+          "corrs": {
+            "g-12|g0": 0.7224076465293778,
+            "g0|g+12": 0.7579743553634628,
+            "g-12|g+12": 0.9011106995455105
+          }
+        }
+      },
+      "inst_class": "survive"
     }
   },
   "_rulers_full": {
@@ -5477,6 +5757,137 @@
         "mine": 0.4678187072277069,
         "bit_identical": true
       }
+    ],
+    "ref_jd_800": [
+      {
+        "step": 275,
+        "prior": 0.12556,
+        "mine": 0.1255602091550827,
+        "bit_identical": true
+      }
     ]
-  }
+  },
+  "regression": {
+    "done": true,
+    "target": "retention = host read@s100 / read@t0",
+    "n_powered": 19,
+    "retention_iqr": 0.017841,
+    "degenerate": true,
+    "underpowered": false,
+    "full": {
+      "features": [
+        "dose_steps",
+        "menu_jit",
+        "menu_rnd",
+        "menu_other",
+        "read_t0",
+        "dip_ratio",
+        "write_growth",
+        "seed_K",
+        "name_prior"
+      ],
+      "Q2": null,
+      "Q2_log10": null
+    },
+    "ablation": {
+      "features": [
+        "dose_steps",
+        "menu_jit",
+        "menu_rnd",
+        "menu_other",
+        "read_t0",
+        "dip_ratio",
+        "write_growth"
+      ],
+      "Q2": null,
+      "Q2_log10": null
+    },
+    "bars": {
+      "Q2_bar": 0.5,
+      "ablation_margin": 0.1,
+      "iqr_floor": 0.02,
+      "min_n": 15
+    },
+    "verdict_regression": "REGRESSION-SILENT",
+    "verdict_ablation": "UNSCORED-SILENT-FULL",
+    "k_companion": {
+      "Q2": -0.6381,
+      "n": 9,
+      "read6": "UNSCORED (prelude silent)"
+    }
+  },
+  "composite": {
+    "verdicts": {
+      "REGRESSION": "REGRESSION-SILENT",
+      "ABLATION": "UNSCORED-SILENT-FULL",
+      "PRELUDE": "PRELUDE-SILENT",
+      "RIDER": "BARRIERS-VANISH-AT-k16",
+      "RIDERC_EXT (P-NARROWS)": "NARROWS-TO-S200"
+    },
+    "P_x66a": {
+      "read1": {
+        "guess": "REGRESSION-SILENT",
+        "verdict": "REGRESSION-SILENT",
+        "hit": true
+      },
+      "read2": {
+        "guess": "ABLATION-HOLDS",
+        "verdict": "UNSCORED-SILENT-FULL",
+        "hit": false,
+        "note": "UNSCORED-BY-DEGENERACY \u2014 neither bar fires"
+      },
+      "read3": {
+        "guess": "PRELUDE-SILENT",
+        "verdict": "PRELUDE-SILENT",
+        "hit": true
+      },
+      "read4": {
+        "guess": "BARRIERS-PERSIST",
+        "verdict": "BARRIERS-VANISH-AT-k16",
+        "hit": false
+      },
+      "read5": {
+        "guess": "NARROWS-TO-S200",
+        "verdict": "NARROWS-TO-S200",
+        "hit": true
+      }
+    },
+    "primary_hits": "2/4",
+    "lab_lean_check": {
+      "lean": "REGRESSION-SPEAKS + ABLATION-HOLDS + PRELUDE-SELECTS + BARRIERS-VANISH",
+      "counter": "SILENT + DROPS + SILENT + PERSIST",
+      "hits_lean": 1,
+      "hits_counter": 2
+    }
+  },
+  "P_x66a": {
+    "read1": {
+      "guess": "REGRESSION-SILENT",
+      "verdict": "REGRESSION-SILENT",
+      "hit": true
+    },
+    "read2": {
+      "guess": "ABLATION-HOLDS",
+      "verdict": "UNSCORED-SILENT-FULL",
+      "hit": false,
+      "note": "UNSCORED-BY-DEGENERACY \u2014 neither bar fires"
+    },
+    "read3": {
+      "guess": "PRELUDE-SILENT",
+      "verdict": "PRELUDE-SILENT",
+      "hit": true
+    },
+    "read4": {
+      "guess": "BARRIERS-PERSIST",
+      "verdict": "BARRIERS-VANISH-AT-k16",
+      "hit": false
+    },
+    "read5": {
+      "guess": "NARROWS-TO-S200",
+      "verdict": "NARROWS-TO-S200",
+      "hit": true
+    }
+  },
+  "git_head_final": "64e636bfd4be2b9746b1cb677708cfbde603fec4",
+  "date_finished": "2026-10-12T15:28:20.701878+00:00"
 }
