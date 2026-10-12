@@ -277,7 +277,7 @@ passage test and the sloppy-models discriminant registered as angles.
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
-| oracle | THE ORACLE CALIBRATED (the free 9-record trajectory prelude riding; measured-K as the target; the no-biography ablation; the k16 interpolation-barrier rider) | RUNNING (dispatched ~23:25Z) | ~30 formation variants, wash + fingerprint, regress retention with honest features — the era's first sweep-scale cell |
+| oracle | THE ORACLE CALIBRATED (x66) | DONE ~15:30Z Oct-12 | REGRESSION-SILENT (the wash a UNIFORM WALL at this class - nothing to predict) + PRELUDE-SILENT + NARROWS-TO-S200 exact + BARRIERS-VANISH-AT-k16 (the Hopfield lands; the mid-band OWN-BASIN) + THE MENU IS A K-DIAL (the jittered menu deepens every seed; the LACK seed carries; the coin MENU-CONTINGENT); the ablation untested-not-refuted — T348 |
 | x65 | THE EXCEPTION'S ANATOMY (R88's insertion: the s5-on-B cross + stage-II nucleation + the multi-context depth read) | READY (behind the oracle) | what makes a non-carrier: the knife class's plasticity rule (epistasis: carrier-stable +4% vs shallow-plastic +23%); cryptic variation (24315's depth on B) |
 | x62 | THE CAPACITY-GROWTH CURVE (seed-armed) | READY | the architectural-default vs first-install fork |
 | G2-b/c | cold-geometry; per-organ anatomy | READY | unchanged |

@@ -326,8 +326,8 @@ ladder (tail4/reshuffle/re-jitter all COHERENT at 0.53-0.60 with geo_mad
    phenomenon's phase shows the phase, not the phenomenon — the controller 'plateaus'
    were dose-phase samples. [Added at R79-era, T318]
 5. THE LEDGER AS CALIBRATION: confident mechanism-seat claims went 0-for-9 (binomial
-   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 29-for-57
-   (refreshed at the x64 fold: the twenty-six cells since R80 went 11-for26 — e342, x48,
+   p ~ 0.002 — the down-weighting is earned); registered coarse leans finished 29-for-58
+   (refreshed at the x66 fold: the twenty-seven cells since R80 went 11-for27 — e342, x48,
    x46, x51 (primary; rider missed, disclosed), x50, x52, x36, x55, x57, x60 (both
 riders) hit; x62a (BOTH-ALONE-KILL, both guesses outside), x61 (PRE-GROWN-SUBSTRATE — the
    counter's silent-synapse bar), x59 (both bars falling — the counter's
