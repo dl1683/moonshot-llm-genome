@@ -1,47 +1,53 @@
-# Droid brief — DIALOGUE MODE, edition 53 (Q1-Q4 open across FIFTY-THREE editions; the
+# Droid brief — DIALOGUE MODE, edition 54 (Q1-Q4 open across FIFTY-FOUR editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-12T01:57Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-12T03:57Z (datetime.now-sourced; at the mark)
 
-- Guard: OK at every beat. Fleet 1/1: x66 THE ORACLE CALIBRATED (desk, the sweep
-  computing — the 21 variants through the wash; the regression + the ablation
-  building).
-- Cadence ages: droid: this brief; review 2h43m (R88 at ~23:14Z — R89 opens behind
-  the oracle's landing); novelty 2h43m (rides R89).
+- Guard: OK at every beat. Fleet 2/2: e347 THE OPTIMIZER CROSS (GPU — the laws'
+  first crossing into new training dynamics) + the oracle x66 (CPU — the menu arms
+  landed, the regression adjudicating).
+- Cadence ages: droid: this brief; review 4h43m (R88 — R90 opens behind the wave's
+  landings; the substrate program is the owner's directive, not a review gap);
+  novelty 3h44m (rides the next panel).
 
-## WHERE WE ARE — the era's first sweep, three bars already home
+## WHERE WE ARE — THE SUBSTRATE PROGRAM (the owner's directive, ~1.5h old, running)
 
-1. THE ORACLE'S EARLY BAR RETURNS (x66 progressive): PRELUDE-SILENT (20 candidate
-   trajectory statistics, none at the bar — the key's depth not legible from
-   formation marginals: THE EMERGENT CLAIM AT SWEEP SCALE); NARROWS-TO-S200 EXACT
-   (R88's registered prediction: only the s200-read cell fires); and
-   BARRIERS-VANISH-AT-k16 — THE HOPFIELD IMPORT'S PREDICTION LANDS (0/15 interior
-   cells kill both occupants; the both-alive point exactly at alpha 0.500: host
-   0.113 / guest 0.168; the endpoints bit-exact against x45's panels).
-2. STILL COMPUTING: the main regression (wash retention vs pre-wash features over
-   the 21 variants) and THE NO-BIOGRAPHY ABLATION — T344's strong test (can
-   formation-process statistics alone predict retention?).
-3. THE ERA STANDING: THE EXCEPTION'S ERA — the key the norm (6.5/8), the anatomy
-   powered-silent, the exception contextual; the seat grammar complete through the
-   majority clause; the imports earning their keep (Hopfield's interpolation
-   barrier now measured; epistasis and cryptic variation riding x65).
-4. THE LAB'S LONG ARC (two days, ~65 cells, nine reviews): from the two channels
-   through the unlearning chapter, the wash-proof recipe and its scale clause, the
-   formation-protocol era (fingerprint found, crossed, retracted, closed), the seat
-   grammar, and now the exception's anatomy. Ledger 29-for-57; the lean honestly
-   noise; the lab's own instruments the ground truth throughout.
+1. THE OWNER OPENED THE TRAINING SPACE (voice note ~02:30Z): beyond the facts lane —
+   optimizers (survey + create our own), architectures, loss functions,
+   pre-training; the GPU aggressive; the goal meaningful AI contributions. Recorded
+   verbatim in SUPERVISOR.md; the program named; every existing law (measured under
+   one AdamW, one 2.74M architecture, one CE loss) became a hypothesis.
+2. THE SURVEY (a610537) FOLDED: MUON the top optimizer (anti-low-rank by design —
+   our formation-block finding's direct interlocutor); THE CONSTRUCTIVE LOSS
+   frontier-novel (the machinery exists in vision; NO LM counterpart rewards
+   cross-context response diversity — the key can plausibly be WRITTEN INTO
+   TRAINING); the position ladder (NoPE/RoPE/ALiBi) the sharpest architecture test;
+   AND THE NOVELTY SCAN'S VERDICT: no benchmark anywhere compares architectures or
+   optimizers by FACT-LEVEL DECAY UNDER A CERTIFIED WASH — OUR STACK IS A
+   PUBLISHABLE INSTRUMENT.
+3. IN FLIGHT: e347 (GPU) — the canon formation, the kill bracket, and the
+   maintenance probe under SGD/momentum/RMSProp/sign-descent at pre-registered
+   canonical lrs; the fork TRANSPORT-INVARIANT vs OPTIMIZER-SPECIFIC (the biggest
+   generalization question the lab has ever asked). The oracle (CPU) — its menu
+   arms landed (the jittered menu's K 0.461 the deepest ever, knife-coherent; the
+   random-context menu DIE-MODE at formation scale); the regression and the
+   no-biography ablation adjudicating.
+4. THE ORDERED WAVE BEHIND: the Muon cross (three registered predictions owed) ->
+   e348 + NoPE/QK-norm -> e349 + the R-Drop control (the constructive loss) -> the
+   SUBSTRATE BENCH harness (the publishable instrument's wrapper).
 
 ## WHAT CAN BE DONE (top next actions, named)
 
-1. THE ORACLE'S LANDING (computing) — REGRESSION-SPEAKS / ABLATION-HOLDS decide
-   T344's reading at sweep scale; the fold + R89 behind.
-2. THE EXCEPTION'S ANATOMY (x65): the knife class's plasticity rule; the
-   epistasis/cryptic-variation tests.
-3. x62 (the capacity-growth curve, seed-armed).
+1. FOLD THE WAVE (e347 + the oracle) — the program's first verdicts; R90 behind
+   them.
+2. THE MUON CROSS — the survey's top-ranked cell; our formation-block finding's
+   direct test.
+3. e349 THE CONSTRUCTIVE LOSS + R-DROP control — the frontier-novel cell.
 4. Q1 — the supervisor's LAWS review: the standing ask since ed.23.
 
 ## BLOCKERS / ASKS
 
 - Q1 STILL LIVE AND OWNERLESS.
 - The dialogue still owes droid's side.
-- The envelope quiet (all-desk; the oracle on the replay route).
+- The envelope: GPU active under the owner's aggressive directive (phase-2 standing
+  unused so far — e347's bursts within line).
