@@ -839,6 +839,35 @@ registers a FALSIFIER, not a deference rule.]
 THE NOISE READING STANDS; the locality-bias model closes; the lean column is noise,
 not bias. The parity standard stays (it was right regardless).]
 
+## W059 — the uniform wall: attractor, floor, or measurement compression? (2026-10-12, datetime.now ~21:10Z; the heartbeat's card under the quota hold)
+
+x66's honest answer (T348) left the strangest object in the record: every powered
+formation died into an 0.018-IQR band — REGRESSION-SILENT not because the features
+were weak but because NOTHING VARIES at the far side of the wash. A wall that tight
+is itself a datum. THREE READINGS, no bars: (a) DYNAMICAL ATTRACTOR — the wash's
+dose arithmetic forces every post-formation state to the same floor regardless of
+where it started (the wall is WHAT THE WASH IS); (b) INSTRUMENT-CLASS FLOOR — the
+0.86M battery saturates: at this class everything washes out to the same residual
+texture and only scale separates worlds; (c) MEASUREMENT COMPRESSION — our pooled
+summary statistics collapse genuinely different post-wash states into one number,
+and the structure is there, unread, one layer down.
+
+DISCRIMINATING OBSERVATIONS, ON PAPER FIRST (all cheap, none dispatched): (1) if
+the post-wash states were persisted in runs/x66, a PER-LAYER/PER-FEATURE re-read of
+the wall's members is pure desk — structure appearing there kills (c) and the wall
+becomes a real object; (2) the SUBSTRATE PROGRAM is the wall's first true
+perturbation — under Muon or the constructive loss the wall should MOVE if (a)
+(it is dynamics-bound) and STAY PUT if (b) (it is class-bound); register wall-width
+as a first-class column in the SUBSTRATE BENCH, not a constant of the instrument;
+(3) the K-dial already whispers: the menu moves seeds through K BEFORE the wash —
+if the dial's spread survives the wash measured in K-units, the wall is a property
+of the pooled currency, not of the states (leaning (c)); if K collapses too, (a)
+gains its first leg.
+
+The joy here: the lab's first REGRESSION-SILENT verdict may turn out to be its
+first instrument-grade discovery — walls tell you what the space of deaths looks
+like, and nobody has ever mapped that space under varied substrates.
+
 ## T328 — e344: the fingerprint closes — and its home narrows to warm re-formation (or the instrument), with the s125 wrinkle promoted to an event class (2026-10-10, datetime.now ~22:15Z)
 
 [R81 CORRECTION (2026-10-10 ~22:40Z) — TWO PANEL REPAIRS ON THIS CARD. (1) THE LINEAGE
