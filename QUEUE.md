@@ -303,6 +303,38 @@ hypotheses under each axis. (The oracle x66 continues on CPU untouched.)
 Standing: the oracle (x66) finishing on CPU; the exception's anatomy (x65) and x62
 absorbed into the program's architecture axis; Q1 still live.
 
+## THE SUBSTRATE SURVEY RESULTS (r-substrate, a610537 — the program's map, ranked by information/cost)
+
+**The optimizer ranking (beyond e347's set):** (1) MUON (Newton-Schulz-orthogonalized
+momentum; best exactly at small-compute; ~60-80 no-dep lines; the sharpest lab
+question — e273 found the formation block is Adam's normalization, and Muon is
+anti-low-rank BY DESIGN); (2) SCHEDULE-FREE AdamW (the nine-times-carried warmup/
+anneal controls in one cell); (3) AdEMAMix (the beta2/moment-window axis behind
+resurrection stickiness); Lion/SOAP/Sophia ranked behind (cost/error-proneness);
+the owner's "create our own" opening: FACT-CONDITIONED SIGN-CONFLICT
+PRECONDITIONING — design card owed. **The loss ranking:** (1) LABEL SMOOTHING
+(registered prediction: REDUCES elicitation decorrelation — Müller/Hinton); (2) THE
+CONSTRUCTIVE LOSS (machinery exists: DeCov/Barlow Twins/VICReg — but rewarding
+cross-context response diversity in an LM has NO FOUND COUNTERPART: the key can
+plausibly be WRITTEN INTO TRAINING — frontier-novel); (3) MSE-on-logits; (4) R-DROP
+AS e349's CONTROL ARM (consistency = anti-decorrelation: the loss ladder two-sided
+in one cell); focal/margin behind. **The architecture ranking:** (1) THE POSITION
+LADDER — NoPE/RoPE/ALiBi (a NoPE net has NO ADDRESS ROWS: the sharpest test of the
+coordinate-keying); (2) QK-NORM (suppresses exactly the sink/logit-explosion channel
+the late-MLP carrier lives on); (3) DenseFormer/VaLOR (breaks the one-write-interface
+premise); (4) soft-MoE at 2.74M (literature thin exactly at tiny scale — our
+ground); (5) linear-attention hybrid; GQA rider. **THE NOVELTY SCAN:** no benchmark
+found comparing architectures/optimizers by FACT-LEVEL DECAY UNDER A CERTIFIED WASH
+(task-level backward-transfer only) — THE LAB'S STACK IS A PUBLISHABLE INSTRUMENT;
+the elicitation-decorrelation reader and optimizer-x-memory-grammar crosses are
+frontier-novel; capacity-two partially-known (superposition frame).
+
+**The recommended wave after e347:** (1) THE MUON CROSS (three registered
+predictions owed at birth); (2) e348 + the NoPE and QK-norm rider arms; (3) e349 +
+the R-Drop two-sided control; (4) THE SUBSTRATE BENCH (the CPU-first wrapper:
+wash + battery under any optimizer/architecture/loss — the publishable instrument's
+harness). Sources with arXiv IDs in scratch/substrate_survey.md.
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),
