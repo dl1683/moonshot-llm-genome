@@ -300,6 +300,8 @@ hypotheses under each axis. (The oracle x66 continues on CPU untouched.)
 | e348 | THE ARCHITECTURE LADDER (behind e347): parameter-matched variants — deeper-narrower / wider-shallower / norm-placement / no-residual control | READY | does CAPACITY-TWO hold across architectures (the x62 fork generalized); does the seat grammar move |
 | e349 | THE LOSS LADDER (behind e348): CE vs MSE vs hinge vs THE CONSTRUCTIVE LOSS (CE + a decorrelation-rewarding term — can the KEY be written directly into training?) | READY | the era's constructive question at the loss level: authored realization vs engineered realization |
 | pre-train | THE PRE-TRAINING axis: the substrate's own corpus/training varied before the dissection | NAMED (the program's fourth axis) | the receptivity map and the seat's pre-grown status vs the base's own training |
+| W059b | THE WALL'S FIRST PERTURBATION (x67-candidate; P-card frozen in scratch/preg_w059b_wall_perturbation.md; W059 discriminator #2 cheapest instance) | READY (GPU minutes; dispatches the moment e347's lane frees) | one certified V01 formation replay -> twin washes from the SAME formed state: AdamW control (must land in the wall = UNPOWERED bar) vs SGD at matched update-mass; WALL-HOLDS / WALL-MOVES (>2x cluster scale) / UNPOWERED; W061's mechanism noun: SGD has no slow variable — where does its wall sit; W060 amendment owed if it runs first (align-before-score) |
+
 
 Standing: the oracle (x66) finishing on CPU; the exception's anatomy (x65) and x62
 absorbed into the program's architecture axis; Q1 still live.
