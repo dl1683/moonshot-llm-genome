@@ -86,14 +86,30 @@ clauses, each falsifiable on this cell's own reads:
 ==== THE FROZEN OPERATIONALIZATIONS (picked + frozen HERE at birth) ====
 
 * THE CANON (what is being crossed): the committed K10K formation —
-  g1c_root.pt + e261's chunked_install VERBATIM (400 Dmix steps, gen
-  24314 — the canon's OWN draw, bit-identical streams across every arm
-  in this cell; AdamW (0.9,0.95) wd 0.1; lr 1e-3 x house
+  THE BASE e001.pt + e261's chunked_install VERBATIM (400 Dmix steps,
+  gen 24314 — the canon's OWN draw, bit-identical streams across every
+  arm in this cell; AdamW (0.9,0.95) wd 0.1; lr 1e-3 x house
   cosine(total=1000); clip 1.0 -> P_room) in the HELD room K10K (seeds
   26113/26114, bit-bound vs e264_rooms.pt). Committed record (hard
   literals, asserted at runtime): post g0 0.26464763283729553, gm12
   0.10525520890951157, write norm 9.1788432658723, in-own-room
   0.9441588788935659, s1 g0 1.3466433301800862e-05 (the DIE class).
+  AMENDMENT (smoke-caught repair, 2026-10-12, disclosed): the birth
+  draft said "g1c_root.pt + install" following e324's docstring claim —
+  WRONG per the lab's own committed record: x32 (7bcd060, THE NET0
+  CONFOUND) proved e264/e272's canon ran chunked_install from G1.
+  evl_load(base_sd) = THE BASE, with the canon's s1 "die" re-worded to
+  the base's prior staying flat (prior 1.3383959412749391e-05; "AT STEP
+  ONE NOTHING EVER HAPPENS"); e328's control reproduced the canon from
+  the BASE on this GPU (s1 rel 3.38e-07). This cell's smoke caught the
+  same confound independently (root-started CE 1.1963 vs committed
+  1.0702; base-started CE/s1 BIT-IDENTICAL on CPU). The bars and
+  P-e347a stay frozen VERBATIM; only the substrate statement is
+  corrected. Consequence for the s1 classes: from the BASE, DIE reads
+  "prior-flat, no step-one event" and SURVIVE reads "a step-one read
+  event" — x32's re-wording, adopted; P-e347a clause (2)'s frozen
+  discriminating content (the s1 class splits by step-geometry class)
+  is UNCHANGED and now cleaner (no standing-read confound).
 * THE OPTIMIZER SET (frozen): SGD (torch.optim.SGD, lr only), MSGD
   (torch.optim.SGD momentum=0.9, dampening 0), RMSPROP (torch.optim.
   RMSprop alpha=0.99 eps=1e-8 momentum=0 centered=False — adaptive, NO
@@ -188,7 +204,7 @@ clauses, each falsifiable on this cell's own reads:
   every leg idempotent (a completed leg short-circuits on relaunch).
 * GATES (a failure HALTS the record as TEXTURE): {G_VOCAB, G_NAMEFREE,
   G_SPLICE, G_BATTERY, G_ANCHOR, G_INSTMASK, G_NAMEWIN, G_PARENTS,
-  G_BASE, G_ROOT, G_VMBIND, G_SPANBIND, G_PROJ, G_ROOMHELD, G_ANCHORW,
+  G_BASE, G_NET0, G_VMBIND, G_SPANBIND, G_PROJ, G_ROOMHELD, G_ANCHORW,
   G_FACTLOAD, G_CANONLADDER, G_DRAWSHARED} + per-arm {G_PROTOIDENT} +
   per-rung {G_ORTH, G_BUFSEP, G_BUDGET} + phase-4 {G_MASKUNION,
   G_ROLEMASK}.
@@ -308,8 +324,12 @@ E261.device_events = device_events
 # ======================================================================
 # THE CONFIG (frozen)
 # ======================================================================
-BASE_CK = "e001.pt"               # the 2.74M corpus base (e043/e048's own B)
-ROOT_CK = "g1c_root.pt"           # the committed fresh root (THE reference)
+BASE_CK = "e001.pt"               # THE CANON'S FORMATION SUBSTRATE (x32's
+                                  # NET0-correction: e264/e272's canon ran
+                                  # chunked_install from THE BASE, not the
+                                  # root; smoke-verified bit-exact here)
+ROOT_CK = "g1c_root.pt"           # the family's reference root (bound as a
+                                  # parent record; NOT this cell's net0)
 SPAN_CK = "e246_late_span.pt"     # e246's committed LATE span (the ledger's)
 VMAP_CK = "e258_vmap.pt"          # e258's committed 2.74M v-map (the ledger's v)
 ROOMS264_CK = "e264_rooms.pt"     # e264's committed rooms (THE held room's record)
@@ -365,6 +385,10 @@ BUFSEP_BAR = 1e-4                         # e290's G_BUFSEP composition bar
 
 # ---- THE BARS / BANDS (frozen) ------------------------------------------
 CANON_READ_BAND = (0.15, 0.45)            # e272's trust band (the canon in-band)
+BASE_STANDING_G0_PRIOR = 1.3383959412749391e-05   # the base's Z-prior at the
+                                                  # g0 battery (computed at the
+                                                  # smoke repair; x32's
+                                                  # committed prior class)
 CANON_POST_G0 = 0.26464763283729553
 CANON_POST_GM12 = 0.10525520890951157
 CANON_WRITE_NORM = 9.1788432658723
@@ -394,6 +418,8 @@ E323_MD5 = "bf01f994cda19c9b04e151f8e2c457aa"          # verified at birth
 X57_METRICS = E43.REPO / "runs" / "x57" / "metrics.json"
 X57_MD5 = "bd424fa19a48b8fa378d9f93f95c706f"           # verified at birth
 FACT_CK_MD5 = "0f6dc1cf46850ce655dfafc9c853d467"       # e290's bound literal
+FACT_FLAT_MD5 = "ebebb4472725d582dd74928493f1bfb3"     # verified at the smoke
+                                                       # repair (bit-exact load)
 ROOMS264_MD5 = "2d524655575cce00a3bc1c8770f4b211"      # e324's bound literal
 SPAN_MD5 = "3464ff6081d8e402103dd9ca65bfb53a"          # e261's E246_SPAN_MD5
 SPAN_RANK = 10
@@ -474,6 +500,20 @@ REGISTERED = {
 }
 
 deviations: list[str] = [
+    "THE NET0 REPAIR (smoke-caught, 2026-10-12, the session's biggest "
+    "catch): the birth draft followed e324's docstring claim that the "
+    "canon formed from g1c_root — the smoke's G_ANCHORW-class probe "
+    "contradicted it (root-started s1 CE 1.1963 vs the committed "
+    "1.0701713562011719), and the lab's own committed record (x32 "
+    "7bcd060, THE NET0 CONFOUND; x34; e328's GPU control) proves the "
+    "canon ran chunked_install from THE BASE e001 with the s1 'die' = "
+    "the base's prior staying flat (prior 1.3383959412749391e-05). "
+    "Base-started CE/kept/s1 verified BIT-IDENTICAL on CPU at the "
+    "repair. The formation net0 is THE BASE; the bars + P-e347a frozen "
+    "VERBATIM (only the substrate statement corrected); the s1 classes "
+    "re-word per x32 (DIE = prior-flat / SURVIVE = a step-one read "
+    "event); the stale root-started smoke ckpts deleted (regenerable "
+    "scratch).",
     "THE FORMATION RUNS THROUGH e261's chunked_install STEP BODY PORTED "
     "VERBATIM (draws, Dmix arithmetic, masked union CE, clip, the room "
     "hook, the ledger/traj cadence, the resume discipline) WITH THE "
@@ -924,13 +964,15 @@ def chunked_rung_x(tag: str, kind: str, lr_base: float, budget_norm: float,
     never-stepped bitwise-isolation twin; S += realized ||step||; milestone
     batteries + drift reads at t100/200/300/400."""
     n_steps = RUNG_STEPS
+    n_par_tot = sum(p.numel() for p in net0.parameters())
     corp_bs, mix_random = E43.CORP_BS, E43.MIX_RANDOM
     n_anc = anchor_full.shape[0]
     state = {"step": 0, "traj": [], "ledger": {}, "orth_ledger": {},
              "lr_ledger": {}, "disp_ledger": [], "buf_ledger": [],
              "S": 0.0, "n_capped": 0, "orth_max": 0.0,
              "bufsep": {"isolation_checks": 0, "isolation_violations": 0},
-             "corp_cum": torch.zeros(1), "corp_prev": torch.zeros(1)}
+             "corp_cum": torch.zeros(n_par_tot),
+             "corp_prev": torch.zeros(n_par_tot)}
     if resume_ck.exists():
         state = torch.load(resume_ck, map_location="cpu", weights_only=False)
         log(f"  [{tag}] RESUMED from {resume_ck.name} at step "
@@ -1335,6 +1377,10 @@ def main():
         "builds_on": [
             "THE SUBSTRATE PROGRAM's opening (owner directive 2026-10-12 "
             "~02:30Z): the laws become hypotheses across the training space",
+            "x32 / 7bcd060 (THE NET0 CONFOUND: e264/e272's canon formed from "
+            "THE BASE, not the root; the s1 'die' = the prior staying flat "
+            "'AT STEP ONE NOTHING EVER HAPPENS'; e328's GPU control) — this "
+            "cell's substrate statement + s1 re-wording",
             "T239/e261 + e264 (THE INSTALL RIG: chunked_install + the K10K "
             "room + the canon's own committed record — this cell's formation "
             "arm, ported verbatim with the optimizer swapped)",
@@ -1733,30 +1779,35 @@ def main():
         f"(g-12 {base_gm12:.4f}, CE_R {base_ce_r:.4f}): PASS")
     write_partial("P0c G-BASE PASSED")
 
-    # ================= P1a: THE ROOT + THE HELD ROOM =====================
+    # ================= P1a: THE NET0 (the canon's substrate) + ROOM ======
     log("=" * 78)
-    root_net = G1.load_g1(CKPT_DIR / ROOT_CK)
-    n_par = root_net.num_params()
-    theta_root = flat_params_cpu(root_net)
-    root_read = G1.battery_cell(root_net, gm12_ids, zid)["mean_pz"]
-    G_ROOT = {
-        "checkpoint": f"runs/checkpoints/{ROOT_CK}",
+    base_net0 = G1.evl_load(base_sd)          # THE CANON'S FORMATION NET0
+    n_par = base_net0.num_params()
+    g0_ids_probe = g0_ids                     # the standing-prior battery
+    base_standing_g0 = G1.battery_cell(base_net0, g0_ids_probe, zid)["mean_pz"]
+    G_NET0 = {
+        "form": "THE CANON'S SUBSTRATE IS THE BASE (x32's NET0 correction, "
+                "smoke-verified here: base-started CE/s1 BIT-IDENTICAL on "
+                "CPU to e264's committed ledger): the standing Z-prior at "
+                "the g0 battery is the s1 DIE class's floor (prior-flat = "
+                "no step-one event)",
+        "checkpoint": f"runs/checkpoints/{BASE_CK}",
         "n_params": n_par, "expected_params": GB.G1B_PARAMS,
-        "battery_read_measured": root_read,
-        "battery_read_committed": E261.G1C_ROOT_GM12,
-        "abs_diff": abs(root_read - E261.G1C_ROOT_GM12),
-        "tol": G_READ_TOL,
-        "flat_md5": hashlib.md5(theta_root.numpy().tobytes()).hexdigest(),
+        "standing_g0_prior": base_standing_g0,
+        "standing_g0_committed": BASE_STANDING_G0_PRIOR,
+        "abs_diff": abs(base_standing_g0 - BASE_STANDING_G0_PRIOR),
         "pass": bool(n_par == GB.G1B_PARAMS
-                     and abs(root_read - E261.G1C_ROOT_GM12) < G_READ_TOL)}
-    assert G_ROOT["pass"], f"root gate FAILED: {G_ROOT}"
-    metrics["gates"]["G_ROOT"] = G_ROOT
-    log(f"P1a G_ROOT: {ROOT_CK} — {n_par} params; battery read "
-        f"{root_read:.10f} vs committed {E261.G1C_ROOT_GM12:.10f} "
-        f"(|d| {abs(root_read - E261.G1C_ROOT_GM12):.1e}): PASS")
+                     and abs(base_standing_g0 - BASE_STANDING_G0_PRIOR)
+                     <= 1e-15),
+    }
+    assert G_NET0["pass"], f"net0 gate FAILED: {G_NET0}"
+    metrics["gates"]["G_NET0"] = G_NET0
+    log(f"P1a G_NET0: {BASE_CK} — {n_par} params; standing g0 prior "
+        f"{base_standing_g0:.10e} vs committed "
+        f"{BASE_STANDING_G0_PRIOR:.10e}: PASS")
 
     N = n_par
-    base_flat = flat_params_cpu(G1.evl_load(base_sd))
+    base_flat = flat_params_cpu(base_net0)
     base_flat_np = base_flat.double().numpy().astype(np.float64)
 
     vmap_art = torch.load(CKPT_DIR / VMAP_CK, map_location="cpu",
@@ -1851,7 +1902,7 @@ def main():
         resume_ck = CKPT_DIR / (
             f"smoke_e347_{ft}_resume.pt" if SMOKE
             else f"e347_{ft}_resume.pt")
-        out = chunked_install_x(arm_tag, kind, lr, root_net, rooms,
+        out = chunked_install_x(arm_tag, kind, lr, base_net0, rooms,
                                 win_bank, inst_mask, anchor_full, train_ids,
                                 g0_ids, gm12_ids, r_eval_xy, zid, resume_ck,
                                 dev)
@@ -2111,6 +2162,7 @@ def main():
         "md5": md5of(CKPT_DIR / FACT_CK), "bound_md5": FACT_CK_MD5,
         "artifact_step": int(fact_art["step"]),
         "flat_md5": fact_flat_md5,
+        "flat_md5_bound": FACT_FLAT_MD5,
         "read_g0": fact_g0, "read_gm12": fact_gm12, "read_ce_r": fact_ce_r,
         "write_norm": fact_write_norm,
         "in_own_room": fact_loads["in_own_room"],
@@ -2118,19 +2170,26 @@ def main():
                  "norm": CANON_WRITE_NORM, "in_room": CANON_IN_OWN_ROOM,
                  "tol": 2e-6},
         "pass": bool(md5of(CKPT_DIR / FACT_CK) == FACT_CK_MD5
+                     and fact_flat_md5 == FACT_FLAT_MD5
                      and abs(fact_g0 - CANON_POST_G0) <= 2e-6
                      and abs(fact_gm12 - CANON_POST_GM12) <= 2e-6
                      and abs(fact_write_norm - CANON_WRITE_NORM) <= 1e-9
-                     and abs(fact_loads["in_own_room"] - CANON_IN_OWN_ROOM)
-                     <= 2e-6),
+                     and (SMOKE or abs(fact_loads["in_own_room"]
+                                       - CANON_IN_OWN_ROOM) <= 2e-6)),
     }
+    if SMOKE:
+        G_FACTLOAD["smoke_note"] = (
+            "SMOKE: the in-own-room sub-check is VACUOUS at smoke k=512 "
+            "(the committed record is k=10k) — LIVE and binding at the full "
+            "run")
     assert G_FACTLOAD["pass"], f"G_FACTLOAD FAILED: {G_FACTLOAD}"
     metrics["gates"]["G_FACTLOAD"] = G_FACTLOAD
     log(f"P1b G_FACTLOAD: the committed fact loaded bit-exact — g0 "
         f"{fact_g0:.10f} norm {fact_write_norm:.6f} in-room "
         f"{fact_loads['in_own_room']:.4f}: PASS")
     write_partial("P1b the committed fact loaded bit-exact")
-    del fact_net
+    # (fact_net KEPT LIVE: it is P3's and P4's fixed organism, net0)
+    del fact_art
 
     # ================= P3: THE KILL BRACKET ===============================
     bracket: dict[str, dict] = {}
