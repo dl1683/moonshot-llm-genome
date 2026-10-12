@@ -914,6 +914,27 @@ interpolation-barrier machinery (new object: the wall's INTERNAL geometry); feed
 SUBSTRATE BENCH's wall-width column with a symmetry-corrected definition (width after
 alignment, not before).
 
+[DESK ANSWER (2026-10-12 ~22:00Z, CPU 4 threads; scratch/_w060_align2.py committed;
+HONESTY NOTE: the v1 aligner (_w060_align.py) was a NO-OP BUG - x[perm] applies the
+permutation instead of scattering unit i to its matched slot j - and its identical
+before/after numbers were meaningless; the v2 sanity gate (a KNOWN random shuffle
+recovered 1.4090 -> 0.0000 exact, Hungarian via scipy) certifies the machinery
+before any member claim): EXTENDED-MANIFOLD LANDS ON THE MLP LEG. Optimal
+hidden-unit alignment of all 19 members to the reference leaves the late-mlp.2
+distance UNCHANGED (median 0.2404, range [0.1439, 0.3177], identical at 4 decimals
+before and after) - the members are ALREADY in best-possible basis correspondence;
+their differences are genuine same-coordinate differences, not neuron relabelings.
+BOUNDS DISCLOSED: head-permutation untested (irrelevant to the mlp.2 object - head
+perms leave the residual-stream coordinates mlp.2 reads untouched - but named for
+the full card); wpe untouched by construction (the 0.333 control). CONSEQUENCES:
+(1) W059b does NOT need the align-before-score birth amendment (the fold note's
+condition fired only on PERMUTATION-COMPACT); raw parameter distances are
+meaningful on this wall. (2) The wall's fiber is NOT pure wpe: the late-mlp.2
+spread survives optimal alignment, so "washed worlds still disagree" extends beyond
+the position axis into the carrier layer's own coordinates. (3) The slow-manifold
+rider (displacement along the spread subspace under further wash) stays OPEN -
+GPU, behind e347's lane.]
+
 ## W061 — THE OPTIMIZER AS CASCADE (for the optimizer x memory-grammar focus): is a fact's wash-survival set by WHICH TIMESCALE VARIABLE the write landed in — are the optimizer's buffers the net's synaptic cascade?
 
 SOURCE-FIELD: computational neuroscience of memory under ongoing plasticity — cascade models
