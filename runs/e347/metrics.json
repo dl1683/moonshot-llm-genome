@@ -1,0 +1,581 @@
+{
+  "experiment": "e347_optimizer_cross",
+  "phase": "THE OPTIMIZER CROSS \u2014 the substrate program's first GPU cell: the canon formation, the Law-2b kill bracket, and the tonly/conly maintenance split crossed against {SGD, MSGD, RMSPROP, SIGN} at per-optimizer canonical lr (the dose-normalized 5-point ladders), vs the committed AdamW record \u2014 TRANSPORT-INVARIANT vs OPTIMIZER-SPECIFIC vs MIXED",
+  "date": "2026-10-12T04:40:45Z",
+  "status": "PARTIAL: startup",
+  "registration": "question + background + design + bars + parity block frozen VERBATIM from the dispatch letter (the substrate program's first GPU cell; the owner's 2026-10-12 directive); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
+  "registered": {
+    "question_verbatim": "is the grammar the training dynamics' (transport-invariant) or AdamW's? YOUR CELL: the first cross. (THE OPTIMIZER CROSS \u2014 the substrate program's first GPU cell)",
+    "background_verbatim": "every law this lab has measured was measured under AdamW on one 2.74M architecture with one CE loss \u2014 Law 1 (every death is a step-death), Law 2b's kill bracket [0.0008, 0.004] of write norm, the formation texture (the wheel, the net0 classes), the seat grammar (maintenance, capacity). NONE has ever been crossed against a different optimizer.",
+    "design_verbatim": "1. THE OPTIMIZER SET: SGD (no momentum, no adaptivity \u2014 the pure geometry), momentum-SGD (0.9), RMSProp (adaptive but no moment terms), and SIGN-DESCENT (the extreme: pure direction, magnitude-normalized \u2014 the lab's own simplest custom optimizer). Per-optimizer lr sweeps at birth (a coarse 5-point ladder each, the canon formation at the standard dose; the lr that lands in the canon's read band becomes that optimizer's canonical lr \u2014 the DOSE NORMALIZATION, pre-registered). 2. THE FORMATION TEXTURE: the canon name's formation under each optimizer at its canonical lr \u2014 the read trajectory, the write norm, the in-room fraction, the s1 behavior (the wheel? the classes?), vs the committed AdamW record. 3. THE KILL BRACKET: Law 2b's two boundary rungs (the 0.0008x and 0.004x transport-kills) re-run under each optimizer in ITS canonical-lr terms (the drift-realization disclosed) \u2014 does the bracket MOVE (per-optimizer renormalized) or HOLD? 4. THE MAINTENANCE PROBE: the tonly/conly split (x57's role split \u2014 the cheapest seat probe: does attention-only protect under each optimizer?)",
+    "bars_verbatim": {
+      "TRANSPORT-INVARIANT": "the laws hold under every optimizer at its canonical lr (the formation texture within the disclosed band; the bracket within 2x after lr-normalization; maintenance attention-side throughout) \u2014 the grammar is the loss-geometry's.",
+      "OPTIMIZER-SPECIFIC": "which laws move first (the texture? the bracket? the maintenance?) \u2014 named per optimizer; the grammar re-scopes to AdamW-class dynamics.",
+      "MIXED": "some hold, some move \u2014 the honest split, itemized."
+    },
+    "parity_block_verbatim": {
+      "LAB_LEAN": "OPTIMIZER-SPECIFIC, moderately (the adaptive vs non-adaptive step geometry differs hugely; the bracket especially should move \u2014 it is measured in write-norm units that mean different things per optimizer)",
+      "COUNTER": "TRANSPORT-INVARIANT (the loss geometry dominates; the optimizer is a solver, and solvers converge to the same minima basin)"
+    },
+    "registration": "question + background + design + bars + parity block frozen VERBATIM from the dispatch letter (the substrate program's first GPU cell; the owner's 2026-10-12 directive); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping."
+  },
+  "smoke": false,
+  "envelope": {
+    "device": "cuda fp32 training (this cell owns the GPU lane; every segment SEQUENTIAL with cooldowns \u2014 never concurrent) + CPU fp64 dense projections (pocketfft), CPU threads 4 (the x66 CPU oracle live \u2014 shared, never touched)",
+    "bursts": "<= 175s (dispatch 180), per-step thermal polls at a 78C margin, cooldown 40s (dispatch 30-60), the 84C never-past line (dispatch 85) recorded to runs/_envelope_log.jsonl tagged e347:<arm>; gpu_ok() before every burst",
+    "trainings": "P1: 4 optimizers x 5-point lr ladders + the ADAMW anchor (400-step installs); P3: 4 optimizers x 2 boundary budgets (400-step budgeted transport rungs); P4: 5 optimizers (incl. the in-session AdamW reference) x {tonly, conly} (300-step maintenance arms)"
+  },
+  "optimizer_set": {
+    "SGD": "torch.optim.SGD, lr only \u2014 the pure geometry",
+    "MSGD": "torch.optim.SGD momentum=0.9, dampening 0",
+    "RMSPROP": "torch.optim.RMSprop alpha=0.99 eps=1e-08 momentum=0 centered=False \u2014 adaptive, NO moment terms",
+    "SIGN": "THIS CELL'S OWN minimal custom optimizer (stated per the dispatch): update = p -= lr*sign(grad); NO state, NO moments, NO adaptivity \u2014 pure direction, magnitude-normalized",
+    "ADAMW": "the committed canon class \u2014 the in-session ANCHOR arm + the P4 reference pair, never a law-carrier",
+    "decay_channel": "crossed arms carry the committed per-step decoupled decay velocity (1 - 1e-4 x cosine_t) post-step (built-ins wd=0); ADAMW uses the built-in wd 0.1 (bit-faithful)"
+  },
+  "ladders": {
+    "SGD": [
+      0.03,
+      0.1,
+      0.3,
+      1.0,
+      3.0
+    ],
+    "MSGD": [
+      0.01,
+      0.03,
+      0.1,
+      0.3,
+      1.0
+    ],
+    "RMSPROP": [
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ],
+    "SIGN": [
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01
+    ]
+  },
+  "canonical_lr_rule": "the ladder run whose post-install g0 lands in the canon read band [0.15, 0.45]; multiple in-band -> the g0 closest to 0.26464763283729553; none in-band -> min |log(g0/0.2646...)| with the miss disclosed",
+  "deviations": [
+    "THE NET0 REPAIR (smoke-caught, 2026-10-12, the session's biggest catch): the birth draft followed e324's docstring claim that the canon formed from g1c_root \u2014 the smoke's G_ANCHORW-class probe contradicted it (root-started s1 CE 1.1963 vs the committed 1.0701713562011719), and the lab's own committed record (x32 7bcd060, THE NET0 CONFOUND; x34; e328's GPU control) proves the canon ran chunked_install from THE BASE e001 with the s1 'die' = the base's prior staying flat (prior 1.3383959412749391e-05). Base-started CE/kept/s1 verified BIT-IDENTICAL on CPU at the repair. The formation net0 is THE BASE; the bars + P-e347a frozen VERBATIM (only the substrate statement corrected); the s1 classes re-word per x32 (DIE = prior-flat / SURVIVE = a step-one read event); the stale root-started smoke ckpts deleted (regenerable scratch).",
+    "THE FORMATION RUNS THROUGH e261's chunked_install STEP BODY PORTED VERBATIM (draws, Dmix arithmetic, masked union CE, clip, the room hook, the ledger/traj cadence, the resume discipline) WITH THE OPTIMIZER CONSTRUCTION SWAPPED \u2014 the import-and-drive form cannot swap the optimizer (e261 constructs AdamW inside chunked_install); the port is quote-checked against e261's source (G_QUOTES). The ADAMW anchor arm's ported path at lr 1e-3 must reproduce the committed canon within the session texture (G_ANCHORW) or the cell reads TEXTURE.",
+    "THE DECAY CHANNEL UNIFORM (disclosed): crossed arms carry the committed per-step decoupled decay velocity (1 - 1e-4 x cosine_t) post-step; built-ins run wd=0; the ADAMW anchor uses torch AdamW wd 0.1 (bit-faithful in-step form). The post-vs-in-step ordering difference on crossed arms is ~1e-4-relative, disclosed, never a channel delta.",
+    "THE BRACKET'S COMMITTED REFERENCE NOT RERUN (e324's canon convention): e290's SGD-M rows (0.7674 holds / 0.3194 dies) are READ from runs/e290/metrics.json at runtime + asserted vs the birth literals; the crossed rungs' vehicle = each optimizer at ITS canonical lr with e290's equal-share cap, orthogonalization, milestones, and twin-instance isolation VERBATIM (ported + quote-checked); NO decay in the rungs (e290's wd-0 form).",
+    "THE MAINTENANCE PROBE'S ADAMW REFERENCE IS IN-SESSION (disclosed): x57's committed split was the TAVIREN subject on e345's stream (tonly 0.99996..1.0 protects / conly 0.0035..0.0008 executes); this cell's fact is the K10K ZEPHYRA canon \u2014 the AdamW@1e-3 tonly/conly pair here is the internal reference row, the committed x57 numbers cited as context, never asserted.",
+    "NO CONS IN THE FORMATION (e324's census convention): the texture axes are install-phase quantities; the canon's 0.2646 is the install-phase read.",
+    "SMOKE trims: 8-step segments, room k=512 (the e264_rooms.pt bit-bind is VACUOUS at smoke \u2014 disclosed, LIVE at the full run), 2-point ladders, 2-optimizer bracket/maintenance subsets \u2014 every code class exercised, NOTHING adjudicated (SMOKE stamp on every read).",
+    "n=1 per arm, one lineage, one session (the g-series standing lottery caveat carried verbatim); the cross is the object.",
+    "No NOTES/THINKING/QUEUE/STATE edits (dispatch; the heartbeat folds)."
+  ],
+  "builds_on": [
+    "THE SUBSTRATE PROGRAM's opening (owner directive 2026-10-12 ~02:30Z): the laws become hypotheses across the training space",
+    "x32 / 7bcd060 (THE NET0 CONFOUND: e264/e272's canon formed from THE BASE, not the root; the s1 'die' = the prior staying flat 'AT STEP ONE NOTHING EVER HAPPENS'; e328's GPU control) \u2014 this cell's substrate statement + s1 re-wording",
+    "T239/e261 + e264 (THE INSTALL RIG: chunked_install + the K10K room + the canon's own committed record \u2014 this cell's formation arm, ported verbatim with the optimizer swapped)",
+    "T269/e290 (THE COUPLING-CONSTANT LADDER: Law 2b's kill bracket 0.0008x-holds / 0.004x-dies \u2014 this cell's rung form + the committed reference rows)",
+    "T291/e324 (THE INSTALL-DRAW CENSUS: the texture axes + the s1-fork classes + the canon-not-rerun convention)",
+    "R83/x57 (THE KEY'S CHANNEL: the tonly/conly role split \u2014 TARGET-CARRIES, tonly protects / conly executes \u2014 this cell's maintenance probe, mask scheme verbatim)"
+  ],
+  "whats_new": [
+    "THE FIRST OPTIMIZER CROSS (the record's first): SGD / MSGD / RMSProp / SIGN-DESCENT against the canon formation, the Law-2b bracket, and the maintenance role split \u2014 every prior law was AdamW-only (the bracket: SGD-M-only)",
+    "THE DOSE NORMALIZATION (the record's first): per-optimizer canonical lr defined by landing the canon read band \u2014 the cross runs at matched dose, never matched nominal lr",
+    "THE SIGN-DESCENT EXTREME (the record's first): pure-direction updates crossed against a room-captured write \u2014 the sign-vs-gradient step geometry on ONE fixed stream",
+    "THE BRACKET'S OPTIMIZER AXIS (the record's first): the transport-kills re-run in canonical-lr terms with the drift realization disclosed per optimizer"
+  ],
+  "gates": {
+    "G_VOCAB": {
+      "vocab_size": 65,
+      "expected": 65,
+      "pass": true
+    },
+    "G_NAMEFREE": {
+      "corpus_zeph_count": 0,
+      "pass": true
+    },
+    "G_SPLICE": {
+      "install_mix": {
+        "FLORIZEL": 19,
+        "ELIZABETH": 41
+      },
+      "pass": true
+    },
+    "G_BATTERY": {
+      "shapes": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g+0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "expected": {
+        "g-12": [
+          60,
+          118
+        ],
+        "g0": [
+          60,
+          130
+        ],
+        "g+12": [
+          60,
+          142
+        ]
+      },
+      "pass": true
+    },
+    "G_ANCHOR": {
+      "neutral_bank": {
+        "seed": 170,
+        "n_windows": 16,
+        "starts": [
+          825650,
+          361746,
+          954106,
+          856844,
+          615070,
+          335787,
+          329879,
+          96582,
+          253994,
+          341757,
+          608690,
+          127521,
+          228843,
+          834931,
+          15774,
+          408603
+        ]
+      },
+      "pass": true
+    },
+    "G_INSTMASK": {
+      "name_positions": 420,
+      "expected": 420,
+      "pass": true
+    },
+    "G_NAMEWIN": {
+      "n_windows": 60,
+      "masked_decode_all_name": true,
+      "pass": true
+    },
+    "G_QUOTES": {
+      "form": "the ported step bodies are VERBATIM: every anchor line appears (stripped-line exact) BOTH in this file's port AND in its committed source (e261's install body; e290's rung body). The ONE adapted line (proj.step_hook's mode arg -> ROOM_MODE, this cell's fixed room) is a named deviation, not quoted.",
+      "n_quotes_e261": 8,
+      "n_quotes_e290": 7,
+      "missing": [],
+      "pass": true
+    },
+    "G_MASKUNION": {
+      "form": "x57's bitwise decomposition on THIS cell's cons batch: the canon union mask == tonly | (conly & nameless rows); the counts constant 112 / 8048 / 4192 over every draw",
+      "counts": {
+        "tonly": 112,
+        "conly": 8048,
+        "canon_union": 4192
+      },
+      "union_identity": true,
+      "disjoint_name_rows": true,
+      "pass": true
+    },
+    "G_ROLEMASK": {
+      "form": "tonly := the 16 name rows' name-EMISSION positions only (16x7=112 tokens/step); conly := everything else (16x248 name-row non-name + 16x255 nameless = 8048/step); the name present as INPUT in both arms (the stimulus held); only the supervision role varies",
+      "pass": true
+    },
+    "G_E290REF": {
+      "form": "e290's committed SGD-M rows (the bracket's reference): read at runtime + asserted vs the birth literals (0.7673992671930195 holds / 0.31939051143675057 dies)",
+      "runtime_reads": {
+        "0.0008": 0.7673992671930195,
+        "0.004": 0.31939051143675057
+      },
+      "birth_literals": {
+        "0.0008": 0.7673992671930195,
+        "0.004": 0.31939051143675057
+      },
+      "verdict": "TIGHT-CONSTANT",
+      "pass": true
+    },
+    "G_CANONREAD": {
+      "form": "the canon's texture row READ from the artifacts (never rerun, never retyped) + asserted vs the birth literals (Rule 12)",
+      "runtime_reads": {
+        "role": "THE CANON \u2014 the committed AdamW formation (room 26113/26114, gen 24314); NOT rerun; the texture's reference row READ from the committed artifacts at runtime",
+        "post_g0": 0.26464763283729553,
+        "post_gm12": 0.10525520890951157,
+        "write_norm": 9.1788432658723,
+        "in_own_room": 0.9441588788935659,
+        "s1_g0": 1.3466433301800862e-05
+      },
+      "birth_literals": {
+        "post_g0": 0.26464763283729553,
+        "post_gm12": 0.10525520890951157,
+        "write_norm": 9.1788432658723,
+        "in_own_room": 0.9441588788935659,
+        "s1_g0": 1.3466433301800862e-05
+      },
+      "pass": true
+    },
+    "G_PARENTS": {
+      "metrics": {
+        "e261": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e261\\metrics.json",
+          "md5": "a1aee7420d08bb257db5af5f45625f6f",
+          "bound_md5": "a1aee7420d08bb257db5af5f45625f6f",
+          "note": "THE RIG (ported verbatim by this cell)"
+        },
+        "e264": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e264\\metrics.json",
+          "md5": "1149f97c633072c3b865b6a93bfa1e44",
+          "bound_md5": "1149f97c633072c3b865b6a93bfa1e44",
+          "verdict": "SHARP-THRESHOLD",
+          "note": "the canon's own record"
+        },
+        "e272": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e272\\metrics.json",
+          "md5": "856d3f0da57f4a6b5f7f033d130e9a85",
+          "bound_md5": "856d3f0da57f4a6b5f7f033d130e9a85",
+          "note": "the read-band precedent [0.15, 0.45]"
+        },
+        "e290": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e290\\metrics.json",
+          "md5": "fc2ba5767e65090e09278e8b55454ef0",
+          "bound_md5": "fc2ba5767e65090e09278e8b55454ef0",
+          "note": "the bracket's committed record"
+        },
+        "e323": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\e323\\metrics.json",
+          "md5": "bf01f994cda19c9b04e151f8e2c457aa",
+          "bound_md5": "bf01f994cda19c9b04e151f8e2c457aa",
+          "note": "the s1-fork + texture-axis precedent"
+        },
+        "x57": {
+          "path": "C:\\Users\\devan\\OneDrive\\Desktop\\Projects\\AI Moonshots\\moonshot-llm-genome\\runs\\x57\\metrics.json",
+          "md5": "bd424fa19a48b8fa378d9f93f95c706f",
+          "bound_md5": "bd424fa19a48b8fa378d9f93f95c706f",
+          "verdict": "TARGET-CARRIES",
+          "note": "the role split's committed record (TAVIREN subject \u2014 context only here)"
+        }
+      },
+      "artifacts": {
+        "fact": {
+          "path": "runs/checkpoints/e261_K10K_inst_resume.pt",
+          "md5": "0f6dc1cf46850ce655dfafc9c853d467",
+          "bound_md5": "0f6dc1cf46850ce655dfafc9c853d467",
+          "note": "THE committed K10K fact (e290's vehicle; P3/P4's fixed organism)"
+        },
+        "rooms264": {
+          "path": "runs/checkpoints/e264_rooms.pt",
+          "md5": "2d524655575cce00a3bc1c8770f4b211",
+          "bound_md5": "2d524655575cce00a3bc1c8770f4b211",
+          "note": "THE held room's committed record"
+        },
+        "span": {
+          "path": "runs/checkpoints/e246_late_span.pt",
+          "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+          "bound_md5": "3464ff6081d8e402103dd9ca65bfb53a",
+          "rank": 10
+        },
+        "vmap": {
+          "path": "runs/checkpoints/e258_vmap.pt",
+          "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c",
+          "bound_md5": "baafd327e9e35cffa2d41ea4ecf5fc5c"
+        },
+        "root": {
+          "path": "runs/checkpoints/g1c_root.pt",
+          "md5": "9c7d4ca1b60c8a1158d080f932e2c95f",
+          "bound_md5": "9c7d4ca1b60c8a1158d080f932e2c95f"
+        },
+        "base": {
+          "path": "runs/checkpoints/e001.pt",
+          "md5": "d114536d1c0983ab3be67f67ff0667c8",
+          "bound_md5": "d114536d1c0983ab3be67f67ff0667c8"
+        }
+      },
+      "rig_files": {
+        "lab/e261_rank_ladder.py": {
+          "md5": "e498031fe4fcd0147c3094c86034b1c5",
+          "bound_md5": "e498031fe4fcd0147c3094c86034b1c5"
+        },
+        "lab/e290_coupling_ladder.py": {
+          "md5": "99d8644de308cb25816f779f8bc82215",
+          "bound_md5": "99d8644de308cb25816f779f8bc82215"
+        },
+        "lab/g1_anchored_ball.py": {
+          "md5": "8d0179b646ac6e4b30db26f486c4dab6",
+          "bound_md5": "8d0179b646ac6e4b30db26f486c4dab6"
+        },
+        "lab/e043_install.py": {
+          "md5": "a34c945da8988fa69c66c3fd40441ca6",
+          "bound_md5": "a34c945da8988fa69c66c3fd40441ca6"
+        },
+        "lab/g1b_continuity.py": {
+          "md5": "66966621e162b6bd33cf0023b0aa485a",
+          "bound_md5": "66966621e162b6bd33cf0023b0aa485a"
+        },
+        "lab/common.py": {
+          "md5": "022b0f3fea0b1d8444c8c9f6dbffa798",
+          "bound_md5": "022b0f3fea0b1d8444c8c9f6dbffa798"
+        }
+      },
+      "pass": true
+    },
+    "G_BASE": {
+      "checkpoint": "runs/checkpoints/e001.pt",
+      "params": 2739072,
+      "fact_free_gm12": 1.437231640011305e-05,
+      "ce_r": 1.6161081790924072,
+      "fact_free": true,
+      "pass": true
+    },
+    "G_NET0": {
+      "form": "THE CANON'S SUBSTRATE IS THE BASE (x32's NET0 correction, smoke-verified here: base-started CE/s1 BIT-IDENTICAL on CPU to e264's committed ledger): the standing Z-prior at the g0 battery is the s1 DIE class's floor (prior-flat = no step-one event)",
+      "checkpoint": "runs/checkpoints/e001.pt",
+      "n_params": 2739072,
+      "expected_params": 2739072,
+      "standing_g0_prior": 1.3383959412749391e-05,
+      "standing_g0_committed": 1.3383959412749391e-05,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    "G_VMBIND": {
+      "path": "runs/checkpoints/e258_vmap.pt",
+      "md5": "baafd327e9e35cffa2d41ea4ecf5fc5c",
+      "meta_experiment": "e258",
+      "size": 2739072,
+      "expected_size": 2739072,
+      "pass": true
+    },
+    "G_SPANBIND": {
+      "md5": "3464ff6081d8e402103dd9ca65bfb53a",
+      "rank": 10,
+      "N": 2739072,
+      "meta_experiment": "e246",
+      "pass": true
+    },
+    "G_PROJ": {
+      "form": "the HELD rank-10000 room certified (fp64 CPU, 4 probes, seed 26115)",
+      "reads": {
+        "probes": 4,
+        "seed": 26115,
+        "dct_roundtrip_rel": 8.195877245616001e-16,
+        "per_rung": {
+          "K10K": {
+            "k": 10000,
+            "seeds": [
+              26113,
+              26114
+            ],
+            "idempotency_max": 5.669754673327867e-16,
+            "kept2_mean": 0.0036073728283031233,
+            "kept2_expect": 0.0036508715360530864,
+            "kept2_bar_10sig": 0.0002581556020384085,
+            "kept2_pass": true,
+            "idempotency_pass": true,
+            "span_overlap_mean": 0.06038652639299012,
+            "span_overlap_expect": 0.06042244232115321
+          }
+        },
+        "pass": true
+      },
+      "bars": {
+        "roundtrip": 1e-08,
+        "idempotency": 1e-08,
+        "kept2": "10-sigma (5*sqrt(2k)/N)"
+      },
+      "pass": true
+    },
+    "G_ROOMHELD": {
+      "form": "the writing room is THE CANON'S OWN: rebuilt from the registered seeds (26113, 26114) and BIT-BOUND against e264_rooms.pt's committed K10K record",
+      "seeds_match_e264_record": true,
+      "D_bit_equal": true,
+      "S_bit_equal": true,
+      "k_match": true,
+      "pass": true
+    },
+    "G_ANCHORW": {
+      "form": "the in-session AdamW@1e-3 canon reproduction (the instrument-identity gate): the ported rig must land the committed record within the family's disclosed session-texture tolerances (e261's anchor convention)",
+      "reads": {
+        "post_g0": 0.26464730501174927,
+        "write_norm": 9.178843394013471,
+        "in_own_room": 0.9441588831192862,
+        "post_gm12": 0.10525521636009216,
+        "s1_g0": 1.3466434211295564e-05
+      },
+      "bars": {
+        "g0_tol": 0.02,
+        "norm_tol": 0.184,
+        "inroom_tol": 0.05,
+        "gm12_tol": 0.02,
+        "s1": "both in the DIE class (< 0.01)"
+      },
+      "pass": true
+    }
+  },
+  "canonical_lr": {},
+  "p1_ladder": {
+    "ADAMW@anchor": {
+      "kind": "ADAMW",
+      "lr": 0.001,
+      "post_g0": 0.26464730501174927,
+      "post_gm12": 0.10525521636009216,
+      "post_gp12": 0.11036065220832825,
+      "ce_r": 1.5920884609222412,
+      "write_norm": 9.178843394013471,
+      "in_own_room": 0.9441588831192862,
+      "v_excess": 1.0092427750490292,
+      "cos_to_span": 0.005966837372930151,
+      "s1_g0": 1.3466434211295564e-05,
+      "s1_class": "DIE",
+      "flat_md5": "d3498bcf0d00d6070566e20db2bc1fe5",
+      "gen_final_md5": "55afcc8f5e31d45ba372c016a7db3201",
+      "checkpoint": "runs/checkpoints/e347_ADAMW_anchor_final.pt",
+      "traj": [
+        {
+          "step": 1,
+          "g0_pz": 1.3466434211295564e-05,
+          "g0_argmax": 0.0,
+          "gm12_pz": 1.4453587937168777e-05,
+          "ce_r": 1.6158616542816162,
+          "ce_batch": 1.0701713562011719,
+          "kept_frac": 0.06080271959853453,
+          "v_excess_post": 1.0925965501318091,
+          "in_span_frac": 0.06095735098008555,
+          "applied_in_span_frac": 0.004559007205552147,
+          "elapsed_s": 82.3
+        },
+        {
+          "step": 100,
+          "g0_pz": 0.3059181869029999,
+          "g0_argmax": 0.38333333333333336,
+          "gm12_pz": 0.11901452392339706,
+          "ce_r": 1.6171272993087769,
+          "ce_batch": 0.9717683792114258,
+          "kept_frac": 0.059343367856169685,
+          "v_excess_post": 1.0502481213904244,
+          "in_span_frac": 0.04129686156719451,
+          "applied_in_span_frac": 0.0027078067910961583,
+          "elapsed_s": 222.9
+        },
+        {
+          "step": 200,
+          "g0_pz": 0.21840235590934753,
+          "g0_argmax": 0.13333333333333333,
+          "gm12_pz": 0.07753164321184158,
+          "ce_r": 1.6080031394958496,
+          "ce_batch": 0.9471401572227478,
+          "kept_frac": 0.06012441102239947,
+          "v_excess_post": 1.0646187136646648,
+          "in_span_frac": 0.030177425948955918,
+          "applied_in_span_frac": 0.0014986545403942258,
+          "elapsed_s": 416.8
+        },
+        {
+          "step": 300,
+          "g0_pz": 0.21022769808769226,
+          "g0_argmax": 0.08333333333333333,
+          "gm12_pz": 0.05798542872071266,
+          "ce_r": 1.5933009386062622,
+          "ce_batch": 0.979821503162384,
+          "kept_frac": 0.06059210285265049,
+          "v_excess_post": 1.0588751437170651,
+          "in_span_frac": 0.04702821271705772,
+          "applied_in_span_frac": 0.0036388742754564374,
+          "elapsed_s": 616.8
+        },
+        {
+          "step": 400,
+          "g0_pz": 0.26464730501174927,
+          "g0_argmax": 0.2,
+          "gm12_pz": 0.10525521636009216,
+          "ce_r": 1.5920884609222412,
+          "ce_batch": 0.993097722530365,
+          "kept_frac": 0.061012148383289846,
+          "v_excess_post": 1.0830760464915115,
+          "in_span_frac": 0.07394092153803904,
+          "applied_in_span_frac": 0.004015537307751232,
+          "elapsed_s": 828.3
+        }
+      ],
+      "G_FACTLOAD": {
+        "flat_md5": "d3498bcf0d00d6070566e20db2bc1fe5",
+        "flat_md5_reload": "d3498bcf0d00d6070566e20db2bc1fe5",
+        "g0_reload": 0.26464730501174927,
+        "g0_abs_diff": 0.0,
+        "pass": true
+      },
+      "G_PROTOIDENT": {
+        "machinery": "e261's chunked_install step body PORTED (the quote-checked port; the ONLY deltas: the optimizer construction + the uniform decay velocity)",
+        "opt_kind": "ADAMW",
+        "opt_state_keys": [
+          "exp_avg",
+          "exp_avg_sq",
+          "step"
+        ],
+        "lr_base": 0.001,
+        "inst_steps": 400,
+        "inst_total": 1000,
+        "inst_gen": 24314,
+        "corp_bs": 48,
+        "mix_random": 32,
+        "name_bs": 16,
+        "steps_ran": 400,
+        "smoke_stamp": false,
+        "pass": true
+      },
+      "chunk_table": [
+        {
+          "chunk": 1,
+          "device": "cuda",
+          "t_start": 79.4,
+          "seconds": 176.1,
+          "steps_done": 121,
+          "capped": true,
+          "max_temp_c": 73.0
+        },
+        {
+          "chunk": 2,
+          "device": "cuda",
+          "t_start": 298.7,
+          "seconds": 176.4,
+          "steps_done": 243,
+          "capped": true,
+          "max_temp_c": 74.0
+        },
+        {
+          "chunk": 3,
+          "device": "cuda",
+          "t_start": 520.3,
+          "seconds": 176.4,
+          "steps_done": 349,
+          "capped": true,
+          "max_temp_c": 74.0
+        },
+        {
+          "chunk": 4,
+          "device": "cuda",
+          "t_start": 742.0,
+          "seconds": 86.5,
+          "steps_done": 400,
+          "capped": false,
+          "max_temp_c": 73.0
+        }
+      ]
+    }
+  },
+  "p2_texture": {},
+  "p3_bracket": {},
+  "p4_maintenance": {},
+  "phase_note": "P1 the AdamW anchor landed (G_ANCHORW)",
+  "device_events": []
+}
