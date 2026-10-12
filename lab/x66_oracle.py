@@ -2000,9 +2000,13 @@ def phase_P2(p0: dict) -> dict:
         "certified once for the whole sweep)")
     if metrics["gates"].get("G_INSTCERT", {}).get("pass") \
             and metrics["gates"].get("G_WALKREPRO", {}).get("pass") \
-            and metrics["gates"].get("G_LOADCERT", {}).get("pass"):
-        log("P2 already certified (resume) — skipping compute")
-        return {"rulers": metrics.get("_rulers_cache", {})}
+            and metrics["gates"].get("G_LOADCERT", {}).get("pass") \
+            and metrics.get("_rulers_full"):
+        log("P2 already certified (resume) — skipping compute; the "
+            "rulers rebuilt from the cached rows")
+        cached = metrics["_rulers_full"]
+        return {"rulers": {"anneal": cached["anneal"],
+                           "pooled_Z": cached["pooled_Z"]}}
     C = p0["committed"]
     e001_flat64 = p0["e001_flat64"]
     root_sd = load_model_sd(CKPT_DIR / "g1c_root.pt")
@@ -2114,8 +2118,8 @@ def phase_P2(p0: dict) -> dict:
     log("G_LOADCERT PASS: the committed end state loads + reads "
         "identically")
     del s1_end
-    metrics["_rulers_cache"] = {"n_anneal": len(anneal_ruler),
-                                "n_pooled": len(pooled_ruler)}
+    metrics["_rulers_full"] = rulers   # the full rows cached for the
+    # resume path (JSON-serializable norm_rows; score_arm's reader)
     write_partial("P2 the certifications complete")
     return {"rulers": rulers}
 
