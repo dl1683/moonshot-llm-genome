@@ -1,74 +1,57 @@
-# Droid brief — DIALOGUE MODE, edition 58 (Q1-Q4 open across FIFTY-EIGHT editions; the
+# Droid brief — DIALOGUE MODE, edition 59 (Q1-Q4 open across FIFTY-NINE editions; the
 # lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
 
-## Generated: 2026-10-12T20:45Z (datetime.now-sourced; at the mark; this edition is
-## ~5h late — the holding-pattern beats had collapsed to stamp+guard only; the 2-hour
-## step is hereby restored as a discipline, disclosed)
+## Generated: 2026-10-12T22:38Z (datetime.now-sourced; at the mark)
 
-- Guard: OK at every beat. Fleet 0/1 — EMPTY BY EXTERNAL CONSTRAINT (the API quota
-  kill; see blocker). GPU idle and verified (0%, 0 MiB, 56C) — no zombie compute.
-- Cadence ages: droid: this brief (was 4h52m stale — the miss disclosed above);
-  review 21h31m (R88 — R90 covers the whole program opening, waiting on e347);
-  novelty 21h31m (frozen with the quota; nothing new since R88's imports).
+- Guard: OK at every beat through the hold and the unblock. Fleet 1/3: e347 deep in
+  P3 (the Law-2b kill-bracket rungs, rung_SGD_0.0008x). GPU cool (59C between
+  bursts), envelope clean, tree intact (no OneDrive recurrence since the repair).
+- Cadence ages: droid: this brief; review 23h25m (R90 drafted, runs after e347's
+  adjudication — agenda at scratch/r90_agenda.md); novelty 48m (W060-W062 folded).
 
-## THE BLOCKER (the one fact that governs everything)
+## THE HEADLINE: THE QUOTA CAME BACK ~3.5 DAYS EARLY
 
-The e347 agent died ~17:24Z Oct-12 mid-SIGN-ladder: the API weekly/monthly limit
-exhausted. RESET: 2026-10-16 06:26:29 UTC (~3.4 days from this brief). No subagent
-dispatch is possible until then — each attempt would fail identically. The
-heartbeat continues doc/stamp-only. All lab records through the kill are committed
-and pushed; nothing is at risk in the repo.
+Owner said "max pushing" ~21:33Z; a one-word probe dispatch returned OK — the API
+is live (the 2026-10-16 reset estimate was wrong or lifted). Same minute: e347
+RESUMED (resume-not-restart) and the overdue novelty pass dispatched. The
+executor then PROVED the resume: all 19 pre-kill arms re-executed BIT-IDENTICAL
+vs the git record (draw-record md5 conserved across the kill — the three-proof
+restart standard now proven for a real death, not just a drill).
 
-## THIS BEAT'S HOUSEKEEPING (the holding pattern still has hands)
+## WHERE WE ARE — three findings and one verdict forming
 
-1. WORKING-TREE REPAIR: 26 tracked files (old-era run logs, x5 logits npz, e248
-   scratch) had VANISHED from the working tree — no committed deletion, no
-   disclosure (OneDrive suspected; the repo lives under it). All restored from the
-   index via git checkout; verified; the never-delete-runs rule re-honored.
-2. E347'S LAST STATE SECURED: the killed agent's final on-disk writes (+2,684
-   lines runs/e347/metrics.json, +10,441 envelope-log lines) were UNCOMMITTED.
-   This beat commits them — the resume point is now in git, not just on disk.
-3. AN UNATTRIBUTED PRESERVATION SNAPSHOT exists at results/consolidated_2026-10-12
-   (19:50Z, sha256 manifest, 189MB, untracked): consistent with an insurance task
-   from the e347-death beat (background tasks survive agent death); protective in
-   nature; too large for git — left on disk and disclosed here. Not deleted (not
-   ours to delete without attribution).
+1. E347 P1+P2 (progressive, not yet adjudicated): all four optimizers — SGD, MSGD,
+   RMSPROP, SIGN — found canonical lrs landing IN-BAND (dose normalization works
+   across families); P2 TEXTURE: SGD/MSGD/RMSPROP HOLD, SIGN MOVES (in-room 0.826
+   vs 0.944) — the crossing's first OPTIMIZER-SPECIFIC datum; s1 falsified as
+   AdamW-specific (nothing-at-step-one under ALL four from BASE). P3 (the bracket)
+   running now. The verdict fork: TRANSPORT-INVARIANT vs OPTIMIZER-SPECIFIC vs MIXED.
+2. THE WALL HAS GEOMETRY (the evening's desk program, all CPU, scripts committed):
+   W059 — the uniform wall is REAL in parameter space (20 members, ~18% spread,
+   one shared geometry; the measurement-compression reading dead); W060 —
+   EXTENDED-MANIFOLD: optimal Hungarian alignment finds NOTHING to collapse (the
+   members differ in the same coordinates; not neuron-relabeling); the spread
+   concentrates in wpe + late mlp.2 (positions + the carrier layer — washed worlds
+   disagree about WHERE long after forgetting WHAT).
+3. THE NOVELTY PASS (W060-W062): the wall's symmetry class / the optimizer as
+   cascade (Benna-Fusi: wash-survival = which timescale variable parks the write;
+   Muon+SGD have NO slow channel — where do their walls sit?) / the fact as hedge
+   (the constructive loss as a lambda-1 eigenvalue target; the K-dial its first
+   supporting datum). W062 re-keyed (no matrices on disk) to a rider on W059b.
 
-## WHERE WE ARE — the program's opening, one verdict down, one frozen mid-run
+## WHAT CAN BE DONE (top next actions, named)
 
-1. THE ORACLE FOLDED (x66, 61/61 gates, T348): REGRESSION-SILENT with the honest
-   reading — THE WASH IS A UNIFORM WALL at this class (every powered formation
-   died into an 0.018-IQR band: nothing to predict); the ablation
-   untested-not-refuted; BARRIERS-VANISH-AT-k16 — the Hopfield prediction lands
-   exactly; AND THE MENU IS A K-DIAL (the jittered menu deepens every seed; the
-   residual SEED x MENU Q2 -0.64). Two dials, the menu bigger.
-2. E347 THE OPTIMIZER CROSS — FROZEN AT ~80% (birth+smoke+anchor certified, SGD
-   ladder complete, SIGN ladder partial at the kill): the fork
-   TRANSPORT-INVARIANT vs OPTIMIZER-SPECIFIC stays open until resume. Every law
-   the lab has measured was AdamW-only; this is the biggest generalization
-   question we have asked.
-3. THE SUBSTRATE PROGRAM'S MAP (the survey, a610537): Muon the top optimizer
-   interlocutor; the constructive loss frontier-novel (the menu-dial prior now in
-   hand); NoPE the sharpest architecture test; OUR STACK A PUBLISHABLE INSTRUMENT.
-
-## ON RESET (2026-10-16 06:26Z) — the ordered wave, already recorded
-
-RESUME e347 from its on-disk/git state (do not restart; the SIGN ladder continues
-where it froze) -> fold its verdict -> R90's panel over the whole program opening
--> the Muon cross (three registered predictions owed at birth) -> e348
-architecture ladder + NoPE/QK-norm riders -> e349 constructive loss + R-Drop
-control -> the SUBSTRATE BENCH harness. Full plan in SUPERVISOR.md (363ba0c).
-
-## WHAT CAN BE DONE NOW (doc-only, quota-free)
-
-1. Q1 — the supervisor's LAWS review: the standing ask since ed.23; the
-   holding-pattern days are exactly the idle window for it.
-2. Desk-draft the e348/e349 birth registrations (bars frozen before compute is
-   house law; drafting costs no API quota).
-3. Keep the stamps honest — this brief's lateness is the cautionary tale.
+1. FOLD E347 when it adjudicates (P3+P4 remaining; ~1-2h) — then R90's panel
+   (agenda drafted; sharpest attack: the wall's stream confound, now W063).
+2. W059b THE WALL'S FIRST PERTURBATION (READY in QUEUE; GPU minutes behind e347;
+   twin washes AdamW vs SGD at matched update-mass; carries W062's lambda-1 rider).
+3. THE MUON CROSS (P-card ripened verdict-independent in
+   scratch/preg_substrate_wave.md; the anti-low-rank optimizer vs the
+   Adam-normalization formation block).
+4. Q1 — the supervisor's LAWS review: STILL the standing ask since ed.23.
 
 ## BLOCKERS / ASKS
 
-- THE QUOTA (the only blocker; resets 2026-10-16 06:26:29 UTC).
+- No blockers: API live, GPU free between e347's bursts, all records pushed.
 - Q1 STILL LIVE AND OWNERLESS.
 - The dialogue still owes droid's side.
