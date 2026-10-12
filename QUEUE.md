@@ -286,6 +286,23 @@ passage test and the sloppy-models discriminant registered as angles.
 Standing: Q1 LIVE AND OWNERLESS; hook v5; Repair 2 (x61 append); the seed-s4 literal
 logged; P-NARROWS-TO-S200 registered.
 
+## THE SUBSTRATE PROGRAM (owner-directed 2026-10-12 ~02:30Z) — the training space opens
+
+The owner's directive: dissect the training substrate itself — optimizers, architectures,
+loss functions, pre-training — with the GPU aggressive. The existing laws become
+hypotheses under each axis. (The oracle x66 continues on CPU untouched.)
+
+| id | experiment | status | one-liner |
+|---|---|---|---|
+| e347 | THE OPTIMIZER CROSS (the program's first GPU cell): the canon formation + the kill-bracket + the seat-maintenance probe under SGD / momentum-SGD / RMSProp / sign-descent (per-optimizer dose normalization pre-registered) | RUNNING (dispatched ~02:35Z) | TRANSPORT-INVARIANT (the laws hold under per-optimizer normalization — the grammar is the loss-geometry's, not AdamW's) / OPTIMIZER-SPECIFIC (which laws move first: the bracket? the wheel? the seat?) — the lab's biggest generalization question ever asked |
+| r-substrate | THE OPTIMIZER/LOSS SURVEY (the researcher): what exists online (optimizers, loss variants, architecture patterns at the 2-74M scale), what is cheap to implement in the certified harness, what is novel ground | RUNNING (dispatched ~02:35Z, CPU desk) | the catalog + the implementability ranking + the novelty flags feeding the program's next cells |
+| e348 | THE ARCHITECTURE LADDER (behind e347): parameter-matched variants — deeper-narrower / wider-shallower / norm-placement / no-residual control | READY | does CAPACITY-TWO hold across architectures (the x62 fork generalized); does the seat grammar move |
+| e349 | THE LOSS LADDER (behind e348): CE vs MSE vs hinge vs THE CONSTRUCTIVE LOSS (CE + a decorrelation-rewarding term — can the KEY be written directly into training?) | READY | the era's constructive question at the loss level: authored realization vs engineered realization |
+| pre-train | THE PRE-TRAINING axis: the substrate's own corpus/training varied before the dissection | NAMED (the program's fourth axis) | the receptivity map and the seat's pre-grown status vs the base's own training |
+
+Standing: the oracle (x66) finishing on CPU; the exception's anatomy (x65) and x62
+absorbed into the program's architecture axis; Q1 still live.
+
 Wild spares standing: e295 (dream cycle), e301 (extinction-vs-erasure),
 e302 (doublethink + seam), e303 (graft-birth, reuses e306 checkpoints),
 C2 (transplanted controller), calm-v3 (margin-hinge, now with W049's dial),

@@ -528,3 +528,31 @@ open for droid in scratch/droid_brief.md edition 2)*
 *DROID: your Q1-Q4 (scratch/droid_brief.md, edition 2) await your replies — the
 dialogue runs until strong resolution.*
 
+
+## OWNER DIRECTIVE (2026-10-12, ~02:30Z, voice note — Devansh)
+
+"Let's use the GPU a bit more aggressively and turn the project exploration up a lot.
+Right now you have been focusing on facts... now I want to focus also on things like:
+neural networks themselves can be trained in different ways. Is it a pre-training
+issue? Is it the neural network itself? Can we play around with the STRUCTURE of the
+neural network — different blocks, different architectures? Can we test a different
+specialization? Can we go deeper into optimizers — different optimizers, there's a
+lot online we can research, we can CREATE OUR OWN optimizers... different error
+functions — can error be quantified differently so the targets are different? Let's
+open this up. You've been focused very healthily on facts; I want you to dissect all
+of these angles and play around with all of them so we can start making meaningful
+contributions to AI."
+
+### Standing interpretation (the heartbeat's reading, ratified by the above)
+- A SCOPE EXPANSION: the dissection lens turns from the memory/formation grammar
+  (one 2.74M architecture, one AdamW, one CE loss) to THE TRAINING SUBSTRATE
+  ITSELF: the optimizer axis, the architecture axis, the loss/error-function axis,
+  and the pre-training axis.
+- GPU posture: AGGRESSIVE within the standing envelope (bursts <=180s,
+  cooldowns, thermal guards — GO HAM is already the standing order; this directive
+  confirms and strengthens it).
+- The existing LAWS become HYPOTHESES to test across the training space: Law 1
+  (step-death), Law 2's kill bracket [0.0008, 0.004] (AdamW-measured), the seat
+  grammar (capacity-two, maintenance, the key) — none have ever been crossed
+  against a different optimizer, architecture, or loss.
+- Program name: THE SUBSTRATE PROGRAM.
