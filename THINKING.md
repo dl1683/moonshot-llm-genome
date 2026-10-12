@@ -864,6 +864,24 @@ if the dial's spread survives the wash measured in K-units, the wall is a proper
 of the pooled currency, not of the states (leaning (c)); if K collapses too, (a)
 gains its first leg.
 
+[DESK ANSWER (2026-10-12 ~21:25Z, same beat as the card's mint; CPU 4 threads,
+~1 min; scratch/_w059_reread.py + _w059_scale.py committed for reproducibility):
+DISCRIMINATOR #1 RAN — READING (c) MEASUREMENT-COMPRESSION IS DEAD. The 20
+persisted wall members (every menu {authored, jittered, random, coo, half} x 10
+seeds x doses 100-800 x both hosts) were re-read per-layer in parameter space:
+per-layer norm CV across members 0.6-2.9% (no layer varies); inter-layer agreement
+on who-is-close-to-whom median Spearman 0.983 [0.891, 1.000] over 325 layer pairs
+(no layer tells a different story — exactly the structure (c) predicted, and it is
+absent); member-to-member distance / layer norm median 0.185 [0.082, 0.315] — a
+TIGHT CLUSTER sharing most of its direction, ~18% relative spread. THE WALL IS A
+REAL OBJECT IN PARAMETER SPACE: the pooled read hid nothing. THE FORK NARROWS TO
+(a) attractor vs (b) class-floor — discriminator #2 (does the wall MOVE under
+Muon / the constructive loss) upgrades from curiosity to the BENCH's first-class
+column. FREE TEXTURE: the cluster's small spread is NOT uniform — it concentrates
+in wpe.weight (0.315, the largest) and the late mlp.2 projections (0.24-0.31) —
+the position table and the late-MLP carrier layer are where washed worlds still
+disagree; the read dies long before those layers forget each other.]
+
 The joy here: the lab's first REGRESSION-SILENT verdict may turn out to be its
 first instrument-grade discovery — walls tell you what the space of deaths looks
 like, and nobody has ever mapped that space under varied substrates.
