@@ -1007,6 +1007,38 @@ correlation matrix at formation end and at each wash panel; lambda-1(t) alongsid
 retention(t) falls out for free. W062's already-landed supporting datum (the
 K-dial) is untouched by this — only the cheapest-observation route moved.]
 
+## W063 — the stream's fixed point: is the wall a property of the WASH or of the STREAM? (2026-10-12, datetime.now ~22:10Z; minted from the R90 agenda's sharpest attack — the confound deserves its own card)
+
+Every wall member was washed by the SAME stream (x66's certified wash corpus, draws,
+and order — the instrument's constant by design). The tight ~18% cluster may therefore
+be THE STREAM'S FIXED POINT — the attractor of that specific continued-training input —
+rather than a wash-general property of forgetting (W059's "the wash is the wall" reading
+quietly assumes stream-invariance nobody has tested). W060's EXTENDED-MANIFOLD sharpens
+the stake: the terminal region is wide and coherent in the same coordinates; if it is
+stream-shaped, its width and direction are the STREAM's signature on the substrate.
+
+DISCRIMINATING OBSERVATION (the trivial generalization of W059b's twin-wash design,
+same cost): twin washes from ONE certified formed state under TWO STREAMS (the canon
+stream vs a permuted/shifted corpus variant) at matched update-mass — STREAM-SHAPED =
+the endpoints separate beyond the 2x-cluster threshold (and the separation direction is
+stream-specific, reproducible across seeds) / STREAM-BLIND = both land in the same
+cluster (the wall is input-content-free at this dose — pure dose arithmetic, the
+strongest form of W059 reading (a)).
+
+THE BRACKET THIS COMPLETES: W059b perturbs the OPTIMIZER axis of the wall; this card
+perturbs the STREAM axis; together they bracket the wall's provenance (arithmetic vs
+geometry vs input) before the BENCH freezes its wall-width column. W061's cascade frame
+supplies the mechanism noun either way: the stream writes through the optimizer's
+coordinates — if the wall is stream-shaped, the slow coordinates (AdamW's v) are where
+the stream's signature parks.
+
+REGISTERED PAPER PREDICTION (no bar, curiosity-grade): STREAM-BLIND, weakly — the wash
+dose at x66 (hundreds of steps at formation-scale lr) swamps content selectivity; the
+K-dial's failure to move the wall (the menu arms all landed in-band) is the retroactive
+supporting datum. The counter-reading: the wall's width concentrates in wpe + late
+mlp.2 — the channels most exposed to input content — exactly where a stream signature
+would live.
+
 ## T328 — e344: the fingerprint closes — and its home narrows to warm re-formation (or the instrument), with the s125 wrinkle promoted to an event class (2026-10-10, datetime.now ~22:15Z)
 
 [R81 CORRECTION (2026-10-10 ~22:40Z) — TWO PANEL REPAIRS ON THIS CARD. (1) THE LINEAGE
