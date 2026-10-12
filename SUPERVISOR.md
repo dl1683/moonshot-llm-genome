@@ -556,3 +556,22 @@ contributions to AI."
   grammar (capacity-two, maintenance, the key) — none have ever been crossed
   against a different optimizer, architecture, or loss.
 - Program name: THE SUBSTRATE PROGRAM.
+
+## BLOCKER — API QUOTA EXHAUSTED (2026-10-12 ~17:24Z, observed 19:47Z)
+
+The e347 (optimizer cross) executor died mid-run — "[1310][Weekly/Monthly Limit
+Exhausted. Your limit will reset at 2026-10-16 06:26:29]". The kill hit during
+the SIGN-descent lr ladder (run.log's last rows: SIGN@0.003 chunk2, s100 read
+0.2794), after the birth + smoke + anchor gates had all passed and with the SGD
+ladders complete or near-complete in metrics.json.
+
+CONSEQUENCES: no subagent dispatches until 2026-10-16 06:26 UTC (~3.5 days).
+The heartbeat itself continues (the cron and in-session doc/stamp work are
+unaffected). The fleet is empty BY EXTERNAL CONSTRAINT — disclosed here, not
+drift.
+
+ON RESET: e347 is RESUME-CAPABLE (its envelope/rung design carried the
+three-proof restart standard; runs/e347/metrics.json holds the registration,
+smoke, anchor, and the partial ladders) — resume, do not restart. The ordered
+wave behind it: the Muon cross -> e348+NoPE/QK-norm -> e349+R-Drop -> the
+substrate bench harness (all mapped in the survey, a610537).
