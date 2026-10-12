@@ -7,6 +7,43 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T348 — x66: the oracle's honest answer — the wash is a uniform wall, the menu is a K-dial, and the barriers vanish exactly where Hopfield said (2026-10-12, datetime.now ~15:40Z)
+
+The era's first sweep-scale cell returned four verdicts, two of them structural.
+REGRESSION-SILENT — but read carefully: the retention target itself was DEGENERATE
+(every powered formation died under the unbiased 100-step wash into a 0.018-IQR
+band, missing the 0.02 floor by 11%): THE WASH IS A UNIFORM WALL at this class.
+The oracle's answer is not 'your features are weak'; it is 'there is nothing to
+predict' — the first-step collapse dominates everything, and any retention-prediction
+program needs either a gentler wash or a longer-horizon retention measure. The
+ablation is untested-not-refuted (a silent full set cannot carry T344's reading —
+the frozen clause fired honestly).
+
+THE MENU IS A K-DIAL: the jittered menu deepens EVERY seed (0.196→0.461, 0.145→0.394,
+0.259→0.553), the LACK seed carries under it, and the random-context menu is
+die-mode on every seed. T346's per-seed coin is menu-contingent; the K-companion
+regression (Q² −0.64) confirms: process features explain neither K nor retention —
+the residual is SEED × MENU. The two-dial picture (the seed dial, the menu dial,
+the menu bigger) is the sweep's constructive gift: the formation protocol's
+deepening lever exists and it is the menu's variety structure.
+
+BARRIERS-VANISH-AT-K16 — the Hopfield import's prediction lands exactly (0/15
+interior kills, the both-alive point at α=0.500 to three decimals), with the
+companion finding that the mid-band co-occupants are OWN-BASIN (path-plane
+residuals 0.63-0.66): mid-band co-occupancy is not interpolation between saturated
+states — it is its own configuration. The Hopfield frame is now a measured object
+in the lab: capacity, load catastrophe, and own-basin mid-bands.
+
+PRELUDE-SILENT with the knife-edge disclosed (the top statistic clears r but
+misses permutation by 0.0022) and NARROWS-TO-S200 exact — R88's registered
+prediction hit precisely. The emergent-key reading now stands at sweep scale: no
+trajectory marginal carries the key's depth; the seed × menu interaction does.
+
+CONNECTS: T346/T347 (the coin's character completes as a two-dial object);
+T344 (the ablation honestly untested); the substrate program (the menu finding is
+the loss-axis cell's strongest prior: e349's constructive loss IS a menu dial
+written into training — the sweep has already shown the dial works).
+
 ## T347 — x64: the key is the norm — majority-carry, powered-silent anatomy, and the exception that names the question (2026-10-11, datetime.now ~23:10Z)
 
 The pricing is done: R = 6.5/8 (CP95 [0.349, 0.968]) — MAJORITY-CARRY, with the
