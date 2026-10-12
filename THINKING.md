@@ -995,6 +995,18 @@ its lambda dial pre-registered in eigenvalue units.
 
 [Folded verbatim from scratch/novelty_2026-10-12T2140.md by the heartbeat 2026-10-12 ~21:50Z (the ideator minted; the W-series ledger entry is the heartbeat's fold). Connections at fold time: W060's PERMUTATION-COMPACT outcome would make preg_w059b's parameter-distance metric symmetry-blind (align before scoring — a birth amendment owed if W060 runs first); W061 hands e347's resumed arms a free rider (persist the optimizer buffers at formation end) and gives W059b its mechanism noun (SGD has NO slow variable — where does its wall sit?); W062's lambda-1 dial pre-registers e349's constructive arm in eigenvalue units, with T348's K-dial as its already-landed supporting datum.]
 
+[DESK-FEASIBILITY ANSWER (2026-10-12 ~22:05Z, heartbeat probe of runs/x66/metrics.json):
+the minted regression is NOT EXECUTABLE on disk — the sweep arms persist scalar
+features only (menu flags, read_t0, dip_ratio, write_growth, seed_K, name_prior);
+NO per-context correlation matrices anywhere in x66, and the needed intersection
+(matrix at formation AND wash retention on the same states) exists in no committed
+cell — x44/x45 instruments pooled into scalar r values by design. RE-KEY: the
+lambda-1-vs-retention regression becomes a RIDER on W059b's twin washes (the
+cheapest cell that will hold both sides): log the cross-context response
+correlation matrix at formation end and at each wash panel; lambda-1(t) alongside
+retention(t) falls out for free. W062's already-landed supporting datum (the
+K-dial) is untouched by this — only the cheapest-observation route moved.]
+
 ## T328 — e344: the fingerprint closes — and its home narrows to warm re-formation (or the instrument), with the s125 wrinkle promoted to an event class (2026-10-10, datetime.now ~22:15Z)
 
 [R81 CORRECTION (2026-10-10 ~22:40Z) — TWO PANEL REPAIRS ON THIS CARD. (1) THE LINEAGE
