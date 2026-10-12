@@ -570,6 +570,16 @@ The heartbeat itself continues (the cron and in-session doc/stamp work are
 unaffected). The fleet is empty BY EXTERNAL CONSTRAINT — disclosed here, not
 drift.
 
+**UNBLOCKED (2026-10-12 ~21:33Z, owner said "max pushing"; empirically probed).**
+A minimal probe dispatch returned OK — the API is live again, ~3.5 days EARLY
+(the 2026-10-16 reset estimate was wrong or the limit was lifted). Actions in
+the same minute: e347 RESUMED from its committed state (executor dispatched;
+resume-not-restart per the original plan) + the overdue novelty pass (ideator
+dispatched, >22h stale). The heartbeat's holding pattern is OVER. First
+post-hold desk finding already folded: W059's uniform-wall re-read — the wall
+is a REAL parameter-space attractor-candidate (compression reading dead;
+residual spread in wpe + late mlp.2).
+
 ON RESET: e347 is RESUME-CAPABLE (its envelope/rung design carried the
 three-proof restart standard; runs/e347/metrics.json holds the registration,
 smoke, anchor, and the partial ladders) — resume, do not restart. The ordered
