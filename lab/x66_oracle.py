@@ -1774,6 +1774,12 @@ def phase_P0() -> dict:
     assert g_st["pass"], f"G_SEEDTWIN14 FAILED: {g_st}"
     metrics["gates"]["G_SEEDTWIN14"] = g_st
     log("G_SEEDTWIN14 PASS: the twin fact re-derived")
+    # the seed_K map (the key-coin biography datum, runtime-read;
+    # built here so every resume path carries it)
+    p0["seed_K_map"] = {
+        str(t["seed"]): t["K"]
+        for t in committed["x64_metrics"]["base_rate"]["table"].values()
+        if t.get("K") is not None}
     write_partial("P0 the binds + the bank + the pools + the room")
     p0.update({"menus": menus, "committed": committed,
                "pool_z_x": pool_z_x, "pool_z_mask": pool_z_mask,
@@ -1843,11 +1849,6 @@ def phase_P1(p0: dict) -> dict:
         return metrics["prelude"]
     C = p0["committed"]
     x64m = C["x64_metrics"]
-    # the seed_K map (the key-coin biography datum, runtime-read)
-    seed_K_map = {str(t["seed"]): t["K"]
-                  for t in x64m["base_rate"]["table"].values()
-                  if t.get("K") is not None}
-    p0["seed_K_map"] = seed_K_map
 
     # the nine records: rows from the resumes; K from x64's table/grid
     records = [
