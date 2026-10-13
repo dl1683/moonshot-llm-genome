@@ -289,18 +289,23 @@ logged; P-NARROWS-TO-S200 registered.
 
 ## THE SUBSTRATE PROGRAM (owner-directed 2026-10-12 ~02:30Z) — the training space opens
 
+**[LAB PAUSED 2026-10-13 ~06:20Z (owner directive; the automation CLOSED-PAUSED not
+deleted; nothing removed). This queue is FROZEN as the resume plan: on resume,
+execute top-down — e347 first (resume-not-restart, ~10-20 GPU-min from done), then
+R90, then the pre-ripened wave below. Full protocol: PAUSED.md at the repo root.]**
+
 The owner's directive: dissect the training substrate itself — optimizers, architectures,
 loss functions, pre-training — with the GPU aggressive. The existing laws become
 hypotheses under each axis. (The oracle x66 continues on CPU untouched.)
 
 | id | experiment | status | one-liner |
 |---|---|---|---|
-| e347 | THE OPTIMIZER CROSS (the program's first GPU cell) | INTERRUPTED ~17:24Z Oct-12 (QUOTA KILL - the API limit exhausted; resets 2026-10-16 06:26Z; birth+smoke+anchor+partial-ladders on disk; RESUME not restart) | the crossing question stands; the resume instructions in the birth docstring + metrics.deviations |
+| e347 | THE OPTIMIZER CROSS (the program's first GPU cell) | INTERRUPTED-AT-PAUSE (the owner's 2026-10-13 pause; the cell died TWICE - the quota kill 17:24Z Oct-12 + the ~1h-window kill ~22:32Z - and was resumed once with the three proofs PROVEN bit-identical; P1+P2 LANDED AND FOLDED (T349, NON-ADJUDICATED): the ladders transport / SIGN moves the texture alone / s1 falsified as AdamW-specific; P3 bracket mid-rung rung_SGD_0.0008x (ckpt saved), P4 tonly/conly + P5 unrun; bars frozen at birth) | RESUME-FIRST-ON-RESUME (~10-20 GPU-min from done; the committed b7501f9 metrics are authoritative - a OneDrive working-tree clobber was restored 2026-10-13; composite verdict TRANSPORT-INVARIANT/OPTIMIZER-SPECIFIC/MIXED stays OPEN) |
 | r-substrate | THE OPTIMIZER/LOSS SURVEY (the researcher): what exists online (optimizers, loss variants, architecture patterns at the 2-74M scale), what is cheap to implement in the certified harness, what is novel ground | RUNNING (dispatched ~02:35Z, CPU desk) | the catalog + the implementability ranking + the novelty flags feeding the program's next cells |
 | e348 | THE ARCHITECTURE LADDER (behind e347): parameter-matched variants — deeper-narrower / wider-shallower / norm-placement / no-residual control | READY | does CAPACITY-TWO hold across architectures (the x62 fork generalized); does the seat grammar move |
 | e349 | THE LOSS LADDER (behind e348): CE vs MSE vs hinge vs THE CONSTRUCTIVE LOSS (CE + a decorrelation-rewarding term — can the KEY be written directly into training?) | READY | the era's constructive question at the loss level: authored realization vs engineered realization |
 | pre-train | THE PRE-TRAINING axis: the substrate's own corpus/training varied before the dissection | NAMED (the program's fourth axis) | the receptivity map and the seat's pre-grown status vs the base's own training |
-| W059b | THE WALL'S FIRST PERTURBATION (x67-candidate; P-card frozen in scratch/preg_w059b_wall_perturbation.md; W059 discriminator #2 cheapest instance) | READY (GPU minutes; dispatches the moment e347's lane frees) | one certified V01 formation replay -> twin washes from the SAME formed state: AdamW control (must land in the wall = UNPOWERED bar) vs SGD at matched update-mass; WALL-HOLDS / WALL-MOVES (>2x cluster scale) / UNPOWERED; W061's mechanism noun: SGD has no slow variable — where does its wall sit; W060 amendment owed if it runs first (align-before-score) |
+| W059b | THE WALL'S FIRST PERTURBATION (x67-candidate; P-card frozen in scratch/preg_w059b_wall_perturbation.md; W059 discriminator #2 cheapest instance) | PAUSED-READY (GPU minutes; behind e347 on resume; carries W062's lambda-1 rider per the re-key) | one certified V01 formation replay -> twin washes from the SAME formed state: AdamW control (must land in the wall = UNPOWERED bar) vs SGD at matched update-mass; WALL-HOLDS / WALL-MOVES (>2x cluster scale) / UNPOWERED; W061's mechanism noun: SGD has no slow variable — where does its wall sit; W060 amendment owed if it runs first (align-before-score) |
 
 
 Standing: the oracle (x66) finishing on CPU; the exception's anatomy (x65) and x62
