@@ -585,3 +585,19 @@ three-proof restart standard; runs/e347/metrics.json holds the registration,
 smoke, anchor, and the partial ladders) — resume, do not restart. The ordered
 wave behind it: the Muon cross -> e348+NoPE/QK-norm -> e349+R-Drop -> the
 substrate bench harness (all mapped in the survey, a610537).
+
+## OWNER DIRECTIVE — LAB PAUSE (2026-10-13 ~02:45Z; verbatim intent)
+
+"Let's bring this to a close for now. Stop all the experiments — we can let them
+finish and then we stop all of the experiments. Spend a lot of time cleaning up
+the docs, refining all the documentation, analyzing everything — get this project
+ready to be stopped for a second. Close the automation, PAUSE it, don't delete it.
+We'll resume everything when I'm feeling like it again." The owner PAUSED THE CRON
+personally.
+
+INTERPRETATION (recorded before execution): the one live agent (e347, deep in P3)
+runs to completion and gets a full fold — it is the last cell of the session; NO
+new dispatches of any kind; the heartbeat lane is already silent (cron paused);
+the closeout work is documentation + analysis + a clean paused state. NOTHING is
+deleted (runs/, data/, scratch, the automation definitions all stay); the resume
+protocol is PAUSED.md at the repo root. Q1 stays open as the resume-ask.
