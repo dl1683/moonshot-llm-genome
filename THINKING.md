@@ -7,6 +7,57 @@ would discriminate them, and a registered prediction so we can't retrofit.
 New experiments are gated on this file: if the latest result has no
 interpretation entry, the next heartbeat thinks instead of runs.
 
+## T349 — e347 (partial, folded at the lab pause): the grammar's first crossing — dose transports everywhere, texture breaks at SIGN, and step-one is nobody's (2026-10-13, datetime.now ~06:35Z; NON-ADJUDICATED — the composite verdict stays OPEN; no lean tick; P3/P4/P5 unrun)
+
+The optimizer cross died twice (the quota kill ~17:24Z Oct-12; the ~1h-window kill
+~22:32Z Oct-12) and was resumed once with the three-proof standard PROVEN for a
+real death (19 arms bit-identical across the kill; draw-record md5 conserved). What
+landed before the pause is the cell's first two phases, and they already carry the
+crossing's shape:
+
+(i) THE LADDERS TRANSPORT: all four optimizers — SGD, MSGD, RMSPROP, SIGN — found
+canonical lrs landing IN-BAND (reads 0.213-0.257 vs the AdamW anchor 0.265; write
+norms 6.6-9.8 vs 9.2; the dose-normalized 5-point ladders worked at lr spreads of
+FOUR orders of magnitude, SGD@3.0 down to SIGN@0.0003). DOSE IS THE CURRENCY across
+optimizer families — Law 5's economics transports, and the canonical_lr_rule
+machinery is certified reusable (the BENCH's backbone).
+
+(ii) THE TEXTURE BREAKS AT EXACTLY ONE OPTIMIZER: SGD/MSGD/RMSPROP HOLD the
+formation texture (in_own_room 0.930/0.957/0.943 vs anchor 0.944) — SIGN MOVES
+(0.826, the only inroom_in_band False). Sign descent is the one rule in the set
+whose update has EQUAL magnitude in every coordinate by construction — its writes
+are isotropic in coordinate space. TWO EXPLANATIONS ON PAPER: (a) ISOTROPY ITSELF
+(any equal-magnitude rule spreads the write out of the formation's own room) vs
+(b) THE SIGN-CORRELATION STRUCTURE (sign() synchronizes coordinate directions —
+the write's cross-coordinate correlation, not its magnitude profile, is what the
+own-room geometry measures). DISCRIMINATOR (rides the Muon cross): spectral
+whitening is isotropy-ADJACENT but correlation-PRESERVING — if Muon's texture
+HOLDS in-room while SIGN's moved, isotropy is not the cause and (b) wins; if
+Muon's texture also moves, (a) gains its first leg. REGISTERED PREDICTION: (b) —
+the own-room measure has tracked write CORRELATION structure at every crossing
+(the name-blind writes; the compact-in-room feedback finding of x51).
+
+(iii) STEP-ONE IS NOBODY'S: s1 DIE for ALL FOUR at canonical lr — from THE BASE,
+nothing happens at step one under any optimizer (reads 1.3e-5 class). P-e347a
+clause 2 FALSIFIED: the s1 behavior is not AdamW-specific; it is substrate-uniform.
+The cold-shock saga's step-one chapter closes as a BASE property, not an optimizer
+property. NOTE THE FORK THIS LEAVES: the warm-substrate s1 shock (e335's class,
+reads executed at s1 on formed states) is a DIFFERENT object from this cold-BASE
+s1 silence — the bracket rungs (P3, unrun) were to speak to the former.
+
+(iv) W061'S CASCADE GETS ITS FIRST BOUND: SGD has no slow variable (like SIGN) yet
+HOLDS texture; SIGN has none and MOVES it — the texture axis does NOT track
+timescale coverage. Whatever own-room geometry measures, it is not which timescale
+variable parks the write. (The retention axis may still be W061's; the two axes
+are now empirically separated.)
+
+RESUME POINT (exact): P3 bracket mid-rung (rung_SGD_0.0008x chunk3, resume ckpt
+saved); P4 maintenance (tonly/conly) and P5 unstarted; bars frozen in the birth
+registration; the composite (TRANSPORT-INVARIANT / OPTIMIZER-SPECIFIC / MIXED)
+cannot fire until P3+P4 land. The working-tree metrics clobber (OneDrive, second
+instance) was restored from the committed b7501f9 — the resume reads the committed
+state, not the disk accident.
+
 ## T348 — x66: the oracle's honest answer — the wash is a uniform wall, the menu is a K-dial, and the barriers vanish exactly where Hopfield said (2026-10-12, datetime.now ~15:40Z)
 
 The era's first sweep-scale cell returned four verdicts, two of them structural.
