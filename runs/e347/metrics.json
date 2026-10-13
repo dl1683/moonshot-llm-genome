@@ -1,7 +1,7 @@
 {
   "experiment": "e347_optimizer_cross",
   "phase": "THE OPTIMIZER CROSS \u2014 the substrate program's first GPU cell: the canon formation, the Law-2b kill bracket, and the tonly/conly maintenance split crossed against {SGD, MSGD, RMSPROP, SIGN} at per-optimizer canonical lr (the dose-normalized 5-point ladders), vs the committed AdamW record \u2014 TRANSPORT-INVARIANT vs OPTIMIZER-SPECIFIC vs MIXED",
-  "date": "2026-10-13T06:40:52Z",
+  "date": "2026-10-13T07:08:15Z",
   "status": "PARTIAL: startup",
   "registration": "question + background + design + bars + parity block frozen VERBATIM from the dispatch letter (the substrate program's first GPU cell; the owner's 2026-10-12 directive); this script committed at birth BEFORE any compute; adjudicate against exactly this; no bar shopping.",
   "registered": {
@@ -3934,8 +3934,82 @@
       }
     }
   },
-  "p3_bracket": {},
+  "p3_bracket": {
+    "SGD": {
+      "0.0008": {
+        "lr_base": 3.0,
+        "budget_frac": 0.0008,
+        "budget_norm": 0.007343074612697841,
+        "S_final": 0.007343121105805039,
+        "realized_cum_norm": 0.003224204998977712,
+        "realized_cum_frac_of_write": 0.0003512648495661292,
+        "cap_bound_frac": 1.0,
+        "n_capped": 400,
+        "traj": [
+          {
+            "step": 100,
+            "g0_pz": 0.255931556224823,
+            "g0_argmax": 0.16666666666666666,
+            "ce_r": 1.5919591188430786,
+            "elapsed_s": 1183.0
+          },
+          {
+            "step": 200,
+            "g0_pz": 0.24768969416618347,
+            "g0_argmax": 0.13333333333333333,
+            "ce_r": 1.5918537378311157,
+            "elapsed_s": 1643.1
+          },
+          {
+            "step": 300,
+            "g0_pz": 0.23989108204841614,
+            "g0_argmax": 0.13333333333333333,
+            "ce_r": 1.5917344093322754,
+            "elapsed_s": 2155.9
+          },
+          {
+            "step": 400,
+            "g0_pz": 0.23223130404949188,
+            "g0_argmax": 0.11666666666666667,
+            "ce_r": 1.5916390419006348,
+            "elapsed_s": 2619.2
+          }
+        ],
+        "ratio_t400": 0.8775113593865655,
+        "g0_t400": 0.23223130404949188,
+        "holds": true,
+        "lr_ledger_medians": {
+          "lr_sched": 2.6852325185635357,
+          "cap": 2.373680287578547e-05,
+          "lr_applied": 2.373680287578547e-05,
+          "b_norm": 0.7703266583547865
+        },
+        "cgen_final_md5": "3ad0b63378b3f27b788b20982a13ae80",
+        "checkpoint": "runs/checkpoints/e347_rung_SGD_0.0008x_final.pt",
+        "G_ORTH": {
+          "form": "max over ALL corpus steps of ||P_room g_perp||/||g_perp|| (checked every step)",
+          "orth_max": 4.562984954548453e-17,
+          "bar": 1e-06,
+          "pass": true
+        },
+        "G_BUDGET": {
+          "form": "S_400 <= BUDGET + 1e-5 AND realized cumulative displacement <= BUDGET + 1e-5 (the triangle-guaranteed reservation)",
+          "budget_norm": 0.007343074612697841,
+          "S_final": 0.007343121105805039,
+          "realized_cum_norm": 0.003224204998977712,
+          "cap_bound_frac": 1.0,
+          "pass": true
+        },
+        "G_BUFSEP": {
+          "form": "the twin instance's state bitwise-isolated through every step (the never-stepped fact side)",
+          "checks": 400,
+          "violations": 0,
+          "pass": true
+        }
+      }
+    }
+  },
   "p4_maintenance": {},
-  "phase_note": "P1b the committed fact loaded bit-exact",
+  "phase_note": "P3 rung_SGD_0.0008x complete",
   "device_events": []
 }
