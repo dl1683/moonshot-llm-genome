@@ -15,14 +15,17 @@ intact and pushed (origin/main).
    knows the rest: it reads STATE.json → beat_guard → fleet check.
 2. **Check the tree before anything else:** `git status` — OneDrive has clobbered
    working-tree files TWICE (see HAZARDS). The committed state is authoritative.
-3. **RESUME e347 (resume-not-restart, ~10-20 GPU-min from done):** dispatch an
+3. **RESUME e347 (resume-not-restart; the decisive rung is next):** dispatch an
    executor against `lab/e347_optimizer_cross.py` + `runs/e347/metrics.json`
-   (the committed b7501f9 version is authoritative; P3 bracket mid-rung
-   `rung_SGD_0.0008x` with its resume ckpt saved; P4 tonly/conly maintenance +
-   P5 unrun; bars frozen at birth — no re-registration). On completion: adjudicate
+   (the committed fc9850c-era state is authoritative; P1+P2 complete and folded at
+   T349; P3 rung_SGD@0.0008x COMPLETE — HOLDS: the AdamW kill-onset dose does not
+   kill under SGD at matched budget; rung_SGD_0.004x mid-flight with its resume
+   ckpt saved — THE DECISIVE RUNG, run it first; P4 tonly/conly maintenance + P5
+   unrun; bars frozen at birth — no re-registration). On completion: adjudicate
    the frozen composite (TRANSPORT-INVARIANT / OPTIMIZER-SPECIFIC / MIXED), then
    the heartbeat folds it (T349's slot is the interpretation home; the lean ledger
-   ticks then, not before).
+   ticks then, not before). WARNING: the resume executor MUST commit after every
+   rung — sessions die at ~59 minutes (confirmed twice; see hazards).
 4. **Run R90** (the program-opening panel; agenda drafted at
    `scratch/r90_agenda.md`; window = the quota-blocker record through the pause).
 5. **Then the pre-ripened wave, in order** (registrations already frozen — the
@@ -129,11 +132,14 @@ applied same-fold; R90 is drafted and owed. THINKING holds T001-T349 + W001-W063
    e347 metrics working-tree clobber (2026-10-13; restored from commit b7501f9).
    ALWAYS diff the working tree against HEAD before trusting any on-disk state;
    commit early, commit often, push always.
-2. **The ~1h kill class:** subagent sessions die near the 1-hour mark (x59, x60,
-   x63, and both e347 deaths' resumes). The three-proof restart standard survives
-   it (PROVEN for a real death at e347's resume: 19 arms bit-identical, draw md5
-   conserved). Long cells MUST checkpoint progressively — e347's design is the
-   template.
+2. **The ~59-minute session kill (CONFIRMED, mechanism named):** each subagent
+   session KILLS its own background compute at ~59 minutes (e347: two sessions,
+   21:33Z Oct-12 and 06:24Z Oct-13, both dead at ~59 min; x59/x60/x63 the earlier
+   instances; and an 8-hour agent STALL can precede the relaunch — do not read a
+   stall as a death, poll the process table). The three-proof restart standard
+   survives it (PROVEN twice at e347: 21 arms + P2 bit-identical, draw md5
+   conserved both times). Long cells MUST checkpoint AND COMMIT after every rung —
+   e347's design is the template.
 3. **The API quota can exhaust without warning** (the 2026-10-12 kill; it returned
    ~3.5 days EARLIER than the stated reset — probe empirically, don't trust the
    error's ETA). Executors must commit partial state immediately on any kill.
