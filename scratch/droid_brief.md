@@ -1,57 +1,45 @@
-# Droid brief — DIALOGUE MODE, edition 59 (Q1-Q4 open across FIFTY-NINE editions; the
-# lab-side responses in SUPERVISOR.md; the dialogue still owes droid's side)
+# Droid brief — edition 60 — THE PAUSE EDITION (final until resume; Q1 open across
+# SIXTY editions; the lab-side responses in SUPERVISOR.md; the dialogue still owes
+# droid's side)
 
-## Generated: 2026-10-12T22:38Z (datetime.now-sourced; at the mark)
+## Generated: 2026-10-13T07:00Z (datetime.now-sourced; the closeout beat)
 
-- Guard: OK at every beat through the hold and the unblock. Fleet 1/3: e347 deep in
-  P3 (the Law-2b kill-bracket rungs, rung_SGD_0.0008x). GPU cool (59C between
-  bursts), envelope clean, tree intact (no OneDrive recurrence since the repair).
-- Cadence ages: droid: this brief; review 23h25m (R90 drafted, runs after e347's
-  adjudication — agenda at scratch/r90_agenda.md); novelty 48m (W060-W062 folded).
+- Guard: OK at every beat through the final session; FLEET 0/0 — the lab stops
+  clean. The cron is paused BY THE OWNER; no dispatches; nothing deleted.
+- Cadence ages at stop: review 31h47m (R90 drafted, owed first on resume);
+  novelty 8h28m (W060-W063 the last yield); this is the last brief.
 
-## THE HEADLINE: THE QUOTA CAME BACK ~3.5 DAYS EARLY
+## WHY THE SERIES STOPS
 
-Owner said "max pushing" ~21:33Z; a one-word probe dispatch returned OK — the API
-is live (the 2026-10-16 reset estimate was wrong or lifted). Same minute: e347
-RESUMED (resume-not-restart) and the overdue novelty pass dispatched. The
-executor then PROVED the resume: all 19 pre-kill arms re-executed BIT-IDENTICAL
-vs the git record (draw-record md5 conserved across the kill — the three-proof
-restart standard now proven for a real death, not just a drill).
+The owner directed the pause 2026-10-13 ~06:20Z: stop all experiments, clean the
+docs, analyze everything, close the automation WITHOUT deleting it, resume when
+ready. The one live cell (e347) had already died at ~22:32Z Oct-12 (the ~1h kill
+class, third instance) — so the pause point is its committed partial state, folded
+NON-ADJUDICATED (T349): dose transports across all four optimizers; SIGN alone
+breaks the formation texture; step-one silence is a BASE property; the composite
+verdict OPEN pending P3-P5 (~10-20 GPU-min on resume).
 
-## WHERE WE ARE — three findings and one verdict forming
+## WHAT THE CLOSEOUT LEFT (all committed and pushed)
 
-1. E347 P1+P2 (progressive, not yet adjudicated): all four optimizers — SGD, MSGD,
-   RMSPROP, SIGN — found canonical lrs landing IN-BAND (dose normalization works
-   across families); P2 TEXTURE: SGD/MSGD/RMSPROP HOLD, SIGN MOVES (in-room 0.826
-   vs 0.944) — the crossing's first OPTIMIZER-SPECIFIC datum; s1 falsified as
-   AdamW-specific (nothing-at-step-one under ALL four from BASE). P3 (the bracket)
-   running now. The verdict fork: TRANSPORT-INVARIANT vs OPTIMIZER-SPECIFIC vs MIXED.
-2. THE WALL HAS GEOMETRY (the evening's desk program, all CPU, scripts committed):
-   W059 — the uniform wall is REAL in parameter space (20 members, ~18% spread,
-   one shared geometry; the measurement-compression reading dead); W060 —
-   EXTENDED-MANIFOLD: optimal Hungarian alignment finds NOTHING to collapse (the
-   members differ in the same coordinates; not neuron-relabeling); the spread
-   concentrates in wpe + late mlp.2 (positions + the carrier layer — washed worlds
-   disagree about WHERE long after forgetting WHAT).
-3. THE NOVELTY PASS (W060-W062): the wall's symmetry class / the optimizer as
-   cascade (Benna-Fusi: wash-survival = which timescale variable parks the write;
-   Muon+SGD have NO slow channel — where do their walls sit?) / the fact as hedge
-   (the constructive loss as a lambda-1 eigenvalue target; the K-dial its first
-   supporting datum). W062 re-keyed (no matrices on disk) to a rider on W059b.
+1. PAUSED.md at the repo root — THE resume entry point: the ordered protocol
+   (e347 first, R90, the pre-ripened wave), the full program analysis, the record
+   inventory, the hazards (OneDrive x2, the 1h kill class, the quota lesson).
+2. The queue frozen as the resume plan (top-down executable); the laws footered
+   with the pause note (no optimizer-transport claim enters any law until e347
+   completes); scratch/INDEX.md cataloging the 286-item working memory.
+3. The evening's desk yield already on record: the wall is REAL and EXTENDED
+   (W059/W060), its provenance bracketed (W059b optimizer-axis, W063 stream-axis),
+   the constructive loss reshaped into a lambda-1 target (W062).
 
-## WHAT CAN BE DONE (top next actions, named)
+## FOR THE SUPERVISOR WHILE PAUSED
 
-1. FOLD E347 when it adjudicates (P3+P4 remaining; ~1-2h) — then R90's panel
-   (agenda drafted; sharpest attack: the wall's stream confound, now W063).
-2. W059b THE WALL'S FIRST PERTURBATION (READY in QUEUE; GPU minutes behind e347;
-   twin washes AdamW vs SGD at matched update-mass; carries W062's lambda-1 rider).
-3. THE MUON CROSS (P-card ripened verdict-independent in
-   scratch/preg_substrate_wave.md; the anti-low-rank optimizer vs the
-   Adam-normalization formation block).
-4. Q1 — the supervisor's LAWS review: STILL the standing ask since ed.23.
+- Q1 — the doc review of THE LAWS — remains THE standing ask (ownerless since
+  ed.23). The pause is the natural window: THE_LAWS_V3.md is stable, complete,
+  and reads in one sitting.
+- The publishable-instrument claim (the novelty scan's finding) is the program's
+  strongest external-facing thread when we return.
 
 ## BLOCKERS / ASKS
 
-- No blockers: API live, GPU free between e347's bursts, all records pushed.
-- Q1 STILL LIVE AND OWNERLESS.
-- The dialogue still owes droid's side.
+- None. The lab is paused clean: record complete, tree verified, all pushed.
+- Resume protocol: PAUSED.md. It will be waiting.
