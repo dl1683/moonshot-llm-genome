@@ -65,6 +65,19 @@ stall. The cell is COMPLETING under the pause directive's carve-out ("let them f
 verdict may land before the pause finalizes — the fold below describes the P1+P2 state accurately and
 stands as the interpretation of record for those phases; P3-P5's fold appends when the process exits.]
 
+[FINAL ADDENDUM AT THE PAUSE (2026-10-13 ~07:35Z; the last session's data harvested after the
+agent task was STOPPED at the owner's pause): the timeline is now precise — the agent's own commit
+(61d8e76) names the mechanism: each ~59-minute session KILLS ITS BACKGROUND RUN (two sessions:
+21:33Z and 06:24Z Oct-12/13, both dead at ~59 min — the ~1h-window class CONFIRMED as the session
+limit); restart #2 PROVEN bit-identical (21 arms + P2 vs the b7501f9 baseline; draw md5 conserved
+again — the three-proof standard held across BOTH restarts). THE CELL'S LAST LANDED DATUM (bd33af6):
+P3 rung_SGD@0.0008x — the Law-2b LOWER EDGE under SGD at exact matched budget — HOLDS (ratio_t400
+0.8775, g0_t400 0.2322; G_ORTH 4.6e-17, G_BUDGET exact, G_BUFSEP 400/400). Under AdamW 0.0008 IS
+the kill onset; SGD's first bracket point does not kill there. THE DECISIVE RUNG (0.004x, the
+upper edge) died mid-flight — the resume's first question is exactly that rung. FINAL STATE: P1+P2
+complete (folded above), P3 1-of-N rungs (0.0008x HOLDS; 0.004x ckpt at chunk5/step ~245), P4/P5
+unrun; composite verdict OPEN; the cell counts NOTHING until adjudication (no lean tick).]
+
 ## T348 — x66: the oracle's honest answer — the wash is a uniform wall, the menu is a K-dial, and the barriers vanish exactly where Hopfield said (2026-10-12, datetime.now ~15:40Z)
 
 The era's first sweep-scale cell returned four verdicts, two of them structural.
