@@ -394,3 +394,12 @@ e342/g1bS9/x45 folds had left it two cells stale). Post-v3.1, at the x47 fold: L
 slot-property clause re-worded to the asymmetric form (death edge slot-shared, lift
 channel lineage-coupled — x47) and METHODS 5 ticked to 19-for-35. The document is
 complete and awaits the supervisor's review.*
+
+*Pause note (2026-10-13, the lab pause): the laws stand as written through x66
+(29-for-58 at METHODS 5; e347's crossing is folded NON-ADJUDICATED at T349 — its
+composite verdict stays OPEN until P3-P5 run on resume, so NO law carries an
+optimizer-transport claim yet; the substrate program's crossings are hypotheses
+at the pause, exactly as the owner's directive framed them). The seat grammar
+(Law 8 v3.3) is the era's closed result; the wall findings (W059/W060: the wash's
+terminal region is real and extended) are curiosity-grade, not law-grade, until
+the perturbation cells (W059b/W063) run.*

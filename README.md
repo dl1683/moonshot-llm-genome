@@ -1,5 +1,11 @@
 # Neural Dissection Lab
 
+> **⏸️ LAB PAUSED (2026-10-13, owner directive).** The automation is closed-paused
+> (NOT deleted); no experiments run; the cron is off. **On resume, read
+> [`PAUSED.md`](PAUSED.md) first** — it holds the resume protocol and the full
+> state of the program. Everything below remains the lab's constitution for when
+> we return.
+
 > **Every agent: read [`SUPERVISOR.md`](SUPERVISOR.md) first.** It holds Devansh's standing
 > directives (extend, don't repeat; model-size rules (small first, up to 500M); thinking as first-class
 > fleet work) and the supervisor's open items, which you must act on or answer.
