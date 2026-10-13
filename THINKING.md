@@ -58,6 +58,13 @@ cannot fire until P3+P4 land. The working-tree metrics clobber (OneDrive, second
 instance) was restored from the committed b7501f9 — the resume reads the committed
 state, not the disk accident.
 
+[CORRECTION BANNER (2026-10-13 ~07:05Z): the "~1h-window kill class, third instance" claim below is WRONG —
+the executor did NOT die at ~22:32Z; it STALLED ~8 hours (22:32Z -> 06:24Z, the heartbeat-gap class) and
+RESUMED ITSELF at 06:24Z as a fresh process re-verifying checkpoints. One real death (the quota kill), one
+stall. The cell is COMPLETING under the pause directive's carve-out ("let them finish"); the composite
+verdict may land before the pause finalizes — the fold below describes the P1+P2 state accurately and
+stands as the interpretation of record for those phases; P3-P5's fold appends when the process exits.]
+
 ## T348 — x66: the oracle's honest answer — the wash is a uniform wall, the menu is a K-dial, and the barriers vanish exactly where Hopfield said (2026-10-12, datetime.now ~15:40Z)
 
 The era's first sweep-scale cell returned four verdicts, two of them structural.
