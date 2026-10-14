@@ -1,3 +1,12 @@
+> **Research moved to [Latent Space Reasoning](https://github.com/dl1683/Latent-Space-Reasoning).**
+> All future work from this project continues in LSR, alongside persistent latent
+> memory, long-context computation, new model construction/training/inference,
+> and shared high-dimensional and neural mathematics. This repository preserves
+> historical research; its old run/resume instructions are historical, not a
+> current launch queue. Start with [LSR's current state](https://github.com/dl1683/Latent-Space-Reasoning/blob/main/STATE.md)
+> and [unified evidence](https://github.com/dl1683/Latent-Space-Reasoning/blob/main/docs/UNIFIED_EVIDENCE.md).
+> Consolidation does not expand the scientific scope of the results below.
+
 # AGENTS.md — read this first, then act
 
 You are entering the **Neural Dissection Lab**. Someone (human or scheduled
