@@ -1,3 +1,12 @@
+> **Research moved to [Latent Space Reasoning](https://github.com/dl1683/Latent-Space-Reasoning).**
+> All future work from this project continues in LSR, alongside persistent latent
+> memory, long-context computation, new model construction/training/inference,
+> and shared high-dimensional and neural mathematics. This repository preserves
+> historical research; its old run/resume instructions are historical, not a
+> current launch queue. Start with [LSR's current state](https://github.com/dl1683/Latent-Space-Reasoning/blob/main/STATE.md)
+> and [unified evidence](https://github.com/dl1683/Latent-Space-Reasoning/blob/main/docs/UNIFIED_EVIDENCE.md).
+> Consolidation does not expand the scientific scope of the results below.
+
 # Experiment Queue
 <!-- USER CORRECTION 2026-10-01 ~21:30Z: the paper lane is PARKED. The lab's job is dissection-for-its-own-sake (supervisor directive 4; W020). The drafts remain as committed records, nothing more. The queue below is DISSECTION questions only. -->
 
